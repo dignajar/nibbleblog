@@ -1,0 +1,35 @@
+<?php
+	echo $_HTML->form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post', 'class'=>'plugins') );
+
+		echo $_HTML->input( array('name'=>'plugin', 'type'=>'hidden', 'value'=>$_URL['plugin']) );
+
+		echo $plugin->get_html_config();
+
+	echo $_HTML->form_close();
+?>
+
+<script>
+
+$(document).ready(function() {
+
+	// Save the default configuration
+	var datasrz = serial_form($("#js_form"));
+
+	$(window).bind('beforeunload', function() {
+
+		var newdata = serial_form($("#js_form"));
+
+		if( newdata != datasrz )
+		{
+			$.ajax({
+					url: HTML_PATH_ADMIN_AJAX + "plugins.php", type: 'POST', cache: false, timeout: 15000, dataType: "xml", async: false,
+					data: { action: "set", serial_data: newdata }
+			});
+		}
+	});
+
+}); // end document
+
+</script>
+
+

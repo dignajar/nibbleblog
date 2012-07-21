@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Nibbleblog - Dashboard</title>
+
+	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/main.css' ?>" />
+
+	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'system.php' ?>"></script>
+	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'functions.js' ?>"></script>
+	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'jquery/jquery.js' ?>"></script>
+</head>
+<body>
+
+	<div id="container">
+
+		<div id="container_head">
+			<a href="<?php echo HTML_PATH_ROOT.'admin.php' ?>" class="dashboard">Dashboard</a>
+			<a href="<?php echo HTML_PATH_ROOT ?>" class="home">View blog</a>
+			<a href="<?php echo HTML_PATH_ROOT.'admin.php?controller=user&amp;action=logout' ?>" class="logout">Logout</a>
+		</div>
+
+		<div id="container_float">
+
+			<div id="container_left">
+				<?php include('includes/sidebar.bit'); ?>
+			</div>
+
+			<div id="container_right">
+				<?php
+
+					// LAYOUT_TITLE defined on controller
+					echo '<h2 class="title">'.LAYOUT_TITLE.'</h2>';
+
+					// ALERT
+					if($_SESSION['session_alert']['active'])
+					{
+						echo '<div id="alert">'.$_SESSION['session_alert']['msg'].'</div>';
+						$_SESSION['session_alert']['active'] = false;
+					}
+
+					// LAYOUT_VIEW defined on controller
+					include(PATH_ADMIN_VIEW . LAYOUT_VIEW);
+
+				?>
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
+</html>

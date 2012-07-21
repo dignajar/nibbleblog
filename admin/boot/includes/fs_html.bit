@@ -1,0 +1,21 @@
+<?php
+
+// ============================================================================
+//	HTML CONSTANTS
+// ============================================================================
+
+	define('HTML_PATH_ROOT',			$_DB_SETTINGS->get_base_path());
+
+	define('HTML_PATH_ADMIN',			HTML_PATH_ROOT.'admin/');
+	define('HTML_PATH_ADMIN_TEMPLATES',	HTML_PATH_ADMIN.'templates/');
+	define('HTML_PATH_ADMIN_JS',		HTML_PATH_ADMIN.'js/');
+	define('HTML_PATH_ADMIN_AJAX',		HTML_PATH_ADMIN.'ajax/');
+
+	define('HTML_PATH_THEMES',			HTML_PATH_ROOT.'themes/');
+
+// ============================================================================
+//	JAVASCRIPT
+// ============================================================================
+	define('JS_JQUERY',					HTML_PATH_ADMIN_JS.'jquery/jquery.js');
+
+?>

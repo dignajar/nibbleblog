@@ -1,0 +1,78 @@
+<?php
+
+class PLUGIN_TWITTER extends PLUGIN
+{
+	function __construct()
+	{
+		parent::__construct();
+
+		$this->fields = array('username');
+	}
+
+	public function get_html_config()
+	{
+		global $_HTML;
+		
+		$html  = '';
+		$html .= $_HTML->label( array('content'=>'Twitter username') );
+		$html .= $_HTML->input( array('name'=>'username', 'type'=>'text', 'value'=>$this->get_field_db('username')) );
+
+		return($html);
+	}
+
+	public function get_html()
+	{
+		global $_HTML;
+		
+		$html  = '';
+		$html .= $_HTML->div_open( array('class'=>'plugin_twitter') );
+			$html .= $_HTML->link( array('style'=>'font-style:italic;', 'target'=>'_blank', 'href'=>'http://twitter.com/'.$this->get_field_db('username'), 'content'=>'@'.$this->get_field_db('username')) );
+			$html .= $_HTML->div( array('style'=>'margin-top:3px;', 'id'=>'js_tweet_box', 'content'=>'Loading') );
+		$html .= $_HTML->div_close();
+
+		$script = '
+		<script>
+
+			var twitter_data;
+			var twitter_next = 0;
+			var twitter_username = "'.$this->get_field_db('username').'";
+			var twitter_count = 5;
+			var twitter_interval = 5*1000;
+
+			$(document).ready(function() {
+
+				$.getJSON("http://api.twitter.com/1/statuses/user_timeline/"+twitter_username+".json?callback=?&include_rts=true&count="+twitter_count,
+				function(data)
+				{
+					twitter_data = data;
+					show_tweets();
+					window.setInterval(function(){ show_tweets() }, twitter_interval);
+				});
+
+				function show_tweets()
+				{
+					var url = "http://twitter.com/"+twitter_username+"/statuses/"+twitter_data[twitter_next].id_str;
+					var text = twitter_data[twitter_next].text;
+
+					var text = text.replace(/[\@]+([A-Za-z0-9-_]+)/gi, \'<a target="_blank" href="http://twitter.com/$1">@$1</a>\');
+					text = text.replace(/(?:^| )[\#]+([A-Za-z0-9-_]+)/gi, \'<a target="_blank" href="http://search.twitter.com/search?q=&tag=$1&lang=all">#$1\</a>\');
+
+					if(++twitter_next>=twitter_data.length)
+					{
+						twitter_next = 0;
+					}
+
+					$("#js_tweet_box").fadeOut("slow", function() { $(this).html(text).fadeIn() });
+				}
+
+			});
+
+		</script>
+		';
+
+		return($html.$script);
+	}
+
+}
+
+?>

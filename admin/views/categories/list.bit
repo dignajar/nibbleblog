@@ -1,0 +1,93 @@
+<?php
+
+	// NEW CATEGORY
+	echo $_HTML->separator( array('content'=>$_LANG['NEW_CATEGORY']) );
+
+	echo $_HTML->form_open( array('id'=>'js_form_add', 'name'=>'form', 'method'=>'post') );
+
+		// TOKEN
+		echo $_HTML->input( array('name'=>'token', 'type'=>'hidden', 'value'=>$_LOGIN->get_token()) );
+
+		// NAME
+		echo $_HTML->div_open( array('class'=>'form_block') );
+			echo $_HTML->input( array('id'=>'js_name', 'name'=>'name', 'type'=>'text', 'placeholder'=>$_LANG['ENTER_THE_NAME_OF_THE_NEW_CATEGORY']) );
+		echo $_HTML->div_close();
+
+		echo $_HTML->div_open( array('class'=>'form_block') );
+			echo $_HTML->input( array('id'=>'js_button_add', 'type'=>'submit', 'class'=>'save', 'value'=>$_LANG['ADD_CATEGORY']) );
+		echo $_HTML->div_close();
+
+	echo $_HTML->form_close();
+
+
+	// LIST
+	echo $_HTML->separator( array('content'=>$_LANG['CATEGORIES_IN_YOUR_BLOG']) );
+
+	echo $_HTML->form_open( array('id'=>'js_form_set', 'name'=>'form', 'method'=>'post') );
+
+		foreach( $categories as $category )
+		{
+			echo $_HTML->div_open( array('class'=>'form_block') );
+				echo $_HTML->input( array('name'=>$category['id'], 'type'=>'text', 'value'=>$category['name']) );
+
+				if($_DB_CAT->get_post_count($category['id']) == 0)
+					echo $_HTML->link( array('class'=>'js_button_delete button', 'data-flag'=>'0', 'data-id'=>$category['id'], 'content'=>$_LANG['DELETE']) );
+				elseif($_DB_CAT->get_count() == 1)
+					echo $_HTML->div( array('class'=>'input_tip', 'content'=>$_LANG['AT_LEAST_ONE_CATEGORY']) );
+				else
+					echo $_HTML->div( array('class'=>'input_tip', 'content'=>$_LANG['CATEGORY_HAS_ONE_OR_MORE_POST']) );
+			echo $_HTML->div_close();
+		}
+
+	echo $_HTML->form_close();
+
+?>
+
+<script>
+
+$(document).ready(function() {
+
+	// Save the default configuration
+	var datasrz = serial_form($("#js_form_set"));
+
+	$(window).bind('beforeunload', function() {
+
+		var newdata = serial_form($("#js_form_set"));
+
+		if( newdata != datasrz )
+		{
+			$.ajax({
+					url: HTML_PATH_ADMIN_AJAX + "categories.php", type: 'POST', cache: false, timeout: 15000, dataType: "xml", async: false,
+					data: { action:"set", serial_data: newdata }
+			});
+		}
+	});
+
+	$("a.js_button_delete").click( function() {
+		var self = $(this);
+		var box = self.parent();
+		var flag = self.attr("data-flag");
+		var id = self.attr("data-id");
+
+		if( flag == "1" )
+		{
+			$.ajax({
+					url: HTML_PATH_ADMIN_AJAX + "categories.php", type: 'POST', cache: false, timeout: 15000, dataType: "xml", async: false,
+					data: { action:"delete", id: id },
+					success: function(xml)
+					{
+						box.fadeOut();
+					}
+			});
+		}
+		else
+		{
+			self.attr("data-flag", "1");
+			self.html("<?php echo $_LANG['ARE_YOU_SURE'] ?>");
+			self.addClass("remove");
+		}
+	});
+
+}); // end document
+
+</script>

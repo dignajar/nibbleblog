@@ -1,0 +1,11 @@
+<?php
+
+$_PLUGIN_CONFIG = array(
+	'name'=>'Twitter',
+	'description'=>'Muestre los últimos 5 tweets de un usuario. Los tweets deben ser públicos para que este plugin funcione correctamente.',
+	'author'=>'Diego Najar',
+	'version'=>'1.0',
+	'url'=>'http://www.nibbleblog.com',
+);
+
+?>

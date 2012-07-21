@@ -1,0 +1,7 @@
+<?php
+
+$_LOGIN->logout();
+
+$_REDIRECT->controller('admin','user','login');
+
+?>

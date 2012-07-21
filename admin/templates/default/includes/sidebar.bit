@@ -1,0 +1,52 @@
+<?php
+
+	echo $_HTML->div_open( array('class'=>'menu_box') );
+
+		echo $_HTML->div( array('content'=>$_LANG['POSTS'], 'class'=>'title bg_posts') );
+
+		echo $_HTML->link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_simple', 'content'=>$_LANG['NEW_SIMPLE_POST']) );
+
+		echo $_HTML->link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_video', 'content'=>$_LANG['NEW_VIDEO_POST']) );
+
+		echo $_HTML->link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_quote', 'content'=>$_LANG['NEW_QUOTE_POST']) );
+
+		echo $_HTML->link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=list', 'content'=>$_LANG['MANAGE_POSTS']) );
+
+	echo $_HTML->div_close();
+
+
+	echo $_HTML->div_open( array('class'=>'menu_box') );
+
+		echo $_HTML->div( array('content'=>$_LANG['SETTINGS'], 'class'=>'title bg_settings') );
+
+		echo $_HTML->link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=general', 'content'=>$_LANG['GENERAL_SETTINGS']) );
+
+		echo $_HTML->link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=advanced', 'content'=>$_LANG['ADVANCED_SETTINGS']) );
+
+		echo $_HTML->link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=categories&amp;action=list', 'content'=>$_LANG['MANAGE_CATEGORIES']) );
+
+		echo $_HTML->link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=themes', 'content'=>$_LANG['CHANGE_THEME']) );
+
+		echo $_HTML->link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=username', 'content'=>$_LANG['USERNAME_AND_PASSWORD']) );
+
+	echo $_HTML->div_close();
+
+
+	// PLUGINS
+	$sidebar_plugins = $_DB_SETTINGS->get_plugins_installed();
+
+	echo $_HTML->div_open( array('class'=>'menu_box') );
+
+		echo $_HTML->div( array('content'=>$_LANG['PLUGINS'], 'class'=>'title bg_plugins') );
+
+		echo $_HTML->link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=list', 'content'=>$_LANG['MANAGE_PLUGINS']) );
+
+		foreach($_PLUGINS as $obj)
+		{
+			if($obj->is_installed())
+				echo $_HTML->link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=config&amp;plugin='.$obj->get_dir_name(), 'content'=>'Plugin :: '.$obj->get_name()) );
+		}
+
+	echo $_HTML->div_close();
+
+?>

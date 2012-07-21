@@ -1,0 +1,82 @@
+<?php
+
+	echo $_HTML->form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+
+		// TIMEZONE
+		echo $_HTML->div_open( array('class'=>'form_block') );
+			echo $_HTML->label( array('content'=>$_LANG['TIMEZONE'], 'class'=>'blocked') );
+			echo $_HTML->select( array('name'=>'timezone'), $timezone_html, $settings['timezone']);
+			echo $_HTML->div( array('content'=>$_LANG['SELECT_A_TIMEZONE_FOR_A_CORRECT_DATE_VISUALIZATION'], 'class'=>'input_tip') );
+		echo $_HTML->div_close();
+
+		// DATE FORMAT
+		echo $_HTML->div_open( array('class'=>'form_block') );
+			echo $_HTML->label( array('content'=>$_LANG['TIMESTAMP_FORMAT'], 'class'=>'blocked') );
+			echo $_HTML->select( array('name'=>'timestamp_format'), $timestamp_format_html, $settings['timestamp_format']);
+			echo $_HTML->div( array('content'=>$_LANG['SELECT_A_FORMAT_FOR_DISPLAYING_THE_DATES'], 'class'=>'input_tip') );
+		echo $_HTML->div_close();
+
+		// BLOG URL ADDRESS
+		echo $_HTML->div_open( array('class'=>'form_block') );
+			echo $_HTML->label( array('content'=>$_LANG['BLOG_ADDRESS'], 'class'=>'blocked') );
+			echo $_HTML->input( array('id'=>'js_url', 'name'=>'url', 'type'=>'text', 'value'=>$settings['url']) );
+			echo $_HTML->div( array('content'=>$_LANG['ABSOLUT_URL_ADDRESS_OF_YOUR_BLOG'], 'class'=>'input_tip') );
+		echo $_HTML->div_close();
+
+		// BLOG BASE PATH
+		echo $_HTML->div_open( array('class'=>'form_block') );
+			echo $_HTML->label( array('content'=>$_LANG['BLOG_BASE_PATH'], 'class'=>'blocked') );
+			echo $_HTML->input( array('id'=>'js_path', 'name'=>'path', 'type'=>'text', 'value'=>$settings['path']) );
+			echo $_HTML->div( array('content'=>$_LANG['ABSOLUT_ADDRESS_THAT_CONTAINS_THE_BLOGS_FILE_SYSTEM'], 'class'=>'input_tip') );
+		echo $_HTML->div_close();
+
+		// POSTS PER PAGE
+		echo $_HTML->div_open( array('class'=>'form_block') );
+			echo $_HTML->label( array('content'=>$_LANG['POSTS_PER_PAGE'], 'class'=>'blocked') );
+			echo $_HTML->select( array('name'=>'items_page'), $items_html, $settings['items_page']);
+			echo $_HTML->div( array('content'=>$_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_PER_PAGE'], 'class'=>'input_tip') );
+		echo $_HTML->div_close();
+
+		// RSS ITEMS
+		echo $_HTML->div_open( array('class'=>'form_block') );
+			echo $_HTML->label( array('content'=>$_LANG['RSS_ITEMS'], 'class'=>'blocked') );
+			echo $_HTML->select( array('name'=>'items_rss'), $items_html, $settings['items_rss']);
+			echo $_HTML->div( array('content'=>$_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_ON_RSS'], 'class'=>'input_tip') );
+		echo $_HTML->div_close();
+
+		// ADVANCED SETTINGS FOR POSTING
+		echo $_HTML->div_open( array('class'=>'form_block'));
+			echo $_HTML->checkbox( array('id'=>'js_advanced_post_options', 'name'=>'advanced_post_options', 'class'=>'float'), $settings['advanced_post_options'] );
+			echo $_HTML->label( array('content'=>$_LANG['ADVANCED_OPTIONS_FOR_POST'], 'class'=>'for_checkbox', 'for'=>'js_advanced_post_options') );
+			echo $_HTML->div( array('content'=>$_LANG['ADVANCED_OPTIONS_WHEN_PUBLISHING_CONTENT'], 'class'=>'input_tip') );
+		echo $_HTML->div_close();
+
+	echo $_HTML->form_close();
+
+?>
+
+<script>
+
+$(document).ready(function() {
+
+	// Save the default configuration
+	var datasrz = serial_form($("#js_form"));
+
+	$(window).bind('beforeunload', function() {
+
+		var newdata = serial_form($("#js_form"));
+
+		if( newdata != datasrz )
+		{
+			console.log(newdata);
+
+			$.ajax({
+					url: HTML_PATH_ADMIN_AJAX + "settings.php", type: 'POST', cache: false, timeout: 15000, dataType: "xml", async: false,
+					data: { action:"set", serial_data: newdata, type: "advanced" }
+			});
+		}
+	});
+
+}); // end document
+
+</script>

@@ -1,0 +1,450 @@
+
+/* ============================== */
+/* BODY */
+/* ============================== */
+
+body {
+	font-family: arial,helvetica,sans-serif;
+	background-color: #FEFEFE;
+	margin: 0;
+	padding: 0;
+	font-size:14px;
+	color: #555;
+}
+
+#container {
+	margin: 0 auto;
+	width: 100%
+}
+
+#container_head {
+	background: url("img/logo.png") no-repeat 20px 6px #F1F1F1;
+    border-bottom: 1px solid #EBEBEB;
+    font-size: 12px;
+    padding-right: 5%;
+    text-align: right;
+}
+
+#container_head		a.dashboard {
+	background: url("img/dashboard.png") no-repeat scroll 0 center transparent;
+	display: inline-block;
+	height: 50px;
+    line-height: 52px;
+    margin-right: 15px;
+    padding-left: 26px;
+}
+
+#container_head		a.home {
+	background: url("img/home.png") no-repeat scroll 0 center transparent;
+	display: inline-block;
+	height: 50px;
+    line-height: 52px;
+    margin-right: 15px;
+    padding-left: 26px;
+}
+
+#container_head		a.logout {
+	background: url("img/logout.png") no-repeat scroll 0 center transparent;
+	display: inline-block;
+	height: 50px;
+    line-height: 52px;
+    margin-right: 15px;
+    padding-left: 26px;
+}
+
+#container_float {
+	clear: both;
+	margin-top: 25px;
+}
+
+#container_left {
+	clear: left;
+	float: left;
+	margin-right: 20px;
+	margin-top: 5px;
+	width: 260px;
+}
+
+#container_right {
+	margin-right: 30px;
+	margin-top: 10px;
+	min-width: 700px;
+	overflow: auto;
+	max-width: 55%;
+	border-right: 1px solid #F1F1F1;
+	padding-right: 30px;
+}
+
+#container_right	h2.title {
+	color: #1555CC;
+	font-size: 22px;
+	margin: 0 0 25px 0;
+	font-weight: normal;
+}
+
+#alert {
+    background-color: #EDF4FF;
+    border: 1px solid #CDD4EF;
+    border-radius: 2px 2px 2px 2px;
+    color: #666666;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+footer {
+	text-align: center;
+	border-top: 1px dotted #ccc;
+}
+
+a {
+	color: #1555CC;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a.remove {
+	color: #BC0000;
+}
+
+a.button {
+	font-size: 12px;
+}
+
+div.separator {
+	border-bottom: 1px solid #EBEBEB;
+	color: #999;
+	margin: 25px 0 12px 0;
+	text-shadow: 0 1px 1px #FFFFFF;
+	font-size: 13px;
+}
+
+div.notification {
+	padding: 10px 0 10px 56px;
+	margin-bottom: 10px;
+    border-radius: 2px 2px 2px 2px;
+}
+
+div.notification_session {
+	background: url("img/session.png") no-repeat scroll 16px center #F9F9F9;
+    border: 1px solid #EEEEEE;
+    font-size: 12px;
+}
+
+div.notification_last_comments {
+	background: url('img/comments.png') no-repeat 16px center #F9F9F9;
+    border: 1px solid #EEEEEE;
+    font-size: 12px;
+}
+
+div.notification	div.type {
+	margin-bottom: 5px;
+}
+
+div.dash_items {
+	background: none repeat scroll 0 0 #F9F9F9;
+    border: 1px solid #EEEEEE;
+    border-radius: 2px 2px 2px 2px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+}
+
+div.dash_items	div.item {
+	display: inline-block;
+    margin: 5px 10px;
+    width:250px;
+}
+
+div.dash_items	.bg_post_simple {
+	background: url(img/add.png) 0 50% no-repeat;
+	padding: 10px 0 10px 36px;
+}
+
+div.dash_items	.bg_post_video {
+	background: url(img/video.png) 0 50% no-repeat;
+	padding: 10px 0 10px 36px;
+}
+
+div.dash_items	.bg_post_quote {
+	background: url(img/quote.png) 0 50% no-repeat;
+	padding: 10px 0 10px 36px;
+}
+
+div.dash_items	.bg_settings {
+	background: url(img/gear.png) 0 50% no-repeat;
+	padding: 10px 0 10px 36px;
+}
+
+
+
+div.dash_items	a.type {
+	font-size: 13px;
+	display: block;
+}
+
+div.dash_items	span.description {
+	font-size: 12px;
+	display: block;
+}
+
+/* ============================== */
+/* FORMS */
+/* ============================== */
+div.form_block {
+	overflow:auto;
+	margin-bottom: 22px;
+}
+
+div.form_block	input[type="text"],
+div.form_block	input[type="password"],
+div.form_block	textarea {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	border: 1px solid #C4C4C4;
+	border-radius: 2px;
+	color: #858585;
+	padding: 8px;
+	outline:none;
+	resize: none;
+}
+
+div.form_block		input[type="checkbox"].float {
+	vertical-align: middle;
+	margin-left: 0px;
+}
+
+div.form_block		label {
+	margin-bottom:2px;
+	font-size: 13px;
+}
+
+div.form_block		label.blocked {
+	display:block;
+}
+
+div.form_block		div.input_tip {
+	color: #777;
+	font-style: italic;
+	font-size:11px;
+}
+
+div.form_block		input[type="submit"].save,
+div.form_block		input[type="button"].save {
+	background-color: #337ACC;
+	border: 0 none;
+	border-radius: 2px 2px 2px 2px;
+	color: #FFFFFF;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 12px;
+	padding: 6px 26px;
+}
+
+div.form_block		input[type="submit"].save:hover,
+div.form_block		input[type="button"].save:hover {
+	background-color: #1B70C9;
+}
+
+
+/* ============================== */
+/* FORMS FOR PLUGINS */
+/* ============================== */
+form.plugins {
+}
+
+form.plugins	input[type="text"],
+form.plugins	input[type="password"],
+form.plugins	textarea {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	border: 1px solid #C4C4C4;
+	border-radius: 2px;
+	color: #858585;
+	padding: 8px;
+	outline:none;
+	resize: none;
+	margin-bottom: 15px;
+}
+
+form.plugins		label {
+	margin-bottom: 2px;
+	display: block;
+	font-size: 13px;
+}
+
+/* ============================== */
+/* POST LIST */
+/* ============================== */
+
+div.list_box,
+div.comment_box {
+	padding: 15px 0;
+	border-top: 1px solid #f1f1f1;
+}
+
+div.list_box	div.float,
+div.comment_box	div.float {
+	overflow: auto;
+}
+
+div.list_box	div.left,
+div.comment_box	div.left {
+	float:left;
+	width: 85%;
+}
+
+div.list_box	div.right,
+div.comment_box	div.right {
+	float:right;
+}
+
+div.list_box	div.options,
+div.comment_box	div.options {
+	margin-top: 8px;
+	font-size: 12px;
+}
+
+div.list_box	a,
+div.comment_box	a {
+	margin-right: 10px;
+}
+
+div.list_box		h3.date,
+div.comment_box		h3.date {
+	margin: 0 5px 0 0;
+	font-weight:normal;
+	color: #666;
+	display: block;
+	font-size: 12px;
+}
+
+div.list_box	h3.title {
+	margin: 0;
+	font-weight:normal;
+	display: inline-block;
+	font-size: 14px;
+}
+
+div.list_box	h3.type {
+	margin: 0 5px 0 0;
+	font-weight:normal;
+	font-style: italic;
+	color: orange;
+	display: inline-block;
+	width: 100%;
+	font-size: 12px;
+}
+
+div.comment_box		h3.content {
+	margin: 0 5px 0 0;
+	font-weight:normal;
+	font-style: italic;
+	color: #666;
+	display: block;
+	font-size: 14px;
+}
+
+div.comment_box		h3.author {
+	margin: 5px 0 0 0;
+	font-weight:normal;
+	font-style: italic;
+	color: #444;
+	display: block;
+	font-size: 13px;
+}
+
+div.pager {
+	border-top: 1px solid #F1F1F1;
+	padding: 8px 0;
+}
+
+div.pager	a {
+	margin-right:10px;
+}
+
+
+/* ============================== */
+/* COMMENTS LIST */
+/* ============================== */
+div.comment_box {
+
+}
+
+/* ============================== */
+/* PLUGIN LIST */
+/* ============================== */
+
+div.plugin {
+    background-color: #F5F5F5;
+    border: 1px solid #F0F0F0;
+    border-radius: 2px 2px 2px 2px;
+    color: #444444;
+    font-size: 13px;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+div.plugin	h3.name {
+	font-size: 13px;
+	margin: 0;
+	font-weight: normal;
+	border-bottom: 1px dotted #CCCCCC;
+	padding-bottom: 2px;
+}
+
+div.plugin	h4.description {
+	font-size: 12px;
+	margin: 8px 0;
+	font-weight: normal;
+}
+
+div.plugin	a {
+	margin-right: 15px;
+}
+
+/* ============================== */
+/* SIDEBAR */
+/* ============================== */
+
+div.menu_box {
+	margin-bottom: 25px;
+	padding: 0 0 0 20px;
+	font-size: 13px;
+}
+
+div.menu_box a {
+	text-decoration: none;
+	display: block;
+	padding: 5px 30px;
+}
+
+div.menu_box a:hover {
+	background-color: #F5F5F5;
+}
+
+div.menu_box div.title {
+	font-size:15px;
+	font-weight:bold;
+	color: #4c4c4c;
+    line-height: 22px;
+    padding: 0 28px;
+}
+
+div.menu_box div.bg_posts {
+	background: url("img/posts.png") no-repeat scroll 3px 0 transparent;
+}
+
+div.menu_box div.bg_settings {
+	background: url("img/settings.png") no-repeat scroll 3px 0 transparent;
+}
+
+div.menu_box div.bg_plugins {
+	background: url("img/plugins.png") no-repeat scroll 3px 0 transparent;
+}

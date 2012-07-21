@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="<?php echo $settings['about'] ?>">
+
+	<title><?php echo LAYOUT_TITLE ?></title>
+
+	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'main.css?v='.$theme['version'] ?>" />
+
+	<script src="<?php echo JS_JQUERY ?>"></script>
+
+	<?php
+		if( include( PATH_PLUGINS.'analytics/plugin.bit') )
+		{
+			$analytics = new PLUGIN_ANALYTICS();
+
+			if($analytics->init_db())
+			{
+				echo $analytics->get_html();
+			}
+		}
+	?>
+</head>
+<body>
+
+	<div id="container">
+
+		<header id="head">
+
+			<div class="left">
+				<a class="name" href="<?php echo HTML_PATH_ROOT ?>">
+					<?php echo $settings['name'] ?>
+				</a>
+				<a class="slogan" href="<?php echo HTML_PATH_ROOT ?>">
+					<?php echo $settings['slogan'] ?>
+				</a>
+			</div>
+
+			<div class="right">
+				<?php
+					if( include( PATH_PLUGINS.'twitter/plugin.bit') )
+					{
+						$twitter = new PLUGIN_TWITTER();
+
+						if($twitter->init_db())
+						{
+							echo $twitter->get_html();
+						}
+					}
+				?>
+			</div>
+
+		</header>
+
+		<section id="main">
+			<?php include(THEME_VIEWS . LAYOUT_VIEW); ?>
+		</section>
+
+		<footer id="foot">
+			<p><?php echo $settings['footer'] ?></p>
+		</footer>
+
+	</div>
+
+</body>
+</html>

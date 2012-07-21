@@ -1,0 +1,75 @@
+<?php
+
+// ============================================================================
+//	INCLUDES
+// ============================================================================
+	require('includes/fs_php.bit');
+	require('includes/objects.bit');
+	require('includes/var_url.bit');
+	require('includes/fs_html.bit');
+
+// ============================================================================
+//	CONSTANTS
+// ============================================================================
+	define('AMOUNT_OF_SESSION',		3);
+	define('AMOUNT_OF_COMMENTS',	3);
+	define('AMOUNT_OF_POSTS',		8);
+	define('LOGIN_SLEEP',			2);
+
+// ============================================================================
+//	VARIABLES
+// ============================================================================
+	// Settings
+	$settings = $_DB_SETTINGS->get();
+
+	// Categories
+	$categories = $_DB_CAT->get_all();
+
+// ============================================================================
+//	PLUGINS
+// ============================================================================
+	$plugins_on_system = $_DB_SETTINGS->get_plugins_on_system();
+
+	$_PLUGINS = array();
+
+	foreach($plugins_on_system as $dir_name)
+	{
+		include_once(PATH_PLUGINS.$dir_name.'/plugin.bit');
+		$class = 'PLUGIN_'.strtoupper($dir_name);
+		$_PLUGINS[$class] = new $class;
+		
+		// Language
+		if( !include(PATH_PLUGINS.$dir_name.'/languages/'.$settings['language'].'.bit') )
+			include(PATH_PLUGINS.$dir_name.'/languages/english.bit');
+
+		$_PLUGINS[$class]->set_attributes(
+		array(
+			'name'=>$_PLUGIN_CONFIG['name'],
+			'description'=>$_PLUGIN_CONFIG['description'],
+			'author'=>$_PLUGIN_CONFIG['author'],
+			'version'=>$_PLUGIN_CONFIG['version'],
+			'url'=>$_PLUGIN_CONFIG['url']
+		));
+	}
+
+// ============================================================================
+//	FIX MAGIC QUOTES (for PHP<5.3)
+// ============================================================================
+	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
+	{
+		// Magic quotes ON ?
+		if( get_magic_quotes_gpc() != 0 )
+			$_POST = $_TEXT->clean_magic_quotes($_POST);
+	}
+
+// ============================================================================
+//	LANGUAGE
+// ============================================================================
+	include(PATH_LANGUAGES.$settings['language'].'.bit');
+
+// ============================================================================
+//	DEBUG
+// ============================================================================
+	//error_reporting(0);
+
+?>

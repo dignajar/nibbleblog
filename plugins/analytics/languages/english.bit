@@ -1,0 +1,12 @@
+<?php
+
+$_PLUGIN_CONFIG = array(
+	'name'=>'Google Analytics',
+	'description'=>'Add Google Analytics to your blog to see how visitors interact with your site. You need an account on Google Analytics for use this plugin.',
+	'author'=>'Diego Najar',
+	'version'=>'1.0',
+	'url'=>'http://www.nibbleblog.com',
+);
+
+
+?>

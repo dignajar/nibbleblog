@@ -1,0 +1,63 @@
+<?php
+
+	foreach( $comments as $comment )
+	{
+		$date = $_DATE->format($comment['pub_date'], 'd/m/Y', $settings['timezone']);
+
+		$post = $_DB_POST->get( array('id'=>$comment['id_post']) );
+
+		echo $_HTML->div_open( array('class'=>'comment_box') );
+
+			echo $_HTML->div_open( array('class'=>'float'));
+				echo $_HTML->div_open( array('class'=>'left'));
+					echo $_HTML->h3( array('class'=>'content', 'content'=>$comment['content']) );
+					echo $_HTML->h3( array('class'=>'author', 'content'=>$comment['author_name'].' - '.$comment['author_email']) );
+				echo $_HTML->div_close();
+
+				echo $_HTML->div_open( array('class'=>'right'));
+					echo $_HTML->h3( array('class'=>'date', 'content'=>$date) );
+				echo $_HTML->div_close();
+			echo $_HTML->div_close();
+
+			echo $_HTML->div_open( array('class'=>'options'));
+				echo $_HTML->link( array('class'=>'js_button_delete', 'data-flag'=>'0', 'data-id'=>$comment['id'], 'content'=>'Delete') );
+			echo $_HTML->div_close();
+
+		echo $_HTML->div_close();
+	}
+
+?>
+
+<script>
+
+$(document).ready(function() {
+
+	$("a.js_button_delete").click( function() {
+		var self = $(this);
+		var box = self.parent().parent();
+		var flag = self.attr("data-flag");
+		var id = self.attr("data-id");
+
+		if( flag == "1" )
+		{
+			$.ajax({
+					url: HTML_PATH_ADMIN_AJAX + "comments.php", type: 'POST', cache: false, timeout: 15000, dataType: "xml", async: false,
+					data: { action:"delete", id:id },
+					success: function(xml)
+					{
+						box.fadeOut();
+					}
+			});
+		}
+		else
+		{
+			self.attr("data-flag", "1");
+			self.html("<?php echo $_LANG['ARE_YOU_SURE'] ?>");
+			self.addClass("remove");
+		}
+
+	});
+
+}); // end document
+
+</script>

@@ -1,0 +1,81 @@
+<?php
+
+// ============================================================================
+//	POST
+// ============================================================================
+	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
+	{
+		$safe = array();
+
+		// Post ID
+		$safe['id']	= $_URL['id_post'];
+
+		// Category ID
+		$safe['id_cat']	= $_POST['id_cat'];
+
+		if(isset($_POST['content']))
+		{
+			$safe['title']		= $_VALIDATION->sanitize_html( $_POST['title'] );
+			$safe['content']	= $_POST['content'];
+		}
+		else
+		{
+			$safe['title'] = '';
+			$safe['content'] = '';
+		}
+
+		if( isset($_POST['quote']) )
+		{
+			$safe['quote'] = $_POST['quote'];
+		}
+
+		// Allow comments
+		if( isset($_POST['allow_comments']) && $_POST['allow_comments'] == '1' )
+		{
+			$safe['allow_comments'] = 1;
+		}
+		else
+		{
+			$safe['allow_comments'] = 0;
+		}
+
+		// Sticky post
+		if( isset($_POST['sticky']) && $_POST['sticky'] == '1' )
+		{
+			$safe['sticky'] = 1;
+		}
+		else
+		{
+			$safe['sticky'] = 0;
+		}
+
+		if( $_DB_POST->set( $safe ) )
+		{
+			// ******************
+			// DEBERIA COMPROBAR SI SE CAMBIO DE CATEGORIA, PARA NO RENOMBRAR
+			// ******************
+			$_DB_POST->change_category($safe);
+
+			$_SESSION['session_alert']['msg'] = $_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY'];
+			$_SESSION['session_alert']['active'] = true;
+
+			$_REDIRECT->controller('admin', 'post', 'list');
+		}
+	}
+
+// ============================================================================
+//	VARIABLES
+// ============================================================================
+
+	$post_edit = $_DB_POST->get( array('id'=>$_URL['id_post']) );
+
+	if($post_edit == array() )
+	{
+		exit('no existe post con ese id:'.$_URL['id_post']);
+	}
+
+	$categories_html = array();
+	foreach($categories as $category)
+		$categories_html[$category['id']] = $category['name'];
+?>
+

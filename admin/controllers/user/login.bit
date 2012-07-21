@@ -1,0 +1,43 @@
+<?php
+
+// ============================================================================
+//	CONTROLLER
+// ============================================================================
+
+if( $_LOGIN->is_logued() )
+{
+	$_REDIRECT->controller('admin','dashboard','view');
+}
+
+
+// ============================================================================
+//	POST
+// ============================================================================
+
+if( $_SERVER['REQUEST_METHOD'] == 'POST' )
+{
+	if(defined(LOGIN_SLEEP))
+		sleep(LOGIN_SLEEP);
+	else
+		sleep(5);
+
+	$safe = array();
+	$safe['username'] = $_VALIDATION->sanitize_html($_POST['username']);
+	$safe['password'] = $_VALIDATION->sanitize_html($_POST['password']);
+
+	$_LOGIN->verify_login( array('username'=>$safe['username'], 'password'=>$safe['password']) );
+
+	if( $_LOGIN->is_logued() )
+	{
+		// Add a new session to syslog
+		$_DB_SYSLOG->add_session();
+
+		// Redirect to Dashboard
+		$_REDIRECT->controller('admin','dashboard','view');
+	}
+
+	$_SESSION['session_alert']['msg'] = $_LANG['INCORRECT_USERNAME_OR_PASSWORD'];
+	$_SESSION['session_alert']['active'] = true;
+}
+
+?>

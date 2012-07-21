@@ -1,0 +1,71 @@
+<?php
+	foreach( $post_list as $post )
+	{
+		$date = $_DATE->format($post['pub_date'], 'd/m/Y', $settings['timezone']);
+
+		echo $_HTML->div_open( array('class'=>'list_box') );
+
+			echo $_HTML->div_open( array('class'=>'float'));
+				echo $_HTML->div_open( array('class'=>'left'));
+					echo $_HTML->h3( array('class'=>'type', 'content'=>$post['type']) );
+					echo $_HTML->h3( array('class'=>'title', 'content'=>$post['title']) );
+				echo $_HTML->div_close();
+
+				echo $_HTML->div_open( array('class'=>'right'));
+					echo $_HTML->h3( array('class'=>'date', 'content'=>$date) );
+				echo $_HTML->div_close();
+			echo $_HTML->div_close();
+
+			echo $_HTML->div_open( array('class'=>'options'));
+				echo $_HTML->link( array('href'=>HTML_PATH_ROOT.'index.php?controller=post&amp;action=view&amp;id_post='.$post['id'], 'content'=>$_LANG['VIEW']) );
+				echo $_HTML->link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list&amp;id_post='.$post['id'], 'content'=>$_LANG['COMMENTS']) );
+				echo $_HTML->link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=edit_'.$post['type'].'&amp;id_post='.$post['id'], 'content'=>$_LANG['EDIT']) );
+				echo $_HTML->link( array('class'=>'js_button_remove', 'data-remove'=>'0', 'data-id'=>$post['id'], 'content'=>$_LANG['DELETE']) );
+			echo $_HTML->div_close();
+
+		echo $_HTML->div_close();
+	}
+
+	// Pager
+	echo $_HTML->div_open( array('class'=>'pager') );
+		for( $i=0; $i<$total_pages; $i++ )
+		{
+			echo $_HTML->link( array('content'=>$i, 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=list&amp;page='.$i) );
+		}
+	echo $_HTML->div_close();
+?>
+
+<script>
+
+$(document).ready(function() {
+
+	$("a.js_button_remove").click( function() {
+		var self = $(this);
+		var parent = self.parent();
+		var remove = self.attr("data-remove");
+		var id = self.attr("data-id");
+
+		if( remove == "1" )
+		{
+			$.ajax({
+					url: HTML_PATH_ADMIN_AJAX + "posts.php", type: 'POST', cache: false, timeout: 15000, dataType: "xml", async: false,
+					data: { action:"delete", id:id },
+					success: function(xml)
+					{
+						parent.fadeOut();
+					}
+			});
+		}
+		else
+		{
+			self.attr("data-remove", "1");
+			self.html("<?php echo $_LANG['ARE_YOU_SURE'] ?>");
+			self.addClass("remove");
+			self.parent().children("h3").css("opacity","0.5");
+		}
+
+	});
+
+}); // end document
+
+</script>

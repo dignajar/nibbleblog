@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>{#example_dlg.title}</title>
+	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
+	<script type="text/javascript" src="js/dialog.js"></script>
+	<script type="text/javascript">
+		function setSelectionRange(input, selectionStart, selectionEnd) {
+		  if (input.setSelectionRange) {
+			input.focus();
+			input.setSelectionRange(selectionStart, selectionEnd);
+		  }
+		  else if (input.createTextRange) {
+			var range = input.createTextRange();
+			range.collapse(true);
+			range.moveEnd('character', selectionEnd);
+			range.moveStart('character', selectionStart);
+			range.select();
+		  }
+		}
+
+		function replaceSelection (input, replaceString) {
+			if (input.setSelectionRange) {
+				var selectionStart = input.selectionStart;
+				var selectionEnd = input.selectionEnd;
+				input.value = input.value.substring(0, selectionStart)+ replaceString + input.value.substring(selectionEnd);
+			
+				if (selectionStart != selectionEnd){ 
+					setSelectionRange(input, selectionStart, selectionStart + 	replaceString.length);
+				}else{
+					setSelectionRange(input, selectionStart + replaceString.length, selectionStart + replaceString.length);
+				}
+
+			}else if (document.selection) {
+				var range = document.selection.createRange();
+
+				if (range.parentElement() == input) {
+					var isCollapsed = range.text == '';
+					range.text = replaceString;
+
+					 if (!isCollapsed)  {
+						range.moveStart('character', -replaceString.length);
+						range.select();
+					}
+				}
+			}
+		}
+
+
+		// We are going to catch the TAB key so that we can use it, Hooray!
+		function catchTab(item,e){
+			if(navigator.userAgent.match("Gecko")){
+				c=e.which;
+			}else{
+				c=e.keyCode;
+			}
+			if(c==9){
+				replaceSelection(item,String.fromCharCode(9));
+				setTimeout("document.getElementById('"+item.id+"').focus();",0);	
+				return false;
+			}
+					
+		}
+	</script>
+</head>
+<body onresize="PreDialog.resize();">
+
+<form onsubmit="ExampleDialog.insert();return false;" action="#">
+	<textarea id="content" name="content" rows="15" cols="100" style="width: 100%; height: 100%; font-family: 'Courier New',Courier,mono; font-size: 12px;" dir="ltr"  wrap="off" onkeydown="return catchTab(this,event)" class="mceFocus"></textarea>
+
+	<div class="mceActionPanel">
+		<div style="float: left">
+			<input type="button" id="insert" name="insert" value="{#insert}" onclick="PreDialog.insert();" />
+		</div>
+
+		<div style="float: right">
+			<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+		</div>
+	</div>
+</form>
+
+</body>
+</html>

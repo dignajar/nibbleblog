@@ -1,0 +1,91 @@
+<?php
+
+// ============================================================================
+//	INCLUDES
+// ============================================================================
+	require('includes/fs_php.bit');
+	require('includes/objects.bit');
+	require('includes/var_url.bit');
+	require('includes/fs_html.bit');
+
+// ============================================================================
+// VARIABLES
+// ============================================================================
+	// Theme info
+	$theme = array();
+
+	// Settings
+	$settings = $_DB_SETTINGS->get();
+
+	// Posts
+	$posts = $_DB_POST->get_list_by_page( array('page'=>$_URL['page'], 'amount'=>$settings['items_page']) );
+
+	// Post to view
+	if($_URL['id_post']!=null)
+	{
+		// The post
+		$post = $_DB_POST->get( array('id'=>$_URL['id_post']) );
+
+		// Comments for this post
+		$comments = $_DB_COMMENTS->get_list_by_post( array('id_post'=>$_URL['id_post']) );
+	}
+
+	// Pager
+	$pager_next = $_URL['page'] + 1;
+	$pager_prev = $_URL['page'] - 1;
+	$pager_older = HTML_PATH_ROOT.'index.php?controller=blog&amp;action=view&amp;page='.$pager_next;
+	$pager_newer = HTML_PATH_ROOT.'index.php?controller=blog&amp;action=view&amp;page='.$pager_prev;
+
+	$pager = array('next'=>$pager_next, 'prev'=>$pager_prev, 'href_older'=>$pager_older, 'href_newer'=>$pager_prev, 'show_older'=>(ceil($_DB_POST->get_count() / $settings['items_page']) -1), 'show_newer'=>($_URL['page'] > 0));
+
+
+// ============================================================================
+// SESSION
+// ============================================================================
+	if( !isset($_SESSION['nibbleblog']) )
+	{
+		$_SESSION['nibbleblog'] = array('error'=>false, 'alert'=>'', 'captcha'=>'', 'comment_name'=>'', 'comment_email'=>'', 'comment_content'=>'');
+	}
+	elseif($_SESSION['nibbleblog']['error']==false)
+	{
+		$_SESSION['nibbleblog']['alert'] = '';
+		$_SESSION['nibbleblog']['comment_name'] = '';
+		$_SESSION['nibbleblog']['comment_email'] = '';
+		$_SESSION['nibbleblog']['comment_content'] = '';
+	}
+
+// ============================================================================
+//	FIX MAGIC QUOTES (for PHP<5.3)
+// ============================================================================
+	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
+	{
+		// Magic quotes ON ?
+		if( get_magic_quotes_gpc() != 0 )
+			$_POST = $_TEXT->clean_magic_quotes($_POST);
+	}
+
+// ============================================================================
+//	LANGUAGE
+// ============================================================================
+	include(PATH_LANGUAGES.$settings['language'].'.bit');
+
+// ============================================================================
+//	DINAMIC PATHS / FILESYSTEM
+// ============================================================================
+	define('THEME_ROOT',			PATH_THEMES . $settings['theme'] . '/');
+	define('THEME_CONTROLLERS',		THEME_ROOT.'controllers/');
+	define('THEME_VIEWS',			THEME_ROOT.'views/');
+	define('THEME_TEMPLATES',		THEME_ROOT.'templates/');
+	define('THEME_CSS',				THEME_ROOT.'css/');
+	define('THEME_LANGUAGE',		THEME_ROOT.'language/');
+
+	define('HTML_THEME_ROOT',		HTML_PATH_THEMES . $settings['theme'] . '/');
+	define('HTML_THEME_CSS',		HTML_THEME_ROOT.'css/');
+
+// ============================================================================
+//	DEBUG
+// ============================================================================
+	//error_reporting(0);
+
+
+?>
