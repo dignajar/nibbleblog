@@ -33,10 +33,29 @@
 	// Pager
 	$pager_next = $_URL['page'] + 1;
 	$pager_prev = $_URL['page'] - 1;
-	$pager_older = HTML_PATH_ROOT.'index.php?controller=blog&amp;action=view&amp;page='.$pager_next;
-	$pager_newer = HTML_PATH_ROOT.'index.php?controller=blog&amp;action=view&amp;page='.$pager_prev;
-
-	$pager = array('next'=>$pager_next, 'prev'=>$pager_prev, 'href_older'=>$pager_older, 'href_newer'=>$pager_prev, 'show_older'=>(ceil($_DB_POST->get_count() / $settings['items_page']) -1), 'show_newer'=>($_URL['page'] > 0));
+	
+	if($settings['friendly_urls'])
+	{
+		$href_older = HTML_PATH_ROOT.'page-'.$pager_next;
+		$href_newer = HTML_PATH_ROOT.'page-'.$pager_prev;
+	}
+	else
+	{
+		$href_older = HTML_PATH_ROOT.'index.php?controller=blog&amp;action=view&amp;page='.$pager_next;
+		$href_newer = HTML_PATH_ROOT.'index.php?controller=blog&amp;action=view&amp;page='.$pager_prev;
+	}
+	
+	$show_older = (ceil($_DB_POST->get_count() / $settings['items_page']) - 1) > $_URL['page'];
+	$show_newer = $_URL['page'] > 0;
+		
+	$pager = array(
+						'next'=>$pager_next,
+						'prev'=>$pager_prev,
+						'href_older'=>$href_older,
+						'href_newer'=>$href_newer,
+						'show_older'=>$show_older,
+						'show_newer'=>$show_newer
+	);
 
 
 // ============================================================================

@@ -51,6 +51,25 @@
 			echo $_HTML->div( array('content'=>$_LANG['ADVANCED_OPTIONS_WHEN_PUBLISHING_CONTENT'], 'class'=>'input_tip') );
 		echo $_HTML->div_close();
 
+		// FRIENDLY URL
+		echo $_HTML->separator( array('content'=>'Friendly URL') );
+	
+		echo $_HTML->div_open( array('class'=>'form_block'));
+			echo $_HTML->checkbox( array('id'=>'js_friendly_urls', 'name'=>'friendly_urls', 'class'=>'float'), $settings['friendly_urls'] );
+			echo $_HTML->label( array('content'=>$_LANG['ENABLE_FRIENDLY_URLS'], 'class'=>'for_checkbox', 'for'=>'js_friendly_urls') );
+			echo $_HTML->div( array('content'=>$_LANG['COPY_THIS_CONTENT_ON_THE_FILE'], 'class'=>'input_tip') );
+
+			echo $_HTML->textarea( array('style'=>'height:130px;', 'content'=>'
+Options +FollowSymlinks
+Options -Indexes
+RewriteEngine on
+RewriteBase '.$settings['path'].'
+RewriteRule ^dashboard$ admin.php?controller=user&action=login [L]
+RewriteRule ^page-([0-9]+)$ index.php?controller=blog&action=view&page=$1 [L]
+RewriteRule ^post/([0-9]+)/([^/]+).html$ index.php?controller=post&action=view&id_post=$1 [L]
+') );
+		echo $_HTML->div_close();
+		
 	echo $_HTML->form_close();
 
 ?>

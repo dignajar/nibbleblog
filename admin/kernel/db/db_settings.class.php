@@ -74,6 +74,7 @@ class DB_SETTINGS {
 			$tmp_array['timezone']					= (string) $this->obj_xml->getChild('timezone');
 			$tmp_array['timestamp_format']			= (string) $this->obj_xml->getChild('timestamp_format');
 			$tmp_array['advanced_post_options']		= (int) $this->obj_xml->getChild('advanced_post_options') == 1;
+			$tmp_array['friendly_urls']		= (int) $this->obj_xml->getChild('friendly_urls') == 1;
 
 			return($tmp_array);
 		}
@@ -105,6 +106,7 @@ class DB_SETTINGS {
 			$this->obj_xml->setChild('timezone', 				$args['timezone']);
 			$this->obj_xml->setChild('timestamp_format',		$args['timestamp_format']);
 			$this->obj_xml->setChild('advanced_post_options', 	$args['advanced_post_options']);
+			$this->obj_xml->setChild('friendly_urls', 	$args['friendly_urls']);
 
 			return(true);
 		}

@@ -26,17 +26,21 @@ class DB_POSTS {
 
 		private $last_insert_id;
 
+		private $settings;
+
 /*
 ======================================================================================
 	CONSTRUCTORS
 ======================================================================================
 */
-		function DB_POSTS($file)
+		function DB_POSTS($file, $settings)
 		{
 			$this->file_xml = $file;
 
 			if(file_exists($this->file_xml))
 			{
+				$this->settings = $settings;
+
 				$this->last_insert_id = max($this->get_autoinc() - 1, 0);
 
 				$this->files = array();
@@ -325,7 +329,7 @@ class DB_POSTS {
 
 		// Devuelve los items de un post
 		// File name: ID_POST.ID_CATEGORY.ID_USER.NULL.YYYY.MM.DD.HH.mm.ss.xml
-		private function get_items($file, $html='/')
+		private function get_items($file)
 		{
 			$obj_xml = new NBXML(PATH_POSTS . $file, 0, TRUE, '', FALSE);
 
@@ -367,8 +371,7 @@ class DB_POSTS {
 				$tmp_array['quote']			= (string) $obj_xml->getChild('quote');
 			}
 
-/*
-			if( true )
+			if( $this->settings['friendly_urls'] )
 			{
 				$tmp_array['permalink'] = HTML_PATH_ROOT.'post/'.$tmp_array['id'].'/example.html';
 			}
@@ -376,9 +379,7 @@ class DB_POSTS {
 			{
 				$tmp_array['permalink'] = HTML_PATH_ROOT.'index.php?controller=post&amp;action=view&amp;id_post='.$tmp_array['id'];
 			}
-*/
-			$tmp_array['permalink'] = HTML_PATH_ROOT.'index.php?controller=post&amp;action=view&amp;id_post='.$tmp_array['id'];
-			
+		
 			return( $tmp_array );
 		}
 

@@ -14,14 +14,11 @@
 */
 
 $_LANG['LAST_COMMENTS'] = 'Ultimos comentarios';
-
 $_LANG['THEME'] = 'Theme';
 $_LANG['THEMES'] = 'Themes';
 $_LANG['CHANGE_THEME'] = 'Cambiar theme';
 $_LANG['SELECT_THEME'] = 'Seleccione un theme';
-
 $_LANG['SHORT_DESCRIPTION_OF_THE_BLOG_NO_MORE_THAN'] = 'Pequeña descripción de su blog, no mas de 150 caracteres.';
-
 $_LANG['REMEMBER_ME'] = 'Recordarme';
 $_LANG['USERNAME'] = 'Usuario';
 $_LANG['PASSWORD'] = 'Contraseña';
@@ -80,7 +77,7 @@ $_LANG['UNINSTALL'] = 'Desinstalar';
 $_LANG['CONFIGURE'] = 'Configuración';
 $_LANG['CREATED_BY'] = 'Creado por';
 $_LANG['CATEGORY_HAS_ONE_OR_MORE_POST'] = 'La categoría tiene enlazada mas de un post. Esta no puede ser eliminada.';
-$_LANG['AT_LEAST_ONE_CATEGORY'] = 'Esta categoría no puede ser eliminada ya que el sistema necesita al menos una categoria';
+$_LANG['AT_LEAST_ONE_CATEGORY'] = 'Esta categoría no puede ser eliminada ya que el sistema necesita al menos una categoría';
 $_LANG['ARE_YOU_SURE'] = '¿Esta seguro?';
 $_LANG['VIEW'] = 'Ver';
 $_LANG['EDIT'] = 'Editar';
@@ -90,7 +87,7 @@ $_LANG['SELECT_A_FORMAT_FOR_DISPLAYING_THE_DATES'] = 'Seleccione un formato para
 $_LANG['ABSOLUT_URL_ADDRESS_OF_YOUR_BLOG'] = 'Dirección URL absoluta de su blog. Por ejemplo http://www.domain.com/blog';
 $_LANG['ABSOLUT_ADDRESS_THAT_CONTAINS_THE_BLOGS_FILE_SYSTEM'] = 'Dirección absoluta que contiene el sistema de archivos del blog, si usted subió los archivos en el directorio raíz deberá ingresar "/", y si usted subió los archivos en un directorio deberá ingresar "/directorio"';
 $_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_PER_PAGE'] = 'Cantidad de publicaciones que desea mostrar por pagina.';
-$_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_ON_RSS'] = 'Cantidad de publicaciones que desea mostrar via RSS.';
+$_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_ON_RSS'] = 'Cantidad de publicaciones que desea mostrar vía RSS.';
 $_LANG['ADVANCED_OPTIONS_WHEN_PUBLISHING_CONTENT'] = 'Opciones avanzadas a la hora de publicar contenido. Por ejemplo: Habilidad de permite o no permitir publicaciones de comentarios sobre sus posts, selección de categoría, etc.';
 $_LANG['ADMINISTRATORS_USERNAME'] = 'Nombre de usuario del administrador.';
 $_LANG['DO_NOT_FORGET_THIS_PASSWORD'] = 'No se olvide esta contraseña.';
@@ -115,9 +112,7 @@ $_LANG['MANAGE_POSTS'] = 'Administrar posts';
 $_LANG['SETTINGS'] = 'Configuración';
 $_LANG['GENERAL_SETTINGS'] = 'Configuración general';
 $_LANG['ADVANCED_SETTINGS'] = 'Configuración avanzada';
-
 $_LANG['LAST_COMMENTS'] = 'Ultimos comentarios';
-
 $_LANG['MANAGE_CATEGORIES'] = 'Administrar categorías';
 $_LANG['USERNAME_AND_PASSWORD'] = 'Usuario & Contraseña';
 $_LANG['MANAGE_PLUGINS'] = 'Administrar plugins';
@@ -125,7 +120,6 @@ $_LANG['PLUGINS'] = 'Plugins';
 $_LANG['EDIT_POST'] = 'Editar post';
 $_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA'] = 'Área de administración de Nibbleblog';
 $_LANG['POST_HAS_BEEN_PUBLISHED_SUCCESSFULLY'] = 'El post fue publicado exitosamente';
-
 $_LANG['PLEASE_ENABLE_JAVASCRIPT_IN_YOUR_BROWSER'] = 'Por favor habilite Javascript en su navegador';
 $_LANG['INSTALLATION_COMPLETE'] = 'Instalación completa';
 $_LANG['DEPENDENCIES'] = 'Dependencias';
@@ -146,12 +140,13 @@ $_LANG['INSTALLATION_LINE2'] = 'La instalación de Nibbleblog esta completa.';
 $_LANG['INSTALLATION_LINE3'] = 'Para administrar su blog vaya a la siguiente dirección';
 $_LANG['INSTALLATION_LINE4'] = 'o visite su nuevo blog';
 $_LANG['INSTALLATION_LINE5'] = 'Si necesita ayuda puede visitar el foro';
-
 $_LANG['WELCOME_POST_TITLE'] = 'Bienvenido a Nibbleblog';
 $_LANG['WELCOME_POST_LINE1'] = 'Felicitaciones, ya esta instalado y funcionando correctamente su blog.';
 $_LANG['WELCOME_POST_LINE2'] = 'Para modificar o configurar su blog debe ingresar en el panel de administración';
 $_LANG['WELCOME_POST_LINE3'] = 'Si necesita ayuda puede visitar el foro';
 $_LANG['WELCOME_POST_LINE4'] = 'Siga Nibbleblog en Facebook';
 
+$_LANG['ENABLE_FRIENDLY_URLS'] = 'Habilitar URLs amigas';
+$_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = 'Copie el siguiente texto en el archivo ".htaccess". Este debe estar en la raíz del dominio. Ademas el servidor debe tener configurado los módulos necesarios para utilizar esta opción.';
 
 ?>

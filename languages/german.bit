@@ -14,14 +14,11 @@
 */
 
 $_LANG['LAST_COMMENTS'] = 'Neuste Kommentare';
-
 $_LANG['THEME'] = 'Design';
 $_LANG['THEMES'] = 'Designs';
 $_LANG['CHANGE_THEME'] = 'Design ändern';
 $_LANG['SELECT_THEME'] = 'Design auswählen';
-
 $_LANG['SHORT_DESCRIPTION_OF_THE_BLOG_NO_MORE_THAN'] = 'Kurze Beschreibung deines Blogs. Höchstens 150 Zeichen.';
-
 $_LANG['REMEMBER_ME'] = 'Angemeldet bleiben';
 $_LANG['USERNAME'] = 'Benutzername';
 $_LANG['PASSWORD'] = 'Passwort';
@@ -122,7 +119,6 @@ $_LANG['PLUGINS'] = 'Erweiterungen';
 $_LANG['EDIT_POST'] = 'Beitrag bearbeiten';
 $_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA'] = 'Im Administrationsbereich anmelden';
 $_LANG['POST_HAS_BEEN_PUBLISHED_SUCCESSFULLY'] = 'Beitrag erfolgreich veröffentlicht';
-
 $_LANG['PLEASE_ENABLE_JAVASCRIPT_IN_YOUR_BROWSER'] = 'Bitte aktiviere JavaScript in deinem Webbrowser';
 $_LANG['INSTALLATION_COMPLETE'] = 'Installation abgeschlossen';
 $_LANG['DEPENDENCIES'] = 'Abhängigkeiten';
@@ -143,12 +139,13 @@ $_LANG['INSTALLATION_LINE2'] = 'Deine Nibbleblog-Installation ist abgeschlossen.
 $_LANG['INSTALLATION_LINE3'] = 'Um dein Blog zu verwalten, rufe folgende Adresse auf';
 $_LANG['INSTALLATION_LINE4'] = 'oder besuche dein neues Blog';
 $_LANG['INSTALLATION_LINE5'] = 'Hilfe erhälst du im Forum';
-
 $_LANG['WELCOME_POST_TITLE'] = 'Willkommen in deinem Nibbleblog';
 $_LANG['WELCOME_POST_LINE1'] = 'Glückwunsch, dein Blog wurde erfolgreich installiert.';
 $_LANG['WELCOME_POST_LINE2'] = 'Im Administrationsbereich kannst du die Blogeinstellungen ändern';
 $_LANG['WELCOME_POST_LINE3'] = 'Hilfe erhälst du im Forum';
 $_LANG['WELCOME_POST_LINE4'] = 'Falls dir dein Nibbleblog gefällt besuche uns doch auf Facebook und bleibe mit einem Klick auf "Gefällt mir" auf dem Laufenden';
 
+$_LANG['ENABLE_FRIENDLY_URLS'] = 'Enable friendly URLs';
+$_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = 'Copy this content on the file ".htaccess". The file must be on the root of your domain. The server must have the modules loaded and configured correctly for using this option.';
 
 ?>
