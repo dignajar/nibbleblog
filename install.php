@@ -343,7 +343,7 @@ footer {
 				echo $_HTML->div_close();
 
 				echo $_HTML->div_open( array('class'=>'dependency') );
-					echo $_HTML->link( array('class'=>'description', 'content'=>$_LANG['PHP_VERSION'].' - DOM', 'href'=>'http://www.php.net/manual/en/book.dom.php', 'target'=>'_blank') );
+					echo $_HTML->link( array('class'=>'description', 'content'=>$_LANG['PHP_MODULE'].' - DOM', 'href'=>'http://www.php.net/manual/en/book.dom.php', 'target'=>'_blank') );
 
 					if( in_array('gd', $php_modules) )
 					{
@@ -358,7 +358,7 @@ footer {
 				echo $_HTML->div_close();
 
 				echo $_HTML->div_open( array('class'=>'dependency') );
-					echo $_HTML->link( array('class'=>'description', 'content'=>$_LANG['PHP_VERSION'].' - SimpleXML', 'href'=>'http://ar2.php.net/manual/en/book.simplexml.php', 'target'=>'_blank') );
+					echo $_HTML->link( array('class'=>'description', 'content'=>$_LANG['PHP_MODULE'].' - SimpleXML', 'href'=>'http://ar2.php.net/manual/en/book.simplexml.php', 'target'=>'_blank') );
 
 					if( in_array('SimpleXML', $php_modules) )
 					{

@@ -7,7 +7,7 @@
 
 			echo $_HTML->div_open( array('class'=>'float'));
 				echo $_HTML->div_open( array('class'=>'left'));
-					echo $_HTML->h3( array('class'=>'type', 'content'=>$post['type']) );
+					echo $_HTML->h3( array('class'=>'type', 'content'=>$_LANG[strtoupper($post['type'])]) );
 					echo $_HTML->h3( array('class'=>'title', 'content'=>$post['title']) );
 				echo $_HTML->div_close();
 

@@ -16,9 +16,9 @@
 	<div id="container">
 
 		<div id="container_head">
-			<a href="<?php echo HTML_PATH_ROOT.'admin.php' ?>" class="dashboard">Dashboard</a>
-			<a href="<?php echo HTML_PATH_ROOT ?>" class="home">View blog</a>
-			<a href="<?php echo HTML_PATH_ROOT.'admin.php?controller=user&amp;action=logout' ?>" class="logout">Logout</a>
+			<a href="<?php echo HTML_PATH_ROOT.'admin.php' ?>" class="dashboard"><?php echo $_LANG['DASHBOARD']; ?></a>
+			<a href="<?php echo HTML_PATH_ROOT ?>" class="home"><?php echo $_LANG['VIEW_BLOG']; ?></a>
+			<a href="<?php echo HTML_PATH_ROOT.'admin.php?controller=user&amp;action=logout' ?>" class="logout"><?php echo $_LANG['LOGOUT']; ?></a>
 		</div>
 
 		<div id="container_float">
