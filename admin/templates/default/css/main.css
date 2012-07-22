@@ -155,7 +155,7 @@ div.dash_items {
 div.dash_items	div.item {
 	display: inline-block;
     margin: 5px 10px;
-    width:250px;
+    width:230px;
 }
 
 div.dash_items	.bg_post_simple {
