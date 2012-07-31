@@ -1,0 +1,12 @@
+<?php
+
+$_PLUGIN_CONFIG = array(
+	'name'=>'Google Analytics',
+	'description'=>'Ajouter Google Analytics pour voir comment les visiteurs interagissent avec votre site. Un compte Google Analytics est nécessaire au fonctionnement de ce module complémentaire.',
+	'author'=>'Diego Najar',
+	'version'=>'1.0',
+	'url'=>'http://www.nibbleblog.com',
+);
+
+
+?>
