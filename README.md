@@ -1,5 +1,5 @@
 Nibbleblog
 ===============
-in this github will put the changes and fixes for future versions Nibbleblog stables.
+changes and fixes for future versions Nibbleblog
 
 http://nibbleblog.com
