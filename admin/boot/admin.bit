@@ -39,7 +39,7 @@
 		$_PLUGINS[$class] = new $class;
 		
 		// Language
-		if( !include(PATH_PLUGINS.$dir_name.'/languages/'.$settings['language'].'.bit') )
+		if( @!include(PATH_PLUGINS.$dir_name.'/languages/'.$settings['language'].'.bit') )
 			include(PATH_PLUGINS.$dir_name.'/languages/english.bit');
 
 		$_PLUGINS[$class]->set_attributes(

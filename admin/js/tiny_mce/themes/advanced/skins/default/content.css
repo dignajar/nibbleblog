@@ -89,10 +89,7 @@ ul, ol {
 }
 
 img:not(.mcePageBreak) {
-	border: 1px solid #E6E6E6;
-	max-width: 560px;
-	padding: 4px;
-	margin-right: 20px;
+	max-width: 880px;
 }
 
 img.mcePageBreak {

@@ -1,16 +1,16 @@
 <?php
 
 /*
- * Nibbleblog -
- * http://www.nibbleblog.com
- *
- * English translation by
- *							Diego Najar
- *
- * Compatible version: 3.1
- * Last update: 15 / 07 / 2012
- *
- * Get more information: http://forum.nibbleblog.com
+ Nibbleblog -
+ http://www.nibbleblog.com
+
+ Translation by username: diego
+
+ Diego Najar
+
+ Last update: 31/07/2012 - dd/mm/yyyy
+
+ Get more information: http://forum.nibbleblog.com
 */
 
 $_LANG['LAST_COMMENTS'] = 'Ultimos comentarios';
@@ -23,7 +23,6 @@ $_LANG['REMEMBER_ME'] = 'Recordarme';
 $_LANG['USERNAME'] = 'Usuario';
 $_LANG['PASSWORD'] = 'Contraseña';
 $_LANG['COMMENTS'] = 'Comentarios';
-$_LANG['COMMENT'] = 'Comentario';
 $_LANG['INVALID_CAPTCHA'] = 'Captcha invalido';
 $_LANG['NAME'] = 'Nombre';
 $_LANG['EMAIL'] = 'E-mail';
@@ -112,7 +111,6 @@ $_LANG['MANAGE_POSTS'] = 'Administrar posts';
 $_LANG['SETTINGS'] = 'Configuración';
 $_LANG['GENERAL_SETTINGS'] = 'Configuración general';
 $_LANG['ADVANCED_SETTINGS'] = 'Configuración avanzada';
-$_LANG['LAST_COMMENTS'] = 'Ultimos comentarios';
 $_LANG['MANAGE_CATEGORIES'] = 'Administrar categorías';
 $_LANG['USERNAME_AND_PASSWORD'] = 'Usuario & Contraseña';
 $_LANG['MANAGE_PLUGINS'] = 'Administrar plugins';
@@ -145,8 +143,11 @@ $_LANG['WELCOME_POST_LINE1'] = 'Felicitaciones, ya esta instalado y funcionando 
 $_LANG['WELCOME_POST_LINE2'] = 'Para modificar o configurar su blog debe ingresar en el panel de administración';
 $_LANG['WELCOME_POST_LINE3'] = 'Si necesita ayuda puede visitar el foro';
 $_LANG['WELCOME_POST_LINE4'] = 'Siga Nibbleblog en Facebook';
-
-$_LANG['ENABLE_FRIENDLY_URLS'] = 'Habilitar URLs amigas';
+$_LANG['ENABLE_FRIENDLY_URLS'] = 'Habilitar URLs amistosas';
 $_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = 'Copie el siguiente texto en el archivo ".htaccess". Este debe estar en la raíz del dominio. Ademas el servidor debe tener configurado los módulos necesarios para utilizar esta opción.';
+$_LANG['INSERT_PICTURE'] = 'Insertar imagen';
+$_LANG['PERMALINK'] = 'Permalink';
+$_LANG['FRIENDLY_URLS'] = 'URLs amistosas';
+$_LANG['AUTHOR'] = 'Autor';
 
 ?>

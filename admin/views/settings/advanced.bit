@@ -52,7 +52,7 @@
 		echo $_HTML->div_close();
 
 		// FRIENDLY URL
-		echo $_HTML->separator( array('content'=>'Friendly URL') );
+		echo $_HTML->separator( array('content'=>$_LANG['FRIENDLY_URLS']) );
 	
 		echo $_HTML->div_open( array('class'=>'form_block'));
 			echo $_HTML->checkbox( array('id'=>'js_friendly_urls', 'name'=>'friendly_urls', 'class'=>'float'), $settings['friendly_urls'] );

@@ -1,16 +1,18 @@
 <?php
 
 /*
- * Nibbleblog -
- * http://www.nibbleblog.com
- *
- * English translation by
- *							Diego Najar
- *
- * Compatible version: 3.1
- * Last update: 15 / 07 / 2012
- *
- * Get more information: http://forum.nibbleblog.com
+ Nibbleblog -
+ http://www.nibbleblog.com
+
+ Translation by username: diego
+
+ Diego Najar -
+
+ 
+
+ Last update: 31/07/2012 - dd/mm/yyyy
+
+ Get more information: http://forum.nibbleblog.com
 */
 
 $_LANG['LAST_COMMENTS'] = 'Last comments';
@@ -23,7 +25,6 @@ $_LANG['REMEMBER_ME'] = 'Remember me';
 $_LANG['USERNAME'] = 'Username';
 $_LANG['PASSWORD'] = 'Password';
 $_LANG['COMMENTS'] = 'Comments';
-$_LANG['COMMENT'] = 'Comment';
 $_LANG['INVALID_CAPTCHA'] = 'Invalid captcha';
 $_LANG['NAME'] = 'Name';
 $_LANG['EMAIL'] = 'E-mail';
@@ -112,7 +113,6 @@ $_LANG['MANAGE_POSTS'] = 'Manage posts';
 $_LANG['SETTINGS'] = 'Settings';
 $_LANG['GENERAL_SETTINGS'] = 'General settings';
 $_LANG['ADVANCED_SETTINGS'] = 'Advanced settings';
-$_LANG['GENERAL_SETTINGS'] = 'General settings';
 $_LANG['MANAGE_CATEGORIES'] = 'Manage categories';
 $_LANG['USERNAME_AND_PASSWORD'] = 'Username & Password';
 $_LANG['MANAGE_PLUGINS'] = 'Manage plugins';
@@ -145,8 +145,10 @@ $_LANG['WELCOME_POST_LINE1'] = 'Congratulations, you have your blog installed an
 $_LANG['WELCOME_POST_LINE2'] = 'To modify any settings you should go into administrator\'s control panel ';
 $_LANG['WELCOME_POST_LINE3'] = 'If you need any help you can enter the support forum ';
 $_LANG['WELCOME_POST_LINE4'] = 'Visit Nibbleblog on Facebook and if you like click on LIKE';
-
 $_LANG['ENABLE_FRIENDLY_URLS'] = 'Enable friendly URLs';
 $_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = 'Copy this content on the file ".htaccess". The file must be on the root of your domain. The server must have the modules loaded and configured correctly for using this option.';
+$_LANG['INSERT_PICTURE'] = 'Insert picture';
+$_LANG['PERMALINK'] = 'Permalink';
+$_LANG['FRIENDLY_URLS'] = 'Friendly URLs';
 
 ?>

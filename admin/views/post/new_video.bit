@@ -147,7 +147,7 @@ $(document).ready(function() {
 			{title : 'Console',			block : 'div', classes: 'console'},
 		],
 
-		height:"400px",
+		height:"200px",
 		width:"100%"
 	});
 });

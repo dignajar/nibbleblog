@@ -20,7 +20,7 @@
 			echo $_HTML->div_close();
 
 			echo $_HTML->div_open( array('class'=>'options'));
-				echo $_HTML->link( array('class'=>'js_button_delete', 'data-flag'=>'0', 'data-id'=>$comment['id'], 'content'=>'Delete') );
+				echo $_HTML->link( array('class'=>'js_button_delete', 'data-flag'=>'0', 'data-id'=>$comment['id'], 'content'=>$_LANG['DELETE']) );
 			echo $_HTML->div_close();
 
 		echo $_HTML->div_close();

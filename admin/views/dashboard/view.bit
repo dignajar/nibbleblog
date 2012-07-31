@@ -33,7 +33,7 @@
 
 		echo $_HTML->div_open( array('class'=>'notification notification_session') );
 			echo $_HTML->div( array('class'=>'type', 'content'=>$_LANG['NEW_SESSION_STARTED']) );
-			echo $_HTML->div( array('class'=>'info', 'content'=>$_LANG['DATE'].': '.$date.' - IP:'.$session['ip']) );
+			echo $_HTML->div( array('class'=>'info', 'content'=>$_LANG['DATE'].': '.$date.' · IP:'.$session['ip']) );
 		echo $_HTML->div_close();
 	}
 
@@ -45,7 +45,7 @@
 
 		echo $_HTML->div_open( array('class'=>'notification notification_last_comments') );
 			echo $_HTML->div( array('class'=>'type', 'content'=>$comment['content']) );
-			echo $_HTML->div( array('class'=>'info', 'content'=>'Author: '.$comment['author_name'].' - Date: '.$date) );
+			echo $_HTML->div( array('class'=>'info', 'content'=>$_LANG['AUTHOR'].': '.$comment['author_name'].' · '.$_LANG['DATE'].': '.$date) );
 		echo $_HTML->div_close();
 	}
 

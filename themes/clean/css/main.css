@@ -46,6 +46,12 @@ pre {
 	width:70%;
 }
 
+img {
+	max-width:910px;
+	padding: 4px;
+	border: 1px solid #f1f1f1;
+}
+
 /* ============================== */
 /* HEADER */
 /* ============================== */

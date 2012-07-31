@@ -69,7 +69,7 @@ body {
 	margin-right: 30px;
 	margin-top: 10px;
 	min-width: 700px;
-	overflow: auto;
+	overflow: hidden;
 	max-width: 55%;
 	border-right: 1px solid #F1F1F1;
 	padding-right: 30px;
@@ -250,6 +250,23 @@ div.form_block		input[type="button"].save:hover {
 	background-color: #1B70C9;
 }
 
+div.form_block		.uploader_button {
+    background: url("img/picture.png") no-repeat scroll 5px 0 #F0F0EE;
+    border-bottom: 1px solid #CCCCCC;
+    border-left: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    padding: 8px 16px 8px 45px;
+    float:right;
+}
+
+input[type=file].hidden {
+	height: 0px;
+	opacity: 0;
+	display: block;
+}
 
 /* ============================== */
 /* FORMS FOR PLUGINS */

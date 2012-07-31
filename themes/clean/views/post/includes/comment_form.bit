@@ -19,9 +19,9 @@ echo '<footer id="comment_form">';
 
 		echo '<input type="text" name="captcha" class="captcha" placeholder="'.$_LANG['COPY_THE_TEXT_ON_THE_RIGHT'].'">';
 
-		echo '<img src="'.HTML_PATH_ADMIN.'kernel/captcha.php?w=100&h=38&bgcolor=255,255,255&txcolor=200,25,112" />';
+		echo '<img src="'.HTML_PATH_ADMIN.'kernel/captcha.php?w=100&h=38&bgcolor=254,254,254&txcolor=200,25,112" />';
 
-		echo '<input type="submit" value="'.$_LANG['COMMENT'].'">';
+		echo '<input type="submit" value="'.$_LANG['PUBLISH'].'">';
 
 	echo '</form>';
 

@@ -35,8 +35,9 @@
 	define('PATH_PRIVATE',			PATH_CONTENT.'private/');
 	define('PATH_TMP',				PATH_CONTENT.'tmp/');
 
-	define('PATH_POSTS',			PATH_PUBLIC.'posts/');
+	define('PATH_POSTS',				PATH_PUBLIC.'posts/');
 	define('PATH_COMMENTS',			PATH_PUBLIC.'comments/');
+	define('PATH_UPLOAD',			PATH_PUBLIC.'upload/');
 	define('PATH_PLUGINS_DB',		PATH_PRIVATE.'plugins/');
 
 // ============================================================================
