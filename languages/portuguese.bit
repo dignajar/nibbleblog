@@ -1,18 +1,17 @@
 <?php
 
 /*
- * Nibbleblog -
- * http://www.nibbleblog.com
- *
- * Translation by username: Jimmy
- *
- * Paulo Nunes
+ Nibbleblog -
+ http://www.nibbleblog.com
+
+ Translation by username: Jimmy
+
+ Paulo Nunes
 http://syndicate-fx.com
- *
- * Compatible version: 3.1 - 3.1
- * Last update: 30/07/2012 - dd/mm/yyyy
- *
- * Get more information: http://forum.nibbleblog.com
+
+ Last update: 31/07/2012 - dd/mm/yyyy
+
+ Get more information: http://forum.nibbleblog.com
 */
 
 $_LANG['LAST_COMMENTS'] = 'Últimos comentários';
@@ -25,7 +24,6 @@ $_LANG['REMEMBER_ME'] = 'Lembrar-me';
 $_LANG['USERNAME'] = 'Utilizador';
 $_LANG['PASSWORD'] = 'Senha';
 $_LANG['COMMENTS'] = 'Comentários';
-$_LANG['COMMENT'] = 'Comentar';
 $_LANG['INVALID_CAPTCHA'] = 'Captcha inválido';
 $_LANG['NAME'] = 'Nome';
 $_LANG['EMAIL'] = 'E-mail';
@@ -148,5 +146,8 @@ $_LANG['WELCOME_POST_LINE3'] = 'Se precisa de ajuda entre no forum de suporte';
 $_LANG['WELCOME_POST_LINE4'] = 'Visite o Nibbleblog no Facebook e se gostou faça LIKE';
 $_LANG['ENABLE_FRIENDLY_URLS'] = 'Habilitar URLs amigáveis';
 $_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = 'Copie este conteúdo para o ficheiro ".htaccess". O ficheiro tem que residir na raiz do seu dominio. O servidor tem que ter os módulos necessários carregados e configurados corretamente para usar esta opção.';
+$_LANG['INSERT_PICTURE'] = 'Inserir imagem';
+$_LANG['PERMALINK'] = 'Permalink';
+$_LANG['FRIENDLY_URLS'] = 'URLs amigáveis';
 
 ?>
