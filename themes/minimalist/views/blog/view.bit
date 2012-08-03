@@ -1,0 +1,21 @@
+<?php
+
+// All post for a page
+foreach($posts as $post)
+{
+	echo '<article class="post">';
+
+		include('includes/post_view.bit');
+
+		echo '<footer class="info">';
+		echo '<span class="date">'.$_DATE->format($post['pub_date'], $settings['timestamp_format'], $settings['timezone']).'</span>';
+		echo '<a href="'.$post['permalink'].'">'.$_LANG['PERMALINK'].'</a>';
+		echo '</footer>';
+
+	echo '</article>';
+}
+
+// Pager
+include('includes/pager.bit');
+
+?>

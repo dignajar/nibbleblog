@@ -66,7 +66,7 @@ RewriteEngine on
 RewriteBase '.$settings['path'].'
 RewriteRule ^dashboard$ admin.php?controller=user&action=login [L]
 RewriteRule ^page-([0-9]+)$ index.php?controller=blog&action=view&page=$1 [L]
-RewriteRule ^post/([0-9]+)/([^/]+).html$ index.php?controller=post&action=view&id_post=$1 [L]
+RewriteRule ^post/([0-9]+)/([^/]+)$ index.php?controller=post&action=view&id_post=$1 [L]
 ') );
 		echo $_HTML->div_close();
 		

@@ -33,7 +33,7 @@
 	// Pager
 	$pager_next = $_URL['page'] + 1;
 	$pager_prev = $_URL['page'] - 1;
-	
+
 	if($settings['friendly_urls'])
 	{
 		$href_older = HTML_PATH_ROOT.'page-'.$pager_next;
@@ -44,10 +44,10 @@
 		$href_older = HTML_PATH_ROOT.'index.php?controller=blog&amp;action=view&amp;page='.$pager_next;
 		$href_newer = HTML_PATH_ROOT.'index.php?controller=blog&amp;action=view&amp;page='.$pager_prev;
 	}
-	
+
 	$show_older = (ceil($_DB_POST->get_count() / $settings['items_page']) - 1) > $_URL['page'];
 	$show_newer = $_URL['page'] > 0;
-		
+
 	$pager = array(
 						'next'=>$pager_next,
 						'prev'=>$pager_prev,
@@ -57,6 +57,42 @@
 						'show_newer'=>$show_newer
 	);
 
+// ============================================================================
+//	PLUGINS
+// ============================================================================
+	$plugins_on_system = $_DB_SETTINGS->get_plugins_on_system();
+
+	$plugins = array();
+
+	foreach($plugins_on_system as $dir_name)
+	{
+		include_once(PATH_PLUGINS.$dir_name.'/plugin.bit');
+		$class = 'PLUGIN_'.strtoupper($dir_name);
+		$plugins[$class] = new $class;
+
+		if($plugins[$class]->is_installed())
+		{
+			// Language
+			if( @!include(PATH_PLUGINS.$dir_name.'/languages/'.$settings['language'].'.bit') )
+				include(PATH_PLUGINS.$dir_name.'/languages/english.bit');
+
+			$plugins[$class]->set_attributes(
+			array(
+				'name'=>$_PLUGIN_CONFIG['name'],
+				'description'=>$_PLUGIN_CONFIG['description'],
+				'author'=>$_PLUGIN_CONFIG['author'],
+				'version'=>$_PLUGIN_CONFIG['version'],
+				'url'=>$_PLUGIN_CONFIG['url']
+			));
+
+			// Init DB
+			$plugins[$class]->init_db();
+		}
+		else
+		{
+			unset($plugins[$class]);
+		}
+	}
 
 // ============================================================================
 // SESSION

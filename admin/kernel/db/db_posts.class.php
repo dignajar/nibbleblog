@@ -331,6 +331,8 @@ class DB_POSTS {
 		// File name: ID_POST.ID_CATEGORY.ID_USER.NULL.YYYY.MM.DD.HH.mm.ss.xml
 		private function get_items($file)
 		{
+			global $_TEXT;
+			
 			$obj_xml = new NBXML(PATH_POSTS . $file, 0, TRUE, '', FALSE);
 
 			$file_info = explode('.', $file);
@@ -338,14 +340,14 @@ class DB_POSTS {
 			$content = (string) $obj_xml->getChild('content');
 			$tmp_content = explode("<!-- pagebreak -->", $content);
 
-			$tmp_array = array();
+			$tmp_array = array('read_more'=>false);
 
 			$tmp_array['filename']			= (string) $file;
 
-			$tmp_array['id']				= (int) $file_info[0];
-			$tmp_array['id_cat']			= (int) $file_info[1];
+			$tmp_array['id']					= (int) $file_info[0];
+			$tmp_array['id_cat']				= (int) $file_info[1];
 			$tmp_array['id_user']			= (int) $file_info[2];
-			$tmp_array['visits']			= (int) $obj_xml->getChild('visits');
+			$tmp_array['visits']				= (int) $obj_xml->getChild('visits');
 
 			$tmp_array['type']				= (string) $obj_xml->getChild('type');
 			$tmp_array['title']				= (string) $obj_xml->getChild('title');
@@ -353,15 +355,20 @@ class DB_POSTS {
 			$tmp_array['mod_date']			= (string) $obj_xml->getChild('mod_date');
 
 			$tmp_array['allow_comments']	= (bool) ((int)$obj_xml->getChild('allow_comments'))==1;
-			$tmp_array['sticky']			= (bool) $this->is_sticky($file_info[0]);
+			$tmp_array['sticky']				= (bool) $this->is_sticky($file_info[0]);
 
+			// CONTENT
 			$tmp_array['content']			= (string) $content;
 
-			foreach($tmp_content as $key=>$value)
+			$tmp_array['content_part0'] = $tmp_content[0];
+			
+			if( isset($tmp_content[1]) )
 			{
-				$tmp_array['content_part'.$key] = $value;
+				$tmp_array['content_part1'] = $tmp_content[1];
+				$tmp_array['read_more'] = true;
 			}
 
+			// POST TYPE
 			if($tmp_array['type']=='video')
 			{
 				$tmp_array['video']			= (string) $obj_xml->getChild('video');
@@ -371,9 +378,19 @@ class DB_POSTS {
 				$tmp_array['quote']			= (string) $obj_xml->getChild('quote');
 			}
 
+			// FRIENDLY URLS
 			if( $this->settings['friendly_urls'] )
 			{
-				$tmp_array['permalink'] = HTML_PATH_ROOT.'post/'.$tmp_array['id'].'/example.html';
+				if( $_TEXT->not_empty($tmp_array['title']))
+				{
+					$slug = $_TEXT->get_slug_url($tmp_array['title']);
+				}
+				else
+				{
+					$slug = $tmp_array['type'];
+				}
+
+				$tmp_array['permalink'] = HTML_PATH_ROOT.'post/'.$tmp_array['id'].'/'.$slug;
 			}
 			else
 			{

@@ -1,0 +1,15 @@
+<?php
+
+	$theme = array
+	(
+		'name'=>'Minimalist',
+		'description'=>'Full HTML5 Theme',
+		'author'=>'Diego Najar',
+		'version'=>'1.0',
+		'last_update'=>'02/08/2012', // dd/mm/yyyy
+		'url'=>'http://www.nibbleblog.com', // http://xxxxxxxxxxxxx
+		'video_width'=>'640',
+		'video_height'=>'360'
+	);
+
+?>

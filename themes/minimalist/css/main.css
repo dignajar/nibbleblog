@@ -4,7 +4,7 @@
 /* ============================== */
 
 body {
-	font-family: helvetica,arial,sans-serif;
+	font-family: "Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 	background-color: #FEFEFE;
 	margin: 0;
 	padding: 0;
@@ -14,7 +14,7 @@ body {
 
 #container {
 	margin: 0 auto;
-	width: 940px;
+	width: 1050px;
 }
 
 a {
@@ -47,7 +47,7 @@ pre {
 }
 
 img:not(.captcha) {
-	max-width:910px;
+	max-width:710px;
 	padding: 4px;
 	border: 1px solid #f1f1f1;
 }
@@ -58,15 +58,6 @@ img:not(.captcha) {
 #head {
 	overflow: auto;
 	margin: 30px 0;
-}
-
-#head	div.left {
-	float: left;
-}
-
-#head	div.right {
-	float: right;
-	width: 370px;
 }
 
 #head	a.name {
@@ -85,11 +76,23 @@ img:not(.captcha) {
 }
 
 /* ============================== */
-/* PLUGIN TWITTER */
+/* MAIN */
 /* ============================== */
-div.plugin_twitter {
-    background: url("img/twitter.png") no-repeat scroll 0 -5px transparent;
-    padding-left: 50px;
+
+#main {
+	overflow:auto;
+}
+
+#main	.left {
+	border-right: 1px solid #CCCCCC;
+	float: left;
+	padding-right: 40px;
+	width: 720px;
+}
+
+#main	.right {
+	float: right;
+	width: 260px;
 }
 
 /* ============================== */
@@ -151,6 +154,18 @@ article.post	footer.info	span.date {
     line-height: 18px;
     margin-right: 10px;
     padding-left: 22px;
+}
+
+article.post	p.read_more {
+	text-align: right;
+}
+
+article.post	a.read_more {
+	background: none repeat scroll 0 0 #3C6EB4;
+	color: #FFFFFF;
+	font-size: 11px;
+	padding: 2px 5px;
+	text-decoration: none;	
 }
 
 /* ============================== */

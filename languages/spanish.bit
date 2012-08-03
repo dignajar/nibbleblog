@@ -6,7 +6,7 @@
 
  Translation by username: diego
 
- Diego Najar
+ Diego Najar -
 
  Last update: 31/07/2012 - dd/mm/yyyy
 
@@ -149,5 +149,6 @@ $_LANG['INSERT_PICTURE'] = 'Insertar imagen';
 $_LANG['PERMALINK'] = 'Permalink';
 $_LANG['FRIENDLY_URLS'] = 'URLs amistosas';
 $_LANG['AUTHOR'] = 'Autor';
+$_LANG['READ_MORE'] = 'Siga leyendo';
 
 ?>

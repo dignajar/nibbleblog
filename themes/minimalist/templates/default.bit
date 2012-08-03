@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="<?php echo $settings['about'] ?>">
+
+	<title><?php echo LAYOUT_TITLE ?></title>
+
+	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'main.css?v='.$theme['version'] ?>" />
+
+	<script src="<?php echo JS_JQUERY ?>"></script>
+</head>
+<body>
+
+	<div id="container">
+
+		<header id="head">
+			<a class="name" href="<?php echo HTML_PATH_ROOT ?>">
+				<?php echo $settings['name'] ?>
+			</a>
+			<a class="slogan" href="<?php echo HTML_PATH_ROOT ?>">
+				<?php echo $settings['slogan'] ?>
+			</a>
+		</header>
+
+		<section id="main">
+			<div class="left">
+				<?php include(THEME_VIEWS . LAYOUT_VIEW); ?>
+			</div>
+			<div class="right">
+				<?php
+					foreach($plugins as $plugin)
+					{
+						echo '<div class="plugin">';
+							echo '<h2 class="title">'.$plugin->get_name().'</h2>';
+							echo $plugin->get_html();
+						echo '</div>';
+					}
+				?>
+			</div>
+		</section>
+
+		<footer id="foot">
+			<p><?php echo $settings['footer'] ?></p>
+		</footer>
+
+	</div>
+
+</body>
+</html>
