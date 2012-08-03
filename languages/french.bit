@@ -9,17 +9,16 @@
  * 							Meet me on Github <https://github.com/djiko>
  *
  * Compatible version: 3.1
- * Last update : 15 / 07 / 2012
+ * Last update : 03 / 08 / 2012
  *
  * Get more information: http://forum.nibbleblog.com
 */
 
 $_LANG['LAST_COMMENTS'] = 'Derniers commentaires';
-
 $_LANG['THEME'] = 'Thème';
 $_LANG['THEMES'] = 'Thèmes';
 $_LANG['CHANGE_THEME'] = 'Changer de thème';
-$_LANG['SELECT_THEME'] = 'Choisir un thème';
+$_LANG['SELECT_THEME'] = 'Choisissez un thème';
 $_LANG['SHORT_DESCRIPTION_OF_THE_BLOG_NO_MORE_THAN'] = 'Courte description du blog, pas plus de 150 caractères.';
 $_LANG['REMEMBER_ME'] = 'Se souvenir de moi';
 $_LANG['USERNAME'] = 'Nom d\'utilisateur';
@@ -83,7 +82,7 @@ $_LANG['AT_LEAST_ONE_CATEGORY'] = 'Cette catégorie ne peut pas être supprimée
 $_LANG['ARE_YOU_SURE'] = 'Êtes vous sûr ?';
 $_LANG['VIEW'] = 'Voir';
 $_LANG['EDIT'] = 'Éditer';
-$_LANG['TIMESTAMP_FORMAT'] = 'Format de fuseau horaire';
+$_LANG['TIMESTAMP_FORMAT'] = 'Format de date';
 $_LANG['SELECT_A_TIMEZONE_FOR_A_CORRECT_DATE_VISUALIZATION'] = 'Choisissez un fuseau horaire pour visualiser correctement les dates.';
 $_LANG['SELECT_A_FORMAT_FOR_DISPLAYING_THE_DATES'] = 'Choisissez le format d\'affichage des dates.';
 $_LANG['ABSOLUT_URL_ADDRESS_OF_YOUR_BLOG'] = 'Adresse URL absolue de votre blog. Par exemple http://www.domain.com/blog';
@@ -147,5 +146,11 @@ $_LANG['WELCOME_POST_LINE2'] = 'Pour modifier les paramètres vous devez vous re
 $_LANG['WELCOME_POST_LINE3'] = 'Si vous avez besoin d\'aide, rejoignez le forum du support ';
 $_LANG['WELCOME_POST_LINE4'] = 'Visitez Nibbleblog sur Facebook et si vous aimez, cliquez sur J\'aime';
 
-
+/* Translated 03/08/2012 */
+$_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = 'Copiez ce contenu dans le fichier ".htaccess". Ce fichier doit se trouver à la racine de votre domaine. Les modules de votre serveur doivent être chargés et configurés correctement pour utiliser cette option.';
+$_LANG['INSERT_PICTURE'] = 'Insérer une image';
+$_LANG['FRIENDLY_URLS'] = 'Jolies URLs';
+$_LANG['AUTHOR'] = 'Auteur';
+$_LANG['READ_MORE'] = 'En savoir plus';
+$_LANG['PERMALINK'] = 'Permalien';
 ?>
