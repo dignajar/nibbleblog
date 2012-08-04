@@ -4,6 +4,17 @@
 
 		include('includes/post_view.bit');
 
+		/*SHARE BUTTONS PLUGIN*/
+		if( include( PATH_PLUGINS.'share/plugin.bit') )
+		{
+			$share = new PLUGIN_SHARE();
+
+			if($share->init_db())
+			{
+				echo $share->get_html();
+			}
+		}
+
 		include('includes/comment_list.bit');
 
 		include('includes/comment_form.bit');
