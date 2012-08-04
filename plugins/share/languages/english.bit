@@ -1,0 +1,12 @@
+<?php
+
+$_PLUGIN_CONFIG = array(
+	'name'=>'Share Buttons',
+	'description'=>'Display share buttons for Google+, Twitter and Facebook on post page.',
+	'author'=>'Paulo Nunes',
+	'version'=>'1.0',
+	'url'=>'http://www.syndicate-fx.com',
+);
+
+
+?>

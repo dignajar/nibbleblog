@@ -1,0 +1,37 @@
+<?php
+
+class PLUGIN_SHARE extends PLUGIN
+{
+
+	public function get_html_config()
+	{
+		global $_HTML;
+		
+		$html  = '<p>Share your post on Google+, Twitter or Facebook - widget by <a href="http://sharethis.com" target="_blank">sharethis.com</a></p>';
+
+		return($html);
+	}
+
+
+	public function get_html()
+	{
+		global $_HTML;
+		$html  = '
+			<section class="share">
+			<span class="st_googleplus_hcount" displayText="Google +"></span>
+			<span class="st_twitter_hcount" displayText="Tweet"></span>
+			<span class="st_facebook_hcount" displayText="Facebook"></span>
+			</section>
+		';
+
+		$script = '
+			<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+			<script type="text/javascript">stLight.options({publisher: "ur-12ff6984-91bb-cbbd-a3d1-c9e1e70243d3"}); </script>
+		';
+
+		return($html.$script);
+	}
+
+}
+
+?>
