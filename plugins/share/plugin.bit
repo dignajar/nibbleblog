@@ -7,7 +7,7 @@ class PLUGIN_SHARE extends PLUGIN
 	{
 		global $_HTML;
 		
-		$html  = '<p>Share your post on Google+, Twitter or Facebook - widget by <a href="http://sharethis.com" target="_blank">sharethis.com</a></p>';
+		$html  = '<p>Share your post/page on Google+, Twitter or Facebook - widget by <a href="http://sharethis.com" target="_blank">sharethis.com</a></p>';
 
 		return($html);
 	}
