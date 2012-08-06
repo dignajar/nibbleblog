@@ -57,7 +57,7 @@ img:not(.captcha) {
 /* ============================== */
 #head {
 	overflow: auto;
-	margin: 30px 0;
+	margin-top: 40px;
 }
 
 #head	div.left {
@@ -90,6 +90,7 @@ img:not(.captcha) {
 div.plugin_twitter {
     background: url("img/twitter.png") no-repeat scroll 0 -5px transparent;
     padding-left: 50px;
+    min-height: 90px;
 }
 
 /* ============================== */

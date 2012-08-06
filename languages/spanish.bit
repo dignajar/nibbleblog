@@ -6,9 +6,9 @@
 
  Translation by username: diego
 
- Diego Najar -
+ Diego Najar
 
- Last update: 31/07/2012 - dd/mm/yyyy
+ Last update: 05/08/2012 - dd/mm/yyyy
 
  Get more information: http://forum.nibbleblog.com
 */
@@ -148,7 +148,8 @@ $_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = 'Copie el siguiente texto en el archiv
 $_LANG['INSERT_PICTURE'] = 'Insertar imagen';
 $_LANG['PERMALINK'] = 'Permalink';
 $_LANG['FRIENDLY_URLS'] = 'URLs amistosas';
+$_LANG['UPLOADING'] = 'Cargando';
+$_LANG['READ_MORE'] = 'Seguir leyendo';
 $_LANG['AUTHOR'] = 'Autor';
-$_LANG['READ_MORE'] = 'Siga leyendo';
 
 ?>

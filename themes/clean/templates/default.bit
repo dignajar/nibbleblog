@@ -11,9 +11,9 @@
 	<script src="<?php echo JS_JQUERY ?>"></script>
 
 	<?php
-		if( isset($plugins['analitycs']) )
+		if( isset($plugins['analytics']) )
 		{
-			echo $plugins['analitycs']->get_html();
+			echo $plugins['analytics']->get_html();
 		}
 	?>
 
