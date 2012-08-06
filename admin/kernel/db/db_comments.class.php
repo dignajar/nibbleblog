@@ -73,7 +73,14 @@ class DB_COMMENTS {
 			global $_DATE;
 			global $_NET;
 			global $_CRYPT;
-
+			global $_DB_POSTS;
+			
+			$post = $_DB_POSTS->get( array('id'=>$args['id_post']) );
+			if(!$post['allow_comments'])
+			{
+				return false;
+			}
+			
 			// Template
 			$xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
 			$xml .= '<comment>';

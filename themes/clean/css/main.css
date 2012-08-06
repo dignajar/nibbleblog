@@ -153,6 +153,18 @@ article.post	footer.info	span.date {
     padding-left: 22px;
 }
 
+article.post	p.read_more {
+	text-align: right;
+}
+
+article.post	a.read_more {
+	background: none repeat scroll 0 0 #3C6EB4;
+	color: #FFFFFF;
+	font-size: 11px;
+	padding: 2px 5px;
+	text-decoration: none;	
+}
+
 /* ============================== */
 /* COMMENT LIST */
 /* ============================== */

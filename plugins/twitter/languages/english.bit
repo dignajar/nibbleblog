@@ -5,7 +5,7 @@ $_PLUGIN_CONFIG = array(
 	'description'=>'Show the last 5 tweets of a user. Tweets must be public for this plugin to work properly.',
 	'author'=>'Diego Najar',
 	'version'=>'1.0',
-	'url'=>'http://www.nibbleblog.com',
+	'url'=>'http://www.nibbleblog.com'
 );
 
 

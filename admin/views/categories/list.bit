@@ -30,9 +30,9 @@
 			echo $_HTML->div_open( array('class'=>'form_block') );
 				echo $_HTML->input( array('name'=>$category['id'], 'type'=>'text', 'value'=>$category['name']) );
 
-				if($_DB_CAT->get_post_count($category['id']) == 0)
+				if($_DB_CATEGORIES->get_post_count($category['id']) == 0)
 					echo $_HTML->link( array('class'=>'js_button_delete button', 'data-flag'=>'0', 'data-id'=>$category['id'], 'content'=>$_LANG['DELETE']) );
-				elseif($_DB_CAT->get_count() == 1)
+				elseif($_DB_CATEGORIES->get_count() == 1)
 					echo $_HTML->div( array('class'=>'input_tip', 'content'=>$_LANG['AT_LEAST_ONE_CATEGORY']) );
 				else
 					echo $_HTML->div( array('class'=>'input_tip', 'content'=>$_LANG['CATEGORY_HAS_ONE_OR_MORE_POST']) );

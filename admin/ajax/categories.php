@@ -8,7 +8,7 @@ if( $_POST['action']=='delete' )
 {
 	$safe['id'] = $_POST['id'];
 
-	$error = !$_DB_CAT->delete($safe);
+	$error = !$_DB_CATEGORIES->delete($safe);
 }
 elseif( $_POST['action']=='set' )
 {
@@ -22,11 +22,11 @@ elseif( $_POST['action']=='set' )
 
 		if($_TEXT->not_empty($safe['name']))
 		{
-			$_DB_CAT->set($safe);
+			$_DB_CATEGORIES->set($safe);
 		}
 	}
 
-	$error = !$_DB_CAT->savetofile();
+	$error = !$_DB_CATEGORIES->savetofile();
 }
 
 if( $error )

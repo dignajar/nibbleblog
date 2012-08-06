@@ -1,0 +1,11 @@
+<?php
+
+$_PLUGIN_CONFIG = array(
+	'name'=>'Categorias',
+	'description'=>'Muestra las categorias ordenadas alfabeticamente.',
+	'author'=>'Diego Najar',
+	'version'=>'1.0',
+	'url'=>'http://www.nibbleblog.com'
+);
+
+?>

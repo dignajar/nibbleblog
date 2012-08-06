@@ -18,6 +18,7 @@ class PLUGIN {
 	public $author;
 	public $version;
 	public $url;
+	public $display;
 
 	public $db;
 
@@ -29,6 +30,8 @@ class PLUGIN {
 	{
 		$reflector = new ReflectionClass(get_class($this));
 		$this->dir_name = basename(dirname($reflector->getFileName()));
+
+		$this->display = true;
 	}
 
 	public function install()
@@ -115,6 +118,9 @@ class PLUGIN {
 		$this->author = $args['author'];
 		$this->version = $args['version'];
 		$this->url = $args['url'];
+
+		if(isset($args['display']))
+			$this->display = $args['display'];
 	}
 
 	public function get_name()
@@ -145,6 +151,11 @@ class PLUGIN {
 	public function get_dir_name()
 	{
 		return( $this->dir_name );
+	}
+
+	public function display()
+	{
+		return( $this->display );
 	}
 
 }

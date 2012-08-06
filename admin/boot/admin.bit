@@ -23,7 +23,7 @@
 	$settings = $_DB_SETTINGS->get();
 
 	// Categories
-	$categories = $_DB_CAT->get_all();
+	$categories = $_DB_CATEGORIES->get_all();
 
 // ============================================================================
 //	PLUGINS
@@ -37,7 +37,7 @@
 		include_once(PATH_PLUGINS.$dir_name.'/plugin.bit');
 		$class = 'PLUGIN_'.strtoupper($dir_name);
 		$_PLUGINS[$class] = new $class;
-		
+
 		// Language
 		if( @!include(PATH_PLUGINS.$dir_name.'/languages/'.$settings['language'].'.bit') )
 			include(PATH_PLUGINS.$dir_name.'/languages/english.bit');

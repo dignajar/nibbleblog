@@ -16,11 +16,9 @@
 
 		<header id="head">
 			<a class="name" href="<?php echo HTML_PATH_ROOT ?>">
-				<?php echo $settings['name'] ?>
+				<?php echo $settings['name'] ?> / <span class="slogan"><?php echo $settings['slogan'] ?></span>
 			</a>
-			<a class="slogan" href="<?php echo HTML_PATH_ROOT ?>">
-				<?php echo $settings['slogan'] ?>
-			</a>
+
 		</header>
 
 		<section id="main">
@@ -31,10 +29,17 @@
 				<?php
 					foreach($plugins as $plugin)
 					{
-						echo '<div class="plugin">';
-							echo '<h2 class="title">'.$plugin->get_name().'</h2>';
+						if($plugin->display())
+						{
+							echo '<div class="plugin">';
+								echo '<h3>'.$plugin->get_name().'</h2>';
+								echo $plugin->get_html();
+							echo '</div>';
+						}
+						else
+						{
 							echo $plugin->get_html();
-						echo '</div>';
+						}
 					}
 				?>
 			</div>

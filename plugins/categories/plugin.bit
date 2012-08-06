@@ -1,0 +1,35 @@
+<?php
+
+class PLUGIN_CATEGORIES extends PLUGIN
+{
+	function __construct()
+	{
+		parent::__construct();
+	}
+
+	public function get_html_config()
+	{
+		return('');
+	}
+
+	public function get_html()
+	{
+		global $_HTML;
+		global $categories;
+
+		$html = '';
+		$html .= $_HTML->div_open( array('class'=>'plugin_categories') );
+
+		foreach($categories as $category)
+		{
+			$html .= '<a class="category" href="">'.$category['name'].'</a>';
+		}
+
+		$html.= $_HTML->div_close();
+
+		return($html);
+	}
+
+}
+
+?>

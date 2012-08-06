@@ -10,8 +10,8 @@
 
 		if($_TEXT->not_empty($safe['name']))
 		{
-			$_DB_CAT->add($safe);
-			$_DB_CAT->savetofile();
+			$_DB_CATEGORIES->add($safe);
+			$_DB_CATEGORIES->savetofile();
 		}
 	}
 

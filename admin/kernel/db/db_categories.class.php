@@ -4,7 +4,7 @@
  * Nibbleblog -
  * http://www.nibbleblog.com
  * Author Diego Najar
- 
+
  * Last update: 15/07/2012
 
  * All Nibbleblog code is released under the GNU General Public License.
@@ -111,6 +111,7 @@ class DB_CATEGORIES {
 
 				array_push($tmp_array, $row);
 			}
+
 			return( $tmp_array );
 		}
 
@@ -126,50 +127,6 @@ class DB_CATEGORIES {
 			return( count($_FS->ls(PATH_POSTS, '*.'.$id.'.*.*.*.*.*.*.*.*', 'xml', false, false, false)) );
 		}
 
-
-		//
-		// ///////////////////// TAL VEZ NO SE USAN !!
-		//
-		public function exist($id)
-		{
-			return( $this->obj_xml->xpath('/categories/category[@id='.$id.']') != array() );
-		}
-
-		public function get($id)
-		{
-			$tmp_node = $this->obj_xml->xpath('/categories/category[@id="'.$id.'"]');
-			$tmp_array = array();
-
-			if( $tmp_node != array() )
-			{
-				$tmp_array['id'] 				= $id;
-				$tmp_array['name'] 			= (string) utf8_decode($tmp_node[0]->attributes()->name);
-				$tmp_array['description']	= (string) utf8_decode($tmp_node[0]->description);
-			}
-			else
-			{
-				$this->flag_error = true;
-				$this->flag_i18n = 'CATEGORY_NOT_FOUND';
-			}
-
-			return( $tmp_array );
-		}
-
-		public function get_id($name)
-		{
-			$tmp_node = $this->obj_xml->xpath('/categories/category[@name="'.utf8_encode($name).'"]');
-
-			if( $tmp_node != array() )
-			{
-				return( (int) $tmp_node[0]->attributes()->id );
-			}
-			else
-			{
-				$this->flag_error = true;
-				$this->flag_i18n = 'CATEGORY_NOT_FOUND';
-				return(-1);
-			}
-		}
 
 /*
 ======================================================================================

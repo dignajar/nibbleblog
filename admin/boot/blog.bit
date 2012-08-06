@@ -17,6 +17,9 @@
 	// Settings
 	$settings = $_DB_SETTINGS->get();
 
+	// Categories
+	$categories = $_DB_CATEGORIES->get_all();
+
 	// Posts
 	$posts = $_DB_POST->get_list_by_page( array('page'=>$_URL['page'], 'amount'=>$settings['items_page']) );
 
@@ -68,29 +71,30 @@
 	{
 		include_once(PATH_PLUGINS.$dir_name.'/plugin.bit');
 		$class = 'PLUGIN_'.strtoupper($dir_name);
-		$plugins[$class] = new $class;
+		$plugins[$dir_name] = new $class;
 
-		if($plugins[$class]->is_installed())
+		if($plugins[$dir_name]->is_installed())
 		{
 			// Language
 			if( @!include(PATH_PLUGINS.$dir_name.'/languages/'.$settings['language'].'.bit') )
 				include(PATH_PLUGINS.$dir_name.'/languages/english.bit');
 
-			$plugins[$class]->set_attributes(
+			$plugins[$dir_name]->set_attributes(
 			array(
 				'name'=>$_PLUGIN_CONFIG['name'],
 				'description'=>$_PLUGIN_CONFIG['description'],
 				'author'=>$_PLUGIN_CONFIG['author'],
 				'version'=>$_PLUGIN_CONFIG['version'],
-				'url'=>$_PLUGIN_CONFIG['url']
+				'url'=>$_PLUGIN_CONFIG['url'],
+				'display'=>$_PLUGIN_CONFIG['display']
 			));
 
 			// Init DB
-			$plugins[$class]->init_db();
+			$plugins[$dir_name]->init_db();
 		}
 		else
 		{
-			unset($plugins[$class]);
+			unset($plugins[$dir_name]);
 		}
 	}
 
@@ -99,14 +103,16 @@
 // ============================================================================
 	if( !isset($_SESSION['nibbleblog']) )
 	{
-		$_SESSION['nibbleblog'] = array('error'=>false, 'alert'=>'', 'captcha'=>'', 'comment_name'=>'', 'comment_email'=>'', 'comment_content'=>'');
+		$_SESSION['nibbleblog'] = array('error'=>false, 'id_post'=>$_URL['id_post'], 'alert'=>'', 'captcha'=>'', 'comment_name'=>'', 'comment_email'=>'', 'comment_content'=>'');
 	}
-	elseif($_SESSION['nibbleblog']['error']==false)
+	elseif(($_SESSION['nibbleblog']['error']==false) or ($_SESSION['nibbleblog']['id_post']!=$_URL['id_post']) )
 	{
+		$_SESSION['nibbleblog']['error'] = false;
 		$_SESSION['nibbleblog']['alert'] = '';
 		$_SESSION['nibbleblog']['comment_name'] = '';
 		$_SESSION['nibbleblog']['comment_email'] = '';
 		$_SESSION['nibbleblog']['comment_content'] = '';
+		$_SESSION['nibbleblog']['id_post'] = $_URL['id_post'];
 	}
 
 // ============================================================================

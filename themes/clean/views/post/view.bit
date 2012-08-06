@@ -4,9 +4,12 @@
 
 		include('includes/post_view.bit');
 
-		include('includes/comment_list.bit');
+		if($post['allow_comments'])
+		{
+			include('includes/comment_list.bit');
 
-		include('includes/comment_form.bit');
+			include('includes/comment_form.bit');
+		}
 
 	echo '</article>';
 

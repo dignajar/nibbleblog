@@ -11,16 +11,12 @@
 	<script src="<?php echo JS_JQUERY ?>"></script>
 
 	<?php
-		if( include( PATH_PLUGINS.'analytics/plugin.bit') )
+		if( isset($plugins['analitycs']) )
 		{
-			$analytics = new PLUGIN_ANALYTICS();
-
-			if($analytics->init_db())
-			{
-				echo $analytics->get_html();
-			}
+			echo $plugins['analitycs']->get_html();
 		}
 	?>
+
 </head>
 <body>
 
@@ -39,14 +35,9 @@
 
 			<div class="right">
 				<?php
-					if( include( PATH_PLUGINS.'twitter/plugin.bit') )
+					if( isset($plugins['twitter']) )
 					{
-						$twitter = new PLUGIN_TWITTER();
-
-						if($twitter->init_db())
-						{
-							echo $twitter->get_html();
-						}
+						echo $plugins['twitter']->get_html();
 					}
 				?>
 			</div>

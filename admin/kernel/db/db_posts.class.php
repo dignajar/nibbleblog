@@ -344,10 +344,10 @@ class DB_POSTS {
 
 			$tmp_array['filename']			= (string) $file;
 
-			$tmp_array['id']					= (int) $file_info[0];
-			$tmp_array['id_cat']				= (int) $file_info[1];
+			$tmp_array['id']				= (int) $file_info[0];
+			$tmp_array['id_cat']			= (int) $file_info[1];
 			$tmp_array['id_user']			= (int) $file_info[2];
-			$tmp_array['visits']				= (int) $obj_xml->getChild('visits');
+			$tmp_array['visits']			= (int) $obj_xml->getChild('visits');
 
 			$tmp_array['type']				= (string) $obj_xml->getChild('type');
 			$tmp_array['title']				= (string) $obj_xml->getChild('title');
@@ -355,7 +355,7 @@ class DB_POSTS {
 			$tmp_array['mod_date']			= (string) $obj_xml->getChild('mod_date');
 
 			$tmp_array['allow_comments']	= (bool) ((int)$obj_xml->getChild('allow_comments'))==1;
-			$tmp_array['sticky']				= (bool) $this->is_sticky($file_info[0]);
+			$tmp_array['sticky']			= (bool) $this->is_sticky($file_info[0]);
 
 			// CONTENT
 			$tmp_array['content']			= (string) $content;

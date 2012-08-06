@@ -6,6 +6,7 @@ $_PLUGIN_CONFIG = array(
 	'author'=>'Diego Najar',
 	'version'=>'1.0',
 	'url'=>'http://www.nibbleblog.com',
+	'display'=>false
 );
 
 ?>

@@ -4,7 +4,7 @@
 /* ============================== */
 
 body {
-	font-family: "Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
 	background-color: #FEFEFE;
 	margin: 0;
 	padding: 0;
@@ -18,12 +18,16 @@ body {
 }
 
 a {
-	color: #3C6EB4;
+	color: #3399CC;
 	cursor: pointer;
+	text-decoration: none;
+	padding: 2px 4px;
 }
 
 a:hover {
-	text-decoration: underline;
+	color: #fff;
+	background: #3399CC;
+	padding: 2px 4px;
 }
 
 pre {
@@ -58,6 +62,8 @@ img:not(.captcha) {
 #head {
 	overflow: auto;
 	margin: 30px 0;
+	border-bottom: 2px dashed #D6D9DD;
+	padding-bottom: 20px;
 }
 
 #head	a.name {
@@ -68,11 +74,14 @@ img:not(.captcha) {
 	font-weight: bold;
 }
 
-#head	a.slogan {
+#head	span.slogan {
 	font-size: 22px;
-	color: #616161;
+	color: #D6D9DD;
 	text-decoration: none;
-	display: block;
+}
+
+#head	a.name:hover {
+	background: #fff;
 }
 
 /* ============================== */
@@ -84,7 +93,7 @@ img:not(.captcha) {
 }
 
 #main	.left {
-	border-right: 1px solid #CCCCCC;
+	border-right: 1px solid #f1f1f1;
 	float: left;
 	padding-right: 40px;
 	width: 720px;
@@ -131,12 +140,13 @@ article.post	header {
 
 article.post	h2.title {
 	margin: 0;
-	border-bottom: 1px dotted #ccc;
 	width: 80%;
+	font-size:28px;
+	font-weight: normal;
 }
 
 article.post 	blockquote {
-    border-left: 4px solid #BDEE70;
+    border-left: 4px solid #339900;
     font-size: 28px;
     margin: 0;
     padding-left: 15px;
@@ -161,11 +171,11 @@ article.post	p.read_more {
 }
 
 article.post	a.read_more {
-	background: none repeat scroll 0 0 #3C6EB4;
+	background: #3399CC;
 	color: #FFFFFF;
 	font-size: 11px;
 	padding: 2px 5px;
-	text-decoration: none;	
+	text-decoration: none;
 }
 
 /* ============================== */
@@ -248,4 +258,34 @@ article.post	a.read_more {
 	display: block;
 	clear: left;
 	padding: 3px 8px;
+}
+
+/* ============================== */
+/* PLUGINS */
+/* ============================== */
+div.plugin {
+	margin-bottom: 40px;
+	overflow:auto;
+}
+
+div.plugin	h3 {
+    border-bottom: 3px solid #CC0000;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 24px;
+    padding: 10px 0 15px;
+}
+
+div.plugin	div.plugin_twitter {
+	min-height:140px;
+}
+
+div.plugin	div.plugin_categories {
+
+}
+
+div.plugin	div.plugin_categories	a {
+	margin: 8px 8px 8px 0;
+	font-size: 16px;
+	float:left;
 }
