@@ -20,10 +20,12 @@ class PLUGIN_CATEGORIES extends PLUGIN
 		$html = '';
 		$html .= $_HTML->div_open( array('class'=>'plugin_categories') );
 
+		$html .= '<ul>';
 		foreach($categories as $category)
 		{
-			$html .= '<a class="category" href="">'.$category['name'].'</a>';
+			$html .= '<li><a class="category" href="">'.$category['name'].'</a></li>';
 		}
+		$html .= '</ul>';
 
 		$html.= $_HTML->div_close();
 
