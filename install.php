@@ -4,7 +4,7 @@
  * Nibbleblog -
  * http://www.nibbleblog.com
  * Author Diego Najar
- 
+
  * Last update: 15/07/2012
 
  * All Nibbleblog code is released under the GNU General Public License.
@@ -187,7 +187,7 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		$content .= '<p>'.$_LANG['WELCOME_POST_LINE2'].'  <a href="./admin.php">'.$blog_address.$blog_base_path.'admin.php</a></p>';
 		$content .= '<p>'.$_LANG['WELCOME_POST_LINE3'].'  <a target="_blank" href="http://forum.nibbleblog.com">http://forum.nibbleblog.com</a></p>';
 		$content .= '<p>'.$_LANG['WELCOME_POST_LINE4'].'  <a target="_blank" href="http://www.facebook.com/nibbleblog">https://www.facebook.com/nibbleblog</a></p>';
-		$_DB_POST = new DB_POSTS( FILE_XML_POST );
+		$_DB_POST = new DB_POSTS(FILE_XML_POST, null);
 		$_DB_POST->add( array('id_user'=>0, 'id_cat'=>0, 'type'=>'simple', 'title'=>$_LANG['WELCOME_POST_TITLE'], 'content'=>$content, 'allow_comments'=>'1', 'sticky'=>'0') );
 
 		$installation_complete = true;
@@ -303,7 +303,7 @@ footer {
 		<header>
 			<a class="lang" href="./install.php?language=spanish">Spanish</a>
 			<a class="lang" href="./install.php?language=english">English</a>
-			
+
 			<?php echo $_HTML->h1( array('content'=>$_LANG['WELCOME_TO_NIBBLEBLOG']) ); ?>
 		</header>
 
@@ -424,7 +424,7 @@ footer {
 		</section>
 
 		<footer>
-			<p><a href="http://nibbleblog.com">Nibbleblog 3.1 "Flor"</a> | Copyright (2009 - 2012) + GPL v3 | Developed by Diego Najar | <?php echo $_HTML->link( array('content'=>$_LANG['EXPERT_MODE'], 'href'=>'./install.php?expert=true&language='.$_GET['language']) ) ?></p>
+			<p><a href="http://nibbleblog.com">Nibbleblog 3.2 ""</a> | Copyright (2009 - 2012) + GPL v3 | Developed by Diego Najar | <?php echo $_HTML->link( array('content'=>$_LANG['EXPERT_MODE'], 'href'=>'./install.php?expert=true&language='.$_GET['language']) ) ?></p>
 		</footer>
 
 	</div>

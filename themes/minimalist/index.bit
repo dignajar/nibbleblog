@@ -17,6 +17,7 @@ elseif($_URL['controller'] === 'comment')
 	}
 }
 
+
 // Default controller and View
 if(!defined('LAYOUT_CONTROLLER') && !defined('LAYOUT_VIEW'))
 {

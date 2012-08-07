@@ -1,0 +1,1 @@
+<?php $_USER[0]["uid"] = "0"; $_USER[0]["username"] = "admin"; $_USER[0]["password"] = "3730c25b61bd160dc588a6969c2aa5da86f08741"; $_USER[0]["salt"] = "^lmd42w7bls"; $_USER[0]["email"] = ""; ?>

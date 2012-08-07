@@ -4,7 +4,7 @@
  * Nibbleblog -
  * http://www.nibbleblog.com
  * Author Diego Najar
- 
+
  * Last update: 15/07/2012
 
  * All Nibbleblog code is released under the GNU General Public License.
@@ -231,6 +231,15 @@ class DB_POSTS {
 				return( array() );
 		}
 
+		public function get_list_by_category($args)
+		{
+			$this->set_files_by_category($args['id_cat']);
+
+			if($this->files_count > 0)
+				return( $this->get_list_by($args['page'], $args['amount']) );
+			else
+				return( array() );
+		}
 
 		public function get_list_by_sticky()
 		{
@@ -242,16 +251,6 @@ class DB_POSTS {
 			}
 
 			return( $tmp_array );
-		}
-
-		public function get_list_by_category($page_number, $post_per_page, $id_cat)
-		{
-			$this->set_files_by_category($id_cat);
-
-			if($this->files_count > 0)
-				return( $this->get_list_by($page_number, $post_per_page) );
-			else
-				return( array() );
 		}
 
 
@@ -332,7 +331,7 @@ class DB_POSTS {
 		private function get_items($file)
 		{
 			global $_TEXT;
-			
+
 			$obj_xml = new NBXML(PATH_POSTS . $file, 0, TRUE, '', FALSE);
 
 			$file_info = explode('.', $file);
@@ -361,7 +360,7 @@ class DB_POSTS {
 			$tmp_array['content']			= (string) $content;
 
 			$tmp_array['content_part0'] = $tmp_content[0];
-			
+
 			if( isset($tmp_content[1]) )
 			{
 				$tmp_array['content_part1'] = $tmp_content[1];
@@ -390,13 +389,13 @@ class DB_POSTS {
 					$slug = $tmp_array['type'];
 				}
 
-				$tmp_array['permalink'] = HTML_PATH_ROOT.'post/'.$tmp_array['id'].'/'.$slug;
+				$tmp_array['permalink'] = HTML_PATH_ROOT.'post-'.$tmp_array['id'].'/'.$slug;
 			}
 			else
 			{
-				$tmp_array['permalink'] = HTML_PATH_ROOT.'index.php?controller=post&amp;action=view&amp;id_post='.$tmp_array['id'];
+				$tmp_array['permalink'] = HTML_PATH_ROOT.'index.php?controller=post&action=view&id_post='.$tmp_array['id'];
 			}
-		
+
 			return( $tmp_array );
 		}
 

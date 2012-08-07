@@ -54,7 +54,7 @@ class DB_CATEGORIES {
 
 		public function add($args)
 		{
-			$tmp_node = $this->obj_xml->xpath('/categories/category[@name="'.$args['name'].'"]');
+			$tmp_node = $this->obj_xml->xpath('/categories/category[@name="'.utf8_encode($args['name']).'"]');
 
 			if( $tmp_node == array() )
 			{
@@ -105,9 +105,9 @@ class DB_CATEGORIES {
 			$tmp_array = array();
 			foreach( $this->obj_xml->children() as $children )
 			{
-				$row					= array();
-				$row['id']				= (int) $children->attributes()->id;
-				$row['name']			= (string) utf8_decode($children->attributes()->name);
+				$row			= array();
+				$row['id']		= (int) $children->attributes()->id;
+				$row['name']	= (string) utf8_decode($children->attributes()->name);
 
 				array_push($tmp_array, $row);
 			}
@@ -127,6 +127,17 @@ class DB_CATEGORIES {
 			return( count($_FS->ls(PATH_POSTS, '*.'.$id.'.*.*.*.*.*.*.*.*', 'xml', false, false, false)) );
 		}
 
+		public function get_id($args)
+		{
+			$tmp_node = $this->obj_xml->xpath('/categories/category[@name="'.utf8_encode($args['name']).'"]');
+
+			if( $tmp_node != array() )
+			{
+				return( (int) $tmp_node[0]->attributes()->id );
+			}
+
+			return false;
+		}
 
 /*
 ======================================================================================

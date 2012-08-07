@@ -20,8 +20,18 @@
 	// Categories
 	$categories = $_DB_CATEGORIES->get_all();
 
-	// Posts
-	$posts = $_DB_POST->get_list_by_page( array('page'=>$_URL['page'], 'amount'=>$settings['items_page']) );
+	if($_URL['category']!=null)
+	{
+		$id_cat = $_DB_CATEGORIES->get_id( array('name'=>$_URL['category']) );
+
+		// Posts by category
+		$posts = $_DB_POST->get_list_by_category( array('page'=>$_URL['page'], 'amount'=>$settings['items_page'], 'id_cat'=>$id_cat) );
+	}
+	else
+	{
+		// Posts by page
+		$posts = $_DB_POST->get_list_by_page( array('page'=>$_URL['page'], 'amount'=>$settings['items_page']) );
+	}
 
 	// Post to view
 	if($_URL['id_post']!=null)
@@ -86,7 +96,7 @@
 				'author'=>$_PLUGIN_CONFIG['author'],
 				'version'=>$_PLUGIN_CONFIG['version'],
 				'url'=>$_PLUGIN_CONFIG['url'],
-				'display'=>$_PLUGIN_CONFIG['display']
+				'display'=>isset($_PLUGIN_CONFIG['display'])?false:true
 			));
 
 			// Init DB
@@ -142,11 +152,5 @@
 
 	define('HTML_THEME_ROOT',		HTML_PATH_THEMES . $settings['theme'] . '/');
 	define('HTML_THEME_CSS',		HTML_THEME_ROOT.'css/');
-
-// ============================================================================
-//	DEBUG
-// ============================================================================
-	//error_reporting(0);
-
 
 ?>

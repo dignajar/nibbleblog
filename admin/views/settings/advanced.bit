@@ -53,7 +53,7 @@
 
 		// FRIENDLY URL
 		echo $_HTML->separator( array('content'=>$_LANG['FRIENDLY_URLS']) );
-	
+
 		echo $_HTML->div_open( array('class'=>'form_block'));
 			echo $_HTML->checkbox( array('id'=>'js_friendly_urls', 'name'=>'friendly_urls', 'class'=>'float'), $settings['friendly_urls'] );
 			echo $_HTML->label( array('content'=>$_LANG['ENABLE_FRIENDLY_URLS'], 'class'=>'for_checkbox', 'for'=>'js_friendly_urls') );
@@ -66,10 +66,10 @@ RewriteEngine on
 RewriteBase '.$settings['path'].'
 RewriteRule ^dashboard$ admin.php?controller=user&action=login [L]
 RewriteRule ^page-([0-9]+)$ index.php?controller=blog&action=view&page=$1 [L]
-RewriteRule ^post/([0-9]+)/([^/]+)$ index.php?controller=post&action=view&id_post=$1 [L]
+RewriteRule ^post-([0-9]+)/([^/]+)$ index.php?controller=post&action=view&id_post=$1 [L]
 ') );
 		echo $_HTML->div_close();
-		
+
 	echo $_HTML->form_close();
 
 ?>
