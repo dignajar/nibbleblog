@@ -148,6 +148,7 @@ $_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = 'Copy this content on the file ".htacc
 $_LANG['INSERT_PICTURE'] = 'Insert picture';
 $_LANG['PERMALINK'] = 'Permalink';
 $_LANG['FRIENDLY_URLS'] = 'Friendly URLs';
+$_LANG['UPLOADING'] = 'Uploading';
 $_LANG['AUTHOR'] = 'Author';
 $_LANG['READ_MORE'] = 'Read more';
 

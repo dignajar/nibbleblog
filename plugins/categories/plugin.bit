@@ -16,16 +16,23 @@ class PLUGIN_CATEGORIES extends PLUGIN
 	{
 		global $_HTML;
 		global $categories;
+		global $settings;
 
-		$html = '';
-		$html .= $_HTML->div_open( array('class'=>'plugin_categories') );
+		$html = $_HTML->div_open( array('class'=>'plugin_categories') );
 
-		$html .= '<ul>';
 		foreach($categories as $category)
 		{
-			$html .= '<li><a class="category" href="">'.$category['name'].'</a></li>';
+			if($settings['friendly_urls'])
+			{
+				$href = HTML_PATH_ROOT.'category/'.$category['name'].'/';
+			}
+			else
+			{
+				$href = HTML_PATH_ROOT.'index.php?controller=blog&action=view&category='.$category['name'];
+			}
+
+			$html .= '<a class="category" href="'.$href.'">'.$category['name'].'</a>';
 		}
-		$html .= '</ul>';
 
 		$html.= $_HTML->div_close();
 

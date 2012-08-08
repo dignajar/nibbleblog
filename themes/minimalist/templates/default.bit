@@ -32,7 +32,7 @@
 						if($plugin->display())
 						{
 							echo '<div class="plugin">';
-								echo '<h3>'.$plugin->get_name().'</h2>';
+								echo '<h3>'.$plugin->get_name().'</h3>';
 								echo $plugin->get_html();
 							echo '</div>';
 						}

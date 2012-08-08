@@ -4,7 +4,7 @@
  * Nibbleblog -
  * http://www.nibbleblog.com
  * Author Diego Najar
- 
+
  * Last update: 15/07/2012
 
  * All Nibbleblog code is released under the GNU General Public License.
@@ -73,14 +73,7 @@ class DB_COMMENTS {
 			global $_DATE;
 			global $_NET;
 			global $_CRYPT;
-			global $_DB_POSTS;
-			
-			$post = $_DB_POSTS->get( array('id'=>$args['id_post']) );
-			if(!$post['allow_comments'])
-			{
-				return false;
-			}
-			
+
 			// Template
 			$xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
 			$xml .= '<comment>';
