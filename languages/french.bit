@@ -5,11 +5,10 @@
  * http://www.nibbleblog.com
  *
  * French translation by
- *							Gilles Coulais <aka Djiko>
- * 							Meet me on Github <https://github.com/djiko>
+ *		Gilles Coulais <aka Djiko> <https://github.com/djiko>
  *
  * Compatible version: 3.1
- * Last update : 03 / 08 / 2012
+ * Last update : 11 / 08 / 2012
  *
  * Get more information: http://forum.nibbleblog.com
 */
@@ -145,12 +144,13 @@ $_LANG['WELCOME_POST_LINE1'] = 'Félicitations, votre blog est installé et prê
 $_LANG['WELCOME_POST_LINE2'] = 'Pour modifier les paramètres vous devez vous rendre dans le panneau de contrôle de l\'administrateur ';
 $_LANG['WELCOME_POST_LINE3'] = 'Si vous avez besoin d\'aide, rejoignez le forum du support ';
 $_LANG['WELCOME_POST_LINE4'] = 'Visitez Nibbleblog sur Facebook et si vous aimez, cliquez sur J\'aime';
-
-/* Translated 03/08/2012 */
+$_LANG['ENABLE_FRIENDLY_URLS'] = 'Activer les jolies URLs';
 $_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = 'Copiez ce contenu dans le fichier ".htaccess". Ce fichier doit se trouver à la racine de votre domaine. Les modules de votre serveur doivent être chargés et configurés correctement pour utiliser cette option.';
 $_LANG['INSERT_PICTURE'] = 'Insérer une image';
+$_LANG['PERMALINK'] = 'Permalien';
 $_LANG['FRIENDLY_URLS'] = 'Jolies URLs';
+$_LANG['UPLOADING'] = 'Transfert en cours';
 $_LANG['AUTHOR'] = 'Auteur';
 $_LANG['READ_MORE'] = 'En savoir plus';
-$_LANG['PERMALINK'] = 'Permalien';
+
 ?>

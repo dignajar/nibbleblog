@@ -49,13 +49,29 @@
 
 	if($settings['friendly_urls'])
 	{
-		$href_older = HTML_PATH_ROOT.'page-'.$pager_next;
-		$href_newer = HTML_PATH_ROOT.'page-'.$pager_prev;
+		if($_URL['category']!=null)
+		{
+			$href_older = HTML_PATH_ROOT.'category/'.$_URL['category'].'/page-'.$pager_next;
+			$href_newer = HTML_PATH_ROOT.'category/'.$_URL['category'].'/page-'.$pager_prev;
+		}
+		else
+		{
+			$href_older = HTML_PATH_ROOT.'page-'.$pager_next;
+			$href_newer = HTML_PATH_ROOT.'page-'.$pager_prev;
+		}
 	}
 	else
 	{
-		$href_older = HTML_PATH_ROOT.'index.php?controller=blog&amp;action=view&amp;page='.$pager_next;
-		$href_newer = HTML_PATH_ROOT.'index.php?controller=blog&amp;action=view&amp;page='.$pager_prev;
+		if($_URL['category']!=null)
+		{
+			$href_older = HTML_PATH_ROOT.'index.php?controller=blog&action=view&category='.$_URL['category'].'&page='.$pager_next;
+			$href_newer = HTML_PATH_ROOT.'index.php?controller=blog&action=view&category='.$_URL['category'].'&page='.$pager_prev;
+		}
+		else
+		{
+			$href_older = HTML_PATH_ROOT.'index.php?controller=blog&action=view&page='.$pager_next;
+			$href_newer = HTML_PATH_ROOT.'index.php?controller=blog&action=view&page='.$pager_prev;
+		}
 	}
 
 	$show_older = (ceil($_DB_POST->get_count() / $settings['items_page']) - 1) > $_URL['page'];

@@ -28,10 +28,12 @@
 
 	// Pager
 	echo $_HTML->div_open( array('class'=>'pager') );
+		echo $_HTML->span(array('content'=>'<'));
 		for( $i=0; $i<$total_pages; $i++ )
 		{
 			echo $_HTML->link( array('content'=>$i, 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=list&amp;page='.$i) );
 		}
+		echo $_HTML->span(array('content'=>'>'));
 	echo $_HTML->div_close();
 ?>
 

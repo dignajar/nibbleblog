@@ -2,27 +2,32 @@
 
 class PLUGIN_CATEGORIES extends PLUGIN
 {
-	function __construct()
-	{
-		parent::__construct();
-	}
-
 	public function get_html_config()
 	{
-		return('');
+		global $_LANG;
+		return('<p>'.$_LANG['THE_PLUGIN_IS_INSTALLED_CORRECTLY'].'</p>');
 	}
 
 	public function get_html()
 	{
 		global $_HTML;
 		global $categories;
+		global $settings;
 
-		$html = '';
-		$html .= $_HTML->div_open( array('class'=>'plugin_categories') );
+		$html = $_HTML->div_open( array('class'=>'plugin_categories') );
 
 		foreach($categories as $category)
 		{
-			$html .= '<a class="category" href="">'.$category['name'].'</a>';
+			if($settings['friendly_urls'])
+			{
+				$href = HTML_PATH_ROOT.'category/'.$category['name'].'/';
+			}
+			else
+			{
+				$href = HTML_PATH_ROOT.'index.php?controller=blog&action=view&category='.$category['name'];
+			}
+
+			$html .= '<a class="category" href="'.$href.'">'.$category['name'].'</a>';
 		}
 
 		$html.= $_HTML->div_close();
@@ -33,3 +38,4 @@ class PLUGIN_CATEGORIES extends PLUGIN
 }
 
 ?>
+

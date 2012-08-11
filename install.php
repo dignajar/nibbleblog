@@ -301,9 +301,13 @@ footer {
 	<div id="container">
 
 		<header>
-			<a class="lang" href="./install.php?language=spanish">Spanish</a>
-			<a class="lang" href="./install.php?language=english">English</a>
-
+			<?php
+			if(!$installation_complete)
+			{
+				echo '<a class="lang" href="./install.php?language=spanish">Spanish</a>';
+				echo '<a class="lang" href="./install.php?language=english">English</a>';
+			}
+			?>
 			<?php echo $_HTML->h1( array('content'=>$_LANG['WELCOME_TO_NIBBLEBLOG']) ); ?>
 		</header>
 
@@ -424,7 +428,7 @@ footer {
 		</section>
 
 		<footer>
-			<p><a href="http://nibbleblog.com">Nibbleblog 3.2 ""</a> | Copyright (2009 - 2012) + GPL v3 | Developed by Diego Najar | <?php echo $_HTML->link( array('content'=>$_LANG['EXPERT_MODE'], 'href'=>'./install.php?expert=true&language='.$_GET['language']) ) ?></p>
+			<p><a href="http://nibbleblog.com">Nibbleblog 3.2 "Friend"</a> | Copyright (2009 - 2012) + GPL v3 | Developed by Diego Najar | <?php echo $_HTML->link( array('content'=>$_LANG['EXPERT_MODE'], 'href'=>'./install.php?expert=true&language='.$_GET['language']) ) ?></p>
 		</footer>
 
 	</div>

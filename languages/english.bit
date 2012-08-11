@@ -6,9 +6,10 @@
 
  Translation by username: diego
 
- Diego Najar -
+ Diego Najar
+ http://muser.com.ar
 
- Last update: 31/07/2012 - dd/mm/yyyy
+ Last update: 11/08/2012 - dd/mm/yyyy
 
  Get more information: http://forum.nibbleblog.com
 */
@@ -150,5 +151,6 @@ $_LANG['PERMALINK'] = 'Permalink';
 $_LANG['FRIENDLY_URLS'] = 'Friendly URLs';
 $_LANG['AUTHOR'] = 'Author';
 $_LANG['READ_MORE'] = 'Read more';
+$_LANG['THE_PLUGIN_IS_INSTALLED_CORRECTLY'] = 'The plugin is installed correctly. If the theme supports it will appear on your blog.';
 
 ?>

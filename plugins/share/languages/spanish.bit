@@ -2,7 +2,7 @@
 
 $_PLUGIN_CONFIG = array(
 	'name'=>'Share',
-	'description'=>'Display share buttons for Google+, Twitter and Facebook.',
+	'description'=>'Comparta en Google+, Twitter and Facebook sus posts o blog.',
 	'author'=>'Paulo Nunes',
 	'version'=>'1.0',
 	'url'=>'http://www.syndicate-fx.com',
