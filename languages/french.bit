@@ -8,7 +8,8 @@
  *		Gilles Coulais <aka Djiko> <https://github.com/djiko>
  *
  * Compatible version: 3.1
- * Last update : 11 / 08 / 2012
+ * 
+ * Last update : 14 / 08 / 2012
  *
  * Get more information: http://forum.nibbleblog.com
 */
@@ -23,7 +24,6 @@ $_LANG['REMEMBER_ME'] = 'Se souvenir de moi';
 $_LANG['USERNAME'] = 'Nom d\'utilisateur';
 $_LANG['PASSWORD'] = 'Mot de passe';
 $_LANG['COMMENTS'] = 'Commentaires';
-$_LANG['COMMENT'] = 'Commentaire';
 $_LANG['INVALID_CAPTCHA'] = 'Captcha invalide';
 $_LANG['NAME'] = 'Nom';
 $_LANG['EMAIL'] = 'Courriel';
@@ -150,7 +150,8 @@ $_LANG['INSERT_PICTURE'] = 'Insérer une image';
 $_LANG['PERMALINK'] = 'Permalien';
 $_LANG['FRIENDLY_URLS'] = 'Jolies URLs';
 $_LANG['UPLOADING'] = 'Transfert en cours';
-$_LANG['AUTHOR'] = 'Auteur';
 $_LANG['READ_MORE'] = 'En savoir plus';
+$_LANG['AUTHOR'] = 'Auteur';
+$_LANG['THE_PLUGIN_IS_INSTALLED_CORRECTLY'] = 'Le module complémentaire a été correctement installé. Si votre thème le supporte, il apparaîtra sur votre blog.';
 
 ?>
