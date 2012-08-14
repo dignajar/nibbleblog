@@ -2,9 +2,6 @@
 
 	echo $_HTML->form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
-		// TOKEN
-		echo $_HTML->input( array('name'=>'token', 'type'=>'hidden', 'value'=>$_LOGIN->get_token()) );
-
 		// QUOTE
 		echo $_HTML->div_open( array('class'=>'form_block') );
 			echo $_HTML->textarea( array('id'=>'js_quote', 'name'=>'quote', 'content'=>$post_edit['quote'], 'placeholder'=>$_LANG['ENTER_QUOTE_HERE']) );

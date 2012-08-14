@@ -5,9 +5,6 @@
 
 	echo $_HTML->form_open( array('id'=>'js_form_add', 'name'=>'form', 'method'=>'post') );
 
-		// TOKEN
-		echo $_HTML->input( array('name'=>'token', 'type'=>'hidden', 'value'=>$_LOGIN->get_token()) );
-
 		// NAME
 		echo $_HTML->div_open( array('class'=>'form_block') );
 			echo $_HTML->input( array('id'=>'js_name', 'name'=>'name', 'type'=>'text', 'placeholder'=>$_LANG['ENTER_THE_NAME_OF_THE_NEW_CATEGORY']) );

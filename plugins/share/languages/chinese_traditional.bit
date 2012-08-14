@@ -1,0 +1,22 @@
+<?php
+
+/*
+ * Nibbleblog -
+ * http://www.nibbleblog.com
+ *
+ * Chinese_Traditional translation by Ethan
+ * http://ethan42411.twbbs.org
+ *
+ * Get more information: http://forum.nibbleblog.com
+*/
+
+$_PLUGIN_CONFIG = array(
+	'name'=>'分享',
+	'description'=>'顯示分享按鈕來分享至 Google+, Twitter and Facebook.',
+	'author'=>'Paulo Nunes',
+	'version'=>'1.0',
+	'url'=>'http://www.syndicate-fx.com',
+);
+
+
+?>

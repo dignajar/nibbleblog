@@ -149,8 +149,9 @@ $_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = 'Copy this content on the file ".htacc
 $_LANG['INSERT_PICTURE'] = 'Insert picture';
 $_LANG['PERMALINK'] = 'Permalink';
 $_LANG['FRIENDLY_URLS'] = 'Friendly URLs';
-$_LANG['AUTHOR'] = 'Author';
+$_LANG['UPLOADING'] = 'Uploading';
 $_LANG['READ_MORE'] = 'Read more';
+$_LANG['AUTHOR'] = 'Author';
 $_LANG['THE_PLUGIN_IS_INSTALLED_CORRECTLY'] = 'The plugin is installed correctly. If the theme supports it will appear on your blog.';
 
 ?>

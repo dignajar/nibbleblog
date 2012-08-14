@@ -6,7 +6,7 @@
 		'description'=>'Full HTML5 Theme',
 		'author'=>'Diego Najar',
 		'version'=>'1.1',
-		'last_update'=>'05/08/2012', // dd/mm/yyyy
+		'last_update'=>'12/08/2012', // dd/mm/yyyy
 		'url'=>'http://www.nibbleblog.com', // http://xxxxxxxxxxxxx
 		'video_width'=>'640',
 		'video_height'=>'360'

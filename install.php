@@ -5,7 +5,7 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 15/07/2012
+ * Last update: 12/08/2012
 
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
@@ -221,7 +221,9 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 			width: 800px;
 		}
 
-		h2{ color: #BDEE70; }
+		h2 {
+			color: #BDEE70;
+		}
 
 		a {
 			color: #3C6EB4;
@@ -256,43 +258,42 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 			color: red;
 		}
 
-	#configuration,
-	#dependencies,
-	#complete {
-		display: none;
-	}
+		#configuration,
+		#dependencies,
+		#complete {
+			display: none;
+		}
 
+		input[type="text"] {
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+			width: 100%;
+			border: 1px solid #C4C4C4;
+			border-radius: 2px;
+			color: #858585;
+			padding: 8px;
+			outline:none;
+			resize: none;
+			margin-bottom: 10px;
+		}
 
-input[type="text"] {
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	width: 100%;
-	border: 1px solid #C4C4C4;
-	border-radius: 2px;
-	color: #858585;
-	padding: 8px;
-	outline:none;
-	resize: none;
-	margin-bottom: 10px;
-}
+		label {
+			color: #333;
+			margin-bottom:2px;
+			display:block;
 
-label {
-	color: #333;
-	margin-bottom:2px;
-	display:block;
+		}
 
-}
+		input[type="submit"] {
+			padding: 3px 20px;
+		}
 
-input[type="submit"] {
-	padding: 3px 20px;
-}
-
-footer {
-	margin: 30px 0;
-	border-top: 1px dotted #ccc;
-	font-size:13px;
-}
+		footer {
+			margin: 30px 0;
+			border-top: 1px dotted #ccc;
+			font-size:13px;
+		}
 </style>
 
 </head>
