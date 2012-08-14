@@ -2,7 +2,7 @@
 
 $_PLUGIN_CONFIG = array(
 	'name'=>'Catégories',
-	'description'=>'Montre les catégories disponibles sur le blog.',
+	'description'=>'Montre les catégories disponibles sur votre blog.',
 	'author'=>'Diego Najar',
 	'version'=>'1.0',
 	'url'=>'http://www.nibbleblog.com'
