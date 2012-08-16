@@ -1,9 +1,10 @@
 <?php
 
 $_PLUGIN_CONFIG['LANG'] = array(
-	'name'=>'Partage',
-	'description'=>'Affiche les boutons de partage pour Google+, Twitter et Facebook.'
+	'name'=>'Google Analytics',
+	'description'=>'Agregue Google Analytics a su blog, para tener estadísticas de su sitio. Para utilizar este plugin necesita una cuenta en Google Analytics.'
 );
+
 
 
 ?>

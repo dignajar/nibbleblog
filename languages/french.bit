@@ -1,17 +1,16 @@
 <?php
 
 /*
- * Nibbleblog -
- * http://www.nibbleblog.com
- *
- * French translation by
- *		Gilles Coulais <aka Djiko> <https://github.com/djiko>
- *
- * Compatible version: 3.1
- * 
- * Last update : 14 / 08 / 2012
- *
- * Get more information: http://forum.nibbleblog.com
+ Nibbleblog -
+ http://www.nibbleblog.com
+
+ Translation by username: Djiko
+
+ Gilles Coulais <aka Djiko> <https://github.com/djiko>
+
+ Last update: 14/08/2012 - dd/mm/yyyy
+
+ Get more information: http://forum.nibbleblog.com
 */
 
 $_LANG['LAST_COMMENTS'] = 'Derniers commentaires';

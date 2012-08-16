@@ -2,7 +2,7 @@
 
 $_PLUGIN_CONFIG['LANG'] = array(
 	'name'=>'Catégories',
-	'description'=>'Montre les catégories disponibles sur le blog.'
+	'description'=>'Montre les catégories disponibles sur votre blog.'
 );
 
 
