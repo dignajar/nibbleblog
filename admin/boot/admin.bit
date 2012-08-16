@@ -44,11 +44,11 @@
 
 		$_PLUGINS[$class]->set_attributes(
 		array(
-			'name'=>$_PLUGIN_CONFIG['name'],
-			'description'=>$_PLUGIN_CONFIG['description'],
-			'author'=>$_PLUGIN_CONFIG['author'],
-			'version'=>$_PLUGIN_CONFIG['version'],
-			'url'=>$_PLUGIN_CONFIG['url']
+			'name'=>$_PLUGIN_CONFIG['LANG']['name'],
+			'description'=>$_PLUGIN_CONFIG['LANG']['description'],
+			'author'=>$_PLUGIN_CONFIG['DATA']['author'],
+			'version'=>$_PLUGIN_CONFIG['DATA']['version'],
+			'url'=>$_PLUGIN_CONFIG['DATA']['url']
 		));
 	}
 

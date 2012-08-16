@@ -1,11 +1,8 @@
 <?php
 
-$_PLUGIN_CONFIG = array(
+$_PLUGIN_CONFIG['LANG'] = array(
 	'name'=>'Share',
-	'description'=>'Comparta en Google+, Twitter and Facebook sus posts o blog.',
-	'author'=>'Paulo Nunes',
-	'version'=>'1.0',
-	'url'=>'http://www.syndicate-fx.com',
+	'description'=>'Comparti en Google+, Twitter and Facebook tus posts.'
 );
 
 

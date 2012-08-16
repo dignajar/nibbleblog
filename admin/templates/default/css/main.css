@@ -18,11 +18,15 @@ body {
 }
 
 #container_head {
-	background: url("img/logo.png") no-repeat 20px 6px #F1F1F1;
-    border-bottom: 1px solid #EBEBEB;
-    font-size: 12px;
-    padding-right: 5%;
-    text-align: right;
+	background: url("img/logo.png") no-repeat 20px 6px #555555;
+	border-bottom: 2px solid #1555CC;
+	font-size: 12px;
+	padding-right: 5%;
+	text-align: right;
+}
+
+#container_head	a {
+	color: #EEEEEE;
 }
 
 #container_head		a.dashboard {

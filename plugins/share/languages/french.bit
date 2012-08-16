@@ -1,11 +1,8 @@
 <?php
 
-$_PLUGIN_CONFIG = array(
+$_PLUGIN_CONFIG['LANG'] = array(
 	'name'=>'Partage',
-	'description'=>'Affiche les boutons de partage pour Google+, Twitter et Facebook.',
-	'author'=>'Paulo Nunes',
-	'version'=>'1.0',
-	'url'=>'http://www.syndicate-fx.com',
+	'description'=>'Affiche les boutons de partage pour Google+, Twitter et Facebook.'
 );
 
 
