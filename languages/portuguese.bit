@@ -9,7 +9,7 @@
  Paulo Nunes
 http://syndicate-fx.com
 
- Last update: 31/07/2012 - dd/mm/yyyy
+ Last update: 16/08/2012 - dd/mm/yyyy
 
  Get more information: http://forum.nibbleblog.com
 */
@@ -149,5 +149,9 @@ $_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = 'Copie este conteúdo para o ficheiro 
 $_LANG['INSERT_PICTURE'] = 'Inserir imagem';
 $_LANG['PERMALINK'] = 'Permalink';
 $_LANG['FRIENDLY_URLS'] = 'URLs amigáveis';
+$_LANG['UPLOADING'] = 'A carregar';
+$_LANG['READ_MORE'] = 'Ler mais';
+$_LANG['AUTHOR'] = 'Autor';
+$_LANG['THE_PLUGIN_IS_INSTALLED_CORRECTLY'] = 'O plugin está correctamente instalado. Se o tema suportar, aparecerá no seu blog.';
 
 ?>

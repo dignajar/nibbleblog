@@ -1,0 +1,9 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'name'=>'Twitter',
+	'description'=>'Mostrar os ultímos 5 tweets de um utilizador. Os tweets têm que ser públicos para o plugin funcionar correctamente.'
+);
+
+
+?>
