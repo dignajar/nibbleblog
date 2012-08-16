@@ -1,0 +1,8 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'name'=>'Sponsors',
+	'description'=>'Agrega publicidad a tu blog. Puede agregar publicidad de Google Adsense o de otro patrocinador.'
+);
+
+?>

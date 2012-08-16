@@ -1,0 +1,14 @@
+<?php
+
+/*
+ * Chinese_Traditional translation by Ethan
+ * http://ethan42411.twbbs.org
+*/
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'name'=>'分享',
+	'description'=>'顯示分享按鈕來分享至 Google+, Twitter and Facebook.'
+);
+
+
+?>

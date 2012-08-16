@@ -1,0 +1,14 @@
+<?php
+
+/*
+ * Chinese_Traditional translation by Ethan
+ * http://ethan42411.twbbs.org
+*/
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'name'=>'分類',
+	'description'=>'依照字母順序顯示分類'
+);
+
+
+?>

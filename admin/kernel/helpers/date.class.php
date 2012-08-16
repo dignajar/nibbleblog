@@ -5,7 +5,7 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 15/07/2012
+ * Last update: 14/08/2012
 
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
@@ -13,6 +13,12 @@
 
 class HELPER_DATE
 {
+	function __construct()
+	{
+		if(function_exists('date_default_timezone_set') and function_exists('date_default_timezone_get'))
+			@date_default_timezone_set(@date_default_timezone_get());
+	}
+
 	// Convierte unixstamp a date
 	// Devuelve un arreglo y en cada posicion devuelve un dato de la fecha
 	// Para ver los datos que devuelve mirar la tabla de la funcion date de php

@@ -1,5 +1,17 @@
 <?php
 
+// =========================================
+// PLUGIN INFO
+// =========================================
+$_PLUGIN_CONFIG['DATA'] = array(
+	'author'=>'Paulo Nunes',
+	'version'=>'1.0',
+	'url'=>'http://www.syndicate-fx.com'
+);
+
+// =========================================
+// PLUGIN CLASS
+// =========================================
 class PLUGIN_SHARE extends PLUGIN
 {
 

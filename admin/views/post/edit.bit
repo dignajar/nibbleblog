@@ -2,9 +2,6 @@
 
 	echo $_HTML->form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
-		// TOKEN
-		echo $_HTML->input( array('name'=>'token', 'type'=>'hidden', 'value'=>$_LOGIN->get_token()) );
-
 		// TITLE
 		echo $_HTML->div_open( array('class'=>'form_block') );
 			echo $_HTML->input( array('id'=>'js_title', 'name'=>'title', 'type'=>'text', 'value'=>$post_edit['title'], 'placeholder'=>$_LANG['ENTER_TITLE_HERE']) );
@@ -12,7 +9,7 @@
 
 		// CONTENT
 		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->textarea( array('id'=>'js_content', 'name'=>'content', 'content'=>$post_edit['content']) );
+			echo $_HTML->textarea( array('id'=>'js_content', 'name'=>'content', 'content'=>htmlspecialchars($post_edit['content'])) );
 			echo $_HTML->span( array('id'=>'js_uploader_button', 'class'=>'uploader_button', 'content'=>$_LANG['INSERT_PICTURE']) );
 			echo $_HTML->span( array('id'=>'js_uploader_loading', 'class'=>'uploader_button', 'content'=>$_LANG['UPLOADING'].'...', 'style'=>'display: none') );
 		echo $_HTML->div_close();
@@ -73,6 +70,8 @@ $(document).ready(function() {
 		theme_advanced_statusbar_location : "bottom",
 		theme_advanced_path : false,
 
+		preformatted : true,
+
 		relative_urls : false,
 
 		theme_advanced_toolbar_location : "top",
@@ -95,23 +94,24 @@ $(document).ready(function() {
 		width:"100%"
 	});
 
+
 // =============================================
 //	Uploader for Nibbleblog by Diego Najar
 // =============================================
-	
+
 	var uploader_button;
 	var uploader_loading = $("#js_uploader_loading");
 	var uploader_input_file = $("#js_uploader_input_file");
-		
+
 	$("#js_uploader_button").click(
 	function() {
-		uploader_button = $(this);	
+		uploader_button = $(this);
 		uploader_input_file.trigger("click");
 	});
 
 	uploader_input_file.change(
 	function() {
-		
+
 		var file = this.files[0];
 
 /*
@@ -142,7 +142,7 @@ $(document).ready(function() {
 
 		// Parameters headers
 		xhr.setRequestHeader("file_name", file.name);
-		
+
 		// Send file
 		xhr.send(file);
 

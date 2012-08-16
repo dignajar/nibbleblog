@@ -2,9 +2,6 @@
 
 	echo $_HTML->form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
-		// TOKEN
-		echo $_HTML->input( array('name'=>'token', 'type'=>'hidden', 'value'=>$_LOGIN->get_token()) );
-
 		// VIDEO URL
 		echo $_HTML->div_open( array('class'=>'form_block') );
 			echo $_HTML->label( array('class'=>'blocked', 'content'=>$_LANG['VIDEO_URL']) );
@@ -128,6 +125,8 @@ $(document).ready(function() {
 		theme_advanced_resize_horizontal : false,
 		theme_advanced_statusbar_location : "bottom",
 		theme_advanced_path : false,
+
+		preformatted : true,
 
 		relative_urls : false,
 

@@ -1,11 +1,8 @@
 <?php
 
-$_PLUGIN_CONFIG = array(
+$_PLUGIN_CONFIG['LANG'] = array(
 	'name'=>'Catégories',
-	'description'=>'Montre les catégories disponibles sur le blog.',
-	'author'=>'Diego Najar',
-	'version'=>'1.0',
-	'url'=>'http://www.nibbleblog.com'
+	'description'=>'Montre les catégories disponibles sur votre blog.'
 );
 
 

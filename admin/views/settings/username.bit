@@ -3,9 +3,6 @@
 
 	echo $_HTML->form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
-		// TOKEN
-		echo $_HTML->input( array('name'=>'token', 'type'=>'hidden', 'value'=>$_LOGIN->get_token()) );
-
 		// USERNAME
 		echo $_HTML->div_open( array('class'=>'form_block') );
 			echo $_HTML->label( array('content'=>$_LANG['USERNAME'], 'class'=>'blocked') );
@@ -29,9 +26,6 @@
 	echo $_HTML->separator( array('content'=>$_LANG['CHANGE_PASSWORD']) );
 
 	echo $_HTML->form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
-
-		// TOKEN
-		echo $_HTML->input( array('name'=>'token', 'type'=>'hidden', 'value'=>$_LOGIN->get_token()) );
 
 		// NEW PASSWORD
 		echo $_HTML->div_open( array('class'=>'form_block') );

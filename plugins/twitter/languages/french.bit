@@ -1,11 +1,8 @@
 <?php
 
-$_PLUGIN_CONFIG = array(
+$_PLUGIN_CONFIG['LANG'] = array(
 	'name'=>'Twitter',
-	'description'=>'Montrer les 5 derniers tweets d\'un utilisateur. Pour que ce module complémentaire fonctionne correctement, les Tweets doivent être publics.',
-	'author'=>'Diego Najar',
-	'version'=>'1.0',
-	'url'=>'http://www.nibbleblog.com',
+	'description'=>'Montrer les 5 derniers tweets d\'un utilisateur. Pour que ce module complémentaire fonctionne correctement, les Tweets doivent être publics.'
 );
 
 

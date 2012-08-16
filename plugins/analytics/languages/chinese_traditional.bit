@@ -1,0 +1,14 @@
+<?php
+
+/*
+ * Chinese_Traditional translation by Ethan
+ * http://ethan42411.twbbs.org
+*/
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'name'=>'Google Analytics',
+	'description'=>'為您的部落格增加Google Analytics來觀察分析訪客資料, 您需要一組Google Analytics帳號才能使用'
+);
+
+
+?>

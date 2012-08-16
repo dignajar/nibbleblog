@@ -1,0 +1,14 @@
+<?php
+
+/*
+ * Chinese_Traditional translation by Ethan
+ * http://ethan42411.twbbs.org
+*/
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'name'=>'Twitter',
+	'description'=>'顯示最新的5則tweets, Tweets 應該被設為公開此延伸模組才能正常運作'
+);
+
+
+?>
