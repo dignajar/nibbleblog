@@ -14,11 +14,6 @@ $_PLUGIN_CONFIG['DATA'] = array(
 // =========================================
 class PLUGIN_CATEGORIES extends PLUGIN
 {
-	public function get_html_config()
-	{
-		global $_LANG;
-		return('<p>'.$_LANG['THE_PLUGIN_IS_INSTALLED_CORRECTLY'].'</p>');
-	}
 
 	public function get_html()
 	{

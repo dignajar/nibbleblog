@@ -4,7 +4,7 @@
 
 		echo $_HTML->input( array('name'=>'plugin', 'type'=>'hidden', 'value'=>$_URL['plugin']) );
 
-		echo $plugin->get_html_config();
+		echo $html;
 
 	echo $_HTML->form_close();
 

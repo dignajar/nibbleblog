@@ -53,6 +53,12 @@ class HELPER_TEXT {
 	}
 
 	// Strip spaces
+	public function replace($search, $replace, $string)
+	{
+		return( str_replace($search,$replace,$string) );
+	}
+
+	// Strip spaces
 	public function strip_spaces($string)
 	{
 		return( str_replace(' ','',$string) );

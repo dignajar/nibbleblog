@@ -158,6 +158,16 @@ class PLUGIN {
 		return( $this->display );
 	}
 
+	public function get_html_config()
+	{
+		return(false);
+	}
+	
+	public function get_html()
+	{
+		return(false);
+	}
+
 }
 
 ?>

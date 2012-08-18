@@ -1,0 +1,157 @@
+<?php
+
+/*
+ Nibbleblog -
+ http://www.nibbleblog.com
+
+ Translation by username: sop3l
+
+ Janusz Przemysław Miller
+http://vbulletin.org.pl
+
+ Last update: 18/08/2012 - dd/mm/yyyy
+
+ Get more information: http://forum.nibbleblog.com
+*/
+
+$_LANG['LAST_COMMENTS'] = 'Ostatnie komentarze';
+$_LANG['THEME'] = 'Szablon';
+$_LANG['THEMES'] = 'Szablony';
+$_LANG['CHANGE_THEME'] = 'Zmień szablon';
+$_LANG['SELECT_THEME'] = 'Wybierz szablon';
+$_LANG['SHORT_DESCRIPTION_OF_THE_BLOG_NO_MORE_THAN'] = 'Krótki opis bloga, nie więcej niż 150 znaków.';
+$_LANG['REMEMBER_ME'] = 'Zapamiętaj';
+$_LANG['USERNAME'] = 'Nazwa użytkownika';
+$_LANG['PASSWORD'] = 'Hasło';
+$_LANG['COMMENTS'] = 'Komentarze';
+$_LANG['INVALID_CAPTCHA'] = 'Nieprawidłowy kod obrazka';
+$_LANG['NAME'] = 'Imię';
+$_LANG['EMAIL'] = 'E-mail';
+$_LANG['NEW_COMMENTS'] = 'Nowe komentarze';
+$_LANG['TYPE_THE_COMMENT_HERE'] = 'Wpisz komentarz tutaj';
+$_LANG['COPY_THE_TEXT_ON_THE_RIGHT'] = 'Skopiuj tekst z prawej';
+$_LANG['NEWER_POSTS'] = 'Brak postów';
+$_LANG['OLDER_POSTS'] = 'Starsze posty';
+$_LANG['FORGOT_PASSWORD'] = 'Nie pamiętam hasła';
+$_LANG['INCORRECT_USERNAME_OR_PASSWORD'] = 'Nieprawidłowa nazwa użytkownika lub hasło';
+$_LANG['LOGIN'] = 'Zaloguj';
+$_LANG['NEW_CATEGORY'] = 'Nowa kategoria';
+$_LANG['ENTER_THE_NAME_OF_THE_NEW_CATEGORY'] = 'Wprowadź nazwę nowej kategorii';
+$_LANG['ADD_CATEGORY'] = 'Dodaj kategorię';
+$_LANG['CATEGORIES_IN_YOUR_BLOG'] = 'Kategorie na blogu';
+$_LANG['DELETE'] = 'Usuń';
+$_LANG['ENTER_TITLE_HERE'] = 'Podaj tytuł';
+$_LANG['SELECT_A_CATEGORY'] = 'Wybierz kategorię';
+$_LANG['ALLOW_COMMENTS'] = 'Zezwalaj na komentarze';
+$_LANG['ALLOW_YOUR_USERS_TO_COMMENT_YOUR_PUBLICATIONS'] = 'Zezwalaj na komentowanie Twoich publikacji';
+$_LANG['STICKY_POST'] = 'Przyklejona wiadomość';
+$_LANG['SELECT_THIS_OPTION_IF_YOU_WANT_TO_HIGHLIGHT_YOUR_PUBLICATION'] = 'Wybierz tę opcję, jeśli chcesz wyszczególnić publikację';
+$_LANG['PUBLISH'] = 'Publikuj';
+$_LANG['GET_VIDEO_INFORMATION'] = 'Pobierz informacje';
+$_LANG['VIDEO_URL'] = 'Link do filmu';
+$_LANG['LOADING'] = 'Ładowanie';
+$_LANG['VIDEO_INFORMATION'] = 'Informacje o filmiku';
+$_LANG['ENTER_QUOTE_HERE'] = 'Wprowadź cytat tutaj';
+$_LANG['TIMEZONE'] = 'Strefa czasowa';
+$_LANG['BLOG_ADDRESS'] = 'Adres bloga (link)';
+$_LANG['BLOG_BASE_PATH'] = 'Ścieżka do bloga';
+$_LANG['POSTS_PER_PAGE'] = 'Postów na stronę';
+$_LANG['RSS_ITEMS'] = 'Kanały RSS';
+$_LANG['ADVANCED_OPTIONS_FOR_POST'] = 'Zaawansowane opcje postu';
+$_LANG['BLOG_TITLE'] = 'Tytuł bloga';
+$_LANG['BLOG_SLOGAN'] = 'Slogan bloga';
+$_LANG['ABOUT_YOUR_BLOG'] = 'O blogu';
+$_LANG['FOOTER_TEXT'] = 'Treść stopki';
+$_LANG['LANGUAGE'] = 'Język';
+$_LANG['CURRENT_PASSWORD'] = 'Bieżące hasło';
+$_LANG['NEW_PASSWORD'] = 'Nowe hasło';
+$_LANG['SAVE_CHANGES'] = 'Zapisz zmiany';
+$_LANG['CHANGE_USERNAME'] = 'Zmień nazwę użytkownika';
+$_LANG['CHANGE_PASSWORD'] = 'Zmień hasło';
+$_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY'] = 'Zmiany zostały poprawnie zapisane';
+$_LANG['USERNAME_HAS_BEEN_CHANGED_SUCCESSFULLY'] = 'Nazwa użytkownika została poprawnie zmieniona';
+$_LANG['PASSWORD_HAS_BEEN_CHANGED_SUCCESSFULLY'] = 'Hasło zostało poprawnie zmienione';
+$_LANG['CURRENT_PASSWORD_INCORRECT'] = 'Niepoprawne bieżące hasło';
+$_LANG['INSTALL'] = 'Instaluj';
+$_LANG['UNINSTALL'] = 'Odinstaluj';
+$_LANG['CONFIGURE'] = 'Konfiguruj';
+$_LANG['CREATED_BY'] = 'Utworzone przez';
+$_LANG['CATEGORY_HAS_ONE_OR_MORE_POST'] = 'Kategoria zawiera jeden lub więcej postów. Nie można jej usunąć dopóki nie będzie pusta.';
+$_LANG['AT_LEAST_ONE_CATEGORY'] = 'Nie można usunąć kategorii. Wymagana jest przynajmniej jedna kategoria w systemie.';
+$_LANG['ARE_YOU_SURE'] = 'Jesteś pewien?';
+$_LANG['VIEW'] = 'Podgląd';
+$_LANG['EDIT'] = 'Edytuj';
+$_LANG['TIMESTAMP_FORMAT'] = 'Format wyświetlania daty oraz czasu';
+$_LANG['SELECT_A_TIMEZONE_FOR_A_CORRECT_DATE_VISUALIZATION'] = 'Wybierz strefę czasową dla prawidłowego wyświetlania daty.';
+$_LANG['SELECT_A_FORMAT_FOR_DISPLAYING_THE_DATES'] = 'Wybierz format wyświetlania daty oraz czasu.';
+$_LANG['ABSOLUT_URL_ADDRESS_OF_YOUR_BLOG'] = 'Bezpośredni adres bloga. Na przykład: http://www.domain.com/blog';
+$_LANG['ABSOLUT_ADDRESS_THAT_CONTAINS_THE_BLOGS_FILE_SYSTEM'] = 'Ścieżka katalogu bloga. Jeśli znajduje się w głównym katalogu www należy umieścić znak "/", jeśli nie, wpisz ścieżkę do folderu z blogiem, na przykład: "/blog"';
+$_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_PER_PAGE'] = 'lość postów, które chcesz zobaczyć na stronie.';
+$_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_ON_RSS'] = 'Ilość postów RSS, które chcesz zobaczyć.';
+$_LANG['ADVANCED_OPTIONS_WHEN_PUBLISHING_CONTENT'] = 'Zaawansowane opcje podczas publikowania treści. Na przykład zezwolenie lub odmowa publikacji komentarzy, dobór kategorii, itd.';
+$_LANG['ADMINISTRATORS_USERNAME'] = 'Nazwa administratora.';
+$_LANG['DO_NOT_FORGET_THIS_PASSWORD'] = 'Nie zapomnij tego hasła.';
+$_LANG['NEW_SESSION_STARTED'] = 'Nowa sesja rozpoczęta';
+$_LANG['DATE'] = 'Data';
+$_LANG['LAST_SESSIONS'] = 'Ostatnia sesja';
+$_LANG['DASHBOARD'] = 'Kokpit';
+$_LANG['VIEW_BLOG'] = 'Pokaż blog';
+$_LANG['LOGOUT'] = 'Wyloguj';
+$_LANG['POSTS'] = 'Posty';
+$_LANG['SIMPLE'] = 'Prosty';
+$_LANG['VIDEO'] = 'Film';
+$_LANG['QUOTE'] = 'Zacytuj';
+$_LANG['POSTING_WITH_RICH_FORMATTING'] = 'Postowanie z bogatym formatowaniem';
+$_LANG['AN_EASY_WAY_TO_PUBLISH_VIDEOS'] = 'Publikuj filmy w łatwy sposób';
+$_LANG['AN_EASY_WAY_TO_PUBLISH_QUOTES'] = 'Publikuj cytaty w łatwy sposób';
+$_LANG['BLOG_TITLE_SLOGAN_LANGUAGE'] = 'Tytuł bloga, slogan, język';
+$_LANG['NEW_SIMPLE_POST'] = 'Nowy szybki post';
+$_LANG['NEW_VIDEO_POST'] = 'Nowy post z filmem';
+$_LANG['NEW_QUOTE_POST'] = 'Nowy cytat';
+$_LANG['MANAGE_POSTS'] = 'Zarządzaj postami';
+$_LANG['SETTINGS'] = 'Ustawienia';
+$_LANG['GENERAL_SETTINGS'] = 'Generalne ustawienia';
+$_LANG['ADVANCED_SETTINGS'] = 'Zaawansowane ustawienia';
+$_LANG['MANAGE_CATEGORIES'] = 'Zarządzaj kategoriami';
+$_LANG['USERNAME_AND_PASSWORD'] = 'Nazwa użytkownika & hasło';
+$_LANG['MANAGE_PLUGINS'] = 'Zarządzaj wtyczkami';
+$_LANG['PLUGINS'] = 'Wtyczki';
+$_LANG['EDIT_POST'] = 'Edytuj post';
+$_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA'] = 'Zaloguj się do panelu administracyjnego';
+$_LANG['POST_HAS_BEEN_PUBLISHED_SUCCESSFULLY'] = 'Post został opublikowany prawidłowo';
+$_LANG['PLEASE_ENABLE_JAVASCRIPT_IN_YOUR_BROWSER'] = 'Zezwól na JavaScript w Twojej przeglądarce';
+$_LANG['INSTALLATION_COMPLETE'] = 'Instalacja zakończona';
+$_LANG['DEPENDENCIES'] = 'Zależności';
+$_LANG['PHP_VERSION'] = 'Wersja PHP';
+$_LANG['PASS'] = 'Przyjęte';
+$_LANG['FAIL'] = 'Niepowodzenie';
+$_LANG['PHP_MODULE'] = 'moduł PHP';
+$_LANG['CONFIGURATION'] = 'Konfoguracja';
+$_LANG['EXPERT_MODE'] = 'Tryb eksperta';
+$_LANG['ADMINISTRATOR_USERNAME'] = 'Nazwa administratora';
+$_LANG['ADMINISTRATOR_PASSWORD'] = 'Hasło administratora';
+$_LANG['ADMINISTRATOR_EMAIL'] = 'E-mail administratora';
+$_LANG['WELCOME_TO_NIBBLEBLOG'] = 'Witaj w Nibbleblog';
+$_LANG['CHOOSE_YOUR_LANGUAGE'] = 'Wybierz swój język';
+$_LANG['WRITING_TEST_ON_CONTENT_DIRECTORY'] = 'Test na "zawartość" katalogu';
+$_LANG['INSTALLATION_LINE1'] = 'Gratulacje!';
+$_LANG['INSTALLATION_LINE2'] = 'Twoja instalacja Nibbleblog jest zakończona.';
+$_LANG['INSTALLATION_LINE3'] = 'Aby zarządzać blogiem wejdź w ten link';
+$_LANG['INSTALLATION_LINE4'] = 'lub zobacz swój nowy blog';
+$_LANG['INSTALLATION_LINE5'] = 'Jeżeli potrzebujesz pomocy, zajrzyj na forum';
+$_LANG['WELCOME_POST_TITLE'] = 'Witaj w Nibbleblog';
+$_LANG['WELCOME_POST_LINE1'] = 'Gratulacje, twój blog został zainstalowany oraz uruchomiony.';
+$_LANG['WELCOME_POST_LINE2'] = 'Aby zmodyfikować ustawienia należy przejść do panelu administratora';
+$_LANG['WELCOME_POST_LINE3'] = 'Jeśli potrzebujesz pomocy możesz wejść na forum pomocy technicznej';
+$_LANG['WELCOME_POST_LINE4'] = 'Znajdź Nibbleblog na Facebooku i go polub!';
+$_LANG['ENABLE_FRIENDLY_URLS'] = 'Włącz przyjazne adresy URL';
+$_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = 'Skopiuj tę zawartość do pliku ". Htaccess". Plik musi być w katalogu głównym domeny. Serwer musi posiadać moduł ładowania i być poprawnie skonfigurowany do korzystania z tej opcji.';
+$_LANG['INSERT_PICTURE'] = 'Wybierz obrazek';
+$_LANG['PERMALINK'] = 'Permalink';
+$_LANG['FRIENDLY_URLS'] = 'Przyjazne adresy URL';
+$_LANG['UPLOADING'] = 'Wgrywanie';
+$_LANG['READ_MORE'] = 'Przeczytaj więcej';
+$_LANG['AUTHOR'] = 'Autor';
+$_LANG['THE_PLUGIN_IS_INSTALLED_CORRECTLY'] = 'Wtyczka została poprawnie zainstalowana. Jeśli szablon ją obsługuje, pojawi się na Twoim blogu.';
+
+?>

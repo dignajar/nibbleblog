@@ -222,7 +222,7 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		}
 
 		h2 {
-			color: #BDEE70;
+			color: #339900;
 		}
 
 		a {
@@ -238,7 +238,8 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		a.lang {
 			float: right;
 			font-size: 12px;
-			margin-right: 5px;
+			margin-right: 8px;
+			text-decoration:underline;
 		}
 
 		div.dependency {
@@ -305,8 +306,14 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 			<?php
 			if(!$installation_complete)
 			{
-				echo '<a class="lang" href="./install.php?language=spanish">Spanish</a>';
+				echo '<a class="lang" href="./install.php?language=chinese_traditional">Chinese Traditional</a>';
 				echo '<a class="lang" href="./install.php?language=english">English</a>';
+				echo '<a class="lang" href="./install.php?language=french">French</a>';
+				echo '<a class="lang" href="./install.php?language=hungarian">Hungarian</a>';
+				echo '<a class="lang" href="./install.php?language=polish">Polish</a>';
+				echo '<a class="lang" href="./install.php?language=portuguese">Portuguese</a>';
+				echo '<a class="lang" href="./install.php?language=russian">Russian</a>';
+				echo '<a class="lang" href="./install.php?language=spanish">Spanish</a>';
 			}
 			?>
 			<?php echo $_HTML->h1( array('content'=>$_LANG['WELCOME_TO_NIBBLEBLOG']) ); ?>

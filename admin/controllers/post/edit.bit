@@ -71,7 +71,7 @@
 
 	if($post_edit == array() )
 	{
-		exit('no existe post con ese id:'.$_URL['id_post']);
+		$_REDIRECT->controller('admin', 'post', 'list');
 	}
 
 	$categories_html = array();

@@ -1,0 +1,154 @@
+<?php
+
+/*
+ Nibbleblog -
+ http://www.nibbleblog.com
+
+ Translation by username: acidice
+
+ Last update: 17/08/2012 - dd/mm/yyyy
+
+ Get more information: http://forum.nibbleblog.com
+*/
+
+$_LANG['LAST_COMMENTS'] = 'Utolsó hozzászólás';
+$_LANG['THEME'] = 'Téma';
+$_LANG['THEMES'] = 'Témák';
+$_LANG['CHANGE_THEME'] = 'Téma megváltoztatása';
+$_LANG['SELECT_THEME'] = 'Téma választása';
+$_LANG['SHORT_DESCRIPTION_OF_THE_BLOG_NO_MORE_THAN'] = 'Rövid leírás a blogról, maximum 150 karakter.';
+$_LANG['REMEMBER_ME'] = 'Emlékezz rám';
+$_LANG['USERNAME'] = 'Felhasználónév';
+$_LANG['PASSWORD'] = 'Jelszó';
+$_LANG['COMMENTS'] = 'Hozzászólások';
+$_LANG['INVALID_CAPTCHA'] = 'Rossz captcha';
+$_LANG['NAME'] = 'Név';
+$_LANG['EMAIL'] = 'E-mail cím';
+$_LANG['NEW_COMMENTS'] = 'Új hozzászólás';
+$_LANG['TYPE_THE_COMMENT_HERE'] = 'Hozzászólás';
+$_LANG['COPY_THE_TEXT_ON_THE_RIGHT'] = 'Ellenőrző kód';
+$_LANG['NEWER_POSTS'] = 'Újabb hozzászólások';
+$_LANG['OLDER_POSTS'] = 'Régebbi hozzászólások';
+$_LANG['FORGOT_PASSWORD'] = 'Elfelejtett jelszó';
+$_LANG['INCORRECT_USERNAME_OR_PASSWORD'] = 'Hibás felhasználónév, vagy jelszó';
+$_LANG['LOGIN'] = 'Belépés';
+$_LANG['NEW_CATEGORY'] = 'Új kategória';
+$_LANG['ENTER_THE_NAME_OF_THE_NEW_CATEGORY'] = 'Add meg az új kategória nevét';
+$_LANG['ADD_CATEGORY'] = 'Kategória hozzáadása';
+$_LANG['CATEGORIES_IN_YOUR_BLOG'] = 'Kategóriák a blogban';
+$_LANG['DELETE'] = 'Törlés';
+$_LANG['ENTER_TITLE_HERE'] = 'Ide írd a blog címét';
+$_LANG['SELECT_A_CATEGORY'] = 'Válassz kategóriát';
+$_LANG['ALLOW_COMMENTS'] = 'Hozzászólások engedélyezése';
+$_LANG['ALLOW_YOUR_USERS_TO_COMMENT_YOUR_PUBLICATIONS'] = 'Engedély a felhasználóknak a hozzászólásokhoz';
+$_LANG['STICKY_POST'] = 'Ragadós hír';
+$_LANG['SELECT_THIS_OPTION_IF_YOU_WANT_TO_HIGHLIGHT_YOUR_PUBLICATION'] = 'Jelöld be, ha szeretnéd a hírt kiemelni';
+$_LANG['PUBLISH'] = 'Publikálás';
+$_LANG['GET_VIDEO_INFORMATION'] = 'Videó információinak lekérdezése';
+$_LANG['VIDEO_URL'] = 'Videó webcime (URL)';
+$_LANG['LOADING'] = 'Töltés';
+$_LANG['VIDEO_INFORMATION'] = 'Videó információk';
+$_LANG['ENTER_QUOTE_HERE'] = 'Ide írd az idézetet';
+$_LANG['TIMEZONE'] = 'Időzóna';
+$_LANG['BLOG_ADDRESS'] = 'Blog webcíme (URL)';
+$_LANG['BLOG_BASE_PATH'] = 'Blog alap útvonala';
+$_LANG['POSTS_PER_PAGE'] = 'Hírek száma az oldalon';
+$_LANG['RSS_ITEMS'] = 'RSS elemek';
+$_LANG['ADVANCED_OPTIONS_FOR_POST'] = 'Egyéb beállítások a hírhez';
+$_LANG['BLOG_TITLE'] = 'Blog címe';
+$_LANG['BLOG_SLOGAN'] = 'Blog mottója';
+$_LANG['ABOUT_YOUR_BLOG'] = 'A blogról';
+$_LANG['FOOTER_TEXT'] = 'Lábléc';
+$_LANG['LANGUAGE'] = 'Nyelv';
+$_LANG['CURRENT_PASSWORD'] = 'Jelenlegi jelszó';
+$_LANG['NEW_PASSWORD'] = 'Új jelszó';
+$_LANG['SAVE_CHANGES'] = 'Változások mentése';
+$_LANG['CHANGE_USERNAME'] = 'Felhasználónév megváltoztatása';
+$_LANG['CHANGE_PASSWORD'] = 'Jelszó megváltoztatása';
+$_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY'] = 'Változások elmentve';
+$_LANG['USERNAME_HAS_BEEN_CHANGED_SUCCESSFULLY'] = 'Felahsználónév sikeresen módosítva';
+$_LANG['PASSWORD_HAS_BEEN_CHANGED_SUCCESSFULLY'] = 'Jelszó sikeresen módosítva';
+$_LANG['CURRENT_PASSWORD_INCORRECT'] = 'Hibás jelenlegi jelszó';
+$_LANG['INSTALL'] = 'Telepítés';
+$_LANG['UNINSTALL'] = 'Eltávolítás';
+$_LANG['CONFIGURE'] = 'Beállítás';
+$_LANG['CREATED_BY'] = 'Készítette';
+$_LANG['CATEGORY_HAS_ONE_OR_MORE_POST'] = 'A kategóriában található még egy, vagy több hír, ezért nem törölhető!';
+$_LANG['AT_LEAST_ONE_CATEGORY'] = 'Nem törölhető, mert legalább egy kategóriának lennie kell.';
+$_LANG['ARE_YOU_SURE'] = 'Biztos vagy benne?';
+$_LANG['VIEW'] = 'Nézet';
+$_LANG['EDIT'] = 'Szerkesztés';
+$_LANG['TIMESTAMP_FORMAT'] = 'Időbélyeg formátum';
+$_LANG['SELECT_A_TIMEZONE_FOR_A_CORRECT_DATE_VISUALIZATION'] = 'Válassz időzónát, a helyes dátum megjelenítéshez.';
+$_LANG['SELECT_A_FORMAT_FOR_DISPLAYING_THE_DATES'] = 'Válasz dátum formátumot.';
+$_LANG['ABSOLUT_URL_ADDRESS_OF_YOUR_BLOG'] = 'Abszolút elérése a blognak. például http://www.domain.com/blog';
+$_LANG['ABSOLUT_ADDRESS_THAT_CONTAINS_THE_BLOGS_FILE_SYSTEM'] = 'Abszolút elérési útvonal a szerveren. pédául: gyökér könyvtár esetén "/", más könvtár esetén pedig "/könyvtár';
+$_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_PER_PAGE'] = 'Hírek számának beállítása egy oldalon.';
+$_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_ON_RSS'] = 'Hírek számának beállítása az RSS hírfolyamban.';
+$_LANG['ADVANCED_OPTIONS_WHEN_PUBLISHING_CONTENT'] = 'Egyéb beállítások tartalom publikáláshoz.';
+$_LANG['ADMINISTRATORS_USERNAME'] = 'Adminisztrátor felhasználóneve.';
+$_LANG['DO_NOT_FORGET_THIS_PASSWORD'] = 'Ne felejtsd el a jelszót.';
+$_LANG['NEW_SESSION_STARTED'] = 'Új folyamat elkezdve';
+$_LANG['DATE'] = 'Dátum';
+$_LANG['LAST_SESSIONS'] = 'Utolsó folyamat';
+$_LANG['DASHBOARD'] = 'Vezérlőpanel';
+$_LANG['VIEW_BLOG'] = 'Blog megtekintése';
+$_LANG['LOGOUT'] = 'Kijelentkezés';
+$_LANG['POSTS'] = 'Hírek';
+$_LANG['SIMPLE'] = 'Egyszerű';
+$_LANG['VIDEO'] = 'Videó';
+$_LANG['QUOTE'] = 'Idézet';
+$_LANG['POSTING_WITH_RICH_FORMATTING'] = 'Formázott hír beköldése';
+$_LANG['AN_EASY_WAY_TO_PUBLISH_VIDEOS'] = 'Egyszerű videó publikálás';
+$_LANG['AN_EASY_WAY_TO_PUBLISH_QUOTES'] = 'Egyszerű idézet publikálás';
+$_LANG['BLOG_TITLE_SLOGAN_LANGUAGE'] = 'Blog címe, mottója, nyelve';
+$_LANG['NEW_SIMPLE_POST'] = 'Új egyszerű hír';
+$_LANG['NEW_VIDEO_POST'] = 'Új egyszerú videó';
+$_LANG['NEW_QUOTE_POST'] = 'Új idézet';
+$_LANG['MANAGE_POSTS'] = 'Hírek kezelése';
+$_LANG['SETTINGS'] = 'Beállítások';
+$_LANG['GENERAL_SETTINGS'] = 'Rendszer beállítások';
+$_LANG['ADVANCED_SETTINGS'] = 'Egyéb beállítások';
+$_LANG['MANAGE_CATEGORIES'] = 'Kategórriák kezelése';
+$_LANG['USERNAME_AND_PASSWORD'] = 'Felhasználónév, és jelszó';
+$_LANG['MANAGE_PLUGINS'] = 'Bővítmények kezelése';
+$_LANG['PLUGINS'] = 'Bővítmények';
+$_LANG['EDIT_POST'] = 'Hír szerkesztése';
+$_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA'] = 'Jelentkezz be a beállításokhoz';
+$_LANG['POST_HAS_BEEN_PUBLISHED_SUCCESSFULLY'] = 'Hír sikeressen publikálva';
+$_LANG['PLEASE_ENABLE_JAVASCRIPT_IN_YOUR_BROWSER'] = 'Engedélyezd a Javascript futtatást a böngésződben';
+$_LANG['INSTALLATION_COMPLETE'] = 'Telepítés befejezve';
+$_LANG['DEPENDENCIES'] = 'Függőségek';
+$_LANG['PHP_VERSION'] = 'PHP verzió';
+$_LANG['PASS'] = 'Sikeres';
+$_LANG['FAIL'] = 'Sikertelen';
+$_LANG['PHP_MODULE'] = 'PHP modul';
+$_LANG['CONFIGURATION'] = 'Beállítások';
+$_LANG['EXPERT_MODE'] = 'Profi mód';
+$_LANG['ADMINISTRATOR_USERNAME'] = 'Adminisztrátor felhasználónév';
+$_LANG['ADMINISTRATOR_PASSWORD'] = 'Adminisztrátor jelszó';
+$_LANG['ADMINISTRATOR_EMAIL'] = 'Adminisztrátor e-mail';
+$_LANG['WELCOME_TO_NIBBLEBLOG'] = 'Üdvözöl a Nibbleblog';
+$_LANG['CHOOSE_YOUR_LANGUAGE'] = 'Válassz nyelvet';
+$_LANG['WRITING_TEST_ON_CONTENT_DIRECTORY'] = 'írás teszt a "content" könyvtárban';
+$_LANG['INSTALLATION_LINE1'] = 'Gratulálunk!';
+$_LANG['INSTALLATION_LINE2'] = 'A Nibbleblog telepítés kész.';
+$_LANG['INSTALLATION_LINE3'] = 'A blog kezeléséhez az alábbi címre menj';
+$_LANG['INSTALLATION_LINE4'] = 'vagy nézd meg az új blogod';
+$_LANG['INSTALLATION_LINE5'] = 'Támogatásért látogass el a fórumra';
+$_LANG['WELCOME_POST_TITLE'] = 'Üdvözöl a Nibbleblog';
+$_LANG['WELCOME_POST_LINE1'] = 'Gratulálunk, a blog működik.';
+$_LANG['WELCOME_POST_LINE2'] = 'A beállítások megváltoztatásához, látogass a Vezérlő panelre';
+$_LANG['WELCOME_POST_LINE3'] = 'Bármilyen támogatásért lépj be a fórumba';
+$_LANG['WELCOME_POST_LINE4'] = 'Nibbleblog a Facebook-on is, lájkolj minket!';
+$_LANG['ENABLE_FRIENDLY_URLS'] = 'Rövid webcím engedélyezése';
+$_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = 'Másold ezt a tartalmat a ".htaccess" fájlba. A fájlnak a gyökérkönyvtárban kell lennie. A szerveren a moduloknak betöltve, és a beállításoknak megfelelőnek kell lennie a működéshez.';
+$_LANG['INSERT_PICTURE'] = 'Kép beillesztése';
+$_LANG['PERMALINK'] = 'Permalink';
+$_LANG['FRIENDLY_URLS'] = 'Rövid webcím';
+$_LANG['UPLOADING'] = 'Feltöltés';
+$_LANG['READ_MORE'] = 'Bővebben';
+$_LANG['AUTHOR'] = 'Szerző';
+$_LANG['THE_PLUGIN_IS_INSTALLED_CORRECTLY'] = 'A plugin van telepítve. Ha a téma támogatja jelenik meg a blog.';
+
+?>

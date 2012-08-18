@@ -163,7 +163,7 @@ article.post	a.read_more {
 	color: #FFFFFF;
 	font-size: 11px;
 	padding: 2px 5px;
-	text-decoration: none;	
+	text-decoration: none;
 }
 
 /* ============================== */
@@ -181,8 +181,9 @@ article.post	a.read_more {
 }
 
 #comment_list	div.comment {
-    margin: 0 0;
-    padding: 15px 10px;
+	border-left: 2px solid #FFAC00;
+	margin: 0 0 10px;
+	padding: 10px;
 }
 
 #comment_list	span.author_name {

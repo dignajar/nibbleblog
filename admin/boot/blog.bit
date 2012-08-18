@@ -74,8 +74,8 @@
 		}
 	}
 
-	$show_older = (bool)(ceil($_DB_POST->get_count() / $settings['items_page']) - 1) > $_URL['page'];
-	$show_newer = (bool)$_URL['page'] > 0;
+	$show_older = ((int)ceil($_DB_POST->get_count() / $settings['items_page']) - 1) > $_URL['page'];
+	$show_newer = $_URL['page'] > 0;
 
 	$pager = array(
 						'next'=>$pager_next,

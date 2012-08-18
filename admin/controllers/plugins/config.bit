@@ -11,4 +11,11 @@
 	$plugin = $_PLUGINS['PLUGIN_'.strtoupper($_URL['plugin'])];
 	$plugin->init_db();
 
+	$html = $plugin->get_html_config();
+	
+	if($html==false)
+	{
+		$html = $_LANG['THE_PLUGIN_IS_INSTALLED_CORRECTLY'];
+	}
+
 ?>

@@ -89,8 +89,6 @@ $(document).ready(function() {
 
 		if( newdata != datasrz )
 		{
-			console.log(newdata);
-
 			$.ajax({
 					url: HTML_PATH_ADMIN_AJAX + "settings.php", type: 'POST', cache: false, timeout: 15000, dataType: "xml", async: false,
 					data: { action:"set", serial_data: newdata, type: "advanced" }

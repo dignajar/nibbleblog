@@ -10,7 +10,8 @@ if( $content == false )
 	exit( $_TEXT->ajax_header('<error><![CDATA[1]]></error><i18n><![CDATA[fail 1]]></i18n>') );
 
 $filename = $_SERVER['HTTP_FILE_NAME'];
-$ext = end(explode('.', $filename));
+$ext = explode('.', $filename);
+$ext = end($ext);
 
 if( file_put_contents(PATH_UPLOAD.$filename, $content) )
 {

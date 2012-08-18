@@ -124,6 +124,7 @@ class DB_SETTINGS {
 		public function get_languages()
 		{
 			global $_FS;
+			global $_TEXT;
 
 			$tmp_array = array();
 
@@ -132,7 +133,7 @@ class DB_SETTINGS {
 			foreach($files as $file)
 			{
 				$file = basename($file, '.bit');
-				$tmp_array[$file] = ucwords($file);
+				$tmp_array[$file] = ucwords($_TEXT->replace('_',' ',$file));
 			}
 
 			return($tmp_array);

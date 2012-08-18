@@ -31,6 +31,11 @@ class HELPER_FS
 			$files = glob($path . $file_expression . '.' . $ext);
 		}
 
+		if( ($files==false) || (empty($files)) )
+		{
+			$files = array();
+		}
+
 		foreach($files as $key=>$file)
 		{
 			$files[$key] = basename($file);
