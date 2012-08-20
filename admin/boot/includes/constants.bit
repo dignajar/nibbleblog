@@ -1,18 +1,23 @@
 <?php
 
 // ============================================================================
-//	INCLUDES
+//	SYSTEM INFORMATION
 // ============================================================================
-	require('includes/fs_php.bit');
-	require('includes/objects.bit');
-	require('includes/var_url.bit');
-	require('includes/fs_html.bit');
-	require('includes/constants.bit');
+	define('NIBBLEBLOG_VERSION',		'3.2.1');
+	define('NIBBLEBLOG_RELEASE_DATE',	'19/08/2012');
 
 // ============================================================================
-//	VARIABLES
+//	DEBUG
 // ============================================================================
-	$error = false;
-	$safe = array();
+	define('DEBUG_MODE',	true);
+
+	if(DEBUG_MODE)
+	{
+		error_reporting(-1);
+	}
+	else
+	{
+		error_reporting(0);
+	}
 
 ?>

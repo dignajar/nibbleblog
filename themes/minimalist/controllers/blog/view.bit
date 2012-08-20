@@ -1,6 +1,6 @@
 <?php
 
-// Title for layout
-define('LAYOUT_TITLE', $settings['name'] );
+	// Title for layout
+	$layout['title'] = $settings['name'];
 
 ?>

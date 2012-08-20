@@ -1,0 +1,9 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'name'=>'贊助商',
+	'description'=>'為您的部落格增加廣告區塊，您可以增加Google Adsense或是其他贊助商的廣告'
+);
+
+
+?>

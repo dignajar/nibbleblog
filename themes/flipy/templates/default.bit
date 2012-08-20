@@ -6,7 +6,7 @@
 
 	<title><?php echo $layout['title'] ?></title>
 
-	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'main.css?v='.$theme['version'] ?>" />
+	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'default.css?v='.$theme['version'] ?>" />
 
 	<link rel="shortcut icon" href="<?php echo HTML_THEME_CSS.'img/favicon.ico' ?>" type="image/x-icon" />
 
@@ -25,25 +25,11 @@
 	<div id="container">
 
 		<header id="head">
+			<a class="name" href="<?php echo HTML_PATH_ROOT ?>">
+				<h1><?php echo $settings['name'] ?></h1>
+			</a>
 
-			<div class="left">
-				<a class="name" href="<?php echo HTML_PATH_ROOT ?>">
-					<?php echo $settings['name'] ?>
-				</a>
-				<a class="slogan" href="<?php echo HTML_PATH_ROOT ?>">
-					<?php echo $settings['slogan'] ?>
-				</a>
-			</div>
-
-			<div class="right">
-				<?php
-					if( isset($plugins['twitter']) )
-					{
-						echo $plugins['twitter']->get_html();
-					}
-				?>
-			</div>
-
+			<h2><?php echo $settings['slogan'] ?></h2>
 		</header>
 
 		<section id="main">

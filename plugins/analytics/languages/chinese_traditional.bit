@@ -1,13 +1,21 @@
 <?php
 
 /*
+ * Nibbleblog -
+ * http://www.nibbleblog.com
+ *
  * Chinese_Traditional translation by Ethan
  * http://ethan42411.twbbs.org
+ *
+ * Get more information: http://forum.nibbleblog.com
 */
 
-$_PLUGIN_CONFIG['LANG'] = array(
+$_PLUGIN_CONFIG = array(
 	'name'=>'Google Analytics',
-	'description'=>'為您的部落格增加Google Analytics來觀察分析訪客資料, 您需要一組Google Analytics帳號才能使用'
+	'description'=>'為您的部落格增加Google Analytics來觀察分析訪客資料, 您需要一組Google Analytics帳號才能使用',
+	'author'=>'Diego Najar',
+	'version'=>'1.0',
+	'url'=>'http://www.nibbleblog.com',
 );
 
 

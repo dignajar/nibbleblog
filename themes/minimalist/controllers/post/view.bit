@@ -1,6 +1,6 @@
 <?php
 
 	// Title for layout
-	define('LAYOUT_TITLE', $post['title']);
+	$layout['title'] = $post['title'];
 
 ?>

@@ -7,6 +7,7 @@
 	require('includes/objects.bit');
 	require('includes/var_url.bit');
 	require('includes/fs_html.bit');
+	require('includes/constants.bit');
 
 // ============================================================================
 // VARIABLES

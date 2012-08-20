@@ -4,9 +4,11 @@
 	<meta charset="utf-8">
 	<meta name="description" content="<?php echo $settings['about'] ?>">
 
-	<title><?php echo LAYOUT_TITLE ?></title>
+	<title><?php echo $layout['title'] ?></title>
 
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'main.css?v='.$theme['version'] ?>" />
+
+	<link rel="shortcut icon" href="<?php echo HTML_THEME_CSS.'img/favicon.ico' ?>" type="image/x-icon" />
 
 	<script src="<?php echo JS_JQUERY ?>"></script>
 </head>
@@ -23,7 +25,7 @@
 
 		<section id="main">
 			<div class="left">
-				<?php include(THEME_VIEWS . LAYOUT_VIEW); ?>
+				<?php include(THEME_VIEWS . $layout['view']); ?>
 			</div>
 			<div class="right">
 				<?php
