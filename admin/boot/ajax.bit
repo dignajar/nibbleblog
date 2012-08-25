@@ -15,4 +15,14 @@
 	$error = false;
 	$safe = array();
 
+// ============================================================================
+//	FIX MAGIC QUOTES (for PHP<5.3)
+// ============================================================================
+	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
+	{
+		// Magic quotes ON ?
+		if( get_magic_quotes_gpc() != 0 )
+			$_POST = $_TEXT->clean_magic_quotes($_POST);
+	}
+
 ?>

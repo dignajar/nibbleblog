@@ -69,28 +69,28 @@ img:not(.captcha) {
 	width: 370px;
 }
 
-#head	a.name {
-	font-size: 32px;
-	color: #616161;
+#head	a {
 	text-decoration: none;
-	display: block;
-	font-weight: bold;
 }
 
-#head	a.slogan {
-	font-size: 22px;
+#head	h1 {
+    font-size: 38px;
+    font-weight: normal;
 	color: #616161;
-	text-decoration: none;
-	display: block;
 }
+
+#head	span.slogan {
+	color: #CCC;
+}
+
 
 /* ============================== */
 /* PLUGIN TWITTER */
 /* ============================== */
 div.plugin_twitter {
-    background: url("img/twitter.png") no-repeat scroll 0 -5px transparent;
-    padding-left: 50px;
-    min-height: 90px;
+	background: url("img/twitter.png") no-repeat scroll 0 -5px transparent;
+	min-height: 90px;
+	padding-left: 60px;
 }
 
 /* ============================== */
@@ -128,8 +128,10 @@ article.post	header {
 }
 
 article.post	h2.title {
+	border-bottom: 1px dotted #CCCCCC;
+	font-size: 28px;
+	font-weight: normal;
 	margin: 0;
-	border-bottom: 1px dotted #ccc;
 	width: 80%;
 }
 

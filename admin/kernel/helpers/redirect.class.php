@@ -15,8 +15,13 @@ class HELPER_REDIRECT {
 
 	public function url($html_location)
 	{
-		header("Location:".$html_location);
-		exit('<a href="'.$html_location.'">click here to continue</a>');
+		if(!headers_sent())
+		{
+			header("Location:".$html_location, TRUE, 302);
+			exit;
+		}
+
+		exit('<meta http-equiv="refresh" content="0; url='.$html_location.'" />');
 	}
 
 	public function controller($base, $controller, $action, $parameters = array())

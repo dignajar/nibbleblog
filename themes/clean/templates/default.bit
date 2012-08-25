@@ -18,7 +18,6 @@
 			echo $plugins['analytics']->get_html();
 		}
 	?>
-
 </head>
 <body>
 
@@ -28,10 +27,10 @@
 
 			<div class="left">
 				<a class="name" href="<?php echo HTML_PATH_ROOT ?>">
-					<?php echo $settings['name'] ?>
-				</a>
-				<a class="slogan" href="<?php echo HTML_PATH_ROOT ?>">
-					<?php echo $settings['slogan'] ?>
+					<h1>
+						<?php echo $settings['name'] ?>
+						<span class="slogan"><?php echo $settings['slogan'] ?></span>
+					</h1>
 				</a>
 			</div>
 

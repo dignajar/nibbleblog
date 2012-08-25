@@ -1,0 +1,9 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'name'=>'Sponsorzy',
+	'description'=>'Dodaje reklamy na blogu. Możesz skorzystać z usług Google Adsense lub innego sponsora.'
+);
+
+
+?>

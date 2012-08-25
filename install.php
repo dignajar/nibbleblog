@@ -5,7 +5,7 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 12/08/2012
+ * Last update: 21/08/2012
 
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
@@ -15,6 +15,7 @@ if( file_exists('content/private') || file_exists('content/public') )
 	exit('Blog already installed');
 
 require('admin/boot/includes/fs_php.bit');
+require('admin/boot/includes/constants.bit');
 
 // DB
 require(PATH_DB . 'nbxml.class.php');
@@ -238,7 +239,7 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		a.lang {
 			float: right;
 			font-size: 12px;
-			margin-right: 8px;
+			margin-left: 8px;
 			text-decoration:underline;
 		}
 
@@ -295,6 +296,11 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 			border-top: 1px dotted #ccc;
 			font-size:13px;
 		}
+		div.lang {
+			margin-right: -20px;
+			margin-top: -10px;
+			overflow: auto;
+		}
 </style>
 
 </head>
@@ -303,6 +309,7 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 	<div id="container">
 
 		<header>
+			<div class="lang">
 			<?php
 			if(!$installation_complete)
 			{
@@ -314,8 +321,10 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 				echo '<a class="lang" href="./install.php?language=portuguese">Portuguese</a>';
 				echo '<a class="lang" href="./install.php?language=russian">Russian</a>';
 				echo '<a class="lang" href="./install.php?language=spanish">Spanish</a>';
+				echo '<a class="lang" href="./install.php?language=vietnamese">Vietnamese</a>';
 			}
 			?>
+			</div>
 			<?php echo $_HTML->h1( array('content'=>$_LANG['WELCOME_TO_NIBBLEBLOG']) ); ?>
 		</header>
 
@@ -436,7 +445,7 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		</section>
 
 		<footer>
-			<p><a href="http://nibbleblog.com">Nibbleblog 3.2 "Friend"</a> | Copyright (2009 - 2012) + GPL v3 | Developed by Diego Najar | <?php echo $_HTML->link( array('content'=>$_LANG['EXPERT_MODE'], 'href'=>'./install.php?expert=true&language='.$_GET['language']) ) ?></p>
+			<p><a href="http://nibbleblog.com">Nibbleblog <?php echo NIBBLEBLOG_VERSION ?> "<?php echo NIBBLEBLOG_NAME ?>"</a> | Copyright (2009 - 2012) + GPL v3 | Developed by Diego Najar | <?php echo $_HTML->link( array('content'=>$_LANG['EXPERT_MODE'], 'href'=>'./install.php?expert=true&language='.$_GET['language']) ) ?></p>
 		</footer>
 
 	</div>

@@ -9,7 +9,7 @@
  Janusz Przemysław Miller
 http://vbulletin.org.pl
 
- Last update: 18/08/2012 - dd/mm/yyyy
+ Last update: 21/08/2012 - dd/mm/yyyy
 
  Get more information: http://forum.nibbleblog.com
 */
@@ -98,7 +98,7 @@ $_LANG['DASHBOARD'] = 'Kokpit';
 $_LANG['VIEW_BLOG'] = 'Pokaż blog';
 $_LANG['LOGOUT'] = 'Wyloguj';
 $_LANG['POSTS'] = 'Posty';
-$_LANG['SIMPLE'] = 'Prosty';
+$_LANG['SIMPLE'] = 'Szybki post';
 $_LANG['VIDEO'] = 'Film';
 $_LANG['QUOTE'] = 'Zacytuj';
 $_LANG['POSTING_WITH_RICH_FORMATTING'] = 'Postowanie z bogatym formatowaniem';

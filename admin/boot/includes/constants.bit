@@ -4,12 +4,13 @@
 //	SYSTEM INFORMATION
 // ============================================================================
 	define('NIBBLEBLOG_VERSION',		'3.2.1');
-	define('NIBBLEBLOG_RELEASE_DATE',	'19/08/2012');
+	define('NIBBLEBLOG_NAME',			'Friend');
+	define('NIBBLEBLOG_RELEASE_DATE',	'21/08/2012');
 
 // ============================================================================
 //	DEBUG
 // ============================================================================
-	define('DEBUG_MODE',	true);
+	define('DEBUG_MODE',	false);
 
 	if(DEBUG_MODE)
 	{
