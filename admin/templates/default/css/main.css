@@ -59,6 +59,7 @@ body {
 #container_float {
 	clear: both;
 	margin-top: 25px;
+	overflow: auto;
 }
 
 #container_left {
@@ -71,7 +72,6 @@ body {
 
 #container_right {
 	margin-right: 30px;
-	margin-top: 10px;
 	min-width: 700px;
 	overflow: hidden;
 	max-width: 55%;
@@ -217,6 +217,11 @@ div.form_block	textarea {
 	resize: none;
 }
 
+div.form_block	textarea.tinymce {
+	height: 402px;
+	resize: vertical;
+}
+
 div.form_block		input[type="checkbox"].float {
 	vertical-align: middle;
 	margin-left: 0px;
@@ -264,6 +269,17 @@ div.form_block		.uploader_button {
     font-size: 12px;
     padding: 8px 16px 8px 45px;
     float:right;
+}
+
+div.form_block		.toggle_button {
+    background: #F0F0EE;
+    border-bottom: 1px solid #CCCCCC;
+    border-left: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    padding: 8px 8px 8px 8px;
 }
 
 input[type=file].hidden {

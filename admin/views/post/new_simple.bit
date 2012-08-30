@@ -9,7 +9,8 @@
 
 		// CONTENT
 		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->textarea( array('id'=>'js_content', 'name'=>'content', 'content'=>'') );
+			echo $_HTML->textarea( array('id'=>'js_content', 'name'=>'content', 'content'=>'', 'class'=>'tinymce') );
+			echo $_HTML->span( array('id'=>'js_toggle_button', 'class'=>'toggle_button', 'content'=>'HTML code', 'hidden'=>!$settings['advanced_post_options']) );
 			echo $_HTML->span( array('id'=>'js_uploader_button', 'class'=>'uploader_button', 'content'=>$_LANG['INSERT_PICTURE']) );
 			echo $_HTML->span( array('id'=>'js_uploader_loading', 'class'=>'uploader_button', 'content'=>$_LANG['UPLOADING'].'...', 'style'=>'display: none') );
 		echo $_HTML->div_close();
@@ -46,13 +47,16 @@
 ?>
 
 <script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'tiny_mce/jquery.tinymce.js' ?>"></script>
+<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'tiny_mce/tiny_mce.js' ?>"></script>
 
 <script>
 
 $(document).ready(function() {
+	
+	var tinymce_enable = true;
 
-	$("#js_content").tinymce({
-		script_url : HTML_PATH_ADMIN_JS + 'tiny_mce/tiny_mce.js',
+	tinyMCE.init({
+		mode : "textareas",
 
 		theme : "advanced",
 		plugins : "paste, pagebreak, inlinepopups, pre",
@@ -93,6 +97,18 @@ $(document).ready(function() {
 		height:"400px",
 		width:"100%"
 	});
+
+	// Disable or Enable Tinymce
+	$("#js_toggle_button").toggle(
+		function(){
+		   tinyMCE.execCommand("mceRemoveControl", false, "js_content");
+		   tinymce_enable = false;
+		},
+		function () {
+			tinyMCE.execCommand("mceAddControl", false, "js_content");
+			tinymce_enable = true;
+		}
+	);
 
 // =============================================
 //	Uploader for Nibbleblog by Diego Najar
@@ -157,8 +173,18 @@ $(document).ready(function() {
 			uploader_button.show();
 
 			var src = $(xml).find("file").text();
-			var img = '<img data-mce-src="'+src+'" src="'+src+'" alt="" >';
-			$("#js_content").tinymce().execCommand('mceInsertContent',false,img);
+			var img = "";
+			
+			if(tinymce_enable)
+			{
+				img = '<img data-mce-src="'+src+'" src="'+src+'" alt="" >';
+				tinyMCE.execCommand('mceInsertContent',false,img);
+			}
+			else
+			{
+				img = '<img src="'+src+'" alt="" >';
+				$("#js_content").val($("#js_content").val()+img);
+			}
 		}
 	}
 

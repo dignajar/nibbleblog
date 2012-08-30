@@ -117,19 +117,19 @@ class HELPER_TEXT {
 		return($text);
 	}
 
-	function get_slug_url($string)
+	function get_slug_url($str)
 	{
-		//Unwanted:  {UPPERCASE} ; / ? : @ & = + $ , . ! ~ * ' ( )
-		$string = strtolower($string);
-		//Strip any unwanted characters
-		$string = preg_replace("/[^a-z0-9_\s-]/", "", $string);
-		//Clean multiple dashes or whitespaces
-		$string = preg_replace("/[\s-]+/", " ", $string);
-		//Convert whitespaces and underscore to dash
-		$string = preg_replace("/[\s_]/", "-", $string);
 
-		return $string;
+    $search = array('Ș', 'Ț', 'ş', 'ţ', 'Ş', 'Ţ', 'ș', 'ț', 'î', 'â', 'ă', 'Î', 'Â', 'Ă', 'ë', 'Ë');
+    $replace = array('s', 't', 's', 't', 's', 't', 's', 't', 'i', 'a', 'a', 'i', 'a', 'a', 'e', 'E');
+    $str = str_ireplace($search, $replace, strtolower(trim($str)));
+    $str = preg_replace('/[^\w\d\-\ ]/', '', $str);
+    $str = str_replace(' ', '-', $str);
+    return preg_replace('/\-{2,}', '-', $str);
+
+
 	}
+
 
 	function random_text($length)
 	{
