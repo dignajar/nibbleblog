@@ -2,20 +2,6 @@
 
 	echo $_HTML->form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
-		// TIMEZONE
-		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->label( array('content'=>$_LANG['TIMEZONE'], 'class'=>'blocked') );
-			echo $_HTML->select( array('name'=>'timezone'), $timezone_html, $settings['timezone']);
-			echo $_HTML->div( array('content'=>$_LANG['SELECT_A_TIMEZONE_FOR_A_CORRECT_DATE_VISUALIZATION'], 'class'=>'input_tip') );
-		echo $_HTML->div_close();
-
-		// DATE FORMAT
-		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->label( array('content'=>$_LANG['TIMESTAMP_FORMAT'], 'class'=>'blocked') );
-			echo $_HTML->select( array('name'=>'timestamp_format'), $timestamp_format_html, $settings['timestamp_format']);
-			echo $_HTML->div( array('content'=>$_LANG['SELECT_A_FORMAT_FOR_DISPLAYING_THE_DATES'], 'class'=>'input_tip') );
-		echo $_HTML->div_close();
-
 		// BLOG URL ADDRESS
 		echo $_HTML->div_open( array('class'=>'form_block') );
 			echo $_HTML->label( array('content'=>$_LANG['BLOG_ADDRESS'], 'class'=>'blocked') );
@@ -38,7 +24,7 @@
 		echo $_HTML->div_close();
 
 		// RSS ITEMS
-		echo $_HTML->div_open( array('class'=>'form_block') );
+		echo $_HTML->div_open( array('class'=>'form_block', 'hidden'=>true) );
 			echo $_HTML->label( array('content'=>$_LANG['RSS_ITEMS'], 'class'=>'blocked') );
 			echo $_HTML->select( array('name'=>'items_rss'), $items_html, $settings['items_rss']);
 			echo $_HTML->div( array('content'=>$_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_ON_RSS'], 'class'=>'input_tip') );
@@ -49,6 +35,38 @@
 			echo $_HTML->checkbox( array('id'=>'js_advanced_post_options', 'name'=>'advanced_post_options', 'class'=>'float'), $settings['advanced_post_options'] );
 			echo $_HTML->label( array('content'=>$_LANG['ADVANCED_OPTIONS_FOR_POST'], 'class'=>'for_checkbox', 'for'=>'js_advanced_post_options') );
 			echo $_HTML->div( array('content'=>$_LANG['ADVANCED_OPTIONS_WHEN_PUBLISHING_CONTENT'], 'class'=>'input_tip') );
+		echo $_HTML->div_close();
+		
+		// ENABLE OR DISABLE WYSIWYG
+		echo $_HTML->div_open( array('class'=>'form_block'));
+			echo $_HTML->checkbox( array('id'=>'js_enable_wysiwyg', 'name'=>'enable_wysiwyg', 'class'=>'float'), $settings['enable_wysiwyg'] );
+			echo $_HTML->label( array('content'=>$_LANG['ENABLE_WYSIWYG_EDITOR'], 'class'=>'for_checkbox', 'for'=>'js_enable_wysiwyg') );
+			echo $_HTML->div( array('content'=>$_LANG['ENABLE_OR_DISABLE_THE_WYSIWYG_EDITOR'], 'class'=>'input_tip') );
+		echo $_HTML->div_close();
+
+		// REGIONAL SETTINGS
+		echo $_HTML->separator( array('content'=>$_LANG['REGIONAL_SETTINGS']) );
+		
+		// TIMEZONE
+		echo $_HTML->div_open( array('class'=>'form_block') );
+			echo $_HTML->label( array('content'=>$_LANG['TIMEZONE'], 'class'=>'blocked') );
+			echo $_HTML->select( array('name'=>'timezone'), $timezone_html, $settings['timezone']);
+			echo $_HTML->div( array('content'=>$_LANG['SELECT_A_TIMEZONE_FOR_A_CORRECT_DATE_VISUALIZATION'], 'class'=>'input_tip') );
+		echo $_HTML->div_close();
+
+		// DATE FORMAT
+		echo $_HTML->div_open( array('class'=>'form_block') );
+			echo $_HTML->label( array('content'=>$_LANG['TIMESTAMP_FORMAT'], 'class'=>'blocked') );
+			echo $_HTML->select( array('id'=>'js_timestamp_select'), $timestamp_format_html, $settings['timestamp_format']);		
+			echo $_HTML->input( array('style'=>'margin-top:10px;', 'id'=>'js_timestamp_format', 'name'=>'timestamp_format', 'type'=>'text', 'value'=>$settings['timestamp_format']) );
+			echo $_HTML->div( array('content'=>$_LANG['SELECT_A_FORMAT_FOR_DISPLAYING_THE_DATES'], 'class'=>'input_tip') );
+		echo $_HTML->div_close();
+		
+		// LOCALE
+		echo $_HTML->div_open( array('class'=>'form_block') );
+			echo $_HTML->label( array('content'=>$_LANG['LOCALE'], 'class'=>'blocked') );
+			echo $_HTML->input( array('id'=>'js_locale', 'name'=>'locale', 'type'=>'text', 'value'=>$settings['locale']) );
+			echo $_HTML->div( array('content'=>$_LANG['THIS_FIELD_IS_SET_EACH_TIME_YOU_CHANGE_THE_LANGUAGE_OF_THE_BLOG'], 'class'=>'input_tip') );
 		echo $_HTML->div_close();
 
 		// FRIENDLY URL
@@ -62,14 +80,33 @@
 			echo $_HTML->textarea( array('style'=>'height:130px;', 'content'=>'
 Options +FollowSymlinks
 Options -Indexes
-RewriteEngine on
-RewriteBase '.$settings['path'].'
-RewriteRule ^dashboard$ admin.php?controller=user&action=login [L]
-RewriteRule ^category/([^/]+)/page-([0-9]+)$ index.php?controller=blog&action=view&category=$1&page=$2 [L]
-RewriteRule ^category/([^/]+)/$ index.php?controller=blog&action=view&category=$1&page=0 [L]
-RewriteRule ^page-([0-9]+)$ index.php?controller=blog&action=view&page=$1 [L]
-RewriteRule ^post-([0-9]+)/([^/]+)$ index.php?controller=post&action=view&id_post=$1 [L]
-') );
+
+# Disable Magic Quotes
+<IfModule mod_php5.c>
+  php_flag magic_quotes_gpc                 off
+  php_flag magic_quotes_sybase              off
+</IfModule>
+
+# Enable expirations, 2 weeks
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  ExpiresDefault A1209600
+
+  <FilesMatch \.php$>
+    ExpiresActive Off
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteBase '.$settings['path'].'
+	RewriteRule ^dashboard$ admin.php?controller=user&action=login [L]
+	RewriteRule ^category/([^/]+)/page-([0-9]+)$ index.php?controller=blog&action=view&category=$1&page=$2 [L]
+	RewriteRule ^category/([^/]+)/$ index.php?controller=blog&action=view&category=$1&page=0 [L]
+	RewriteRule ^page-([0-9]+)$ index.php?controller=blog&action=view&page=$1 [L]
+	RewriteRule ^post-([0-9]+)/(.*)$ index.php?controller=post&action=view&id_post=$1 [L]
+</IfModule>') );
 		echo $_HTML->div_close();
 
 	echo $_HTML->form_close();
@@ -79,6 +116,10 @@ RewriteRule ^post-([0-9]+)/([^/]+)$ index.php?controller=post&action=view&id_pos
 <script>
 
 $(document).ready(function() {
+
+	$("#js_timestamp_select").change(function() {
+		$("#js_timestamp_format").val( $(this).val() );
+	});
 
 	// Save the default configuration
 	var datasrz = serial_form($("#js_form"));

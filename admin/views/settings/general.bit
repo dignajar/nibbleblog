@@ -18,7 +18,7 @@
 		echo $_HTML->div_open( array('class'=>'form_block') );
 			echo $_HTML->label( array('content'=>$_LANG['ABOUT_YOUR_BLOG'], 'class'=>'blocked') );
 			echo $_HTML->textarea( array('id'=>'js_about', 'name'=>'about', 'content'=>$settings['about']) );
-			echo $_HTML->div( array('content'=>$_LANG['SHORT_DESCRIPTION_OF_THE_BLOG_NO_MORE_THAN'], 'class'=>'input_tip') );
+			echo $_HTML->div( array('content'=>$_LANG['SHORT_DESCRIPTION_NO_MORE_THAN'], 'class'=>'input_tip') );
 		echo $_HTML->div_close();
 
 		// FOOTER TEXT

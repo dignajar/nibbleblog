@@ -1,0 +1,56 @@
+<?php
+
+// ============================================================================
+//	PATHS
+// ============================================================================
+	$current_path = basename(getcwd());
+	if( ($current_path == 'ajax') || ($current_path == 'js') )
+	{
+		define('PATH_ROOT', '../../');
+		define('PATH_CONTENT', '../../content/');
+	}
+	else
+	{
+		define('PATH_ROOT', './');
+		define('PATH_CONTENT', './content/');
+	}
+
+	// PHP - ADMIN
+	define('PATH_ADMIN',			PATH_ROOT.'admin/');
+	define('PATH_KERNEL',			PATH_ADMIN.'kernel/');
+	define('PATH_HELPERS',			PATH_ADMIN.'kernel/helpers/');
+	define('PATH_DB',				PATH_ADMIN.'kernel/db/');
+
+	define('PATH_ADMIN_CONTROLLER',	PATH_ADMIN.'controllers/');
+	define('PATH_ADMIN_VIEW',		PATH_ADMIN.'views/');
+	define('PATH_ADMIN_TEMPLATES',	PATH_ADMIN.'templates/');
+	define('PATH_ADMIN_AJAX',		PATH_ADMIN.'ajax/');
+	define('PATH_ADMIN_JS',			PATH_ADMIN.'js/');
+
+	// PHP - SYSTEM
+	define('PATH_LANGUAGES',		PATH_ROOT.'languages/');
+	define('PATH_PLUGINS',			PATH_ROOT.'plugins/');
+	define('PATH_THEMES',			PATH_ROOT.'themes/');
+
+	define('PATH_PUBLIC',			PATH_CONTENT.'public/');
+	define('PATH_PRIVATE',			PATH_CONTENT.'private/');
+	define('PATH_TMP',				PATH_CONTENT.'tmp/');
+
+	define('PATH_POSTS',			PATH_PUBLIC.'posts/');
+	define('PATH_COMMENTS',			PATH_PUBLIC.'comments/');
+	define('PATH_UPLOAD',			PATH_PUBLIC.'upload/');
+	define('PATH_PLUGINS_DB',		PATH_PRIVATE.'plugins/');
+
+// ============================================================================
+//	FILES
+// ============================================================================
+	// Private
+	define('FILE_XML_POST',			PATH_PRIVATE . 'post.xml');
+	define('FILE_XML_CATEGORIES',	PATH_PRIVATE . 'categories.xml');
+	define('FILE_XML_CONFIG',		PATH_PRIVATE . 'config.xml');
+	define('FILE_XML_SYSLOG',		PATH_PRIVATE . 'syslog.xml');
+	define('FILE_XML_COMMENTS',		PATH_PRIVATE . 'comments.xml');
+	define('FILE_SHADOW',			PATH_PRIVATE . 'shadow.php');
+	define('FILE_KEYS',				PATH_PRIVATE . 'keys.php');
+
+?>

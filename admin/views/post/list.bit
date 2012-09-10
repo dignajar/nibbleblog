@@ -1,7 +1,7 @@
 <?php
 	foreach( $post_list as $post )
 	{
-		$date = $_DATE->format($post['pub_date'], 'd/m/Y', $settings['timezone']);
+		$date = $_DATE->format($post['pub_date'], POST_DATE_FORMAT);
 
 		echo $_HTML->div_open( array('class'=>'list_box') );
 

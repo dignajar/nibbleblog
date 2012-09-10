@@ -3,29 +3,12 @@
 // ============================================================================
 //	INCLUDES
 // ============================================================================
-	require('includes/fs_php.bit');
-	require('includes/objects.bit');
-	require('includes/var_url.bit');
-	require('includes/fs_html.bit');
-	require('includes/constants.bit');
-
-// ============================================================================
-//	CONSTANTS
-// ============================================================================
-	define('AMOUNT_OF_SESSION',		3);
-	define('AMOUNT_OF_COMMENTS',	3);
-	define('AMOUNT_OF_POSTS',		8);
-	define('LOGIN_SLEEP',			2);
-
-// ============================================================================
-//	VARIABLES
-// ============================================================================
-	// Settings
-	$settings = $_DB_SETTINGS->get();
-
-	// Categories
-	$categories = $_DB_CATEGORIES->get_all();
-
+	require('init/1-fs_php.bit');
+	require('init/2-objects.bit');
+	require('init/3-variables.bit');
+	require('init/4-regional.bit');
+	require('init/4-url.bit');
+	
 // ============================================================================
 //	PLUGINS
 // ============================================================================
@@ -41,7 +24,7 @@
 
 		// Language
 		if( @!include(PATH_PLUGINS.$dir_name.'/languages/'.$settings['language'].'.bit') )
-			include(PATH_PLUGINS.$dir_name.'/languages/english.bit');
+			include(PATH_PLUGINS.$dir_name.'/languages/en_US.bit');
 
 		$_PLUGINS[$class]->set_attributes(
 		array(
@@ -52,22 +35,5 @@
 			'url'=>$_PLUGIN_CONFIG['DATA']['url']
 		));
 	}
-
-// ============================================================================
-//	FIX MAGIC QUOTES (for PHP<5.3)
-// ============================================================================
-	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
-	{
-		// Magic quotes ON ?
-		if( get_magic_quotes_gpc() != 0 )
-			$_POST = $_TEXT->clean_magic_quotes($_POST);
-	}
-
-// ============================================================================
-//	LANGUAGE
-// ============================================================================
-	include(PATH_LANGUAGES.$settings['language'].'.bit');
-
-
 
 ?>

@@ -19,70 +19,70 @@ class HELPER_DATE
 			@date_default_timezone_set(@date_default_timezone_get());
 	}
 
-	// Convierte unixstamp a date
-	// Devuelve un arreglo y en cada posicion devuelve un dato de la fecha
-	// Para ver los datos que devuelve mirar la tabla de la funcion date de php
-	// http://php.net/manual/en/function.date.php
-	//
-	// Parametros
-	// $gmt_user -> Zona horaria en la que se encuentra el usuario
-	// $time_unix -> Fecha en formato Unix
-	public function toarray($time, $gmt = 0)
+	public function set_locale($string)
 	{
-		$zone = 3600 * $gmt;
-
-		$date = array();
-
-		$date['s'] = date('s', $time + $zone);
-		$date['i'] = date('i', $time + $zone);
-		$date['h'] = date('h', $time + $zone);
-		$date['H'] = date('H', $time + $zone);
-		$date['d'] = date('d', $time + $zone);
-		$date['N'] = date('N', $time + $zone);
-		$date['n'] = date('n', $time + $zone);
-		$date['m'] = date('m', $time + $zone);
-		$date['Y'] = date('Y', $time + $zone);
-		$date['y'] = date('y', $time + $zone);
-		$date['a'] = date('a', $time + $zone);
-		$date['r'] = date('r', $time + $zone);
-
-		return( $date );
+		return(setlocale(LC_ALL,$string));
 	}
 
-	public function format($time, $format, $gmt = 0)
+	public function set_timezone($string)
 	{
-		$zone = 3600 * $gmt;
-
-		$date = date($format, $time + $zone);
-
-		return( $date );
+		return(date_default_timezone_set($string));
 	}
 
-	public function atom($time, $gmt = 0)
+	// Return array('Africa/Abidjan'=>'Africa/Abidjan (GMT+0)', ..., 'Pacific/Wallis'=>'Pacific/Wallis (GMT+12)');
+	// PHP supported list. http://php.net/manual/en/timezones.php
+	public function get_timezones()
 	{
-		$zone = 3600 * $gmt;
+		$tmp = array();
 
-		$date = date(DATE_ATOM, $time + $zone);
+		$timezone_identifiers_list = timezone_identifiers_list();
 
-		return( $date );
+		foreach($timezone_identifiers_list as $timezone_identifier)
+		{
+			$date_time_zone = new DateTimeZone($timezone_identifier);
+			$date_time = new DateTime('now', $date_time_zone);
+				
+			$hours = floor($date_time_zone->getOffset($date_time) / 3600);
+			$mins = floor(($date_time_zone->getOffset($date_time) - ($hours*3600)) / 60);
+			
+			$hours = 'GMT' . ($hours < 0 ? $hours : '+'.$hours);
+			$mins = ($mins > 0 ? $mins : '0'.$mins);
+			
+			$text = str_replace("_"," ",$timezone_identifier);
+			
+			$tmp[$timezone_identifier]=$text.' ('.$hours.':'.$mins.')';
+		}
+		
+		return($tmp);
 	}
 
-	// Devuelve la fecha en formato Unixstamp y esta corrida en GMT = 0
+	// Time GMT
 	public function unixstamp()
 	{
-		return( time() - date('Z') );
+		return( time() );
 	}
 
-	public function time_ago($tm, $rcs = 0)
+	// Format a local time/date according to locale settings
+	public function format($time, $format)
 	{
-		$cur_tm = time() - date('Z');
-		$dif = $cur_tm-$tm;
-		$pds = array('seconds','minutes','hours','days','weeks','months','years','decades');
-		$lngh = array(1,60,3600,86400,604800,2630880,31570560,315705600);
-		for($v = sizeof($lngh)-1; ($v >= 0)&&(($no = $dif/$lngh[$v])<=1); $v--); if($v < 0) $v = 0; $_tm = $cur_tm-($dif%$lngh[$v]);
-		$no = floor($no);
-		$x = $no.' '.$pds[$v];
-		return($x);
+		$date = strftime($format, $time);
+
+		return( $date );
+	}
+
+	// Format a local time/date
+	public function format_gmt($time, $format)
+	{
+		$date = date($format, $time);
+
+		return( $date );
+	}
+
+	public function atom($time)
+	{
+		$date = date(DATE_ATOM, $time);
+
+		return( $date );
 	}
 
 }

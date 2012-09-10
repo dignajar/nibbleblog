@@ -25,14 +25,21 @@
 // ============================================================================
 //	THEME CONFIG
 // ============================================================================
-	@require(THEME_ROOT.'config.bit');
+	require(THEME_ROOT.'config.bit');
 
 // ============================================================================
 //	CONTROLLER & ACTION
 // ============================================================================
 	$url = $_URL;
 
-	$layout = array('controller'=>'blog/view.bit', 'view'=>'blog/view.bit', 'template'=>'default.bit', 'title'=>'Blog powered by Nibbleblog');
+	$layout = array(
+		'controller'=>'blog/view.bit',
+		'view'=>'blog/view.bit',
+		'template'=>'default.bit',
+		'title'=>$settings['name'].' - '.$settings['slogan'],
+		'description'=>$settings['about'],
+		'feed'=>HTML_PATH_ROOT.'feed.php'
+	);
 
 	if( ($url['controller']!=null) && ($url['action']!=null) )
 	{
@@ -43,6 +50,11 @@
 	if(isset($theme['template'][$url['controller']]))
 	{
 		$layout['template'] = $theme['template'][$url['controller']];
+	}
+
+	if($settings['friendly_urls'])
+	{
+		$layout['feed'] = HTML_PATH_ROOT.'feed';
 	}
 
 	// Load the controller and template

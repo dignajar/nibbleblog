@@ -29,7 +29,7 @@
 
 	foreach($syslog_sessions as $session)
 	{
-		$date = $_DATE->format($session['date'], 'h:ia d/m/Y', $settings['timezone']);
+		$date = $_DATE->format($session['date'], SESSION_DATE_FORMAT);
 
 		echo $_HTML->div_open( array('class'=>'notification notification_session') );
 			echo $_HTML->div( array('class'=>'type', 'content'=>$_LANG['NEW_SESSION_STARTED']) );
@@ -41,7 +41,7 @@
 
 	foreach($last_comments as $comment)
 	{
-		$date = $_DATE->format($comment['pub_date'], 'd/m/Y', $settings['timezone']);
+		$date = $_DATE->format($comment['pub_date'], COMMENT_DATE_FORMAT);
 
 		echo $_HTML->div_open( array('class'=>'notification notification_last_comments') );
 			echo $_HTML->div( array('class'=>'type', 'content'=>$comment['content']) );

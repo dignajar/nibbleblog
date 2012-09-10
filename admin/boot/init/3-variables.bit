@@ -1,0 +1,80 @@
+<?php
+
+// ============================================================================
+//	VARIABLES
+// ============================================================================
+	// Settings
+	$settings = $_DB_SETTINGS->get();
+
+	// Categories
+	$categories = $_DB_CATEGORIES->get_all();
+
+// ============================================================================
+//	SYSTEM INFORMATION
+// ============================================================================
+	define('NIBBLEBLOG_VERSION',		'3.3 beta1');
+	define('NIBBLEBLOG_NAME',			'');
+	define('NIBBLEBLOG_RELEASE_DATE',	'02/09/2012');
+
+// ============================================================================
+//	CONSTANTS
+// ============================================================================
+	define('AMOUNT_OF_SESSION',		3);
+	define('AMOUNT_OF_COMMENTS',	3);
+	define('AMOUNT_OF_POSTS',		8);
+	define('LOGIN_SLEEP',			2);
+	
+	define('SESSION_DATE_FORMAT',	'%r - %x');
+	define('COMMENT_DATE_FORMAT',	'%r - %x');
+	define('POST_DATE_FORMAT',		'%r - %x');
+
+// ============================================================================
+//	HTML
+// ============================================================================
+
+	define('HTML_PATH_ROOT',			$settings['path']);
+
+	define('HTML_PATH_ADMIN',			HTML_PATH_ROOT.'admin/');
+	define('HTML_PATH_ADMIN_TEMPLATES',	HTML_PATH_ADMIN.'templates/');
+	define('HTML_PATH_ADMIN_JS',		HTML_PATH_ADMIN.'js/');
+	define('HTML_PATH_ADMIN_AJAX',		HTML_PATH_ADMIN.'ajax/');
+
+	define('HTML_PATH_THEMES',			HTML_PATH_ROOT.'themes/');
+	define('HTML_PATH_UPLOAD',			HTML_PATH_ROOT.'content/public/upload/');
+
+// ============================================================================
+//	THEME
+// ============================================================================
+	// PHP
+	define('THEME_ROOT',			PATH_THEMES . $settings['theme'] . '/');
+	define('THEME_CONTROLLERS',		THEME_ROOT.'controllers/');
+	define('THEME_VIEWS',			THEME_ROOT.'views/');
+	define('THEME_TEMPLATES',		THEME_ROOT.'templates/');
+	define('THEME_CSS',				THEME_ROOT.'css/');
+	define('THEME_LANGUAGE',		THEME_ROOT.'language/');
+
+	// HTML
+	define('HTML_THEME_ROOT',		HTML_PATH_THEMES . $settings['theme'] . '/');
+	define('HTML_THEME_CSS',		HTML_THEME_ROOT.'css/');
+	define('HTML_THEME_JS',			HTML_THEME_ROOT.'js/');
+
+// ============================================================================
+//	JAVASCRIPT
+// ============================================================================
+	define('JS_JQUERY',					HTML_PATH_ADMIN_JS.'jquery/jquery.js');
+
+// ============================================================================
+//	DEBUG
+// ============================================================================
+	define('DEBUG_MODE',	true);
+
+	if(DEBUG_MODE)
+	{
+		error_reporting(-1);
+	}
+	else
+	{
+		error_reporting(0);
+	}
+
+?>

@@ -111,25 +111,10 @@ class HELPER_TEXT {
 	// Clean text for URL
 	public function clean_url($text)
 	{
-		$text = str_replace(array("!", "*", "'", "(", ")", ";", ":", "@", "&", "=", "+", "$", ",", "/", "?", "%", "#", "[", "]"),"",$text);
-		$text = str_replace(" ","_",$text);
-
+		$text = str_replace(array("!", "*", "&#039;", "(", ")", ";", ":", "@", "&amp", "=", "+", "$", ",", "/", "?", "%", "#", "[", "]"),'',$text);
+		$text = str_replace(" ","-",$text);
 		return($text);
 	}
-
-	function get_slug_url($str)
-	{
-
-    $search = array('Ș', 'Ț', 'ş', 'ţ', 'Ş', 'Ţ', 'ș', 'ț', 'î', 'â', 'ă', 'Î', 'Â', 'Ă', 'ë', 'Ë');
-    $replace = array('s', 't', 's', 't', 's', 't', 's', 't', 'i', 'a', 'a', 'i', 'a', 'a', 'e', 'E');
-    $str = str_ireplace($search, $replace, strtolower(trim($str)));
-    $str = preg_replace('/[^\w\d\-\ ]/', '', $str);
-    $str = str_replace(' ', '-', $str);
-    return preg_replace('/\-{2,}', '-', $str);
-
-
-	}
-
 
 	function random_text($length)
 	{

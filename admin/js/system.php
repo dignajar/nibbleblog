@@ -20,6 +20,15 @@ echo 'var HTML_PATH_ADMIN_TEMPLATES = "'.HTML_PATH_ADMIN_TEMPLATES.'";';
 //	VARS
 // ============================================================================
 
+if( $_DB_SETTINGS->get_wysiwyg() )
+{
+	echo 'var _WYSIWYG = true;';
+}
+else
+{
+	echo 'var _WYSIWYG = false;';
+}
+
 echo 'var _MAX_FILE_SIZE = 1024 * 3000;';
 
 

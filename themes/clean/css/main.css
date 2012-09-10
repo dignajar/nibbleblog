@@ -1,10 +1,11 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic);
 
 /* ============================== */
 /* BODY */
 /* ============================== */
 
 body {
-	font-family: helvetica,arial,sans-serif;
+	font-family: 'Open Sans', helvetica,arial,sans-serif;
 	background-color: #FEFEFE;
 	margin: 0;
 	padding: 0;
@@ -20,6 +21,7 @@ body {
 a {
 	color: #3C6EB4;
 	cursor: pointer;
+	text-decoration: none;
 }
 
 a:hover {
@@ -57,16 +59,14 @@ img:not(.captcha) {
 /* ============================== */
 #head {
 	overflow: auto;
-	margin-top: 40px;
+	margin: 40px 0;
 }
 
-#head	div.left {
-	float: left;
+#head	div.top {
+	
 }
 
-#head	div.right {
-	float: right;
-	width: 370px;
+#head	div.bottom {
 }
 
 #head	a {
@@ -77,20 +77,11 @@ img:not(.captcha) {
     font-size: 38px;
     font-weight: normal;
 	color: #616161;
+	margin: 0;
 }
 
 #head	span.slogan {
 	color: #CCC;
-}
-
-
-/* ============================== */
-/* PLUGIN TWITTER */
-/* ============================== */
-div.plugin_twitter {
-	background: url("img/twitter.png") no-repeat scroll 0 -5px transparent;
-	min-height: 90px;
-	padding-left: 60px;
 }
 
 /* ============================== */
@@ -120,7 +111,7 @@ div.plugin_twitter {
 /* POST VIEW*/
 /* ============================== */
 article.post {
-	margin: 30px 0;
+	margin-bottom: 40px;
 }
 
 article.post	header {
@@ -151,21 +142,18 @@ article.post	footer.info {
 article.post	footer.info	span.date {
 	background: url("img/clock.png") no-repeat;
     display: inline-block;
-    line-height: 18px;
+    line-height: 16px;
     margin-right: 10px;
     padding-left: 22px;
 }
 
 article.post	p.read_more {
 	text-align: right;
+	margin: 0;
 }
 
 article.post	a.read_more {
-	background: none repeat scroll 0 0 #3C6EB4;
-	color: #FFFFFF;
-	font-size: 11px;
-	padding: 2px 5px;
-	text-decoration: none;
+	
 }
 
 /* ============================== */
@@ -177,9 +165,9 @@ article.post	a.read_more {
 }
 
 #comment_list	h2 {
-	margin: 10px 0;
 	font-style: italic;
-	font-size: 21px;
+	font-weight: normal;
+	margin: 10px 0;
 }
 
 #comment_list	div.comment {
@@ -211,16 +199,16 @@ article.post	a.read_more {
 }
 
 #comment_form	h2 {
-	margin: 10px 0;
 	font-style: italic;
-	font-size: 18px;
+	font-weight: normal;
+	margin: 10px 0;
 }
 
 #comment_form	h3.alert {
-	margin: 5px 0;
-	font-style: italic;
-	font-size: 16px;
 	color: #BE1C54;
+	font-size: 16px;
+	font-style: italic;
+	margin: 0 0 15px;
 }
 
 #comment_form	input[type="text"],
@@ -236,7 +224,7 @@ article.post	a.read_more {
 	outline:none;
 	resize: none;
 	margin-bottom: 15px;
-	font-family: helvetica,arial,sans-serif;
+	font-family: font-family: 'Open Sans', helvetica,arial,sans-serif;
 	font-size: 13px;
 }
 
@@ -249,4 +237,29 @@ article.post	a.read_more {
 	display: block;
 	clear: left;
 	padding: 3px 8px;
+}
+
+/* ============================== */
+/* PLUGIN TWITTER */
+/* ============================== */
+div.plugin_twitter {
+	padding: 0;
+	margin: 0;
+}
+
+div.plugin_twitter	ul {
+	margin: 0;
+	padding: 0;
+}
+
+div.plugin_twitter	li {
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
+div.plugin_twitter	li.username {
+	background: url("img/twitter.png") no-repeat 0 -2px;
+	margin-right: 5px;
+	padding-left: 23px;
 }

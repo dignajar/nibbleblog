@@ -55,6 +55,18 @@ $dependencies = true;
 $blog_base_path = '/';
 $blog_address = 'http://'.getenv('HTTP_HOST');
 $installation_complete = false;
+$languagues = array(
+	'de_DE'=>'Deutsch',
+	'en_US'=>'English',
+	'es_ES'=>'Español',
+	'fr_FR'=>'Français',
+	'hu_HU'=>'Magyar',
+	'pl_PL'=>'Polski',
+	'pt_PT'=>'Português',
+	'ru_RU'=>'Pyccĸий',
+	'vi_VN'=>'Tiếng Việt',
+	'zh_TW'=>'繁體中文'
+);
 
 // ============================================================================
 //	SYSTEM
@@ -79,8 +91,8 @@ if( dirname(getenv('REQUEST_URI')) != '/' )
 // LANGUAGES
 if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 {
-	$_GET['language'] = 'english';
-	require( 'languages/english.bit' );
+	$_GET['language'] = 'en_US';
+	require( 'languages/en_US.bit' );
 }
 
 // ============================================================================
@@ -104,18 +116,21 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		$obj = new NBXML($xml, 0, FALSE, '', FALSE);
 		$obj->addChild('name',					$_POST['name']);
 		$obj->addChild('slogan',				$_POST['slogan']);
-		$obj->addChild('footer',				'Powered By Nibbleblog - Theme Clean');
+		$obj->addChild('footer',				$_LANG['POWERED_BY_NIBBLEBLOG']);
 		$obj->addChild('about',					'');
 		$obj->addChild('language',				$_GET['language']);
-		$obj->addChild('timezone',				'0');
+		$obj->addChild('timezone',				'UTC');
 		$obj->addChild('theme',					'clean');
 		$obj->addChild('url',					$_POST['url']);
 		$obj->addChild('path',					$_POST['path']);
 		$obj->addChild('rewriteurl',			'0');
 		$obj->addChild('items_rss',				'4');
 		$obj->addChild('items_page',			'4');
-		$obj->addChild('timestamp_format',		'm.d.y');
+		$obj->addChild('timestamp_format',		'%m/%d/%y');
 		$obj->addChild('advanced_post_options',	'0');
+		$obj->addChild('locale',				$_GET['language']);
+		$obj->addChild('friendly_urls',			0);
+		$obj->addChild('enable_wysiwyg',		1);
 		$obj->asXml( FILE_XML_CONFIG );
 
 		// categories.xml
@@ -125,13 +140,13 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		$obj = new NBXML($xml, 0, FALSE, '', FALSE);
 		$node = $obj->addChild('category', '');
 		$node->addAttribute('id',0);
-		$node->addAttribute('name', 'Uncategorized');
+		$node->addAttribute('name', $_LANG['UNCATEGORIZED']);
 		$node = $obj->addChild('category', '');
 		$node->addAttribute('id',1);
-		$node->addAttribute('name', 'Music');
+		$node->addAttribute('name', $_LANG['MUSIC']);
 		$node = $obj->addChild('category', '');
 		$node->addAttribute('id',2);
-		$node->addAttribute('name', 'Videos');
+		$node->addAttribute('name', $_LANG['VIDEOS']);
 		$obj->asXml( FILE_XML_CATEGORIES );
 
 		// comments.xml
@@ -189,7 +204,7 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		$content .= '<p>'.$_LANG['WELCOME_POST_LINE3'].'  <a target="_blank" href="http://forum.nibbleblog.com">http://forum.nibbleblog.com</a></p>';
 		$content .= '<p>'.$_LANG['WELCOME_POST_LINE4'].'  <a target="_blank" href="http://www.facebook.com/nibbleblog">https://www.facebook.com/nibbleblog</a></p>';
 		$_DB_POST = new DB_POSTS(FILE_XML_POST, null);
-		$_DB_POST->add( array('id_user'=>0, 'id_cat'=>0, 'type'=>'simple', 'title'=>$_LANG['WELCOME_POST_TITLE'], 'content'=>$content, 'allow_comments'=>'1', 'sticky'=>'0') );
+		$_DB_POST->add( array('id_user'=>0, 'id_cat'=>0, 'type'=>'simple', 'description'=>$_LANG['WELCOME_POST_TITLE'], 'title'=>$_LANG['WELCOME_POST_TITLE'], 'content'=>$content, 'allow_comments'=>'1', 'sticky'=>'0') );
 
 		$installation_complete = true;
 	}
@@ -311,18 +326,11 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		<header>
 			<div class="lang">
 			<?php
-			if(!$installation_complete)
-			{
-				echo '<a class="lang" href="./install.php?language=chinese_traditional">Chinese Traditional</a>';
-				echo '<a class="lang" href="./install.php?language=english">English</a>';
-				echo '<a class="lang" href="./install.php?language=french">French</a>';
-				echo '<a class="lang" href="./install.php?language=hungarian">Hungarian</a>';
-				echo '<a class="lang" href="./install.php?language=polish">Polish</a>';
-				echo '<a class="lang" href="./install.php?language=portuguese">Portuguese</a>';
-				echo '<a class="lang" href="./install.php?language=russian">Russian</a>';
-				echo '<a class="lang" href="./install.php?language=spanish">Spanish</a>';
-				echo '<a class="lang" href="./install.php?language=vietnamese">Vietnamese</a>';
-			}
+				if(!$installation_complete)
+				{
+					foreach( $languagues as $key=>$value)
+						echo '<a class="lang" href="./install.php?language='.$key.'">'.$value.'</a>';
+				}
 			?>
 			</div>
 			<?php echo $_HTML->h1( array('content'=>$_LANG['WELCOME_TO_NIBBLEBLOG']) ); ?>

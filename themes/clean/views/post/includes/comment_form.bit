@@ -2,7 +2,7 @@
 
 echo '<footer id="comment_form">';
 
-	echo '<h2>'.$_LANG['NEW_COMMENTS'].'</h2>';
+	echo '<h2>'.$_LANG['NEW_COMMENT'].'</h2>';
 
 	if($_SESSION['nibbleblog']['error'])
 	{

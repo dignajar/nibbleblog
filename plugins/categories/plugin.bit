@@ -5,7 +5,7 @@
 // =========================================
 $_PLUGIN_CONFIG['DATA'] = array(
 	'author'=>'Diego Najar',
-	'version'=>'1.0',
+	'version'=>'1.1',
 	'url'=>'http://www.nibbleblog.com'
 );
 
@@ -17,11 +17,11 @@ class PLUGIN_CATEGORIES extends PLUGIN
 
 	public function get_html()
 	{
-		global $_HTML;
 		global $categories;
 		global $settings;
 
-		$html = $_HTML->div_open( array('class'=>'plugin_categories') );
+		$html  = '<div class="plugin_categories">';
+		$html .= '<ul>';
 
 		foreach($categories as $category)
 		{
@@ -34,10 +34,11 @@ class PLUGIN_CATEGORIES extends PLUGIN
 				$href = HTML_PATH_ROOT.'index.php?controller=blog&action=view&category='.$category['name'];
 			}
 
-			$html .= '<a class="category" href="'.$href.'">'.$category['name'].'</a>';
+			$html .= '<li class="category"><a href="'.$href.'">'.$category['name'].'</a></li>';
 		}
 
-		$html.= $_HTML->div_close();
+		$html .= '</ul>';
+		$html .= '</div>';
 
 		return($html);
 	}
@@ -45,4 +46,3 @@ class PLUGIN_CATEGORIES extends PLUGIN
 }
 
 ?>
-

@@ -2,16 +2,26 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="<?php echo $settings['about'] ?>">
-
+	
+	<!-- TITLE -->
 	<title><?php echo $layout['title'] ?></title>
 
+	<!-- DESCRIPTION -->
+	<meta name="description" content="<?php echo $layout['description'] ?>">
+
+	<!-- CSS3 -->
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'main.css?v='.$theme['version'] ?>" />
 
+	<!-- FAVICON -->
 	<link rel="shortcut icon" href="<?php echo HTML_THEME_CSS.'img/favicon.ico' ?>" type="image/x-icon" />
 
+	<!-- JQUERY -->
 	<script src="<?php echo JS_JQUERY ?>"></script>
 
+	<!-- ATOM Feed 2.0 -->
+	<link rel="alternate" type="application/atom+xml" title="ATOM Feed" href="<?php echo $layout['feed'] ?>" />
+
+	<!-- Plugin::Analytics -->
 	<?php
 		if( isset($plugins['analytics']) )
 		{
@@ -25,16 +35,19 @@
 
 		<header id="head">
 
-			<div class="left">
+			<div class="top">
 				<a class="name" href="<?php echo HTML_PATH_ROOT ?>">
 					<h1>
 						<?php echo $settings['name'] ?>
-						<span class="slogan"><?php echo $settings['slogan'] ?></span>
+						
+						<span class="slogan">
+							<?php echo $settings['slogan'] ?>
+						</span>
 					</h1>
 				</a>
 			</div>
 
-			<div class="right">
+			<div class="bottom">
 				<?php
 					if( isset($plugins['twitter']) )
 					{
@@ -50,7 +63,10 @@
 		</section>
 
 		<footer id="foot">
-			<p><?php echo $settings['footer'] ?></p>
+			<p>
+				<a href="<?php echo $layout['feed'] ?>">Atom</a> ·
+				<?php echo $settings['footer'] ?>
+			</p>
 		</footer>
 
 	</div>

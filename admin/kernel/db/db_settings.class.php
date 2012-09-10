@@ -74,7 +74,9 @@ class DB_SETTINGS {
 			$tmp_array['timezone']					= (string) $this->obj_xml->getChild('timezone');
 			$tmp_array['timestamp_format']			= (string) $this->obj_xml->getChild('timestamp_format');
 			$tmp_array['advanced_post_options']		= (int) $this->obj_xml->getChild('advanced_post_options') == 1;
-			$tmp_array['friendly_urls']		= (int) $this->obj_xml->getChild('friendly_urls') == 1;
+			$tmp_array['friendly_urls']				= (int) $this->obj_xml->getChild('friendly_urls') == 1;
+			$tmp_array['enable_wysiwyg']			= (int) $this->obj_xml->getChild('enable_wysiwyg') == 1;
+			$tmp_array['locale']					= (string) $this->obj_xml->getChild('locale');
 
 			return($tmp_array);
 		}
@@ -93,6 +95,7 @@ class DB_SETTINGS {
 			$this->obj_xml->setChild('about', 			$args['about']);
 			$this->obj_xml->setChild('footer', 			$args['footer']);
 			$this->obj_xml->setChild('language', 		$args['language']);
+			$this->obj_xml->setChild('locale', 			$args['language']);
 
 			return(true);
 		}
@@ -106,7 +109,9 @@ class DB_SETTINGS {
 			$this->obj_xml->setChild('timezone', 				$args['timezone']);
 			$this->obj_xml->setChild('timestamp_format',		$args['timestamp_format']);
 			$this->obj_xml->setChild('advanced_post_options', 	$args['advanced_post_options']);
-			$this->obj_xml->setChild('friendly_urls', 	$args['friendly_urls']);
+			$this->obj_xml->setChild('enable_wysiwyg', 			$args['enable_wysiwyg']);
+			$this->obj_xml->setChild('friendly_urls', 			$args['friendly_urls']);
+			$this->obj_xml->setChild('locale', 					$args['locale']);
 
 			return(true);
 		}
@@ -114,6 +119,11 @@ class DB_SETTINGS {
 		public function get_language()
 		{
 			return((string) $this->obj_xml->getChild('language'));
+		}
+		
+		public function get_wysiwyg()
+		{
+			return( (int)$this->obj_xml->getChild('enable_wysiwyg') == 1 );
 		}
 
 		public function get_base_path()
@@ -132,8 +142,10 @@ class DB_SETTINGS {
 
 			foreach($files as $file)
 			{
-				$file = basename($file, '.bit');
-				$tmp_array[$file] = ucwords($_TEXT->replace('_',' ',$file));
+				include(PATH_LANGUAGES.$file);
+				$iso = basename($file, '.bit');
+				$native = $_LANG_CONFIG['DATA']['native'];
+				$tmp_array[$iso] = ucwords($native);
 			}
 
 			return($tmp_array);

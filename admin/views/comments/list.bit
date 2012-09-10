@@ -2,7 +2,7 @@
 
 	foreach( $comments as $comment )
 	{
-		$date = $_DATE->format($comment['pub_date'], 'd/m/Y', $settings['timezone']);
+		$date = $_DATE->format($comment['pub_date'], COMMENT_DATE_FORMAT);
 
 		$post = $_DB_POST->get( array('id'=>$comment['id_post']) );
 

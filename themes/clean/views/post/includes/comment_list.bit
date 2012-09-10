@@ -8,7 +8,7 @@ if(!empty($comments))
 
 		foreach($comments as $comment)
 		{
-			$date = $_DATE->format($comment['pub_date'], $settings['timestamp_format'], $settings['timezone']);
+			$date = $_DATE->format($comment['pub_date'], $settings['timestamp_format']);
 
 			echo '<div class="comment">';
 				echo '<span class="author_name">'.$comment['author_name'].'</span>';

@@ -9,10 +9,15 @@
 
 		// CONTENT
 		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->textarea( array('id'=>'js_content', 'name'=>'content', 'content'=>'', 'class'=>'tinymce') );
-			echo $_HTML->span( array('id'=>'js_toggle_button', 'class'=>'toggle_button', 'content'=>'HTML code', 'hidden'=>!$settings['advanced_post_options']) );
+			echo $_HTML->textarea( array('id'=>'js_content', 'name'=>'content', 'content'=>'', 'class'=>'wysiwyg') );
 			echo $_HTML->span( array('id'=>'js_uploader_button', 'class'=>'uploader_button', 'content'=>$_LANG['INSERT_PICTURE']) );
 			echo $_HTML->span( array('id'=>'js_uploader_loading', 'class'=>'uploader_button', 'content'=>$_LANG['UPLOADING'].'...', 'style'=>'display: none') );
+		echo $_HTML->div_close();
+
+		// SEO DESCRIPTION
+		echo $_HTML->div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
+			echo $_HTML->label( array('class'=>'blocked', 'content'=>$_LANG['SHORT_DESCRIPTION_NO_MORE_THAN']) );
+			echo $_HTML->input( array('id'=>'js_description', 'name'=>'description', 'type'=>'text') );
 		echo $_HTML->div_close();
 
 		// CATEGORIES
@@ -46,69 +51,16 @@
 
 ?>
 
-<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'tiny_mce/jquery.tinymce.js' ?>"></script>
-<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'tiny_mce/tiny_mce.js' ?>"></script>
+<?php
+	if($settings['enable_wysiwyg'])
+	{
+		include(PATH_ADMIN_JS.'wysiwyg.bit');
+	}
+?>
 
 <script>
 
 $(document).ready(function() {
-	
-	var tinymce_enable = true;
-
-	tinyMCE.init({
-		mode : "textareas",
-
-		theme : "advanced",
-		plugins : "paste, pagebreak, inlinepopups, pre",
-		paste_text_sticky : true,
-
-		// When pasted text always pasted like plain text
-		setup : function(ed) {
-			ed.onInit.add(function(ed) {
-				ed.pasteAsPlainText = true;
-			});
-		},
-
-		theme_advanced_resizing : true,
-		theme_advanced_resize_horizontal : false,
-		theme_advanced_statusbar_location : "bottom",
-		theme_advanced_path : false,
-
-		preformatted : true,
-
-		relative_urls : false,
-
-		theme_advanced_toolbar_location : "top",
-		theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,pre,styleselect,removeformat,|,forecolor,backcolor,|,image, |,bullist,numlist,outdent,indent,|,link, unlink,|,pagebreak",
-		theme_advanced_buttons2 : "",
-		theme_advanced_buttons3 : "",
-
-		style_formats : [
-			{title : 'Paragraph', block : 'p'},
-			{title : 'Heading 1', block : 'h1'},
-			{title : 'Heading 2', block : 'h2'},
-			{title : 'Heading 3', block : 'h3'},
-
-			{title : 'Nibbleblog Styles'},
-			{title : 'Preformatted',	block : 'pre'},
-			{title : 'Console',			block : 'div', classes: 'console'},
-		],
-
-		height:"400px",
-		width:"100%"
-	});
-
-	// Disable or Enable Tinymce
-	$("#js_toggle_button").toggle(
-		function(){
-		   tinyMCE.execCommand("mceRemoveControl", false, "js_content");
-		   tinymce_enable = false;
-		},
-		function () {
-			tinyMCE.execCommand("mceAddControl", false, "js_content");
-			tinymce_enable = true;
-		}
-	);
 
 // =============================================
 //	Uploader for Nibbleblog by Diego Najar
@@ -128,20 +80,6 @@ $(document).ready(function() {
 	function() {
 
 		var file = this.files[0];
-
-/*
-		if(file.size > _MAX_FILE_SIZE)
-		{
-			alert("This picture is too large (Max X MB)");
-			return false;
-		}
-
-		if( !file.type.match('image/jpeg') && !file.type.match('image/png') )
-		{
-			alert("Allow only JPG/PNG images");
-			return false;
-		}
-*/
 
 		uploader_button.hide();
 		uploader_loading.css("display", "inline-block");
@@ -175,7 +113,7 @@ $(document).ready(function() {
 			var src = $(xml).find("file").text();
 			var img = "";
 			
-			if(tinymce_enable)
+			if(_WYSIWYG)
 			{
 				img = '<img data-mce-src="'+src+'" src="'+src+'" alt="" >';
 				tinyMCE.execCommand('mceInsertContent',false,img);
