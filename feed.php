@@ -35,20 +35,22 @@ foreach($posts as $post)
 	if($post['type']=='quote')
 	{
 		$title = 'quote';
-		$content = utf8_encode($post['quote']);
+		$content = htmlspecialchars($post['quote'], ENT_QUOTES, 'UTF-8');
 	}
 	else
 	{
 		if($_TEXT->not_empty($post['title']))
 		{
-			$title = utf8_encode($post['title']);
+			$title = htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8');
 		}
 		else
 		{
-			$title = utf8_encode($post['type']);
+			$title = htmlspecialchars($post['type'], ENT_QUOTES, 'UTF-8');
 		}
 
-		$content = utf8_encode(htmlspecialchars($post['content_part0']));
+		$content = htmlspecialchars($post['content_part0'], ENT_QUOTES, 'UTF-8');
+
+
 	}
 
 	$full_link = htmlspecialchars($settings['url'].$post['permalink']);
