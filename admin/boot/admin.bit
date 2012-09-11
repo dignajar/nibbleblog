@@ -6,8 +6,9 @@
 	require('init/1-fs_php.bit');
 	require('init/2-objects.bit');
 	require('init/3-variables.bit');
-	require('init/4-regional.bit');
-	require('init/4-url.bit');
+	require('init/10-regional.bit');
+	require('init/10-url.bit');
+	require('init/10-constants.bit');
 	
 // ============================================================================
 //	PLUGINS

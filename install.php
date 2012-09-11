@@ -15,6 +15,7 @@ if( file_exists('content/private') || file_exists('content/public') )
 	exit('Blog already installed');
 
 require('admin/boot/init/1-fs_php.bit');
+require('admin/boot/init/10-constants.bit');
 
 // DB
 require(PATH_DB . 'nbxml.class.php');
@@ -335,11 +336,13 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 			<?php echo $_HTML->h1( array('content'=>$_LANG['WELCOME_TO_NIBBLEBLOG']) ); ?>
 		</header>
 
+		<noscript>
 		<section id="javascript_fail">
 			<h2>Javascript</h2>
 			<p><?php echo $_LANG['PLEASE_ENABLE_JAVASCRIPT_IN_YOUR_BROWSER'] ?></p>
 		</section>
-
+		</noscript>
+		
 		<section id="complete">
 			<?php
 				echo $_HTML->h2( array('content'=>$_LANG['INSTALLATION_COMPLETE']) );
@@ -459,8 +462,6 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 
 	<script>
 	$(document).ready(function(){
-
-		$("#javascript_fail").hide();
 
 		<?php
 			if($installation_complete)
