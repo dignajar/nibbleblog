@@ -2,9 +2,9 @@
 
 Header("content-type: application/x-javascript");
 
-require('../boot/includes/fs_php.bit');
-require('../boot/includes/objects.bit');
-require('../boot/includes/fs_html.bit');
+require('../boot/init/1-fs_php.bit');
+require('../boot/init/2-objects.bit');
+require('../boot/init/3-variables.bit');
 
 // ============================================================================
 //	PATHS

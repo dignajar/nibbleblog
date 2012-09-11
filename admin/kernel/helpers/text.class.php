@@ -111,7 +111,7 @@ class HELPER_TEXT {
 	// Clean text for URL
 	public function clean_url($text)
 	{
-		$text = str_replace(array("!", "*", "&#039;", "(", ")", ";", ":", "@", "&amp", "=", "+", "$", ",", "/", "?", "%", "#", "[", "]"),'',$text);
+		$text = str_replace(array("!", "*", "&#039;", "(", ")", ";", ":", "@", "&amp", "=", "+", "$", ",", "/", "?", "%", "#", "[", "]", "|"),'',$text);
 		$text = str_replace(" ","-",$text);
 		return($text);
 	}

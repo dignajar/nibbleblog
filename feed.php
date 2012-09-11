@@ -7,26 +7,65 @@ $settings = $_DB_SETTINGS->get();
 
 $posts = $_DB_POST->get_list_by_page( array('page'=>0, 'amount'=>$settings['items_rss']) );
 
+if($settings['friendly_urls'])
+{
+	$feed_link = $settings['url'].$settings['path'].'feed';
+}
+else
+{
+	$feed_link = $settings['url'].$settings['path'].'feed.php';
+}
+
+$last_post = $posts[0];
+$updated = $_DATE->atom($last_post['pub_date']);
+
 // ============================================================================
 // ATOM Feed
 // ============================================================================
-$rss = '<?xml version="1.0" encoding="utf-8"?>' . PHP_EOL;
+$rss = '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL;
 $rss.= '<feed xmlns="http://www.w3.org/2005/Atom">' . PHP_EOL;
 $rss.= '<title>'.$settings['name'].'</title>' . PHP_EOL;
 $rss.= '<subtitle>'.$settings['slogan'].'</subtitle>' . PHP_EOL;
-$rss.= '<link href="'.$settings['url'].$settings['path'].'" />' . PHP_EOL;
-$rss.= '<link href="'.$settings['url'].$settings['path'].'feed.php" rel="self" />' . PHP_EOL;
+$rss.= '<link href="'.$feed_link.'" rel="self" />' . PHP_EOL;
+$rss.= '<id>'.$feed_link.'</id>'. PHP_EOL;
+$rss.= '<updated>'.$updated.'</updated>' . PHP_EOL;
 
 foreach($posts as $post)
 {
-	// CHECK TYPE!!
+	if($post['type']=='quote')
+	{
+		$title = 'quote';
+		$content = utf8_encode($post['quote']);
+	}
+	else
+	{
+		if($_TEXT->not_empty($post['title']))
+		{
+			$title = utf8_encode($post['title']);
+		}
+		else
+		{
+			$title = utf8_encode($post['type']);
+		}
+
+		$content = utf8_encode(htmlspecialchars($post['content_part0']));
+	}
+
+	$full_link = htmlspecialchars($settings['url'].$post['permalink']);
+
+	$date = $_DATE->atom($post['pub_date']);
+
+	// Entry
 	$rss.= '<entry>' . PHP_EOL;
-		$rss.= '<title type="html"><![CDATA['.utf8_encode($post['title']).']]></title>' . PHP_EOL;
-		$rss.= '<summary type="html"><![CDATA['.utf8_encode($post['content_part0']).']]></summary>' . PHP_EOL;
-		$rss.= '<link href="'.$post['permalink'].'" />' . PHP_EOL;
-		$rss.= '<updated>'.$_DATE->atom($post['pub_date']).'</updated>' . PHP_EOL;
+		$rss.= '<title type="html">'.$title.'</title>' . PHP_EOL;
+		$rss.= '<content type="html">'.$content.'</content>' . PHP_EOL;
+		$rss.= '<link href="'.$full_link.'" />' . PHP_EOL;
+		$rss.= '<id>'.$full_link.'</id>' . PHP_EOL;
+		$rss.= '<updated>'.$date.'</updated>' . PHP_EOL;
 	$rss.= '</entry>' . PHP_EOL;
 }
+
+$rss.= '</feed>';
 
 echo $rss;
 
