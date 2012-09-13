@@ -13,20 +13,9 @@ if( $_POST['action']=='set' )
 		$safe[$name] = $_VALIDATION->sanitize_html($value);
 	}
 
-	if($_POST['type']=='general')
-	{
-		$_DB_SETTINGS->set_general($safe);
-	}
-	elseif($_POST['type']=='advanced')
-	{
-		$_DB_SETTINGS->set_advanced($safe);
-	}
-	elseif($_POST['type']=='themes')
-	{
-		$_DB_SETTINGS->set_theme($safe);
-	}
+	$_DB_SETTINGS->set($safe);
 
-	$error = $_DB_SETTINGS->savetofile();
+	$error = !$_DB_SETTINGS->savetofile();
 }
 
 if( $error )

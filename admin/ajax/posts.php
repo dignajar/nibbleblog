@@ -12,7 +12,7 @@ if( $_POST['action']=='delete' )
 	$_DB_COMMENTS->delete_all_by_post( array('id_post'=>$safe['id']) );
 
 	// Delete the post
-	$error = $_DB_POST->remove($safe);
+	$error = !$_DB_POST->remove($safe);
 }
 
 if( $error )

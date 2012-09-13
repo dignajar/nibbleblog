@@ -105,7 +105,6 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		mkdir('content/private/plugins',0777, true);
 		mkdir('content/public',			0777, true);
 		mkdir('content/public/upload',	0777, true);
-		mkdir('content/public/rss',		0777, true);
 		mkdir('content/public/posts',	0777, true);
 		mkdir('content/public/comments',0777, true);
 
@@ -164,14 +163,6 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		$obj = new NBXML($xml, 0, FALSE, '', FALSE);
 		$node = $obj->addChild('sticky', '');
 		$obj->asXml( FILE_XML_POST );
-
-		// rss.xml
-		$xml  = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
-		$xml .= '<rss version="2.0">';
-		$xml .= '</rss>';
-		$obj = new NBXML($xml, 0, FALSE, '', FALSE);
-		$node = $obj->addChild('channel', '');
-		$obj->asXml( FILE_XML_RSS );
 
 		// syslog.xml
 		$xml  = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';

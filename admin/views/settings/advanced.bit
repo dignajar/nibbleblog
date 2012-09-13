@@ -24,7 +24,7 @@
 		echo $_HTML->div_close();
 
 		// RSS ITEMS
-		echo $_HTML->div_open( array('class'=>'form_block', 'hidden'=>true) );
+		echo $_HTML->div_open( array('class'=>'form_block') );
 			echo $_HTML->label( array('content'=>$_LANG['RSS_ITEMS'], 'class'=>'blocked') );
 			echo $_HTML->select( array('name'=>'items_rss'), $items_html, $settings['items_rss']);
 			echo $_HTML->div( array('content'=>$_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_ON_RSS'], 'class'=>'input_tip') );
@@ -113,30 +113,8 @@ Options -Indexes
 
 ?>
 
-<script>
-
-$(document).ready(function() {
-
-	$("#js_timestamp_select").change(function() {
-		$("#js_timestamp_format").val( $(this).val() );
-	});
-
-	// Save the default configuration
-	var datasrz = serial_form($("#js_form"));
-
-	$(window).bind('beforeunload', function() {
-
-		var newdata = serial_form($("#js_form"));
-
-		if( newdata != datasrz )
-		{
-			$.ajax({
-					url: HTML_PATH_ADMIN_AJAX + "settings.php", type: 'POST', cache: false, timeout: 15000, dataType: "xml", async: false,
-					data: { action:"set", serial_data: newdata, type: "advanced" }
-			});
-		}
-	});
-
-}); // end document
-
-</script>
+<?php
+	$ajax['url'] = HTML_PATH_ADMIN_AJAX.'settings.php';
+	$ajax['action'] = 'set';
+	include(PATH_ADMIN_JS.'ajax_form.bit');
+?>

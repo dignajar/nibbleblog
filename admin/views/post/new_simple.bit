@@ -91,14 +91,13 @@ $(document).ready(function() {
 		xhr.addEventListener("load", complete, false);
 
 		// Open new connection async
-		xhr.open('POST', HTML_PATH_ADMIN_AJAX + 'images.php');
+		xhr.open('POST', HTML_PATH_ADMIN_AJAX + 'images.php', true);
 
 		// Parameters headers
-		xhr.setRequestHeader("file_name", file.name);
+		xhr.setRequestHeader("FILE_NAME", file.name);
 
 		// Send file
 		xhr.send(file);
-
 	});
 
 	function complete(e)

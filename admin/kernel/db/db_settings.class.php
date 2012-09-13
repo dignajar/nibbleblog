@@ -47,6 +47,7 @@ class DB_SETTINGS {
 	PUBLIC METHODS
 ======================================================================================
 */
+		// Returns TRUE if the file was written successfully and FALSE otherwise.
 		public function savetofile()
 		{
 			return( $this->obj_xml->asXML($this->file_xml) );
@@ -81,37 +82,12 @@ class DB_SETTINGS {
 			return($tmp_array);
 		}
 
-		public function set_theme($args)
+		public function set($args)
 		{
-			$this->obj_xml->setChild('theme',			$args['theme']);
-
-			return(true);
-		}
-
-		public function set_general($args)
-		{
-			$this->obj_xml->setChild('name', 			$args['name']);
-			$this->obj_xml->setChild('slogan',		 	$args['slogan']);
-			$this->obj_xml->setChild('about', 			$args['about']);
-			$this->obj_xml->setChild('footer', 			$args['footer']);
-			$this->obj_xml->setChild('language', 		$args['language']);
-			$this->obj_xml->setChild('locale', 			$args['language']);
-
-			return(true);
-		}
-
-		public function set_advanced($args)
-		{
-			$this->obj_xml->setChild('url', 					$args['url']);
-			$this->obj_xml->setChild('path',					$args['path']);
-			$this->obj_xml->setChild('items_page', 				$args['items_page']);
-			$this->obj_xml->setChild('items_rss', 				$args['items_rss']);
-			$this->obj_xml->setChild('timezone', 				$args['timezone']);
-			$this->obj_xml->setChild('timestamp_format',		$args['timestamp_format']);
-			$this->obj_xml->setChild('advanced_post_options', 	$args['advanced_post_options']);
-			$this->obj_xml->setChild('enable_wysiwyg', 			$args['enable_wysiwyg']);
-			$this->obj_xml->setChild('friendly_urls', 			$args['friendly_urls']);
-			$this->obj_xml->setChild('locale', 					$args['locale']);
+			foreach($args as $name=>$value)
+			{
+				$this->obj_xml->setChild($name, $value);
+			}
 
 			return(true);
 		}

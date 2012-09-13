@@ -15,7 +15,7 @@ if( $_POST['action']=='set' )
 
 	unset( $data['plugin'] );
 
-	$error = $plugin->set_fields_db($data);
+	$error = !$plugin->set_fields_db($data);
 }
 
 if( $error)
