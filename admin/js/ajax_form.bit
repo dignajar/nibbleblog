@@ -18,7 +18,7 @@ $(document).ready(function() {
 		set_timer();
 	});
 
-	$("select").change(function () {
+	$("select, input[type='checkbox']").change(function () {
 		set_timer();
 	});
 
