@@ -1,0 +1,69 @@
+<script>
+
+$(document).ready(function() {
+
+	var uploader_button;
+	var uploader_loading = $("#js_uploader_loading");
+	var uploader_input_file = $("#js_uploader_input_file");
+
+	$("#js_uploader_button").click(
+	function() {
+		uploader_button = $(this);
+		uploader_input_file.trigger("click");
+	});
+
+	uploader_input_file.change(
+	function() {
+
+		var file = this.files[0];
+
+		uploader_button.hide();
+		uploader_loading.css("display", "inline-block");
+
+		// New XMLHttpRequest
+		var xhr = new XMLHttpRequest();
+
+		// Events
+		xhr.addEventListener("load", complete, false);
+
+		// Open new connection async
+		xhr.open('POST', HTML_PATH_ADMIN_AJAX + 'images.php', true);
+
+		// Parameters headers
+		xhr.setRequestHeader("Cache-Control", "no-cache");
+		xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+		xhr.setRequestHeader("FILE_NAME", file.name);
+		
+		// Send file
+		xhr.send(file);
+	});
+
+	function complete(e)
+	{
+		var xml = $.parseXML(e.target.responseText);
+
+		if( $(xml).find("success").text() == "1" )
+		{
+			uploader_loading.hide();
+			uploader_button.show();
+
+			var src = $(xml).find("file").text();
+			
+			<?php
+				if($settings['enable_wysiwyg'])
+				{
+					echo 'var img = \'<img data-mce-src="\'+src+\'" src="\'+src+\'" alt="" >\';'. PHP_EOL;
+					echo 'tinyMCE.execCommand("mceInsertContent",false,img);'. PHP_EOL;
+				}
+				else
+				{
+					echo 'var img = \'<img src="\'+src+\'" alt="" >\';'. PHP_EOL;
+					echo '$("#js_content").val($("#js_content").val()+img);'. PHP_EOL;
+				}
+			?>
+		}
+	}
+
+});
+
+</script>
