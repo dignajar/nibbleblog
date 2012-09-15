@@ -79,6 +79,6 @@ $_VIDEO = new HELPER_VIDEO();
 
 	$_DB_SETTINGS->savetofile();
 
-	echo '<body><head></head>Done</body>';
+	echo '<body><head></head>Updated to v3.3</body>';
 
 ?>
