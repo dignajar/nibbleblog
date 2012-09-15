@@ -7,16 +7,16 @@ require('../kernel/security.bit');
 // Filename
 $filename = false; 
 
-if(isset($_SERVER['HTTP_FILE_NAME']))
+if(isset($_SERVER['HTTP_X_FILE_NAME']))
 {
-	$filename = $_SERVER['HTTP_FILE_NAME'];
+	$filename = $_SERVER['HTTP_X_FILE_NAME'];
 }
 else
 {
 	if(function_exists('apache_request_headers'))
 	{
 		$headers = apache_request_headers();
-		$filename = $headers['FILE_NAME'];
+		$filename = $headers['X-FILE-NAME'];
 	}
 }
 

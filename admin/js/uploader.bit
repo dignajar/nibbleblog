@@ -32,7 +32,7 @@ $(document).ready(function() {
 		// Parameters headers
 		xhr.setRequestHeader("Cache-Control", "no-cache");
 		xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-		xhr.setRequestHeader("FILE_NAME", file.name);
+		xhr.setRequestHeader("X-FILE-NAME", file.name);
 		
 		// Send file
 		xhr.send(file);
