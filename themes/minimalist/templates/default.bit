@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<!-- TITLE -->
+	<title><?php echo $layout['title'] ?></title>
+
+	<!-- DESCRIPTION -->
+	<meta name="description" content="<?php echo $layout['description'] ?>">
+
+	<!-- CSS3 -->
+	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'main.css?v='.$theme['version'] ?>" />
+
+	<!-- FAVICON -->
+	<link rel="shortcut icon" href="<?php echo HTML_THEME_CSS.'img/favicon.ico' ?>" type="image/x-icon" />
+
+	<!-- JQUERY -->
+	<script src="<?php echo JS_JQUERY ?>"></script>
+
+	<!-- ATOM Feed 2.0 -->
+	<link rel="alternate" type="application/atom+xml" title="ATOM Feed" href="<?php echo $layout['feed'] ?>" />
+</head>
+<body>
+
+	<div id="container">
+
+		<header id="head">
+
+			<div class="top">
+				<a class="name" href="<?php echo HTML_PATH_ROOT ?>">
+					<h1>
+						<?php echo $settings['name'] ?>
+						
+						<span class="slogan">
+							<?php echo $settings['slogan'] ?>
+						</span>
+					</h1>
+				</a>
+			</div>
+
+			<div class="bottom">
+				<?php
+					if( isset($plugins['twitter']) )
+					{
+						echo $plugins['twitter']->get_html();
+					}
+				?>
+			</div>
+
+		</header>
+
+		<section id="main">
+			<div class="left">
+				<?php include(THEME_VIEWS . $layout['view']); ?>
+			</div>
+			<div class="right">
+				<?php
+					foreach($plugins as $plugin)
+					{
+						if($plugin->display())
+						{
+							echo '<div class="plugin">';
+								echo '<h3>'.$plugin->get_name().'</h3>';
+								echo $plugin->get_html();
+							echo '</div>';
+						}
+						else
+						{
+							echo $plugin->get_html();
+						}
+					}
+				?>
+			</div>
+		</section>
+
+		<footer id="foot">
+			<p>
+				<a href="<?php echo $layout['feed'] ?>">Atom</a> ·
+				<?php echo $settings['footer'] ?>
+			</p>
+		</footer>
+
+	</div>
+
+</body>
+</html>
+

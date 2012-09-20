@@ -17,11 +17,15 @@
 		{
 			$safe['title']		= $_VALIDATION->sanitize_html( $_POST['title'] );
 			$safe['content']	= $_POST['content'];
+			
+			// Description for SEO
+			$safe['description'] = $_VALIDATION->sanitize_html( $_POST['description'] );
 		}
 		else
 		{
 			$safe['title'] = '';
 			$safe['content'] = '';
+			$safe['description'] = '';
 		}
 
 		// Description for SEO

@@ -33,7 +33,7 @@ class PLUGIN_TWITTER extends PLUGIN
 	{	
 		$html  = '<div class="plugin_twitter">';
 			$html .= '<ul>';
-			$html .= '<li class="username"><a target="_blank" href="http://twitter.com/"'.$this->get_field_db('username').'>@'.$this->get_field_db('username').'</a></li>';
+			$html .= '<li class="username"><a target="_blank" href="http://twitter.com/'.$this->get_field_db('username').'">@'.$this->get_field_db('username').'</a></li>';
 			$html .= '<li class="tweet" id="js_tweet_box">Loading</li>';
 			$html .= '</ul>';
 		$html .= '</div>';

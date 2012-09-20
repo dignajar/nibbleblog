@@ -9,7 +9,8 @@ $(document).ready(function() {
 		mode : "textareas",
 
 		theme : "advanced",
-		plugins : "paste, pagebreak, inlinepopups, pre",
+		skin: "cirkuit",
+		plugins : "paste, pagebreak, inlinepopups, codehighlighting",
 		paste_text_sticky : true,
 
 		entity_encoding : "raw",
@@ -31,7 +32,7 @@ $(document).ready(function() {
 		relative_urls : false,
 
 		theme_advanced_toolbar_location : "top",
-		theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,pre,styleselect,removeformat,|,forecolor,backcolor,|,image, |,bullist,numlist,outdent,indent,|,link, unlink,|,pagebreak",
+		theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,codehighlighting,styleselect,removeformat,|,forecolor,backcolor,|,image, |,bullist,numlist,outdent,indent,|,link, unlink,|,pagebreak",
 		theme_advanced_buttons2 : "",
 		theme_advanced_buttons3 : "",
 

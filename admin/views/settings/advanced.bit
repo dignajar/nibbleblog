@@ -102,6 +102,7 @@ Options -Indexes
 	RewriteEngine on
 	RewriteBase '.$settings['path'].'
 	RewriteRule ^dashboard$ admin.php?controller=user&action=login [L]
+	RewriteRule ^feed feed.php [L]
 	RewriteRule ^category/([^/]+)/page-([0-9]+)$ index.php?controller=blog&action=view&category=$1&page=$2 [L]
 	RewriteRule ^category/([^/]+)/$ index.php?controller=blog&action=view&category=$1&page=0 [L]
 	RewriteRule ^page-([0-9]+)$ index.php?controller=blog&action=view&page=$1 [L]

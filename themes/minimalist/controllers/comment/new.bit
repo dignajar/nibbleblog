@@ -1,0 +1,47 @@
+<?php
+// ============================================================================
+//	POST
+// ============================================================================
+
+	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
+	{
+		sleep($theme['comment_sleep']);
+		
+		// Captcha ok
+		if($_SESSION['nibbleblog']['captcha']==$_POST['captcha'])
+		{
+			$safe = array();
+
+			// The variables inside the session are sanitized
+			$safe['author_name']	= $_SESSION['nibbleblog']['comment_name'];
+			$safe['author_email']	= $_SESSION['nibbleblog']['comment_email'];
+			$safe['content']		= $_SESSION['nibbleblog']['comment_content'];
+			
+			// Post ID
+			$safe['id_post']		= $post['id'];
+			
+			// If the post allows comments then add these
+			if($post['allow_comments'])
+			{
+				// To add a comment the method add from $_DB_COMMENTS needs the follow parameters
+				// array( 'id_post' 'author_name' 'author_email' 'content' )
+				$_DB_COMMENTS->add($safe);
+			}
+
+			$_SESSION['nibbleblog']['error'] = false;
+		}
+		// Invalid captcha
+		else
+		{
+			$_SESSION['nibbleblog']['error'] = true;
+			$_SESSION['nibbleblog']['alert'] = $_LANG['INVALID_CAPTCHA'];
+		}
+	}
+
+// ============================================================================
+//	VARIABLES
+// ============================================================================
+
+	$_REDIRECT->url( $post['permalink'].'#comment_form' );
+
+?>
