@@ -76,6 +76,7 @@ img:not(.captcha) {
     font-weight: normal;
 	color: #616161;
 	margin: 0;
+	padding: 0;
 }
 
 #head	span.slogan {
@@ -98,7 +99,7 @@ img:not(.captcha) {
 
 #main	.right {
 	float: right;
-	width: 260px;
+	width: 230px;
 }
 
 /* ============================== */
@@ -258,31 +259,51 @@ article.post	a.read_more {
 }
 
 /* ============================== */
-/* PLUGINS */
+/* PLUGIN */
 /* ============================== */
-div.plugin {
-	margin-bottom: 40px;
-	overflow:auto;
+div.plugin h3 {
+	font-weight: normal;
+	font-size: 1.3em;
+}
+/* ============================== */
+/* PLUGIN TWITTER */
+/* ============================== */
+div.plugin_twitter {
+	padding: 0;
+	margin: 0;
 }
 
-div.plugin	h3 {
-    border-bottom: 3px solid #CC0000;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 24px;
-    padding: 10px 0 15px;
+div.plugin_twitter	ul {
+	margin: 0;
+	padding: 0;
 }
 
-div.plugin	div.plugin_twitter {
-	min-height:140px;
+div.plugin_twitter	li {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
 }
 
-div.plugin	div.plugin_categories {
-
+div.plugin_twitter	li.username {
+	background: url("img/twitter.png") no-repeat 0 -2px;
+	margin-right: 5px;
 }
 
-div.plugin	div.plugin_categories	a {
-	margin: 8px 8px 8px 0;
-	font-size: 16px;
-	float:left;
+/* ============================== */
+/* PLUGIN TWITTER */
+/* ============================== */
+div.plugin_categories {
+	padding: 0;
+	margin: 0;
+}
+
+div.plugin_categories	ul {
+	margin: 0;
+	padding: 0;
+}
+
+div.plugin_categories	li {
+	margin: 0;
+	padding: 0;
+	display: block;
 }

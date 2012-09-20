@@ -44,6 +44,9 @@
 					if( isset($plugins['twitter']) )
 					{
 						echo $plugins['twitter']->get_html();
+						
+						// Disable the plugin to not display on the sidebar
+						unset($plugins['twitter']);
 					}
 				?>
 			</div>
