@@ -17,6 +17,7 @@
 	require(PATH_HELPERS . 'redirect.class.php');
 	require(PATH_HELPERS . 'validation.class.php');
 	require(PATH_HELPERS . 'video.class.php');
+	require(PATH_HELPERS . 'resize.class.php');
 
 	// DB
 	require(PATH_DB . 'nbxml.class.php');
@@ -43,6 +44,7 @@
 	$_REDIRECT 		= new HELPER_REDIRECT();
 	$_VALIDATION 	= new HELPER_VALIDATION();
 	$_VIDEO 		= new HELPER_VIDEO();
+	$_RESIZE 		= new HELPER_RESIZE();
 
 	// DB
 	if(defined('FILE_XML_POST') && defined('FILE_XML_CATEGORIES') && defined('FILE_XML_CONFIG') && defined('FILE_XML_SYSLOG'))

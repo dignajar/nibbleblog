@@ -22,7 +22,6 @@ a {
 	color: #3399CC;
 	cursor: pointer;
 	text-decoration: underline;
-	padding: 2px 4px;
 }
 
 pre {
@@ -60,7 +59,7 @@ img:not(.captcha) {
 }
 
 #head	div.top {
-	
+
 }
 
 #head	div.bottom {
@@ -68,7 +67,6 @@ img:not(.captcha) {
 
 #head	a {
 	text-decoration: none;
-	display: block;
 }
 
 #head	h1 {
@@ -76,7 +74,6 @@ img:not(.captcha) {
     font-weight: normal;
 	color: #616161;
 	margin: 0;
-	padding: 0;
 }
 
 #head	span.slogan {
@@ -265,6 +262,7 @@ div.plugin h3 {
 	font-weight: normal;
 	font-size: 1.3em;
 }
+
 /* ============================== */
 /* PLUGIN TWITTER */
 /* ============================== */
@@ -281,16 +279,17 @@ div.plugin_twitter	ul {
 div.plugin_twitter	li {
 	margin: 0;
 	padding: 0;
-	display: inline-block;
+	display: inline;
 }
 
 div.plugin_twitter	li.username {
 	background: url("img/twitter.png") no-repeat 0 -2px;
 	margin-right: 5px;
+	padding-left: 23px;
 }
 
 /* ============================== */
-/* PLUGIN TWITTER */
+/* PLUGIN CATEGORIES */
 /* ============================== */
 div.plugin_categories {
 	padding: 0;

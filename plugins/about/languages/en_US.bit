@@ -1,0 +1,8 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'name'=>'Google Analytics',
+	'description'=>'Add Google Analytics to your blog to see how visitors interact with your site. You need an account on Google Analytics for use this plugin.'
+);
+
+?>
