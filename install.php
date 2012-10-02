@@ -130,6 +130,8 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		$obj->addChild('locale',				$_GET['language']);
 		$obj->addChild('friendly_urls',			0);
 		$obj->addChild('enable_wysiwyg',		1);
+		$obj->addChild('img_resize',			1);
+		$obj->addChild('img_thumbnail',			1);
 		$obj->asXml( FILE_XML_CONFIG );
 
 		// categories.xml

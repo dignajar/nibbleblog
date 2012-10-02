@@ -45,20 +45,20 @@
 		echo $_HTML->div_close();
 
 		// IMAGES SETTINGS
-		echo $_HTML->separator( array('content'=>'Image settings') );
+		echo $_HTML->separator( array('content'=>$_LANG['IMAGE_SETTINGS']) );
 
 		// ENABLE OR DISABLE CROP
 		echo $_HTML->div_open( array('class'=>'form_block'));
 			echo $_HTML->checkbox( array('id'=>'js_img_resize', 'name'=>'img_resize', 'class'=>'float'), $settings['img_resize'] );
-			echo $_HTML->label( array('content'=>'Enable Img Resize', 'class'=>'for_checkbox', 'for'=>'js_img_resize') );
-			echo $_HTML->div( array('content'=>$_LANG['ENABLE_OR_DISABLE_THE_WYSIWYG_EDITOR'], 'class'=>'input_tip') );
+			echo $_HTML->label( array('content'=>$_LANG['ENABLE_AUTOMATIC_IMAGE_RESIZING'], 'class'=>'for_checkbox', 'for'=>'js_img_resize') );
+			echo $_HTML->div( array('content'=>'This option automatically changes the image size when uploading', 'class'=>'input_tip') );
 		echo $_HTML->div_close();
 		
 		// ENABLE OR DISABLE CROP
 		echo $_HTML->div_open( array('class'=>'form_block'));
 			echo $_HTML->checkbox( array('id'=>'js_img_thumbnail', 'name'=>'img_thumbnail', 'class'=>'float'), $settings['img_thumbnail'] );
-			echo $_HTML->label( array('content'=>'Enable Img Thumbsnails', 'class'=>'for_checkbox', 'for'=>'js_img_thumbnail') );
-			echo $_HTML->div( array('content'=>$_LANG['ENABLE_OR_DISABLE_THE_WYSIWYG_EDITOR'], 'class'=>'input_tip') );
+			echo $_HTML->label( array('content'=>$_LANG['ENABLE_THUMBNAILS'], 'class'=>'for_checkbox', 'for'=>'js_img_thumbnail') );
+			echo $_HTML->div( array('content'=>'Enable this option if you want generate a thumbnail when upload a image', 'class'=>'input_tip') );
 		echo $_HTML->div_close();
 
 

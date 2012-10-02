@@ -41,19 +41,17 @@ if( $filename )
 		// Resize and/or Crop
 		if($settings['img_resize'])
 		{
-			$_RESIZE->setImage(PATH_UPLOAD.$hash.'_o.'.$ext, 800, 400, 'crop');
+			$_RESIZE->setImage(PATH_UPLOAD.$hash.'_o.'.$ext, 800, 400, 'auto');
 			$_RESIZE->saveImage(PATH_UPLOAD.$hash.'_o.'.$ext, 100);
 		}
 
-/*
-		// Resize and/or Crop
+		// Generate Thumbnail
 		if($settings['img_thumbnail'])
 		{
-			$_RESIZE->setImage(PATH_UPLOAD.$new_filename.'_o', 192, 253, 'crop');
-			$_RESIZE->saveImage(PATH_UPLOAD.$new_filename.'_thumb', 100);
+			$_RESIZE->setImage(PATH_UPLOAD.$hash.'_o.'.$ext, 192, 253, 'crop');
+			$_RESIZE->saveImage(PATH_UPLOAD.$hash.'_thumb.'.$ext, 100);
 		}
 
-*/	
 		exit( $_TEXT->ajax_header('<success><![CDATA[1]]></success><file><![CDATA['.HTML_PATH_UPLOAD.$hash.'_o.'.$ext.']]></file>') );
 	}
 }
