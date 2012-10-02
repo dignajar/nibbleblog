@@ -19,7 +19,7 @@ class HELPER_RESIZE {
 	private $height;
 	private $imageResized;
 
-	public function setImage($fileName)
+	public function setImage($fileName, $newWidth, $newHeight, $option="auto")
 	{
 		// *** Open up the file
 		$this->image = $this->openImage($fileName);
@@ -27,6 +27,9 @@ class HELPER_RESIZE {
 		// *** Get width and height
 		$this->width  = imagesx($this->image);
 		$this->height = imagesy($this->image);
+		
+		//
+		$this->resizeImage($newWidth, $newHeight, $option);
 	}
 
 	## --------------------------------------------------------
@@ -57,7 +60,7 @@ class HELPER_RESIZE {
 
 	## --------------------------------------------------------
 
-	public function resizeImage($newWidth, $newHeight, $option="auto")
+	private function resizeImage($newWidth, $newHeight, $option)
 	{
 		// *** Get optimal width and height - based on $option
 		$optionArray = $this->getDimensions($newWidth, $newHeight, $option);

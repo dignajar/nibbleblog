@@ -36,9 +36,25 @@ if( $filename )
 		exit( $_TEXT->ajax_header('<error><![CDATA[1]]></error><i18n><![CDATA[fail 2]]></i18n>') );
 	}
 
-	if( file_put_contents(PATH_UPLOAD.$hash.'.'.$ext, $content) )
+	if( file_put_contents(PATH_UPLOAD.$hash.'_o.'.$ext, $content) )
 	{
-		exit( $_TEXT->ajax_header('<success><![CDATA[1]]></success><file><![CDATA['.HTML_PATH_UPLOAD.$hash.'.'.$ext.']]></file>') );
+		// Resize and/or Crop
+		if($settings['img_resize'])
+		{
+			$_RESIZE->setImage(PATH_UPLOAD.$hash.'_o.'.$ext, 800, 400, 'crop');
+			$_RESIZE->saveImage(PATH_UPLOAD.$hash.'_o.'.$ext, 100);
+		}
+
+/*
+		// Resize and/or Crop
+		if($settings['img_thumbnail'])
+		{
+			$_RESIZE->setImage(PATH_UPLOAD.$new_filename.'_o', 192, 253, 'crop');
+			$_RESIZE->saveImage(PATH_UPLOAD.$new_filename.'_thumb', 100);
+		}
+
+*/	
+		exit( $_TEXT->ajax_header('<success><![CDATA[1]]></success><file><![CDATA['.HTML_PATH_UPLOAD.$hash.'_o.'.$ext.']]></file>') );
 	}
 }
 

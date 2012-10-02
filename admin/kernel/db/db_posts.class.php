@@ -273,16 +273,16 @@ class DB_POSTS {
 			return( $this->files_count );
 		}
 
+		public function get_autoinc()
+		{
+			return( (int) $this->obj_xml['autoinc'] );
+		}
+
 /*
 ======================================================================================
 	PRIVATE METHODS
 ======================================================================================
 */
-		private function get_autoinc()
-		{
-			return( (int) $this->obj_xml['autoinc'] );
-		}
-
 		private function set_autoinc($value = 0)
 		{
 			$this->obj_xml['autoinc'] = $value + $this->get_autoinc();

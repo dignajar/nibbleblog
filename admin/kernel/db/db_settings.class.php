@@ -77,6 +77,8 @@ class DB_SETTINGS {
 			$tmp_array['advanced_post_options']		= (int) $this->obj_xml->getChild('advanced_post_options') == 1;
 			$tmp_array['friendly_urls']				= (int) $this->obj_xml->getChild('friendly_urls') == 1;
 			$tmp_array['enable_wysiwyg']			= (int) $this->obj_xml->getChild('enable_wysiwyg') == 1;
+			$tmp_array['img_resize']				= (int) $this->obj_xml->getChild('img_resize') == 1;
+			$tmp_array['img_thumbnail']				= (int) $this->obj_xml->getChild('img_thumbnail') == 1;
 			$tmp_array['locale']					= (string) $this->obj_xml->getChild('locale');
 
 			return($tmp_array);
