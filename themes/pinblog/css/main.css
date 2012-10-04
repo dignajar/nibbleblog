@@ -1,0 +1,290 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic);
+
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block}
+audio,canvas,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+[hidden]{display:none}
+html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:700}
+dfn{font-style:italic}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace, serif;font-size:1em}
+pre{white-space:pre-wrap;word-wrap:break-word}
+q{quotes:\201C \201D \2018 \2019}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,html input[type=button],/* 1 */
+input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}
+button[disabled],input[disabled]{cursor:default}
+input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}
+input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}
+input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+body,figure{margin:0}
+legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+
+/* ============================== */
+/* BODY */
+/* ============================== */
+
+body {
+	font-family: 'Open Sans', helvetica, arial, sans-serif;
+	background: url("img/bg.png");
+	margin: 0;
+	padding: 0;
+	font-size: 62.5%;
+	color: #616161;
+}
+
+#container {
+	margin: 0 auto;
+	width: 940px;
+}
+
+#main {
+	overflow: auto;
+}
+
+a {
+	color: #3C6EB4;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+pre {
+	background: url("img/bgcode.png");
+	border: 1px solid #E8E8E8;
+	font-size: 12px;
+	line-height: 23px;
+	margin: 0;
+	padding: 0 5px 0 5px;
+	white-space: pre-wrap;
+	width: 75%;
+}
+
+.console {
+	background: url("img/console.png") no-repeat scroll 10px center #F1F1F1;
+	display: block;
+	line-height: 50px;
+	margin: 5px 0;
+	padding-left: 60px;
+	width:70%;
+}
+
+img:not(.captcha) {
+	max-width:910px;
+}
+
+/* ============================== */
+/* HEADER */
+/* ============================== */
+#head {
+	overflow: auto;
+	margin: 40px 0;
+}
+
+#head	div.top {
+	
+}
+
+#head	div.bottom {
+}
+
+#head	a {
+	text-decoration: none;
+}
+
+#head	h1 {
+    font-size: 38px;
+    font-weight: normal;
+	color: #616161;
+	margin: 0;
+}
+
+#head	span.slogan {
+	color: #CCC;
+}
+
+/* ============================== */
+/* FOOTER */
+/* ============================== */
+#foot {
+	font-size: 12px;
+	text-align: right;
+}
+
+/* ============================== */
+/* PAGER */
+/* ============================== */
+#pager {
+	overflow: auto;
+}
+
+#pager	a.newer {
+	float: right;
+}
+
+#pager	a.older {
+	float: left;
+}
+
+/* ============================== */
+/* POST VIEW*/
+/* ============================== */
+article.post {
+    background: #FFFFFF;
+    float: left;
+    margin: 10px;
+    border: 1px solid #CCCCCC;
+}
+
+article.post	div.content {
+	padding: 10px;
+	width: 200px;
+}
+
+article.post	header {
+	
+}
+
+article.post	footer {
+	background: #f1f1f1;
+	padding: 15px;
+}
+
+article.post	footer	span.date {
+	margin-right: 5px;
+}
+
+article.post 	blockquote {
+
+}
+
+
+
+
+
+
+/* ============================== */
+/* COMMENT LIST */
+/* ============================== */
+#comment_list {
+	margin-top: 30px;
+	width: 70%;
+}
+
+#comment_list	h2 {
+	font-style: italic;
+	font-weight: normal;
+	margin: 10px 0;
+}
+
+#comment_list	div.comment {
+	border-left: 2px solid #FFAC00;
+	margin: 0 0 10px;
+	padding: 10px;
+}
+
+#comment_list	span.author_name {
+	font-weight: bold;
+}
+
+#comment_list	span.date {
+	margin-left: 5px;
+	font-style: italic;
+}
+
+#comment_list	span.content {
+	font-style: italic;
+	display: block;
+}
+
+/* ============================== */
+/* COMMENT FORM */
+/* ============================== */
+#comment_form {
+	margin-top: 30px;
+	width: 70%;
+}
+
+#comment_form	h2 {
+	font-style: italic;
+	font-weight: normal;
+	margin: 10px 0;
+}
+
+#comment_form	h3.alert {
+	color: #BE1C54;
+	font-size: 16px;
+	font-style: italic;
+	margin: 0 0 15px;
+}
+
+#comment_form	input[type="text"],
+#comment_form	textarea {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	border: 1px solid #C4C4C4;
+	border-radius: 2px;
+	color: #858585;
+	padding: 8px;
+	outline:none;
+	resize: none;
+	margin-bottom: 15px;
+	font-family: font-family: 'Open Sans', helvetica,arial,sans-serif;
+	font-size: 13px;
+}
+
+#comment_form	input[type="text"].captcha {
+	width: 50%;
+	float: left;
+}
+
+#comment_form	input[type="submit"] {
+	display: block;
+	clear: left;
+	padding: 3px 8px;
+}
+
+/* ============================== */
+/* PLUGIN TWITTER */
+/* ============================== */
+div.plugin_twitter {
+	padding: 0;
+	margin: 0;
+}
+
+div.plugin_twitter	ul {
+	margin: 0;
+	padding: 0;
+}
+
+div.plugin_twitter	li {
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
+div.plugin_twitter	li.username {
+	background: url("img/twitter.png") no-repeat 0 -2px;
+	margin-right: 5px;
+	padding-left: 23px;
+}

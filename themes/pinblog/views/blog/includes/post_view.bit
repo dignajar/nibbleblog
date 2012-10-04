@@ -1,0 +1,13 @@
+<?php
+	
+	preg_match( '@src="([^"]+)"@' , $post['content'] , $match );
+
+	if( !empty($match) )
+	{
+		$src = str_replace('_o', '_thumb', $match[0]);
+		echo '<img '.$src.' alt="" />';
+	}
+	
+	echo strip_tags($post['content']);
+
+?>

@@ -1,0 +1,23 @@
+<?php
+
+if(!empty($comments))
+{
+	echo '<footer id="comment_list">';
+
+		echo '<h2>'.$_LANG['COMMENTS'].'</h2>';
+
+		foreach($comments as $comment)
+		{
+			$date = $_DATE->format($comment['pub_date'], $settings['timestamp_format']);
+
+			echo '<div class="comment">';
+				echo '<span class="author_name">'.$comment['author_name'].'</span>';
+				echo '<span class="date">'.$date.'</span>';
+				echo '<span class="content">'.$comment['content'].'</span>';
+			echo '</div>';
+		}
+
+	echo '</footer>';
+}
+
+?>
