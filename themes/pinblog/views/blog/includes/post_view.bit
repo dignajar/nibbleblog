@@ -5,9 +5,9 @@
 	if( !empty($match) )
 	{
 		$src = str_replace('_o', '_thumb', $match[0]);
-		echo '<img '.$src.' alt="" />';
+		echo '<img class="pin" '.$src.' alt="" />';
 	}
 	
-	echo strip_tags($post['content']);
+	echo strip_tags($post['content'], '<p><a><strong>');
 
 ?>

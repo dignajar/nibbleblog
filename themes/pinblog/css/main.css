@@ -41,7 +41,7 @@ legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
 
 body {
 	font-family: 'Open Sans', helvetica, arial, sans-serif;
-	background: url("img/bg.png");
+	background: url("img/paper.jpg");
 	margin: 0;
 	padding: 0;
 	font-size: 62.5%;
@@ -152,11 +152,12 @@ article.post {
     float: left;
     margin: 10px;
     border: 1px solid #CCCCCC;
+    box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
 }
 
 article.post	div.content {
 	padding: 10px;
-	width: 200px;
+	width: 193px;
 }
 
 article.post	header {
@@ -176,6 +177,11 @@ article.post 	blockquote {
 
 }
 
+img.pin {
+	display: block;
+	border: 0 none;
+	margin: 0 auto;
+}
 
 
 

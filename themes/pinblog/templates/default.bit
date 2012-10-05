@@ -17,6 +17,9 @@
 
 	<!-- JQUERY -->
 	<script src="<?php echo JS_JQUERY ?>"></script>
+	
+	<!-- JQUERY -->
+	<script src="<?php echo HTML_THEME_JS.'jquery.masonry.min.js' ?>"></script>
 
 	<!-- ATOM Feed 2.0 -->
 	<link rel="alternate" type="application/atom+xml" title="ATOM Feed" href="<?php echo $layout['feed'] ?>" />
@@ -61,6 +64,12 @@
 		</footer>
 
 	</div>
+
+	<script>
+		$('#main').masonry({
+			itemSelector: 'article'
+		});
+	</script>
 
 </body>
 </html>

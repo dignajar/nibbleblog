@@ -85,7 +85,12 @@ class HELPER_RESIZE {
 	private function getDimensions($newWidth, $newHeight, $option)
 	{
 
-	   switch ($option)
+		if( ($this->width < $newWidth) and ($this->height < $newHeight) )
+		{
+			return array('optimalWidth' => $this->width, 'optimalHeight' => $this->height);
+		}
+
+		switch ($option)
 		{
 			case 'exact':
 				$optimalWidth = $newWidth;
@@ -110,6 +115,7 @@ class HELPER_RESIZE {
 				$optimalHeight = $optionArray['optimalHeight'];
 				break;
 		}
+		
 		return array('optimalWidth' => $optimalWidth, 'optimalHeight' => $optimalHeight);
 	}
 

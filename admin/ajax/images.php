@@ -48,7 +48,7 @@ if( $filename )
 		// Generate Thumbnail
 		if($settings['img_thumbnail'])
 		{
-			$_RESIZE->setImage(PATH_UPLOAD.$hash.'_o.'.$ext, 192, 253, 'crop');
+			$_RESIZE->setImage(PATH_UPLOAD.$hash.'_o.'.$ext, 190, 190, 'landscape');
 			$_RESIZE->saveImage(PATH_UPLOAD.$hash.'_thumb.'.$ext, 100);
 		}
 
