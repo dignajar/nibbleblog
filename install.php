@@ -5,7 +5,7 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 21/08/2012
+ * Last update: 07/10/2012
 
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
@@ -122,7 +122,6 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		$obj->addChild('theme',					'clean');
 		$obj->addChild('url',					$_POST['url']);
 		$obj->addChild('path',					$_POST['path']);
-		$obj->addChild('rewriteurl',			'0');
 		$obj->addChild('items_rss',				'4');
 		$obj->addChild('items_page',			'4');
 		$obj->addChild('timestamp_format',		'%m/%d/%y');
@@ -130,8 +129,17 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		$obj->addChild('locale',				$_GET['language']);
 		$obj->addChild('friendly_urls',			0);
 		$obj->addChild('enable_wysiwyg',		1);
+		
 		$obj->addChild('img_resize',			1);
+		$obj->addChild('img_resize_width',		800);
+		$obj->addChild('img_resize_height',		600);
+		$obj->addChild('img_resize_option',		'auto');
+		
 		$obj->addChild('img_thumbnail',			1);
+		$obj->addChild('img_thumbnail_width',	190);
+		$obj->addChild('img_thumbnail_height',	190);
+		$obj->addChild('img_thumbnail_option',	'landscape');
+		
 		$obj->asXml( FILE_XML_CONFIG );
 
 		// categories.xml
@@ -369,7 +377,7 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 				echo $_HTML->div_open( array('class'=>'dependency') );
 					echo $_HTML->link( array('class'=>'description', 'content'=>$_LANG['PHP_MODULE'].' - DOM', 'href'=>'http://www.php.net/manual/en/book.dom.php', 'target'=>'_blank') );
 
-					if( in_array('gd', $php_modules) )
+					if( in_array('dom', $php_modules) )
 					{
 						echo $_HTML->div( array('class'=>'status_pass', 'content'=>$_LANG['PASS']) );
 					}

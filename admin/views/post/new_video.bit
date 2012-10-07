@@ -5,7 +5,7 @@
 		// VIDEO URL
 		echo $_HTML->div_open( array('class'=>'form_block') );
 			echo $_HTML->label( array('class'=>'blocked', 'content'=>$_LANG['VIDEO_URL']) );
-			echo $_HTML->input( array('id'=>'js_video_link', 'name'=>'video', 'type'=>'text') );
+			echo $_HTML->input( array('id'=>'js_video_link', 'name'=>'video', 'type'=>'text', 'placeholder'=>'http://') );
 		echo $_HTML->div_close();
 
 		echo $_HTML->div_open( array('class'=>'form_block') );

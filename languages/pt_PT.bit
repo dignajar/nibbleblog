@@ -163,5 +163,8 @@ $_LANG['CUSTOM'] = 'Personalizado';
 $_LANG['SELECT_A_FORMAT_FOR_DISPLAYING_THE_DATES'] = 'Seleccione um formato para mostrar a data ou personalize para criar uma sua.';
 $_LANG['ENABLE_WYSIWYG_EDITOR'] = 'Activar editor WYSIWYG';
 $_LANG['ENABLE_OR_DISABLE_THE_WYSIWYG_EDITOR'] = 'Activar ou desactivar editor WYSIWYG';
+$_LANG['IMAGE_SETTINGS'] = 'Image settings';
+$_LANG['ENABLE_AUTOMATIC_IMAGE_RESIZING'] = 'Enable Automatic Image Resizing';
+$_LANG['ENABLE_THUMBNAILS'] = 'Enable thumbnails';
 
 ?>

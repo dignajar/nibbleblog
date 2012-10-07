@@ -21,7 +21,9 @@ body {
 
 #container_head {
 	background: url("img/logo.png") no-repeat 20px 6px #555555;
-	border-bottom: 2px solid #1555CC;
+	box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+	-webkit-box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+	-moz-box-shadow:  0 1px 3px rgba(34, 25, 25, 0.4);
 	font-size: 12px;
 	padding-right: 5%;
 	text-align: right;
@@ -69,12 +71,11 @@ body {
 	float: left;
 	margin-right: 20px;
 	margin-top: 5px;
-	width: 260px;
+	width: 240px;
 }
 
 #container_right {
 	margin-right: 30px;
-	min-width: 700px;
 	overflow: hidden;
 	max-width: 85%;
 	border-right: 1px solid #F1F1F1;
@@ -121,12 +122,12 @@ a.button {
 }
 
 div.separator {
-	border-top: 1px solid #CCCCCC;;
-	border-bottom: 1px solid #888;
-	color: #666;
-	padding:5px;
-	margin: 25px 0 12px 0;
-	font-size: 13px;
+    border-bottom: 1px solid #CCCCCC;
+    color: #555;
+    font-size: 16px;
+    font-style: italic;
+    margin: 30px 0 12px;
+    padding: 5px 0;
 }
 
 div.notification {

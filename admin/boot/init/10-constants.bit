@@ -3,9 +3,9 @@
 // ============================================================================
 //	SYSTEM INFORMATION
 // ============================================================================
-	define('NIBBLEBLOG_VERSION',		'3.3');
+	define('NIBBLEBLOG_VERSION',		'3.3.1');
 	define('NIBBLEBLOG_NAME',			'Ornella');
-	define('NIBBLEBLOG_RELEASE_DATE',	'15/09/2012');
+	define('NIBBLEBLOG_RELEASE_DATE',	'07/10/2012');
 
 // ============================================================================
 //	DEBUG

@@ -5,80 +5,64 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 21/08/2012
+ * Last update: 07/10/2012
 
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
 */
 
 if( !file_exists('content/private') && !file_exists('content/public') )
-	exit('Error 1024');
+	exit('Blog not installed');
 
-require('admin/boot/init/1-fs_php.bit');
-
-// DB
-require(PATH_DB . 'nbxml.class.php');
-require(PATH_DB . 'db_posts.class.php');
-require(PATH_DB . 'db_settings.class.php');
-
-// HELPERS
-require(PATH_HELPERS . 'crypt.class.php');
-require(PATH_HELPERS . 'html.class.php');
-require(PATH_HELPERS . 'net.class.php');
-require(PATH_HELPERS . 'date.class.php');
-require(PATH_HELPERS . 'fs.class.php');
-require(PATH_HELPERS . 'number.class.php');
-require(PATH_HELPERS . 'text.class.php');
-require(PATH_HELPERS . 'redirect.class.php');
-require(PATH_HELPERS . 'validation.class.php');
-require(PATH_HELPERS . 'video.class.php');
-
-// ============================================================================
-//	OBJECTS
-// ============================================================================
-$_CRYPT = new HELPER_CRYPT();
-$_DATE = new HELPER_DATE();
-$_FS = new HELPER_FS();
-$_HTML	= new HELPER_HTML();
-$_NET	= new HELPER_NETWORK();
-$_NUMBER = new HELPER_NUMBER();
-$_TEXT = new HELPER_TEXT();
-$_REDIRECT = new HELPER_REDIRECT();
-$_VALIDATION = new HELPER_VALIDATION();
-$_VIDEO = new HELPER_VIDEO();
+require('admin/boot/admin.bit');
 
 // ============================================================================
 //	UPDATER
 // ============================================================================
 
-	$_DB_SETTINGS	= new DB_SETTINGS( FILE_XML_CONFIG );
-	
-	$settings = $_DB_SETTINGS->get();
-	
-	$_DB_SETTINGS->set_general(array(
-		'name'=>$settings['name'],
-		'slogan'=>$settings['slogan'],
-		'about'=>$settings['about'],
-		'footer'=>$settings['footer'],
-		'language'=>'en_US',
-		'locale'=>'en_US'
-	));
-	
-	$_DB_SETTINGS->set_advanced(array(
-		'url'=>$settings['url'],
-		'path'=>$settings['path'],
-		'items_page'=>$settings['items_page'],
-		'items_rss'=>$settings['items_rss'],
-		'timezone'=>'UTC',
-		'timestamp_format'=>'%m/%d/%y',
-		'advanced_post_options'=>$settings['advanced_post_options'],
-		'enable_wysiwyg'=>'1',
-		'friendly_urls'=>$settings['friendly_urls'],
-		'locale'=>'en_US'
-	));
+	//
+	// UPDATE SETTINGS
+	//
+	$new_settings = array(
+						'name'=>'My Blog',
+						'slogan'=>'',
+						'footer'=>'Powered by Nibbleblog',
+						'about'=>'',
+						'language'=>'en_EN',
+						'timezone'=>'UTC',
+						'theme'=>'clean',
+						'url'=>'',
+						'path'=>'',
+						'items_rss'=>'4',
+						'items_page'=>'4',
+						'timestamp_format'=>'%m/%d/%y',
+						'advanced_post_options'=>'0',
+						'locale'=>'en_EN',
+						'friendly_urls'=>'0',
+						'enable_wysiwyg'=>'1',
+						'img_resize'=>'1',
+						'img_resize_width'=>'800',
+						'img_resize_height'=>'600',
+						'img_resize_option'=>'auto',
+						'img_thumbnail'=>'1',
+						'img_thumbnail_width'=>'190',
+						'img_thumbnail_height'=>'190',
+						'img_thumbnail_option'=>'landscape'
+	);
 
+	$settings = $_DB_SETTINGS->get();
+
+	foreach($new_settings as $key=>$value)
+	{
+		if(!empty($settings[$key]))
+		{
+			$new_settings[$key] = $settings[$key];
+		}
+	}
+
+	$_DB_SETTINGS->set($new_settings);
 	$_DB_SETTINGS->savetofile();
 
-	echo '<body><head></head>Updated to v3.3</body>';
+	exit('Updated to Nibbleblog v3.3.1');
 
 ?>
