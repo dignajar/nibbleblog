@@ -9,7 +9,7 @@ $(document).ready(function() {
 	var timer;
 
 	// Time to request the save
-	var time_to_save = 1024;
+	var time_to_save = 700;
 
 //
 //	EVENTS

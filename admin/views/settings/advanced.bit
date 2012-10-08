@@ -137,3 +137,16 @@ Options -Indexes
 	$ajax['action'] = 'set';
 	include(PATH_ADMIN_JS.'ajax_form.bit');
 ?>
+
+<script>
+
+$(document).ready(function() {
+
+	$("#js_timestamp_select").change(function () {
+		var value = $("#js_timestamp_select option:selected").val();
+		$("#js_timestamp_format").attr("value", value);
+	});
+
+});
+
+</script>
