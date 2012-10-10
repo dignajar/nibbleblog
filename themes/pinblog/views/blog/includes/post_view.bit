@@ -1,13 +1,26 @@
 <?php
-	
-	preg_match( '@src="([^"]+)"@' , $post['content'] , $match );
 
-	if( !empty($match) )
+	if($post['type']=='quote')
 	{
-		$src = str_replace('_o', '_thumb', $match[0]);
-		echo '<img class="pin" '.$src.' alt="" />';
+		echo '<blockquote>'.$post['quote'].'</blockquote>';
+	}
+	elseif($post['type']=='video')
+	{
+		$video_info = $_VIDEO->video_get_info($post['video'], $theme['video_width'], $theme['video_height']);
+
+		echo '<p>'.$video_info['embed'].'</p>';
+	}
+	else
+	{
+		preg_match( '@src="([^"]+)"@' , $post['content'] , $match );
+
+		if( !empty($match) )
+		{
+			$src = str_replace('_o', '_thumb', $match[0]);
+			echo '<img class="pin" '.$src.' alt="" />';
+		}
+		
+		echo strip_tags($post['content_part0'], '<p><a><strong>');
 	}
 	
-	echo strip_tags($post['content'], '<p><a><strong>');
-
 ?>

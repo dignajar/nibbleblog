@@ -1,16 +1,28 @@
 <?php
 
-// All post for a page
+if( isset($plugins['twitter']) )
+{
+	echo '<article class="pin pin_twitter">';
+		echo '<div class="content">';
+			echo $plugins['twitter']->get_html();
+		echo '</div>';
+	echo '</article>';
+}
+
 foreach($posts as $post)
 {
-	echo '<article class="post">';
+	echo '<article class="pin">';
 
 		echo '<div class="content">';
-		include('includes/post_view.bit');
+			include('includes/post_view.bit');
 		echo '</div>';
 		
 		echo '<footer>';
-		echo '<a href="'.$post['permalink'].'">'.$_LANG['PERMALINK'].'</a>';
+			if(!empty($post['title']))
+			{
+				echo '<span class="title">'.$post['title'].'</span>';
+			}
+			echo '<a href="'.$post['permalink'].'">'.$_LANG['PERMALINK'].'</a>';
 		echo '</footer>';
 
 	echo '</article>';

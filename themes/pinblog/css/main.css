@@ -144,6 +144,55 @@ img:not(.captcha) {
 	float: left;
 }
 
+
+/* ============================== */
+/* PIN */
+/* ============================== */
+
+img.pin {
+	display: block;
+	border: 0 none;
+	margin: 0 auto;
+}
+
+article.pin {
+    background: #FFFFFF;
+    float: left;
+    margin: 10px;
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+}
+
+article.pin	div.content {
+	padding: 10px;
+	width: 193px;
+}
+
+article.pin	div.content	blockquote {
+	padding:0;
+	margin:0;
+	font-size: 1.3em;
+}
+
+article.pin	footer {
+	background: #f1f1f1;
+	padding: 15px;
+}
+
+article.pin	footer span.title {
+	font-style: italic;
+	margin-right:5px;
+}
+
+/* ============================== */
+/* SPECIAL PIN */
+/* ============================== */
+
+article.pin_twitter {
+	background: url(img/twitter.png) no-repeat #fff;
+	height:200px;
+}
+
 /* ============================== */
 /* POST VIEW*/
 /* ============================== */
@@ -177,11 +226,6 @@ article.post 	blockquote {
 
 }
 
-img.pin {
-	display: block;
-	border: 0 none;
-	margin: 0 auto;
-}
 
 
 
@@ -276,6 +320,7 @@ img.pin {
 div.plugin_twitter {
 	padding: 0;
 	margin: 0;
+	font-size: 1.3em;
 }
 
 div.plugin_twitter	ul {
@@ -290,7 +335,7 @@ div.plugin_twitter	li {
 }
 
 div.plugin_twitter	li.username {
-	background: url("img/twitter.png") no-repeat 0 -2px;
-	margin-right: 5px;
-	padding-left: 23px;
+    display: block;
+    margin-right: 5px;
+    font-size: 1.4em;
 }
