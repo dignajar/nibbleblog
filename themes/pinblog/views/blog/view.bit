@@ -18,17 +18,15 @@ foreach($posts as $post)
 		echo '</div>';
 		
 		echo '<footer>';
+			echo '<span class="date">'.$_DATE->format($post['pub_date'], $settings['timestamp_format']).'</span>';
 			if(!empty($post['title']))
 			{
-				echo '<span class="title">'.$post['title'].'</span>';
+				//echo '<span class="title">'.$post['title'].'</span>';
 			}
-			echo '<a href="'.$post['permalink'].'">'.$_LANG['PERMALINK'].'</a>';
+			//echo '<a href="'.$post['permalink'].'">'.$_LANG['PERMALINK'].'</a>';
 		echo '</footer>';
 
 	echo '</article>';
 }
-
-// Pager
-include('includes/pager.bit');
 
 ?>

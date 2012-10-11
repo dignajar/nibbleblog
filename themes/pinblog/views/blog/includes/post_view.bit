@@ -9,6 +9,8 @@
 		$video_info = $_VIDEO->video_get_info($post['video'], $theme['video_width'], $theme['video_height']);
 
 		echo '<p>'.$video_info['embed'].'</p>';
+		
+		echo strip_tags($post['content_part0'], '<p><a><strong>');
 	}
 	else
 	{

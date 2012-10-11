@@ -41,7 +41,7 @@ legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
 
 body {
 	font-family: 'Open Sans', helvetica, arial, sans-serif;
-	background: url("img/paper.jpg");
+	background: #fafafa;
 	margin: 0;
 	padding: 0;
 	font-size: 62.5%;
@@ -96,7 +96,7 @@ img:not(.captcha) {
 /* ============================== */
 #head {
 	overflow: auto;
-	margin: 40px 0;
+	margin: 10px;
 }
 
 #head	div.top {
@@ -111,9 +111,9 @@ img:not(.captcha) {
 }
 
 #head	h1 {
-    font-size: 38px;
-    font-weight: normal;
 	color: #616161;
+	font-size: 2.5em;
+	font-weight: normal;
 	margin: 0;
 }
 
@@ -125,7 +125,6 @@ img:not(.captcha) {
 /* FOOTER */
 /* ============================== */
 #foot {
-	font-size: 12px;
 	text-align: right;
 }
 
@@ -133,7 +132,11 @@ img:not(.captcha) {
 /* PAGER */
 /* ============================== */
 #pager {
+	border-bottom: 1px solid #F1F1F1;
+	border-top: 1px solid #F1F1F1;
+	margin: 60px 0;
 	overflow: auto;
+	padding: 30px 0;
 }
 
 #pager	a.newer {
@@ -159,13 +162,13 @@ article.pin {
     background: #FFFFFF;
     float: left;
     margin: 10px;
-    border: 1px solid #CCCCCC;
-    box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+    border: 1px solid #E0E6F1;
 }
 
 article.pin	div.content {
 	padding: 10px;
 	width: 193px;
+	margin: 0 auto;
 }
 
 article.pin	div.content	blockquote {
@@ -175,8 +178,8 @@ article.pin	div.content	blockquote {
 }
 
 article.pin	footer {
-	background: #f1f1f1;
-	padding: 15px;
+	background: #F2F0F0;
+	padding: 12px;
 }
 
 article.pin	footer span.title {
@@ -185,12 +188,35 @@ article.pin	footer span.title {
 }
 
 /* ============================== */
-/* SPECIAL PIN */
+/* PLUGIN TWITTER */
 /* ============================== */
 
 article.pin_twitter {
 	background: url(img/twitter.png) no-repeat #fff;
-	height:200px;
+	height:180px;
+}
+
+div.plugin_twitter {
+	padding: 0;
+	margin: 0;
+	font-size: 1.3em;
+}
+
+div.plugin_twitter	ul {
+	margin: 0;
+	padding: 0;
+}
+
+div.plugin_twitter	li {
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
+div.plugin_twitter	li.username {
+    display: block;
+    margin-right: 5px;
+    font-size: 1.4em;
 }
 
 /* ============================== */
@@ -314,28 +340,3 @@ article.post 	blockquote {
 	padding: 3px 8px;
 }
 
-/* ============================== */
-/* PLUGIN TWITTER */
-/* ============================== */
-div.plugin_twitter {
-	padding: 0;
-	margin: 0;
-	font-size: 1.3em;
-}
-
-div.plugin_twitter	ul {
-	margin: 0;
-	padding: 0;
-}
-
-div.plugin_twitter	li {
-	margin: 0;
-	padding: 0;
-	display: inline;
-}
-
-div.plugin_twitter	li.username {
-    display: block;
-    margin-right: 5px;
-    font-size: 1.4em;
-}
