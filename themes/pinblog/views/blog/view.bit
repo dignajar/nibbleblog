@@ -13,17 +13,20 @@ foreach($posts as $post)
 {
 	echo '<article class="pin">';
 
+		echo '<div class="pin_wrap">';
+			if(!empty($post['title']))
+			{
+				echo '<h3>'.$post['title'].'</h3>';
+			}
+			echo '<a class="permalink" href="'.$post['permalink'].'">'.$_LANG['PERMALINK'].'</a>';
+		echo '</div>';
+
 		echo '<div class="content">';
 			include('includes/post_view.bit');
 		echo '</div>';
 		
 		echo '<footer>';
 			echo '<span class="date">'.$_DATE->format($post['pub_date'], $settings['timestamp_format']).'</span>';
-			if(!empty($post['title']))
-			{
-				//echo '<span class="title">'.$post['title'].'</span>';
-			}
-			//echo '<a href="'.$post['permalink'].'">'.$_LANG['PERMALINK'].'</a>';
 		echo '</footer>';
 
 	echo '</article>';

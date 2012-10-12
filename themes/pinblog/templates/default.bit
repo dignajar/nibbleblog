@@ -18,7 +18,7 @@
 	<!-- JQUERY -->
 	<script src="<?php echo JS_JQUERY ?>"></script>
 	
-	<!-- JQUERY -->
+	<!-- MASONRY -->
 	<script src="<?php echo HTML_THEME_JS.'jquery.masonry.min.js' ?>"></script>
 
 	<!-- ATOM Feed 2.0 -->
@@ -56,6 +56,15 @@
 			<?php include(THEME_VIEWS . $layout['view']); ?>
 		</section>
 
+		<section id="categories">
+			<?php
+				if( isset($plugins['categories']) )
+				{
+					echo $plugins['categories']->get_html();
+				}
+			?>
+		</section>
+
 		<section id="pager">
 			<?php
 				if($pager['show_newer'])
@@ -82,6 +91,14 @@
 	<script>
 		$('#main').masonry({
 			itemSelector: 'article'
+		});
+	</script>
+	
+	<script>
+		$('article.pin').hover(function(){
+			$(this).children('div.pin_wrap').fadeIn();
+		},function(){
+			$(this).children('div.pin_wrap').fadeOut();
 		});
 	</script>
 

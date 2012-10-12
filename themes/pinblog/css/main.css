@@ -147,6 +147,32 @@ img:not(.captcha) {
 	float: left;
 }
 
+/* ============================== */
+/* CATEGORIES */
+/* ============================== */
+
+#categories {
+	border-bottom: 1px solid #F1F1F1;
+	border-top: 1px solid #F1F1F1;
+	margin: 60px 0;
+	overflow: auto;
+	padding: 30px 0;
+	font-size: 1.6em;
+}
+
+div.plugin_categories ul {
+	list-style-type: none;
+	padding:0;
+	margin:0;
+}
+
+div.plugin_categories li {
+	padding:0;
+	margin:0;
+	display: inline;
+	margin: 0 15px;
+	
+}
 
 /* ============================== */
 /* PIN */
@@ -163,6 +189,28 @@ article.pin {
     float: left;
     margin: 10px;
     border: 1px solid #E0E6F1;
+}
+
+article.pin div.pin_wrap {
+	display: none;
+	position: absolute;
+	left:0;
+	top:0;
+	background: rgba(255, 255, 255, 0.9);
+	height:100%;
+	width: 100%;
+	text-align: center;
+}
+
+article.pin div.pin_wrap h3 {
+    font-size: 1.4em;
+    font-weight: normal;
+}
+
+a.permalink {
+	position: absolute;
+	left:38%;
+	top:40%;
 }
 
 article.pin	div.content {
