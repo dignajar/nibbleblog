@@ -55,10 +55,10 @@
 			echo $_HTML->label( array('content'=>$_LANG['WIDTH'], 'class'=>'blocked') );
 			echo $_HTML->input( array('id'=>'js_img_resize_width', 'name'=>'img_resize_width', 'type'=>'text', 'value'=>$settings['img_resize_width']) );
 
-			echo $_HTML->label( array('content'=>$_LANG['OPTION'], 'class'=>'blocked') );
+			echo $_HTML->label( array('content'=>$_LANG['HEIGHT'], 'class'=>'blocked') );
 			echo $_HTML->input( array('id'=>'js_img_resize_height', 'name'=>'img_resize_height', 'type'=>'text', 'value'=>$settings['img_resize_height']) );
 
-			echo $_HTML->label( array('content'=>, 'class'=>'blocked') );
+			echo $_HTML->label( array('content'=>$_LANG['OPTION'], 'class'=>'blocked') );
 			echo $_HTML->select( array('name'=>'img_resize_option'), $img_resize_option, $settings['img_resize_option']);
 
 			echo $_HTML->div( array('content'=>'This option automatically changes the image size when uploading', 'class'=>'input_tip') );

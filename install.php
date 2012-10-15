@@ -131,7 +131,7 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		$obj->addChild('enable_wysiwyg',		1);
 
 		$obj->addChild('img_resize',			1);
-		$obj->addChild('img_resize_width',		800);
+		$obj->addChild('img_resize_width',		880);
 		$obj->addChild('img_resize_height',		600);
 		$obj->addChild('img_resize_option',		'auto');
 
