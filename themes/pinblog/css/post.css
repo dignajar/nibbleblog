@@ -1,5 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic);
 
+/* ============================== */
+/* NORMALIZE
+ * http://necolas.github.com/normalize.css
+/* ============================== */
+
 article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block}
 audio,canvas,video{display:inline-block}
 audio:not([controls]){display:none;height:0}
@@ -36,7 +41,7 @@ body,figure{margin:0}
 legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
 
 /* ============================== */
-/* BODY */
+/* BODY
 /* ============================== */
 
 body {
@@ -51,10 +56,7 @@ body {
 #container {
 	margin: 0 auto;
 	width: 940px;
-}
-
-#main {
-	overflow: auto;
+	font-size: 1.3em;
 }
 
 a {
@@ -92,29 +94,23 @@ img:not(.captcha) {
 }
 
 /* ============================== */
-/* HEADER */
+/* HEADER
 /* ============================== */
 #head {
-	overflow: auto;
-	margin: 10px;
-}
-
-#head	div.top {
-	
-}
-
-#head	div.bottom {
-}
-
-#head	a {
-	text-decoration: none;
+	margin: 50px;
+	text-align: center;
 }
 
 #head	h1 {
 	color: #616161;
-	font-size: 2.5em;
+	font-size: 1.2em;
 	font-weight: normal;
 	margin: 0;
+}
+
+#head	a.name {
+	text-decoration: none;
+	color: #616161;
 }
 
 #head	span.slogan {
@@ -122,191 +118,50 @@ img:not(.captcha) {
 }
 
 /* ============================== */
-/* FOOTER */
+/* FOOTER
 /* ============================== */
 #foot {
 	text-align: right;
-}
-
-/* ============================== */
-/* PAGER */
-/* ============================== */
-#pager {
-	border-bottom: 1px solid #F1F1F1;
-	border-top: 1px solid #F1F1F1;
-	margin: 60px 0;
 	overflow: auto;
-	padding: 30px 0;
-}
-
-#pager	a.newer {
-	float: right;
-}
-
-#pager	a.older {
-	float: left;
 }
 
 /* ============================== */
-/* CATEGORIES */
+/* POST VIEW
 /* ============================== */
-
-#categories {
-	border-bottom: 1px solid #F1F1F1;
-	border-top: 1px solid #F1F1F1;
-	margin: 60px 0;
-	overflow: auto;
-	padding: 30px 0;
-	font-size: 1.6em;
+#post_wrap {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #EBEBEB;
+    padding: 10px 30px;
 }
 
-div.plugin_categories ul {
-	list-style-type: none;
-	padding:0;
-	margin:0;
-}
-
-div.plugin_categories li {
-	padding:0;
-	margin:0;
-	display: inline;
-	margin: 0 15px;
-	
-}
-
-/* ============================== */
-/* PIN */
-/* ============================== */
-
-img.pin {
-	display: block;
-	border: 0 none;
-	margin: 0 auto;
-}
-
-article.pin {
-    background: #FFFFFF;
-    float: left;
-    margin: 10px;
-    border: 1px solid #E0E6F1;
-}
-
-article.pin div.pin_wrap {
-	display: none;
-	position: absolute;
-	left:0;
-	top:0;
-	background: rgba(255, 255, 255, 0.9);
-	height:100%;
-	width: 100%;
-	text-align: center;
-}
-
-article.pin div.pin_wrap h3 {
-    font-size: 1.4em;
-    font-weight: normal;
-}
-
-a.permalink {
-	position: absolute;
-	left:38%;
-	top:40%;
-}
-
-article.pin	div.content {
-	padding: 10px;
-	width: 193px;
-	margin: 0 auto;
-}
-
-article.pin	div.content	blockquote {
-	padding:0;
-	margin:0;
-	font-size: 1.3em;
-}
-
-article.pin	footer {
-	background: #F2F0F0;
-	padding: 12px;
-}
-
-article.pin	footer span.title {
-	font-style: italic;
-	margin-right:5px;
-}
-
-/* ============================== */
-/* PLUGIN TWITTER */
-/* ============================== */
-
-article.pin_twitter {
-	background: url(img/twitter.png) no-repeat #fff;
-	height:180px;
-}
-
-div.plugin_twitter {
-	padding: 0;
-	margin: 0;
-	font-size: 1.3em;
-}
-
-div.plugin_twitter	ul {
-	margin: 0;
-	padding: 0;
-}
-
-div.plugin_twitter	li {
-	margin: 0;
-	padding: 0;
-	display: inline;
-}
-
-div.plugin_twitter	li.username {
-    display: block;
-    margin-right: 5px;
-    font-size: 1.4em;
-}
-
-/* ============================== */
-/* POST VIEW*/
-/* ============================== */
 article.post {
-    background: #FFFFFF;
-    float: left;
-    margin: 10px;
-    border: 1px solid #CCCCCC;
-    box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+
 }
 
 article.post	div.content {
-	padding: 10px;
-	width: 193px;
-}
-
-article.post	header {
-	
-}
-
-article.post	footer {
-	background: #f1f1f1;
-	padding: 15px;
-}
-
-article.post	footer	span.date {
-	margin-right: 5px;
-}
-
-article.post 	blockquote {
 
 }
 
+article.post	header.post	h2.title {
+	font-size: 2.2em;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
 
+article.post	footer.post {
+	margin: 10px 0;
+}
 
-
-
+article.post	blockquote {
+	border-left: 7px solid #CCCCCC;
+	font-size: 2em;
+	margin: 0;
+	padding: 20px;
+}
 
 /* ============================== */
-/* COMMENT LIST */
+/* COMMENT LIST
 /* ============================== */
 #comment_list {
 	margin-top: 30px;
@@ -340,7 +195,7 @@ article.post 	blockquote {
 }
 
 /* ============================== */
-/* COMMENT FORM */
+/* COMMENT FORM
 /* ============================== */
 #comment_form {
 	margin-top: 30px;

@@ -6,10 +6,10 @@
 	}
 	elseif($post['type']=='video')
 	{
-		$video_info = $_VIDEO->video_get_info($post['video'], $theme['video_width'], $theme['video_height']);
+		$video_info = $_VIDEO->video_get_info($post['video'], 193, 109);
 
 		echo '<p>'.$video_info['embed'].'</p>';
-		
+
 		echo strip_tags($post['content_part0'], '<p><a><strong>');
 	}
 	else
@@ -21,8 +21,8 @@
 			$src = str_replace('_o', '_thumb', $match[0]);
 			echo '<img class="pin" '.$src.' alt="" />';
 		}
-		
+
 		echo strip_tags($post['content_part0'], '<p><a><strong>');
 	}
-	
+
 ?>

@@ -24,7 +24,7 @@ foreach($posts as $post)
 		echo '<div class="content">';
 			include('includes/post_view.bit');
 		echo '</div>';
-		
+
 		echo '<footer>';
 			echo '<span class="date">'.$_DATE->format($post['pub_date'], $settings['timestamp_format']).'</span>';
 		echo '</footer>';

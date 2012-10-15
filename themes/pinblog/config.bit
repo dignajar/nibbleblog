@@ -8,9 +8,10 @@
 		'version'=>'2.0',
 		'last_update'=>'02/09/2012', // dd/mm/yyyy
 		'url'=>'http://www.nibbleblog.com', // http://xxxxxxxxxxxxx
-		'video_width'=>'193',
-		'video_height'=>'109',
-		'comment_sleep'=>'2' // seconds
+		'video_width'=>'880',
+		'video_height'=>'495',
+		'comment_sleep'=>'2', // seconds
+		'template'=> array('post'=>'post.bit')
 	);
 
 ?>

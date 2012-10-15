@@ -5,7 +5,7 @@ require('../boot/ajax.bit');
 require('../kernel/security.bit');
 
 // Filename
-$filename = false; 
+$filename = false;
 
 if(isset($_SERVER['HTTP_X_FILE_NAME']))
 {
@@ -24,7 +24,7 @@ if( $filename )
 {
 	// Ext
 	$ext = pathinfo($filename, PATHINFO_EXTENSION);
-	
+
 	// Hash
 	$hash = $_CRYPT->get_hash(time().$filename);
 
@@ -41,14 +41,14 @@ if( $filename )
 		// Resize and/or Crop
 		if($settings['img_resize'])
 		{
-			$_RESIZE->setImage(PATH_UPLOAD.$hash.'_o.'.$ext, 800, 400, 'auto');
+			$_RESIZE->setImage(PATH_UPLOAD.$hash.'_o.'.$ext, $settings['img_resize_width'], $settings['img_resize_height'], $settings['img_resize_option']);
 			$_RESIZE->saveImage(PATH_UPLOAD.$hash.'_o.'.$ext, 100);
 		}
 
 		// Generate Thumbnail
 		if($settings['img_thumbnail'])
 		{
-			$_RESIZE->setImage(PATH_UPLOAD.$hash.'_o.'.$ext, 190, 190, 'landscape');
+			$_RESIZE->setImage(PATH_UPLOAD.$hash.'_o.'.$ext, $settings['img_thumbnail_width'], $settings['img_thumbnail_height'], $settings['img_thumbnail_option']);
 			$_RESIZE->saveImage(PATH_UPLOAD.$hash.'_thumb.'.$ext, 100);
 		}
 

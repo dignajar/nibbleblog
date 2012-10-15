@@ -5,7 +5,7 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 15/07/2012
+ * Last update: 13/10/2012
 
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
@@ -13,14 +13,20 @@
 
 class LOGIN {
 
-	// Variable que identifica si la session se inicio correctamente
 	private $session_started;
 
 	function LOGIN()
 	{
+		// Set HTTPOnly
+		session_set_cookie_params(0, NULL, NULL, NULL, TRUE);
+
+		// Session Start
 		$this->session_started = session_start();
 	}
 
+	/*
+	 * Return a key, with user agent and user IP
+	*/
 	private function get_key()
 	{
 		global $_NET;
@@ -29,13 +35,17 @@ class LOGIN {
 		return( $_CRYPT->get_hash( $_NET->get_user_agent() . $_NET->get_user_ip() ) );
 	}
 
-	// Setea todos los parametros que un usuario logueado debe tener
+	/*
+	 * Set session variables
+	 *
+	 * Parameters
+	 * id_user
+	 * username
+	*/
 	public function set_login($args)
 	{
 		global $_NET;
 		global $_DATE;
-
-		$this->set_token();
 
 		$_SESSION = array();
 
@@ -49,7 +59,9 @@ class LOGIN {
 		$_SESSION['session_alert']['msg'] = '';
 	}
 
-	// Comprueba que el usuario esta logueado
+	/*
+	 * Check the user is logued
+	*/
 	public function is_logued()
 	{
 		global $_TEXT;
@@ -67,7 +79,13 @@ class LOGIN {
 		return(false);
 	}
 
-	// Comprueba un usuario y contraseña, si es correcto seteo el login
+	/*
+	 * Verify the username and password are correct
+	 *
+	 * Parameters
+	 * username
+	 * password
+	*/
 	public function verify_login($args)
 	{
 		global $_CRYPT;
@@ -89,7 +107,9 @@ class LOGIN {
 		return(false);
 	}
 
-	// Desloguea un usuario
+	/*
+	 * Clean the variable session for logout the user
+	*/
 	public function logout()
 	{
 		$_SESSION = array();
@@ -107,7 +127,7 @@ class LOGIN {
 
 
 // =================================================================
-// GET Parametros del usuario logueado
+// Methods for return the session parameters
 // =================================================================
 
 	public function get_user_id()
@@ -134,116 +154,15 @@ class LOGIN {
 		}
 	}
 
-// =================================================================
-// TOKEN
-// =================================================================
-
-	public function set_token()
+	public function get_time_user_logued()
 	{
-		global $_TEXT;
-
-		// expire 5hour
-		setcookie('cookie_token', $_TEXT->random_text(10), time()+(3600*5), '/');
-	}
-
-	public function get_token()
-	{
-		if( isset($_COOKIE['cookie_token']) )
+		if( isset($_SESSION['session_login']['at']) )
 		{
-			return($_COOKIE['cookie_token']);
+			return($_SESSION['session_login']['at']);
 		}
 		else
 		{
 			return(false);
-		}
-	}
-
-	public function valid_token($token)
-	{
-		return( (strcmp($token, $this->get_token()) == 0) && isset($_COOKIE['cookie_token']) );
-	}
-
-// =================================================================
-// REMEMBER ME
-// =================================================================
-
-	public function remember_me()
-	{
-		global $_USERS;
-
-		if( isset($_COOKIE['cookie_God_hash']) && isset($_COOKIE['cookie_God_id']) )
-		{
-			$god_hash = $this->sanitize_html($_COOKIE['cookie_God_hash']);
-			$god_id = $this->sanitize_int($_COOKIE['cookie_God_id']);
-
-			$hash = $this->get_hash($god_id.$this->get_user_ip());
-
-			if($hash == $god_hash)
-			{
-				$user = $_USERS->get_by_id( array('id_user'=>$god_id) );
-
-				if( $user['remember'] == $hash )
-				{
-					$this->set_login( array('id_user'=>$user['id_user'], 'username'=>$user['username'], 'mail'=>$user['mail']) );
-
-					return(true);
-				}
-			}
-
-			// Si tenia las cookies de remember me y no tuvo exito, borro las cookies y todo.
-			$this->logout();
-		}
-
-		return(false);
-	}
-
-	public function set_remember_me($args)
-	{
-		global $_USERS;
-
-		$hash = $this->get_hash($args['id_user'].$this->get_user_ip());
-
-		setcookie('cookie_God_hash', $hash, time()+(3600*24*15), '/');
-		setcookie('cookie_God_id', $args['id_user'], time()+(3600*24*15), '/');
-
-		$_USERS->set_remember( array('hash'=>$hash) );
-	}
-
-// =================================================================
-// FORGOT PASSWORD
-// =================================================================
-
-	public function forgot_password($args)
-	{
-		global $_USERS;
-
-		$user = $_USERS->get_by_username( array('username'=>$args['username']) );
-
-		if($user == false)
-		{
-			return false;
-		}
-
-		if( $this->is_empty($user['forgot']) )
-		{
-			return false;
-		}
-
-		$explode = explode("_",$user['forgot']);
-
-		// Veo si el hash caduco
-		if( (($this->unixstamp() - $explode[1]) > (3600*24*2)) )
-		{
-			$_USERS->set_forgot( array('mail'=>$user['mail'], 'hash'=>'') );
-
-			return false;
-		}
-
-		if($args['hash'] == $explode[0])
-		{
-			$this->set_login( array('id_user'=>$user['id_user'], 'username'=>$user['username'], 'mail'=>$user['mail']) );
-
-			return true;
 		}
 	}
 

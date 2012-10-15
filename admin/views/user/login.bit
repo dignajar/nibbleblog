@@ -4,16 +4,16 @@
 
 		// USERNAME
 		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->input( array('name'=>'username', 'type'=>'text', 'placeholder'=>$_LANG['USERNAME']) );
+			echo $_HTML->input( array('name'=>'username', 'type'=>'text', 'placeholder'=>$_LANG['USERNAME'], 'autocomplete'=>'off', 'maxlength'=>'254') );
 		echo $_HTML->div_close();
 
 		// PASSWORD
 		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->input( array('name'=>'password', 'type'=>'password', 'placeholder'=>$_LANG['PASSWORD']) );
+			echo $_HTML->input( array('name'=>'password', 'type'=>'password', 'placeholder'=>$_LANG['PASSWORD'], 'autocomplete'=>'off', 'maxlength'=>'254') );
 		echo $_HTML->div_close();
 
 		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->input( array('name'=>'button_add', 'type'=>'submit', 'class'=>'save', 'value'=>$_LANG['LOGIN']) );
+			echo $_HTML->input( array('type'=>'submit', 'class'=>'save', 'value'=>$_LANG['LOGIN']) );
 		echo $_HTML->div_close();
 
 	echo $_HTML->form_close();

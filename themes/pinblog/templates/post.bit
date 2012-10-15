@@ -10,16 +10,13 @@
 	<meta name="description" content="<?php echo $layout['description'] ?>">
 
 	<!-- CSS3 -->
-	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'blog.css?v='.$theme['version'] ?>" />
+	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'post.css?v='.$theme['version'] ?>" />
 
 	<!-- FAVICON -->
 	<link rel="shortcut icon" href="<?php echo HTML_THEME_CSS.'img/favicon.ico' ?>" type="image/x-icon" />
 
 	<!-- JQUERY -->
 	<script src="<?php echo JS_JQUERY ?>"></script>
-
-	<!-- MASONRY -->
-	<script src="<?php echo HTML_THEME_JS.'jquery.masonry.min.js' ?>"></script>
 
 	<!-- ATOM Feed 2.0 -->
 	<link rel="alternate" type="application/atom+xml" title="ATOM Feed" href="<?php echo $layout['feed'] ?>" />
@@ -49,40 +46,9 @@
 		</header>
 
 		<!-- PINS -->
-		<section id="pins">
+		<section id="post_wrap">
 			<?php include(THEME_VIEWS . $layout['view']); ?>
 		</section>
-
-		<!-- PLUGIN CATEGORIES -->
-		<?php
-			// If plugin categories set, then show
-			if( isset($plugins['categories']) )
-			{
-				echo '<section id="categories">';
-				echo $plugins['categories']->get_html();
-				echo '</section>';
-			}
-		?>
-
-		<!-- PAGER -->
-		<?php
-			if( ($pager['show_newer'] || $pager['show_older']) )
-			{
-				echo '<section id="pager">';
-
-				if($pager['show_newer'])
-				{
-					echo '<a class="newer" href="'.$pager['href_newer'].'">'.$_LANG['NEWER_POSTS'].' →</a>';
-				}
-
-				if($pager['show_older'])
-				{
-					echo '<a class="older" href="'.$pager['href_older'].'">← '.$_LANG['OLDER_POSTS'].'</a>';
-				}
-
-				echo '</section>';
-			}
-		?>
 
 		<!-- FOOTER -->
 		<footer id="foot">
@@ -93,20 +59,6 @@
 		</footer>
 
 	</div>
-
-	<script>
-		$('#pins').masonry({
-			itemSelector: 'article.pin'
-		});
-	</script>
-
-	<script>
-		$('article.pin').hover(function(){
-			$(this).children('div.pin_wrap').fadeIn();
-		},function(){
-			$(this).children('div.pin_wrap').fadeOut();
-		});
-	</script>
 
 </body>
 </html>

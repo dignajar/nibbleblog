@@ -129,17 +129,17 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		$obj->addChild('locale',				$_GET['language']);
 		$obj->addChild('friendly_urls',			0);
 		$obj->addChild('enable_wysiwyg',		1);
-		
+
 		$obj->addChild('img_resize',			1);
 		$obj->addChild('img_resize_width',		800);
 		$obj->addChild('img_resize_height',		600);
 		$obj->addChild('img_resize_option',		'auto');
-		
+
 		$obj->addChild('img_thumbnail',			1);
 		$obj->addChild('img_thumbnail_width',	190);
 		$obj->addChild('img_thumbnail_height',	190);
 		$obj->addChild('img_thumbnail_option',	'landscape');
-		
+
 		$obj->asXml( FILE_XML_CONFIG );
 
 		// categories.xml
@@ -343,7 +343,7 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 			<p><?php echo $_LANG['PLEASE_ENABLE_JAVASCRIPT_IN_YOUR_BROWSER'] ?></p>
 		</section>
 		</noscript>
-		
+
 		<section id="complete">
 			<?php
 				echo $_HTML->h2( array('content'=>$_LANG['INSTALLATION_COMPLETE']) );
@@ -427,26 +427,26 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 				echo $_HTML->form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
 					echo $_HTML->label( array('content'=>$_LANG['BLOG_TITLE']) );
-					echo $_HTML->input( array('id'=>'js_name', 'name'=>'name', 'type'=>'text') );
+					echo $_HTML->input( array('id'=>'js_name', 'name'=>'name', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
 
 					echo $_HTML->label( array('content'=>$_LANG['BLOG_SLOGAN']) );
-					echo $_HTML->input( array('id'=>'js_slogan', 'name'=>'slogan', 'type'=>'text') );
+					echo $_HTML->input( array('id'=>'js_slogan', 'name'=>'slogan', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
 
 					echo $_HTML->label( array('content'=>$_LANG['ADMINISTRATOR_USERNAME'].'*') );
-					echo $_HTML->input( array('id'=>'js_username', 'name'=>'username', 'type'=>'text') );
+					echo $_HTML->input( array('id'=>'js_username', 'name'=>'username', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
 
 					echo $_HTML->label( array('content'=>$_LANG['ADMINISTRATOR_PASSWORD'].'*') );
-					echo $_HTML->input( array('id'=>'js_password', 'name'=>'password', 'type'=>'text') );
+					echo $_HTML->input( array('id'=>'js_password', 'name'=>'password', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
 
 					echo $_HTML->div_open( array('hidden'=>!isset($_GET['expert'])) );
 						echo $_HTML->label( array('content'=>$_LANG['ADMINISTRATOR_EMAIL']) );
-						echo $_HTML->input( array('name'=>'email', 'type'=>'text') );
+						echo $_HTML->input( array('name'=>'email', 'type'=>'text', 'autocomplete'=>'off') );
 
 						echo $_HTML->label( array('content'=>$_LANG['BLOG_ADDRESS']) );
-						echo $_HTML->input( array('name'=>'url', 'type'=>'text', 'value'=>$blog_address) );
+						echo $_HTML->input( array('name'=>'url', 'type'=>'text', 'value'=>$blog_address, 'autocomplete'=>'off') );
 
 						echo $_HTML->label( array('content'=>$_LANG['BLOG_BASE_PATH']) );
-						echo $_HTML->input( array('name'=>'path', 'type'=>'text', 'value'=>$blog_base_path) );
+						echo $_HTML->input( array('name'=>'path', 'type'=>'text', 'value'=>$blog_base_path, 'autocomplete'=>'off') );
 					echo $_HTML->div_close();
 
 					echo $_HTML->input( array('type'=>'submit', 'value'=>$_LANG['INSTALL']) );

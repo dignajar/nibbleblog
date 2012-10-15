@@ -166,5 +166,8 @@ $_LANG['ENABLE_OR_DISABLE_THE_WYSIWYG_EDITOR'] = 'Habilite o deshabilite el edit
 $_LANG['IMAGE_SETTINGS'] = 'Imágenes';
 $_LANG['ENABLE_AUTOMATIC_IMAGE_RESIZING'] = 'Habilitar cambio automático del tamaño de la imagen';
 $_LANG['ENABLE_THUMBNAILS'] = 'Habilitar creación de imágenes miniaturas';
+$_LANG['WIDTH'] = 'Width';
+$_LANG['HEIGHT'] = 'Height';
+$_LANG['OPTION'] = 'Option';
 
 ?>

@@ -21,4 +21,12 @@
 								'%d, %B %Y'=>'21, December 2012'
 	);
 
+	$img_resize_option = array(
+								'auto'=>'Automatic',
+								'exact'=>'Exact',
+								'portrait'=>'Portrait',
+								'landscape'=>'Landscape',
+								'crop'=>'Crop'
+	);
+
 ?>
