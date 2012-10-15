@@ -61,7 +61,7 @@
 			echo $_HTML->label( array('content'=>$_LANG['OPTION'], 'class'=>'blocked') );
 			echo $_HTML->select( array('name'=>'img_resize_option'), $img_resize_option, $settings['img_resize_option']);
 
-			echo $_HTML->div( array('content'=>'This option automatically changes the image size when uploading', 'class'=>'input_tip') );
+			echo $_HTML->div( array('content'=>$_LANG['THIS_OPTION_AUTOMATICALLY_CHANGES_THE_IMAGE'], 'class'=>'input_tip') );
 		echo $_HTML->div_close();
 
 		// ENABLE OR DISABLE CROP
@@ -78,7 +78,7 @@
 			echo $_HTML->label( array('content'=>$_LANG['OPTION'], 'class'=>'blocked') );
 			echo $_HTML->select( array('name'=>'img_thumbnail_option'), $img_resize_option, $settings['img_thumbnail_option']);
 
-			echo $_HTML->div( array('content'=>'Enable this option if you want generate a thumbnail when upload a image', 'class'=>'input_tip') );
+			echo $_HTML->div( array('content'=>$_LANG['ENABLE_THIS_OPTION_IF_YOU_WANT_TO_GENERATE'], 'class'=>'input_tip') );
 		echo $_HTML->div_close();
 
 

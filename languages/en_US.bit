@@ -169,5 +169,7 @@ $_LANG['ENABLE_THUMBNAILS'] = 'Enable thumbnails';
 $_LANG['WIDTH'] = 'Width';
 $_LANG['HEIGHT'] = 'Height';
 $_LANG['OPTION'] = 'Option';
+$_LANG['THIS_OPTION_AUTOMATICALLY_CHANGES_THE_IMAGE'] = 'This option automatically changes the image size after uploading';
+$_LANG['ENABLE_THIS_OPTION_IF_YOU_WANT_TO_GENERATE'] = 'Enable this option if you want to generate a thumbnail when uploading an image';
 
 ?>
