@@ -44,69 +44,6 @@
 			echo $_HTML->div( array('content'=>$_LANG['ENABLE_OR_DISABLE_THE_WYSIWYG_EDITOR'], 'class'=>'input_tip') );
 		echo $_HTML->div_close();
 
-		// IMAGES SETTINGS
-		echo $_HTML->separator( array('content'=>$_LANG['IMAGE_SETTINGS']) );
-
-		// ENABLE OR DISABLE CROP
-		echo $_HTML->div_open( array('class'=>'form_block'));
-			echo $_HTML->checkbox( array('id'=>'js_img_resize', 'name'=>'img_resize', 'class'=>'float'), $settings['img_resize'] );
-			echo $_HTML->label( array('content'=>$_LANG['ENABLE_AUTOMATIC_IMAGE_RESIZING'], 'class'=>'for_checkbox', 'for'=>'js_img_resize') );
-
-			echo $_HTML->label( array('content'=>$_LANG['WIDTH'], 'class'=>'blocked') );
-			echo $_HTML->input( array('id'=>'js_img_resize_width', 'name'=>'img_resize_width', 'type'=>'text', 'value'=>$settings['img_resize_width']) );
-
-			echo $_HTML->label( array('content'=>$_LANG['HEIGHT'], 'class'=>'blocked') );
-			echo $_HTML->input( array('id'=>'js_img_resize_height', 'name'=>'img_resize_height', 'type'=>'text', 'value'=>$settings['img_resize_height']) );
-
-			echo $_HTML->label( array('content'=>$_LANG['OPTION'], 'class'=>'blocked') );
-			echo $_HTML->select( array('name'=>'img_resize_option'), $img_resize_option, $settings['img_resize_option']);
-
-			echo $_HTML->div( array('content'=>$_LANG['THIS_OPTION_AUTOMATICALLY_CHANGES_THE_IMAGE'], 'class'=>'input_tip') );
-		echo $_HTML->div_close();
-
-		// ENABLE OR DISABLE CROP
-		echo $_HTML->div_open( array('class'=>'form_block'));
-			echo $_HTML->checkbox( array('id'=>'js_img_thumbnail', 'name'=>'img_thumbnail', 'class'=>'float'), $settings['img_thumbnail'] );
-			echo $_HTML->label( array('content'=>$_LANG['ENABLE_THUMBNAILS'], 'class'=>'for_checkbox', 'for'=>'js_img_thumbnail') );
-
-			echo $_HTML->label( array('content'=>$_LANG['WIDTH'], 'class'=>'blocked') );
-			echo $_HTML->input( array('id'=>'js_img_thumbnail_width', 'name'=>'img_thumbnail_width', 'type'=>'text', 'value'=>$settings['img_thumbnail_width']) );
-
-			echo $_HTML->label( array('content'=>$_LANG['HEIGHT'], 'class'=>'blocked') );
-			echo $_HTML->input( array('id'=>'js_img_thumbnail_height', 'name'=>'img_thumbnail_height', 'type'=>'text', 'value'=>$settings['img_thumbnail_height']) );
-
-			echo $_HTML->label( array('content'=>$_LANG['OPTION'], 'class'=>'blocked') );
-			echo $_HTML->select( array('name'=>'img_thumbnail_option'), $img_resize_option, $settings['img_thumbnail_option']);
-
-			echo $_HTML->div( array('content'=>$_LANG['ENABLE_THIS_OPTION_IF_YOU_WANT_TO_GENERATE'], 'class'=>'input_tip') );
-		echo $_HTML->div_close();
-
-
-		// REGIONAL SETTINGS
-		echo $_HTML->separator( array('content'=>$_LANG['REGIONAL_SETTINGS']) );
-
-		// TIMEZONE
-		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->label( array('content'=>$_LANG['TIMEZONE'], 'class'=>'blocked') );
-			echo $_HTML->select( array('name'=>'timezone'), $timezone_html, $settings['timezone']);
-			echo $_HTML->div( array('content'=>$_LANG['SELECT_A_TIMEZONE_FOR_A_CORRECT_DATE_VISUALIZATION'], 'class'=>'input_tip') );
-		echo $_HTML->div_close();
-
-		// DATE FORMAT
-		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->label( array('content'=>$_LANG['TIMESTAMP_FORMAT'], 'class'=>'blocked') );
-			echo $_HTML->select( array('id'=>'js_timestamp_select'), $timestamp_format_html, $settings['timestamp_format']);
-			echo $_HTML->input( array('style'=>'margin-top:10px;', 'id'=>'js_timestamp_format', 'name'=>'timestamp_format', 'type'=>'text', 'value'=>$settings['timestamp_format']) );
-			echo $_HTML->div( array('content'=>$_LANG['SELECT_A_FORMAT_FOR_DISPLAYING_THE_DATES'], 'class'=>'input_tip') );
-		echo $_HTML->div_close();
-
-		// LOCALE
-		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->label( array('content'=>$_LANG['LOCALE'], 'class'=>'blocked') );
-			echo $_HTML->input( array('id'=>'js_locale', 'name'=>'locale', 'type'=>'text', 'value'=>$settings['locale']) );
-			echo $_HTML->div( array('content'=>$_LANG['THIS_FIELD_IS_SET_EACH_TIME_YOU_CHANGE_THE_LANGUAGE_OF_THE_BLOG'], 'class'=>'input_tip') );
-		echo $_HTML->div_close();
-
 		// FRIENDLY URL
 		echo $_HTML->separator( array('content'=>$_LANG['FRIENDLY_URLS']) );
 
@@ -157,16 +94,3 @@ Options -Indexes
 	$ajax['action'] = 'set';
 	include(PATH_ADMIN_JS.'ajax_form.bit');
 ?>
-
-<script>
-
-$(document).ready(function() {
-
-	$("#js_timestamp_select").change(function () {
-		var value = $("#js_timestamp_select option:selected").val();
-		$("#js_timestamp_format").attr("value", value);
-	});
-
-});
-
-</script>

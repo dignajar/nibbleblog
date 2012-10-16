@@ -164,6 +164,10 @@ $_LANG['SELECT_A_FORMAT_FOR_DISPLAYING_THE_DATES'] = 'Select a format for displa
 $_LANG['ENABLE_WYSIWYG_EDITOR'] = 'Enable WYSIWYG editor';
 $_LANG['ENABLE_OR_DISABLE_THE_WYSIWYG_EDITOR'] = 'Enable or disable the WYSIWYG editor';
 $_LANG['IMAGE_SETTINGS'] = 'Image settings';
+
+$_LANG['AUTOMATIC_IMAGE_RESIZING'] = 'Automatic Image Resizing';
+$_LANG['THUMBNAILS'] = 'Thumbnails';
+
 $_LANG['ENABLE_AUTOMATIC_IMAGE_RESIZING'] = 'Enable Automatic Image Resizing';
 $_LANG['ENABLE_THUMBNAILS'] = 'Enable thumbnails';
 $_LANG['WIDTH'] = 'Width';

@@ -8,10 +8,6 @@
 //	VARIABLES
 // ============================================================================
 
-	$languages = $_DB_SETTINGS->get_languages();
 
-	$languages_html = array();
-	foreach($languages as $raw=>$lang)
-		$languages_html[$raw] = $lang;
 
 ?>

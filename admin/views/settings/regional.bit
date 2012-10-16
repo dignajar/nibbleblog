@@ -1,0 +1,60 @@
+<?php
+
+	echo $_HTML->form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+
+		// LANGUAGE
+		echo $_HTML->div_open( array('class'=>'form_block') );
+			echo $_HTML->label( array('content'=>$_LANG['LANGUAGE'], 'class'=>'blocked') );
+			echo $_HTML->select( array('id'=>'js_language', 'name'=>'language'), $languages_html, $settings['language']);
+		echo $_HTML->div_close();
+
+		// TIMEZONE
+		echo $_HTML->div_open( array('class'=>'form_block') );
+			echo $_HTML->label( array('content'=>$_LANG['TIMEZONE'], 'class'=>'blocked') );
+			echo $_HTML->select( array('name'=>'timezone'), $timezone_html, $settings['timezone']);
+			echo $_HTML->div( array('content'=>$_LANG['SELECT_A_TIMEZONE_FOR_A_CORRECT_DATE_VISUALIZATION'], 'class'=>'input_tip') );
+		echo $_HTML->div_close();
+
+		// DATE FORMAT
+		echo $_HTML->div_open( array('class'=>'form_block') );
+			echo $_HTML->label( array('content'=>$_LANG['TIMESTAMP_FORMAT'], 'class'=>'blocked') );
+			echo $_HTML->select( array('id'=>'js_timestamp_select'), $timestamp_format_html, $settings['timestamp_format']);
+			echo $_HTML->input( array('style'=>'margin-top:10px;', 'id'=>'js_timestamp_format', 'name'=>'timestamp_format', 'type'=>'text', 'value'=>$settings['timestamp_format']) );
+			echo $_HTML->div( array('content'=>$_LANG['SELECT_A_FORMAT_FOR_DISPLAYING_THE_DATES'], 'class'=>'input_tip') );
+		echo $_HTML->div_close();
+
+		// LOCALE
+		echo $_HTML->div_open( array('class'=>'form_block') );
+			echo $_HTML->label( array('content'=>$_LANG['LOCALE'], 'class'=>'blocked') );
+			echo $_HTML->input( array('id'=>'js_locale', 'name'=>'locale', 'type'=>'text', 'value'=>$settings['locale']) );
+			echo $_HTML->div( array('content'=>$_LANG['THIS_FIELD_IS_SET_EACH_TIME_YOU_CHANGE_THE_LANGUAGE_OF_THE_BLOG'], 'class'=>'input_tip') );
+		echo $_HTML->div_close();
+
+	echo $_HTML->form_close();
+
+?>
+
+<?php
+	$ajax['url'] = HTML_PATH_ADMIN_AJAX.'settings.php';
+	$ajax['action'] = 'set';
+	include(PATH_ADMIN_JS.'ajax_form.bit');
+?>
+
+<script>
+
+$(document).ready(function() {
+
+	$("#js_language").change(function () {
+		var locale = $("#js_language option:selected").val();
+		$("#js_locale").attr("value",locale);
+		setTimeout("location.reload()",1000);
+	});
+
+	$("#js_timestamp_select").change(function () {
+		var value = $("#js_timestamp_select option:selected").val();
+		$("#js_timestamp_format").attr("value", value);
+	});
+
+});
+
+</script>

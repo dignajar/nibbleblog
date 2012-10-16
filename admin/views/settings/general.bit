@@ -27,12 +27,6 @@
 			echo $_HTML->input( array('id'=>'js_footer', 'name'=>'footer', 'type'=>'text', 'value'=>$settings['footer']) );
 		echo $_HTML->div_close();
 
-		// LANGUAGE
-		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->label( array('content'=>$_LANG['LANGUAGE'], 'class'=>'blocked') );
-			echo $_HTML->select( array('name'=>'language'), $languages_html, $settings['language']);
-		echo $_HTML->div_close();
-
 	echo $_HTML->form_close();
 
 ?>

@@ -221,6 +221,11 @@ div.form_block	textarea {
 	resize: none;
 }
 
+div.form_block	input[type="text"].little {
+	width: 10%;
+	margin-right: 10px;
+}
+
 div.form_block		select {
 	border: 1px solid #ccc;
 	width: 100%;

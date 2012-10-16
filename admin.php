@@ -126,6 +126,18 @@ elseif($_URL['controller'] === 'settings')
 		define('LAYOUT_CONTROLLER',	'settings/advanced.bit');
 		define('LAYOUT_VIEW',		'settings/advanced.bit');
 	}
+	elseif($_URL['action'] === 'regional')
+	{
+		define('LAYOUT_TITLE',		$_LANG['REGIONAL_SETTINGS']);
+		define('LAYOUT_CONTROLLER',	'settings/regional.bit');
+		define('LAYOUT_VIEW',		'settings/regional.bit');
+	}
+	elseif($_URL['action'] === 'image')
+	{
+		define('LAYOUT_TITLE',		$_LANG['IMAGE_SETTINGS']);
+		define('LAYOUT_CONTROLLER',	'settings/image.bit');
+		define('LAYOUT_VIEW',		'settings/image.bit');
+	}
 	elseif($_URL['action'] === 'themes')
 	{
 		define('LAYOUT_TITLE',		$_LANG['CHANGE_THEME']);
