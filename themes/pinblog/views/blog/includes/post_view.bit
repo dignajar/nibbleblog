@@ -22,7 +22,7 @@
 			echo '<img class="pin" '.$src.' alt="" />';
 		}
 
-		echo strip_tags($post['content_part0'], '<p><a><strong>');
+		echo strip_tags($post['content_part0'], '<p><a><strong><pre>');
 	}
 
 ?>

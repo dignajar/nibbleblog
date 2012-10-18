@@ -88,9 +88,7 @@ img:not(.captcha) {
 /* ============================== */
 
 #pins {
-	width: 100%;
-	clear:both;
-	display: block;
+	width: 940px;
 }
 
 img.pin {
@@ -101,9 +99,9 @@ img.pin {
 
 article.pin {
     background: #FFFFFF;
-    margin: 10px;
     border: 1px solid #E0E6F1;
-    float:left;
+    display: inline-block;
+    margin: 10px;
 }
 
 article.pin div.pin_wrap {
@@ -159,7 +157,6 @@ article.pin	footer span.title {
 	border-bottom: 1px solid #F1F1F1;
 	border-top: 1px solid #F1F1F1;
 	margin: 60px 0;
-	overflow: auto;
 	padding: 30px 0;
 }
 
@@ -179,7 +176,6 @@ article.pin	footer span.title {
 	border-bottom: 1px solid #F1F1F1;
 	border-top: 1px solid #F1F1F1;
 	margin: 60px 0;
-	overflow: auto;
 	padding: 30px 0;
 	font-size: 1.6em;
 }
