@@ -10,6 +10,7 @@
 	<meta name="description" content="<?php echo $layout['description'] ?>">
 
 	<!-- CSS3 -->
+	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'normalize.css?v=201' ?>" />
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'blog.css?v='.$theme['version'] ?>" />
 
 	<!-- FAVICON -->

@@ -19,7 +19,7 @@
 
 		echo $_HTML->div_open( array('class'=>'item bg_settings'));
 			echo $_HTML->link( array('class'=>'type', 'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=general', 'content'=>$_LANG['GENERAL_SETTINGS']) );
-			echo $_HTML->span( array('class'=>'description', 'content'=>$_LANG['BLOG_TITLE_SLOGAN_LANGUAGE']) );
+			echo $_HTML->span( array('class'=>'description', 'content'=>$_LANG['BLOG_TITLE_SLOGAN_ABOUT']) );
 		echo $_HTML->div_close();
 
 	echo $_HTML->div_close();
