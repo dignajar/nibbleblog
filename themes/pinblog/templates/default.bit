@@ -105,7 +105,7 @@
 		$('article.pin').hover(function(){
 			$(this).children('div.pin_wrap').fadeIn();
 		},function(){
-			$(this).children('div.pin_wrap').fadeOut();
+			$(this).children('div.pin_wrap').hide();
 		});
 	</script>
 

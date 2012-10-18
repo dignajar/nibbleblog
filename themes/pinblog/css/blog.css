@@ -1,11 +1,10 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic);
 
 /* ============================== */
 /* BODY */
 /* ============================== */
 
 body {
-	font-family: 'Open Sans', helvetica, arial, sans-serif;
+	font-family: "helvetica neue",arial,sans-serif;
 	background: #fafafa;
 	margin: 0;
 	padding: 0;
@@ -89,6 +88,7 @@ img:not(.captcha) {
 
 #pins {
 	width: 940px;
+	font-size: 1.1em;
 }
 
 img.pin {
@@ -132,12 +132,17 @@ article.pin	div.content {
 	margin: 0 auto;
 }
 
+article.pin	div.content p {
+	line-height: 1.35em;
+	word-wrap: break-word;
+}
+
 article.pin	div.content	blockquote {
-	background: url("img/quote.png") no-repeat right bottom;
-	font-size: 1.3em;
+	background: url("img/quote.png") no-repeat left top;
+	font-size: 1.2em;
 	margin: 0;
-	min-height: 32px;
-	padding: 0;
+	min-height: 60px;
+	padding: 0 0 0 46px;
 }
 
 article.pin	footer {
@@ -206,7 +211,7 @@ article.pin_twitter {
 div.plugin_twitter {
 	padding: 0;
 	margin: 0;
-	font-size: 1.3em;
+	font-size: 1.2em;
 }
 
 div.plugin_twitter	ul {
@@ -222,6 +227,6 @@ div.plugin_twitter	li {
 
 div.plugin_twitter	li.username {
     display: block;
-    margin-right: 5px;
+    margin-bottom: 5px;
     font-size: 1.4em;
 }
