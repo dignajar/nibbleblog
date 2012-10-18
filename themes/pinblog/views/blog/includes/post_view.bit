@@ -14,15 +14,12 @@
 	}
 	else
 	{
-		preg_match( '@src="([^"]+)"@' , $post['content'] , $match );
-
-		if( !empty($match) )
+		if( !empty($post['thumbnails']) )
 		{
-			$src = str_replace('_o', '_thumb', $match[0]);
-			echo '<img class="pin" '.$src.' alt="" />';
+			echo '<img class="pin" src='.$post['thumbnails'][0].' alt="" />';
 		}
 
-		echo strip_tags($post['content_part0'], '<p><a><strong><pre>');
+		echo strip_tags($post['content_part0'], '<p><a><strong><pre><div><br>');
 	}
 
 ?>

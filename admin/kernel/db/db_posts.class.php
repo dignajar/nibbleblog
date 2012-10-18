@@ -86,7 +86,7 @@ class DB_POSTS {
 
 			// Time - UTC=0
 			$time_unix = $_DATE->unixstamp();
-			
+
 			// Time for Filename
 			$time_filename = $_DATE->format_gmt($time_unix, 'Y.m.d.H.i.s');
 
@@ -355,7 +355,7 @@ class DB_POSTS {
 			$tmp_array['type']				= (string) $obj_xml->getChild('type');
 			$tmp_array['title']				= (string) $obj_xml->getChild('title');
 			$tmp_array['description']		= (string) $obj_xml->getChild('description');
-					
+
 			$tmp_array['pub_date']			= (string) $obj_xml->getChild('pub_date');
 			$tmp_array['mod_date']			= (string) $obj_xml->getChild('mod_date');
 
@@ -381,6 +381,16 @@ class DB_POSTS {
 			elseif($tmp_array['type']=='quote')
 			{
 				$tmp_array['quote']			= (string) $obj_xml->getChild('quote');
+			}
+
+			// THUMBNAILS
+			$dom = new domDocument;
+			$dom->loadHTML($tmp_array['content']);
+			$images = $dom->getElementsByTagName('img');
+			$tmp_array['thumbnails'] = array();
+			foreach ($images as $image) {
+				$src = str_replace('_o', '_thumb', $image->getAttribute('src'));
+				array_push($tmp_array['thumbnails'], $src);
 			}
 
 			// FRIENDLY URLS

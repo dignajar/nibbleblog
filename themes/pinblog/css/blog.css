@@ -28,23 +28,19 @@ a:hover {
 }
 
 pre {
-	background: url("img/bgcode.png");
+	background: url("img/bgcode.png") repeat 0 0;
 	border: 1px solid #E8E8E8;
-	font-size: 12px;
 	line-height: 23px;
 	margin: 0;
-	padding: 0 5px 0 5px;
+	padding: 0 5px;
 	white-space: pre-wrap;
-	width: 75%;
 }
 
 .console {
-	background: url("img/console.png") no-repeat scroll 10px center #F1F1F1;
+	background: url("img/console.png") no-repeat 7px center #F1F1F1;
 	display: block;
-	line-height: 50px;
 	margin: 5px 0;
-	padding-left: 60px;
-	width:70%;
+	padding: 5px 0 5px 31px;
 }
 
 img:not(.captcha) {
@@ -89,6 +85,7 @@ img:not(.captcha) {
 #pins {
 	width: 940px;
 	font-size: 1.1em;
+	word-wrap: break-word;
 }
 
 img.pin {
@@ -134,15 +131,13 @@ article.pin	div.content {
 
 article.pin	div.content p {
 	line-height: 1.35em;
-	word-wrap: break-word;
 }
 
 article.pin	div.content	blockquote {
-	background: url("img/quote.png") no-repeat left top;
-	font-size: 1.2em;
+	font-size: 2.8em;
 	margin: 0;
 	min-height: 60px;
-	padding: 0 0 0 46px;
+	margin-left: 10px;
 }
 
 article.pin	footer {
