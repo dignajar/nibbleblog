@@ -383,16 +383,6 @@ class DB_POSTS {
 				$tmp_array['quote']			= (string) $obj_xml->getChild('quote');
 			}
 
-			// THUMBNAILS
-			$dom = new domDocument;
-			$dom->loadHTML($tmp_array['content']);
-			$images = $dom->getElementsByTagName('img');
-			$tmp_array['thumbnails'] = array();
-			foreach ($images as $image) {
-				$src = str_replace('_o', '_thumb', $image->getAttribute('src'));
-				array_push($tmp_array['thumbnails'], $src);
-			}
-
 			// FRIENDLY URLS
 			if( $this->settings['friendly_urls'] )
 			{

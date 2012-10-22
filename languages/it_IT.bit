@@ -1,8 +1,8 @@
 <?php
 
 $_LANG_CONFIG['DATA'] = array(
-	'native'=>'polski',
-	'english'=>'Polish',
+	'native'=>'italiano',
+	'english'=>'Italian',
 	'author'=>'',
 	'last_update'=>'14/08/2012', //dd/mm/yyyy
 	'version_min'=>'3.2.1',

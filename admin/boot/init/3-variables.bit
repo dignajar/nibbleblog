@@ -16,10 +16,10 @@
 	define('AMOUNT_OF_COMMENTS',	3);
 	define('AMOUNT_OF_POSTS',		8);
 	define('LOGIN_SLEEP',			2);
-	
-	define('SESSION_DATE_FORMAT',	'%r - %x');
-	define('COMMENT_DATE_FORMAT',	'%r - %x');
-	define('POST_DATE_FORMAT',		'%r - %x');
+
+	define('SESSION_DATE_FORMAT',	'%I:%M:%S %p - %m/%d/%y');
+	define('COMMENT_DATE_FORMAT',	'%I:%M:%S %p - %m/%d/%y');
+	define('POST_DATE_FORMAT',		'%I:%M:%S %p - %m/%d/%y');
 
 // ============================================================================
 //	HTML

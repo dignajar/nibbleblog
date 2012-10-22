@@ -10,7 +10,7 @@
 		// CONTENT
 		echo $_HTML->div_open( array('class'=>'form_block') );
 			echo $_HTML->textarea( array('id'=>'js_content', 'name'=>'content', 'content'=>'', 'class'=>'wysiwyg') );
-			echo $_HTML->link( array('content'=>'HTML', 'class'=>'toggle_button', 'href'=>'javascript:;', 'onclick'=>'tinymce.execCommand(\'mceToggleEditor\',false,\'js_content\')', 'hidden'=>!$settings['advanced_post_options']) );
+			echo $_HTML->link( array('content'=>'HTML', 'class'=>'toggle_button', 'href'=>'javascript:;', 'onclick'=>'tinymce.execCommand(\'mceToggleEditor\',false,\'js_content\')', 'hidden'=>( !$settings['advanced_post_options'] || !$settings['enable_wysiwyg'] )) );
 			echo $_HTML->span( array('id'=>'js_uploader_button', 'class'=>'uploader_button', 'content'=>$_LANG['INSERT_PICTURE']) );
 			echo $_HTML->span( array('id'=>'js_uploader_loading', 'class'=>'uploader_button', 'content'=>$_LANG['UPLOADING'].'...', 'style'=>'display: none') );
 		echo $_HTML->div_close();
