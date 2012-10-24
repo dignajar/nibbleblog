@@ -1,5 +1,5 @@
 <?php
-	echo $_HTML->separator( array('content'=>$_LANG['CHANGE_USERNAME']) );
+	echo $_HTML->separator( array('style'=>'margin-top: 0;', 'content'=>$_LANG['CHANGE_USERNAME']) );
 
 	echo $_HTML->form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 

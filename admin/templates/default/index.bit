@@ -17,9 +17,16 @@
 	<div id="container">
 
 		<div id="container_head">
-			<a href="<?php echo HTML_PATH_ROOT.'admin.php' ?>" class="dashboard"><?php echo $_LANG['DASHBOARD']; ?></a>
 			<a href="<?php echo HTML_PATH_ROOT ?>" class="home"><?php echo $_LANG['VIEW_BLOG']; ?></a>
+			<a href="<?php echo HTML_PATH_ROOT.'admin.php' ?>" class="dashboard"><?php echo $_LANG['DASHBOARD']; ?></a>
 			<a href="<?php echo HTML_PATH_ROOT.'admin.php?controller=user&amp;action=logout' ?>" class="logout"><?php echo $_LANG['LOGOUT']; ?></a>
+		</div>
+
+		<div id="container_subhead">
+			<?php
+				// LAYOUT_TITLE defined on controller
+				echo '<h2 class="title">'.LAYOUT_TITLE.'</h2>';
+			?>
 		</div>
 
 		<div id="container_float">
@@ -30,10 +37,6 @@
 
 			<div id="container_right">
 				<?php
-
-					// LAYOUT_TITLE defined on controller
-					echo '<h2 class="title">'.LAYOUT_TITLE.'</h2>';
-
 					// ALERT
 					if($_SESSION['session_alert']['active'])
 					{
@@ -43,7 +46,6 @@
 
 					// LAYOUT_VIEW defined on controller
 					include(PATH_ADMIN_VIEW . LAYOUT_VIEW);
-
 				?>
 			</div>
 

@@ -2,7 +2,7 @@
 
 	echo $_HTML->form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
-		echo $_HTML->separator( array('content'=>$_LANG['AUTOMATIC_IMAGE_RESIZING']) );
+		echo $_HTML->separator( array('style'=>'margin-top: 0;', 'content'=>$_LANG['AUTOMATIC_IMAGE_RESIZING']) );
 
 		// ENABLE OR DISABLE CROP
 		echo $_HTML->div_open( array('class'=>'form_block'));

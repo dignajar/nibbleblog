@@ -52,7 +52,7 @@
 			echo $_HTML->label( array('content'=>$_LANG['ENABLE_FRIENDLY_URLS'], 'class'=>'for_checkbox', 'for'=>'js_friendly_urls') );
 			echo $_HTML->div( array('content'=>$_LANG['COPY_THIS_CONTENT_ON_THE_FILE'], 'class'=>'input_tip') );
 
-			echo $_HTML->textarea( array('style'=>'height:130px;', 'content'=>'
+			echo $_HTML->textarea( array('style'=>'height:130px; margin-top: 8px;', 'content'=>'
 Options +FollowSymlinks
 Options -Indexes
 

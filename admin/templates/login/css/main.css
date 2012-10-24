@@ -70,18 +70,17 @@ div.form_block {
 input[type="text"],
 input[type="password"],
 textarea {
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	width: 100%;
-
-	border: 1px solid #C4C4C4;
-	border-radius: 2px;
-	color: #858585;
-	font-size:13px;
-	padding: 8px 5px;
-	outline:none;
-	resize: none;
+    -moz-box-sizing: border-box;
+    border-color: -moz-use-text-color -moz-use-text-color #C4C4C4;
+    border-radius: 2px 2px 2px 2px;
+    border-style: none none solid;
+    border-width: 0 0 1px;
+    color: #858585;
+    font-size: 15px;
+    outline: medium none;
+    padding: 8px 0px;
+    resize: none;
+    width: 100%;
 }
 
 input[type="checkbox"].float {

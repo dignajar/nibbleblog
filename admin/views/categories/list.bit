@@ -1,7 +1,7 @@
 <?php
 
 	// NEW CATEGORY
-	echo $_HTML->separator( array('content'=>$_LANG['NEW_CATEGORY']) );
+	echo $_HTML->separator( array('style'=>'margin-top: 0;', 'content'=>$_LANG['NEW_CATEGORY']) );
 
 	echo $_HTML->form_open( array('id'=>'js_form_add', 'name'=>'form', 'method'=>'post') );
 
