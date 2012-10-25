@@ -38,10 +38,11 @@
 		{
 			$date = $_DATE->format($comment['pub_date'], COMMENT_DATE_FORMAT);
 
-			echo $_HTML->div_open( array('class'=>'notification notification_last_comments') );
-				echo $_HTML->div( array('class'=>'type', 'content'=>$comment['content']) );
-				echo $_HTML->div( array('class'=>'info', 'content'=>$_LANG['AUTHOR'].': '.$comment['author_name'].' · '.$_LANG['DATE'].': '.$date) );
-			echo $_HTML->div_close();
+			echo $_HTML->link( array('class'=>'notification notification_last_comments', 'href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list&amp;id_post='.$comment['id_post'],
+				'content'=>
+				$_HTML->div( array('class'=>'type', 'content'=>$comment['content']) ).
+				$_HTML->div( array('class'=>'info', 'content'=>$_LANG['AUTHOR'].': '.$comment['author_name'].' · '.$_LANG['DATE'].': '.$date) )
+			) );
 		}
 	}
 

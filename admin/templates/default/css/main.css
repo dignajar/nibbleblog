@@ -244,6 +244,64 @@ input[type=file].hidden {
 	display: block;
 }
 
+/* ============================== */
+/* PLUGIN LIST */
+/* ============================== */
+
+div.plugin {
+    background-color: #F9F9F9;
+    border: 1px solid #EBEBEB;
+    border-radius: 2px 2px 2px 2px;
+    font-size: 13px;
+    margin-bottom: 15px;
+    padding: 12px;
+}
+
+div.plugin	h3.name {
+	margin: 0;
+	font-size: 1em;
+	font-weight: normal;
+	border-bottom: 1px dotted #CCCCCC;
+	padding-bottom: 2px;
+}
+
+div.plugin	h4.description {
+	margin: 8px 0;
+	font-weight: normal;
+}
+
+div.plugin	a {
+	margin-right: 15px;
+}
+
+/* ============================== */
+/* FORMS FOR PLUGINS */
+/* ============================== */
+form.plugins {
+	font-size: 1.3em;
+}
+
+form.plugins	input[type="text"],
+form.plugins	input[type="password"],
+form.plugins	textarea {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	border: 1px solid #C4C4C4;
+	border-radius: 2px;
+	color: #858585;
+	padding: 8px;
+	outline:none;
+	resize: none;
+	margin-bottom: 15px;
+}
+
+form.plugins		label {
+	margin-bottom: 2px;
+	display: block;
+}
+
 /*////////////////////////////////////*/
 
 a.remove {
@@ -254,12 +312,12 @@ a.button {
 	font-size: 12px;
 }
 
-
-
-div.notification {
+div.notification,
+a.notification {
 	padding: 10px 0 10px 56px;
 	margin-bottom: 10px;
     border-radius: 2px 2px 2px 2px;
+    display: block;
 }
 
 div.notification_session {
@@ -268,13 +326,21 @@ div.notification_session {
     font-size: 12px;
 }
 
-div.notification_last_comments {
+a.notification_last_comments {
 	background: url('img/comments.png') no-repeat 16px center #F9F9F9;
     border: 1px solid #EEEEEE;
     font-size: 12px;
+    text-decoration: none;
+    color: #555555;
 }
 
-div.notification	div.type {
+a.notification_last_comments:hover {
+	background-color: #FFF9E7;
+}
+
+
+div.notification	div.type,
+a.notification	div.type {
 	margin-bottom: 5px;
 }
 
@@ -325,33 +391,6 @@ div.dash_items	span.description {
 }
 
 
-/* ============================== */
-/* FORMS FOR PLUGINS */
-/* ============================== */
-form.plugins {
-}
-
-form.plugins	input[type="text"],
-form.plugins	input[type="password"],
-form.plugins	textarea {
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	width: 100%;
-	border: 1px solid #C4C4C4;
-	border-radius: 2px;
-	color: #858585;
-	padding: 8px;
-	outline:none;
-	resize: none;
-	margin-bottom: 15px;
-}
-
-form.plugins		label {
-	margin-bottom: 2px;
-	display: block;
-	font-size: 13px;
-}
 
 /* ============================== */
 /* POST LIST */
@@ -451,37 +490,7 @@ div.comment_box {
 
 }
 
-/* ============================== */
-/* PLUGIN LIST */
-/* ============================== */
 
-div.plugin {
-    background-color: #F5F5F5;
-    border: 1px solid #F0F0F0;
-    border-radius: 2px 2px 2px 2px;
-    color: #444444;
-    font-size: 13px;
-    margin-bottom: 15px;
-    padding: 10px;
-}
-
-div.plugin	h3.name {
-	font-size: 13px;
-	margin: 0;
-	font-weight: normal;
-	border-bottom: 1px dotted #CCCCCC;
-	padding-bottom: 2px;
-}
-
-div.plugin	h4.description {
-	font-size: 12px;
-	margin: 8px 0;
-	font-weight: normal;
-}
-
-div.plugin	a {
-	margin-right: 15px;
-}
 
 /* ============================== */
 /* SIDEBAR Update*/

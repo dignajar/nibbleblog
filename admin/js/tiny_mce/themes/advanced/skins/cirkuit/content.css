@@ -1,4 +1,4 @@
-body, td, pre {color:#000; font: 12px/1.5em "Lucida Grande", Helvetica, Arial, sans-serif; margin:8px;}
+body, td, pre {color:#000; font: 13px/1.5em "Lucida Grande", Helvetica, Arial, sans-serif; margin:8px;}
 html,body {margin: 0; background:#fff !important;}
 body {height: 94% !important;}
 body.mceForceColors {background:#FFF; color:#000;}
@@ -55,8 +55,6 @@ font[face=mceinline] {font-family:inherit !important}
 
 body {
 	word-wrap: break-word;
-	font-size: 14px;
-	font-family: helvetica,arial,sans-serif;
 	color: #333333;
 	margin: 5px 10px;
 }
@@ -74,7 +72,6 @@ a:hover {
 pre {
 	background: url("img/bgcode.png");
 	border: 1px solid #E8E8E8;
-	font-size: 12px;
 	line-height: 23px;
 	margin: 0;
 	padding: 0 5px 0 5px;
@@ -86,7 +83,7 @@ ul, ol {
 }
 
 img:not(.mcePageBreak) {
-	max-width: 880px;
+	margin: 0 10px;
 }
 
 img.mcePageBreak {
