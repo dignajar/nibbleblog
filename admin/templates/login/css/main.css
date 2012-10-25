@@ -70,17 +70,15 @@ div.form_block {
 input[type="text"],
 input[type="password"],
 textarea {
-    -moz-box-sizing: border-box;
-    border-color: -moz-use-text-color -moz-use-text-color #C4C4C4;
-    border-radius: 2px 2px 2px 2px;
-    border-style: none none solid;
-    border-width: 0 0 1px;
     color: #858585;
     font-size: 15px;
-    outline: medium none;
     padding: 8px 0px;
-    resize: none;
     width: 100%;
+    background: transparent;
+    border-bottom: 1px solid #ccc;
+    border-top:0;
+    border-right:0;
+    border-left:0;
 }
 
 input[type="checkbox"].float {

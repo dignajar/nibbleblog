@@ -25,6 +25,28 @@
 	echo $_HTML->div_close();
 
 
+	// LAST COMMENTS
+	echo $_HTML->separator( array('content'=>$_LANG['LAST_COMMENTS']) );
+
+	if(empty($last_comments))
+	{
+		echo $_HTML->p( array('class'=>'no_comments', 'content'=>$_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS']) );
+	}
+	else
+	{
+		foreach($last_comments as $comment)
+		{
+			$date = $_DATE->format($comment['pub_date'], COMMENT_DATE_FORMAT);
+
+			echo $_HTML->div_open( array('class'=>'notification notification_last_comments') );
+				echo $_HTML->div( array('class'=>'type', 'content'=>$comment['content']) );
+				echo $_HTML->div( array('class'=>'info', 'content'=>$_LANG['AUTHOR'].': '.$comment['author_name'].' · '.$_LANG['DATE'].': '.$date) );
+			echo $_HTML->div_close();
+		}
+	}
+
+
+	// LAST SESSIONS
 	echo $_HTML->separator( array('content'=>$_LANG['LAST_SESSIONS']) );
 
 	foreach($syslog_sessions as $session)
@@ -36,17 +58,4 @@
 			echo $_HTML->div( array('class'=>'info', 'content'=>$_LANG['DATE'].': '.$date.' · IP:'.$session['ip']) );
 		echo $_HTML->div_close();
 	}
-
-	echo $_HTML->separator( array('content'=>$_LANG['LAST_COMMENTS']) );
-
-	foreach($last_comments as $comment)
-	{
-		$date = $_DATE->format($comment['pub_date'], COMMENT_DATE_FORMAT);
-
-		echo $_HTML->div_open( array('class'=>'notification notification_last_comments') );
-			echo $_HTML->div( array('class'=>'type', 'content'=>$comment['content']) );
-			echo $_HTML->div( array('class'=>'info', 'content'=>$_LANG['AUTHOR'].': '.$comment['author_name'].' · '.$_LANG['DATE'].': '.$date) );
-		echo $_HTML->div_close();
-	}
-
 ?>

@@ -1,4 +1,3 @@
-
 /* ============================== */
 /* BODY
 /* ============================== */
@@ -31,24 +30,29 @@ body {
 }
 
 #container_head	a {
-	color: #333;
-	display: inline-block;
-	height: 50px;
+    color: #333333;
+    display: inline-block;
+    height: 50px;
     line-height: 52px;
-    margin-right: 15px;
-    padding-left: 26px;
+    padding-left: 36px;
+    padding-right: 10px;
 }
 
 #container_head a.dashboard {
-	background: url("img/dashboard.png") no-repeat scroll 0 center transparent;
+	background: url("img/dashboard.png") no-repeat 10px center transparent;
 }
 
 #container_head a.home {
-	background: url("img/home.png") no-repeat scroll 0 center transparent;
+	background: url("img/home.png") no-repeat 10px center transparent;
 }
 
 #container_head a.logout {
-	background: url("img/logout.png") no-repeat scroll 0 center transparent;
+	background: url("img/logout.png") no-repeat 10px center transparent;
+}
+
+#container_head	a:hover {
+	text-decoration: none;
+	background-color: #FFF9E7;
 }
 
 /* ============================== */
@@ -58,7 +62,8 @@ body {
 #container_subhead {
     border-bottom: 1px solid #EBEBEB;
     margin-bottom: 20px;
-    padding: 20px 0 20px 15%;
+    margin-left: 10px;
+    padding: 20px 0 20px 16%;
 }
 
 #container_subhead	h2.title {
@@ -81,7 +86,8 @@ body {
 #container_left {
     clear: left;
     float: left;
-    width: 15%;
+    margin-right: 10px;
+    width: 16%;
 }
 
 #container_right {
@@ -123,7 +129,10 @@ div.separator {
 	margin-top: 0;
 }
 
-
+p.no_comments {
+	font-size: 1.2em;
+	font-style: italic;
+}
 
 /* ============================== */
 /* FORMS */
