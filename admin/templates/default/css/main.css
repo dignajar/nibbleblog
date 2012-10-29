@@ -14,7 +14,8 @@ body {
 }
 
 #container {
-	width: 100%
+	width: 100%;
+	background-color: #fff;
 }
 
 /* ============================== */
@@ -101,7 +102,7 @@ body {
     background-color: #EDF4FF;
     border: 1px solid #CDD4EF;
     border-radius: 2px 2px 2px 2px;
-    color: #666666;
+    font-size: 1.3em;
     margin-bottom: 20px;
     padding: 20px;
 }
@@ -344,6 +345,8 @@ a.notification	div.type {
 	margin-bottom: 5px;
 }
 
+/* VIEJO */
+/*
 div.dash_items {
 	background: none repeat scroll 0 0 #F9F9F9;
     border: 1px solid #EEEEEE;
@@ -378,8 +381,6 @@ div.dash_items	.bg_settings {
 	padding: 10px 0 10px 36px;
 }
 
-
-
 div.dash_items	a.type {
 	font-size: 13px;
 	display: block;
@@ -387,6 +388,45 @@ div.dash_items	a.type {
 
 div.dash_items	span.description {
 	font-size: 12px;
+	display: block;
+}
+*/
+
+/* NUEVO */
+div.dash_items {
+
+}
+
+div.dash_items	div.item {
+    display: inline-block;
+    margin: 5px 10px;
+    width: 230px;
+	padding: 10px 0 10px 56px;
+}
+
+div.dash_items	.bg_post_simple {
+	background: url(img/add.png) 0 50% no-repeat;
+}
+
+div.dash_items	.bg_post_video {
+	background: url(img/video.png) 0 50% no-repeat;
+}
+
+div.dash_items	.bg_post_quote {
+	background: url(img/quote.png) 0 50% no-repeat;
+}
+
+div.dash_items	.bg_settings {
+	background: url(img/gear.png) 0 50% no-repeat;
+}
+
+div.dash_items	a.type {
+	font-size: 1.4em;
+	display: block;
+}
+
+div.dash_items	span.description {
+	font-size: 1.2em;
 	display: block;
 }
 
@@ -399,7 +439,13 @@ div.dash_items	span.description {
 div.list_box,
 div.comment_box {
 	padding: 15px 0;
-	border-top: 1px solid #f1f1f1;
+	border-top: 1px solid #EBEBEB;
+	font-size: 1.2em;
+}
+
+div.list_box:hover,
+div.comment_box:hover {
+	background-color:#F9F9F9;
 }
 
 div.list_box	div.float,
@@ -421,7 +467,6 @@ div.comment_box	div.right {
 div.list_box	div.options,
 div.comment_box	div.options {
 	margin-top: 8px;
-	font-size: 12px;
 }
 
 div.list_box	a,
@@ -435,24 +480,23 @@ div.comment_box		h3.date {
 	font-weight:normal;
 	color: #666;
 	display: block;
-	font-size: 12px;
+	font-size: 1em;
 }
 
 div.list_box	h3.title {
 	margin: 0;
 	font-weight:normal;
 	display: inline-block;
-	font-size: 14px;
 }
 
 div.list_box	h3.type {
 	margin: 0 5px 0 0;
 	font-weight:normal;
 	font-style: italic;
-	color: orange;
+	color: #E85C00;
 	display: inline-block;
 	width: 100%;
-	font-size: 12px;
+	font-size: 1em;
 }
 
 div.comment_box		h3.content {
@@ -474,8 +518,9 @@ div.comment_box		h3.author {
 }
 
 div.pager {
-	border-top: 1px solid #F1F1F1;
+	border-top: 1px solid #EBEBEB;
 	padding: 8px 0;
+	font-size: 1.3em;
 }
 
 div.pager	a {
