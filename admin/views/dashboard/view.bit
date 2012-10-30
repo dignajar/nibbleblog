@@ -2,25 +2,25 @@
 
 	echo $_HTML->div_open( array('class'=>'dash_items') );
 
-		echo $_HTML->div_open( array('class'=>'item bg_post_simple'));
-			echo $_HTML->link( array('class'=>'type', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_simple', 'content'=>$_LANG['SIMPLE']) );
-			echo $_HTML->span( array('class'=>'description', 'content'=>$_LANG['POSTING_WITH_RICH_FORMATTING']) );
-		echo $_HTML->div_close();
+		echo $_HTML->link( array( 'class'=>'item bg_post_simple', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_simple', 'content'=>
+			$_HTML->span( array('class'=>'type', 'content'=>$_LANG['SIMPLE']) ).
+			$_HTML->span( array('class'=>'description', 'content'=>$_LANG['POSTING_WITH_RICH_FORMATTING']) )
+		));
 
-		echo $_HTML->div_open( array('class'=>'item bg_post_video'));
-			echo $_HTML->link( array('class'=>'type', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_video', 'content'=>$_LANG['VIDEO']) );
-			echo $_HTML->span( array('class'=>'description', 'content'=>$_LANG['AN_EASY_WAY_TO_PUBLISH_VIDEOS']) );
-		echo $_HTML->div_close();
+		echo $_HTML->link( array( 'class'=>'item bg_post_video', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_video', 'content'=>
+			$_HTML->span( array('class'=>'type', 'content'=>$_LANG['VIDEO']) ).
+			$_HTML->span( array('class'=>'description', 'content'=>$_LANG['AN_EASY_WAY_TO_PUBLISH_VIDEOS']) )
+		));
 
-		echo $_HTML->div_open( array('class'=>'item bg_post_quote'));
-			echo $_HTML->link( array('class'=>'type', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_quote', 'content'=>$_LANG['QUOTE']) );
-			echo $_HTML->span( array('class'=>'description', 'content'=>$_LANG['AN_EASY_WAY_TO_PUBLISH_QUOTES']) );
-		echo $_HTML->div_close();
+		echo $_HTML->link( array( 'class'=>'item bg_post_quote', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_quote', 'content'=>
+			$_HTML->span( array('class'=>'type', 'content'=>$_LANG['QUOTE']) ).
+			$_HTML->span( array('class'=>'description', 'content'=>$_LANG['AN_EASY_WAY_TO_PUBLISH_QUOTES']) )
+		));
 
-		echo $_HTML->div_open( array('class'=>'item bg_settings'));
-			echo $_HTML->link( array('class'=>'type', 'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=general', 'content'=>$_LANG['GENERAL_SETTINGS']) );
-			echo $_HTML->span( array('class'=>'description', 'content'=>$_LANG['BLOG_TITLE_SLOGAN_ABOUT']) );
-		echo $_HTML->div_close();
+		echo $_HTML->link( array( 'class'=>'item bg_settings', 'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=general', 'content'=>
+			$_HTML->span( array('class'=>'type', 'content'=>$_LANG['GENERAL_SETTINGS']) ).
+			$_HTML->span( array('class'=>'description', 'content'=>$_LANG['BLOG_TITLE_SLOGAN_ABOUT']) )
+		));
 
 	echo $_HTML->div_close();
 

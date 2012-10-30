@@ -9,11 +9,11 @@
 // ============================================================================
 
 	$img_resize_option = array(
-								'auto'=>'Automatic',
-								'exact'=>'Exact',
-								'portrait'=>'Portrait',
-								'landscape'=>'Landscape',
-								'crop'=>'Crop'
+								'auto'=>$_LANG['AUTOMATIC'],
+								'exact'=>$_LANG['EXACT'],
+								'portrait'=>$_LANG['PORTRAIT'],
+								'landscape'=>$_LANG['LANDSCAPE'],
+								'crop'=>$_LANG['CROP']
 	);
 
 ?>

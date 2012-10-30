@@ -53,7 +53,7 @@ body {
 
 #container_head	a:hover {
 	text-decoration: none;
-	background-color: #FFF9E7;
+	background-color: #f1f1f1;
 }
 
 /* ============================== */
@@ -336,7 +336,7 @@ a.notification_last_comments {
 }
 
 a.notification_last_comments:hover {
-	background-color: #FFF9E7;
+	background-color: #f1f1f1;
 }
 
 
@@ -345,63 +345,23 @@ a.notification	div.type {
 	margin-bottom: 5px;
 }
 
-/* VIEJO */
-/*
-div.dash_items {
-	background: none repeat scroll 0 0 #F9F9F9;
-    border: 1px solid #EEEEEE;
-    border-radius: 2px 2px 2px 2px;
-    margin-bottom: 10px;
-    padding: 10px 20px;
-}
-
-div.dash_items	div.item {
-	display: inline-block;
-    margin: 5px 10px;
-    width:230px;
-}
-
-div.dash_items	.bg_post_simple {
-	background: url(img/add.png) 0 50% no-repeat;
-	padding: 10px 0 10px 36px;
-}
-
-div.dash_items	.bg_post_video {
-	background: url(img/video.png) 0 50% no-repeat;
-	padding: 10px 0 10px 36px;
-}
-
-div.dash_items	.bg_post_quote {
-	background: url(img/quote.png) 0 50% no-repeat;
-	padding: 10px 0 10px 36px;
-}
-
-div.dash_items	.bg_settings {
-	background: url(img/gear.png) 0 50% no-repeat;
-	padding: 10px 0 10px 36px;
-}
-
-div.dash_items	a.type {
-	font-size: 13px;
-	display: block;
-}
-
-div.dash_items	span.description {
-	font-size: 12px;
-	display: block;
-}
-*/
-
 /* NUEVO */
 div.dash_items {
-
+	text-align: center;
 }
 
-div.dash_items	div.item {
+div.dash_items	a.item {
     display: inline-block;
-    margin: 5px 10px;
-    width: 230px;
-	padding: 10px 0 10px 56px;
+    margin: 5px 30px;
+    width: 120px;
+	padding: 10px 0 10px 60px;
+	text-align: left;
+	text-decoration: none;
+	border-bottom: 2px solid #fff;
+}
+
+div.dash_items	a.item:hover {
+	border-bottom: 2px solid #ccc;
 }
 
 div.dash_items	.bg_post_simple {
@@ -420,14 +380,15 @@ div.dash_items	.bg_settings {
 	background: url(img/gear.png) 0 50% no-repeat;
 }
 
-div.dash_items	a.type {
+div.dash_items	a.item span.type {
 	font-size: 1.4em;
 	display: block;
 }
 
-div.dash_items	span.description {
+div.dash_items	a.item span.description {
 	font-size: 1.2em;
 	display: block;
+	color: #555;
 }
 
 
@@ -493,7 +454,7 @@ div.list_box	h3.type {
 	margin: 0 5px 0 0;
 	font-weight:normal;
 	font-style: italic;
-	color: #E85C00;
+	color: #F7C305;
 	display: inline-block;
 	width: 100%;
 	font-size: 1em;

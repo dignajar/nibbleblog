@@ -1,22 +1,19 @@
-<?php
+﻿<?php
 
 $_LANG_CONFIG['DATA'] = array(
-	'native'=>'español',
-	'english'=>'spanish',
+	'native'=>'Español - Español',
+	'english'=>'Spanish',
+	'last_update'=>'29/10/2012',
 	'author'=>'Diego Najar',
-	'last_update'=>'08/09/2012', //dd/mm/yyyy
-	'version_min'=>'3.3',
-	'version_max'=>'3.3',
 	'email'=>'dignajar@gmail.com',
-	'url'=>'http://www.nibbleblog.com'
+	'url'=>'http://diego.nibbleblog.com'
 );
 
-$_LANG['LAST_COMMENTS'] = 'Ultimos comentarios';
+$_LANG['LAST_COMMENTS'] = 'Últimos comentarios';
 $_LANG['THEME'] = 'Theme';
 $_LANG['THEMES'] = 'Themes';
 $_LANG['CHANGE_THEME'] = 'Cambiar theme';
 $_LANG['SELECT_THEME'] = 'Seleccione un theme';
-
 $_LANG['REMEMBER_ME'] = 'Recordarme';
 $_LANG['USERNAME'] = 'Usuario';
 $_LANG['PASSWORD'] = 'Contraseña';
@@ -24,7 +21,6 @@ $_LANG['COMMENTS'] = 'Comentarios';
 $_LANG['INVALID_CAPTCHA'] = 'Captcha invalido';
 $_LANG['NAME'] = 'Nombre';
 $_LANG['EMAIL'] = 'E-mail';
-
 $_LANG['TYPE_THE_COMMENT_HERE'] = 'Ingrese el comentario aquí';
 $_LANG['COPY_THE_TEXT_ON_THE_RIGHT'] = 'Copie el texto de la derecha';
 $_LANG['NEWER_POSTS'] = 'Posts mas nuevos';
@@ -80,7 +76,6 @@ $_LANG['VIEW'] = 'Ver';
 $_LANG['EDIT'] = 'Editar';
 $_LANG['TIMESTAMP_FORMAT'] = 'Formato de la estampa de tiempo';
 $_LANG['SELECT_A_TIMEZONE_FOR_A_CORRECT_DATE_VISUALIZATION'] = 'Seleccione una zona horaria para su correcta visualización.';
-$_LANG['SELECT_A_FORMAT_FOR_DISPLAYING_THE_DATES'] = 'Seleccione un formato para visualizar las fechas.';
 $_LANG['ABSOLUT_URL_ADDRESS_OF_YOUR_BLOG'] = 'Dirección URL absoluta de su blog. Por ejemplo http://www.domain.com/blog';
 $_LANG['ABSOLUT_ADDRESS_THAT_CONTAINS_THE_BLOGS_FILE_SYSTEM'] = 'Dirección absoluta que contiene el sistema de archivos del blog, si usted subió los archivos en el directorio raíz deberá ingresar "/", y si usted subió los archivos en un directorio deberá ingresar "/directorio"';
 $_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_PER_PAGE'] = 'Cantidad de publicaciones que desea mostrar por pagina.';
@@ -101,7 +96,6 @@ $_LANG['QUOTE'] = 'Cita';
 $_LANG['POSTING_WITH_RICH_FORMATTING'] = 'Publique con formato enriquecido';
 $_LANG['AN_EASY_WAY_TO_PUBLISH_VIDEOS'] = 'Una manera sencilla de publicar videos';
 $_LANG['AN_EASY_WAY_TO_PUBLISH_QUOTES'] = 'Una manera sencilla de publicar citas';
-$_LANG['BLOG_TITLE_SLOGAN_LANGUAGE'] = 'Titulo del blog, slogan, lenguaje';
 $_LANG['NEW_SIMPLE_POST'] = 'Nuevo post simple';
 $_LANG['NEW_VIDEO_POST'] = 'Nuevo video post';
 $_LANG['NEW_QUOTE_POST'] = 'Nuevo post cita';
@@ -164,10 +158,21 @@ $_LANG['SELECT_A_FORMAT_FOR_DISPLAYING_THE_DATES'] = 'Seleccione un formato para
 $_LANG['ENABLE_WYSIWYG_EDITOR'] = 'Habilite el editor WYSIWYG';
 $_LANG['ENABLE_OR_DISABLE_THE_WYSIWYG_EDITOR'] = 'Habilite o deshabilite el editor WYSIWYG(lo que ves es lo que obtienes).';
 $_LANG['IMAGE_SETTINGS'] = 'Imágenes';
+$_LANG['AUTOMATIC_IMAGE_RESIZING'] = 'Cambiar tamaño automáticamente';
+$_LANG['THUMBNAILS'] = 'Imágenes miniatura';
 $_LANG['ENABLE_AUTOMATIC_IMAGE_RESIZING'] = 'Habilitar cambio automático del tamaño de la imagen';
 $_LANG['ENABLE_THUMBNAILS'] = 'Habilitar creación de imágenes miniaturas';
-$_LANG['WIDTH'] = 'Width';
-$_LANG['HEIGHT'] = 'Height';
+$_LANG['WIDTH'] = 'Ancho';
+$_LANG['HEIGHT'] = 'Alto';
 $_LANG['OPTION'] = 'Option';
+$_LANG['THIS_OPTION_AUTOMATICALLY_CHANGES_THE_IMAGE'] = 'Esta opción cambia automáticamente el tamaño de las imágenes al subirlas';
+$_LANG['ENABLE_THIS_OPTION_IF_YOU_WANT_TO_GENERATE'] = 'Habilite esta opción si quiere generar imágenes miniaturas';
+$_LANG['BLOG_TITLE_SLOGAN_ABOUT'] = 'Titulo, slogan y descripción del blog';
+$_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS'] = 'No hay comentarios publicados';
+$_LANG['AUTOMATIC'] = 'Automático';
+$_LANG['EXACT'] = 'Exacto';
+$_LANG['PORTRAIT'] = 'Vertical';
+$_LANG['LANDSCAPE'] = 'Horizontal';
+$_LANG['CROP'] = 'Recortar';
 
 ?>
