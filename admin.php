@@ -19,191 +19,52 @@ require('admin/boot/admin.bit');
 // ============================================================================
 //	CONTROLLER, VIEW and TEMPLATE
 // ============================================================================
-if($_URL['controller'] === 'dashboard')
+
+$controllers['dashboard']['view'] 		= array('security'=>true, 'title'=>$_LANG['DASHBOARD'], 'controller'=>'view', 'view'=>'view', 'template'=>'default');
+
+$controllers['post']['new_simple'] 		= array('security'=>true, 'title'=>$_LANG['NEW_SIMPLE_POST'], 'controller'=>'new', 'view'=>'new_simple', 'template'=>'default');
+$controllers['post']['new_video'] 		= array('security'=>true, 'title'=>$_LANG['NEW_VIDEO_POST'], 'controller'=>'new', 'view'=>'new_video', 'template'=>'default');
+$controllers['post']['new_quote'] 		= array('security'=>true, 'title'=>$_LANG['NEW_QUOTE_POST'], 'controller'=>'new', 'view'=>'new_quote', 'template'=>'default');
+
+$controllers['post']['edit_simple'] 	= array('security'=>true, 'title'=>$_LANG['EDIT_POST'], 'controller'=>'edit', 'view'=>'edit', 'template'=>'default');
+$controllers['post']['edit_video'] 		= array('security'=>true, 'title'=>$_LANG['EDIT_POST'], 'controller'=>'edit', 'view'=>'edit', 'template'=>'default');
+$controllers['post']['edit_quote'] 		= array('security'=>true, 'title'=>$_LANG['EDIT_POST'], 'controller'=>'edit', 'view'=>'edit_quote', 'template'=>'default');
+
+$controllers['post']['list'] 			= array('security'=>true, 'title'=>$_LANG['POSTS'], 'controller'=>'list', 'view'=>'list', 'template'=>'default');
+
+$controllers['categories']['list']		= array('security'=>true, 'title'=>$_LANG['MANAGE_CATEGORIES'], 'controller'=>'list', 'view'=>'list', 'template'=>'default');
+
+$controllers['comments']['list']		= array('security'=>true, 'title'=>$_LANG['COMMENTS'], 'controller'=>'list', 'view'=>'list', 'template'=>'default');
+
+$controllers['settings']['general']		= array('security'=>true, 'title'=>$_LANG['GENERAL_SETTINGS'], 'controller'=>'general', 'view'=>'general', 'template'=>'default');
+$controllers['settings']['advanced']	= array('security'=>true, 'title'=>$_LANG['ADVANCED_SETTINGS'], 'controller'=>'advanced', 'view'=>'advanced', 'template'=>'default');
+$controllers['settings']['regional']	= array('security'=>true, 'title'=>$_LANG['REGIONAL_SETTINGS'], 'controller'=>'regional', 'view'=>'regional', 'template'=>'default');
+$controllers['settings']['image']		= array('security'=>true, 'title'=>$_LANG['IMAGE_SETTINGS'], 'controller'=>'image', 'view'=>'image', 'template'=>'default');
+$controllers['settings']['themes']		= array('security'=>true, 'title'=>$_LANG['CHANGE_THEME'], 'controller'=>'themes', 'view'=>'themes', 'template'=>'default');
+$controllers['settings']['username']	= array('security'=>true, 'title'=>$_LANG['USERNAME_AND_PASSWORD'], 'controller'=>'username', 'view'=>'username', 'template'=>'default');
+
+$controllers['plugins']['list']			= array('security'=>true, 'title'=>$_LANG['PLUGINS'], 'controller'=>'list', 'view'=>'list', 'template'=>'default');
+$controllers['plugins']['install']		= array('security'=>true, 'title'=>$_LANG['PLUGINS'], 'controller'=>'install', 'view'=>'install', 'template'=>'default');
+$controllers['plugins']['uninstall']	= array('security'=>true, 'title'=>$_LANG['PLUGINS'], 'controller'=>'uninstall', 'view'=>'uninstall', 'template'=>'default');
+$controllers['plugins']['config']		= array('security'=>true, 'title'=>$_LANG['PLUGINS'], 'controller'=>'config', 'view'=>'config', 'template'=>'default');
+
+$controllers['user']['logout']			= array('security'=>false, 'title'=>$_LANG['LOGOUT'], 'controller'=>'logout', 'view'=>'logout', 'template'=>'login');
+$controllers['user']['login']			= array('security'=>false, 'title'=>$_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA'], 'controller'=>'login', 'view'=>'login', 'template'=>'login');
+
+if(isset($controllers[$_URL['controller']][$_URL['action']]))
 {
-	// This controller requires user logged
-	require('admin/kernel/security.bit');
+	$dirname = $_URL['controller'].'/';
+	$parameters = $controllers[$_URL['controller']][$_URL['action']];
 
-	if($_URL['action'] === 'view')
-	{
-		define('LAYOUT_TITLE',		$_LANG['DASHBOARD']);
-		define('LAYOUT_CONTROLLER',	'dashboard/view.bit');
-		define('LAYOUT_VIEW',		'dashboard/view.bit');
-	}
+	define('LAYOUT_TITLE',		$parameters['title']);
+	define('LAYOUT_CONTROLLER',	$dirname.$parameters['controller'].'.bit');
+	define('LAYOUT_VIEW',		$dirname.$parameters['view'].'.bit');
+	define('LAYOUT_TEMPLATE',	$parameters['template'].'/index.bit');
 
-	// Template for this controller
-	define('LAYOUT_TEMPLATE',	'default/index.bit');
-}
-elseif($_URL['controller'] === 'post')
-{
-	// This controller requires user logged
-	require('admin/kernel/security.bit');
-
-	if($_URL['action'] === 'new_simple')
+	if($parameters['security'])
 	{
-		define('LAYOUT_TITLE',		$_LANG['NEW_SIMPLE_POST']);
-		define('LAYOUT_CONTROLLER',	'post/new.bit');
-		define('LAYOUT_VIEW',		'post/new_simple.bit');
+		require('admin/kernel/security.bit');
 	}
-	elseif($_URL['action'] === 'new_video')
-	{
-		define('LAYOUT_TITLE',		$_LANG['NEW_VIDEO_POST']);
-		define('LAYOUT_CONTROLLER',	'post/new.bit');
-		define('LAYOUT_VIEW',		'post/new_video.bit');
-	}
-	elseif($_URL['action'] === 'new_quote')
-	{
-		define('LAYOUT_TITLE',		$_LANG['NEW_QUOTE_POST']);
-		define('LAYOUT_CONTROLLER',	'post/new.bit');
-		define('LAYOUT_VIEW',		'post/new_quote.bit');
-	}
-	elseif(($_URL['action'] === 'edit_simple') || ($_URL['action'] === 'edit_video'))
-	{
-		define('LAYOUT_TITLE',		$_LANG['EDIT_POST']);
-		define('LAYOUT_CONTROLLER',	'post/edit.bit');
-		define('LAYOUT_VIEW',		'post/edit.bit');
-	}
-	elseif($_URL['action'] === 'edit_quote')
-	{
-		define('LAYOUT_TITLE',		$_LANG['EDIT_POST']);
-		define('LAYOUT_CONTROLLER',	'post/edit.bit');
-		define('LAYOUT_VIEW',		'post/edit_quote.bit');
-	}
-	elseif($_URL['action'] === 'list')
-	{
-		define('LAYOUT_TITLE',		$_LANG['POSTS']);
-		define('LAYOUT_CONTROLLER',	'post/list.bit');
-		define('LAYOUT_VIEW',		'post/list.bit');
-	}
-
-	// Template for this controller
-	define('LAYOUT_TEMPLATE',	'default/index.bit');
-}
-elseif($_URL['controller'] === 'categories')
-{
-	// This controller requires user logged
-	require('admin/kernel/security.bit');
-
-	if($_URL['action'] === 'list')
-	{
-		define('LAYOUT_TITLE',		$_LANG['MANAGE_CATEGORIES']);
-		define('LAYOUT_CONTROLLER',	'categories/list.bit');
-		define('LAYOUT_VIEW',		'categories/list.bit');
-	}
-
-	// Template for this controller
-	define('LAYOUT_TEMPLATE',	'default/index.bit');
-}
-elseif($_URL['controller'] === 'comments')
-{
-	// This controller requires user logged
-	require('admin/kernel/security.bit');
-
-	if($_URL['action'] === 'list')
-	{
-		define('LAYOUT_TITLE',		$_LANG['COMMENTS']);
-		define('LAYOUT_CONTROLLER',	'comments/list.bit');
-		define('LAYOUT_VIEW',		'comments/list.bit');
-	}
-
-	// Template for this controller
-	define('LAYOUT_TEMPLATE',	'default/index.bit');
-}
-elseif($_URL['controller'] === 'settings')
-{
-	// This controller requires user logged
-	require('admin/kernel/security.bit');
-
-	if($_URL['action'] === 'general')
-	{
-		define('LAYOUT_TITLE',		$_LANG['GENERAL_SETTINGS']);
-		define('LAYOUT_CONTROLLER',	'settings/general.bit');
-		define('LAYOUT_VIEW',		'settings/general.bit');
-	}
-	elseif($_URL['action'] === 'advanced')
-	{
-		define('LAYOUT_TITLE',		$_LANG['ADVANCED_SETTINGS']);
-		define('LAYOUT_CONTROLLER',	'settings/advanced.bit');
-		define('LAYOUT_VIEW',		'settings/advanced.bit');
-	}
-	elseif($_URL['action'] === 'regional')
-	{
-		define('LAYOUT_TITLE',		$_LANG['REGIONAL_SETTINGS']);
-		define('LAYOUT_CONTROLLER',	'settings/regional.bit');
-		define('LAYOUT_VIEW',		'settings/regional.bit');
-	}
-	elseif($_URL['action'] === 'image')
-	{
-		define('LAYOUT_TITLE',		$_LANG['IMAGE_SETTINGS']);
-		define('LAYOUT_CONTROLLER',	'settings/image.bit');
-		define('LAYOUT_VIEW',		'settings/image.bit');
-	}
-	elseif($_URL['action'] === 'themes')
-	{
-		define('LAYOUT_TITLE',		$_LANG['CHANGE_THEME']);
-		define('LAYOUT_CONTROLLER',	'settings/themes.bit');
-		define('LAYOUT_VIEW',		'settings/themes.bit');
-	}
-	elseif($_URL['action'] === 'username')
-	{
-		define('LAYOUT_TITLE',		$_LANG['USERNAME_AND_PASSWORD']);
-		define('LAYOUT_CONTROLLER',	'settings/username.bit');
-		define('LAYOUT_VIEW',		'settings/username.bit');
-	}
-
-	// Template for this controller
-	define('LAYOUT_TEMPLATE',	'default/index.bit');
-}
-elseif($_URL['controller'] === 'plugins')
-{
-	// This controller requires user logged
-	require('admin/kernel/security.bit');
-
-	if($_URL['action'] === 'list')
-	{
-		define('LAYOUT_TITLE',		$_LANG['PLUGINS']);
-		define('LAYOUT_CONTROLLER',	'plugins/list.bit');
-		define('LAYOUT_VIEW',		'plugins/list.bit');
-	}
-	elseif($_URL['action'] === 'install')
-	{
-		define('LAYOUT_TITLE',		$_LANG['PLUGINS']);
-		define('LAYOUT_CONTROLLER',	'plugins/install.bit');
-		define('LAYOUT_VIEW',		'plugins/install.bit');
-	}
-	elseif($_URL['action'] === 'uninstall')
-	{
-		define('LAYOUT_TITLE',		$_LANG['PLUGINS']);
-		define('LAYOUT_CONTROLLER',	'plugins/uninstall.bit');
-		define('LAYOUT_VIEW',		'plugins/uninstall.bit');
-	}
-	elseif($_URL['action'] === 'config')
-	{
-		define('LAYOUT_TITLE',		$_LANG['PLUGINS']);
-		define('LAYOUT_CONTROLLER',	'plugins/config.bit');
-		define('LAYOUT_VIEW',		'plugins/config.bit');
-	}
-
-	// Template for this controller
-	define('LAYOUT_TEMPLATE',	'default/index.bit');
-}
-elseif($_URL['controller'] === 'user')
-{
-	if($_URL['action'] === 'logout')
-	{
-		define('LAYOUT_TITLE',		$_LANG['LOGOUT']);
-		define('LAYOUT_CONTROLLER',	'user/logout.bit');
-		define('LAYOUT_VIEW',		'user/logout.bit');
-	}
-	elseif($_URL['action'] === 'login')
-	{
-		define('LAYOUT_TITLE',		$_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA']);
-		define('LAYOUT_CONTROLLER',	'user/login.bit');
-		define('LAYOUT_VIEW',		'user/login.bit');
-	}
-
-	// Template for this controller
-	define('LAYOUT_TEMPLATE',	'login/index.bit');
 }
 else
 {

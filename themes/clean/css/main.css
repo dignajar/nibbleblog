@@ -5,11 +5,11 @@
 /* ============================== */
 
 body {
-	font-family: 'Open Sans', helvetica,arial,sans-serif;
+	font-family: 'Open Sans',arial,sans-serif;
 	background-color: #FEFEFE;
 	margin: 0;
 	padding: 0;
-	font-size:14px;
+	font-size: 62.5%;
 	color: #616161;
 }
 
@@ -63,7 +63,7 @@ img:not(.captcha) {
 }
 
 #head	div.top {
-	
+
 }
 
 #head	div.bottom {
@@ -112,6 +112,8 @@ img:not(.captcha) {
 /* ============================== */
 article.post {
 	margin-bottom: 40px;
+	clear: both;
+	overflow: auto;
 }
 
 article.post	header {
@@ -137,6 +139,7 @@ article.post 	blockquote {
 article.post	footer.info {
 	font-size: 12px;
 	margin-top: 10px;
+	clear:both;
 }
 
 article.post	footer.info	span.date {
@@ -153,8 +156,9 @@ article.post	p.read_more {
 }
 
 article.post	a.read_more {
-	
+
 }
+
 
 /* ============================== */
 /* COMMENT LIST */

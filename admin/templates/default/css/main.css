@@ -63,8 +63,7 @@ body {
 #container_subhead {
     border-bottom: 1px solid #EBEBEB;
     margin-bottom: 20px;
-    margin-left: 10px;
-    padding: 20px 0 20px 14%;
+    padding: 20px 0 20px 230px;
 }
 
 #container_subhead	h2.title {
@@ -88,8 +87,7 @@ body {
     clear: left;
     float: left;
     margin-right: 10px;
-    width: 14%;
-    min-width: 210px;
+    width: 220px;
 }
 
 #container_right {
