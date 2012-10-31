@@ -5,7 +5,7 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 13/10/2012
+ * Last update: 29/10/2012
 
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
@@ -20,8 +20,11 @@ class LOGIN {
 		// Set HTTPOnly
 		session_set_cookie_params(0, NULL, NULL, NULL, TRUE);
 
-		// Session Start
+		// Session start
 		$this->session_started = session_start();
+
+		// Regenerate the SESSION ID, this for prevent session hijacking "man-in-the-middle attack"
+		session_regenerate_id();
 	}
 
 	/*
@@ -39,8 +42,8 @@ class LOGIN {
 	 * Set session variables
 	 *
 	 * Parameters
-	 * id_user
-	 * username
+	 ** id_user
+	 ** username
 	*/
 	public function set_login($args)
 	{
@@ -83,8 +86,8 @@ class LOGIN {
 	 * Verify the username and password are correct
 	 *
 	 * Parameters
-	 * username
-	 * password
+	 ** username
+	 ** password
 	*/
 	public function verify_login($args)
 	{
