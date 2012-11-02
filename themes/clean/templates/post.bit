@@ -34,26 +34,13 @@
 
 	<div id="container">
 
-		<header id="head">
-
-			<div class="top">
-				<a class="name" href="<?php echo HTML_PATH_ROOT ?>">
-					<?php echo $settings['name'] ?>
-					<span class="slogan">
-						<?php echo $settings['slogan'] ?>
-					</span>
-				</a>
-			</div>
-
-			<?php
-				// if the plugin twitter installed
-				if( isset($plugins['twitter']) )
-				{
-					echo '<div class="bottom">';
-					echo $plugins['twitter']->get_html();
-					echo '</div>';
-				}
-			?>
+		<header id="head_post">
+			<a class="name" href="<?php echo HTML_PATH_ROOT ?>">
+				<?php echo $settings['name'] ?>
+				<span class="slogan">
+					<?php echo $settings['slogan'] ?>
+				</span>
+			</a>
 		</header>
 
 		<section id="main">

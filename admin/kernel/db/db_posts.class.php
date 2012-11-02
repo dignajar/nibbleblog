@@ -335,6 +335,7 @@ class DB_POSTS {
 		private function get_items($file)
 		{
 			global $_TEXT;
+			global $_DATE;
 
 			$obj_xml = new NBXML(PATH_POSTS . $file, 0, TRUE, '', FALSE);
 
@@ -356,11 +357,15 @@ class DB_POSTS {
 			$tmp_array['title']				= (string) $obj_xml->getChild('title');
 			$tmp_array['description']		= (string) $obj_xml->getChild('description');
 
-			$tmp_array['pub_date']			= (string) $obj_xml->getChild('pub_date');
-			$tmp_array['mod_date']			= (string) $obj_xml->getChild('mod_date');
+			$tmp_array['pub_date_unix']		= (string) $obj_xml->getChild('pub_date');
+			$tmp_array['mod_date_unix']		= (string) $obj_xml->getChild('mod_date');
 
 			$tmp_array['allow_comments']	= (bool) ((int)$obj_xml->getChild('allow_comments'))==1;
 			$tmp_array['sticky']			= (bool) $this->is_sticky($file_info[0]);
+
+			// DATE
+			$tmp_array['pub_date'] = $_DATE->format($tmp_array['pub_date_unix'], $this->settings['timestamp_format']);
+			$tmp_array['mod_date'] = $_DATE->format($tmp_array['mod_date_unix'], $this->settings['timestamp_format']);
 
 			// CONTENT
 			$tmp_array['content']			= (string) $content;

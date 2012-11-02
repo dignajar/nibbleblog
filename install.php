@@ -78,6 +78,8 @@ if(function_exists('get_loaded_extensions'))
 
 // WRITING TEST
 // Try to give permissions to the directory content
+if(!file_exists('content'))
+	@mkdir('content');
 @chmod('content',0777);
 @rmdir('content/tmp');
 $writing_test = @mkdir('content/tmp');
