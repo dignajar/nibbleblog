@@ -157,6 +157,7 @@ article.post 	blockquote {
 	font-size: 2em;
 	margin: 0 auto;
 	width: 85%;
+	text-align: center;
 }
 
 article.post	footer.post {
