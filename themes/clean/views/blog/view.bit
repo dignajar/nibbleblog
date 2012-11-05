@@ -9,9 +9,9 @@ foreach($posts as $post)
 
 		echo '<footer class="post">';
 			if($post['read_more'])
-				echo '<a href="'.$post['permalink'].'">'.$_LANG['READ_MORE'].'</a>';
+				echo '<a href="'.$post['permalink'].'">-'.$_LANG['READ_MORE'].'-</a>';
 			else
-				echo '<a href="'.$post['permalink'].'">'.$_LANG['PERMALINK'].'</a>';
+				echo '<a href="'.$post['permalink'].'">-'.$_LANG['PERMALINK'].'-</a>';
 		echo '</footer>';
 
 	echo '</article>';

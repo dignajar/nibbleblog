@@ -24,7 +24,7 @@ class LOGIN {
 		$this->session_started = session_start();
 
 		// Regenerate the SESSION ID, this for prevent session hijacking "man-in-the-middle attack"
-		session_regenerate_id(true);
+		//session_regenerate_id(true);
 	}
 
 	/*

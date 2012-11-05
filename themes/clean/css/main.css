@@ -118,8 +118,6 @@ article.post	header.post {
 article.post	header.post	h1.title {
 	font-weight: normal;
 	margin: 0;
-	font-size: 2.6em;
-	text-align: center;
 }
 
 article.post	header.post	div.date {
@@ -164,7 +162,6 @@ article.post	footer.post {
     clear: both;
     margin-top: 20px;
     text-align: center;
-    text-transform: uppercase;
 }
 
 /* ============================== */
@@ -217,7 +214,6 @@ article.post	footer.post {
 
 #comment_form	h3.alert {
 	color: #BE1C54;
-	font-size: 16px;
 	font-style: italic;
 	margin: 0 0 15px;
 }
@@ -236,7 +232,7 @@ article.post	footer.post {
 	resize: none;
 	margin-bottom: 15px;
 	font-family: font-family: 'Open Sans', helvetica,arial,sans-serif;
-	font-size: 13px;
+	font-size: 0.9em;
 }
 
 #comment_form	input[type="text"].captcha {

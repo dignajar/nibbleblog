@@ -124,9 +124,9 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		$obj->addChild('theme',					'clean');
 		$obj->addChild('url',					$_POST['url']);
 		$obj->addChild('path',					$_POST['path']);
-		$obj->addChild('items_rss',				'4');
+		$obj->addChild('items_rss',				'8');
 		$obj->addChild('items_page',			'4');
-		$obj->addChild('timestamp_format',		'%m/%d/%y');
+		$obj->addChild('timestamp_format',		'%d %B, %Y');
 		$obj->addChild('advanced_post_options',	'0');
 		$obj->addChild('locale',				$_GET['language']);
 		$obj->addChild('friendly_urls',			0);
@@ -223,21 +223,26 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 
 	<style type="text/css">
 		body {
-			font-family: helvetica,arial,sans-serif;
-			background-color: #FEFEFE;
+			font-family: arial,sans-serif;
+			background-color: #FFF;
 			margin: 0;
 			padding: 0;
-			font-size:14px;
-			color: #555;
+			font-size: 0.875em;
+			color: #616161;
 		}
 
 		#container {
 			background: none repeat scroll 0 0 #F9F9F9;
-			border: 1px solid #EEEEEE;
+			border: 1px solid #EBEBEB;
 			border-radius: 3px 3px 3px 3px;
 			margin: 50px auto;
+			max-width: 800px;
 			padding: 20px 30px;
-			width: 800px;
+			width: 60%;
+		}
+
+		h1 {
+
 		}
 
 		h2 {

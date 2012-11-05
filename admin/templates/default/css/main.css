@@ -23,18 +23,18 @@ body {
 /* ============================== */
 
 #container_head {
-	background: url("img/logo.png") no-repeat scroll 40px 6px #F9F9F9;
+	background: url("img/logo.png") no-repeat scroll 30px 50% #F9F9F9;
 	border-bottom: 1px solid #EBEBEB;
 	font-size: 1.1em;
-	padding-right: 5%;
+	padding-right: 30px;
 	text-align: right;
 }
 
 #container_head	a {
     color: #333333;
     display: inline-block;
-    height: 50px;
-    line-height: 52px;
+    height: 40px;
+    line-height: 42px;
     padding-left: 36px;
     padding-right: 10px;
 }
