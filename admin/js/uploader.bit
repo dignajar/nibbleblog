@@ -27,13 +27,13 @@ $(document).ready(function() {
 		xhr.addEventListener("load", complete, false);
 
 		// Open new connection async
-		xhr.open('POST', HTML_PATH_ADMIN_AJAX + 'images.php', true);
+		xhr.open('POST', HTML_PATH_ADMIN_AJAX + 'uploader.php', true);
 
 		// Parameters headers
 		xhr.setRequestHeader("Cache-Control", "no-cache");
 		xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 		xhr.setRequestHeader("X-FILE-NAME", file.name);
-		
+
 		// Send file
 		xhr.send(file);
 	});
@@ -48,7 +48,7 @@ $(document).ready(function() {
 			uploader_button.show();
 
 			var src = $(xml).find("file").text();
-			
+
 			<?php
 				if($settings['enable_wysiwyg'])
 				{

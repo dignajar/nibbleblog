@@ -5,7 +5,7 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 15/07/2012
+ * Last update: 05/11/2012
 
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
@@ -31,18 +31,41 @@ class HELPER_VIDEO {
 		return false;
 	}
 
-	private function video_get_youtube($url, $width = 640, $height = 360)
+	private function valid_url($url)
 	{
 		global $_TEXT;
 
+		if(in_array('curl', get_loaded_extensions()))
+		{
+			$curl = curl_init();
+			curl_setopt_array($curl, array(CURLOPT_RETURNTRANSFER=>true, CURLOPT_URL=>$url));
+			curl_exec($curl);
+			$http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+			curl_close( $curl );
+
+			return($http_code==200);
+		}
+
+		// If curl is not installed, uses get_headers
+		$headers = get_headers($url);
+
+		if( !$_TEXT->is_substring($headers[0], '200') )
+			return(false);
+
+		return(true);
+	}
+
+	private function video_get_youtube($url, $width = 640, $height = 360)
+	{
 		// Youtube ID
 		preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $url, $matches);
 		$video_id = $matches[1];
 
-		// HEADERS
-		$headers = get_headers('http://gdata.youtube.com/feeds/api/videos/'.$video_id);
-		if( !$_TEXT->is_substring($headers[0], '200') )
+		// Check if a valid url
+		if(!$this->valid_url('http://gdata.youtube.com/feeds/api/videos/'.$video_id))
+		{
 			return(false);
+		}
 
 		// GET INFO
 		$xml = simplexml_load_file('http://gdata.youtube.com/feeds/api/videos/'.$video_id);
@@ -70,10 +93,11 @@ class HELPER_VIDEO {
 		preg_match('/vimeo\.com\/([0-9]{1,10})/', $url, $matches);
 		$video_id = $matches[1];
 
-		// HEADERS
-		$headers = get_headers('http://vimeo.com/api/v2/video/'.$video_id.'.php');
-		if( !$_TEXT->is_substring($headers[0], '200') )
+		// Check if a valid url
+		if(!$this->valid_url('http://vimeo.com/api/v2/video/'.$video_id.'.php'))
+		{
 			return(false);
+		}
 
 		$hash = unserialize(file_get_contents('http://vimeo.com/api/v2/video/'.$video_id.'.php'));
 
