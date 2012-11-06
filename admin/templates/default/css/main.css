@@ -347,7 +347,7 @@ a.notification	div.type {
 
 /* NUEVO */
 div.dash_items {
-	text-align: center;
+	text-align: left;
 }
 
 div.dash_items	a.item {

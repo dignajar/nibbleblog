@@ -31,38 +31,16 @@ class HELPER_VIDEO {
 		return false;
 	}
 
-	private function valid_url($url)
-	{
-		global $_TEXT;
-
-		if(in_array('curl', get_loaded_extensions()))
-		{
-			$curl = curl_init();
-			curl_setopt_array($curl, array(CURLOPT_RETURNTRANSFER=>true, CURLOPT_URL=>$url));
-			curl_exec($curl);
-			$http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-			curl_close( $curl );
-
-			return($http_code==200);
-		}
-
-		// If curl is not installed, uses get_headers
-		$headers = get_headers($url);
-
-		if( !$_TEXT->is_substring($headers[0], '200') )
-			return(false);
-
-		return(true);
-	}
-
 	private function video_get_youtube($url, $width = 640, $height = 360)
 	{
+		global $_NET;
+
 		// Youtube ID
 		preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $url, $matches);
 		$video_id = $matches[1];
 
 		// Check if a valid url
-		if(!$this->valid_url('http://gdata.youtube.com/feeds/api/videos/'.$video_id))
+		if(!$_NET->check_http_code('http://gdata.youtube.com/feeds/api/videos/'.$video_id,200))
 		{
 			return(false);
 		}
@@ -88,13 +66,13 @@ class HELPER_VIDEO {
 
 	private function video_get_vimeo($url, $width = 640, $height = 360)
 	{
-		global $_TEXT;
+		global $_NET;
 
 		preg_match('/vimeo\.com\/([0-9]{1,10})/', $url, $matches);
 		$video_id = $matches[1];
 
 		// Check if a valid url
-		if(!$this->valid_url('http://vimeo.com/api/v2/video/'.$video_id.'.php'))
+		if(!$_NET->check_http_code('http://vimeo.com/api/v2/video/'.$video_id.'.php',200))
 		{
 			return(false);
 		}
