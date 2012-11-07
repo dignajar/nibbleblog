@@ -29,7 +29,7 @@
 			echo '<p>'.$video_info['embed'].'</p>';
 		}
 
-		echo $post['content_part0'];
+		echo $post['content'][1];
 	}
 
 ?>

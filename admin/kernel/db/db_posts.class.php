@@ -368,13 +368,13 @@ class DB_POSTS {
 			$tmp_array['mod_date'] = $_DATE->format($tmp_array['mod_date_unix'], $this->settings['timestamp_format']);
 
 			// CONTENT
-			$tmp_array['content']			= (string) $content;
+			$tmp_array['content'][0] = $content;
 
-			$tmp_array['content_part0'] = $tmp_content[0];
+			$tmp_array['content'][1] = $tmp_content[0];
 
 			if( isset($tmp_content[1]) )
 			{
-				$tmp_array['content_part1'] = $tmp_content[1];
+				$tmp_array['content'][2] = $tmp_content[1];
 				$tmp_array['read_more'] = true;
 			}
 

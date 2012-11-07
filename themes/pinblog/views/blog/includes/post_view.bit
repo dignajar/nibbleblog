@@ -10,7 +10,7 @@
 
 		echo '<p>'.$video_info['embed'].'</p>';
 
-		echo strip_tags($post['content_part0'], '<p><a><strong>');
+		echo strip_tags($post['content'][1], '<p><a><strong>');
 	}
 	else
 	{
@@ -19,7 +19,7 @@
 			echo '<img class="pin" src='.$post['thumbnails'][0].' alt="" />';
 		}
 
-		echo strip_tags($post['content_part0'], '<p><a><strong><pre><div><br>');
+		echo strip_tags($post['content'][1], '<p><a><strong><pre><div><br>');
 	}
 
 ?>
