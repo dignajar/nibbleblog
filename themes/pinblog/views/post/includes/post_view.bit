@@ -29,7 +29,7 @@
 	}
 
 	echo '<footer class="post">';
-		echo '<span class="date">'.$_DATE->format($post['pub_date'], $settings['timestamp_format']).'</span>';
+		echo '<span class="date">'.$post['pub_date'].'</span>';
 	echo '</footer>';
 
 ?>

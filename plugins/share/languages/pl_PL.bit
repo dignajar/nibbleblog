@@ -1,9 +1,0 @@
-<?php
-
-$_PLUGIN_CONFIG['LANG'] = array(
-	'name'=>'Udostępnianie',
-	'description'=>'Wyświetla przyciski share dla Google+, Twittera i Facebooka.'
-);
-
-
-?>

@@ -44,8 +44,8 @@ $controllers['settings']['themes']		= array('security'=>true, 'title'=>$_LANG['C
 $controllers['settings']['username']	= array('security'=>true, 'title'=>$_LANG['USERNAME_AND_PASSWORD'], 'controller'=>'username', 'view'=>'username', 'template'=>'default');
 
 $controllers['plugins']['list']			= array('security'=>true, 'title'=>$_LANG['PLUGINS'], 'controller'=>'list', 'view'=>'list', 'template'=>'default');
-$controllers['plugins']['install']		= array('security'=>true, 'title'=>$_LANG['PLUGINS'], 'controller'=>'install', 'view'=>'install', 'template'=>'default');
-$controllers['plugins']['uninstall']	= array('security'=>true, 'title'=>$_LANG['PLUGINS'], 'controller'=>'uninstall', 'view'=>'uninstall', 'template'=>'default');
+$controllers['plugins']['install']		= array('security'=>true, 'title'=>$_LANG['PLUGINS'], 'controller'=>'install', 'view'=>'config', 'template'=>'default');
+$controllers['plugins']['uninstall']	= array('security'=>true, 'title'=>$_LANG['PLUGINS'], 'controller'=>'uninstall', 'view'=>'list', 'template'=>'default');
 $controllers['plugins']['config']		= array('security'=>true, 'title'=>$_LANG['PLUGINS'], 'controller'=>'config', 'view'=>'config', 'template'=>'default');
 
 $controllers['user']['logout']			= array('security'=>false, 'title'=>$_LANG['LOGOUT'], 'controller'=>'logout', 'view'=>'logout', 'template'=>'login');

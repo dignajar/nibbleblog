@@ -36,6 +36,14 @@
 
 		<header id="head">
 
+			<?php
+				// if the plugin twitter installed
+				if( isset($plugins['gravatar']) )
+				{
+					echo $plugins['gravatar']->get_html();
+				}
+			?>
+
 			<div class="top">
 				<a class="name" href="<?php echo HTML_PATH_ROOT ?>">
 					<?php echo $settings['name'] ?>

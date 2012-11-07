@@ -44,11 +44,12 @@ a:hover {
 
 #head	div.top {
 	font-size: 2.4em;
+	margin-right: 80px;
 }
 
 #head	div.bottom {
-
 	height: 38px;
+	margin-right: 80px;
 }
 
 #head	a.name {
@@ -269,4 +270,33 @@ div.plugin_twitter	li.username {
 	background: url("img/twitter.png") no-repeat 0 -2px;
 	margin-right: 5px;
 	padding-left: 23px;
+}
+
+
+/* ============================== */
+/* PLUGIN GRAVATAR */
+/* ============================== */
+div.plugin_gravatar {
+	margin: 0;
+	float: right;
+}
+
+div.plugin_gravatar	ul {
+	margin: 0;
+	padding: 0;
+}
+
+div.plugin_gravatar	li {
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
+div.plugin_gravatar	li.name {
+	display: none;
+}
+
+div.plugin_gravatar	img.plugin_gravatar {
+	border: 3px solid black;
+	padding: 5px;
 }

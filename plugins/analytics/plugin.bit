@@ -18,14 +18,15 @@ class PLUGIN_ANALYTICS extends PLUGIN
 	function __construct()
 	{
 		parent::__construct();
-		
-		$this->fields = array('id');
+
+		// field=>value
+		$this->fields = array('id'=>'');
 	}
 
 	public function get_html_config()
 	{
 		global $_HTML;
-		
+
 		$html  = $_HTML->label( array('content'=>'Google Analytics ID') );
 		$html .= $_HTML->input( array('name'=>'id', 'type'=>'text', 'value'=>$this->get_field_db('id')) );
 
@@ -33,7 +34,7 @@ class PLUGIN_ANALYTICS extends PLUGIN
 	}
 
 	public function get_html()
-	{	
+	{
 		$html = '
 		<script type="text/javascript">
 
