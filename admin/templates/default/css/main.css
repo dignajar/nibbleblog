@@ -138,7 +138,6 @@ p.no_comments {
 /* FORMS */
 /* ============================== */
 div.form_block {
-	overflow:auto;
 	margin-bottom: 22px;
 	font-size: 1.3em;
 }
