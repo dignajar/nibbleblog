@@ -125,7 +125,7 @@ a.permalink {
 
 article.pin	div.content {
 	padding: 10px;
-	width: 193px;
+	width: 190px;
 	margin: 0 auto;
 }
 
@@ -224,4 +224,33 @@ div.plugin_twitter	li.username {
     display: block;
     margin-bottom: 5px;
     font-size: 1.4em;
+}
+
+/* ============================== */
+/* PLUGIN GRAVATAR */
+/* ============================== */
+
+article.pin_gravatar {
+
+}
+
+article.pin_gravatar	ul {
+	margin: 0;
+	padding: 0;
+}
+
+article.pin_gravatar	li {
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
+article.pin_gravatar	li.name {
+    background: rgba(255, 255, 255, 0.9);
+    bottom: 20px;
+    font-size: 1.4em;
+    padding: 10px 25px;
+    position: absolute;
+    right: 0;
+    text-align: left;
 }

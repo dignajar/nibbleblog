@@ -1,9 +1,0 @@
-<?php
-
-$_PLUGIN_CONFIG['LANG'] = array(
-	'name'=>'Share',
-	'description'=>'Comparti en Google+, Twitter and Facebook tus posts.'
-);
-
-
-?>

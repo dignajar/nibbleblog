@@ -18,11 +18,11 @@ class PLUGIN_TWITTER extends PLUGIN
 	{
 		parent::__construct();
 
-		$this->fields = array('username');
+		$this->fields = array('username'=>'');
 	}
 
 	public function get_html_config()
-	{	
+	{
 		$html  = '<label>Twitter username</label>';
 		$html .= '<input name="username" type="text" value="'.$this->get_field_db('username').'">';
 
@@ -30,7 +30,7 @@ class PLUGIN_TWITTER extends PLUGIN
 	}
 
 	public function get_html()
-	{	
+	{
 		$html  = '<div class="plugin_twitter">';
 			$html .= '<ul>';
 			$html .= '<li class="username"><a target="_blank" href="http://twitter.com/'.$this->get_field_db('username').'">@'.$this->get_field_db('username').'</a></li>';

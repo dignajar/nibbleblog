@@ -1,5 +1,14 @@
 <?php
 
+if( isset($plugins['gravatar']) )
+{
+	echo '<article class="pin pin_gravatar">';
+		echo '<div class="content">';
+			echo $plugins['gravatar']->get_html();
+		echo '</div>';
+	echo '</article>';
+}
+
 if( isset($plugins['twitter']) )
 {
 	echo '<article class="pin pin_twitter">';
@@ -11,7 +20,7 @@ if( isset($plugins['twitter']) )
 
 foreach($posts as $post)
 {
-	// THUMBNAILS
+	// GET THUMBNAILS
 	$dom = new domDocument;
 	$dom->loadHTML($post['content']);
 	$images = $dom->getElementsByTagName('img');
@@ -36,7 +45,7 @@ foreach($posts as $post)
 		echo '</div>';
 
 		echo '<footer>';
-			echo '<span class="date">'.$_DATE->format($post['pub_date'], $settings['timestamp_format']).'</span>';
+			echo '<span class="date">'.$post['pub_date'].'</span>';
 		echo '</footer>';
 
 	echo '</article>';

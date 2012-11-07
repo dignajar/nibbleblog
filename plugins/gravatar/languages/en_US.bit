@@ -1,0 +1,8 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'name'=>'Gravatar',
+	'description'=>'Show your Gravatar in your blog. Need an account at gravatar.com to use this plugin.'
+);
+
+?>

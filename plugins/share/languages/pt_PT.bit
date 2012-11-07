@@ -1,9 +1,0 @@
-<?php
-
-$_PLUGIN_CONFIG['LANG'] = array(
-	'name'=>'Partilhar',
-	'description'=>'Dispor botões para partilhar no Google+, Twitter e Facebook.'
-);
-
-
-?>
