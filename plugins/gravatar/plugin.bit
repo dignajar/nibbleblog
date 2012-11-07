@@ -43,7 +43,7 @@ class PLUGIN_GRAVATAR extends PLUGIN
 		$html  = '<div class="plugin_gravatar">';
 		$html .= '<ul>';
 		$html .= '<li class="name">'.$this->get_field_db('name').'</li>';
-		$html .= '<li class="image"><img class="plugin_gravatar" alt="" src="http://www.gravatar.com/avatar/'.$this->get_field_db('hash').'?s='.$this->get_field_db('size').'" /></li>';
+		$html .= '<li class="image"><img class="plugin_gravatar" alt="'.$this->get_field_db('name').'" src="http://www.gravatar.com/avatar/'.$this->get_field_db('hash').'?s='.$this->get_field_db('size').'" /></li>';
 		$html .= '</ul>';
 		$html .= '</div>';
 
