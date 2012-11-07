@@ -18,6 +18,7 @@
 	require(PATH_HELPERS . 'validation.class.php');
 	require(PATH_HELPERS . 'video.class.php');
 	require(PATH_HELPERS . 'resize.class.php');
+	require(PATH_HELPERS . 'images.class.php');
 
 	// DB
 	require(PATH_DB . 'nbxml.class.php');
@@ -45,6 +46,7 @@
 	$_VALIDATION 	= new HELPER_VALIDATION();
 	$_VIDEO 		= new HELPER_VIDEO();
 	$_RESIZE 		= new HELPER_RESIZE();
+	$_IMAGE 		= new HELPER_IMAGE();
 
 	// DB
 	if(defined('FILE_XML_POST') && defined('FILE_XML_CATEGORIES') && defined('FILE_XML_CONFIG') && defined('FILE_XML_SYSLOG'))

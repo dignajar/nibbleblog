@@ -121,7 +121,7 @@ article.post	blockquote {
 }
 
 /* ============================== */
-/* COMMENT LIST
+/* COMMENT LIST */
 /* ============================== */
 #comment_list {
 	margin-top: 30px;
@@ -138,6 +138,7 @@ article.post	blockquote {
 	border-left: 2px solid #FFAC00;
 	margin: 0 0 10px;
 	padding: 10px;
+	overflow: auto;
 }
 
 #comment_list	span.author_name {
@@ -145,13 +146,18 @@ article.post	blockquote {
 }
 
 #comment_list	span.date {
-	margin-left: 5px;
+	margin-left: 10px;
 	font-style: italic;
 }
 
 #comment_list	span.content {
 	font-style: italic;
 	display: block;
+}
+
+#comment_list	img.avatar {
+	float:left;
+	margin-right: 10px;
 }
 
 /* ============================== */
