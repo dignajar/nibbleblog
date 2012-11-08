@@ -129,6 +129,10 @@ article.pin	div.content {
 	margin: 0 auto;
 }
 
+article.pin div.content img.video_thumb {
+	max-width: 190px;
+}
+
 article.pin	div.content p {
 	line-height: 1.35em;
 }

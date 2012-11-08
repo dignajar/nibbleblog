@@ -54,10 +54,10 @@ class HELPER_VIDEO {
 		$info['title'] = (string)$media->group->title;
 		$info['description'] = (string)$media->group->description;
 
-		$info['thumb0'] = (string)$media->group->thumbnail[0]->attributes()->url;
-		$info['thumb1'] = (string)$media->group->thumbnail[1]->attributes()->url;
-		$info['thumb2'] = (string)$media->group->thumbnail[2]->attributes()->url;
-		$info['thumb3'] = (string)$media->group->thumbnail[3]->attributes()->url;
+		$info['thumb'][0] = (string)$media->group->thumbnail[0]->attributes()->url;
+		$info['thumb'][1] = (string)$media->group->thumbnail[1]->attributes()->url;
+		$info['thumb'][2] = (string)$media->group->thumbnail[2]->attributes()->url;
+		$info['thumb'][3] = (string)$media->group->thumbnail[3]->attributes()->url;
 
 		$info['embed'] = '<iframe class="youtube_embed" width="'.$width.'" height="'.$height.'" src="http://www.youtube.com/embed/'.$video_id.'?rel=0" frameborder="0" allowfullscreen></iframe>';
 
@@ -84,8 +84,8 @@ class HELPER_VIDEO {
 		$info['title'] = $hash[0]['title'];
 		$info['description'] = $hash[0]['description'];
 
-		$info['thumb_small'] =  $hash[0]['thumbnail_small'];
-		$info['thumb_medium'] =  $hash[0]['thumbnail_medium'];
+		$info['thumb'][0] =  $hash[0]['thumbnail_medium'];
+		$info['thumb'][1] =  $hash[0]['thumbnail_small'];
 
 		$info['embed'] = '<iframe class="vimeo_embed" width="'.$width.'" height="'.$height.'" src="http://player.vimeo.com/video/'.$video_id.'"  frameborder="0" allowFullScreen></iframe>';
 

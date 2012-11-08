@@ -8,7 +8,7 @@
 	{
 		$video_info = $_VIDEO->video_get_info($post['video'], 193, 109);
 
-		echo '<p>'.$video_info['embed'].'</p>';
+		echo '<img class="video_thumb" src="'.$video_info['thumb'][0].'">';
 
 		echo strip_tags($post['content'][1], '<p><a><strong>');
 	}
