@@ -3,10 +3,6 @@ header("Content-type: text/xml");
 
 require('admin/boot/feed.bit');
 
-$settings = $_DB_SETTINGS->get();
-
-$posts = $_DB_POST->get_list_by_page( array('page'=>0, 'amount'=>$settings['items_rss']) );
-
 if($settings['friendly_urls'])
 {
 	$feed_link = $settings['url'].$settings['path'].'feed';

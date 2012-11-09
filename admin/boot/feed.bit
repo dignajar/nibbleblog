@@ -8,4 +8,10 @@
 	require('init/3-variables.bit');
 	require('init/10-regional.bit');
 
+// ============================================================================
+// VARIABLES
+// ============================================================================
+
+$posts = $_DB_POST->get_list_by_page( array('page'=>0, 'amount'=>$settings['items_rss']) );
+
 ?>
