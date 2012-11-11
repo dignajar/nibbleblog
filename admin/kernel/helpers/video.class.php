@@ -5,7 +5,7 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 15/07/2012
+ * Last update: 05/11/2012
 
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
@@ -33,16 +33,17 @@ class HELPER_VIDEO {
 
 	private function video_get_youtube($url, $width = 640, $height = 360)
 	{
-		global $_TEXT;
+		global $_NET;
 
 		// Youtube ID
 		preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $url, $matches);
 		$video_id = $matches[1];
 
-		// HEADERS
-		$headers = get_headers('http://gdata.youtube.com/feeds/api/videos/'.$video_id);
-		if( !$_TEXT->is_substring($headers[0], '200') )
+		// Check if a valid url
+		if(!$_NET->check_http_code('http://gdata.youtube.com/feeds/api/videos/'.$video_id,200))
+		{
 			return(false);
+		}
 
 		// GET INFO
 		$xml = simplexml_load_file('http://gdata.youtube.com/feeds/api/videos/'.$video_id);
@@ -53,10 +54,10 @@ class HELPER_VIDEO {
 		$info['title'] = (string)$media->group->title;
 		$info['description'] = (string)$media->group->description;
 
-		$info['thumb0'] = (string)$media->group->thumbnail[0]->attributes()->url;
-		$info['thumb1'] = (string)$media->group->thumbnail[1]->attributes()->url;
-		$info['thumb2'] = (string)$media->group->thumbnail[2]->attributes()->url;
-		$info['thumb3'] = (string)$media->group->thumbnail[3]->attributes()->url;
+		$info['thumb'][0] = (string)$media->group->thumbnail[0]->attributes()->url;
+		$info['thumb'][1] = (string)$media->group->thumbnail[1]->attributes()->url;
+		$info['thumb'][2] = (string)$media->group->thumbnail[2]->attributes()->url;
+		$info['thumb'][3] = (string)$media->group->thumbnail[3]->attributes()->url;
 
 		$info['embed'] = '<iframe class="youtube_embed" width="'.$width.'" height="'.$height.'" src="http://www.youtube.com/embed/'.$video_id.'?rel=0" frameborder="0" allowfullscreen></iframe>';
 
@@ -65,15 +66,16 @@ class HELPER_VIDEO {
 
 	private function video_get_vimeo($url, $width = 640, $height = 360)
 	{
-		global $_TEXT;
+		global $_NET;
 
 		preg_match('/vimeo\.com\/([0-9]{1,10})/', $url, $matches);
 		$video_id = $matches[1];
 
-		// HEADERS
-		$headers = get_headers('http://vimeo.com/api/v2/video/'.$video_id.'.php');
-		if( !$_TEXT->is_substring($headers[0], '200') )
+		// Check if a valid url
+		if(!$_NET->check_http_code('http://vimeo.com/api/v2/video/'.$video_id.'.php',200))
+		{
 			return(false);
+		}
 
 		$hash = unserialize(file_get_contents('http://vimeo.com/api/v2/video/'.$video_id.'.php'));
 
@@ -82,8 +84,8 @@ class HELPER_VIDEO {
 		$info['title'] = $hash[0]['title'];
 		$info['description'] = $hash[0]['description'];
 
-		$info['thumb_small'] =  $hash[0]['thumbnail_small'];
-		$info['thumb_medium'] =  $hash[0]['thumbnail_medium'];
+		$info['thumb'][0] =  $hash[0]['thumbnail_medium'];
+		$info['thumb'][1] =  $hash[0]['thumbnail_small'];
 
 		$info['embed'] = '<iframe class="vimeo_embed" width="'.$width.'" height="'.$height.'" src="http://player.vimeo.com/video/'.$video_id.'"  frameborder="0" allowFullScreen></iframe>';
 

@@ -1,19 +1,19 @@
 <?php
-	echo $_HTML->separator( array('content'=>$_LANG['CHANGE_USERNAME']) );
+	echo $_HTML->separator( array('style'=>'margin-top: 0;', 'content'=>$_LANG['CHANGE_USERNAME']) );
 
 	echo $_HTML->form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
 		// USERNAME
 		echo $_HTML->div_open( array('class'=>'form_block') );
 			echo $_HTML->label( array('content'=>$_LANG['USERNAME'], 'class'=>'blocked') );
-			echo $_HTML->input( array('id'=>'js_username', 'name'=>'username', 'type'=>'text', 'value'=>$_USER[0]["username"]) );
+			echo $_HTML->input( array('id'=>'js_username', 'name'=>'username', 'type'=>'text', 'value'=>$_USER[0]["username"], 'autocomplete'=>'off', 'maxlength'=>'254') );
 			echo $_HTML->div( array('content'=>$_LANG['ADMINISTRATORS_USERNAME'], 'class'=>'input_tip') );
 		echo $_HTML->div_close();
 
 		// CURRENT PASSWORD
 		echo $_HTML->div_open( array('class'=>'form_block') );
 			echo $_HTML->label( array('content'=>$_LANG['CURRENT_PASSWORD'], 'class'=>'blocked') );
-			echo $_HTML->input( array('id'=>'js_pw_current', 'name'=>'pw_current', 'type'=>'password') );
+			echo $_HTML->input( array('id'=>'js_pw_current', 'name'=>'pw_current', 'type'=>'password', 'autocomplete'=>'off', 'maxlength'=>'254') );
 		echo $_HTML->div_close();
 
 		// BUTTONS
@@ -30,14 +30,14 @@
 		// NEW PASSWORD
 		echo $_HTML->div_open( array('class'=>'form_block') );
 			echo $_HTML->label( array('content'=>$_LANG['NEW_PASSWORD'], 'class'=>'blocked') );
-			echo $_HTML->input( array('id'=>'js_pw_new', 'name'=>'pw_new', 'type'=>'text') );
+			echo $_HTML->input( array('id'=>'js_pw_new', 'name'=>'pw_new', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
 			echo $_HTML->div( array('content'=>$_LANG['DO_NOT_FORGET_THIS_PASSWORD'], 'class'=>'input_tip') );
 		echo $_HTML->div_close();
 
 		// CURRENT PASSWORD
 		echo $_HTML->div_open( array('class'=>'form_block') );
 			echo $_HTML->label( array('content'=>$_LANG['CURRENT_PASSWORD'], 'class'=>'blocked') );
-			echo $_HTML->input( array('id'=>'js_pw_current', 'name'=>'pw_current', 'type'=>'password') );
+			echo $_HTML->input( array('id'=>'js_pw_current', 'name'=>'pw_current', 'type'=>'password', 'autocomplete'=>'off', 'maxlength'=>'254') );
 		echo $_HTML->div_close();
 
 		// BUTTONS

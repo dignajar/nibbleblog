@@ -88,7 +88,7 @@ class HELPER_VALIDATION {
 	// Convert all applicable characters to HTML entities incluye acentos
 	public function sanitize_html($text)
 	{
-		return(htmlentities($text, ENT_QUOTES, 'utf-8'));
+		return(htmlspecialchars($text, ENT_QUOTES, 'UTF-8'));
 	}
 
 }

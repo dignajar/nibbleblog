@@ -1,104 +1,91 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic);
 
 /* ============================== */
 /* BODY */
 /* ============================== */
 
 body {
-	font-family: helvetica,arial,sans-serif;
+	font-family: 'Open Sans',arial,sans-serif;
 	background-color: #FEFEFE;
 	margin: 0;
 	padding: 0;
-	font-size:14px;
+	font-size: 0.875em;
 	color: #616161;
 }
 
 #container {
 	margin: 0 auto;
-	width: 940px;
+	width: 60%;
+	overflow: auto;
+}
+
+#main {
+	width:100%;
 }
 
 a {
 	color: #3C6EB4;
 	cursor: pointer;
+	text-decoration: none;
 }
 
 a:hover {
 	text-decoration: underline;
 }
 
-pre {
-	background: url("img/bgcode.png");
-	border: 1px solid #E8E8E8;
-	font-size: 12px;
-	line-height: 23px;
-	margin: 0;
-	padding: 0 5px 0 5px;
-	white-space: pre-wrap;
-	width: 75%;
-}
-
-.console {
-	background: url("img/console.png") no-repeat scroll 10px center #F1F1F1;
-	display: block;
-	line-height: 50px;
-	margin: 5px 0;
-	padding-left: 60px;
-	width:70%;
-}
-
-img:not(.captcha) {
-	max-width:910px;
-	padding: 4px;
-	border: 1px solid #f1f1f1;
-}
 
 /* ============================== */
 /* HEADER */
 /* ============================== */
 #head {
 	overflow: auto;
-	margin-top: 40px;
+	margin: 40px 0;
 }
 
-#head	div.left {
-	float: left;
+#head	div.top {
+	font-size: 2.4em;
+	margin-right: 80px;
 }
 
-#head	div.right {
-	float: right;
-	width: 370px;
+#head	div.bottom {
+	height: 38px;
+	margin-right: 80px;
 }
 
-#head	a {
+#head	a.name {
 	text-decoration: none;
-}
-
-#head	h1 {
-    font-size: 38px;
-    font-weight: normal;
-	color: #616161;
+	color: #555;
 }
 
 #head	span.slogan {
 	color: #CCC;
 }
 
+/* ============================== */
+/* HEADER POST */
+/* ============================== */
+#head_post {
+	overflow: auto;
+	margin: 10px 0;
+	text-align: center;
+}
 
-/* ============================== */
-/* PLUGIN TWITTER */
-/* ============================== */
-div.plugin_twitter {
-	background: url("img/twitter.png") no-repeat scroll 0 -5px transparent;
-	min-height: 90px;
-	padding-left: 60px;
+#head_post	a.name {
+	text-decoration: none;
+	color: #555;
+	font-size: 0.9em;
+}
+
+#head_post	span.slogan {
+	color: #CCC;
 }
 
 /* ============================== */
 /* FOOTER */
 /* ============================== */
 #foot {
-	font-size: 12px;
 	text-align: right;
+	font-size: 0.9em;
 }
 
 /* ============================== */
@@ -120,52 +107,62 @@ div.plugin_twitter {
 /* POST VIEW*/
 /* ============================== */
 article.post {
-	margin: 30px 0;
+	margin-bottom: 60px;
+	clear: both;
+	overflow: auto;
 }
 
-article.post	header {
+article.post	header.post {
 	margin-bottom: 10px;
 }
 
-article.post	h2.title {
-	border-bottom: 1px dotted #CCCCCC;
-	font-size: 28px;
+article.post	header.post	h1.title {
 	font-weight: normal;
 	margin: 0;
-	width: 80%;
+}
+
+article.post	header.post	div.date {
+	font-size:0.9em;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #999;
+}
+
+
+article.post	pre {
+	background: url("img/bgcode.png");
+	border: 1px solid #E8E8E8;
+	line-height: 23px;
+	margin: 0;
+	padding: 0 5px 0 5px;
+	white-space: pre-wrap;
+	font-size: 0.9em;
+}
+
+article.post	.console {
+	background: url("img/console.png") no-repeat scroll 10px center #F1F1F1;
+	display: block;
+	line-height: 50px;
+	margin: 5px 0;
+	padding-left: 60px;
+}
+
+article.post	img:not(.captcha) {
+	max-width:100%;
 }
 
 article.post 	blockquote {
-    border-left: 4px solid #BDEE70;
-    font-size: 28px;
-    margin: 0;
-    padding-left: 15px;
-    width: 85%;
+	font-size: 2em;
+	margin: 0 auto;
+	width: 85%;
+	text-align: center;
 }
 
-article.post	footer.info {
-	font-size: 12px;
-	margin-top: 10px;
-}
-
-article.post	footer.info	span.date {
-	background: url("img/clock.png") no-repeat;
-    display: inline-block;
-    line-height: 18px;
-    margin-right: 10px;
-    padding-left: 22px;
-}
-
-article.post	p.read_more {
-	text-align: right;
-}
-
-article.post	a.read_more {
-	background: none repeat scroll 0 0 #3C6EB4;
-	color: #FFFFFF;
-	font-size: 11px;
-	padding: 2px 5px;
-	text-decoration: none;
+article.post	footer.post {
+    clear: both;
+    margin-top: 20px;
+    text-align: center;
 }
 
 /* ============================== */
@@ -177,15 +174,16 @@ article.post	a.read_more {
 }
 
 #comment_list	h2 {
-	margin: 10px 0;
 	font-style: italic;
-	font-size: 21px;
+	font-weight: normal;
+	margin: 10px 0;
 }
 
 #comment_list	div.comment {
 	border-left: 2px solid #FFAC00;
 	margin: 0 0 10px;
 	padding: 10px;
+	overflow: auto;
 }
 
 #comment_list	span.author_name {
@@ -193,13 +191,18 @@ article.post	a.read_more {
 }
 
 #comment_list	span.date {
-	margin-left: 5px;
+	margin-left: 10px;
 	font-style: italic;
 }
 
 #comment_list	span.content {
 	font-style: italic;
 	display: block;
+}
+
+#comment_list	img.avatar {
+	float:left;
+	margin-right: 10px;
 }
 
 /* ============================== */
@@ -211,16 +214,15 @@ article.post	a.read_more {
 }
 
 #comment_form	h2 {
-	margin: 10px 0;
 	font-style: italic;
-	font-size: 18px;
+	font-weight: normal;
+	margin: 10px 0;
 }
 
 #comment_form	h3.alert {
-	margin: 5px 0;
-	font-style: italic;
-	font-size: 16px;
 	color: #BE1C54;
+	font-style: italic;
+	margin: 0 0 15px;
 }
 
 #comment_form	input[type="text"],
@@ -236,8 +238,8 @@ article.post	a.read_more {
 	outline:none;
 	resize: none;
 	margin-bottom: 15px;
-	font-family: helvetica,arial,sans-serif;
-	font-size: 13px;
+	font-family: font-family: 'Open Sans', helvetica,arial,sans-serif;
+	font-size: 0.9em;
 }
 
 #comment_form	input[type="text"].captcha {
@@ -249,4 +251,60 @@ article.post	a.read_more {
 	display: block;
 	clear: left;
 	padding: 3px 8px;
+}
+
+/* ============================== */
+/* PLUGIN TWITTER */
+/* ============================== */
+div.plugin_twitter {
+	padding: 0;
+	margin: 0;
+}
+
+div.plugin_twitter	ul {
+	margin: 0;
+	padding: 0;
+}
+
+div.plugin_twitter	li {
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
+div.plugin_twitter	li.username {
+	background: url("img/twitter.png") no-repeat 0 -2px;
+	margin-right: 5px;
+	padding-left: 23px;
+}
+
+
+/* ============================== */
+/* PLUGIN GRAVATAR */
+/* ============================== */
+div.plugin_gravatar {
+	margin: 0;
+	float: right;
+}
+
+div.plugin_gravatar	ul {
+	margin: 0;
+	padding: 0;
+}
+
+div.plugin_gravatar	li {
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
+div.plugin_gravatar	li.name {
+	display: none;
+}
+
+div.plugin_gravatar	img.plugin_gravatar {
+    border: 1px solid #E4E4E4;
+    border-radius: 2px 2px 2px 2px;
+    padding: 5px;
+    max-width:64px;
 }

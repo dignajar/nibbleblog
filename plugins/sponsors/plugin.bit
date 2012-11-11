@@ -5,7 +5,7 @@
 // =========================================
 $_PLUGIN_CONFIG['DATA'] = array(
 	'author'=>'Diego Najar',
-	'version'=>'1.0',
+	'version'=>'1.1',
 	'url'=>'http://www.nibbleblog.com'
 );
 
@@ -17,14 +17,14 @@ class PLUGIN_SPONSORS extends PLUGIN
 	function __construct()
 	{
 		parent::__construct();
-		
-		$this->fields = array('code');
+
+		$this->fields = array('code'=>'');
 	}
 
 	public function get_html_config()
 	{
 		global $_HTML;
-		
+
 		$html  = $_HTML->label( array('content'=>'Sponsor code') );
 		$html .= $_HTML->textarea( array('name'=>'code', 'type'=>'text', 'content'=>$this->get_field_db('code')) );
 
@@ -33,11 +33,9 @@ class PLUGIN_SPONSORS extends PLUGIN
 
 	public function get_html()
 	{
-		global $_HTML;
-		
-		$html  = $_HTML->div_open( array('class'=>'plugin_sponsors') );
+		$html  = '<div class="plugin_sponsors">';
 		$html .= $this->get_field_db('code');
-		$html .= $_HTML->div_close();
+		$html .= '</div>';
 
 		return($html);
 	}

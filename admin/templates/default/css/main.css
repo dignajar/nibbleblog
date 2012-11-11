@@ -1,107 +1,113 @@
-
 /* ============================== */
-/* BODY */
+/* BODY
 /* ============================== */
 
 body {
-	font-family: arial,helvetica,sans-serif;
+	font-family: arial,sans-serif;
 	background-color: #FEFEFE;
 	margin: 0;
 	padding: 0;
-	font-size:14px;
+	font-size: 62.5%;
 	color: #555;
+	overflow-y: scroll;
+	overflow-y: scroll;
 }
 
 #container {
-	margin: 0 auto;
-	width: 100%
+	width: 100%;
+	background-color: #fff;
 }
 
+/* ============================== */
+/* HEAD
+/* ============================== */
+
 #container_head {
-	background: url("img/logo.png") no-repeat 20px 6px #555555;
-	border-bottom: 2px solid #1555CC;
-	font-size: 12px;
-	padding-right: 5%;
+	background: url("img/logo.png") no-repeat scroll 30px 50% #F9F9F9;
+	border-bottom: 1px solid #EBEBEB;
+	font-size: 1.1em;
+	padding-right: 30px;
 	text-align: right;
 }
 
 #container_head	a {
-	color: #EEEEEE;
+    color: #333333;
+    display: inline-block;
+    height: 40px;
+    line-height: 42px;
+    padding-left: 36px;
+    padding-right: 10px;
 }
 
-#container_head		a.dashboard {
-	background: url("img/dashboard.png") no-repeat scroll 0 center transparent;
-	display: inline-block;
-	height: 50px;
-    line-height: 52px;
-    margin-right: 15px;
-    padding-left: 26px;
+#container_head a.dashboard {
+	background: url("img/dashboard.png") no-repeat 10px center transparent;
 }
 
-#container_head		a.home {
-	background: url("img/home.png") no-repeat scroll 0 center transparent;
-	display: inline-block;
-	height: 50px;
-    line-height: 52px;
-    margin-right: 15px;
-    padding-left: 26px;
+#container_head a.home {
+	background: url("img/home.png") no-repeat 10px center transparent;
 }
 
-#container_head		a.logout {
-	background: url("img/logout.png") no-repeat scroll 0 center transparent;
-	display: inline-block;
-	height: 50px;
-    line-height: 52px;
-    margin-right: 15px;
-    padding-left: 26px;
+#container_head a.logout {
+	background: url("img/logout.png") no-repeat 10px center transparent;
 }
+
+#container_head	a:hover {
+	text-decoration: none;
+	background-color: #f1f1f1;
+}
+
+/* ============================== */
+/* SUBHEAD
+/* ============================== */
+
+#container_subhead {
+    border-bottom: 1px solid #EBEBEB;
+    margin-bottom: 20px;
+    padding: 20px 0 20px 230px;
+}
+
+#container_subhead	h2.title {
+    color: #0089F2;
+    font-size: 2.2em;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================== */
+/* MAIN
+/* ============================== */
 
 #container_float {
 	clear: both;
-	margin-top: 25px;
 	overflow: auto;
 }
 
 #container_left {
-	clear: left;
-	float: left;
-	margin-right: 20px;
-	margin-top: 5px;
-	width: 260px;
+    clear: left;
+    float: left;
+    margin-right: 10px;
+    width: 220px;
 }
 
 #container_right {
-	margin-right: 30px;
-	min-width: 700px;
-	overflow: hidden;
-	max-width: 55%;
-	border-right: 1px solid #F1F1F1;
-	padding-right: 30px;
-}
-
-#container_right	h2.title {
-	color: #1555CC;
-	font-size: 22px;
-	margin: 0 0 25px 0;
-	font-weight: normal;
+    border-right: 1px solid #F1F1F1;
+    max-width: 80%;
+    overflow: hidden;
+    padding-right: 30px;
 }
 
 #alert {
     background-color: #EDF4FF;
     border: 1px solid #CDD4EF;
     border-radius: 2px 2px 2px 2px;
-    color: #666666;
+    font-size: 1.3em;
     margin-bottom: 20px;
     padding: 20px;
 }
 
-footer {
-	text-align: center;
-	border-top: 1px dotted #ccc;
-}
-
 a {
-	color: #1555CC;
+	color: #2361D3;
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -110,96 +116,30 @@ a:hover {
 	text-decoration: underline;
 }
 
-a.remove {
-	color: #BC0000;
-}
-
-a.button {
-	font-size: 12px;
-}
-
 div.separator {
-	border-bottom: 1px solid #EBEBEB;
-	color: #999;
-	margin: 25px 0 12px 0;
-	text-shadow: 0 1px 1px #FFFFFF;
-	font-size: 13px;
+    border-top: 1px solid #EBEBEB;
+    color: #0089F2;
+    font-size: 16px;
+    font-style: italic;
+    margin: 30px 0 12px;
+    padding: 15px 0 5px;
 }
 
-div.notification {
-	padding: 10px 0 10px 56px;
-	margin-bottom: 10px;
-    border-radius: 2px 2px 2px 2px;
+.remove_margin_top {
+	margin-top: 0;
 }
 
-div.notification_session {
-	background: url("img/session.png") no-repeat scroll 16px center #F9F9F9;
-    border: 1px solid #EEEEEE;
-    font-size: 12px;
-}
-
-div.notification_last_comments {
-	background: url('img/comments.png') no-repeat 16px center #F9F9F9;
-    border: 1px solid #EEEEEE;
-    font-size: 12px;
-}
-
-div.notification	div.type {
-	margin-bottom: 5px;
-}
-
-div.dash_items {
-	background: none repeat scroll 0 0 #F9F9F9;
-    border: 1px solid #EEEEEE;
-    border-radius: 2px 2px 2px 2px;
-    margin-bottom: 10px;
-    padding: 10px 20px;
-}
-
-div.dash_items	div.item {
-	display: inline-block;
-    margin: 5px 10px;
-    width:230px;
-}
-
-div.dash_items	.bg_post_simple {
-	background: url(img/add.png) 0 50% no-repeat;
-	padding: 10px 0 10px 36px;
-}
-
-div.dash_items	.bg_post_video {
-	background: url(img/video.png) 0 50% no-repeat;
-	padding: 10px 0 10px 36px;
-}
-
-div.dash_items	.bg_post_quote {
-	background: url(img/quote.png) 0 50% no-repeat;
-	padding: 10px 0 10px 36px;
-}
-
-div.dash_items	.bg_settings {
-	background: url(img/gear.png) 0 50% no-repeat;
-	padding: 10px 0 10px 36px;
-}
-
-
-
-div.dash_items	a.type {
-	font-size: 13px;
-	display: block;
-}
-
-div.dash_items	span.description {
-	font-size: 12px;
-	display: block;
+p.no_comments {
+	font-size: 1.2em;
+	font-style: italic;
 }
 
 /* ============================== */
 /* FORMS */
 /* ============================== */
 div.form_block {
-	overflow:auto;
 	margin-bottom: 22px;
+	font-size: 1.3em;
 }
 
 div.form_block	input[type="text"],
@@ -217,7 +157,19 @@ div.form_block	textarea {
 	resize: none;
 }
 
-div.form_block	textarea.tinymce {
+div.form_block	input[type="text"].little {
+	margin-right: 10px;
+	text-align: center;
+	width: 70px;
+}
+
+div.form_block		select {
+	border: 1px solid #ccc;
+	width: 100%;
+	padding: 6px;
+}
+
+div.form_block	textarea.wysiwyg {
 	height: 402px;
 	resize: vertical;
 }
@@ -229,7 +181,11 @@ div.form_block		input[type="checkbox"].float {
 
 div.form_block		label {
 	margin-bottom:2px;
-	font-size: 13px;
+}
+
+div.form_block		label.for_checkbox {
+	margin-left: 3px;
+	margin-bottom: 0;
 }
 
 div.form_block		label.blocked {
@@ -239,7 +195,7 @@ div.form_block		label.blocked {
 div.form_block		div.input_tip {
 	color: #777;
 	font-style: italic;
-	font-size:11px;
+	font-size: 0.85em;
 }
 
 div.form_block		input[type="submit"].save,
@@ -289,9 +245,40 @@ input[type=file].hidden {
 }
 
 /* ============================== */
+/* PLUGIN LIST */
+/* ============================== */
+
+div.plugin {
+    background-color: #F9F9F9;
+    border: 1px solid #EBEBEB;
+    border-radius: 2px 2px 2px 2px;
+    font-size: 13px;
+    margin-bottom: 15px;
+    padding: 12px;
+}
+
+div.plugin	h3.name {
+	margin: 0;
+	font-size: 1em;
+	font-weight: normal;
+	border-bottom: 1px dotted #CCCCCC;
+	padding-bottom: 2px;
+}
+
+div.plugin	h4.description {
+	margin: 8px 0;
+	font-weight: normal;
+}
+
+div.plugin	a {
+	margin-right: 15px;
+}
+
+/* ============================== */
 /* FORMS FOR PLUGINS */
 /* ============================== */
 form.plugins {
+	font-size: 1.3em;
 }
 
 form.plugins	input[type="text"],
@@ -313,8 +300,98 @@ form.plugins	textarea {
 form.plugins		label {
 	margin-bottom: 2px;
 	display: block;
-	font-size: 13px;
 }
+
+/*////////////////////////////////////*/
+
+a.remove {
+	color: #BC0000;
+}
+
+a.button {
+	font-size: 12px;
+}
+
+div.notification,
+a.notification {
+	padding: 10px 0 10px 56px;
+	margin-bottom: 10px;
+    border-radius: 2px 2px 2px 2px;
+    display: block;
+}
+
+div.notification_session {
+	background: url("img/session.png") no-repeat scroll 16px center #F9F9F9;
+    border: 1px solid #EEEEEE;
+    font-size: 12px;
+}
+
+a.notification_last_comments {
+	background: url('img/comments.png') no-repeat 16px center #F9F9F9;
+    border: 1px solid #EEEEEE;
+    font-size: 12px;
+    text-decoration: none;
+    color: #555555;
+}
+
+a.notification_last_comments:hover {
+	background-color: #f1f1f1;
+}
+
+
+div.notification	div.type,
+a.notification	div.type {
+	margin-bottom: 5px;
+}
+
+/* NUEVO */
+div.dash_items {
+	text-align: left;
+}
+
+div.dash_items	a.item {
+    display: inline-block;
+    margin: 5px 30px;
+	padding: 10px 0 10px 60px;
+	text-align: left;
+	text-decoration: none;
+	border-bottom: 2px solid #fff;
+}
+
+div.dash_items	a.item:hover {
+	border-bottom: 2px solid #ccc;
+}
+
+div.dash_items	.bg_post_simple {
+	background: url(img/add.png) 0 50% no-repeat;
+}
+
+div.dash_items	.bg_post_video {
+	background: url(img/video.png) 0 50% no-repeat;
+}
+
+div.dash_items	.bg_post_quote {
+	background: url(img/quote.png) 0 50% no-repeat;
+}
+
+div.dash_items	.bg_settings {
+	background: url(img/gear.png) 0 50% no-repeat;
+}
+
+div.dash_items	a.item span.type {
+	font-size: 1.4em;
+	display: block;
+	width: 140px;
+}
+
+div.dash_items	a.item span.description {
+	font-size: 1.2em;
+	display: block;
+	color: #555;
+	width: 120px;
+}
+
+
 
 /* ============================== */
 /* POST LIST */
@@ -323,7 +400,13 @@ form.plugins		label {
 div.list_box,
 div.comment_box {
 	padding: 15px 0;
-	border-top: 1px solid #f1f1f1;
+	border-top: 1px solid #EBEBEB;
+	font-size: 1.2em;
+}
+
+div.list_box:hover,
+div.comment_box:hover {
+	background-color:#F9F9F9;
 }
 
 div.list_box	div.float,
@@ -345,7 +428,6 @@ div.comment_box	div.right {
 div.list_box	div.options,
 div.comment_box	div.options {
 	margin-top: 8px;
-	font-size: 12px;
 }
 
 div.list_box	a,
@@ -359,24 +441,23 @@ div.comment_box		h3.date {
 	font-weight:normal;
 	color: #666;
 	display: block;
-	font-size: 12px;
+	font-size: 1em;
 }
 
 div.list_box	h3.title {
 	margin: 0;
 	font-weight:normal;
 	display: inline-block;
-	font-size: 14px;
 }
 
 div.list_box	h3.type {
 	margin: 0 5px 0 0;
 	font-weight:normal;
 	font-style: italic;
-	color: orange;
+	color: #F7C305;
 	display: inline-block;
 	width: 100%;
-	font-size: 12px;
+	font-size: 1em;
 }
 
 div.comment_box		h3.content {
@@ -398,8 +479,9 @@ div.comment_box		h3.author {
 }
 
 div.pager {
-	border-top: 1px solid #F1F1F1;
+	border-top: 1px solid #EBEBEB;
 	padding: 8px 0;
+	font-size: 1.3em;
 }
 
 div.pager	a {
@@ -414,52 +496,22 @@ div.comment_box {
 
 }
 
-/* ============================== */
-/* PLUGIN LIST */
-/* ============================== */
 
-div.plugin {
-    background-color: #F5F5F5;
-    border: 1px solid #F0F0F0;
-    border-radius: 2px 2px 2px 2px;
-    color: #444444;
-    font-size: 13px;
-    margin-bottom: 15px;
-    padding: 10px;
-}
-
-div.plugin	h3.name {
-	font-size: 13px;
-	margin: 0;
-	font-weight: normal;
-	border-bottom: 1px dotted #CCCCCC;
-	padding-bottom: 2px;
-}
-
-div.plugin	h4.description {
-	font-size: 12px;
-	margin: 8px 0;
-	font-weight: normal;
-}
-
-div.plugin	a {
-	margin-right: 15px;
-}
 
 /* ============================== */
-/* SIDEBAR */
+/* SIDEBAR Update*/
 /* ============================== */
 
 div.menu_box {
 	margin-bottom: 25px;
 	padding: 0 0 0 20px;
-	font-size: 13px;
 }
 
 div.menu_box a {
 	text-decoration: none;
 	display: block;
 	padding: 5px 30px;
+	font-size: 1.2em;
 }
 
 div.menu_box a:hover {
@@ -467,11 +519,11 @@ div.menu_box a:hover {
 }
 
 div.menu_box div.title {
-	font-size:15px;
-	font-weight:bold;
-	color: #4c4c4c;
+	font-weight:normal;
+	color: #333;
     line-height: 22px;
     padding: 0 28px;
+    font-size: 1.5em;
 }
 
 div.menu_box div.bg_posts {

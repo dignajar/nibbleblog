@@ -1,0 +1,55 @@
+<?php
+
+	echo $_HTML->form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+
+		echo $_HTML->separator( array('style'=>'margin-top: 0;', 'content'=>$_LANG['AUTOMATIC_IMAGE_RESIZING']) );
+
+		// ENABLE OR DISABLE CROP
+		echo $_HTML->div_open( array('class'=>'form_block'));
+			echo $_HTML->checkbox( array('id'=>'js_img_resize', 'name'=>'img_resize', 'class'=>'float'), $settings['img_resize'] );
+			echo $_HTML->label( array('content'=>$_LANG['ENABLE_AUTOMATIC_IMAGE_RESIZING'], 'class'=>'for_checkbox', 'for'=>'js_img_resize') );
+
+			echo $_HTML->div( array('content'=>$_LANG['THIS_OPTION_AUTOMATICALLY_CHANGES_THE_IMAGE'], 'class'=>'input_tip') );
+		echo $_HTML->div_close();
+
+		echo $_HTML->div_open( array('class'=>'form_block'));
+			echo $_HTML->label( array('content'=>$_LANG['WIDTH'].' x '.$_LANG['HEIGHT'], 'class'=>'blocked') );
+			echo $_HTML->input( array('id'=>'js_img_resize_width', 'class'=>'little', 'name'=>'img_resize_width', 'type'=>'text', 'value'=>$settings['img_resize_width']) );
+			echo $_HTML->input( array('id'=>'js_img_resize_height', 'class'=>'little', 'name'=>'img_resize_height', 'type'=>'text', 'value'=>$settings['img_resize_height']) );
+		echo $_HTML->div_close();
+
+		echo $_HTML->div_open( array('class'=>'form_block'));
+			echo $_HTML->label( array('content'=>$_LANG['OPTION'], 'class'=>'blocked') );
+			echo $_HTML->select( array('name'=>'img_resize_option'), $img_resize_option, $settings['img_resize_option']);
+		echo $_HTML->div_close();
+
+		echo $_HTML->separator( array('content'=>$_LANG['THUMBNAILS']) );
+
+		// ENABLE OR DISABLE THUMBNAILS
+		echo $_HTML->div_open( array('class'=>'form_block'));
+			echo $_HTML->checkbox( array('id'=>'js_img_thumbnail', 'name'=>'img_thumbnail', 'class'=>'float'), $settings['img_thumbnail'] );
+			echo $_HTML->label( array('content'=>$_LANG['ENABLE_THUMBNAILS'], 'class'=>'for_checkbox', 'for'=>'js_img_thumbnail') );
+
+			echo $_HTML->div( array('content'=>$_LANG['ENABLE_THIS_OPTION_IF_YOU_WANT_TO_GENERATE'], 'class'=>'input_tip') );
+		echo $_HTML->div_close();
+
+		echo $_HTML->div_open( array('class'=>'form_block'));
+			echo $_HTML->label( array('content'=>$_LANG['WIDTH'].' x '.$_LANG['HEIGHT'], 'class'=>'blocked') );
+			echo $_HTML->input( array('id'=>'js_img_thumbnail_width', 'class'=>'little', 'name'=>'img_thumbnail_width', 'type'=>'text', 'value'=>$settings['img_thumbnail_width']) );
+			echo $_HTML->input( array('id'=>'js_img_thumbnail_height', 'class'=>'little', 'name'=>'img_thumbnail_height', 'type'=>'text', 'value'=>$settings['img_thumbnail_height']) );
+		echo $_HTML->div_close();
+
+		echo $_HTML->div_open( array('class'=>'form_block'));
+			echo $_HTML->label( array('content'=>$_LANG['OPTION'], 'class'=>'blocked') );
+			echo $_HTML->select( array('name'=>'img_thumbnail_option'), $img_resize_option, $settings['img_thumbnail_option']);
+		echo $_HTML->div_close();
+
+	echo $_HTML->form_close();
+
+?>
+
+<?php
+	$ajax['url'] = HTML_PATH_ADMIN_AJAX.'settings.php';
+	$ajax['action'] = 'set';
+	include(PATH_ADMIN_JS.'ajax_form.bit');
+?>

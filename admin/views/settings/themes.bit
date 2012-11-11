@@ -12,26 +12,8 @@
 
 ?>
 
-<script>
-
-$(document).ready(function() {
-
-	// Save the default configuration
-	var datasrz = serial_form($("#js_form"));
-
-	$(window).bind('beforeunload', function() {
-
-		var newdata = serial_form($("#js_form"));
-
-		if( newdata != datasrz )
-		{
-			$.ajax({
-					url: HTML_PATH_ADMIN_AJAX + "settings.php", type: 'POST', cache: false, timeout: 15000, dataType: "xml", async: false,
-					data: { action:"set", serial_data: newdata, type: "themes" }
-			});
-		}
-	});
-
-}); // end document
-
-</script>
+<?php
+	$ajax['url'] = HTML_PATH_ADMIN_AJAX.'settings.php';
+	$ajax['action'] = 'set';
+	include(PATH_ADMIN_JS.'ajax_form.bit');
+?>

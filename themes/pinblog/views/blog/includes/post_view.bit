@@ -1,0 +1,25 @@
+<?php
+
+	if($post['type']=='quote')
+	{
+		echo '<blockquote>'.$post['quote'].'</blockquote>';
+	}
+	elseif($post['type']=='video')
+	{
+		$video_info = $_VIDEO->video_get_info($post['video'], 193, 109);
+
+		echo '<img class="video_thumb" src="'.$video_info['thumb'][0].'">';
+
+		echo strip_tags($post['content'][1], '<p><a><strong>');
+	}
+	else
+	{
+		if( !empty($post['thumbnails']) )
+		{
+			echo '<img class="pin" src='.$post['thumbnails'][0].' alt="" />';
+		}
+
+		echo strip_tags($post['content'][1], '<p><a><strong><pre><div><br>');
+	}
+
+?>

@@ -1,0 +1,260 @@
+
+/* ============================== */
+/* BODY */
+/* ============================== */
+
+body {
+	font-family: "helvetica neue",arial,sans-serif;
+	background: #fafafa;
+	margin: 0;
+	padding: 0;
+	font-size: 62.5%;
+	color: #616161;
+}
+
+#container {
+	margin: 0 auto;
+	width: 940px;
+}
+
+a {
+	color: #3C6EB4;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+pre {
+	background: url("img/bgcode.png") repeat 0 0;
+	border: 1px solid #E8E8E8;
+	line-height: 23px;
+	margin: 0;
+	padding: 0 5px;
+	white-space: pre-wrap;
+}
+
+.console {
+	background: url("img/console.png") no-repeat 7px center #F1F1F1;
+	display: block;
+	margin: 5px 0;
+	padding: 5px 0 5px 31px;
+}
+
+img:not(.captcha) {
+	max-width:910px;
+}
+
+/* ============================== */
+/* HEADER */
+/* ============================== */
+#head {
+	margin: 50px 10px;
+}
+
+#head	h1 {
+	color: #616161;
+	font-size: 2.5em;
+	font-weight: normal;
+	margin: 0;
+}
+
+#head	a.name {
+	text-decoration: none;
+	color: #616161;
+}
+
+#head	span.slogan {
+	color: #CCC;
+}
+
+/* ============================== */
+/* FOOTER */
+/* ============================== */
+#foot {
+	text-align: right;
+	margin-top: 50px;
+}
+
+/* ============================== */
+/* PIN */
+/* ============================== */
+
+#pins {
+	width: 940px;
+	font-size: 1.1em;
+	word-wrap: break-word;
+}
+
+img.pin {
+	display: block;
+	border: 0 none;
+	margin: 0 auto;
+}
+
+article.pin {
+    background: #FFFFFF;
+    border: 1px solid #E0E6F1;
+    display: inline-block;
+    margin: 10px;
+}
+
+article.pin div.pin_wrap {
+	display: none;
+	position: absolute;
+	left:0;
+	top:0;
+	background: rgba(255, 255, 255, 0.9);
+	height:100%;
+	width: 100%;
+	text-align: center;
+}
+
+article.pin div.pin_wrap h3 {
+    font-size: 1.4em;
+    font-weight: normal;
+}
+
+a.permalink {
+	position: absolute;
+	left:38%;
+	top:40%;
+}
+
+article.pin	div.content {
+	padding: 10px;
+	width: 190px;
+	margin: 0 auto;
+}
+
+article.pin div.content img.video_thumb {
+	max-width: 190px;
+}
+
+article.pin	div.content p {
+	line-height: 1.35em;
+}
+
+article.pin	div.content	blockquote {
+	font-size: 2.8em;
+	margin: 0;
+	min-height: 60px;
+	margin-left: 10px;
+}
+
+article.pin	footer {
+	background: #F2F0F0;
+	padding: 12px;
+}
+
+article.pin	footer span.title {
+	font-style: italic;
+	margin-right:5px;
+}
+
+/* ============================== */
+/* PAGER */
+/* ============================== */
+#pager {
+	border-bottom: 1px solid #F1F1F1;
+	border-top: 1px solid #F1F1F1;
+	margin: 60px 0;
+	padding: 30px 0;
+}
+
+#pager	a.newer {
+	float: right;
+}
+
+#pager	a.older {
+	float: left;
+}
+
+/* ============================== */
+/* PLUGIN CATEGORIES */
+/* ============================== */
+
+#categories {
+	border-bottom: 1px solid #F1F1F1;
+	border-top: 1px solid #F1F1F1;
+	margin: 60px 0;
+	padding: 30px 0;
+	font-size: 1.6em;
+}
+
+div.plugin_categories ul {
+	list-style-type: none;
+	padding:0;
+	margin:0;
+}
+
+div.plugin_categories li {
+	padding:0;
+	margin:0;
+	display: inline;
+	margin: 0 15px;
+
+}
+
+/* ============================== */
+/* PLUGIN TWITTER */
+/* ============================== */
+
+article.pin_twitter {
+	background: url(img/twitter.png) no-repeat #fff;
+	height:180px;
+}
+
+div.plugin_twitter {
+	padding: 0;
+	margin: 0;
+	font-size: 1.2em;
+}
+
+div.plugin_twitter	ul {
+	margin: 0;
+	padding: 0;
+}
+
+div.plugin_twitter	li {
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
+div.plugin_twitter	li.username {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.4em;
+}
+
+/* ============================== */
+/* PLUGIN GRAVATAR */
+/* ============================== */
+
+article.pin_gravatar {
+
+}
+
+article.pin_gravatar	ul {
+	margin: 0;
+	padding: 0;
+}
+
+article.pin_gravatar	li {
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
+article.pin_gravatar	li.name {
+    background: rgba(255, 255, 255, 0.9);
+    bottom: 20px;
+    font-size: 1.4em;
+    padding: 10px 25px;
+    position: absolute;
+    right: 0;
+    text-align: left;
+}

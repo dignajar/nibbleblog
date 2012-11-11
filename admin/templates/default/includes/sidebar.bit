@@ -23,6 +23,10 @@
 
 		echo $_HTML->link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=advanced', 'content'=>$_LANG['ADVANCED_SETTINGS']) );
 
+		echo $_HTML->link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=regional', 'content'=>$_LANG['REGIONAL_SETTINGS']) );
+
+		echo $_HTML->link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=image', 'content'=>$_LANG['IMAGE_SETTINGS']) );
+
 		echo $_HTML->link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=categories&amp;action=list', 'content'=>$_LANG['MANAGE_CATEGORIES']) );
 
 		echo $_HTML->link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=themes', 'content'=>$_LANG['CHANGE_THEME']) );

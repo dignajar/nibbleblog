@@ -5,7 +5,7 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 21/08/2012
+ * Last update: 07/10/2012
 
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
@@ -25,14 +25,21 @@
 // ============================================================================
 //	THEME CONFIG
 // ============================================================================
-	@require(THEME_ROOT.'config.bit');
+	require(THEME_ROOT.'config.bit');
 
 // ============================================================================
 //	CONTROLLER & ACTION
 // ============================================================================
 	$url = $_URL;
 
-	$layout = array('controller'=>'blog/view.bit', 'view'=>'blog/view.bit', 'template'=>'default.bit', 'title'=>'Blog powered by Nibbleblog');
+	$layout = array(
+		'controller'=>'blog/view.bit',
+		'view'=>'blog/view.bit',
+		'template'=>'default.bit',
+		'title'=>$settings['name'].' - '.$settings['slogan'],
+		'description'=>$settings['about'],
+		'feed'=>HTML_PATH_ROOT.'feed.php'
+	);
 
 	if( ($url['controller']!=null) && ($url['action']!=null) )
 	{
@@ -43,6 +50,11 @@
 	if(isset($theme['template'][$url['controller']]))
 	{
 		$layout['template'] = $theme['template'][$url['controller']];
+	}
+
+	if($settings['friendly_urls'])
+	{
+		$layout['feed'] = HTML_PATH_ROOT.'feed';
 	}
 
 	// Load the controller and template

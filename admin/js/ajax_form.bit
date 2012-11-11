@@ -1,0 +1,57 @@
+<script>
+
+$(document).ready(function() {
+
+	// Save the default configuration
+	var datasrz = serial_form($("#js_form"));
+
+	// Timer
+	var timer;
+
+	// Time to request the save
+	var time_to_save = 700;
+
+//
+//	EVENTS
+//
+	$("input[type='text'], textarea").keydown(function() {
+		set_timer();
+	});
+
+	$("select, input[type='checkbox']").change(function () {
+		set_timer();
+	});
+
+//
+//	FUNCTIONS
+//
+	function set_timer()
+	{
+		window.clearTimeout(timer);
+		timer = window.setTimeout(function(){save()},time_to_save);
+		console.log("timer set");
+	}
+
+	function save()
+	{
+		var newdata = serial_form($("#js_form"));
+		
+		if( newdata != datasrz )
+		{
+			console.log("saved");
+			
+			// Save the new default
+			datasrz = newdata;
+			
+			$.ajax({
+					url:"<?php echo $ajax['url'] ?>", type: "POST", cache: false, timeout: 15000, dataType: "xml", async: false,
+					data:{ serial_data: newdata, action:"<?php echo $ajax['action'] ?>" }
+			});
+		}
+		
+			
+	}
+
+}); // end document
+
+</script>

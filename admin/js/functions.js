@@ -12,7 +12,7 @@ function not_empty(text)
 function serial_form(form)
 {
 	var notchecked = "";
-	form.children("input:checkbox:not(:checked)").each(function() { notchecked += $(this).attr("name") + "=0&" });
+	form.find('input[type=checkbox]:not(:checked)').each(function() { notchecked += $(this).attr("name") + "=0&" });
 
 	return( notchecked + form.serialize() );
 }

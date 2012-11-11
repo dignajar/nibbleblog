@@ -82,8 +82,11 @@ class DB_COMMENTS {
 			// Object
 			$new_obj = new NBXML($xml, 0, FALSE, '', FALSE);
 
-			// Elements
+			// Time - UTC=0
 			$time_unix = $_DATE->unixstamp();
+
+			// Time for Filename
+			$time_filename = $_DATE->format_gmt($time_unix, 'Y.m.d.H.i.s');
 
 			// Encrypt the user IP and Email
 			include(FILE_KEYS);
@@ -102,9 +105,6 @@ class DB_COMMENTS {
 			// Last insert ID
 			$new_id = $this->last_insert_id = $this->get_autoinc();
 
-			// Time format
-			$time = $_DATE->format($time_unix, 'Y.m.d.H.i.s');
-
 			// User ID
 			if($_LOGIN->is_logued())
 			{
@@ -116,7 +116,7 @@ class DB_COMMENTS {
 			}
 
 			// Filename for new post
-			$filename = $new_id . '.' . $args['id_post'] . '.' . $id_user . '.NULL.' . $time . '.xml';
+			$filename = $new_id . '.' . $args['id_post'] . '.' . $id_user . '.NULL.' . $time_filename . '.xml';
 
 			// Save to file
 			if( $new_obj->asXml( PATH_COMMENTS . $filename ) )

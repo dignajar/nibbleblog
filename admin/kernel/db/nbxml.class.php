@@ -34,7 +34,7 @@ class NBXML extends SimpleXMLElement
 
 	public function getAttribute($name)
 	{
-		return( utf8_decode($this->attributes()->{$name}) );
+		return( utf8_decode((string)$this->attributes()->{$name}) );
 	}
 
 	public function setChild($name, $value)
@@ -44,7 +44,7 @@ class NBXML extends SimpleXMLElement
 
 	public function getChild($name)
 	{
-		return( utf8_decode($this->{$name}) );
+		return( utf8_decode((string)$this->{$name}) );
 	}
 
 }

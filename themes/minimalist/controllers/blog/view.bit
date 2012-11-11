@@ -1,6 +1,0 @@
-<?php
-
-	// Title for layout
-	$layout['title'] = $settings['name'];
-
-?>

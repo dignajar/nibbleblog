@@ -84,13 +84,17 @@ class DB_POSTS {
 			// Object
 			$new_obj = new NBXML($xml, 0, FALSE, '', FALSE);
 
-			// Elements
+			// Time - UTC=0
 			$time_unix = $_DATE->unixstamp();
-			$time = $_DATE->toarray($time_unix);
 
+			// Time for Filename
+			$time_filename = $_DATE->format_gmt($time_unix, 'Y.m.d.H.i.s');
+
+			// Elements
 			$new_obj->addChild('type',				$args['type']);
 			$new_obj->addChild('title',				$args['title']);
 			$new_obj->addChild('content',			$args['content']);
+			$new_obj->addChild('description',		$args['description']);
 			$new_obj->addChild('allow_comments',	$args['allow_comments']);
 
 			$new_obj->addChild('pub_date',			$time_unix);
@@ -111,8 +115,7 @@ class DB_POSTS {
 			$new_id = $this->last_insert_id = $this->get_autoinc();
 
 			// Filename for new post
-			$time_tmp = $time['Y'] . '.' . $time['m'] . '.' . $time['d'] . '.' . $time['H'] . '.' . $time['i'] . '.' . $time['s'];
-			$filename = $new_id . '.' . $args['id_cat'] . '.' . $args['id_user'] . '.NULL.' . $time_tmp . '.xml';
+			$filename = $new_id . '.' . $args['id_cat'] . '.' . $args['id_user'] . '.NULL.' . $time_filename . '.xml';
 
 			// Save to file
 			if( $new_obj->asXml( PATH_POSTS . $filename ) )
@@ -151,6 +154,7 @@ class DB_POSTS {
 
 			$new_obj->setChild('title', 			$args['title']);
 			$new_obj->setChild('content', 			$args['content']);
+			$new_obj->setChild('description', 		$args['description']);
 			$new_obj->setChild('mod_date', 			$_DATE->unixstamp());
 			$new_obj->setChild('allow_comments', 	$args['allow_comments']);
 
@@ -269,16 +273,16 @@ class DB_POSTS {
 			return( $this->files_count );
 		}
 
+		public function get_autoinc()
+		{
+			return( (int) $this->obj_xml['autoinc'] );
+		}
+
 /*
 ======================================================================================
 	PRIVATE METHODS
 ======================================================================================
 */
-		private function get_autoinc()
-		{
-			return( (int) $this->obj_xml['autoinc'] );
-		}
-
 		private function set_autoinc($value = 0)
 		{
 			$this->obj_xml['autoinc'] = $value + $this->get_autoinc();
@@ -331,6 +335,7 @@ class DB_POSTS {
 		private function get_items($file)
 		{
 			global $_TEXT;
+			global $_DATE;
 
 			$obj_xml = new NBXML(PATH_POSTS . $file, 0, TRUE, '', FALSE);
 
@@ -350,20 +355,26 @@ class DB_POSTS {
 
 			$tmp_array['type']				= (string) $obj_xml->getChild('type');
 			$tmp_array['title']				= (string) $obj_xml->getChild('title');
-			$tmp_array['pub_date']			= (string) $obj_xml->getChild('pub_date');
-			$tmp_array['mod_date']			= (string) $obj_xml->getChild('mod_date');
+			$tmp_array['description']		= (string) $obj_xml->getChild('description');
+
+			$tmp_array['pub_date_unix']		= (string) $obj_xml->getChild('pub_date');
+			$tmp_array['mod_date_unix']		= (string) $obj_xml->getChild('mod_date');
 
 			$tmp_array['allow_comments']	= (bool) ((int)$obj_xml->getChild('allow_comments'))==1;
 			$tmp_array['sticky']			= (bool) $this->is_sticky($file_info[0]);
 
-			// CONTENT
-			$tmp_array['content']			= (string) $content;
+			// DATE
+			$tmp_array['pub_date'] = $_DATE->format($tmp_array['pub_date_unix'], $this->settings['timestamp_format']);
+			$tmp_array['mod_date'] = $_DATE->format($tmp_array['mod_date_unix'], $this->settings['timestamp_format']);
 
-			$tmp_array['content_part0'] = $tmp_content[0];
+			// CONTENT
+			$tmp_array['content'][0] = $content;
+
+			$tmp_array['content'][1] = $tmp_content[0];
 
 			if( isset($tmp_content[1]) )
 			{
-				$tmp_array['content_part1'] = $tmp_content[1];
+				$tmp_array['content'][2] = $tmp_content[1];
 				$tmp_array['read_more'] = true;
 			}
 
@@ -382,7 +393,7 @@ class DB_POSTS {
 			{
 				if( $_TEXT->not_empty($tmp_array['title']))
 				{
-					$slug = $_TEXT->get_slug_url($tmp_array['title']);
+					$slug = $_TEXT->clean_url($tmp_array['title']);
 				}
 				else
 				{

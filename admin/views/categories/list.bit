@@ -1,7 +1,7 @@
 <?php
 
 	// NEW CATEGORY
-	echo $_HTML->separator( array('content'=>$_LANG['NEW_CATEGORY']) );
+	echo $_HTML->separator( array('style'=>'margin-top: 0;', 'content'=>$_LANG['NEW_CATEGORY']) );
 
 	echo $_HTML->form_open( array('id'=>'js_form_add', 'name'=>'form', 'method'=>'post') );
 
@@ -20,7 +20,7 @@
 	// LIST
 	echo $_HTML->separator( array('content'=>$_LANG['CATEGORIES_IN_YOUR_BLOG']) );
 
-	echo $_HTML->form_open( array('id'=>'js_form_set', 'name'=>'form', 'method'=>'post') );
+	echo $_HTML->form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
 		foreach( $categories as $category )
 		{
@@ -40,25 +40,15 @@
 
 ?>
 
+<?php
+	$ajax['url'] = HTML_PATH_ADMIN_AJAX.'categories.php';
+	$ajax['action'] = 'set';
+	include(PATH_ADMIN_JS.'ajax_form.bit');
+?>
+
 <script>
 
 $(document).ready(function() {
-
-	// Save the default configuration
-	var datasrz = serial_form($("#js_form_set"));
-
-	$(window).bind('beforeunload', function() {
-
-		var newdata = serial_form($("#js_form_set"));
-
-		if( newdata != datasrz )
-		{
-			$.ajax({
-					url: HTML_PATH_ADMIN_AJAX + "categories.php", type: 'POST', cache: false, timeout: 15000, dataType: "xml", async: false,
-					data: { action:"set", serial_data: newdata }
-			});
-		}
-	});
 
 	$("a.js_button_delete").click( function() {
 		var self = $(this);

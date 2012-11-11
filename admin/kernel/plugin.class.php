@@ -5,7 +5,7 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 14/08/2012
+ * Last update: 06/11/2012
 
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
@@ -54,9 +54,9 @@ class PLUGIN {
 		$new_obj->addAttribute('version', $this->version);
 		$new_obj->addAttribute('installed_at', $_DATE->unixstamp());
 
-		foreach($this->fields as $field)
+		foreach($this->fields as $field=>$value)
 		{
-			$new_obj->addChild($field);
+			$new_obj->addChild($field,$value);
 		}
 
 		if( !$new_obj->asXml( PATH_PLUGINS_DB.$this->dir_name.'/db.xml' ) )
@@ -162,7 +162,7 @@ class PLUGIN {
 	{
 		return(false);
 	}
-	
+
 	public function get_html()
 	{
 		return(false);

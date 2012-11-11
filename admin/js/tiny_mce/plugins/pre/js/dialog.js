@@ -14,7 +14,7 @@ var PreDialog = {
 			ed.selection.getNode().innerHTML = cnt;
 		}
 		else {
-			cnt = '<pre>'+cnt+'</pre><p></p>';
+			cnt = '<pre><code>'+cnt+'</code></pre><p></p>';
 			tinyMCEPopup.execCommand(tinyMCEPopup.isGecko ? 'insertHTML' : 'mceInsertContent', false, cnt);
 		}
 		

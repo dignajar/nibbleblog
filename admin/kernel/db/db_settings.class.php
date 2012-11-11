@@ -4,7 +4,7 @@
  * Nibbleblog -
  * http://www.nibbleblog.com
  * Author Diego Najar
- 
+
  * Last update: 15/07/2012
 
  * All Nibbleblog code is released under the GNU General Public License.
@@ -47,6 +47,7 @@ class DB_SETTINGS {
 	PUBLIC METHODS
 ======================================================================================
 */
+		// Returns TRUE if the file was written successfully and FALSE otherwise.
 		public function savetofile()
 		{
 			return( $this->obj_xml->asXML($this->file_xml) );
@@ -74,39 +75,30 @@ class DB_SETTINGS {
 			$tmp_array['timezone']					= (string) $this->obj_xml->getChild('timezone');
 			$tmp_array['timestamp_format']			= (string) $this->obj_xml->getChild('timestamp_format');
 			$tmp_array['advanced_post_options']		= (int) $this->obj_xml->getChild('advanced_post_options') == 1;
-			$tmp_array['friendly_urls']		= (int) $this->obj_xml->getChild('friendly_urls') == 1;
+			$tmp_array['friendly_urls']				= (int) $this->obj_xml->getChild('friendly_urls') == 1;
+			$tmp_array['enable_wysiwyg']			= (int) $this->obj_xml->getChild('enable_wysiwyg') == 1;
+
+			$tmp_array['img_resize']				= (int) $this->obj_xml->getChild('img_resize') == 1;
+			$tmp_array['img_resize_width']			= (int) $this->obj_xml->getChild('img_resize_width');
+			$tmp_array['img_resize_height']			= (int) $this->obj_xml->getChild('img_resize_height');
+			$tmp_array['img_resize_option']			= (string) $this->obj_xml->getChild('img_resize_option');
+
+			$tmp_array['img_thumbnail']				= (int) $this->obj_xml->getChild('img_thumbnail') == 1;
+			$tmp_array['img_thumbnail_width']		= (int) $this->obj_xml->getChild('img_thumbnail_width');
+			$tmp_array['img_thumbnail_height']		= (int) $this->obj_xml->getChild('img_thumbnail_height');
+			$tmp_array['img_thumbnail_option']		= (string) $this->obj_xml->getChild('img_thumbnail_option');
+
+			$tmp_array['locale']					= (string) $this->obj_xml->getChild('locale');
 
 			return($tmp_array);
 		}
 
-		public function set_theme($args)
+		public function set($args)
 		{
-			$this->obj_xml->setChild('theme',			$args['theme']);
-
-			return(true);
-		}
-
-		public function set_general($args)
-		{
-			$this->obj_xml->setChild('name', 			$args['name']);
-			$this->obj_xml->setChild('slogan',		 	$args['slogan']);
-			$this->obj_xml->setChild('about', 			$args['about']);
-			$this->obj_xml->setChild('footer', 			$args['footer']);
-			$this->obj_xml->setChild('language', 		$args['language']);
-
-			return(true);
-		}
-
-		public function set_advanced($args)
-		{
-			$this->obj_xml->setChild('url', 					$args['url']);
-			$this->obj_xml->setChild('path',					$args['path']);
-			$this->obj_xml->setChild('items_page', 				$args['items_page']);
-			$this->obj_xml->setChild('items_rss', 				$args['items_rss']);
-			$this->obj_xml->setChild('timezone', 				$args['timezone']);
-			$this->obj_xml->setChild('timestamp_format',		$args['timestamp_format']);
-			$this->obj_xml->setChild('advanced_post_options', 	$args['advanced_post_options']);
-			$this->obj_xml->setChild('friendly_urls', 	$args['friendly_urls']);
+			foreach($args as $name=>$value)
+			{
+				$this->obj_xml->setChild($name, $value);
+			}
 
 			return(true);
 		}
@@ -114,6 +106,11 @@ class DB_SETTINGS {
 		public function get_language()
 		{
 			return((string) $this->obj_xml->getChild('language'));
+		}
+
+		public function get_wysiwyg()
+		{
+			return( (int)$this->obj_xml->getChild('enable_wysiwyg') == 1 );
 		}
 
 		public function get_base_path()
@@ -132,8 +129,10 @@ class DB_SETTINGS {
 
 			foreach($files as $file)
 			{
-				$file = basename($file, '.bit');
-				$tmp_array[$file] = ucwords($_TEXT->replace('_',' ',$file));
+				include(PATH_LANGUAGES.$file);
+				$iso = basename($file, '.bit');
+				$native = $_LANG_CONFIG['DATA']['native'];
+				$tmp_array[$iso] = ucwords($native);
 			}
 
 			return($tmp_array);

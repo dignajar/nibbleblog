@@ -1,0 +1,35 @@
+<?php
+
+	// If quote post
+	if($post['type']=='quote')
+	{
+		echo '<blockquote>'.$post['quote'].'</blockquote>';
+	}
+	// If simple post or video post
+	else
+	{
+		// If the title is not empty then print it
+		if( !empty($post['title']) )
+		{
+			echo '<header class="post">';
+			echo '<h2 class="title">'.$post['title'].'</h2>';
+			echo '</header>';
+		}
+
+		// If video post, then print the embed video
+		if($post['type']=='video')
+		{
+			$video_info = $_VIDEO->video_get_info($post['video'], $theme['video_width'], $theme['video_height']);
+
+			echo '<p>'.$video_info['embed'].'</p>';
+		}
+
+		// Print the post content
+		echo $post['content'][0];
+	}
+
+	echo '<footer class="post">';
+		echo '<span class="date">'.$post['pub_date'].'</span>';
+	echo '</footer>';
+
+?>

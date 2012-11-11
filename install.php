@@ -5,7 +5,7 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 21/08/2012
+ * Last update: 07/10/2012
 
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
@@ -14,8 +14,8 @@
 if( file_exists('content/private') || file_exists('content/public') )
 	exit('Blog already installed');
 
-require('admin/boot/includes/fs_php.bit');
-require('admin/boot/includes/constants.bit');
+require('admin/boot/init/1-fs_php.bit');
+require('admin/boot/init/10-constants.bit');
 
 // DB
 require(PATH_DB . 'nbxml.class.php');
@@ -55,6 +55,18 @@ $dependencies = true;
 $blog_base_path = '/';
 $blog_address = 'http://'.getenv('HTTP_HOST');
 $installation_complete = false;
+$languagues = array(
+	'de_DE'=>'Deutsch',
+	'en_US'=>'English',
+	'es_ES'=>'Español',
+	'fr_FR'=>'Français',
+	'hu_HU'=>'Magyar',
+	'pl_PL'=>'Polski',
+	'pt_PT'=>'Português',
+	'ru_RU'=>'Pyccĸий',
+	'vi_VN'=>'Tiếng Việt',
+	'zh_TW'=>'繁體中文'
+);
 
 // ============================================================================
 //	SYSTEM
@@ -66,6 +78,8 @@ if(function_exists('get_loaded_extensions'))
 
 // WRITING TEST
 // Try to give permissions to the directory content
+if(!file_exists('content'))
+	@mkdir('content');
 @chmod('content',0777);
 @rmdir('content/tmp');
 $writing_test = @mkdir('content/tmp');
@@ -79,8 +93,8 @@ if( dirname(getenv('REQUEST_URI')) != '/' )
 // LANGUAGES
 if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 {
-	$_GET['language'] = 'english';
-	require( 'languages/english.bit' );
+	$_GET['language'] = 'en_US';
+	require( 'languages/en_US.bit' );
 }
 
 // ============================================================================
@@ -93,7 +107,6 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		mkdir('content/private/plugins',0777, true);
 		mkdir('content/public',			0777, true);
 		mkdir('content/public/upload',	0777, true);
-		mkdir('content/public/rss',		0777, true);
 		mkdir('content/public/posts',	0777, true);
 		mkdir('content/public/comments',0777, true);
 
@@ -104,18 +117,31 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		$obj = new NBXML($xml, 0, FALSE, '', FALSE);
 		$obj->addChild('name',					$_POST['name']);
 		$obj->addChild('slogan',				$_POST['slogan']);
-		$obj->addChild('footer',				'Powered By Nibbleblog - Theme Clean');
+		$obj->addChild('footer',				$_LANG['POWERED_BY_NIBBLEBLOG']);
 		$obj->addChild('about',					'');
 		$obj->addChild('language',				$_GET['language']);
-		$obj->addChild('timezone',				'0');
+		$obj->addChild('timezone',				'UTC');
 		$obj->addChild('theme',					'clean');
 		$obj->addChild('url',					$_POST['url']);
 		$obj->addChild('path',					$_POST['path']);
-		$obj->addChild('rewriteurl',			'0');
-		$obj->addChild('items_rss',				'4');
+		$obj->addChild('items_rss',				'8');
 		$obj->addChild('items_page',			'4');
-		$obj->addChild('timestamp_format',		'm.d.y');
+		$obj->addChild('timestamp_format',		'%d %B, %Y');
 		$obj->addChild('advanced_post_options',	'0');
+		$obj->addChild('locale',				$_GET['language']);
+		$obj->addChild('friendly_urls',			0);
+		$obj->addChild('enable_wysiwyg',		1);
+
+		$obj->addChild('img_resize',			1);
+		$obj->addChild('img_resize_width',		880);
+		$obj->addChild('img_resize_height',		600);
+		$obj->addChild('img_resize_option',		'auto');
+
+		$obj->addChild('img_thumbnail',			1);
+		$obj->addChild('img_thumbnail_width',	190);
+		$obj->addChild('img_thumbnail_height',	190);
+		$obj->addChild('img_thumbnail_option',	'landscape');
+
 		$obj->asXml( FILE_XML_CONFIG );
 
 		// categories.xml
@@ -125,13 +151,13 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		$obj = new NBXML($xml, 0, FALSE, '', FALSE);
 		$node = $obj->addChild('category', '');
 		$node->addAttribute('id',0);
-		$node->addAttribute('name', 'Uncategorized');
+		$node->addAttribute('name', $_LANG['UNCATEGORIZED']);
 		$node = $obj->addChild('category', '');
 		$node->addAttribute('id',1);
-		$node->addAttribute('name', 'Music');
+		$node->addAttribute('name', $_LANG['MUSIC']);
 		$node = $obj->addChild('category', '');
 		$node->addAttribute('id',2);
-		$node->addAttribute('name', 'Videos');
+		$node->addAttribute('name', $_LANG['VIDEOS']);
 		$obj->asXml( FILE_XML_CATEGORIES );
 
 		// comments.xml
@@ -149,14 +175,6 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		$obj = new NBXML($xml, 0, FALSE, '', FALSE);
 		$node = $obj->addChild('sticky', '');
 		$obj->asXml( FILE_XML_POST );
-
-		// rss.xml
-		$xml  = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
-		$xml .= '<rss version="2.0">';
-		$xml .= '</rss>';
-		$obj = new NBXML($xml, 0, FALSE, '', FALSE);
-		$node = $obj->addChild('channel', '');
-		$obj->asXml( FILE_XML_RSS );
 
 		// syslog.xml
 		$xml  = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
@@ -189,7 +207,7 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		$content .= '<p>'.$_LANG['WELCOME_POST_LINE3'].'  <a target="_blank" href="http://forum.nibbleblog.com">http://forum.nibbleblog.com</a></p>';
 		$content .= '<p>'.$_LANG['WELCOME_POST_LINE4'].'  <a target="_blank" href="http://www.facebook.com/nibbleblog">https://www.facebook.com/nibbleblog</a></p>';
 		$_DB_POST = new DB_POSTS(FILE_XML_POST, null);
-		$_DB_POST->add( array('id_user'=>0, 'id_cat'=>0, 'type'=>'simple', 'title'=>$_LANG['WELCOME_POST_TITLE'], 'content'=>$content, 'allow_comments'=>'1', 'sticky'=>'0') );
+		$_DB_POST->add( array('id_user'=>0, 'id_cat'=>0, 'type'=>'simple', 'description'=>$_LANG['WELCOME_POST_TITLE'], 'title'=>$_LANG['WELCOME_POST_TITLE'], 'content'=>$content, 'allow_comments'=>'1', 'sticky'=>'0') );
 
 		$installation_complete = true;
 	}
@@ -205,21 +223,26 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 
 	<style type="text/css">
 		body {
-			font-family: helvetica,arial,sans-serif;
-			background-color: #FEFEFE;
+			font-family: arial,sans-serif;
+			background-color: #FFF;
 			margin: 0;
 			padding: 0;
-			font-size:14px;
-			color: #555;
+			font-size: 0.875em;
+			color: #616161;
 		}
 
 		#container {
 			background: none repeat scroll 0 0 #F9F9F9;
-			border: 1px solid #EEEEEE;
+			border: 1px solid #EBEBEB;
 			border-radius: 3px 3px 3px 3px;
 			margin: 50px auto;
+			max-width: 800px;
 			padding: 20px 30px;
-			width: 800px;
+			width: 60%;
+		}
+
+		h1 {
+
 		}
 
 		h2 {
@@ -311,27 +334,22 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		<header>
 			<div class="lang">
 			<?php
-			if(!$installation_complete)
-			{
-				echo '<a class="lang" href="./install.php?language=chinese_traditional">Chinese Traditional</a>';
-				echo '<a class="lang" href="./install.php?language=english">English</a>';
-				echo '<a class="lang" href="./install.php?language=french">French</a>';
-				echo '<a class="lang" href="./install.php?language=hungarian">Hungarian</a>';
-				echo '<a class="lang" href="./install.php?language=polish">Polish</a>';
-				echo '<a class="lang" href="./install.php?language=portuguese">Portuguese</a>';
-				echo '<a class="lang" href="./install.php?language=russian">Russian</a>';
-				echo '<a class="lang" href="./install.php?language=spanish">Spanish</a>';
-				echo '<a class="lang" href="./install.php?language=vietnamese">Vietnamese</a>';
-			}
+				if(!$installation_complete)
+				{
+					foreach( $languagues as $key=>$value)
+						echo '<a class="lang" href="./install.php?language='.$key.'">'.$value.'</a>';
+				}
 			?>
 			</div>
 			<?php echo $_HTML->h1( array('content'=>$_LANG['WELCOME_TO_NIBBLEBLOG']) ); ?>
 		</header>
 
+		<noscript>
 		<section id="javascript_fail">
 			<h2>Javascript</h2>
 			<p><?php echo $_LANG['PLEASE_ENABLE_JAVASCRIPT_IN_YOUR_BROWSER'] ?></p>
 		</section>
+		</noscript>
 
 		<section id="complete">
 			<?php
@@ -366,7 +384,7 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 				echo $_HTML->div_open( array('class'=>'dependency') );
 					echo $_HTML->link( array('class'=>'description', 'content'=>$_LANG['PHP_MODULE'].' - DOM', 'href'=>'http://www.php.net/manual/en/book.dom.php', 'target'=>'_blank') );
 
-					if( in_array('gd', $php_modules) )
+					if( in_array('dom', $php_modules) )
 					{
 						echo $_HTML->div( array('class'=>'status_pass', 'content'=>$_LANG['PASS']) );
 					}
@@ -416,26 +434,26 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 				echo $_HTML->form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
 					echo $_HTML->label( array('content'=>$_LANG['BLOG_TITLE']) );
-					echo $_HTML->input( array('id'=>'js_name', 'name'=>'name', 'type'=>'text') );
+					echo $_HTML->input( array('id'=>'js_name', 'name'=>'name', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
 
 					echo $_HTML->label( array('content'=>$_LANG['BLOG_SLOGAN']) );
-					echo $_HTML->input( array('id'=>'js_slogan', 'name'=>'slogan', 'type'=>'text') );
+					echo $_HTML->input( array('id'=>'js_slogan', 'name'=>'slogan', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
 
 					echo $_HTML->label( array('content'=>$_LANG['ADMINISTRATOR_USERNAME'].'*') );
-					echo $_HTML->input( array('id'=>'js_username', 'name'=>'username', 'type'=>'text') );
+					echo $_HTML->input( array('id'=>'js_username', 'name'=>'username', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
 
 					echo $_HTML->label( array('content'=>$_LANG['ADMINISTRATOR_PASSWORD'].'*') );
-					echo $_HTML->input( array('id'=>'js_password', 'name'=>'password', 'type'=>'text') );
+					echo $_HTML->input( array('id'=>'js_password', 'name'=>'password', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
 
 					echo $_HTML->div_open( array('hidden'=>!isset($_GET['expert'])) );
 						echo $_HTML->label( array('content'=>$_LANG['ADMINISTRATOR_EMAIL']) );
-						echo $_HTML->input( array('name'=>'email', 'type'=>'text') );
+						echo $_HTML->input( array('name'=>'email', 'type'=>'text', 'autocomplete'=>'off') );
 
 						echo $_HTML->label( array('content'=>$_LANG['BLOG_ADDRESS']) );
-						echo $_HTML->input( array('name'=>'url', 'type'=>'text', 'value'=>$blog_address) );
+						echo $_HTML->input( array('name'=>'url', 'type'=>'text', 'value'=>$blog_address, 'autocomplete'=>'off') );
 
 						echo $_HTML->label( array('content'=>$_LANG['BLOG_BASE_PATH']) );
-						echo $_HTML->input( array('name'=>'path', 'type'=>'text', 'value'=>$blog_base_path) );
+						echo $_HTML->input( array('name'=>'path', 'type'=>'text', 'value'=>$blog_base_path, 'autocomplete'=>'off') );
 					echo $_HTML->div_close();
 
 					echo $_HTML->input( array('type'=>'submit', 'value'=>$_LANG['INSTALL']) );
@@ -452,8 +470,6 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 
 	<script>
 	$(document).ready(function(){
-
-		$("#javascript_fail").hide();
 
 		<?php
 			if($installation_complete)

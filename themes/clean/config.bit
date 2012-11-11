@@ -6,10 +6,12 @@
 		'description'=>'Full HTML5 Theme',
 		'author'=>'Diego Najar',
 		'version'=>'2.0',
-		'last_update'=>'25/08/2012', // dd/mm/yyyy
+		'last_update'=>'02/09/2012', // dd/mm/yyyy
 		'url'=>'http://www.nibbleblog.com', // http://xxxxxxxxxxxxx
 		'video_width'=>'640',
-		'video_height'=>'360'
+		'video_height'=>'360',
+		'comment_sleep'=>'2', // seconds
+		'template'=> array('post'=>'post.bit')
 	);
 
 ?>

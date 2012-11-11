@@ -2,9 +2,9 @@
 
 Header("content-type: application/x-javascript");
 
-require('../boot/includes/fs_php.bit');
-require('../boot/includes/objects.bit');
-require('../boot/includes/fs_html.bit');
+require('../boot/init/1-fs_php.bit');
+require('../boot/init/2-objects.bit');
+require('../boot/init/3-variables.bit');
 
 // ============================================================================
 //	PATHS
@@ -19,6 +19,15 @@ echo 'var HTML_PATH_ADMIN_TEMPLATES = "'.HTML_PATH_ADMIN_TEMPLATES.'";';
 // ============================================================================
 //	VARS
 // ============================================================================
+
+if( $_DB_SETTINGS->get_wysiwyg() )
+{
+	echo 'var _WYSIWYG = true;';
+}
+else
+{
+	echo 'var _WYSIWYG = false;';
+}
 
 echo 'var _MAX_FILE_SIZE = 1024 * 3000;';
 
