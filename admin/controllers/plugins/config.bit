@@ -8,7 +8,7 @@
 //	VARIABLES
 // ============================================================================
 
-	$plugin = $_PLUGINS['PLUGIN_'.strtoupper($_URL['plugin'])];
+	$plugin = $_PLUGINS['PLUGIN_'.strtoupper($url['plugin'])];
 	$plugin->init_db();
 
 	$html = $plugin->get_html_config();

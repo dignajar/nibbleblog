@@ -13,7 +13,7 @@ else
 }
 
 $last_post = $posts[0];
-$updated = $_DATE->atom($last_post['pub_date_unix']);
+$updated = Date::atom($last_post['pub_date_unix']);
 
 // ============================================================================
 // ATOM Feed
@@ -35,7 +35,7 @@ foreach($posts as $post)
 	}
 	else
 	{
-		if($_TEXT->not_empty($post['title']))
+		if(Text::not_empty($post['title']))
 		{
 			$title = htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8');
 		}
@@ -49,7 +49,7 @@ foreach($posts as $post)
 
 	$full_link = htmlspecialchars($settings['url'].$post['permalink']);
 
-	$date = $_DATE->atom($post['pub_date_unix']);
+	$date = Date::atom($post['pub_date_unix']);
 
 	// Entry
 	$rss.= '<entry>' . PHP_EOL;

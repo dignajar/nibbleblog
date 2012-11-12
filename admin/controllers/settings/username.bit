@@ -7,9 +7,9 @@
 	{
 		include( FILE_SHADOW );
 
-		$current_hash = $_CRYPT->get_hash($_POST['pw_current'], $_USER[0]['salt']);
+		$current_hash = Crypt::get_hash($_POST['pw_current'], $_USER[0]['salt']);
 
-		if( $_TEXT->compare($current_hash, $_USER[0]['password']) )
+		if( Text::compare($current_hash, $_USER[0]['password']) )
 		{
 			// Change username
 			if(isset($_POST['username']))
@@ -23,8 +23,8 @@
 			// Change password
 			else
 			{
-				$new_salt = $_TEXT->random_text(11);
-				$new_hash = $_CRYPT->get_hash($_POST['pw_new'],$new_salt);
+				$new_salt = Text::random_text(11);
+				$new_hash = Crypt::get_hash($_POST['pw_new'],$new_salt);
 				$text = '<?php $_USER[0]["uid"] = "0"; $_USER[0]["username"] = "'.$_USER[0]['username'].'"; $_USER[0]["password"] = "'.$new_hash.'"; $_USER[0]["salt"] = "'.$new_salt.'"; $_USER[0]["email"] = "'.$_USER[0]['email'].'"; ?>';
 
 				$_SESSION['session_alert']['msg'] = $_LANG['PASSWORD_HAS_BEEN_CHANGED_SUCCESSFULLY'];

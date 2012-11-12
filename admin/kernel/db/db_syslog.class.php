@@ -4,7 +4,7 @@
  * Nibbleblog -
  * http://www.nibbleblog.com
  * Author Diego Najar
- 
+
  * Last update: 15/07/2012
 
  * All Nibbleblog code is released under the GNU General Public License.
@@ -18,8 +18,8 @@ class DB_SYSLOG {
 	VARIABLES
 ======================================================================================
 */
-		public $file_xml; 			// Contains the link to the blog_config.xml file
-		public $obj_xml; 				// Contains the object of the blog_config.xml file
+		public $file_xml; 			// Contains the link to XML file
+		public $obj_xml; 			// Contains the object
 
 /*
 ======================================================================================
@@ -54,22 +54,17 @@ class DB_SYSLOG {
 
 		public function add_session()
 		{
-			global $_NET;
-			global $_DATE;
-			global $_CRYPT;
-
 			if( count( $this->obj_xml->login->session ) >= AMOUNT_OF_SESSION )
 				unset( $this->obj_xml->login->session[0] );
 
-
 			// For encrypt the user IP
 			include(FILE_KEYS);
-			$user_ip = $_CRYPT->encrypt($_NET->get_user_ip(), $_KEYS[0]);
+			$user_ip = Crypt::encrypt(Net::get_user_ip(), $_KEYS[0]);
 
 			$node = $this->obj_xml->login->addChild('session');
 
 			$node->addAttribute('ip',		$user_ip);
-			$node->addAttribute('date',		$_DATE->unixstamp());
+			$node->addAttribute('date',		Date::unixstamp());
 
 			$this->savetofile();
 
@@ -78,14 +73,12 @@ class DB_SYSLOG {
 
 		public function get_all_sessions()
 		{
-			global $_CRYPT;
-
 			include(FILE_KEYS);
 
 			$tmp_array = array();
 			foreach( $this->obj_xml->login->session as $session )
 			{
-				$user_ip = $_CRYPT->decrypt((string) $session->getAttribute('ip'), $_KEYS[0]);
+				$user_ip = Crypt::decrypt((string) $session->getAttribute('ip'), $_KEYS[0]);
 
 				$row = array();
 				$row['ip']		= $user_ip;

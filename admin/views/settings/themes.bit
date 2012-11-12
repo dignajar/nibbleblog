@@ -1,14 +1,14 @@
 <?php
 
-	echo $_HTML->form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
 		// THEMES
-		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->label( array('content'=>$_LANG['SELECT_THEME'], 'class'=>'blocked') );
-			echo $_HTML->select( array('name'=>'theme'), $themes_html, $settings['theme']);
-		echo $_HTML->div_close();
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>$_LANG['SELECT_THEME'], 'class'=>'blocked') );
+			echo Html::select( array('name'=>'theme'), $themes_html, $settings['theme']);
+		echo Html::div_close();
 
-	echo $_HTML->form_close();
+	echo Html::form_close();
 
 ?>
 

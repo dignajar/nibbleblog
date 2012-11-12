@@ -11,7 +11,7 @@
  * See COPYRIGHT.txt and LICENSE.txt.
 */
 
-class HELPER_RESIZE {
+class Resize {
 
 	// *** Class variables
 	private $image;
@@ -27,9 +27,52 @@ class HELPER_RESIZE {
 		// *** Get width and height
 		$this->width  = imagesx($this->image);
 		$this->height = imagesy($this->image);
-		
+
 		//
 		$this->resizeImage($newWidth, $newHeight, $option);
+	}
+
+	public function saveImage($savePath, $imageQuality="100")
+	{
+		// *** Get extension
+		$extension = strrchr($savePath, '.');
+		$extension = strtolower($extension);
+
+		switch($extension)
+		{
+			case '.jpg':
+			case '.jpeg':
+				if (imagetypes() & IMG_JPG) {
+					imagejpeg($this->imageResized, $savePath, $imageQuality);
+				}
+				break;
+
+			case '.gif':
+				if (imagetypes() & IMG_GIF) {
+					imagegif($this->imageResized, $savePath);
+				}
+				break;
+
+			case '.png':
+				// *** Scale quality from 0-100 to 0-9
+				$scaleQuality = round(($imageQuality/100) * 9);
+
+				// *** Invert quality setting as 0 is best, not 9
+				$invertScaleQuality = 9 - $scaleQuality;
+
+				if (imagetypes() & IMG_PNG) {
+					 imagepng($this->imageResized, $savePath, $invertScaleQuality);
+				}
+				break;
+
+			// ... etc
+
+			default:
+				// *** No extension - No save.
+				break;
+		}
+
+		imagedestroy($this->imageResized);
 	}
 
 	## --------------------------------------------------------
@@ -115,7 +158,7 @@ class HELPER_RESIZE {
 				$optimalHeight = $optionArray['optimalHeight'];
 				break;
 		}
-		
+
 		return array('optimalWidth' => $optimalWidth, 'optimalHeight' => $optimalHeight);
 	}
 
@@ -204,49 +247,5 @@ class HELPER_RESIZE {
 		imagecopyresampled($this->imageResized, $crop , 0, 0, $cropStartX, $cropStartY, $newWidth, $newHeight , $newWidth, $newHeight);
 	}
 
-	## --------------------------------------------------------
-
-	public function saveImage($savePath, $imageQuality="100")
-	{
-		// *** Get extension
-		$extension = strrchr($savePath, '.');
-		$extension = strtolower($extension);
-
-		switch($extension)
-		{
-			case '.jpg':
-			case '.jpeg':
-				if (imagetypes() & IMG_JPG) {
-					imagejpeg($this->imageResized, $savePath, $imageQuality);
-				}
-				break;
-
-			case '.gif':
-				if (imagetypes() & IMG_GIF) {
-					imagegif($this->imageResized, $savePath);
-				}
-				break;
-
-			case '.png':
-				// *** Scale quality from 0-100 to 0-9
-				$scaleQuality = round(($imageQuality/100) * 9);
-
-				// *** Invert quality setting as 0 is best, not 9
-				$invertScaleQuality = 9 - $scaleQuality;
-
-				if (imagetypes() & IMG_PNG) {
-					 imagepng($this->imageResized, $savePath, $invertScaleQuality);
-				}
-				break;
-
-			// ... etc
-
-			default:
-				// *** No extension - No save.
-				break;
-		}
-
-		imagedestroy($this->imageResized);
-	}
 }
 ?>

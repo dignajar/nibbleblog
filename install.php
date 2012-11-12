@@ -23,29 +23,16 @@ require(PATH_DB . 'db_posts.class.php');
 
 // HELPERS
 require(PATH_HELPERS . 'crypt.class.php');
-require(PATH_HELPERS . 'html.class.php');
-require(PATH_HELPERS . 'net.class.php');
 require(PATH_HELPERS . 'date.class.php');
-require(PATH_HELPERS . 'fs.class.php');
+require(PATH_HELPERS . 'filesystem.class.php');
+require(PATH_HELPERS . 'html.class.php');
+require(PATH_HELPERS . 'image.class.php');
+require(PATH_HELPERS . 'net.class.php');
 require(PATH_HELPERS . 'number.class.php');
-require(PATH_HELPERS . 'text.class.php');
 require(PATH_HELPERS . 'redirect.class.php');
+require(PATH_HELPERS . 'text.class.php');
 require(PATH_HELPERS . 'validation.class.php');
 require(PATH_HELPERS . 'video.class.php');
-
-// ============================================================================
-//	OBJECTS
-// ============================================================================
-$_CRYPT = new HELPER_CRYPT();
-$_DATE = new HELPER_DATE();
-$_FS = new HELPER_FS();
-$_HTML	= new HELPER_HTML();
-$_NET	= new HELPER_NETWORK();
-$_NUMBER = new HELPER_NUMBER();
-$_TEXT = new HELPER_TEXT();
-$_REDIRECT = new HELPER_REDIRECT();
-$_VALIDATION = new HELPER_VALIDATION();
-$_VIDEO = new HELPER_VIDEO();
 
 // ============================================================================
 //	VARIABLES
@@ -185,17 +172,17 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 		$obj->asXml( FILE_XML_SYSLOG );
 
 		// shadow.php
-		$new_salt = $_TEXT->random_text(11);
-		$new_hash = $_CRYPT->get_hash($_POST['password'],$new_salt);
+		$new_salt = Text::random_text(11);
+		$new_hash = Crypt::get_hash($_POST['password'],$new_salt);
 		$text = '<?php $_USER[0]["uid"] = "0"; $_USER[0]["username"] = "'.$_POST['username'].'"; $_USER[0]["password"] = "'.$new_hash.'"; $_USER[0]["salt"] = "'.$new_salt.'"; $_USER[0]["email"] = "'.$_POST['email'].'"; ?>';
 		$file = fopen(FILE_SHADOW, 'w');
 		fputs($file, $text);
 		fclose($file);
 
 		// keys.php
-		$key1 = $_CRYPT->get_hash($_TEXT->random_text(11));
-		$key2 = $_CRYPT->get_hash($_TEXT->random_text(11));
-		$key3 = $_CRYPT->get_hash($_TEXT->random_text(11));
+		$key1 = Crypt::get_hash(Text::random_text(11));
+		$key2 = Crypt::get_hash(Text::random_text(11));
+		$key3 = Crypt::get_hash(Text::random_text(11));
 		$text = '<?php $_KEYS[0] = "nibbl'.$key1.'"; $_KEYS[1] = "eblog'.$key2.'"; $_KEYS[2] = "rulez'.$key3.'"; ?>';
 		$file = fopen(FILE_KEYS, 'w');
 		fputs($file, $text);
@@ -341,7 +328,7 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 				}
 			?>
 			</div>
-			<?php echo $_HTML->h1( array('content'=>$_LANG['WELCOME_TO_NIBBLEBLOG']) ); ?>
+			<?php echo Html::h1( array('content'=>$_LANG['WELCOME_TO_NIBBLEBLOG']) ); ?>
 		</header>
 
 		<noscript>
@@ -353,12 +340,12 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 
 		<section id="complete">
 			<?php
-				echo $_HTML->h2( array('content'=>$_LANG['INSTALLATION_COMPLETE']) );
-				echo $_HTML->p( array('content'=>$_LANG['INSTALLATION_LINE1']) );
-				echo $_HTML->p( array('content'=>$_LANG['INSTALLATION_LINE2']) );
-				echo $_HTML->p( array('content'=>$_LANG['INSTALLATION_LINE3'].' <a href="./admin.php">'.$blog_address.$blog_base_path.'admin.php</a>') );
-				echo $_HTML->p( array('content'=>$_LANG['INSTALLATION_LINE4'].' <a href="./">'.$blog_address.$blog_base_path.'</a>') );
-				echo $_HTML->p( array('content'=>$_LANG['INSTALLATION_LINE5'].' <a href="http://forum.nibbleblog.com">http://forum.nibbleblog.com</a>') );
+				echo Html::h2( array('content'=>$_LANG['INSTALLATION_COMPLETE']) );
+				echo Html::p( array('content'=>$_LANG['INSTALLATION_LINE1']) );
+				echo Html::p( array('content'=>$_LANG['INSTALLATION_LINE2']) );
+				echo Html::p( array('content'=>$_LANG['INSTALLATION_LINE3'].' <a href="./admin.php">'.$blog_address.$blog_base_path.'admin.php</a>') );
+				echo Html::p( array('content'=>$_LANG['INSTALLATION_LINE4'].' <a href="./">'.$blog_address.$blog_base_path.'</a>') );
+				echo Html::p( array('content'=>$_LANG['INSTALLATION_LINE5'].' <a href="http://forum.nibbleblog.com">http://forum.nibbleblog.com</a>') );
 			?>
 		</section>
 
@@ -366,104 +353,104 @@ if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 			<h2><?php echo $_LANG['DEPENDENCIES'] ?></h2>
 			<?php
 				// PHP MODULE DOM
-				echo $_HTML->div_open( array('class'=>'dependency') );
-					echo $_HTML->link( array('class'=>'description', 'content'=>$_LANG['PHP_VERSION'].' > 5.2', 'href'=>'http://www.php.net', 'target'=>'_blank') );
+				echo Html::div_open( array('class'=>'dependency') );
+					echo Html::link( array('class'=>'description', 'content'=>$_LANG['PHP_VERSION'].' > 5.2', 'href'=>'http://www.php.net', 'target'=>'_blank') );
 
 					if( version_compare(phpversion(), '5.2', '>') )
 					{
-						echo $_HTML->div( array('class'=>'status_pass', 'content'=>$_LANG['PASS']) );
+						echo Html::div( array('class'=>'status_pass', 'content'=>$_LANG['PASS']) );
 					}
 					else
 					{
 						$dependencies = false;
-						echo $_HTML->div( array('class'=>'status_fail', 'content'=>$_LANG['FAIL']) );
+						echo Html::div( array('class'=>'status_fail', 'content'=>$_LANG['FAIL']) );
 					}
 
-				echo $_HTML->div_close();
+				echo Html::div_close();
 
-				echo $_HTML->div_open( array('class'=>'dependency') );
-					echo $_HTML->link( array('class'=>'description', 'content'=>$_LANG['PHP_MODULE'].' - DOM', 'href'=>'http://www.php.net/manual/en/book.dom.php', 'target'=>'_blank') );
+				echo Html::div_open( array('class'=>'dependency') );
+					echo Html::link( array('class'=>'description', 'content'=>$_LANG['PHP_MODULE'].' - DOM', 'href'=>'http://www.php.net/manual/en/book.dom.php', 'target'=>'_blank') );
 
 					if( in_array('dom', $php_modules) )
 					{
-						echo $_HTML->div( array('class'=>'status_pass', 'content'=>$_LANG['PASS']) );
+						echo Html::div( array('class'=>'status_pass', 'content'=>$_LANG['PASS']) );
 					}
 					else
 					{
 						$dependencies = false;
-						echo $_HTML->div( array('class'=>'status_fail', 'content'=>$_LANG['FAIL']) );
+						echo Html::div( array('class'=>'status_fail', 'content'=>$_LANG['FAIL']) );
 					}
 
-				echo $_HTML->div_close();
+				echo Html::div_close();
 
-				echo $_HTML->div_open( array('class'=>'dependency') );
-					echo $_HTML->link( array('class'=>'description', 'content'=>$_LANG['PHP_MODULE'].' - SimpleXML', 'href'=>'http://ar2.php.net/manual/en/book.simplexml.php', 'target'=>'_blank') );
+				echo Html::div_open( array('class'=>'dependency') );
+					echo Html::link( array('class'=>'description', 'content'=>$_LANG['PHP_MODULE'].' - SimpleXML', 'href'=>'http://ar2.php.net/manual/en/book.simplexml.php', 'target'=>'_blank') );
 
 					if( in_array('SimpleXML', $php_modules) )
 					{
-						echo $_HTML->div( array('class'=>'status_pass', 'content'=>$_LANG['PASS']) );
+						echo Html::div( array('class'=>'status_pass', 'content'=>$_LANG['PASS']) );
 					}
 					else
 					{
 						$dependencies = false;
-						echo $_HTML->div( array('class'=>'status_fail', 'content'=>$_LANG['FAIL']) );
+						echo Html::div( array('class'=>'status_fail', 'content'=>$_LANG['FAIL']) );
 					}
 
-				echo $_HTML->div_close();
+				echo Html::div_close();
 
-				echo $_HTML->div_open( array('class'=>'dependency') );
-					echo $_HTML->link( array('class'=>'description', 'content'=>$_LANG['WRITING_TEST_ON_CONTENT_DIRECTORY'], 'href'=>'http://forum.nibbleblog.com', 'target'=>'_blank') );
+				echo Html::div_open( array('class'=>'dependency') );
+					echo Html::link( array('class'=>'description', 'content'=>$_LANG['WRITING_TEST_ON_CONTENT_DIRECTORY'], 'href'=>'http://forum.nibbleblog.com', 'target'=>'_blank') );
 
 					if( $writing_test )
 					{
-						echo $_HTML->div( array('class'=>'status_pass', 'content'=>$_LANG['PASS']) );
+						echo Html::div( array('class'=>'status_pass', 'content'=>$_LANG['PASS']) );
 					}
 					else
 					{
 						$dependencies = false;
-						echo $_HTML->div( array('class'=>'status_fail', 'content'=>$_LANG['FAIL']) );
+						echo Html::div( array('class'=>'status_fail', 'content'=>$_LANG['FAIL']) );
 					}
 
-				echo $_HTML->div_close();
+				echo Html::div_close();
 			?>
 		</section>
 
 		<section id="configuration">
 			<h2><?php echo $_LANG['CONFIGURATION'] ?></h2>
 			<?php
-				echo $_HTML->form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+				echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
-					echo $_HTML->label( array('content'=>$_LANG['BLOG_TITLE']) );
-					echo $_HTML->input( array('id'=>'js_name', 'name'=>'name', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
+					echo Html::label( array('content'=>$_LANG['BLOG_TITLE']) );
+					echo Html::input( array('id'=>'js_name', 'name'=>'name', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
 
-					echo $_HTML->label( array('content'=>$_LANG['BLOG_SLOGAN']) );
-					echo $_HTML->input( array('id'=>'js_slogan', 'name'=>'slogan', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
+					echo Html::label( array('content'=>$_LANG['BLOG_SLOGAN']) );
+					echo Html::input( array('id'=>'js_slogan', 'name'=>'slogan', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
 
-					echo $_HTML->label( array('content'=>$_LANG['ADMINISTRATOR_USERNAME'].'*') );
-					echo $_HTML->input( array('id'=>'js_username', 'name'=>'username', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
+					echo Html::label( array('content'=>$_LANG['ADMINISTRATOR_USERNAME'].'*') );
+					echo Html::input( array('id'=>'js_username', 'name'=>'username', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
 
-					echo $_HTML->label( array('content'=>$_LANG['ADMINISTRATOR_PASSWORD'].'*') );
-					echo $_HTML->input( array('id'=>'js_password', 'name'=>'password', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
+					echo Html::label( array('content'=>$_LANG['ADMINISTRATOR_PASSWORD'].'*') );
+					echo Html::input( array('id'=>'js_password', 'name'=>'password', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
 
-					echo $_HTML->div_open( array('hidden'=>!isset($_GET['expert'])) );
-						echo $_HTML->label( array('content'=>$_LANG['ADMINISTRATOR_EMAIL']) );
-						echo $_HTML->input( array('name'=>'email', 'type'=>'text', 'autocomplete'=>'off') );
+					echo Html::div_open( array('hidden'=>!isset($_GET['expert'])) );
+						echo Html::label( array('content'=>$_LANG['ADMINISTRATOR_EMAIL']) );
+						echo Html::input( array('name'=>'email', 'type'=>'text', 'autocomplete'=>'off') );
 
-						echo $_HTML->label( array('content'=>$_LANG['BLOG_ADDRESS']) );
-						echo $_HTML->input( array('name'=>'url', 'type'=>'text', 'value'=>$blog_address, 'autocomplete'=>'off') );
+						echo Html::label( array('content'=>$_LANG['BLOG_ADDRESS']) );
+						echo Html::input( array('name'=>'url', 'type'=>'text', 'value'=>$blog_address, 'autocomplete'=>'off') );
 
-						echo $_HTML->label( array('content'=>$_LANG['BLOG_BASE_PATH']) );
-						echo $_HTML->input( array('name'=>'path', 'type'=>'text', 'value'=>$blog_base_path, 'autocomplete'=>'off') );
-					echo $_HTML->div_close();
+						echo Html::label( array('content'=>$_LANG['BLOG_BASE_PATH']) );
+						echo Html::input( array('name'=>'path', 'type'=>'text', 'value'=>$blog_base_path, 'autocomplete'=>'off') );
+					echo Html::div_close();
 
-					echo $_HTML->input( array('type'=>'submit', 'value'=>$_LANG['INSTALL']) );
+					echo Html::input( array('type'=>'submit', 'value'=>$_LANG['INSTALL']) );
 
-				echo $_HTML->form_close();
+				echo Html::form_close();
 			?>
 		</section>
 
 		<footer>
-			<p><a href="http://nibbleblog.com">Nibbleblog <?php echo NIBBLEBLOG_VERSION ?> "<?php echo NIBBLEBLOG_NAME ?>"</a> | Copyright (2009 - 2012) + GPL v3 | Developed by Diego Najar | <?php echo $_HTML->link( array('content'=>$_LANG['EXPERT_MODE'], 'href'=>'./install.php?expert=true&language='.$_GET['language']) ) ?></p>
+			<p><a href="http://nibbleblog.com">Nibbleblog <?php echo NIBBLEBLOG_VERSION ?> "<?php echo NIBBLEBLOG_NAME ?>"</a> | Copyright (2009 - 2012) + GPL v3 | Developed by Diego Najar | <?php echo Html::link( array('content'=>$_LANG['EXPERT_MODE'], 'href'=>'./install.php?expert=true&language='.$_GET['language']) ) ?></p>
 		</footer>
 
 	</div>

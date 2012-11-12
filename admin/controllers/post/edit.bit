@@ -8,18 +8,18 @@
 		$safe = array();
 
 		// Post ID
-		$safe['id']	= $_URL['id_post'];
+		$safe['id']	= $url['id_post'];
 
 		// Category ID
 		$safe['id_cat']	= $_POST['id_cat'];
 
 		if(isset($_POST['content']))
 		{
-			$safe['title']		= $_VALIDATION->sanitize_html( $_POST['title'] );
+			$safe['title']		= Validation::sanitize_html( $_POST['title'] );
 			$safe['content']	= $_POST['content'];
 			
 			// Description for SEO
-			$safe['description'] = $_VALIDATION->sanitize_html( $_POST['description'] );
+			$safe['description'] = Validation::sanitize_html( $_POST['description'] );
 		}
 		else
 		{
@@ -29,7 +29,7 @@
 		}
 
 		// Description for SEO
-		$safe['description'] = $_VALIDATION->sanitize_html( $_POST['description'] );
+		$safe['description'] = Validation::sanitize_html( $_POST['description'] );
 
 		if( isset($_POST['quote']) )
 		{
@@ -66,7 +66,7 @@
 			$_SESSION['session_alert']['msg'] = $_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY'];
 			$_SESSION['session_alert']['active'] = true;
 
-			$_REDIRECT->controller('admin', 'post', 'list');
+			Redirect::controller('admin', 'post', 'list');
 		}
 	}
 
@@ -74,11 +74,11 @@
 //	VARIABLES
 // ============================================================================
 
-	$post_edit = $_DB_POST->get( array('id'=>$_URL['id_post']) );
+	$post_edit = $_DB_POST->get( array('id'=>$url['id_post']) );
 
 	if($post_edit == array() )
 	{
-		$_REDIRECT->controller('admin', 'post', 'list');
+		Redirect::controller('admin', 'post', 'list');
 	}
 
 	$categories_html = array();

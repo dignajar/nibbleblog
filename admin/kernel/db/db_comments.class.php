@@ -69,10 +69,7 @@ class DB_COMMENTS {
 		// Return the COMMENT ID
 		public function add($args)
 		{
-			global $_LOGIN;
-			global $_DATE;
-			global $_NET;
-			global $_CRYPT;
+			global $Login;
 
 			// Template
 			$xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
@@ -83,15 +80,15 @@ class DB_COMMENTS {
 			$new_obj = new NBXML($xml, 0, FALSE, '', FALSE);
 
 			// Time - UTC=0
-			$time_unix = $_DATE->unixstamp();
+			$time_unix = Date::unixstamp();
 
 			// Time for Filename
-			$time_filename = $_DATE->format_gmt($time_unix, 'Y.m.d.H.i.s');
+			$time_filename = Date::format_gmt($time_unix, 'Y.m.d.H.i.s');
 
 			// Encrypt the user IP and Email
 			include(FILE_KEYS);
-			$user_ip = $_CRYPT->encrypt($_NET->get_user_ip(), $_KEYS[1]);
-			$user_email = $_CRYPT->encrypt($args['author_email'], $_KEYS[1]);
+			$user_ip = Crypt::encrypt(Net::get_user_ip(), $_KEYS[1]);
+			$user_email = Crypt::encrypt($args['author_email'], $_KEYS[1]);
 
 			$new_obj->addChild('author_name',	$args['author_name']);
 			$new_obj->addChild('content',		$args['content']);
@@ -106,9 +103,9 @@ class DB_COMMENTS {
 			$new_id = $this->last_insert_id = $this->get_autoinc();
 
 			// User ID
-			if($_LOGIN->is_logued())
+			if($Login->is_logued())
 			{
-				$id_user = $_LOGIN->get_user_id();
+				$id_user = $Login->get_user_id();
 			}
 			else
 			{
@@ -235,9 +232,7 @@ class DB_COMMENTS {
 
 		private function set_file($id)
 		{
-			global $_FS;
-
-			$this->files = $_FS->ls(PATH_COMMENTS, $id.'.*.*.*.*.*.*.*.*.*', 'xml', false, false, false);
+			$this->files = Filesystem::ls(PATH_COMMENTS, $id.'.*.*.*.*.*.*.*.*.*', 'xml', false, false, false);
 			$this->files_count = count( $this->files );
 		}
 
@@ -245,9 +240,7 @@ class DB_COMMENTS {
 		// obtiene todos los archivos post
 		private function set_files()
 		{
-			global $_FS;
-
-			$this->files = $_FS->ls(PATH_COMMENTS, '*', 'xml', false, false, true);
+			$this->files = Filesystem::ls(PATH_COMMENTS, '*', 'xml', false, false, true);
 			$this->files_count = count( $this->files );
 		}
 
@@ -255,9 +248,7 @@ class DB_COMMENTS {
 		// File name: IDComment.IDPost.IDUser.IDOther.YYYY.MM.DD.HH.mm.ss.xml
 		private function set_files_by_post($id_post)
 		{
-			global $_FS;
-
-			$this->files = $_FS->ls(PATH_COMMENTS, '*.'.$id_post.'.*.*.*.*.*.*.*.*', 'xml', false, true, false);
+			$this->files = Filesystem::ls(PATH_COMMENTS, '*.'.$id_post.'.*.*.*.*.*.*.*.*', 'xml', false, true, false);
 			$this->files_count = count( $this->files );
 		}
 
@@ -284,15 +275,13 @@ class DB_COMMENTS {
 		// File name: IDComment.IDPost.IDUser.NULL.YYYY.MM.DD.HH.mm.ss.xml
 		private function get_items($file)
 		{
-			global $_CRYPT;
-
 			$obj_xml = new NBXML(PATH_COMMENTS . $file, 0, TRUE, '', FALSE);
 
 			$file_info = explode('.', $file);
 
 			include(FILE_KEYS);
-			$user_ip = $_CRYPT->decrypt((string) $obj_xml->getChild('author_ip'), $_KEYS[1]);
-			$user_email = $_CRYPT->decrypt((string) $obj_xml->getChild('author_email'), $_KEYS[1]);
+			$user_ip = Crypt::decrypt((string) $obj_xml->getChild('author_ip'), $_KEYS[1]);
+			$user_email = Crypt::decrypt((string) $obj_xml->getChild('author_email'), $_KEYS[1]);
 
 			$tmp_array = array();
 

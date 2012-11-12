@@ -11,10 +11,10 @@
  * See COPYRIGHT.txt and LICENSE.txt.
 */
 
-class HELPER_CRYPT
-{
+class Crypt {
+
 	// return string
-	public function encrypt($string, $key)
+	public static function encrypt($string, $key)
 	{
 		if(function_exists('get_loaded_extensions'))
 		{
@@ -28,7 +28,7 @@ class HELPER_CRYPT
 	}
 
 	// return string
-	public function decrypt($string, $key)
+	public static function decrypt($string, $key)
 	{
 		if(function_exists('get_loaded_extensions'))
 		{
@@ -41,7 +41,7 @@ class HELPER_CRYPT
 		return( $string );
 	}
 
-	public function get_hash($string, $salt = '$#!')
+	public static function get_hash($string, $salt = '$#!')
 	{
 		$sha1 = sha1($string.$salt);
 

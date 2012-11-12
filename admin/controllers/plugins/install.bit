@@ -4,16 +4,16 @@
 //	VARIABLES
 // ============================================================================
 
-	$plugin = $_PLUGINS['PLUGIN_'.strtoupper($_URL['plugin'])];
+	$plugin = $_PLUGINS['PLUGIN_'.strtoupper($url['plugin'])];
 
 	// If the plugin is not installed, install
 	if ( !$plugin->is_installed() )
 	{
 		$plugin->install();
 		
-		$_REDIRECT->controller('admin','plugins','config',array('plugin'=>$_URL['plugin']));
+		Redirect::controller('admin','plugins','config',array('plugin'=>$url['plugin']));
 	}
 
-	$_REDIRECT->controller('admin','plugins','list');
+	Redirect::controller('admin','plugins','list');
 
 ?>

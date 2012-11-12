@@ -11,8 +11,8 @@
  * See COPYRIGHT.txt and LICENSE.txt.
 */
 
-class HELPER_FS
-{
+class Filesystem {
+
 	// Devuelve un arreglo con el listado de archivos
 	// $path con una barra al final, ej: /home/
 	// $ext : xml
@@ -20,7 +20,7 @@ class HELPER_FS
 	// $flag_dir : si quiero listar directorios
 	// $sort_asc_numeric : ordeno ascedente numerico
 	// $sort_desc_numeric : ordeno descendente numerico
-	function ls($path, $file_expression = NULL, $ext, $flag_dir = false, $sort_asc_numeric = false, $sort_desc_numeric = false)
+	public static function ls($path, $file_expression = NULL, $ext, $flag_dir = false, $sort_asc_numeric = false, $sort_desc_numeric = false)
 	{
 		if($flag_dir)
 		{

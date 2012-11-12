@@ -5,32 +5,26 @@
 
 	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	{
-		sleep($theme['comment_sleep']);
-		
-		// Captcha ok
+		// CAPTCHA OK
 		if($_SESSION['nibbleblog']['captcha']==$_POST['captcha'])
 		{
-			$safe = array();
+			// Comment data, recovery from SESSION
+			$data['author_name']	= $_SESSION['nibbleblog']['comment_name'];
+			$data['author_email']	= $_SESSION['nibbleblog']['comment_email'];
+			$data['content']		= $_SESSION['nibbleblog']['comment_content'];
+			$data['id_post']		= $post['id'];
 
-			// The variables inside the session are sanitized
-			$safe['author_name']	= $_SESSION['nibbleblog']['comment_name'];
-			$safe['author_email']	= $_SESSION['nibbleblog']['comment_email'];
-			$safe['content']		= $_SESSION['nibbleblog']['comment_content'];
-			
-			// Post ID
-			$safe['id_post']		= $post['id'];
-			
 			// If the post allows comments then add these
 			if($post['allow_comments'])
 			{
-				// To add a comment the method add from $_DB_COMMENTS needs the follow parameters
-				// array( 'id_post' 'author_name' 'author_email' 'content' )
-				$_DB_COMMENTS->add($safe);
+				// $data = array( id_post, author_name, author_email, content )
+				$Comment->add($data,$theme['comment_sleep'],true);
 			}
 
+			// Clean errors
 			$_SESSION['nibbleblog']['error'] = false;
 		}
-		// Invalid captcha
+		// CAPTCHA FAIL
 		else
 		{
 			$_SESSION['nibbleblog']['error'] = true;
@@ -42,6 +36,7 @@
 //	VARIABLES
 // ============================================================================
 
-	$_REDIRECT->url( $post['permalink'].'#comment_form' );
+	// Redirect to the comment form
+	Redirect::url( $post['permalink'].'#comment_form' );
 
 ?>

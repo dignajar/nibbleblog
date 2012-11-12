@@ -1,12 +1,12 @@
 <?php
 
-	echo $_HTML->form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post', 'class'=>'plugins') );
+	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post', 'class'=>'plugins') );
 
-		echo $_HTML->input( array('name'=>'plugin', 'type'=>'hidden', 'value'=>$_URL['plugin']) );
+		echo Html::input( array('name'=>'plugin', 'type'=>'hidden', 'value'=>$url['plugin']) );
 
 		echo $html;
 
-	echo $_HTML->form_close();
+	echo Html::form_close();
 
 ?>
 

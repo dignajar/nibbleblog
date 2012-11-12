@@ -1,56 +1,56 @@
 <?php
 
-	echo $_HTML->form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
 		// TITLE
-		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->input( array('id'=>'js_title', 'name'=>'title', 'type'=>'text', 'value'=>$post_edit['title'], 'placeholder'=>$_LANG['ENTER_TITLE_HERE']) );
-		echo $_HTML->div_close();
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::input( array('id'=>'js_title', 'name'=>'title', 'type'=>'text', 'value'=>$post_edit['title'], 'placeholder'=>$_LANG['ENTER_TITLE_HERE']) );
+		echo Html::div_close();
 
 		// CONTENT
-		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->textarea( array('id'=>'js_content', 'name'=>'content', 'content'=>htmlspecialchars($post_edit['content']), 'class'=>'wysiwyg') );
-			echo $_HTML->link( array('content'=>'HTML', 'class'=>'toggle_button', 'href'=>'javascript:;', 'onclick'=>'tinymce.execCommand(\'mceToggleEditor\',false,\'js_content\')', 'hidden'=>( !$settings['advanced_post_options'] || !$settings['enable_wysiwyg'] )) );
-			echo $_HTML->span( array('id'=>'js_uploader_button', 'class'=>'uploader_button', 'content'=>$_LANG['INSERT_PICTURE']) );
-			echo $_HTML->span( array('id'=>'js_uploader_loading', 'class'=>'uploader_button', 'content'=>$_LANG['UPLOADING'].'...', 'style'=>'display: none') );
-		echo $_HTML->div_close();
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::textarea( array('id'=>'js_content', 'name'=>'content', 'content'=>htmlspecialchars($post_edit['content']), 'class'=>'wysiwyg') );
+			echo Html::link( array('content'=>'HTML', 'class'=>'toggle_button', 'href'=>'javascript:;', 'onclick'=>'tinymce.execCommand(\'mceToggleEditor\',false,\'js_content\')', 'hidden'=>( !$settings['advanced_post_options'] || !$settings['enable_wysiwyg'] )) );
+			echo Html::span( array('id'=>'js_uploader_button', 'class'=>'uploader_button', 'content'=>$_LANG['INSERT_PICTURE']) );
+			echo Html::span( array('id'=>'js_uploader_loading', 'class'=>'uploader_button', 'content'=>$_LANG['UPLOADING'].'...', 'style'=>'display: none') );
+		echo Html::div_close();
 
 		// SEO DESCRIPTION
-		echo $_HTML->div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
-			echo $_HTML->label( array('class'=>'blocked', 'content'=>$_LANG['SHORT_DESCRIPTION_NO_MORE_THAN']) );
-			echo $_HTML->input( array('id'=>'js_description', 'name'=>'description', 'type'=>'text', 'value'=>$post_edit['description']) );
-		echo $_HTML->div_close();
+		echo Html::div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
+			echo Html::label( array('class'=>'blocked', 'content'=>$_LANG['SHORT_DESCRIPTION_NO_MORE_THAN']) );
+			echo Html::input( array('id'=>'js_description', 'name'=>'description', 'type'=>'text', 'value'=>$post_edit['description']) );
+		echo Html::div_close();
 
 		// CATEGORIES
-		echo $_HTML->div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
-			echo $_HTML->label( array('class'=>'blocked', 'content'=>$_LANG['SELECT_A_CATEGORY']) );
-			echo $_HTML->select( array('name'=>'id_cat'), $categories_html, $post_edit['id_cat']);
-		echo $_HTML->div_close();
+		echo Html::div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
+			echo Html::label( array('class'=>'blocked', 'content'=>$_LANG['SELECT_A_CATEGORY']) );
+			echo Html::select( array('name'=>'id_cat'), $categories_html, $post_edit['id_cat']);
+		echo Html::div_close();
 
 		// ALLOW COMMENTS
-		echo $_HTML->div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
-			echo $_HTML->checkbox( array('id'=>'js_allow_comments', 'name'=>'allow_comments', 'class'=>'float'), $post_edit['allow_comments'] );
-			echo $_HTML->label( array('class'=>'for_checkbox', 'content'=>$_LANG['ALLOW_COMMENTS'], 'for'=>'js_allow_comments') );
-			echo $_HTML->div( array('class'=>'input_tip', 'content'=>$_LANG['ALLOW_YOUR_USERS_TO_COMMENT_YOUR_PUBLICATIONS']) );
-		echo $_HTML->div_close();
+		echo Html::div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
+			echo Html::checkbox( array('id'=>'js_allow_comments', 'name'=>'allow_comments', 'class'=>'float'), $post_edit['allow_comments'] );
+			echo Html::label( array('class'=>'for_checkbox', 'content'=>$_LANG['ALLOW_COMMENTS'], 'for'=>'js_allow_comments') );
+			echo Html::div( array('class'=>'input_tip', 'content'=>$_LANG['ALLOW_YOUR_USERS_TO_COMMENT_YOUR_PUBLICATIONS']) );
+		echo Html::div_close();
 
 		// STICKY
 		/*
-		echo $_HTML->div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
-			echo $_HTML->checkbox( array('id'=>'js_sticky', 'name'=>'sticky', 'class'=>'float'), $post_edit['sticky'] );
-			echo $_HTML->label( array('class'=>'for_checkbox', 'for'=>'js_sticky', 'content'=>$_LANG['STICKY_POST']) );
-			echo $_HTML->div( array('class'=>'input_tip', 'content'=>$_LANG['SELECT_THIS_OPTION_IF_YOU_WANT_TO_HIGHLIGHT_YOUR_PUBLICATION']) );
-		echo $_HTML->div_close();
+		echo Html::div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
+			echo Html::checkbox( array('id'=>'js_sticky', 'name'=>'sticky', 'class'=>'float'), $post_edit['sticky'] );
+			echo Html::label( array('class'=>'for_checkbox', 'for'=>'js_sticky', 'content'=>$_LANG['STICKY_POST']) );
+			echo Html::div( array('class'=>'input_tip', 'content'=>$_LANG['SELECT_THIS_OPTION_IF_YOU_WANT_TO_HIGHLIGHT_YOUR_PUBLICATION']) );
+		echo Html::div_close();
 		*/
 
 		// BUTTONS
-		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->input( array('id'=>'js_button_add', 'name'=>'button_add', 'type'=>'submit', 'value'=>$_LANG['PUBLISH'], 'class'=>'save') );
-		echo $_HTML->div_close();
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::input( array('id'=>'js_button_add', 'name'=>'button_add', 'type'=>'submit', 'value'=>$_LANG['PUBLISH'], 'class'=>'save') );
+		echo Html::div_close();
 
-	echo $_HTML->form_close();
+	echo Html::form_close();
 
-	echo $_HTML->input( array('type'=>'file', 'id'=>'js_uploader_input_file', 'class'=>'hidden', 'size'=>'1') );
+	echo Html::input( array('type'=>'file', 'id'=>'js_uploader_input_file', 'class'=>'hidden', 'size'=>'1') );
 
 ?>
 

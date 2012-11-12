@@ -19,7 +19,7 @@ class DB_POSTS {
 ======================================================================================
 */
 		public $file_xml; 			// Contains the link to XML file
-		public $obj_xml; 				// Contains the object
+		public $obj_xml; 			// Contains the object
 
 		private $files;
 		private $files_count;
@@ -74,8 +74,6 @@ class DB_POSTS {
 		// Return the POST ID
 		public function add($args)
 		{
-			global $_DATE;
-
 			// Template
 			$xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
 			$xml .= '<post>';
@@ -85,10 +83,10 @@ class DB_POSTS {
 			$new_obj = new NBXML($xml, 0, FALSE, '', FALSE);
 
 			// Time - UTC=0
-			$time_unix = $_DATE->unixstamp();
+			$time_unix = Date::unixstamp();
 
 			// Time for Filename
-			$time_filename = $_DATE->format_gmt($time_unix, 'Y.m.d.H.i.s');
+			$time_filename = Date::format_gmt($time_unix, 'Y.m.d.H.i.s');
 
 			// Elements
 			$new_obj->addChild('type',				$args['type']);
@@ -140,8 +138,6 @@ class DB_POSTS {
 
 		public function set($args)
 		{
-			global $_DATE;
-
 			$this->set_file( $args['id'] );
 
 			// Post not found
@@ -155,7 +151,7 @@ class DB_POSTS {
 			$new_obj->setChild('title', 			$args['title']);
 			$new_obj->setChild('content', 			$args['content']);
 			$new_obj->setChild('description', 		$args['description']);
-			$new_obj->setChild('mod_date', 			$_DATE->unixstamp());
+			$new_obj->setChild('mod_date', 			Date::unixstamp());
 			$new_obj->setChild('allow_comments', 	$args['allow_comments']);
 
 			if( $args['sticky'] == 1 )
@@ -306,9 +302,7 @@ class DB_POSTS {
 
 		private function set_file($id)
 		{
-			global $_FS;
-
-			$this->files = $_FS->ls(PATH_POSTS, $id.'.*.*.*.*.*.*.*.*.*', 'xml', false, false, false);
+			$this->files = Filesystem::ls(PATH_POSTS, $id.'.*.*.*.*.*.*.*.*.*', 'xml', false, false, false);
 			$this->files_count = count( $this->files );
 		}
 
@@ -316,17 +310,13 @@ class DB_POSTS {
 		// obtiene todos los archivos post
 		private function set_files()
 		{
-			global $_FS;
-
-			$this->files = $_FS->ls(PATH_POSTS, '*', 'xml', false, false, true);
+			$this->files = Filesystem::ls(PATH_POSTS, '*', 'xml', false, false, true);
 			$this->files_count = count( $this->files );
 		}
 
 		private function set_files_by_category($id_cat)
 		{
-			global $_FS;
-
-			$this->files = $_FS->ls(PATH_POSTS, '*.'.$id_cat.'.*.*.*.*.*.*.*.*', 'xml', false, false, true);
+			$this->files = Filesystem::ls(PATH_POSTS, '*.'.$id_cat.'.*.*.*.*.*.*.*.*', 'xml', false, false, true);
 			$this->files_count = count( $this->files );
 		}
 
@@ -334,9 +324,6 @@ class DB_POSTS {
 		// File name: ID_POST.ID_CATEGORY.ID_USER.NULL.YYYY.MM.DD.HH.mm.ss.xml
 		private function get_items($file)
 		{
-			global $_TEXT;
-			global $_DATE;
-
 			$obj_xml = new NBXML(PATH_POSTS . $file, 0, TRUE, '', FALSE);
 
 			$file_info = explode('.', $file);
@@ -364,8 +351,8 @@ class DB_POSTS {
 			$tmp_array['sticky']			= (bool) $this->is_sticky($file_info[0]);
 
 			// DATE
-			$tmp_array['pub_date'] = $_DATE->format($tmp_array['pub_date_unix'], $this->settings['timestamp_format']);
-			$tmp_array['mod_date'] = $_DATE->format($tmp_array['mod_date_unix'], $this->settings['timestamp_format']);
+			$tmp_array['pub_date'] = Date::format($tmp_array['pub_date_unix'], $this->settings['timestamp_format']);
+			$tmp_array['mod_date'] = Date::format($tmp_array['mod_date_unix'], $this->settings['timestamp_format']);
 
 			// CONTENT
 			$tmp_array['content'][0] = $content;
@@ -391,9 +378,9 @@ class DB_POSTS {
 			// FRIENDLY URLS
 			if( $this->settings['friendly_urls'] )
 			{
-				if( $_TEXT->not_empty($tmp_array['title']))
+				if( Text::not_empty($tmp_array['title']))
 				{
-					$slug = $_TEXT->clean_url($tmp_array['title']);
+					$slug = Text::clean_url($tmp_array['title']);
 				}
 				else
 				{

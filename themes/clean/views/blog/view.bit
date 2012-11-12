@@ -1,23 +1,16 @@
 <?php
 
-// All post for a page
+// Variable $posts has all post for the page
 foreach($posts as $post)
 {
 	echo '<article class="post">';
 
 		include('includes/post_view.bit');
 
-		echo '<footer class="post">';
-			if($post['read_more'])
-				echo '<a href="'.$post['permalink'].'">-'.$_LANG['READ_MORE'].'-</a>';
-			else
-				echo '<a href="'.$post['permalink'].'">-'.$_LANG['PERMALINK'].'-</a>';
-		echo '</footer>';
-
 	echo '</article>';
 }
 
-// Pager
+// Include the pager
 include('includes/pager.bit');
 
 ?>

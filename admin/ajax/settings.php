@@ -10,7 +10,7 @@ if( $_POST['action']=='set' )
 
 	foreach( $data as $name=>$value )
 	{
-		$safe[$name] = $_VALIDATION->sanitize_html($value);
+		$safe[$name] = Validation::sanitize_html($value);
 	}
 
 	$_DB_SETTINGS->set($safe);
@@ -20,10 +20,10 @@ if( $_POST['action']=='set' )
 
 if( $error )
 {
-	exit( $_TEXT->ajax_header('<error><![CDATA[1]]></error>') );
+	exit( Text::ajax_header('<error><![CDATA[1]]></error>') );
 }
 else
 {
-	exit( $_TEXT->ajax_header('<success><![CDATA[1]]></success>') );
+	exit( Text::ajax_header('<success><![CDATA[1]]></success>') );
 }
 ?>

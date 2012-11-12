@@ -8,10 +8,10 @@ if(!empty($comments))
 
 		foreach($comments as $comment)
 		{
-			$date = $_DATE->format($comment['pub_date'], $settings['timestamp_format']);
+			$date = Date::format($comment['pub_date'], $settings['timestamp_format']);
 
 			echo '<div class="comment">';
-				echo '<img class="avatar" src="'.$_IMAGE->get_gravatar($comment['author_email'],64).'">';
+				echo '<img class="avatar" src="'.Image::get_gravatar($comment['author_email'],64).'">';
 				echo '<span class="author_name">'.$comment['author_name'].'</span>';
 				echo '<span class="date">'.$date.'</span>';
 				echo '<span class="content">'.$comment['content'].'</span>';

@@ -14,7 +14,7 @@
 	foreach($languages as $raw=>$lang)
 		$languages_html[$raw] = $lang;
 
-	$timezone_html = $_DATE->get_timezones();
+	$timezone_html = Date::get_timezones();
 
 	$timestamp_format_html = array(
 								''=>$_LANG['CUSTOM'],

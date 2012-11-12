@@ -12,7 +12,7 @@ $_PLUGIN_CONFIG['DATA'] = array(
 // =========================================
 // PLUGIN CLASS
 // =========================================
-class PLUGIN_SPONSORS extends PLUGIN
+class PLUGIN_SPONSORS extends Plugin
 {
 	function __construct()
 	{
@@ -25,8 +25,8 @@ class PLUGIN_SPONSORS extends PLUGIN
 	{
 		global $_HTML;
 
-		$html  = $_HTML->label( array('content'=>'Sponsor code') );
-		$html .= $_HTML->textarea( array('name'=>'code', 'type'=>'text', 'content'=>$this->get_field_db('code')) );
+		$html  = Html::label( array('content'=>'Sponsor code') );
+		$html .= Html::textarea( array('name'=>'code', 'type'=>'text', 'content'=>$this->get_field_db('code')) );
 
 		return($html);
 	}

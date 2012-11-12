@@ -51,10 +51,10 @@ $controllers['plugins']['config']		= array('security'=>true, 'title'=>$_LANG['PL
 $controllers['user']['logout']			= array('security'=>false, 'title'=>$_LANG['LOGOUT'], 'controller'=>'logout', 'view'=>'logout', 'template'=>'login');
 $controllers['user']['login']			= array('security'=>false, 'title'=>$_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA'], 'controller'=>'login', 'view'=>'login', 'template'=>'login');
 
-if(isset($controllers[$_URL['controller']][$_URL['action']]))
+if(isset($controllers[$url['controller']][$url['action']]))
 {
-	$dirname = $_URL['controller'].'/';
-	$parameters = $controllers[$_URL['controller']][$_URL['action']];
+	$dirname = $url['controller'].'/';
+	$parameters = $controllers[$url['controller']][$url['action']];
 
 	define('LAYOUT_TITLE',		$parameters['title']);
 	define('LAYOUT_CONTROLLER',	$dirname.$parameters['controller'].'.bit');

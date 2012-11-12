@@ -11,10 +11,10 @@
  * See COPYRIGHT.txt and LICENSE.txt.
 */
 
-class HELPER_NETWORK {
+class Net {
 
 	// return string
-	public function get_user_ip()
+	public static function get_user_ip()
 	{
 		if (getenv('HTTP_X_FORWARDED_FOR'))
 			$realip = getenv('HTTP_X_FORWARDED_FOR');
@@ -26,12 +26,12 @@ class HELPER_NETWORK {
 		return($realip);
 	}
 
-	public function get_user_agent()
+	public static function get_user_agent()
 	{
 		return( getenv('HTTP_USER_AGENT') );
 	}
 
-	public function check_http_code($url, $code)
+	public static function check_http_code($url, $code)
 	{
 		global $_TEXT;
 

@@ -42,6 +42,6 @@
 //	VARIABLES
 // ============================================================================
 
-	$_REDIRECT->url( $post['permalink'].'#comment_form' );
+	Redirect::url( $post['permalink'].'#comment_form' );
 
 ?>

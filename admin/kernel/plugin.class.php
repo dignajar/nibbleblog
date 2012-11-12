@@ -11,7 +11,7 @@
  * See COPYRIGHT.txt and LICENSE.txt.
 */
 
-class PLUGIN {
+class Plugin {
 
 	public $name;
 	public $description;
@@ -36,8 +36,6 @@ class PLUGIN {
 
 	public function install()
 	{
-		global $_DATE;
-
 		if( !mkdir(PATH_PLUGINS_DB.$this->dir_name,0777, true) )
 			return(false);
 
@@ -52,7 +50,7 @@ class PLUGIN {
 		$new_obj->addAttribute('name', $this->name);
 		$new_obj->addAttribute('author', $this->author);
 		$new_obj->addAttribute('version', $this->version);
-		$new_obj->addAttribute('installed_at', $_DATE->unixstamp());
+		$new_obj->addAttribute('installed_at', Date::unixstamp());
 
 		foreach($this->fields as $field=>$value)
 		{

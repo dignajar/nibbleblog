@@ -11,9 +11,9 @@
  * See COPYRIGHT.txt and LICENSE.txt.
 */
 
-class HELPER_REDIRECT {
+class Redirect {
 
-	public function url($html_location)
+	public static function url($html_location)
 	{
 		if(!headers_sent())
 		{
@@ -24,7 +24,7 @@ class HELPER_REDIRECT {
 		exit('<meta http-equiv="refresh" content="0; url='.$html_location.'" />');
 	}
 
-	public function controller($base, $controller, $action, $parameters = array())
+	public static function controller($base, $controller, $action, $parameters = array())
 	{
 		$url = '';
 
@@ -33,7 +33,7 @@ class HELPER_REDIRECT {
 			$url .= '&'.$key.'='.$value;
 		}
 
-		$this->url(HTML_PATH_ROOT.$base.'.php?controller='.$controller.'&action='.$action.$url);
+		self::url(HTML_PATH_ROOT.$base.'.php?controller='.$controller.'&action='.$action.$url);
 	}
 }
 
