@@ -55,6 +55,13 @@ class Validation {
 		return(htmlspecialchars($text, ENT_QUOTES, 'UTF-8'));
 	}
 
+	public static function captcha($captcha)
+	{
+		$captcha = self::sanitize_html($captcha);
+
+		return($_SESSION['nibbleblog']['captcha']==$captcha);
+	}
+
 }
 
 ?>

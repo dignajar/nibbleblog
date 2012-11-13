@@ -11,7 +11,7 @@
 		'video_width'=>'640',
 		'video_height'=>'360',
 		'comment_sleep'=>'2', // seconds
-		'template'=> array('post'=>'post.bit')
+		'template'=> array('post'=>'post.bit') // array( controller => templates/filename.bit )
 	);
 
 ?>

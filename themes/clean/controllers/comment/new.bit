@@ -4,10 +4,11 @@
 //	POST
 // ============================================================================
 
+	// Form sended
 	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	{
-		// CAPTCHA OK
-		if($_SESSION['nibbleblog']['captcha']==$_POST['captcha'])
+		// Check captcha
+		if(Validation::captcha($_POST['captcha']))
 		{
 			$data['author_name']	= $_SESSION['nibbleblog']['post']['name'];
 			$data['author_email']	= $_SESSION['nibbleblog']['post']['email'];
@@ -24,7 +25,6 @@
 			// Clean errors
 			$_SESSION['nibbleblog']['error'] = false;
 		}
-		// CAPTCHA FAIL
 		else
 		{
 			$_SESSION['nibbleblog']['error'] = true;
