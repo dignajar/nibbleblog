@@ -26,17 +26,21 @@ class DB_COMMENTS {
 
 		private $last_insert_id;
 
+		private $settings;
+
 /*
 ======================================================================================
 	CONSTRUCTORS
 ======================================================================================
 */
-		function DB_COMMENTS($file)
+		function DB_COMMENTS($file, $settings)
 		{
 			$this->file_xml = $file;
 
 			if(file_exists($this->file_xml))
 			{
+				$this->settings = $settings;
+
 				$this->last_insert_id = max($this->get_autoinc() - 1, 0);
 
 				$this->files = array();
@@ -296,8 +300,10 @@ class DB_COMMENTS {
 
 			$tmp_array['author_name']		= (string) $obj_xml->getChild('author_name');
 			$tmp_array['content']			= (string) $obj_xml->getChild('content');
-			$tmp_array['pub_date']			= (string) $obj_xml->getChild('pub_date');
+			$tmp_array['pub_date_unix']		= (string) $obj_xml->getChild('pub_date');
 			$tmp_array['highlight']			= (bool) ((int)$obj_xml->getChild('content')==1);
+
+			$tmp_array['pub_date'] = Date::format($tmp_array['pub_date_unix'], $this->settings['timestamp_format']);
 
 			return( $tmp_array );
 		}

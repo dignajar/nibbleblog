@@ -1,5 +1,7 @@
 <?php
 
+$post = $posts[0];
+
 echo '<article class="post">';
 
 	include('includes/post_view.bit');

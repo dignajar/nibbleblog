@@ -61,12 +61,16 @@ $languagues = array(
 
 // PHP MODULES
 if(function_exists('get_loaded_extensions'))
+{
 	$php_modules = get_loaded_extensions();
+}
 
 // WRITING TEST
 // Try to give permissions to the directory content
 if(!file_exists('content'))
+{
 	@mkdir('content');
+}
 @chmod('content',0777);
 @rmdir('content/tmp');
 $writing_test = @mkdir('content/tmp');
@@ -77,12 +81,14 @@ if( dirname(getenv('REQUEST_URI')) != '/' )
 	$blog_base_path = dirname(getenv('REQUEST_URI')).'/';
 }
 
-// LANGUAGES
+// REGIONAL
 if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
 {
 	$_GET['language'] = 'en_US';
 	require( 'languages/en_US.bit' );
 }
+
+Date::set_timezone('UTC');
 
 // ============================================================================
 //	POST

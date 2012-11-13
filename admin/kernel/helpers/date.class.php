@@ -13,12 +13,6 @@
 
 class Date {
 
-	function __construct()
-	{
-		if(function_exists('date_default_timezone_set') and function_exists('date_default_timezone_get'))
-			@date_default_timezone_set(@date_default_timezone_get());
-	}
-
 	public static function set_locale($string)
 	{
 		return(setlocale(LC_ALL,$string));

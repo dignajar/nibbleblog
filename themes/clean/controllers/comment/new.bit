@@ -1,4 +1,5 @@
 <?php
+
 // ============================================================================
 //	POST
 // ============================================================================
@@ -8,17 +9,16 @@
 		// CAPTCHA OK
 		if($_SESSION['nibbleblog']['captcha']==$_POST['captcha'])
 		{
-			// Comment data, recovery from SESSION
-			$data['author_name']	= $_SESSION['nibbleblog']['comment_name'];
-			$data['author_email']	= $_SESSION['nibbleblog']['comment_email'];
-			$data['content']		= $_SESSION['nibbleblog']['comment_content'];
-			$data['id_post']		= $post['id'];
+			$data['author_name']	= $_SESSION['nibbleblog']['post']['name'];
+			$data['author_email']	= $_SESSION['nibbleblog']['post']['email'];
+			$data['content']		= $_SESSION['nibbleblog']['post']['content'];
+			$data['id_post']		= $posts[0]['id'];
 
 			// If the post allows comments then add these
-			if($post['allow_comments'])
+			if($post[0]['allow_comments'])
 			{
 				// $data = array( id_post, author_name, author_email, content )
-				$Comment->add($data,$theme['comment_sleep'],true);
+				$Comment->add($data, $theme['comment_sleep']);
 			}
 
 			// Clean errors
@@ -37,6 +37,6 @@
 // ============================================================================
 
 	// Redirect to the comment form
-	Redirect::url( $post['permalink'].'#comment_form' );
+	Redirect::url( $posts[0]['permalink'].'#comment_form' );
 
 ?>

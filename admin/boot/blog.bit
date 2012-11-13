@@ -13,35 +13,36 @@
 // ============================================================================
 // VARIABLES
 // ============================================================================
-	// Theme info
-	$theme = array();
-
-	// Waching post filter by category
+	// ---- POSTS FILTER BY CATEGORY
 	if($url['category']!=null)
 	{
-		// Category ID
+		// Get the category ID
 		$id_cat = $_DB_CATEGORIES->get_id( array('name'=>$url['category']) );
 
 		// Posts by category
 		$posts = $_DB_POST->get_list_by_category( array('page'=>$url['page'], 'amount'=>$settings['items_page'], 'id_cat'=>$id_cat) );
 	}
-	// Waching one particular post
+	// ---- PARTICULAR POST
 	elseif($url['id_post']!=null)
 	{
 		// The post
-		$post = $_DB_POST->get( array('id'=>$url['id_post']) );
-
-		// Comments for this post
-		$comments = $_DB_COMMENTS->get_list_by_post( array('id_post'=>$url['id_post']) );
+		$posts[0] = $_DB_POST->get( array('id'=>$url['id_post']) );
 	}
-	// Waching the blog
+	// ---- POSTS FILTER BY BLOG
 	else
 	{
 		// Posts by page
 		$posts = $_DB_POST->get_list_by_page( array('page'=>$url['page'], 'amount'=>$settings['items_page']) );
 	}
 
-	// Pager
+	// ---- COMMENTS
+	// Get all comments for each post
+	foreach($posts as $key=>$value)
+	{
+		$posts[$key]['comments'] = $_DB_COMMENTS->get_list_by_post( array('id_post'=>$value['id']) );
+	}
+
+	// ---- PAGER
 	$pager_next = $url['page'] + 1;
 	$pager_prev = $url['page'] - 1;
 
@@ -123,20 +124,43 @@
 	}
 
 // ============================================================================
+// CLEANING
+// ============================================================================
+	unset($id_cat);
+	unset($plugins_on_system);
+	unset($pager_next);
+	unset($pager_prev);
+	unset($href_older);
+	unset($href_newer);
+	unset($show_older);
+	unset($show_newer);
+
+// ============================================================================
 // SESSION
 // ============================================================================
 	if( !isset($_SESSION['nibbleblog']) )
 	{
-		$_SESSION['nibbleblog'] = array('error'=>false, 'id_post'=>$url['id_post'], 'alert'=>'', 'captcha'=>'', 'comment_name'=>'', 'comment_email'=>'', 'comment_content'=>'');
+		$_SESSION['nibbleblog'] = array(
+							'error'=>false,
+							'id_post'=>$url['id_post'],
+							'alert'=>'',
+							'captcha'=>'',
+							'post'=>'',
+							'get'=>''
+		);
 	}
 	elseif(($_SESSION['nibbleblog']['error']==false) or ($_SESSION['nibbleblog']['id_post']!=$url['id_post']) )
 	{
 		$_SESSION['nibbleblog']['error'] = false;
 		$_SESSION['nibbleblog']['alert'] = '';
-		$_SESSION['nibbleblog']['comment_name'] = '';
-		$_SESSION['nibbleblog']['comment_email'] = '';
-		$_SESSION['nibbleblog']['comment_content'] = '';
+		$_SESSION['nibbleblog']['post'] = '';
 		$_SESSION['nibbleblog']['id_post'] = $url['id_post'];
 	}
 
+	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
+	{
+		$_SESSION['nibbleblog']['post'] = $_POST;
+	}
+
+	$_SESSION['nibbleblog']['get'] = $_GET;
 ?>
