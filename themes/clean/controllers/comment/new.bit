@@ -8,7 +8,8 @@ if( $_SERVER['REQUEST_METHOD'] != 'POST' )
 // Check captcha
 if(Validation::captcha($_POST['captcha']))
 {
-	$Comment->add($post, $theme['comment_sleep']);
+	// $Comments->add( SLEEP_IN_SECONDS:INT, SANITIZE:BOOLEAN );
+	$Comment->add($theme['comment_sleep'], true);
 }
 
 // Redirect to the comment form

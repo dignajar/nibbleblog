@@ -140,20 +140,7 @@
 // ============================================================================
 	if( !isset($_SESSION['nibbleblog']) )
 	{
-		$_SESSION['nibbleblog'] = array(
-							'error'=>false,
-							'id_post'=>$url['id_post'],
-							'alert'=>'',
-							'captcha'=>''
-							'comment'=>array()
-		);
-	}
-	elseif(($_SESSION['nibbleblog']['error']==false) or ($_SESSION['nibbleblog']['id_post']!=$url['id_post']) )
-	{
-		$_SESSION['nibbleblog']['error'] = false;
-		$_SESSION['nibbleblog']['alert'] = '';
-		$_SESSION['nibbleblog']['post'] = '';
-		$_SESSION['nibbleblog']['id_post'] = $url['id_post'];
+//		Session:init();
 	}
 
 	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
@@ -163,7 +150,8 @@
 			Session::set_comment(array(
 							'author_name'=>$_POST['author_name'],
 							'author_email'=>$_POST['author_email'],
-							'content'=>$_POST['content']
+							'content'=>$_POST['content'],
+							'post_allow_comments'=>$posts[0]['allow_comments']
 			));
 		}
 	}

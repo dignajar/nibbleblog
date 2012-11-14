@@ -13,6 +13,20 @@
 
 class Session {
 
+	public static function init()
+	{
+		unset($_SESSION['nibbleblog']);
+
+		$comment = array('author_name'=>'', 'author_email'=>'', 'content'=>'', 'post_allow_comments'=>false);
+
+		$_SESSION['nibbleblog'] = array(
+							'error'=>false,
+							'alert'=>'',
+							'captcha'=>'',
+							'comment'=>$comment
+		);
+	}
+
 	public static function get_error()
 	{
 		return($_SESSION['nibbleblog']['error']);
@@ -43,6 +57,7 @@ class Session {
 		$_SESSION['nibbleblog']['comment']['author_name'] = $comment['author_name'];
 		$_SESSION['nibbleblog']['comment']['author_email'] = $comment['author_email'];
 		$_SESSION['nibbleblog']['comment']['content'] = $comment['content'];
+		$_SESSION['nibbleblog']['comment']['post_allow_comments'] = $comment['post_allow_comments'];
 	}
 
 	public static function get_comment($key)

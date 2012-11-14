@@ -35,7 +35,7 @@ class Comment {
 	PUBLIC METHODS
 ======================================================================================
 */
-	public function add($post, $delay = 0, $sanitize = true)
+	public function add($delay = 0, $sanitize = true)
 	{
 		// Sleep
 		sleep($delay);
@@ -49,7 +49,7 @@ class Comment {
 		}
 
 		// If the post allow comments
-		if(!$post['allow_comments'])
+		if(!$data['post_allow_comments'])
 		{
 			return(false);
 		}
