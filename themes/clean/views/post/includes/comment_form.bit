@@ -12,11 +12,11 @@ echo '<footer id="comment_form">';
 	echo '
 		<form method="post" name="form" action="'.HTML_PATH_ROOT.'index.php?controller=comment&amp;action=new&amp;id_post='.$url['id_post'].'">
 
-		<input type="text" name="name" value="'.$_SESSION['nibbleblog']['post']['name'].'" placeholder="'.$_LANG['NAME'].'">
+		<input type="text" name="author_name" value="'.Session::get_comment('author_name').'" placeholder="'.$_LANG['NAME'].'">
 
-		<input type="text" name="email" value="'.$_SESSION['nibbleblog']['post']['email'].'" placeholder="'.$_LANG['EMAIL'].'">
+		<input type="text" name="author_email" value="'.Session::get_comment('author_email').'" placeholder="'.$_LANG['EMAIL'].'">
 
-		<textarea placeholder="'.$_LANG['TYPE_THE_COMMENT_HERE'].'" name="content">'.$_SESSION['nibbleblog']['post']['content'].'</textarea>
+		<textarea name="content" placeholder="'.$_LANG['TYPE_THE_COMMENT_HERE'].'">'.Session::get_comment('content').'</textarea>
 
 		<input type="text" name="captcha" class="captcha" placeholder="'.$_LANG['COPY_THE_TEXT_ON_THE_RIGHT'].'">
 

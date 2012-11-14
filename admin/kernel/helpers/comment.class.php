@@ -35,10 +35,12 @@ class Comment {
 	PUBLIC METHODS
 ======================================================================================
 */
-	public function add($data, $delay = 0, $sanitize = true)
+	public function add($post, $delay = 0, $sanitize = true)
 	{
 		// Sleep
 		sleep($delay);
+
+		$data = Session::get_comment_array();
 
 		// Sanitize
 		if($sanitize)
@@ -46,8 +48,16 @@ class Comment {
 			$data = $this->sanitize($data);
 		}
 
-		// Add on database
+		// If the post allow comments
+		if(!$post['allow_comments'])
+		{
+			return(false);
+		}
+
+		// Add to database
 		$this->db->add($data);
+
+		return(true);
 	}
 
 /*

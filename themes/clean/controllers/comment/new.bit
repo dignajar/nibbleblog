@@ -1,42 +1,17 @@
 <?php
 
-// ============================================================================
-//	POST
-// ============================================================================
+if( $_SERVER['REQUEST_METHOD'] != 'POST' )
+{
+	exit('Nibbleblog - Post request fail');
+}
 
-	// Form sended
-	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
-	{
-		// Check captcha
-		if(Validation::captcha($_POST['captcha']))
-		{
-			$data['author_name']	= $_SESSION['nibbleblog']['post']['name'];
-			$data['author_email']	= $_SESSION['nibbleblog']['post']['email'];
-			$data['content']		= $_SESSION['nibbleblog']['post']['content'];
-			$data['id_post']		= $posts[0]['id'];
+// Check captcha
+if(Validation::captcha($_POST['captcha']))
+{
+	$Comment->add($post, $theme['comment_sleep']);
+}
 
-			// If the post allows comments then add these
-			if($post[0]['allow_comments'])
-			{
-				// $data = array( id_post, author_name, author_email, content )
-				$Comment->add($data, $theme['comment_sleep']);
-			}
-
-			// Clean errors
-			$_SESSION['nibbleblog']['error'] = false;
-		}
-		else
-		{
-			$_SESSION['nibbleblog']['error'] = true;
-			$_SESSION['nibbleblog']['alert'] = $_LANG['INVALID_CAPTCHA'];
-		}
-	}
-
-// ============================================================================
-//	VARIABLES
-// ============================================================================
-
-	// Redirect to the comment form
-	Redirect::url( $posts[0]['permalink'].'#comment_form' );
+// Redirect to the comment form
+Redirect::url( $posts[0]['permalink'].'#comment_form' );
 
 ?>

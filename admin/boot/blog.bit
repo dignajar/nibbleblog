@@ -144,9 +144,8 @@
 							'error'=>false,
 							'id_post'=>$url['id_post'],
 							'alert'=>'',
-							'captcha'=>'',
-							'post'=>'',
-							'get'=>''
+							'captcha'=>''
+							'comment'=>array()
 		);
 	}
 	elseif(($_SESSION['nibbleblog']['error']==false) or ($_SESSION['nibbleblog']['id_post']!=$url['id_post']) )
@@ -159,8 +158,14 @@
 
 	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	{
-		$_SESSION['nibbleblog']['post'] = $_POST;
+		if( isset($_POST['author_name']) && isset($_POST['author_email']) && isset($_POST['content']) )
+		{
+			Session::set_comment(array(
+							'author_name'=>$_POST['author_name'],
+							'author_email'=>$_POST['author_email'],
+							'content'=>$_POST['content']
+			));
+		}
 	}
 
-	$_SESSION['nibbleblog']['get'] = $_GET;
 ?>

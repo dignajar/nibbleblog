@@ -57,9 +57,22 @@ class Validation {
 
 	public static function captcha($captcha)
 	{
+		global $_LANG;
+
 		$captcha = self::sanitize_html($captcha);
 
-		return($_SESSION['nibbleblog']['captcha']==$captcha);
+		if(Session::get_captcha()==$captcha)
+		{
+			Session::set_error(false);
+			Session::set_alert('');
+			return(true);
+		}
+		else
+		{
+			Session::set_error(true);
+			Session::set_alert($_LANG['INVALID_CAPTCHA']);
+			return(false);
+		}
 	}
 
 }
