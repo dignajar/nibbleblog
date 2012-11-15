@@ -140,7 +140,7 @@
 // ============================================================================
 	if( !isset($_SESSION['nibbleblog']) )
 	{
-//		Session:init();
+		Session::init();
 	}
 
 	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
@@ -151,7 +151,8 @@
 							'author_name'=>$_POST['author_name'],
 							'author_email'=>$_POST['author_email'],
 							'content'=>$_POST['content'],
-							'post_allow_comments'=>$posts[0]['allow_comments']
+							'post_allow_comments'=>$posts[0]['allow_comments'],
+							'id_post'=>$posts[0]['id']
 			));
 		}
 	}

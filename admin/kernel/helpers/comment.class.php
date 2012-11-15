@@ -57,6 +57,9 @@ class Comment {
 		// Add to database
 		$this->db->add($data);
 
+		// Clean session
+		Session::init();
+
 		return(true);
 	}
 

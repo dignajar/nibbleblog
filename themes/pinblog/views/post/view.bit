@@ -1,16 +1,18 @@
 <?php
 
-	echo '<article class="post">';
+$post = $posts[0];
 
-		include('includes/post_view.bit');
+echo '<article class="post">';
 
-		if($post['allow_comments'])
-		{
-			include('includes/comment_list.bit');
+	include('includes/post_view.bit');
 
-			include('includes/comment_form.bit');
-		}
+	if($post['allow_comments'])
+	{
+		include('includes/comment_list.bit');
 
-	echo '</article>';
+		include('includes/comment_form.bit');
+	}
+
+echo '</article>';
 
 ?>

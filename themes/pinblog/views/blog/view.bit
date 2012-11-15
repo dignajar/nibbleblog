@@ -22,7 +22,7 @@ foreach($posts as $post)
 {
 	// GET THUMBNAILS
 	$dom = new domDocument;
-	$dom->loadHTML($post['content']);
+	$dom->loadHTML($post['content'][0]);
 	$images = $dom->getElementsByTagName('img');
 	$post['thumbnails'] = array();
 	foreach ($images as $image) {

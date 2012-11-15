@@ -36,7 +36,7 @@
 	{
 		foreach($last_comments as $comment)
 		{
-			$date = Date::format($comment['pub_date'], COMMENT_DATE_FORMAT);
+			$date = Date::format($comment['pub_date_unix'], COMMENT_DATE_FORMAT);
 
 			echo Html::link( array('class'=>'notification notification_last_comments', 'href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list&amp;id_post='.$comment['id_post'],
 				'content'=>
