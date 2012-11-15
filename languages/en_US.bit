@@ -1,14 +1,12 @@
 <?php
 
 $_LANG_CONFIG['DATA'] = array(
-	'native'=>'English',
-	'english'=>'English',
+	'native'=>'English - United States',
+	'english'=>'Enlgish',
+	'last_update'=>'14/11/2012',
 	'author'=>'Diego Najar',
-	'last_update'=>'07/10/2012', //dd/mm/yyyy
-	'version_min'=>'3.3.1',
-	'version_max'=>'3.3.1',
 	'email'=>'dignajar@gmail.com',
-	'url'=>'http://www.nibbleblog.com'
+	'url'=>'http://diego.nibbleblog.com'
 );
 
 $_LANG['LAST_COMMENTS'] = 'Last comments';
@@ -16,7 +14,6 @@ $_LANG['THEME'] = 'Theme';
 $_LANG['THEMES'] = 'Themes';
 $_LANG['CHANGE_THEME'] = 'Change theme';
 $_LANG['SELECT_THEME'] = 'Select theme';
-
 $_LANG['REMEMBER_ME'] = 'Remember me';
 $_LANG['USERNAME'] = 'Username';
 $_LANG['PASSWORD'] = 'Password';
@@ -24,7 +21,6 @@ $_LANG['COMMENTS'] = 'Comments';
 $_LANG['INVALID_CAPTCHA'] = 'Invalid captcha';
 $_LANG['NAME'] = 'Name';
 $_LANG['EMAIL'] = 'E-mail';
-
 $_LANG['TYPE_THE_COMMENT_HERE'] = 'Type the comment here';
 $_LANG['COPY_THE_TEXT_ON_THE_RIGHT'] = 'Copy the text on the right';
 $_LANG['NEWER_POSTS'] = 'Newer posts';
@@ -80,7 +76,6 @@ $_LANG['VIEW'] = 'View';
 $_LANG['EDIT'] = 'Edit';
 $_LANG['TIMESTAMP_FORMAT'] = 'Timestamp format';
 $_LANG['SELECT_A_TIMEZONE_FOR_A_CORRECT_DATE_VISUALIZATION'] = 'Select a timezone for a correct date visualization.';
-
 $_LANG['ABSOLUT_URL_ADDRESS_OF_YOUR_BLOG'] = 'Absolut URL address of your blog. For example http://www.domain.com/blog';
 $_LANG['ABSOLUT_ADDRESS_THAT_CONTAINS_THE_BLOGS_FILE_SYSTEM'] = 'Absolut address that contains the blog\'s file system, if you uploaded the content of Nibbleblog to your root you should only put "/", and if you uploaded into another directory then it should be "/directory".';
 $_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_PER_PAGE'] = 'Amount of posts that you wish to see per page.';
@@ -101,7 +96,6 @@ $_LANG['QUOTE'] = 'Quote';
 $_LANG['POSTING_WITH_RICH_FORMATTING'] = 'Posting with rich formatting';
 $_LANG['AN_EASY_WAY_TO_PUBLISH_VIDEOS'] = 'An easy way to publish videos';
 $_LANG['AN_EASY_WAY_TO_PUBLISH_QUOTES'] = 'An easy way to publish quotes';
-
 $_LANG['NEW_SIMPLE_POST'] = 'New Simple post';
 $_LANG['NEW_VIDEO_POST'] = 'New Video post';
 $_LANG['NEW_QUOTE_POST'] = 'New Quote post';
@@ -174,7 +168,6 @@ $_LANG['OPTION'] = 'Option';
 $_LANG['THIS_OPTION_AUTOMATICALLY_CHANGES_THE_IMAGE'] = 'This option automatically changes the image size after uploading';
 $_LANG['ENABLE_THIS_OPTION_IF_YOU_WANT_TO_GENERATE'] = 'Enable this option if you want to generate a thumbnail when uploading an image';
 $_LANG['BLOG_TITLE_SLOGAN_ABOUT'] = 'Blog title, slogan, about';
-
 $_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS'] = 'There are no published comments';
 $_LANG['AUTOMATIC'] = 'Automatic';
 $_LANG['EXACT'] = 'Exact';

@@ -43,16 +43,16 @@ $blog_base_path = '/';
 $blog_address = 'http://'.getenv('HTTP_HOST');
 $installation_complete = false;
 $languagues = array(
-	'de_DE'=>'Deutsch',
+//	'de_DE'=>'Deutsch',
 	'en_US'=>'English',
-	'es_ES'=>'Español',
-	'fr_FR'=>'Français',
-	'hu_HU'=>'Magyar',
-	'pl_PL'=>'Polski',
-	'pt_PT'=>'Português',
-	'ru_RU'=>'Pyccĸий',
-	'vi_VN'=>'Tiếng Việt',
-	'zh_TW'=>'繁體中文'
+	'es_ES'=>'Español'
+//	'fr_FR'=>'Français',
+//	'hu_HU'=>'Magyar',
+//	'pl_PL'=>'Polski',
+//	'pt_PT'=>'Português',
+//	'ru_RU'=>'Pyccĸий',
+//	'vi_VN'=>'Tiếng Việt',
+//	'zh_TW'=>'繁體中文'
 );
 
 // ============================================================================
