@@ -127,11 +127,10 @@ class DB_CATEGORIES {
 
 		public function get_id($args)
 		{
-			$tmp_node = $this->obj_xml->xpath('/categories/category[@name="'.utf8_encode($args['name']).'"]');
-
-			if( $tmp_node != array() )
+			foreach($this->obj_xml as $children)
 			{
-				return( (int) $tmp_node[0]->attributes()->id );
+				if(Text::clean_url((string)$children->attributes()->name) == $args['name'])
+					return( (int)$children->attributes()->id );
 			}
 
 			return false;
