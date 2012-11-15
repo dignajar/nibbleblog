@@ -19,7 +19,7 @@
 //	VARIABLES
 // ============================================================================
 
-	// Renew the categories list
+	// Update categories list
 	$categories = $_DB_CATEGORIES->get_all();
 
 ?>

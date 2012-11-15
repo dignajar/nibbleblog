@@ -111,7 +111,8 @@ class Text {
 	// Clean text for URL
 	public static function clean_url($text)
 	{
-		$text = str_replace(array("!", "*", "&#039;", "(", ")", ";", ":", "@", "&amp", "=", "+", "$", ",", "/", "?", "%", "#", "[", "]", "|"),'',$text);
+		$text = str_replace(array("!", "*", "(", ")", ";", ":", "@", "&amp", "=", "+", "$", ",", "/", "?", "%", "#", "[", "]", "|"),'',$text);
+		//$text = str_replace(array("!", "*", "&#039;", "(", ")", ";", ":", "@", "&amp", "=", "+", "$", ",", "/", "?", "%", "#", "[", "]", "|"),'',$text);
 		$text = str_replace(" ","-",$text);
 		return($text);
 	}
