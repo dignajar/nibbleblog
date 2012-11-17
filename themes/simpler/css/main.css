@@ -1,0 +1,304 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic);
+
+/* ============================== */
+/* BODY */
+/* ============================== */
+
+body {
+	font-family: 'Open Sans',arial,sans-serif;
+	background-color: #FEFEFE;
+	margin: 0;
+	padding: 0;
+	font-size: 0.875em;
+	color: #616161;
+}
+
+#wrapper {
+    margin: 0 auto;
+    width: 80%;
+    overflow: auto;
+}
+
+#main {
+    background: #FFFFFF;
+    border: 1px solid #F1F1F1;
+    margin-right: 210px;
+    padding: 20px 20px 0;
+}
+
+#sidebar {
+	float: right;
+	width: 200px;
+}
+
+a {
+	color: #3C6EB4;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+
+/* ============================== */
+/* HEADER */
+/* ============================== */
+#head {
+	overflow: auto;
+	margin: 40px auto;
+	width: 80%;
+}
+
+#head	div.top {
+	font-size: 2.4em;
+	margin-right: 80px;
+}
+
+#head	a.name {
+	text-decoration: none;
+	color: #555;
+}
+
+#head	span.slogan {
+	color: #CCC;
+}
+
+/* ============================== */
+/* FOOTER */
+/* ============================== */
+#foot {
+	text-align: right;
+	font-size: 0.9em;
+	padding-right: 30px;
+}
+
+/* ============================== */
+/* PAGER */
+/* ============================== */
+#pager {
+	overflow: auto;
+}
+
+#pager	a.newer {
+	float: right;
+}
+
+#pager	a.older {
+	float: left;
+}
+
+/* ============================== */
+/* POST VIEW*/
+/* ============================== */
+article.post {
+	margin-bottom: 60px;
+	overflow: auto;
+}
+
+article.post	header.post {
+	margin-bottom: 10px;
+}
+
+article.post	header.post	h1.title {
+	font-weight: normal;
+	margin: 0;
+}
+
+article.post	pre {
+	background: url("img/bgcode.png");
+	border: 1px solid #E8E8E8;
+	line-height: 23px;
+	margin: 0;
+	padding: 0 5px 0 5px;
+	white-space: pre-wrap;
+	font-size: 0.9em;
+}
+
+article.post	.console {
+	background: url("img/console.png") no-repeat scroll 10px center #F1F1F1;
+	display: block;
+	line-height: 50px;
+	margin: 5px 0;
+	padding-left: 60px;
+}
+
+article.post	img:not(.captcha) {
+	max-width:100%;
+}
+
+article.post 	blockquote {
+	font-size: 2em;
+
+}
+
+article.post	footer.post {
+	border-top: 1px solid #F1F1F1;
+	clear: both;
+	margin-top: 20px;
+	padding-top: 10px;
+	font-size: 0.9em;
+}
+
+/* ============================== */
+/* COMMENT LIST */
+/* ============================== */
+#comment_list {
+	margin-top: 30px;
+	width: 70%;
+}
+
+#comment_list	h2 {
+	font-style: italic;
+	font-weight: normal;
+	margin: 10px 0;
+}
+
+#comment_list	div.comment {
+	border-left: 2px solid #FFAC00;
+	margin: 0 0 10px;
+	padding: 10px;
+	overflow: auto;
+}
+
+#comment_list	span.author_name {
+	font-weight: bold;
+}
+
+#comment_list	span.date {
+	margin-left: 10px;
+	font-style: italic;
+}
+
+#comment_list	span.content {
+	font-style: italic;
+	display: block;
+}
+
+#comment_list	img.avatar {
+	float:left;
+	margin-right: 10px;
+}
+
+/* ============================== */
+/* COMMENT FORM */
+/* ============================== */
+#comment_form {
+	margin-top: 30px;
+	width: 70%;
+}
+
+#comment_form	h2 {
+	font-style: italic;
+	font-weight: normal;
+	margin: 10px 0;
+}
+
+#comment_form	h3.alert {
+	color: #BE1C54;
+	font-style: italic;
+	margin: 0 0 15px;
+}
+
+#comment_form	input[type="text"],
+#comment_form	textarea {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	border: 1px solid #C4C4C4;
+	border-radius: 2px;
+	color: #858585;
+	padding: 8px;
+	outline:none;
+	resize: none;
+	margin-bottom: 15px;
+	font-family: font-family: 'Open Sans', helvetica,arial,sans-serif;
+	font-size: 0.9em;
+}
+
+#comment_form	input[type="text"].captcha {
+	width: 50%;
+	float: left;
+}
+
+#comment_form	input[type="submit"] {
+	display: block;
+	clear: left;
+	padding: 3px 8px;
+}
+
+/* ============================== */
+/* PLUGINS */
+/* ============================== */
+div.plugin_box {
+}
+
+div.plugin_box ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/* ============================== */
+/* PLUGIN TWITTER */
+/* ============================== */
+div.plugin_twitter {
+	padding: 0;
+	margin: 0;
+}
+
+div.plugin_twitter	ul {
+	margin: 0;
+	padding: 0;
+}
+
+div.plugin_twitter	li {
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
+div.plugin_twitter	li.username {
+	background: url("img/twitter.png") no-repeat 0 -2px;
+	margin-right: 5px;
+	padding-left: 23px;
+}
+
+
+/* ============================== */
+/* PLUGIN GRAVATAR */
+/* ============================== */
+div.plugin_gravatar {
+	margin: 0;
+	font-size: 0.9em;
+}
+
+div.plugin_gravatar	ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+div.plugin_gravatar	li {
+	margin: 0;
+	padding: 0;
+}
+div.plugin_gravatar	li.name {
+	font-weight: bold;
+}
+
+div.plugin_gravatar	li.about {
+
+}
+
+div.plugin_gravatar	li.image {
+	float: left;
+	overflow: auto;
+	width:70px;
+}
+
+div.plugin_gravatar	img.plugin_gravatar {
+    max-width:64px;
+}

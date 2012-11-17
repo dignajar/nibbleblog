@@ -1,0 +1,18 @@
+<?php
+
+if( $_SERVER['REQUEST_METHOD'] != 'POST' )
+{
+	exit('Nibbleblog - Post request fail');
+}
+
+// Check captcha
+if(Validation::captcha($_POST['captcha']))
+{
+	// $Comments->add( SLEEP_IN_SECONDS:INT, SANITIZE:BOOLEAN )
+	$Comment->add($theme['comment_sleep'], true);
+}
+
+// Redirect to the comment form
+Redirect::url( $posts[0]['permalink'].'#comment_form' );
+
+?>

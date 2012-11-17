@@ -19,7 +19,7 @@ class PLUGIN_GRAVATAR extends Plugin
 	{
 		parent::__construct();
 
-		$this->fields = array('email'=>'', 'size'=>190, 'name'=>'');
+		$this->fields = array('email'=>'', 'size'=>190, 'name'=>'', 'about'=>'');
 	}
 
 	public function get_html_config()
@@ -28,6 +28,9 @@ class PLUGIN_GRAVATAR extends Plugin
 
 		$html  = Html::label( array('content'=>'Full name') );
 		$html .= Html::input( array('name'=>'name', 'type'=>'text', 'value'=>$this->get_field_db('name')) );
+
+		$html .= Html::label( array('content'=>'About') );
+		$html .= Html::input( array('name'=>'about', 'type'=>'text', 'value'=>$this->get_field_db('about')) );
 
 		$html .= Html::label( array('content'=>'Gravatar E-mail') );
 		$html .= Html::input( array('name'=>'email', 'type'=>'text', 'value'=>$this->get_field_db('email')) );
@@ -40,14 +43,14 @@ class PLUGIN_GRAVATAR extends Plugin
 
 	public function get_html()
 	{
-		global $_IMAGE;
-
 		$src = Image::get_gravatar($this->get_field_db('email'), $this->get_field_db('size'));
 
-		$html  = '<div class="plugin_gravatar">';
+		$html  = '<div class="plugin_box plugin_gravatar">';
 		$html .= '<ul>';
-		$html .= '<li class="name">'.$this->get_field_db('name').'</li>';
 		$html .= '<li class="image"><img class="plugin_gravatar" alt="'.$this->get_field_db('name').'" src="'.$src.'" /></li>';
+		$html .= '<li class="name">'.$this->get_field_db('name').'</li>';
+		$html .= '<li class="about">'.$this->get_field_db('about').'</li>';
+
 		$html .= '</ul>';
 		$html .= '</div>';
 
