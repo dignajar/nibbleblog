@@ -34,15 +34,6 @@
 			echo Html::div( array('class'=>'input_tip', 'content'=>$_LANG['ALLOW_YOUR_USERS_TO_COMMENT_YOUR_PUBLICATIONS']) );
 		echo Html::div_close();
 
-		// STICKY
-		/*
-		echo Html::div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
-			echo Html::checkbox( array('id'=>'js_sticky', 'name'=>'sticky', 'class'=>'float') );
-			echo Html::label( array('class'=>'for_checkbox', 'for'=>'js_sticky', 'content'=>$_LANG['STICKY_POST']) );
-			echo Html::div( array('class'=>'input_tip', 'content'=>$_LANG['SELECT_THIS_OPTION_IF_YOU_WANT_TO_HIGHLIGHT_YOUR_PUBLICATION']) );
-		echo Html::div_close();
-		*/
-
 		// BUTTONS
 		echo Html::div_open( array('class'=>'form_block') );
 			echo Html::input( array('id'=>'js_button_add', 'name'=>'button_add', 'type'=>'submit', 'value'=>$_LANG['PUBLISH'], 'class'=>'save') );

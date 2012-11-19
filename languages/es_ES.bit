@@ -174,5 +174,6 @@ $_LANG['EXACT'] = 'Exacto';
 $_LANG['PORTRAIT'] = 'Vertical';
 $_LANG['LANDSCAPE'] = 'Horizontal';
 $_LANG['CROP'] = 'Recortar';
+$_LANG['YOU_CAN_USE_HTML_OR_MARKDOWN_SYNTAX'] = 'Puede usar codigo HTML o Markdown';
 
 ?>
