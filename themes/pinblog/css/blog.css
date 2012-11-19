@@ -184,13 +184,13 @@ article.pin	footer span.title {
 	font-size: 1.6em;
 }
 
-div.plugin_categories ul {
+#categories ul {
 	list-style-type: none;
 	padding:0;
 	margin:0;
 }
 
-div.plugin_categories li {
+#categories li {
 	padding:0;
 	margin:0;
 	display: inline;
@@ -205,26 +205,21 @@ div.plugin_categories li {
 article.pin_twitter {
 	background: url(img/twitter.png) no-repeat #fff;
 	height:180px;
-}
-
-div.plugin_twitter {
-	padding: 0;
-	margin: 0;
 	font-size: 1.2em;
 }
 
-div.plugin_twitter	ul {
+article.pin_twitter	ul {
 	margin: 0;
 	padding: 0;
 }
 
-div.plugin_twitter	li {
+article.pin_twitter	li {
 	margin: 0;
 	padding: 0;
 	display: inline;
 }
 
-div.plugin_twitter	li.username {
+article.pin_twitter	li.username {
     display: block;
     margin-bottom: 5px;
     font-size: 1.4em;
@@ -234,22 +229,22 @@ div.plugin_twitter	li.username {
 /* PLUGIN GRAVATAR */
 /* ============================== */
 
-article.pin_gravatar {
+article.pin_about {
 
 }
 
-article.pin_gravatar	ul {
+article.pin_about	ul {
 	margin: 0;
 	padding: 0;
 }
 
-article.pin_gravatar	li {
+article.pin_about	li {
 	margin: 0;
 	padding: 0;
 	display: inline;
 }
 
-article.pin_gravatar	li.name {
+article.pin_about	li.name {
     background: rgba(255, 255, 255, 0.9);
     bottom: 20px;
     font-size: 1.4em;
@@ -257,4 +252,8 @@ article.pin_gravatar	li.name {
     position: absolute;
     right: 0;
     text-align: left;
+}
+
+article.pin_about	li.about {
+	display: none;
 }

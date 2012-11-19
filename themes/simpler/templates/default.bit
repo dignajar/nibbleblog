@@ -24,45 +24,43 @@
 
 	<!-- Plugin::Analytics -->
 	<?php
-		if( isset($plugins['analytics']) )
+		if( isset($plugins_by_name['analytics']) )
 		{
-			echo $plugins['analytics']->get_html();
+			echo $plugins_by_name['analytics']->get_html();
 		}
 	?>
 </head>
 <body>
 
 		<header id="head">
-
-			<div class="top">
-				<a class="name" href="<?php echo HTML_PATH_ROOT ?>">
-					<?php echo $settings['name'] ?>
-					<span class="slogan">
-						<?php echo $settings['slogan'] ?>
-					</span>
-				</a>
-			</div>
-
+			<a class="name" href="<?php echo HTML_PATH_ROOT ?>">
+				<?php echo $settings['name'] ?>
+			</a>
+			<span class="slogan">
+				<?php echo $settings['slogan'] ?>
+			</span>
 		</header>
 
 		<section id="wrapper">
-
 			<section id="sidebar">
 				<?php
 					foreach($plugins as $plugin)
 					{
-						echo '<h3>'.$plugin->get_name().'</h3>';
-						echo $plugin->get_html();
+						if($plugin->display())
+						{
+							echo '<div class="plugin_box '.$plugin->get_slug_name().'">';
+								echo '<h3 class="title">'.$plugin->get_field_db('title').'</h3>';
+								echo $plugin->get_html();
+							echo '</div>';
+						}
 					}
 				?>
 			</section>
-
 			<section id="main">
 				<?php
 					include(THEME_VIEWS . $layout['view']);
 				?>
 			</section>
-
 		</section>
 
 		<footer id="foot">
@@ -70,5 +68,6 @@
 				<a href="<?php echo $layout['feed'] ?>">Atom</a> · <?php echo $settings['footer'] ?>
 			</p>
 		</footer>
+
 </body>
 </html>

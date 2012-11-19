@@ -1,0 +1,8 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'name'=>'Sobre mi',
+	'description'=>'Escriba una pequeña reseña sobre usted o sobre su blog, además puede mostrar su Gravatar. Para utilizar Gravatar necesita una cuenta en gravatar.com.'
+);
+
+?>

@@ -1,19 +1,19 @@
 <?php
 
-if( isset($plugins['gravatar']) )
+if( isset($plugins_by_name['about']) )
 {
-	echo '<article class="pin pin_gravatar">';
+	echo '<article class="pin pin_about">';
 		echo '<div class="content">';
-			echo $plugins['gravatar']->get_html();
+			echo $plugins_by_name['about']->get_html();
 		echo '</div>';
 	echo '</article>';
 }
 
-if( isset($plugins['twitter']) )
+if( isset($plugins_by_name['twitter']) )
 {
 	echo '<article class="pin pin_twitter">';
 		echo '<div class="content">';
-			echo $plugins['twitter']->get_html();
+			echo $plugins_by_name['twitter']->get_html();
 		echo '</div>';
 	echo '</article>';
 }

@@ -96,15 +96,24 @@
 	{
 		include_once(PATH_PLUGINS.$dir_name.'/plugin.bit');
 		$class = 'PLUGIN_'.strtoupper($dir_name);
-		$plugins[$dir_name] = new $class;
+		$obj = new $class;
 
-		if($plugins[$dir_name]->is_installed())
+		// If the plugin installed
+		if($obj->init_db())
 		{
+			$position = $obj->get_field_db('position');
+
+			if(isset($plugins[$position]))
+			{
+				while( isset($plugins[$position]) )
+					$position += 100;
+			}
+
 			// Language
 			if( @!include(PATH_PLUGINS.$dir_name.'/languages/'.$settings['language'].'.bit') )
 				include(PATH_PLUGINS.$dir_name.'/languages/en_US.bit');
 
-			$plugins[$dir_name]->set_attributes(
+			$obj->set_attributes(
 			array(
 				'name'=>$_PLUGIN_CONFIG['LANG']['name'],
 				'description'=>$_PLUGIN_CONFIG['LANG']['description'],
@@ -114,26 +123,33 @@
 				'display'=>isset($_PLUGIN_CONFIG['DATA']['display'])?false:true
 			));
 
-			// Init DB
-			$plugins[$dir_name]->init_db();
-		}
-		else
-		{
-			unset($plugins[$dir_name]);
+			// Set slug name
+			include(PATH_PLUGINS.$dir_name.'/languages/en_US.bit');
+			$obj->set_slug_name($_PLUGIN_CONFIG['LANG']['name']);
+
+			// Add plugin to array
+			$plugins[$position]=$obj;
+			$plugins_by_name[$dir_name]=$obj;
 		}
 	}
+
+	ksort($plugins);
 
 // ============================================================================
 // CLEANING
 // ============================================================================
 	unset($id_cat);
-	unset($plugins_on_system);
+
 	unset($pager_next);
 	unset($pager_prev);
 	unset($href_older);
 	unset($href_newer);
 	unset($show_older);
 	unset($show_newer);
+
+	unset($plugins_on_system);
+	unset($_PLUGIN_CONFIG);
+	unset($class);
 
 // ============================================================================
 // SESSION

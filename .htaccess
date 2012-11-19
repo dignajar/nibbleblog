@@ -17,14 +17,3 @@ Options -Indexes
     ExpiresActive Off
   </FilesMatch>
 </IfModule>
-
-<IfModule mod_rewrite.c>
-	RewriteEngine on
-	RewriteBase /nibbleblog/
-	RewriteRule ^dashboard$ admin.php?controller=user&action=login [L]
-	RewriteRule ^feed feed.php [L]
-	RewriteRule ^category/([^/]+)/page-([0-9]+)$ index.php?controller=blog&action=view&category=$1&page=$2 [L]
-	RewriteRule ^category/([^/]+)/$ index.php?controller=blog&action=view&category=$1&page=0 [L]
-	RewriteRule ^page-([0-9]+)$ index.php?controller=blog&action=view&page=$1 [L]
-	RewriteRule ^post-([0-9]+)/(.*)$ index.php?controller=post&action=view&id_post=$1 [L]
-</IfModule>

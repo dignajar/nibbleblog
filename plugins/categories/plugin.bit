@@ -6,7 +6,7 @@
 $_PLUGIN_CONFIG['DATA'] = array(
 	'author'=>'Diego Najar',
 	'version'=>'1.2',
-	'url'=>'http://www.nibbleblog.com'
+	'url'=>'http://www.nibbleblog.com',
 );
 
 // =========================================
@@ -20,7 +20,6 @@ class PLUGIN_CATEGORIES extends Plugin
 		global $categories;
 		global $settings;
 
-		$html  = '<div class="plugin_categories">';
 		$html .= '<ul>';
 
 		foreach($categories as $category)
@@ -40,7 +39,6 @@ class PLUGIN_CATEGORIES extends Plugin
 		}
 
 		$html .= '</ul>';
-		$html .= '</div>';
 
 		return($html);
 	}

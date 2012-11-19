@@ -20,6 +20,8 @@ class Plugin {
 	public $url;
 	public $display;
 
+	public $slug_name;
+
 	public $db;
 
 	public $fields;
@@ -47,10 +49,15 @@ class Plugin {
 		// Object
 		$new_obj = new NBXML($xml, 0, FALSE, '', FALSE);
 
+		// Default attributes
 		$new_obj->addAttribute('name', $this->name);
 		$new_obj->addAttribute('author', $this->author);
 		$new_obj->addAttribute('version', $this->version);
 		$new_obj->addAttribute('installed_at', Date::unixstamp());
+
+		// Default fields
+		$new_obj->addChild('position', 0);
+		$new_obj->addChild('title', $this->name);
 
 		foreach($this->fields as $field=>$value)
 		{
@@ -107,6 +114,19 @@ class Plugin {
 			return(false);
 
 		return(true);
+	}
+
+	public function set_slug_name($name)
+	{
+		$name = strtolower($name);
+		$name = str_replace(" ","_",$name);
+
+		$this->slug_name = 'plugin_'.$name;
+	}
+
+	public function get_slug_name()
+	{
+		return( $this->slug_name );
 	}
 
 	public function set_attributes($args)

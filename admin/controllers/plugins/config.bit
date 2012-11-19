@@ -12,10 +12,12 @@
 	$plugin->init_db();
 
 	$html = $plugin->get_html_config();
-	
+
 	if($html==false)
 	{
-		$html = $_LANG['THE_PLUGIN_IS_INSTALLED_CORRECTLY'];
+		$html = '';
 	}
+
+	$positions_html = array(1=>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
 
 ?>

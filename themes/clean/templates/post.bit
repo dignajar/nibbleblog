@@ -24,9 +24,9 @@
 
 	<!-- Plugin::Analytics -->
 	<?php
-		if( isset($plugins['analytics']) )
+		if( isset($plugins_by_name['analytics']) )
 		{
-			echo $plugins['analytics']->get_html();
+			echo $plugins_by_name['analytics']->get_html();
 		}
 	?>
 </head>

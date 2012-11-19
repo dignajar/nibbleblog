@@ -1,0 +1,8 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'name'=>'Codigo HTML',
+	'description'=>'Agregue codigo HTML a su blog de forma facil.'
+);
+
+?>

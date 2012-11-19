@@ -43,7 +43,7 @@ $blog_base_path = '/';
 $blog_address = 'http://'.getenv('HTTP_HOST');
 $installation_complete = false;
 $languagues = array(
-//	'de_DE'=>'Deutsch',
+	'de_DE'=>'Deutsch',
 	'en_US'=>'English',
 	'es_ES'=>'Español'
 //	'fr_FR'=>'Français',
@@ -126,7 +126,7 @@ Date::set_timezone('UTC');
 		$obj->addChild('enable_wysiwyg',		1);
 
 		$obj->addChild('img_resize',			1);
-		$obj->addChild('img_resize_width',		880);
+		$obj->addChild('img_resize_width',		1240);
 		$obj->addChild('img_resize_height',		600);
 		$obj->addChild('img_resize_option',		'auto');
 

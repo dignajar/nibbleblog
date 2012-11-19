@@ -4,6 +4,12 @@
 
 		echo Html::input( array('name'=>'plugin', 'type'=>'hidden', 'value'=>$url['plugin']) );
 
+		echo Html::label( array('content'=>'Title') );
+		echo Html::input( array('name'=>'title', 'type'=>'text', 'value'=>$plugin->get_field_db('title')) );
+
+		echo Html::label( array('content'=>'Position') );
+		echo Html::select( array('name'=>'position'), $positions_html, $plugin->get_field_db('position'));
+
 		echo $html;
 
 	echo Html::form_close();

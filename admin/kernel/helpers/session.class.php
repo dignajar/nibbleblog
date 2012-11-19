@@ -39,6 +39,7 @@ class Session {
 
 	public static function get_alert()
 	{
+		self::set_error(false);
 		return($_SESSION['nibbleblog']['alert']);
 	}
 

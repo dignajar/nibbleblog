@@ -3,7 +3,7 @@
 $_LANG_CONFIG['DATA'] = array(
 	'native'=>'Español - Español',
 	'english'=>'Spanish',
-	'last_update'=>'14/11/2012',
+	'last_update'=>'18/11/2012',
 	'author'=>'Diego Najar',
 	'email'=>'dignajar@gmail.com',
 	'url'=>'http://diego.nibbleblog.com'
@@ -24,7 +24,7 @@ $_LANG['EMAIL'] = 'E-mail';
 $_LANG['TYPE_THE_COMMENT_HERE'] = 'Ingrese el comentario aquí';
 $_LANG['COPY_THE_TEXT_ON_THE_RIGHT'] = 'Copie el texto de la derecha';
 $_LANG['NEWER_POSTS'] = 'Publicaciones mas nuevas';
-$_LANG['OLDER_POSTS'] = 'Publicaciones mas viejas';
+$_LANG['OLDER_POSTS'] = 'Publicaciones mas antiguas';
 $_LANG['FORGOT_PASSWORD'] = '¿ Olvido la contraseña ?';
 $_LANG['INCORRECT_USERNAME_OR_PASSWORD'] = 'Usuario o contraseña incorrectos';
 $_LANG['LOGIN'] = 'Ingresar';

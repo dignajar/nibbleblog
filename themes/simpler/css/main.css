@@ -6,7 +6,7 @@
 
 body {
 	font-family: 'Open Sans',arial,sans-serif;
-	background-color: #FEFEFE;
+	background-color: #F8F8F8;
 	margin: 0;
 	padding: 0;
 	font-size: 0.875em;
@@ -17,28 +17,31 @@ body {
     margin: 0 auto;
     width: 80%;
     overflow: auto;
+	max-width: 1240px;
+    background: #FFFFFF;
+    border: 1px solid #F1F1F1;
 }
 
 #main {
-    background: #FFFFFF;
-    border: 1px solid #F1F1F1;
-    margin-right: 210px;
+    margin-right: 290px;
     padding: 20px 20px 0;
+    border-right: 1px solid #F1F1F1;
 }
 
 #sidebar {
 	float: right;
-	width: 200px;
+	margin-right: 10px;
+	width: 260px;
 }
 
 a {
-	color: #3C6EB4;
+	color: #327CCB;
 	cursor: pointer;
 	text-decoration: none;
 }
 
 a:hover {
-	text-decoration: underline;
+	color: #00A1CB;
 }
 
 
@@ -46,14 +49,12 @@ a:hover {
 /* HEADER */
 /* ============================== */
 #head {
-	overflow: auto;
+	font-size: 2.6em;
+	font-weight: lighter;
 	margin: 40px auto;
+	max-width: 1240px;
+	overflow: auto;
 	width: 80%;
-}
-
-#head	div.top {
-	font-size: 2.4em;
-	margin-right: 80px;
 }
 
 #head	a.name {
@@ -62,7 +63,7 @@ a:hover {
 }
 
 #head	span.slogan {
-	color: #CCC;
+	color: #327CCB;
 }
 
 /* ============================== */
@@ -71,7 +72,10 @@ a:hover {
 #foot {
 	text-align: right;
 	font-size: 0.9em;
-	padding-right: 30px;
+	max-width: 1240px;
+	overflow: auto;
+	width: 80%;
+	margin: 30px auto;
 }
 
 /* ============================== */
@@ -79,6 +83,7 @@ a:hover {
 /* ============================== */
 #pager {
 	overflow: auto;
+	padding-bottom: 20px;
 }
 
 #pager	a.newer {
@@ -233,6 +238,8 @@ article.post	footer.post {
 /* PLUGINS */
 /* ============================== */
 div.plugin_box {
+    margin-bottom: 20px;
+    overflow: auto;
 }
 
 div.plugin_box ul {
@@ -241,22 +248,25 @@ div.plugin_box ul {
 	list-style: none;
 }
 
+div.plugin_box	h3.title {
+	font-weight: normal;
+}
+
+/* ============================== */
+/* PLUGIN CATEGORIES */
+/* ============================== */
+div.plugin_categories	li.category {
+	padding: 2px 5px;
+}
+
 /* ============================== */
 /* PLUGIN TWITTER */
 /* ============================== */
-div.plugin_twitter {
-	padding: 0;
-	margin: 0;
-}
-
 div.plugin_twitter	ul {
-	margin: 0;
-	padding: 0;
+	height: 100px;
 }
 
 div.plugin_twitter	li {
-	margin: 0;
-	padding: 0;
 	display: inline;
 }
 
@@ -266,39 +276,27 @@ div.plugin_twitter	li.username {
 	padding-left: 23px;
 }
 
-
 /* ============================== */
-/* PLUGIN GRAVATAR */
+/* PLUGIN ABOUT */
 /* ============================== */
-div.plugin_gravatar {
-	margin: 0;
+div.plugin_about {
 	font-size: 0.9em;
 }
 
-div.plugin_gravatar	ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-div.plugin_gravatar	li {
-	margin: 0;
-	padding: 0;
-}
-div.plugin_gravatar	li.name {
+div.plugin_about	li.name {
 	font-weight: bold;
 }
 
-div.plugin_gravatar	li.about {
+div.plugin_about	li.about {
 
 }
 
-div.plugin_gravatar	li.image {
+div.plugin_about	li.image {
 	float: left;
 	overflow: auto;
 	width:70px;
 }
 
-div.plugin_gravatar	img.plugin_gravatar {
+div.plugin_about	img.plugin_about {
     max-width:64px;
 }

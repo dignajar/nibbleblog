@@ -283,7 +283,8 @@ form.plugins {
 
 form.plugins	input[type="text"],
 form.plugins	input[type="password"],
-form.plugins	textarea {
+form.plugins	textarea,
+form.plugins	select {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
