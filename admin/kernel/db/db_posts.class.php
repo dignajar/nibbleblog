@@ -112,16 +112,22 @@ class DB_POSTS {
 			// Last insert ID
 			$new_id = $this->last_insert_id = $this->get_autoinc();
 
+			// Mode, draft, published
+			if(isset($args['mode']) && ($args['mode']=='draft'))
+			{
+				$mode = 'draft';
+			}
+			else
+			{
+				$mode = 'NULL';
+			}
+
 			// Filename for new post
-			$filename = $new_id . '.' . $args['id_cat'] . '.' . $args['id_user'] . '.NULL.' . $time_filename . '.xml';
+			$filename = $new_id . '.' . $args['id_cat'] . '.' . $args['id_user'] . '.' . $mode . '.' . $time_filename . '.xml';
 
 			// Save to file
 			if( $new_obj->asXml( PATH_POSTS . $filename ) )
 			{
-				// Is Sticky post ?
-				if( $args['sticky'] == 1 )
-					$this->add_sticky( $new_id );
-
 				// Increment the AutoINC
 				$this->set_autoinc(1);
 
@@ -153,15 +159,6 @@ class DB_POSTS {
 			$new_obj->setChild('description', 		$args['description']);
 			$new_obj->setChild('mod_date', 			Date::unixstamp());
 			$new_obj->setChild('allow_comments', 	$args['allow_comments']);
-
-			if( $args['sticky'] == 1 )
-			{
-				$this->add_sticky( $args['id'] );
-			}
-			else
-			{
-				$this->remove_sticky( $args['id'] );
-			}
 
 			if(isset($args['quote']))
 			{
@@ -222,7 +219,18 @@ class DB_POSTS {
 
 		public function get_list_by_page($args)
 		{
-			// Set the list of post
+			// Set list of posts published
+			$this->set_files_by_published();
+
+			if($this->files_count > 0)
+				return( $this->get_list_by($args['page'], $args['amount']) );
+			else
+				return( array() );
+		}
+
+		public function get_list_by_page_more_drafts($args)
+		{
+			// Set list of posts drafts and published
 			$this->set_files();
 
 			if($this->files_count > 0)
@@ -233,35 +241,13 @@ class DB_POSTS {
 
 		public function get_list_by_category($args)
 		{
+			// Set list of posts by category
 			$this->set_files_by_category($args['id_cat']);
 
 			if($this->files_count > 0)
 				return( $this->get_list_by($args['page'], $args['amount']) );
 			else
 				return( array() );
-		}
-
-		public function get_list_by_sticky()
-		{
-			$tmp_array = array();
-			foreach( $this->obj_xml->sticky->id as $id )
-			{
-				$this->set_file((int)$id);
-				array_push( $tmp_array, $this->get_items( $this->files[0] ) );
-			}
-
-			return( $tmp_array );
-		}
-
-
-		public function get_list_by_tag($dbxml_tags, $page_number, $post_per_page)
-		{
-			return( array() );
-		}
-
-		public function get_list_by_archives($month, $year, $page_number, $post_per_page)
-		{
-			return( array() );
 		}
 
 		public function get_count()
@@ -284,36 +270,28 @@ class DB_POSTS {
 			$this->obj_xml['autoinc'] = $value + $this->get_autoinc();
 		}
 
-		public function add_sticky($id)
-		{
-			if( !$this->is_sticky($id)  )
-				$this->obj_xml->sticky->addChild('id', $id);
-		}
-
-		public function remove_sticky($id)
-		{
-			if( $this->is_sticky($id)  )
-			{
-				$tmp_node = $this->obj_xml->xpath('/post/sticky/id[.="'.$id.'"]');
-				$dom = dom_import_simplexml($tmp_node[0]);
-				$dom->parentNode->removeChild($dom);
-			}
-		}
-
+		// Get only the post file
 		private function set_file($id)
 		{
 			$this->files = Filesystem::ls(PATH_POSTS, $id.'.*.*.*.*.*.*.*.*.*', 'xml', false, false, false);
 			$this->files_count = count( $this->files );
 		}
 
-		// setea los parametros de la clase
-		// obtiene todos los archivos post
+		// Get all files, drafts and published
 		private function set_files()
 		{
 			$this->files = Filesystem::ls(PATH_POSTS, '*', 'xml', false, false, true);
 			$this->files_count = count( $this->files );
 		}
 
+		// Get all files, only published
+		private function set_files_by_published()
+		{
+			$this->files = Filesystem::ls(PATH_POSTS, '*.*.*.NULL.*.*.*.*.*.*', 'xml', false, false, true);
+			$this->files_count = count( $this->files );
+		}
+
+		// Get all files, by category
 		private function set_files_by_category($id_cat)
 		{
 			$this->files = Filesystem::ls(PATH_POSTS, '*.'.$id_cat.'.*.*.*.*.*.*.*.*', 'xml', false, false, true);
@@ -338,6 +316,8 @@ class DB_POSTS {
 			$tmp_array['id']				= (int) $file_info[0];
 			$tmp_array['id_cat']			= (int) $file_info[1];
 			$tmp_array['id_user']			= (int) $file_info[2];
+			$tmp_array['mode']				= (string) $file_info[3];
+			$tmp_array['draft']				= (bool) ($file_info[3]=='draft');
 			$tmp_array['visits']			= (int) $obj_xml->getChild('visits');
 
 			$tmp_array['type']				= (string) $obj_xml->getChild('type');
@@ -348,7 +328,6 @@ class DB_POSTS {
 			$tmp_array['mod_date_unix']		= (string) $obj_xml->getChild('mod_date');
 
 			$tmp_array['allow_comments']	= (bool) ((int)$obj_xml->getChild('allow_comments'))==1;
-			$tmp_array['sticky']			= (bool) $this->is_sticky($file_info[0]);
 
 			// DATE
 			$tmp_array['pub_date'] = Date::format($tmp_array['pub_date_unix'], $this->settings['timestamp_format']);
@@ -395,11 +374,6 @@ class DB_POSTS {
 			}
 
 			return( $tmp_array );
-		}
-
-		private function is_sticky($id)
-		{
-			return( $this->obj_xml->xpath('/post/sticky/id[.="'.$id.'"]') != array() );
 		}
 
 		private function get_list_by($page_number, $post_per_page)

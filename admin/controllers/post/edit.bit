@@ -5,7 +5,19 @@
 // ============================================================================
 	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	{
-		$safe = array();
+		$safe = array(
+						'mode'=>'publish',
+						'type'=>'simple',
+						'title'=>'',
+						'content'=>'',
+						'description'=>''
+		);
+
+		// Mode
+		if(isset($_POST['button_draft']))
+		{
+			$safe['mode']='draft';
+		}
 
 		// Post ID
 		$safe['id']	= $url['id_post'];
@@ -17,15 +29,6 @@
 		{
 			$safe['title']		= Validation::sanitize_html( $_POST['title'] );
 			$safe['content']	= $_POST['content'];
-			
-			// Description for SEO
-			$safe['description'] = Validation::sanitize_html( $_POST['description'] );
-		}
-		else
-		{
-			$safe['title'] = '';
-			$safe['content'] = '';
-			$safe['description'] = '';
 		}
 
 		// Description for SEO
@@ -44,16 +47,6 @@
 		else
 		{
 			$safe['allow_comments'] = 0;
-		}
-
-		// Sticky post
-		if( isset($_POST['sticky']) && $_POST['sticky'] == '1' )
-		{
-			$safe['sticky'] = 1;
-		}
-		else
-		{
-			$safe['sticky'] = 0;
 		}
 
 		if( $_DB_POST->set( $safe ) )

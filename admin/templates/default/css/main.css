@@ -199,6 +199,7 @@ div.form_block		div.input_tip {
 }
 
 div.form_block		input[type="submit"].save,
+div.form_block		input[type="submit"].draft,
 div.form_block		input[type="button"].save {
 	background-color: #337ACC;
 	border: 0 none;
@@ -213,6 +214,15 @@ div.form_block		input[type="button"].save {
 div.form_block		input[type="submit"].save:hover,
 div.form_block		input[type="button"].save:hover {
 	background-color: #1B70C9;
+}
+
+div.form_block		input[type="submit"].draft {
+	background-color: #616161;
+	margin-left:10px;
+}
+
+div.form_block		input[type="submit"].draft:hover {
+	background-color: #313131;
 }
 
 div.form_block		.uploader_button {

@@ -5,7 +5,19 @@
 // ============================================================================
 	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	{
-		$safe = array();
+		$safe = array(
+						'mode'=>'publish',
+						'type'=>'simple',
+						'title'=>'',
+						'content'=>'',
+						'description'=>''
+		);
+
+		// Mode
+		if(isset($_POST['button_draft']))
+		{
+			$safe['mode']='draft';
+		}
 
 		// Type
 		if( isset($_POST['video']) )
@@ -18,26 +30,16 @@
 			$safe['type'] = 'quote';
 			$safe['quote'] = $_POST['quote'];
 		}
-		else
-		{
-			$safe['type'] = 'simple';
-		}
 
 		// Title
 		if(isset($_POST['content']))
 		{
 			$safe['title'] = Validation::sanitize_html( $_POST['title'] );
 			$safe['content'] = $_POST['content'];
+		}
 
-			// Description for SEO
-			$safe['description'] = Validation::sanitize_html( $_POST['description'] );
-		}
-		else
-		{
-			$safe['title'] = '';
-			$safe['content'] = '';
-			$safe['description'] = '';
-		}
+		// Description for SEO
+		$safe['description'] = Validation::sanitize_html( $_POST['description'] );
 
 		// Category ID
 		$safe['id_cat'] = $_POST['id_cat'];
@@ -50,16 +52,6 @@
 		else
 		{
 			$safe['allow_comments'] = 0;
-		}
-
-		// Sticky post
-		if( isset($_POST['sticky']) && $_POST['sticky'] == '1' )
-		{
-			$safe['sticky'] = 1;
-		}
-		else
-		{
-			$safe['sticky'] = 0;
 		}
 
 		// User ID
