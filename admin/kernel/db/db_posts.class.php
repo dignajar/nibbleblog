@@ -75,7 +75,7 @@ class DB_POSTS {
 		public function add($args)
 		{
 			// Template
-			$xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
+			$xml  = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
 			$xml .= '<post>';
 			$xml .= '</post>';
 
@@ -88,7 +88,7 @@ class DB_POSTS {
 			// Time for Filename
 			$time_filename = Date::format_gmt($time_unix, 'Y.m.d.H.i.s');
 
-			// Elements
+			// Default elements
 			$new_obj->addChild('type',				$args['type']);
 			$new_obj->addChild('title',				$args['title']);
 			$new_obj->addChild('content',			$args['content']);
@@ -99,11 +99,12 @@ class DB_POSTS {
 			$new_obj->addChild('mod_date',			'0');
 			$new_obj->addChild('visits',			'0');
 
-			// Video or Quote post
+			// Video post
 			if(isset($args['video']))
 			{
 				$new_obj->addChild('video', $args['video']);
 			}
+			// Quote post
 			elseif(isset($args['quote']))
 			{
 				$new_obj->addChild('quote', $args['quote']);
@@ -165,11 +166,28 @@ class DB_POSTS {
 				$new_obj->setChild('quote', $args['quote']);
 			}
 
-			// Save config file post.xml
-			$this->savetofile();
+			// Draft
+			if(isset($args['mode']) && ($args['mode']=='draft'))
+			{
+				$file = explode('.', $this->files[0]);
+				$file[3] = 'draft';
 
-			// Save to file the post
-			return($new_obj->asXml( PATH_POSTS . $this->files[0] ) );
+				$filename = implode(".", $file);
+			}
+			// Published
+			else
+			{
+				$file = explode('.', $this->files[0]);
+				$file[3] = 'NULL';
+
+				$filename = implode(".", $file);
+			}
+
+			// Delete the old post
+			$this->remove($args['id']);
+
+			// Save the new post
+			return($new_obj->asXml( PATH_POSTS . $filename ) );
 		}
 
 		public function change_category($args)

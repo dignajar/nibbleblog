@@ -207,8 +207,8 @@ div.form_block		input[type="button"].save {
 	color: #FFFFFF;
 	cursor: pointer;
 	display: inline-block;
-	font-size: 12px;
-	padding: 6px 26px;
+    font-size: 1em;
+    padding: 6px 32px;
 }
 
 div.form_block		input[type="submit"].save:hover,

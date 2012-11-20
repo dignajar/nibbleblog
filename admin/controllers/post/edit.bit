@@ -10,14 +10,9 @@
 						'type'=>'simple',
 						'title'=>'',
 						'content'=>'',
-						'description'=>''
+						'description'=>'',
+						'allow_comments'=>0
 		);
-
-		// Mode
-		if(isset($_POST['button_draft']))
-		{
-			$safe['mode']='draft';
-		}
 
 		// Post ID
 		$safe['id']	= $url['id_post'];
@@ -25,28 +20,39 @@
 		// Category ID
 		$safe['id_cat']	= $_POST['id_cat'];
 
-		if(isset($_POST['content']))
+		// Mode
+		if( isset($_POST['button_draft']) )
 		{
-			$safe['title']		= Validation::sanitize_html( $_POST['title'] );
-			$safe['content']	= $_POST['content'];
+			$safe['mode']='draft';
 		}
-
-		// Description for SEO
-		$safe['description'] = Validation::sanitize_html( $_POST['description'] );
 
 		if( isset($_POST['quote']) )
 		{
 			$safe['quote'] = $_POST['quote'];
 		}
 
+		// Title
+		if( isset($_POST['title']) )
+		{
+			$safe['title'] = Validation::sanitize_html( $_POST['title'] );
+		}
+
+		// Content
+		if( isset($_POST['content']) )
+		{
+			$safe['content'] = $_POST['content'];
+		}
+
+		// Description for SEO
+		if( isset($_POST['description']) )
+		{
+			$safe['description'] = Validation::sanitize_html( $_POST['description'] );
+		}
+
 		// Allow comments
-		if( isset($_POST['allow_comments']) && $_POST['allow_comments'] == '1' )
+		if( isset($_POST['allow_comments']) && $_POST['allow_comments']=='1' )
 		{
 			$safe['allow_comments'] = 1;
-		}
-		else
-		{
-			$safe['allow_comments'] = 0;
 		}
 
 		if( $_DB_POST->set( $safe ) )
