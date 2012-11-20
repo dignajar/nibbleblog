@@ -99,7 +99,7 @@ a:hover {
 /* ============================== */
 article.post {
 	margin-bottom: 60px;
-	overflow: auto;
+	overflow: hidden;
 }
 
 article.post	header.post {

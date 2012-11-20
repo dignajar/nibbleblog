@@ -184,7 +184,7 @@ class DB_POSTS {
 			}
 
 			// Delete the old post
-			$this->remove($args['id']);
+			$this->remove( array('id'=>$args['id']) );
 
 			// Save the new post
 			return($new_obj->asXml( PATH_POSTS . $filename ) );
