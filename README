@@ -1,7 +1,7 @@
 ====== Nibbleblog ======
-Version: 3.4
-Codename: Flux Capacitor
-Release date: 20/11/2012
+Version: Beta on Github
+Codename:
+Release date:
 Site: http://nibbleblog.com
 
 ===== Intallation =====
@@ -14,7 +14,7 @@ Site: http://nibbleblog.com
 ===== System Requirements =====
 * PHP v5.2 or higher
 * PHP module - DOM
-* PHP module - [[SimpleXML]]
+* PHP module - SimpleXML
 * Directory "content" writable by PHP
 
 ===== About the author =====
