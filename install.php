@@ -5,7 +5,7 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 20/11/2012
+ * Last update: 23/11/2012
 
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
@@ -46,13 +46,14 @@ $languagues = array(
 	'de_DE'=>'Deutsch',
 	'en_US'=>'English',
 	'es_ES'=>'Español'
-//	'fr_FR'=>'Français',
+	'fr_FR'=>'Français',
 //	'hu_HU'=>'Magyar',
 //	'pl_PL'=>'Polski',
-//	'pt_PT'=>'Português',
-//	'ru_RU'=>'Pyccĸий',
+	'pt_PT'=>'Português',
+	'ru_RU'=>'Pyccĸий',
 //	'vi_VN'=>'Tiếng Việt',
 //	'zh_TW'=>'繁體中文'
+	'tr_TR'=>'Tϋrkçe'
 );
 
 // ============================================================================

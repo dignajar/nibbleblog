@@ -1,12 +1,12 @@
 <?php
 
 $_LANG_CONFIG['DATA'] = array(
-	'native'=>'Türkçe - Türkiye',
-	'english'=>'Türkçe',
+	'native'=>'Tϋrkçe',
+	'english'=>'Turkish',
 	'last_update'=>'22/11/2012',
-	'author'=>'Diego Najar',
-	'email'=>'dignajar@gmail.com',
-	'url'=>'http://diego.nibbleblog.com'
+	'author'=>'Adem Yurtsever',
+	'email'=>'botzor@msn.com',
+	'url'=>'http://www.twitter.com/ademyurtsever'
 );
 
 $_LANG['LAST_COMMENTS'] = 'Son yorumlar';
