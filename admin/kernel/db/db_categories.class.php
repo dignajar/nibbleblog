@@ -129,7 +129,7 @@ class DB_CATEGORIES {
 		{
 			foreach($this->obj_xml as $children)
 			{
-				if(Text::clean_url((string)$children->attributes()->name) == $args['name'])
+				if(Text::clean_url(utf8_decode((string)$children->attributes()->name)) == $args['name'])
 					return( (int)$children->attributes()->id );
 			}
 
