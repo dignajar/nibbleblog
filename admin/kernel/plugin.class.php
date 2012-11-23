@@ -34,6 +34,7 @@ class Plugin {
 		$this->dir_name = basename(dirname($reflector->getFileName()));
 
 		$this->display = true;
+		$this->fields = array();
 	}
 
 	public function install()
@@ -103,7 +104,7 @@ class Plugin {
 	}
 
 	// EJ: array( 'first_name'=>'Diego', 'last_name'=>'Najar')
-	public function set_fields_db($array)
+	public function set_fields_db($array = array())
 	{
 		foreach($array as $field=>$value)
 		{
