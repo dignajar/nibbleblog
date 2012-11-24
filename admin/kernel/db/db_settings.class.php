@@ -18,8 +18,8 @@ class DB_SETTINGS {
 	VARIABLES
 ======================================================================================
 */
-		public $file_xml; 			// Contains the link to the blog_config.xml file
-		public $obj_xml; 				// Contains the object of the blog_config.xml file
+		public $file_xml; 			// Contains the link to XML file
+		public $obj_xml; 			// Contains the object
 
 /*
 ======================================================================================
@@ -120,12 +120,9 @@ class DB_SETTINGS {
 
 		public function get_languages()
 		{
-			global $_FS;
-			global $_TEXT;
-
 			$tmp_array = array();
 
-			$files = $_FS->ls(PATH_LANGUAGES, '*', 'bit', false, false, false);
+			$files = Filesystem::ls(PATH_LANGUAGES, '*', 'bit', false, false, false);
 
 			foreach($files as $file)
 			{
@@ -140,33 +137,27 @@ class DB_SETTINGS {
 
 		public function get_plugins_on_system()
 		{
-			global $_FS;
-
 			$tmp_array = array();
 
-			$files = $_FS->ls(PATH_PLUGINS, '*', 'bit', true, false, false);
+			$files = Filesystem::ls(PATH_PLUGINS, '*', 'bit', true, false, false);
 
 			return($files);
 		}
 
 		public function get_plugins_installed()
 		{
-			global $_FS;
-
 			$tmp_array = array();
 
-			$files = $_FS->ls(PATH_PLUGINS_DB, '*', 'bit', true, false, false);
+			$files = Filesystem::ls(PATH_PLUGINS_DB, '*', 'bit', true, false, false);
 
 			return($files);
 		}
 
 		public function get_themes()
 		{
-			global $_FS;
-
 			$tmp_array = array();
 
-			$files = $_FS->ls(PATH_THEMES, '*', 'bit', true, false, false);
+			$files = Filesystem::ls(PATH_THEMES, '*', 'bit', true, false, false);
 
 			return($files);
 		}

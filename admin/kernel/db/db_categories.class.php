@@ -18,8 +18,8 @@ class DB_CATEGORIES {
 	VARIABLES
 ======================================================================================
 */
-		public $file_xml; 			// Contains the link to the blog_config.xml file
-		public $obj_xml; 				// Contains the object of the blog_config.xml file
+		public $file_xml; 			// Contains the link to XML file
+		public $obj_xml; 			// Contains the object
 
 /*
 ======================================================================================
@@ -122,18 +122,15 @@ class DB_CATEGORIES {
 
 		public function get_post_count($id)
 		{
-			global $_FS;
-
-			return( count($_FS->ls(PATH_POSTS, '*.'.$id.'.*.*.*.*.*.*.*.*', 'xml', false, false, false)) );
+			return( count(Filesystem::ls(PATH_POSTS, '*.'.$id.'.*.*.*.*.*.*.*.*', 'xml', false, false, false)) );
 		}
 
 		public function get_id($args)
 		{
-			$tmp_node = $this->obj_xml->xpath('/categories/category[@name="'.utf8_encode($args['name']).'"]');
-
-			if( $tmp_node != array() )
+			foreach($this->obj_xml as $children)
 			{
-				return( (int) $tmp_node[0]->attributes()->id );
+				if(Text::clean_url(utf8_decode((string)$children->attributes()->name)) == $args['name'])
+					return( (int)$children->attributes()->id );
 			}
 
 			return false;

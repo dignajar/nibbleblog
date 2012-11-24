@@ -4,7 +4,7 @@
 //	VARIABLES URL
 // ============================================================================
 
-	$_URL = array(
+	$url = array(
 				'controller'=>null,
 				'action'=>null,
 				'id_post'=>null,
@@ -13,17 +13,17 @@
 				'category'=>null
 	);
 
-	if( isset($_GET['controller']) ){ $_URL['controller'] = $_VALIDATION->sanitize_html($_GET['controller']); }
+	if( isset($_GET['controller']) ){ $url['controller'] = Validation::sanitize_html($_GET['controller']); }
 
-	if( isset($_GET['action']) ) { $_URL['action'] = $_VALIDATION->sanitize_html($_GET['action']); }
+	if( isset($_GET['action']) ) { $url['action'] = Validation::sanitize_html($_GET['action']); }
 
-	if( isset($_GET['id_post']) ) { $_URL['id_post'] = $_VALIDATION->sanitize_int($_GET['id_post']); }
+	if( isset($_GET['id_post']) ) { $url['id_post'] = Validation::sanitize_int($_GET['id_post']); }
 
-	if( isset($_GET['page']) ) { $_URL['page'] = $_VALIDATION->sanitize_html($_GET['page']); }
+	if( isset($_GET['page']) ) { $url['page'] = Validation::sanitize_html($_GET['page']); }
 
-	if( isset($_GET['plugin']) ) { $_URL['plugin'] = $_VALIDATION->sanitize_html($_GET['plugin']); }
+	if( isset($_GET['plugin']) ) { $url['plugin'] = Validation::sanitize_html($_GET['plugin']); }
 
-	if( isset($_GET['category']) ) { $_URL['category'] = $_VALIDATION->sanitize_html($_GET['category']); }
+	if( isset($_GET['category']) ) { $url['category'] = Validation::sanitize_html($_GET['category']); }
 
 
 // ============================================================================
@@ -33,6 +33,6 @@
 	{
 		// Magic quotes ON ?
 		if( get_magic_quotes_gpc() != 0 )
-			$_POST = $_TEXT->clean_magic_quotes($_POST);
+			$_POST = Text::clean_magic_quotes($_POST);
 	}
 ?>

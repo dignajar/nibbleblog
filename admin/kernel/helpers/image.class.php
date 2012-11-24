@@ -11,7 +11,7 @@
  * See COPYRIGHT.txt and LICENSE.txt.
 */
 
-class HELPER_IMAGE {
+class Image {
 
 	/**
 	 * Get either a Gravatar URL or complete image tag for a specified email address.
@@ -23,7 +23,7 @@ class HELPER_IMAGE {
 	 * @return String containing either just a URL
 	 * @source http://gravatar.com/site/implement/images/php/
 	 */
-	function get_gravatar($email, $s = 80, $d = 'mm', $r = 'g')
+	public static function get_gravatar($email, $s = 80, $d = 'mm', $r = 'g')
 	{
 		$url = 'http://www.gravatar.com/avatar/';
 		$url .= md5( strtolower( trim( $email ) ) );

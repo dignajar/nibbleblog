@@ -1,33 +1,33 @@
 <?php
 
-	echo $_HTML->form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
 		// BLOG NAME
-		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->label( array('content'=>$_LANG['BLOG_TITLE'], 'class'=>'blocked') );
-			echo $_HTML->input( array('id'=>'js_name', 'name'=>'name', 'type'=>'text', 'value'=>$settings['name']) );
-		echo $_HTML->div_close();
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>$_LANG['BLOG_TITLE'], 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_name', 'name'=>'name', 'type'=>'text', 'value'=>$settings['name']) );
+		echo Html::div_close();
 
 		// BLOG SLOGAN
-		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->label( array('content'=>$_LANG['BLOG_SLOGAN'], 'class'=>'blocked') );
-			echo $_HTML->input( array('id'=>'js_slogan', 'name'=>'slogan', 'type'=>'text', 'value'=>$settings['slogan']) );
-		echo $_HTML->div_close();
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>$_LANG['BLOG_SLOGAN'], 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_slogan', 'name'=>'slogan', 'type'=>'text', 'value'=>$settings['slogan']) );
+		echo Html::div_close();
 
 		// ABOUT
-		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->label( array('content'=>$_LANG['ABOUT_YOUR_BLOG'], 'class'=>'blocked') );
-			echo $_HTML->textarea( array('id'=>'js_about', 'name'=>'about', 'content'=>$settings['about']) );
-			echo $_HTML->div( array('content'=>$_LANG['SHORT_DESCRIPTION_NO_MORE_THAN'], 'class'=>'input_tip') );
-		echo $_HTML->div_close();
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>$_LANG['ABOUT_YOUR_BLOG'], 'class'=>'blocked') );
+			echo Html::textarea( array('id'=>'js_about', 'name'=>'about', 'content'=>$settings['about']) );
+			echo Html::div( array('content'=>$_LANG['SHORT_DESCRIPTION_NO_MORE_THAN'], 'class'=>'input_tip') );
+		echo Html::div_close();
 
 		// FOOTER TEXT
-		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->label( array('content'=>$_LANG['FOOTER_TEXT'], 'class'=>'blocked') );
-			echo $_HTML->input( array('id'=>'js_footer', 'name'=>'footer', 'type'=>'text', 'value'=>$settings['footer']) );
-		echo $_HTML->div_close();
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>$_LANG['FOOTER_TEXT'], 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_footer', 'name'=>'footer', 'type'=>'text', 'value'=>$settings['footer']) );
+		echo Html::div_close();
 
-	echo $_HTML->form_close();
+	echo Html::form_close();
 
 ?>
 

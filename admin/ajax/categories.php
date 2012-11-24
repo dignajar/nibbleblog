@@ -18,9 +18,9 @@ elseif( $_POST['action']=='set' )
 	{
 		$safe = array();
 		$safe['id'] = $id;
-		$safe['name'] = $_VALIDATION->sanitize_html($name);
+		$safe['name'] = Validation::sanitize_html($name);
 
-		if($_TEXT->not_empty($safe['name']))
+		if(Text::not_empty($safe['name']))
 		{
 			$_DB_CATEGORIES->set($safe);
 		}
@@ -31,10 +31,10 @@ elseif( $_POST['action']=='set' )
 
 if( $error )
 {
-	exit( $_TEXT->ajax_header('<error><![CDATA[1]]></error>') );
+	exit( Text::ajax_header('<error><![CDATA[1]]></error>') );
 }
 else
 {
-	exit( $_TEXT->ajax_header('<success><![CDATA[1]]></success>') );
+	exit( Text::ajax_header('<success><![CDATA[1]]></success>') );
 }
 ?>

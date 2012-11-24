@@ -6,7 +6,7 @@
 	}
 	elseif($post['type']=='video')
 	{
-		$video_info = $_VIDEO->video_get_info($post['video'], 193, 109);
+		$video_info = Video::video_get_info($post['video'], 193, 109);
 
 		echo '<img class="video_thumb" src="'.$video_info['thumb'][0].'">';
 

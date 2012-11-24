@@ -5,7 +5,7 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 07/10/2012
+ * Last update: 20/11/2012
 
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
@@ -30,8 +30,6 @@
 // ============================================================================
 //	CONTROLLER & ACTION
 // ============================================================================
-	$url = $_URL;
-
 	$layout = array(
 		'controller'=>'blog/view.bit',
 		'view'=>'blog/view.bit',

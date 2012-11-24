@@ -11,7 +11,7 @@
  * See COPYRIGHT.txt and LICENSE.txt.
 */
 
-class PLUGIN {
+class Plugin {
 
 	public $name;
 	public $description;
@@ -19,6 +19,8 @@ class PLUGIN {
 	public $version;
 	public $url;
 	public $display;
+
+	public $slug_name;
 
 	public $db;
 
@@ -32,12 +34,11 @@ class PLUGIN {
 		$this->dir_name = basename(dirname($reflector->getFileName()));
 
 		$this->display = true;
+		$this->fields = array();
 	}
 
 	public function install()
 	{
-		global $_DATE;
-
 		if( !mkdir(PATH_PLUGINS_DB.$this->dir_name,0777, true) )
 			return(false);
 
@@ -49,10 +50,15 @@ class PLUGIN {
 		// Object
 		$new_obj = new NBXML($xml, 0, FALSE, '', FALSE);
 
+		// Default attributes
 		$new_obj->addAttribute('name', $this->name);
 		$new_obj->addAttribute('author', $this->author);
 		$new_obj->addAttribute('version', $this->version);
-		$new_obj->addAttribute('installed_at', $_DATE->unixstamp());
+		$new_obj->addAttribute('installed_at', Date::unixstamp());
+
+		// Default fields
+		$new_obj->addChild('position', 0);
+		$new_obj->addChild('title', $this->name);
 
 		foreach($this->fields as $field=>$value)
 		{
@@ -98,7 +104,7 @@ class PLUGIN {
 	}
 
 	// EJ: array( 'first_name'=>'Diego', 'last_name'=>'Najar')
-	public function set_fields_db($array)
+	public function set_fields_db($array = array())
 	{
 		foreach($array as $field=>$value)
 		{
@@ -109,6 +115,19 @@ class PLUGIN {
 			return(false);
 
 		return(true);
+	}
+
+	public function set_slug_name($name)
+	{
+		$name = strtolower($name);
+		$name = str_replace(" ","_",$name);
+
+		$this->slug_name = 'plugin_'.$name;
+	}
+
+	public function get_slug_name()
+	{
+		return( $this->slug_name );
 	}
 
 	public function set_attributes($args)

@@ -1,36 +1,36 @@
 <?php
 
-	echo $_HTML->form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
 		// LANGUAGE
-		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->label( array('content'=>$_LANG['LANGUAGE'], 'class'=>'blocked') );
-			echo $_HTML->select( array('id'=>'js_language', 'name'=>'language'), $languages_html, $settings['language']);
-		echo $_HTML->div_close();
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>$_LANG['LANGUAGE'], 'class'=>'blocked') );
+			echo Html::select( array('id'=>'js_language', 'name'=>'language'), $languages_html, $settings['language']);
+		echo Html::div_close();
 
 		// TIMEZONE
-		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->label( array('content'=>$_LANG['TIMEZONE'], 'class'=>'blocked') );
-			echo $_HTML->select( array('name'=>'timezone'), $timezone_html, $settings['timezone']);
-			echo $_HTML->div( array('content'=>$_LANG['SELECT_A_TIMEZONE_FOR_A_CORRECT_DATE_VISUALIZATION'], 'class'=>'input_tip') );
-		echo $_HTML->div_close();
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>$_LANG['TIMEZONE'], 'class'=>'blocked') );
+			echo Html::select( array('name'=>'timezone'), $timezone_html, $settings['timezone']);
+			echo Html::div( array('content'=>$_LANG['SELECT_A_TIMEZONE_FOR_A_CORRECT_DATE_VISUALIZATION'], 'class'=>'input_tip') );
+		echo Html::div_close();
 
 		// DATE FORMAT
-		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->label( array('content'=>$_LANG['TIMESTAMP_FORMAT'], 'class'=>'blocked') );
-			echo $_HTML->select( array('id'=>'js_timestamp_select'), $timestamp_format_html, $settings['timestamp_format']);
-			echo $_HTML->input( array('style'=>'margin-top:10px;', 'id'=>'js_timestamp_format', 'name'=>'timestamp_format', 'type'=>'text', 'value'=>$settings['timestamp_format']) );
-			echo $_HTML->div( array('content'=>$_LANG['SELECT_A_FORMAT_FOR_DISPLAYING_THE_DATES'], 'class'=>'input_tip') );
-		echo $_HTML->div_close();
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>$_LANG['TIMESTAMP_FORMAT'], 'class'=>'blocked') );
+			echo Html::select( array('id'=>'js_timestamp_select'), $timestamp_format_html, $settings['timestamp_format']);
+			echo Html::input( array('style'=>'margin-top:10px;', 'id'=>'js_timestamp_format', 'name'=>'timestamp_format', 'type'=>'text', 'value'=>$settings['timestamp_format']) );
+			echo Html::div( array('content'=>$_LANG['SELECT_A_FORMAT_FOR_DISPLAYING_THE_DATES'], 'class'=>'input_tip') );
+		echo Html::div_close();
 
 		// LOCALE
-		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->label( array('content'=>$_LANG['LOCALE'], 'class'=>'blocked') );
-			echo $_HTML->input( array('id'=>'js_locale', 'name'=>'locale', 'type'=>'text', 'value'=>$settings['locale']) );
-			echo $_HTML->div( array('content'=>$_LANG['THIS_FIELD_IS_SET_EACH_TIME_YOU_CHANGE_THE_LANGUAGE_OF_THE_BLOG'], 'class'=>'input_tip') );
-		echo $_HTML->div_close();
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>$_LANG['LOCALE'], 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_locale', 'name'=>'locale', 'type'=>'text', 'value'=>$settings['locale']) );
+			echo Html::div( array('content'=>$_LANG['THIS_FIELD_IS_SET_EACH_TIME_YOU_CHANGE_THE_LANGUAGE_OF_THE_BLOG'], 'class'=>'input_tip') );
+		echo Html::div_close();
 
-	echo $_HTML->form_close();
+	echo Html::form_close();
 
 ?>
 

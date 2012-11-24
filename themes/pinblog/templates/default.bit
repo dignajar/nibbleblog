@@ -27,9 +27,9 @@
 
 	<!-- Plugin::Analytics -->
 	<?php
-		if( isset($plugins['analytics']) )
+		if( isset($plugins_by_name['analytics']) )
 		{
-			echo $plugins['analytics']->get_html();
+			echo $plugins_by_name['analytics']->get_html();
 		}
 	?>
 </head>
@@ -57,10 +57,10 @@
 		<!-- PLUGIN CATEGORIES -->
 		<?php
 			// If plugin categories set, then show
-			if( isset($plugins['categories']) )
+			if( isset($plugins_by_name['categories']) )
 			{
 				echo '<section id="categories">';
-				echo $plugins['categories']->get_html();
+				echo $plugins_by_name['categories']->get_html();
 				echo '</section>';
 			}
 		?>

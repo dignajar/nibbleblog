@@ -17,5 +17,3 @@ Options -Indexes
     ExpiresActive Off
   </FilesMatch>
 </IfModule>
-
-

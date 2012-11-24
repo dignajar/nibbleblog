@@ -1,13 +1,11 @@
 <?php
 
 $_LANG_CONFIG['DATA'] = array(
-	'native'=>'Português',
+	'native'=>'Português - Português',
 	'english'=>'Portuguese',
+	'last_update'=>'19/11/2012',
 	'author'=>'Paulo Nunes',
-	'last_update'=>'11/09/2012', //dd/mm/yyyy
-	'version_min'=>'3.2.1',
-	'version_max'=>'3.2.1',
-	'email'=>'',
+	'email'=>'syndicatefx@gmail.com',
 	'url'=>'http://syndicate-fx.com'
 );
 
@@ -16,7 +14,6 @@ $_LANG['THEME'] = 'Tema';
 $_LANG['THEMES'] = 'Temas';
 $_LANG['CHANGE_THEME'] = 'Mudar tema';
 $_LANG['SELECT_THEME'] = 'Selecionar tema';
-
 $_LANG['REMEMBER_ME'] = 'Lembrar-me';
 $_LANG['USERNAME'] = 'Utilizador';
 $_LANG['PASSWORD'] = 'Senha';
@@ -24,7 +21,6 @@ $_LANG['COMMENTS'] = 'Comentários';
 $_LANG['INVALID_CAPTCHA'] = 'Captcha inválido';
 $_LANG['NAME'] = 'Nome';
 $_LANG['EMAIL'] = 'E-mail';
-
 $_LANG['TYPE_THE_COMMENT_HERE'] = 'Digite o comentário aqui';
 $_LANG['COPY_THE_TEXT_ON_THE_RIGHT'] = 'Copie o texto à direita';
 $_LANG['NEWER_POSTS'] = 'Posts recentes';
@@ -80,7 +76,6 @@ $_LANG['VIEW'] = 'Ver';
 $_LANG['EDIT'] = 'Editar';
 $_LANG['TIMESTAMP_FORMAT'] = 'Formato data/hora';
 $_LANG['SELECT_A_TIMEZONE_FOR_A_CORRECT_DATE_VISUALIZATION'] = 'Selecione um fuso horário para uma correta visualização da data';
-$_LANG['SELECT_A_FORMAT_FOR_DISPLAYING_THE_DATES'] = 'Selecione um formato para mostrar as datas';
 $_LANG['ABSOLUT_URL_ADDRESS_OF_YOUR_BLOG'] = 'Endereço URL absoluto do seu blog. Por exemplo http://www.domain.com/blog';
 $_LANG['ABSOLUT_ADDRESS_THAT_CONTAINS_THE_BLOGS_FILE_SYSTEM'] = 'Endereço absoluto que contém o sistema de ficheiros do blog, se efectuo upload do conteúdo do Nibbleblog para dentro da raiz deverá simplesmente inserir "/", se efectuo upload para dentro de outro directório então insira "/directório".';
 $_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_PER_PAGE'] = 'Número de posts que deseja ver por página';
@@ -101,7 +96,6 @@ $_LANG['QUOTE'] = 'Citação';
 $_LANG['POSTING_WITH_RICH_FORMATTING'] = 'Postar com formatação avançada';
 $_LANG['AN_EASY_WAY_TO_PUBLISH_VIDEOS'] = 'Uma maneira simples de publicar videos';
 $_LANG['AN_EASY_WAY_TO_PUBLISH_QUOTES'] = 'Uma maneira simples de publicar citações';
-$_LANG['BLOG_TITLE_SLOGAN_LANGUAGE'] = 'Título do blog, slogan, idioma';
 $_LANG['NEW_SIMPLE_POST'] = 'Novo post simples';
 $_LANG['NEW_VIDEO_POST'] = 'Novo post video';
 $_LANG['NEW_QUOTE_POST'] = 'Novo post citação';
@@ -164,10 +158,21 @@ $_LANG['SELECT_A_FORMAT_FOR_DISPLAYING_THE_DATES'] = 'Seleccione um formato para
 $_LANG['ENABLE_WYSIWYG_EDITOR'] = 'Activar editor WYSIWYG';
 $_LANG['ENABLE_OR_DISABLE_THE_WYSIWYG_EDITOR'] = 'Activar ou desactivar editor WYSIWYG';
 $_LANG['IMAGE_SETTINGS'] = 'Image settings';
+$_LANG['AUTOMATIC_IMAGE_RESIZING'] = 'Redimensionamento Automatico de Imagem';
+$_LANG['THUMBNAILS'] = 'Thumbnails';
 $_LANG['ENABLE_AUTOMATIC_IMAGE_RESIZING'] = 'Enable Automatic Image Resizing';
 $_LANG['ENABLE_THUMBNAILS'] = 'Enable thumbnails';
 $_LANG['WIDTH'] = 'Width';
 $_LANG['HEIGHT'] = 'Height';
-$_LANG['OPTION'] = 'Option';
+$_LANG['OPTION'] = 'Opção';
+$_LANG['THIS_OPTION_AUTOMATICALLY_CHANGES_THE_IMAGE'] = 'Esta opção muda automaticamente o tamanho da imagem depois do upload';
+$_LANG['ENABLE_THIS_OPTION_IF_YOU_WANT_TO_GENERATE'] = 'Habilite esta opção se deseja gerar um thumbnail quando fizer upload de uma imagem';
+$_LANG['BLOG_TITLE_SLOGAN_ABOUT'] = 'Titulo do blog, slogan, acerca';
+$_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS'] = 'Não existem comentários publicados';
+$_LANG['AUTOMATIC'] = 'Automático';
+$_LANG['EXACT'] = 'Exacto';
+$_LANG['PORTRAIT'] = 'Retrato';
+$_LANG['LANDSCAPE'] = 'Panorama';
+$_LANG['CROP'] = 'Cortar';
 
 ?>

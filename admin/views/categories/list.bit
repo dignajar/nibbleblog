@@ -1,42 +1,42 @@
 <?php
 
 	// NEW CATEGORY
-	echo $_HTML->separator( array('style'=>'margin-top: 0;', 'content'=>$_LANG['NEW_CATEGORY']) );
+	echo Html::separator( array('style'=>'margin-top: 0;', 'content'=>$_LANG['NEW_CATEGORY']) );
 
-	echo $_HTML->form_open( array('id'=>'js_form_add', 'name'=>'form', 'method'=>'post') );
+	echo Html::form_open( array('id'=>'js_form_add', 'name'=>'form', 'method'=>'post') );
 
 		// NAME
-		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->input( array('id'=>'js_name', 'name'=>'name', 'type'=>'text', 'placeholder'=>$_LANG['ENTER_THE_NAME_OF_THE_NEW_CATEGORY']) );
-		echo $_HTML->div_close();
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::input( array('id'=>'js_name', 'name'=>'name', 'type'=>'text', 'placeholder'=>$_LANG['ENTER_THE_NAME_OF_THE_NEW_CATEGORY']) );
+		echo Html::div_close();
 
-		echo $_HTML->div_open( array('class'=>'form_block') );
-			echo $_HTML->input( array('id'=>'js_button_add', 'type'=>'submit', 'class'=>'save', 'value'=>$_LANG['ADD_CATEGORY']) );
-		echo $_HTML->div_close();
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::input( array('id'=>'js_button_add', 'type'=>'submit', 'class'=>'save', 'value'=>$_LANG['ADD_CATEGORY']) );
+		echo Html::div_close();
 
-	echo $_HTML->form_close();
+	echo Html::form_close();
 
 
 	// LIST
-	echo $_HTML->separator( array('content'=>$_LANG['CATEGORIES_IN_YOUR_BLOG']) );
+	echo Html::separator( array('content'=>$_LANG['CATEGORIES_IN_YOUR_BLOG']) );
 
-	echo $_HTML->form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
 		foreach( $categories as $category )
 		{
-			echo $_HTML->div_open( array('class'=>'form_block') );
-				echo $_HTML->input( array('name'=>$category['id'], 'type'=>'text', 'value'=>$category['name']) );
+			echo Html::div_open( array('class'=>'form_block') );
+				echo Html::input( array('name'=>$category['id'], 'type'=>'text', 'value'=>$category['name']) );
 
 				if($_DB_CATEGORIES->get_post_count($category['id']) == 0)
-					echo $_HTML->link( array('class'=>'js_button_delete button', 'data-flag'=>'0', 'data-id'=>$category['id'], 'content'=>$_LANG['DELETE']) );
+					echo Html::link( array('class'=>'js_button_delete button', 'data-flag'=>'0', 'data-id'=>$category['id'], 'content'=>$_LANG['DELETE']) );
 				elseif($_DB_CATEGORIES->get_count() == 1)
-					echo $_HTML->div( array('class'=>'input_tip', 'content'=>$_LANG['AT_LEAST_ONE_CATEGORY']) );
+					echo Html::div( array('class'=>'input_tip', 'content'=>$_LANG['AT_LEAST_ONE_CATEGORY']) );
 				else
-					echo $_HTML->div( array('class'=>'input_tip', 'content'=>$_LANG['CATEGORY_HAS_ONE_OR_MORE_POST']) );
-			echo $_HTML->div_close();
+					echo Html::div( array('class'=>'input_tip', 'content'=>$_LANG['CATEGORY_HAS_ONE_OR_MORE_POST']) );
+			echo Html::div_close();
 		}
 
-	echo $_HTML->form_close();
+	echo Html::form_close();
 
 ?>
 

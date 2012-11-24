@@ -1,62 +1,62 @@
 <?php
 
-	echo $_HTML->div_open( array('class'=>'dash_items') );
+	echo Html::div_open( array('class'=>'dash_items') );
 
-		echo $_HTML->link( array( 'class'=>'item bg_post_simple', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_simple', 'content'=>
-			$_HTML->span( array('class'=>'type', 'content'=>$_LANG['SIMPLE']) ).
-			$_HTML->span( array('class'=>'description', 'content'=>$_LANG['POSTING_WITH_RICH_FORMATTING']) )
+		echo Html::link( array( 'class'=>'item bg_post_simple', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_simple', 'content'=>
+			Html::span( array('class'=>'type', 'content'=>$_LANG['SIMPLE']) ).
+			Html::span( array('class'=>'description', 'content'=>$_LANG['POSTING_WITH_RICH_FORMATTING']) )
 		));
 
-		echo $_HTML->link( array( 'class'=>'item bg_post_video', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_video', 'content'=>
-			$_HTML->span( array('class'=>'type', 'content'=>$_LANG['VIDEO']) ).
-			$_HTML->span( array('class'=>'description', 'content'=>$_LANG['AN_EASY_WAY_TO_PUBLISH_VIDEOS']) )
+		echo Html::link( array( 'class'=>'item bg_post_video', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_video', 'content'=>
+			Html::span( array('class'=>'type', 'content'=>$_LANG['VIDEO']) ).
+			Html::span( array('class'=>'description', 'content'=>$_LANG['AN_EASY_WAY_TO_PUBLISH_VIDEOS']) )
 		));
 
-		echo $_HTML->link( array( 'class'=>'item bg_post_quote', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_quote', 'content'=>
-			$_HTML->span( array('class'=>'type', 'content'=>$_LANG['QUOTE']) ).
-			$_HTML->span( array('class'=>'description', 'content'=>$_LANG['AN_EASY_WAY_TO_PUBLISH_QUOTES']) )
+		echo Html::link( array( 'class'=>'item bg_post_quote', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_quote', 'content'=>
+			Html::span( array('class'=>'type', 'content'=>$_LANG['QUOTE']) ).
+			Html::span( array('class'=>'description', 'content'=>$_LANG['AN_EASY_WAY_TO_PUBLISH_QUOTES']) )
 		));
 
-		echo $_HTML->link( array( 'class'=>'item bg_settings', 'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=general', 'content'=>
-			$_HTML->span( array('class'=>'type', 'content'=>$_LANG['GENERAL_SETTINGS']) ).
-			$_HTML->span( array('class'=>'description', 'content'=>$_LANG['BLOG_TITLE_SLOGAN_ABOUT']) )
+		echo Html::link( array( 'class'=>'item bg_settings', 'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=general', 'content'=>
+			Html::span( array('class'=>'type', 'content'=>$_LANG['GENERAL_SETTINGS']) ).
+			Html::span( array('class'=>'description', 'content'=>$_LANG['BLOG_TITLE_SLOGAN_ABOUT']) )
 		));
 
-	echo $_HTML->div_close();
+	echo Html::div_close();
 
 
 	// LAST COMMENTS
-	echo $_HTML->separator( array('content'=>$_LANG['LAST_COMMENTS']) );
+	echo Html::separator( array('content'=>$_LANG['LAST_COMMENTS']) );
 
 	if(empty($last_comments))
 	{
-		echo $_HTML->p( array('class'=>'no_comments', 'content'=>$_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS']) );
+		echo Html::p( array('class'=>'no_comments', 'content'=>$_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS']) );
 	}
 	else
 	{
 		foreach($last_comments as $comment)
 		{
-			$date = $_DATE->format($comment['pub_date'], COMMENT_DATE_FORMAT);
+			$date = Date::format($comment['pub_date_unix'], COMMENT_DATE_FORMAT);
 
-			echo $_HTML->link( array('class'=>'notification notification_last_comments', 'href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list&amp;id_post='.$comment['id_post'],
+			echo Html::link( array('class'=>'notification notification_last_comments', 'href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list&amp;id_post='.$comment['id_post'],
 				'content'=>
-				$_HTML->div( array('class'=>'type', 'content'=>$comment['content']) ).
-				$_HTML->div( array('class'=>'info', 'content'=>$_LANG['AUTHOR'].': '.$comment['author_name'].' · '.$_LANG['DATE'].': '.$date) )
+				Html::div( array('class'=>'type', 'content'=>$comment['content']) ).
+				Html::div( array('class'=>'info', 'content'=>$_LANG['AUTHOR'].': '.$comment['author_name'].' · '.$_LANG['DATE'].': '.$date) )
 			) );
 		}
 	}
 
 
 	// LAST SESSIONS
-	echo $_HTML->separator( array('content'=>$_LANG['LAST_SESSIONS']) );
+	echo Html::separator( array('content'=>$_LANG['LAST_SESSIONS']) );
 
 	foreach($syslog_sessions as $session)
 	{
-		$date = $_DATE->format($session['date'], SESSION_DATE_FORMAT);
+		$date = Date::format($session['date'], SESSION_DATE_FORMAT);
 
-		echo $_HTML->div_open( array('class'=>'notification notification_session') );
-			echo $_HTML->div( array('class'=>'type', 'content'=>$_LANG['NEW_SESSION_STARTED']) );
-			echo $_HTML->div( array('class'=>'info', 'content'=>$_LANG['DATE'].': '.$date.' · IP:'.$session['ip']) );
-		echo $_HTML->div_close();
+		echo Html::div_open( array('class'=>'notification notification_session') );
+			echo Html::div( array('class'=>'type', 'content'=>$_LANG['NEW_SESSION_STARTED']) );
+			echo Html::div( array('class'=>'info', 'content'=>$_LANG['DATE'].': '.$date.' · IP:'.$session['ip']) );
+		echo Html::div_close();
 	}
 ?>

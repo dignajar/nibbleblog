@@ -11,11 +11,11 @@
  * See COPYRIGHT.txt and LICENSE.txt.
 */
 
-class LOGIN {
+class Login {
 
 	private $session_started;
 
-	function LOGIN()
+	function __construct()
 	{
 		// Set HTTPOnly
 		session_set_cookie_params(0, NULL, NULL, NULL, TRUE);
@@ -32,10 +32,7 @@ class LOGIN {
 	*/
 	private function get_key()
 	{
-		global $_NET;
-		global $_CRYPT;
-
-		return( $_CRYPT->get_hash( $_NET->get_user_agent() . $_NET->get_user_ip() ) );
+		return( Crypt::get_hash( Net::get_user_agent() . Net::get_user_ip() ) );
 	}
 
 	/*
@@ -47,15 +44,12 @@ class LOGIN {
 	*/
 	public function set_login($args)
 	{
-		global $_NET;
-		global $_DATE;
-
 		$_SESSION = array();
 
 		$_SESSION['session_user']['id'] = $args['id_user'];
 		$_SESSION['session_user']['username'] = $args['username'];
 
-		$_SESSION['session_login']['at'] = $_DATE->unixstamp();
+		$_SESSION['session_login']['at'] = Date::unixstamp();
 		$_SESSION['session_login']['key'] = $this->get_key();
 
 		$_SESSION['session_alert']['active'] = false;
@@ -67,18 +61,17 @@ class LOGIN {
 	*/
 	public function is_logued()
 	{
-		global $_TEXT;
-
 		if( $this->session_started )
 		{
 			if( isset($_SESSION['session_user']['id']) && isset($_SESSION['session_login']['key']) )
 			{
-				if( $_TEXT->compare($_SESSION['session_login']['key'], $this->get_key()) )
+				if( Text::compare($_SESSION['session_login']['key'], $this->get_key()) )
 				{
 					return(true);
 				}
 			}
 		}
+
 		return(false);
 	}
 
@@ -91,16 +84,13 @@ class LOGIN {
 	*/
 	public function verify_login($args)
 	{
-		global $_CRYPT;
-		global $_TEXT;
-
 		require( FILE_SHADOW );
 
-		if( $_TEXT->compare($args['username'], $_USER[0]['username']) )
+		if( Text::compare($args['username'], $_USER[0]['username']) )
 		{
-			$hash = $_CRYPT->get_hash($args['password'], $_USER[0]['salt']);
+			$hash = Crypt::get_hash($args['password'], $_USER[0]['salt']);
 
-			if( $_TEXT->compare($hash, $_USER[0]['password']) )
+			if( Text::compare($hash, $_USER[0]['password']) )
 			{
 				$this->set_login( array('id_user'=>0, 'username'=>$args['username']) );
 				return(true);

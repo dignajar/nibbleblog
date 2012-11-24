@@ -1,6 +1,6 @@
 <?php
 
-	// ----- POST HEAD
+	// ----- POST HEADER
 	echo '<header class="post">';
 
 		// print publish date
@@ -24,12 +24,20 @@
 		// video post
 		if($post['type']=='video')
 		{
-			$video_info = $_VIDEO->video_get_info($post['video'], $theme['video_width'], $theme['video_height']);
+			$video_info = Video::video_get_info($post['video'], $theme['video_width'], $theme['video_height']);
 
 			echo '<p>'.$video_info['embed'].'</p>';
 		}
 
 		echo $post['content'][1];
 	}
+
+	// ----- POST FOOTER
+	echo '<footer class="post">';
+		if($post['read_more'])
+			echo '<a href="'.$post['permalink'].'">-'.$_LANG['READ_MORE'].'-</a>';
+		else
+			echo '<a href="'.$post['permalink'].'">-'.$_LANG['PERMALINK'].'-</a>';
+	echo '</footer>';
 
 ?>

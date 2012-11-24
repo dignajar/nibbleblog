@@ -6,9 +6,9 @@
 	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	{
 		$safe = array();
-		$safe['name'] = $_VALIDATION->sanitize_html( $_POST['name'] );
+		$safe['name'] = Validation::sanitize_html( $_POST['name'] );
 
-		if($_TEXT->not_empty($safe['name']))
+		if(Text::not_empty($safe['name']))
 		{
 			$_DB_CATEGORIES->add($safe);
 			$_DB_CATEGORIES->savetofile();
@@ -19,7 +19,7 @@
 //	VARIABLES
 // ============================================================================
 
-	// Renew the categories list
+	// Update categories list
 	$categories = $_DB_CATEGORIES->get_all();
 
 ?>

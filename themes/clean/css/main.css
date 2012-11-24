@@ -24,13 +24,13 @@ body {
 }
 
 a {
-	color: #3C6EB4;
+	color: #327CCB;
 	cursor: pointer;
 	text-decoration: none;
 }
 
 a:hover {
-	text-decoration: underline;
+	color: #00A1CB;
 }
 
 
@@ -43,7 +43,8 @@ a:hover {
 }
 
 #head	div.top {
-	font-size: 2.4em;
+	font-size: 3em;
+	font-weight: lighter;
 	margin-right: 80px;
 }
 
@@ -58,7 +59,7 @@ a:hover {
 }
 
 #head	span.slogan {
-	color: #CCC;
+	color: #327CCB;
 }
 
 /* ============================== */
@@ -77,7 +78,7 @@ a:hover {
 }
 
 #head_post	span.slogan {
-	color: #CCC;
+	color: #327CCB;
 }
 
 /* ============================== */
@@ -276,35 +277,4 @@ div.plugin_twitter	li.username {
 	background: url("img/twitter.png") no-repeat 0 -2px;
 	margin-right: 5px;
 	padding-left: 23px;
-}
-
-
-/* ============================== */
-/* PLUGIN GRAVATAR */
-/* ============================== */
-div.plugin_gravatar {
-	margin: 0;
-	float: right;
-}
-
-div.plugin_gravatar	ul {
-	margin: 0;
-	padding: 0;
-}
-
-div.plugin_gravatar	li {
-	margin: 0;
-	padding: 0;
-	display: inline;
-}
-
-div.plugin_gravatar	li.name {
-	display: none;
-}
-
-div.plugin_gravatar	img.plugin_gravatar {
-    border: 1px solid #E4E4E4;
-    border-radius: 2px 2px 2px 2px;
-    padding: 5px;
-    max-width:64px;
 }

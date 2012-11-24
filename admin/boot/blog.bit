@@ -6,51 +6,52 @@
 	require('init/1-fs_php.bit');
 	require('init/2-objects.bit');
 	require('init/3-variables.bit');
+	require('init/10-constants.bit');
 	require('init/10-regional.bit');
 	require('init/10-url.bit');
-	require('init/10-constants.bit');
 
 // ============================================================================
 // VARIABLES
 // ============================================================================
-	// Theme info
-	$theme = array();
-
-	// Waching post filter by category
-	if($_URL['category']!=null)
+	// ---- POSTS FILTER BY CATEGORY
+	if($url['category']!=null)
 	{
-		// Category ID
-		$id_cat = $_DB_CATEGORIES->get_id( array('name'=>$_URL['category']) );
+		// Get the category ID
+		$id_cat = $_DB_CATEGORIES->get_id( array('name'=>$url['category']) );
 
 		// Posts by category
-		$posts = $_DB_POST->get_list_by_category( array('page'=>$_URL['page'], 'amount'=>$settings['items_page'], 'id_cat'=>$id_cat) );
+		$posts = $_DB_POST->get_list_by_category( array('page'=>$url['page'], 'amount'=>$settings['items_page'], 'id_cat'=>$id_cat) );
 	}
-	// Waching one particular post
-	elseif($_URL['id_post']!=null)
+	// ---- PARTICULAR POST
+	elseif($url['id_post']!=null)
 	{
 		// The post
-		$post = $_DB_POST->get( array('id'=>$_URL['id_post']) );
-
-		// Comments for this post
-		$comments = $_DB_COMMENTS->get_list_by_post( array('id_post'=>$_URL['id_post']) );
+		$posts[0] = $_DB_POST->get( array('id'=>$url['id_post']) );
 	}
-	// Waching the blog
+	// ---- POSTS FILTER BY BLOG
 	else
 	{
 		// Posts by page
-		$posts = $_DB_POST->get_list_by_page( array('page'=>$_URL['page'], 'amount'=>$settings['items_page']) );
+		$posts = $_DB_POST->get_list_by_page( array('page'=>$url['page'], 'amount'=>$settings['items_page']) );
 	}
 
-	// Pager
-	$pager_next = $_URL['page'] + 1;
-	$pager_prev = $_URL['page'] - 1;
+	// ---- COMMENTS
+	// Get all comments for each post
+	foreach($posts as $key=>$value)
+	{
+		$posts[$key]['comments'] = $_DB_COMMENTS->get_list_by_post( array('id_post'=>$value['id']) );
+	}
+
+	// ---- PAGER
+	$pager_next = $url['page'] + 1;
+	$pager_prev = $url['page'] - 1;
 
 	if($settings['friendly_urls'])
 	{
-		if($_URL['category']!=null)
+		if($url['category']!=null)
 		{
-			$href_older = HTML_PATH_ROOT.'category/'.$_URL['category'].'/page-'.$pager_next;
-			$href_newer = HTML_PATH_ROOT.'category/'.$_URL['category'].'/page-'.$pager_prev;
+			$href_older = HTML_PATH_ROOT.'category/'.$url['category'].'/page-'.$pager_next;
+			$href_newer = HTML_PATH_ROOT.'category/'.$url['category'].'/page-'.$pager_prev;
 		}
 		else
 		{
@@ -60,10 +61,10 @@
 	}
 	else
 	{
-		if($_URL['category']!=null)
+		if($url['category']!=null)
 		{
-			$href_older = HTML_PATH_ROOT.'index.php?controller=blog&action=view&category='.$_URL['category'].'&page='.$pager_next;
-			$href_newer = HTML_PATH_ROOT.'index.php?controller=blog&action=view&category='.$_URL['category'].'&page='.$pager_prev;
+			$href_older = HTML_PATH_ROOT.'index.php?controller=blog&action=view&category='.$url['category'].'&page='.$pager_next;
+			$href_newer = HTML_PATH_ROOT.'index.php?controller=blog&action=view&category='.$url['category'].'&page='.$pager_prev;
 		}
 		else
 		{
@@ -72,8 +73,8 @@
 		}
 	}
 
-	$show_older = ((int)ceil($_DB_POST->get_count() / $settings['items_page']) - 1) > $_URL['page'];
-	$show_newer = $_URL['page'] > 0;
+	$show_older = ((int)ceil($_DB_POST->get_count() / $settings['items_page']) - 1) > $url['page'];
+	$show_newer = $url['page'] > 0;
 
 	$pager = array(
 						'next'=>$pager_next,
@@ -95,15 +96,24 @@
 	{
 		include_once(PATH_PLUGINS.$dir_name.'/plugin.bit');
 		$class = 'PLUGIN_'.strtoupper($dir_name);
-		$plugins[$dir_name] = new $class;
+		$obj = new $class;
 
-		if($plugins[$dir_name]->is_installed())
+		// If the plugin installed
+		if($obj->init_db())
 		{
+			$position = $obj->get_field_db('position');
+
+			if(isset($plugins[$position]))
+			{
+				while( isset($plugins[$position]) )
+					$position += 100;
+			}
+
 			// Language
 			if( @!include(PATH_PLUGINS.$dir_name.'/languages/'.$settings['language'].'.bit') )
 				include(PATH_PLUGINS.$dir_name.'/languages/en_US.bit');
 
-			$plugins[$dir_name]->set_attributes(
+			$obj->set_attributes(
 			array(
 				'name'=>$_PLUGIN_CONFIG['LANG']['name'],
 				'description'=>$_PLUGIN_CONFIG['LANG']['description'],
@@ -113,37 +123,54 @@
 				'display'=>isset($_PLUGIN_CONFIG['DATA']['display'])?false:true
 			));
 
-			// Init DB
-			$plugins[$dir_name]->init_db();
-		}
-		else
-		{
-			unset($plugins[$dir_name]);
+			// Set slug name
+			include(PATH_PLUGINS.$dir_name.'/languages/en_US.bit');
+			$obj->set_slug_name($_PLUGIN_CONFIG['LANG']['name']);
+
+			// Add plugin to array
+			$plugins[$position]=$obj;
+			$plugins_by_name[$dir_name]=$obj;
 		}
 	}
+
+	ksort($plugins);
+
+// ============================================================================
+// CLEANING
+// ============================================================================
+	unset($id_cat);
+
+	unset($pager_next);
+	unset($pager_prev);
+	unset($href_older);
+	unset($href_newer);
+	unset($show_older);
+	unset($show_newer);
+
+	unset($plugins_on_system);
+	unset($_PLUGIN_CONFIG);
+	unset($class);
 
 // ============================================================================
 // SESSION
 // ============================================================================
 	if( !isset($_SESSION['nibbleblog']) )
 	{
-		$_SESSION['nibbleblog'] = array('error'=>false, 'id_post'=>$_URL['id_post'], 'alert'=>'', 'captcha'=>'', 'comment_name'=>'', 'comment_email'=>'', 'comment_content'=>'');
+		Session::init();
 	}
-	elseif(($_SESSION['nibbleblog']['error']==false) or ($_SESSION['nibbleblog']['id_post']!=$_URL['id_post']) )
-	{
-		$_SESSION['nibbleblog']['error'] = false;
-		$_SESSION['nibbleblog']['alert'] = '';
-		$_SESSION['nibbleblog']['comment_name'] = '';
-		$_SESSION['nibbleblog']['comment_email'] = '';
-		$_SESSION['nibbleblog']['comment_content'] = '';
-		$_SESSION['nibbleblog']['id_post'] = $_URL['id_post'];
-	}
-	
+
 	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	{
-		$_SESSION['nibbleblog']['comment_name'] = $_VALIDATION->sanitize_html($_POST['name']);
-		$_SESSION['nibbleblog']['comment_email'] = $_VALIDATION->sanitize_html($_POST['email']);
-		$_SESSION['nibbleblog']['comment_content'] = $_VALIDATION->sanitize_html($_POST['content']);
+		if( isset($_POST['author_name']) && isset($_POST['author_email']) && isset($_POST['content']) )
+		{
+			Session::set_comment(array(
+							'author_name'=>$_POST['author_name'],
+							'author_email'=>$_POST['author_email'],
+							'content'=>$_POST['content'],
+							'post_allow_comments'=>$posts[0]['allow_comments'],
+							'id_post'=>$posts[0]['id']
+			));
+		}
 	}
 
 ?>

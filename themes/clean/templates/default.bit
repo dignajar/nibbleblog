@@ -24,9 +24,9 @@
 
 	<!-- Plugin::Analytics -->
 	<?php
-		if( isset($plugins['analytics']) )
+		if( isset($plugins_by_name['analytics']) )
 		{
-			echo $plugins['analytics']->get_html();
+			echo $plugins_by_name['analytics']->get_html();
 		}
 	?>
 </head>
@@ -35,14 +35,6 @@
 	<div id="container">
 
 		<header id="head">
-
-			<?php
-				// if the plugin twitter installed
-				if( isset($plugins['gravatar']) )
-				{
-					echo $plugins['gravatar']->get_html();
-				}
-			?>
 
 			<div class="top">
 				<a class="name" href="<?php echo HTML_PATH_ROOT ?>">
@@ -55,10 +47,12 @@
 
 			<?php
 				// if the plugin twitter installed
-				if( isset($plugins['twitter']) )
+				if( isset($plugins_by_name['twitter']) )
 				{
 					echo '<div class="bottom">';
-					echo $plugins['twitter']->get_html();
+						echo '<div class="plugin_box '.$plugins_by_name['twitter']->get_slug_name().'">';
+							echo $plugins_by_name['twitter']->get_html();
+						echo '</div>';
 					echo '</div>';
 				}
 			?>

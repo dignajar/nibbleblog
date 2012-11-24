@@ -7,9 +7,9 @@
 	include(PATH_LANGUAGES.$settings['language'].'.bit');
 
 	// Timezone
-	$_DATE->set_timezone($settings['timezone']);
+	Date::set_timezone($settings['timezone']);
 	
 	// Locale
-	$_DATE->set_locale($settings['locale']);
+	Date::set_locale($settings['locale']);
 
 ?>

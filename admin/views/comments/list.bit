@@ -2,28 +2,28 @@
 
 	foreach( $comments as $comment )
 	{
-		$date = $_DATE->format($comment['pub_date'], COMMENT_DATE_FORMAT);
+		$date = Date::format($comment['pub_date_unix'], COMMENT_DATE_FORMAT);
 
 		$post = $_DB_POST->get( array('id'=>$comment['id_post']) );
 
-		echo $_HTML->div_open( array('class'=>'comment_box') );
+		echo Html::div_open( array('class'=>'comment_box') );
 
-			echo $_HTML->div_open( array('class'=>'float'));
-				echo $_HTML->div_open( array('class'=>'left'));
-					echo $_HTML->h3( array('class'=>'content', 'content'=>$comment['content']) );
-					echo $_HTML->h3( array('class'=>'author', 'content'=>$comment['author_name'].' - '.$comment['author_email']) );
-				echo $_HTML->div_close();
+			echo Html::div_open( array('class'=>'float'));
+				echo Html::div_open( array('class'=>'left'));
+					echo Html::h3( array('class'=>'content', 'content'=>$comment['content']) );
+					echo Html::h3( array('class'=>'author', 'content'=>$comment['author_name'].' - '.$comment['author_email']) );
+				echo Html::div_close();
 
-				echo $_HTML->div_open( array('class'=>'right'));
-					echo $_HTML->h3( array('class'=>'date', 'content'=>$date) );
-				echo $_HTML->div_close();
-			echo $_HTML->div_close();
+				echo Html::div_open( array('class'=>'right'));
+					echo Html::h3( array('class'=>'date', 'content'=>$date) );
+				echo Html::div_close();
+			echo Html::div_close();
 
-			echo $_HTML->div_open( array('class'=>'options'));
-				echo $_HTML->link( array('class'=>'js_button_delete', 'data-flag'=>'0', 'data-id'=>$comment['id'], 'content'=>$_LANG['DELETE']) );
-			echo $_HTML->div_close();
+			echo Html::div_open( array('class'=>'options'));
+				echo Html::link( array('class'=>'js_button_delete', 'data-flag'=>'0', 'data-id'=>$comment['id'], 'content'=>$_LANG['DELETE']) );
+			echo Html::div_close();
 
-		echo $_HTML->div_close();
+		echo Html::div_close();
 	}
 
 ?>

@@ -11,9 +11,9 @@
  * See COPYRIGHT.txt and LICENSE.txt.
 */
 
-class HELPER_TEXT {
+class Text {
 
-	public function ajax_header($tmp)
+	public static function ajax_header($tmp)
 	{
 		$xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
 		$xml .= '<ajax>';
@@ -23,7 +23,7 @@ class HELPER_TEXT {
 	}
 
 	// Clean magic quotes
-	public function clean_magic_quotes($args)
+	public static function clean_magic_quotes($args)
 	{
 		$tmp_array = array();
 		foreach($args as $key => $arg)
@@ -34,12 +34,12 @@ class HELPER_TEXT {
 		return($tmp_array);
 	}
 
-	public function cut_text($text, $maxlength)
+	public static function cut_text($text, $maxlength)
 	{
 		return( substr($text,0,strrpos(substr($text,0,$maxlength)," ")) );
 	}
 
-	public function cut_words($text, $count)
+	public static function cut_words($text, $count)
 	{
 		$explode = explode(" ", $text);
 
@@ -53,19 +53,19 @@ class HELPER_TEXT {
 	}
 
 	// Strip spaces
-	public function replace($search, $replace, $string)
+	public static function replace($search, $replace, $string)
 	{
 		return( str_replace($search,$replace,$string) );
 	}
 
 	// Strip spaces
-	public function strip_spaces($string)
+	public static function strip_spaces($string)
 	{
 		return( str_replace(' ','',$string) );
 	}
 
 	// Strip quotes ' and "
-	public function strip_quotes($text)
+	public static function strip_quotes($text)
 	{
 		$text = str_replace('\'', '', $text);
 		$text = str_replace('"', '', $text);
@@ -82,7 +82,7 @@ class HELPER_TEXT {
 	// RETURN
 	// TRUE - si contiene el substring
 	// FALSE - caso contrario
-	public function is_substring($string, $substring)
+	public static function is_substring($string, $substring)
 	{
 		return( strpos($string, $substring) !== false );
 	}
@@ -90,33 +90,33 @@ class HELPER_TEXT {
 	// RETURN
 	// TRUE - is not empty
 	// FALSE - is empty
-	public function not_empty($string)
+	public static function not_empty($string)
 	{
-		return( !$this->is_empty($string) );
+		return( !self::is_empty($string) );
 	}
 
-	public function is_empty($string)
+	public static function is_empty($string)
 	{
-		$string = $this->strip_spaces($string);
+		$string = self::strip_spaces($string);
 		return( empty($string) );
 	}
 
 	// Compara 2 cadenas
 	// Retorna TRUE si son iguales, FALSE caso contrario
-	public function compare($value1, $value2)
+	public static function compare($value1, $value2)
 	{
 		return( strcmp($value1, $value2) == 0 );
 	}
 
 	// Clean text for URL
-	public function clean_url($text)
+	public static function clean_url($text)
 	{
-		$text = str_replace(array("!", "*", "&#039;", "(", ")", ";", ":", "@", "&amp", "=", "+", "$", ",", "/", "?", "%", "#", "[", "]", "|"),'',$text);
+		$text = str_replace(array("!", "*", "&#039;", "&quot;", "(", ")", ";", ":", "@", "&amp", "=", "+", "$", ",", "/", "?", "%", "#", "[", "]", "|"),'',$text);
 		$text = str_replace(" ","-",$text);
 		return($text);
 	}
 
-	function random_text($length)
+	public static function random_text($length)
 	{
 		 $characteres = "1234567890abcdefghijklmnopqrstuvwxyz!@#%^&*";
 		 $text = '';

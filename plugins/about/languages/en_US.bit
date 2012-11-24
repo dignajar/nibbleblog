@@ -1,0 +1,8 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'name'=>'About',
+	'description'=>'Write a short review about yourself or your blog, also can show your Gravatar. For use Gravatar account required at gravatar.com.'
+);
+
+?>

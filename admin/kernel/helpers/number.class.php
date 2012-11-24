@@ -11,9 +11,9 @@
  * See COPYRIGHT.txt and LICENSE.txt.
 */
 
-class HELPER_NUMBER
-{
-	function random_number($min, $max)
+class Number {
+
+	public static function random_number($min, $max)
 	{
 		 return( rand($min, $max) );
 	}

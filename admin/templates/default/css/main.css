@@ -199,6 +199,7 @@ div.form_block		div.input_tip {
 }
 
 div.form_block		input[type="submit"].save,
+div.form_block		input[type="submit"].draft,
 div.form_block		input[type="button"].save {
 	background-color: #337ACC;
 	border: 0 none;
@@ -206,13 +207,22 @@ div.form_block		input[type="button"].save {
 	color: #FFFFFF;
 	cursor: pointer;
 	display: inline-block;
-	font-size: 12px;
-	padding: 6px 26px;
+    font-size: 1em;
+    padding: 6px 32px;
 }
 
 div.form_block		input[type="submit"].save:hover,
 div.form_block		input[type="button"].save:hover {
 	background-color: #1B70C9;
+}
+
+div.form_block		input[type="submit"].draft {
+	background-color: #616161;
+	margin-left:10px;
+}
+
+div.form_block		input[type="submit"].draft:hover {
+	background-color: #313131;
 }
 
 div.form_block		.uploader_button {
@@ -283,7 +293,8 @@ form.plugins {
 
 form.plugins	input[type="text"],
 form.plugins	input[type="password"],
-form.plugins	textarea {
+form.plugins	textarea,
+form.plugins	select {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;

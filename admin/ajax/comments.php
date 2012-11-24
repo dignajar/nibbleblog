@@ -13,10 +13,10 @@ if( $_POST['action']=='delete' )
 
 if( $error )
 {
-	exit( $_TEXT->ajax_header('<error><![CDATA[1]]></error>') );
+	exit( Text::ajax_header('<error><![CDATA[1]]></error>') );
 }
 else
 {
-	exit( $_TEXT->ajax_header('<success><![CDATA[1]]></success>') );
+	exit( Text::ajax_header('<success><![CDATA[1]]></success>') );
 }
 ?>

@@ -8,8 +8,8 @@
 //	VARIABLES
 // ============================================================================
 	// Comments
-	if( $_URL['id_post'] != null)
+	if( $url['id_post'] != null)
 	{
-		$comments = $_DB_COMMENTS->get_list_by_post( array('id_post'=>$_URL['id_post']) );
+		$comments = $_DB_COMMENTS->get_list_by_post( array('id_post'=>$url['id_post']) );
 	}
 ?>
