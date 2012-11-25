@@ -5,7 +5,7 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 23/11/2012
+ * Last update: 25/11/2012
 
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
@@ -47,13 +47,11 @@ $languagues = array(
 	'en_US'=>'English',
 	'es_ES'=>'Español',
 	'fr_FR'=>'Français',
-//	'hu_HU'=>'Magyar',
-//	'pl_PL'=>'Polski',
+	'pl_PL'=>'Polski',
 	'pt_PT'=>'Português',
 	'ru_RU'=>'Pyccĸий',
-//	'vi_VN'=>'Tiếng Việt',
-//	'zh_TW'=>'繁體中文'
-	'tr_TR'=>'Tϋrkçe'
+	'tr_TR'=>'Tϋrkçe',
+	'zh_TW'=>'繁體中文'
 );
 
 // ============================================================================
@@ -118,8 +116,8 @@ Date::set_timezone('UTC');
 		$obj->addChild('theme',					'clean');
 		$obj->addChild('url',					$_POST['url']);
 		$obj->addChild('path',					$_POST['path']);
-		$obj->addChild('items_rss',				'8');
-		$obj->addChild('items_page',			'4');
+		$obj->addChild('items_rss',				'4');
+		$obj->addChild('items_page',			'6');
 		$obj->addChild('timestamp_format',		'%d %B, %Y');
 		$obj->addChild('advanced_post_options',	'0');
 		$obj->addChild('locale',				$_GET['language']);
