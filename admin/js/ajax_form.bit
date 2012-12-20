@@ -35,21 +35,21 @@ $(document).ready(function() {
 	function save()
 	{
 		var newdata = serial_form($("#js_form"));
-		
+
 		if( newdata != datasrz )
 		{
 			console.log("saved");
-			
+
 			// Save the new default
 			datasrz = newdata;
-			
+
 			$.ajax({
-					url:"<?php echo $ajax['url'] ?>", type: "POST", cache: false, timeout: 15000, dataType: "xml", async: false,
+					url:"<?php echo $ajax['url'] ?>", type: "POST", cache: false, timeout: 15000, dataType: "xml", async: true,
 					data:{ serial_data: newdata, action:"<?php echo $ajax['action'] ?>" }
 			});
 		}
-		
-			
+
+
 	}
 
 }); // end document
