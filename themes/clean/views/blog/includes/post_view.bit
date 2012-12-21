@@ -1,27 +1,20 @@
 <?php
 
 	// ----- POST HEADER
-	echo '<header class="post">';
-
-		// print publish date
-		echo '<div class="date">'.$post['pub_date'].'</div>';
-
-		// print title if this is not empty
-		if( !empty($post['title']) )
-			echo '<h1 class="title">'.$post['title'].'</h1>';
-
-	echo '</header>';
+	// print title if this is not empty
+	if( !empty($post['title']) )
+		echo '<h1 class="title">'.$post['title'].'</h1>';
 
 
 	// ----- POST CONTENT
-	// quote post
+	// if quote post
 	if($post['type']=='quote')
 	{
 		echo '<blockquote>'.$post['quote'].'</blockquote>';
 	}
 	else
 	{
-		// video post
+		// if video post
 		if($post['type']=='video')
 		{
 			$video_info = Video::video_get_info($post['video'], $theme['video_width'], $theme['video_height']);
@@ -32,12 +25,17 @@
 		echo $post['content'][1];
 	}
 
+
 	// ----- POST FOOTER
 	echo '<footer class="post">';
+
+		echo '<span class="date">'.$post['pub_date'].'</span>';
+
 		if($post['read_more'])
-			echo '<a href="'.$post['permalink'].'">-'.$_LANG['READ_MORE'].'-</a>';
+			echo '<a href="'.$post['permalink'].'">'.$_LANG['READ_MORE'].'</a>';
 		else
-			echo '<a href="'.$post['permalink'].'">-'.$_LANG['PERMALINK'].'-</a>';
+			echo '<a href="'.$post['permalink'].'">'.$_LANG['PERMALINK'].'</a>';
+
 	echo '</footer>';
 
 ?>

@@ -1,12 +1,12 @@
-﻿<?php
+<?php
 
 $_LANG_CONFIG['DATA'] = array(
-	'native'=>'Polski',
+	'native'=>'Polski - Polski',
 	'english'=>'Polish',
-	'last_update'=>'24/11/2012',
-	'author'=>'Dawid ,kaaleth, Stawicki',
+	'last_update'=>'25/11/2012',
+	'author'=>'kaaleth',
 	'email'=>'dawid.stawicki@windowslive.com',
-	'url'=>'http://kaaleth.p.ht'
+	'url'=>'http://kaaleth.p.ht/'
 );
 
 $_LANG['LAST_COMMENTS'] = 'Ostatnie komentarze';
@@ -132,8 +132,8 @@ $_LANG['INSTALLATION_LINE4'] = 'lub odwiedź jego stronę główną';
 $_LANG['INSTALLATION_LINE5'] = 'Jeśli potrzebujesz pomocy, zajrzyj na forum';
 $_LANG['WELCOME_POST_TITLE'] = 'Witaj w Nibbleblog';
 $_LANG['WELCOME_POST_LINE1'] = 'Gratulację, Twój blog został już zainstalowany i jest gotowy do pracy.';
-$_LANG['WELCOME_POST_LINE2'] = 'Aby dokonać zmian jakichkolwiek ustawień, powinieneś przejść do kokpitu';
-$_LANG['WELCOME_POST_LINE3'] = 'Jeśli potrzebujesz pomocy zajrzyj koniecznie na forum pomocy ';
+$_LANG['WELCOME_POST_LINE2'] = 'Aby dokonać zmian jakichkolwiek ustawień przejdź do kokpitu';
+$_LANG['WELCOME_POST_LINE3'] = 'Jeśli potrzebujesz pomocy zajrzyj koniecznie na forum wsparcia';
 $_LANG['WELCOME_POST_LINE4'] = 'Nie zapomnij odwiedzić nasz profil na Facebooku i polubić ten produkt';
 $_LANG['ENABLE_FRIENDLY_URLS'] = 'Włącz przyjazne adresy URL';
 $_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = 'Skopiuj poniższą zawartość do pliku ".htaccess". Plik ten musi zostać umieszczony w głownym katalogu Twojej domeny. Pamiętaj, że serwer musi zawierać odpowiednie moduły i konfiguracje, aby móc skorzystać z funkcji.';
@@ -175,6 +175,6 @@ $_LANG['PORTRAIT'] = 'Portret';
 $_LANG['LANDSCAPE'] = 'Panoramiczne';
 $_LANG['CROP'] = 'Przytnij';
 $_LANG['YOU_CAN_USE_HTML_OR_MARKDOWN_SYNTAX'] = 'Użyj znaczników HTML lub składni Markdown';
-$_LANG['DRAFT'] = 'Zapisz jako szkic';
+$_LANG['DRAFT'] = 'Szkic';
 
 ?>

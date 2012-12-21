@@ -40,17 +40,8 @@ a:hover {
 #head {
 	overflow: auto;
 	margin: 40px 0;
-}
-
-#head	div.top {
 	font-size: 3em;
 	font-weight: lighter;
-	margin-right: 80px;
-}
-
-#head	div.bottom {
-	height: 38px;
-	margin-right: 80px;
 }
 
 #head	a.name {
@@ -108,28 +99,16 @@ a:hover {
 /* POST VIEW*/
 /* ============================== */
 article.post {
-	margin-bottom: 60px;
+	margin-bottom: 75px;
 	clear: both;
 	overflow: auto;
 }
 
-article.post	header.post {
-	margin-bottom: 10px;
-}
-
-article.post	header.post	h1.title {
-	font-weight: normal;
+article.post	h1.title {
+	font-weight: lighter;
 	margin: 0;
+	color: #222222;
 }
-
-article.post	header.post	div.date {
-	font-size:0.9em;
-    font-weight: bold;
-    text-align: center;
-    text-transform: uppercase;
-    color: #999;
-}
-
 
 article.post	pre {
 	background: url("img/bgcode.png");
@@ -155,15 +134,15 @@ article.post	img:not(.captcha) {
 
 article.post 	blockquote {
 	font-size: 2em;
-	margin: 0 auto;
-	width: 85%;
-	text-align: center;
 }
 
 article.post	footer.post {
     clear: both;
     margin-top: 20px;
-    text-align: center;
+}
+
+article.post	footer.post		span.date {
+	margin-right: 10px;
 }
 
 /* ============================== */
@@ -255,11 +234,22 @@ article.post	footer.post {
 }
 
 /* ============================== */
+/* PLUGINS */
+/* ============================== */
+#plugins {
+	margin: 40px 0;
+}
+
+/* ============================== */
 /* PLUGIN TWITTER */
 /* ============================== */
 div.plugin_twitter {
 	padding: 0;
 	margin: 0;
+	border-top: 1px solid #f1f1f1;
+	border-bottom: 1px solid #f1f1f1;
+	height: 58px;
+	line-height: 58px;
 }
 
 div.plugin_twitter	ul {
@@ -277,4 +267,27 @@ div.plugin_twitter	li.username {
 	background: url("img/twitter.png") no-repeat 0 -2px;
 	margin-right: 5px;
 	padding-left: 23px;
+}
+
+/* ============================== */
+/* PLUGIN CATEGORIES */
+/* ============================== */
+div.plugin_categories {
+	padding: 20px 0;
+	margin: 20px 0;
+	border-top: 1px solid #f1f1f1;
+	border-bottom: 1px solid #f1f1f1;
+}
+
+div.plugin_categories	ul {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+div.plugin_categories	li {
+	margin: 0 20px;
+	padding: 0;
+	display: inline;
+	text-transform:uppercase;
 }
