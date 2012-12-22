@@ -8,14 +8,13 @@ body {
 	font-family: 'Open Sans',arial,sans-serif;
 	background-color: #F8F8F8;
 	margin: 0;
-	padding: 0;
+	padding: 0 20px;
 	font-size: 0.875em;
 	color: #616161;
 }
 
 #wrapper {
     margin: 0 auto;
-    width: 80%;
     overflow: auto;
 	max-width: 1240px;
     background: #FFFFFF;
@@ -54,7 +53,6 @@ a:hover {
 	margin: 40px auto;
 	max-width: 1240px;
 	overflow: auto;
-	width: 80%;
 }
 
 #head	a.name {
@@ -74,7 +72,6 @@ a:hover {
 	font-size: 0.9em;
 	max-width: 1240px;
 	overflow: auto;
-	width: 80%;
 	margin: 30px auto;
 }
 

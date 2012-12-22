@@ -34,7 +34,7 @@
 
 	<div id="container">
 
-		<header id="head_post">
+		<header id="head">
 			<a class="name" href="<?php echo HTML_PATH_ROOT ?>">
 				<?php echo $settings['name'] ?>
 				<span class="slogan">

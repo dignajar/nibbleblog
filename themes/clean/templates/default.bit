@@ -45,20 +45,14 @@
 
 		<section id="plugins">
 			<?php
-				// if the plugin twitter installed
-				if( isset($plugins_by_name['categories']) )
+				foreach($plugins as $plugin)
 				{
-					echo '<div class="plugin_box '.$plugins_by_name['categories']->get_slug_name().'">';
-						echo $plugins_by_name['categories']->get_html();
-					echo '</div>';
-				}
-
-				// if the plugin twitter installed
-				if( isset($plugins_by_name['twitter']) )
-				{
-					echo '<div class="plugin_box '.$plugins_by_name['twitter']->get_slug_name().'">';
-						echo $plugins_by_name['twitter']->get_html();
-					echo '</div>';
+					if($plugin->display())
+					{
+						echo '<div class="plugin_box '.$plugin->get_slug_name().'">';
+							echo $plugin->get_html();
+						echo '</div>';
+					}
 				}
 			?>
 		</section>
