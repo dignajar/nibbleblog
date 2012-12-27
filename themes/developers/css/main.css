@@ -6,80 +6,30 @@
 
 body {
 	font-family: 'Open Sans',arial,sans-serif;
-	background-color: #FEFEFE;
+	background-color: #F8F8F8;
 	margin: 0;
-	padding: 0;
+	padding: 0 20px;
 	font-size: 0.875em;
 	color: #616161;
 }
 
-#container {
+#wrapper {
     margin: 0 auto;
-    max-width: 980px;
-    min-width: 600px;
     overflow: auto;
-    padding: 0 20px;
+	max-width: 1240px;
+    background: #FFFFFF;
 }
 
 #main {
-	width:100%;
+    margin-right: 290px;
+    padding: 20px 20px 0;
+    border-right: 1px solid #F1F1F1;
 }
 
-a {
-	color: #327CCB;
-	cursor: pointer;
-	text-decoration: none;
-}
-
-a:hover {
-	color: #00A1CB;
-}
-
-
-/* ============================== */
-/* HEADER */
-/* ============================== */
-#head {
-	overflow: auto;
-	margin: 40px 0;
-	font-size: 3em;
-	font-weight: lighter;
-}
-
-#head	a.name {
-	text-decoration: none;
-	color: #555;
-}
-
-#head	span.slogan {
-	color: #327CCB;
-}
-
-/* ============================== */
-/* HEADER POST */
-/* ============================== */
-#head_post {
-	overflow: auto;
-	margin: 10px 0;
-	text-align: center;
-}
-
-#head_post	a.name {
-	text-decoration: none;
-	color: #555;
-	font-size: 0.9em;
-}
-
-#head_post	span.slogan {
-	color: #327CCB;
-}
-
-/* ============================== */
-/* FOOTER */
-/* ============================== */
-#foot {
-	text-align: right;
-	font-size: 0.9em;
+#sidebar {
+	float: right;
+	margin-right: 10px;
+	width: 260px;
 }
 
 /* ============================== */
@@ -87,6 +37,7 @@ a:hover {
 /* ============================== */
 #pager {
 	overflow: auto;
+	padding-bottom: 20px;
 }
 
 #pager	a.newer {
@@ -101,16 +52,17 @@ a:hover {
 /* POST VIEW*/
 /* ============================== */
 article.post {
-	margin-top: 75px;
-	margin-bottom: 75px;
-	clear: both;
-	overflow: auto;
+	margin-bottom: 60px;
+	overflow: hidden;
 }
 
-article.post	h1.title {
-	font-weight: lighter;
+article.post	header.post {
+	margin-bottom: 10px;
+}
+
+article.post	header.post	h1.title {
+	font-weight: normal;
 	margin: 0;
-	color: #222222;
 }
 
 article.post	pre {
@@ -137,15 +89,15 @@ article.post	img:not(.captcha) {
 
 article.post 	blockquote {
 	font-size: 2em;
+
 }
 
 article.post	footer.post {
-    clear: both;
-    margin-top: 20px;
-}
-
-article.post	footer.post		span.date {
-	margin-right: 10px;
+	border-top: 1px solid #F1F1F1;
+	clear: both;
+	margin-top: 20px;
+	padding-top: 10px;
+	font-size: 0.9em;
 }
 
 /* ============================== */
@@ -239,32 +191,38 @@ article.post	footer.post		span.date {
 /* ============================== */
 /* PLUGINS */
 /* ============================== */
-#plugins {
-	margin: 40px 0;
+div.plugin_box {
+    margin-bottom: 20px;
+    overflow: auto;
+}
+
+div.plugin_box ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+div.plugin_box	h3.title {
+	font-weight: normal;
+}
+
+/* ============================== */
+/* PLUGIN CATEGORIES */
+/* ============================== */
+div.plugin_categories	li.category {
+	padding: 2px 5px;
 }
 
 /* ============================== */
 /* PLUGIN TWITTER */
 /* ============================== */
-div.plugin_twitter {
-	padding: 0;
-	margin: 20px 0;
-	border-top: 1px solid #f1f1f1;
-	border-bottom: 1px solid #f1f1f1;
-	height: 58px;
-	line-height: 58px;
-	overflow: hidden;
-}
-
 div.plugin_twitter	ul {
-	margin: 0;
-	padding: 0;
+	height: 100px;
 }
 
 div.plugin_twitter	li {
-	margin: 0;
-	padding: 0;
 	display: inline;
+	word-wrap: break-word;
 }
 
 div.plugin_twitter	li.username {
@@ -274,47 +232,18 @@ div.plugin_twitter	li.username {
 }
 
 /* ============================== */
-/* PLUGIN CATEGORIES */
-/* ============================== */
-div.plugin_categories {
-	padding: 20px 0;
-	margin: 20px 0;
-	border-top: 1px solid #f1f1f1;
-	border-bottom: 1px solid #f1f1f1;
-}
-
-div.plugin_categories	ul {
-	margin: 0;
-	padding: 0;
-	text-align: center;
-}
-
-div.plugin_categories	li {
-	margin: 0 20px;
-	padding: 0;
-	display: inline;
-	text-transform:uppercase;
-}
-
-/* ============================== */
 /* PLUGIN ABOUT */
 /* ============================== */
 div.plugin_about {
-
+	font-size: 0.9em;
 }
 
-div.plugin_about	ul {
-	margin: 0;
-	padding: 0;
-	overflow: auto;
+div.plugin_about	li.name {
+	font-weight: bold;
 }
 
-div.plugin_about	li {
-    display: block;
-    font-size: 1.3em;
-    font-weight: lighter;
-    margin: 0;
-    padding: 0;
+div.plugin_about	li.about {
+
 }
 
 div.plugin_about	li.image {

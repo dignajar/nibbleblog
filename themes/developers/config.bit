@@ -1,0 +1,16 @@
+<?php
+
+	$theme = array
+	(
+		'name'=>'Developers',
+		'description'=>'Simple theme for developers',
+		'author'=>'Diego Najar',
+		'version'=>'1.0',
+		'last_update'=>'27/12/2012', // dd/mm/yyyy
+		'url'=>'http://www.nibbleblog.com', // http://xxxxxxxxxxxxx
+		'video_width'=>'640',
+		'video_height'=>'360',
+		'comment_sleep'=>'2' // seconds
+	);
+
+?>
