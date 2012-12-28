@@ -3,9 +3,9 @@
 // ============================================================================
 //	SYSTEM INFORMATION
 // ============================================================================
-	define('NIBBLEBLOG_VERSION',		'3.4.1');
+	define('NIBBLEBLOG_VERSION',		'3.4.2');
 	define('NIBBLEBLOG_NAME',			'Flux Capacitor');
-	define('NIBBLEBLOG_RELEASE_DATE',	'25/11/2012');
+	define('NIBBLEBLOG_RELEASE_DATE',	'01/01/2013');
 
 // ============================================================================
 //	DEBUG

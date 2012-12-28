@@ -1,12 +1,18 @@
 <?php
 
-	// ----- POST HEADER
-	// print title if this is not empty
-	if( !empty($post['title']) )
-		echo '<h1 class="title">'.$post['title'].'</h1>';
+	// POST TITLE
+	echo '<h2>'.$post['title'].'</h2>';
 
+	// POST PUBLICATION DATE
+	echo '<h4>Pub date: '.$post['pub_date'].'</h4>';
 
-	// ----- POST CONTENT
+	// POST PERMALINK
+	echo '<h4>Permalink: '.$post['permalink'].'</h4>';
+
+	// COMMENTS
+	echo '<h4>Comments: '.count($post['comments']).'</h4>';
+
+	// POST CONTENT
 	// if quote post
 	if($post['type']=='quote')
 	{
@@ -24,18 +30,5 @@
 
 		echo $post['content'][1];
 	}
-
-
-	// ----- POST FOOTER
-	echo '<footer class="post">';
-
-		echo '<span class="date">'.$post['pub_date'].'</span>';
-
-		if($post['read_more'])
-			echo '<a href="'.$post['permalink'].'">'.$_LANG['READ_MORE'].'</a>';
-		else
-			echo '<a href="'.$post['permalink'].'">'.$_LANG['PERMALINK'].'</a>';
-
-	echo '</footer>';
 
 ?>

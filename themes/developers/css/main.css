@@ -1,35 +1,29 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic);
-
 /* ============================== */
 /* BODY */
 /* ============================== */
 
 body {
-	font-family: 'Open Sans',arial,sans-serif;
+	font-family: arial,sans-serif;
 	background-color: #F8F8F8;
 	margin: 0;
-	padding: 0 20px;
+	padding: 20px;
 	font-size: 0.875em;
 	color: #616161;
 }
 
 #wrapper {
-    margin: 0 auto;
     overflow: auto;
-	max-width: 1240px;
-    background: #FFFFFF;
 }
 
 #main {
-    margin-right: 290px;
-    padding: 20px 20px 0;
+    margin-right: 240px;
     border-right: 1px solid #F1F1F1;
 }
 
 #sidebar {
 	float: right;
 	margin-right: 10px;
-	width: 260px;
+	width: 200px;
 }
 
 /* ============================== */
@@ -56,48 +50,11 @@ article.post {
 	overflow: hidden;
 }
 
-article.post	header.post {
-	margin-bottom: 10px;
-}
-
-article.post	header.post	h1.title {
-	font-weight: normal;
-	margin: 0;
-}
-
-article.post	pre {
-	background: url("img/bgcode.png");
-	border: 1px solid #E8E8E8;
-	line-height: 23px;
-	margin: 0;
-	padding: 0 5px 0 5px;
-	white-space: pre-wrap;
-	font-size: 0.9em;
-}
-
 article.post	.console {
-	background: url("img/console.png") no-repeat scroll 10px center #F1F1F1;
 	display: block;
 	line-height: 50px;
 	margin: 5px 0;
 	padding-left: 60px;
-}
-
-article.post	img:not(.captcha) {
-	max-width:100%;
-}
-
-article.post 	blockquote {
-	font-size: 2em;
-
-}
-
-article.post	footer.post {
-	border-top: 1px solid #F1F1F1;
-	clear: both;
-	margin-top: 20px;
-	padding-top: 10px;
-	font-size: 0.9em;
 }
 
 /* ============================== */
@@ -202,56 +159,7 @@ div.plugin_box ul {
 	list-style: none;
 }
 
-div.plugin_box	h3.title {
-	font-weight: normal;
-}
-
-/* ============================== */
-/* PLUGIN CATEGORIES */
-/* ============================== */
-div.plugin_categories	li.category {
-	padding: 2px 5px;
-}
-
-/* ============================== */
-/* PLUGIN TWITTER */
-/* ============================== */
-div.plugin_twitter	ul {
-	height: 100px;
-}
-
-div.plugin_twitter	li {
+div.plugin_box li {
 	display: inline;
 	word-wrap: break-word;
-}
-
-div.plugin_twitter	li.username {
-	background: url("img/twitter.png") no-repeat 0 -2px;
-	margin-right: 5px;
-	padding-left: 23px;
-}
-
-/* ============================== */
-/* PLUGIN ABOUT */
-/* ============================== */
-div.plugin_about {
-	font-size: 0.9em;
-}
-
-div.plugin_about	li.name {
-	font-weight: bold;
-}
-
-div.plugin_about	li.about {
-
-}
-
-div.plugin_about	li.image {
-	float: left;
-	overflow: auto;
-	width:70px;
-}
-
-div.plugin_about	img.plugin_about {
-    max-width:64px;
 }
