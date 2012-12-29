@@ -10,7 +10,7 @@ body {
 	margin: 0;
 	padding: 10px;
 	font-size: 0.875em;
-	color: #333;
+	color: #555;
 }
 
 #container {
@@ -21,7 +21,7 @@ body {
 #main {
     margin: 0 auto;
     max-width: 1240px;
-    padding: 20px;
+    padding: 0 20px;
 }
 
 a {
@@ -34,7 +34,6 @@ a:hover {
 	color: #2BA6CB;
 	text-decoration: underline;
 }
-
 
 /* ============================== */
 /* HEADER */
@@ -81,6 +80,7 @@ a:hover {
 #head	div.avatar	li.name {
 	font-weight: lighter;
 	font-size: 2.3em;
+	color: #555;
 }
 
 #head	div.avatar	li.about {
@@ -90,6 +90,11 @@ a:hover {
     width: 50%;
     color: #777;
 }
+
+#head a {
+	text-decoration: none;
+}
+
 
 /* ============================== */
 /* HEADER POST */

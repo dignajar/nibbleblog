@@ -39,7 +39,9 @@
 				<?php
 					if( isset($plugins_by_name['about']) )
 					{
+						echo '<a href="'.HTML_PATH_ROOT.'">';
 						echo $plugins_by_name['about']->get_html();
+						echo '</a>';
 					}
 				?>
 			</div>
