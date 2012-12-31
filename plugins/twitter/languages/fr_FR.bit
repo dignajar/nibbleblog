@@ -1,9 +1,0 @@
-<?php
-
-$_PLUGIN_CONFIG['LANG'] = array(
-	'name'=>'Twitter',
-	'description'=>'Montrer les 5 derniers tweets d\'un utilisateur. Pour que ce module complémentaire fonctionne correctement, les Tweets doivent être publics.'
-);
-
-
-?>
