@@ -260,7 +260,8 @@ div.plugin_categories	li.category {
 /* PLUGIN TWITTER */
 /* ============================== */
 div.plugin_twitter	ul {
-	height: 100px;
+	height: 80px;
+    overflow: hidden;
 }
 
 div.plugin_twitter	li {

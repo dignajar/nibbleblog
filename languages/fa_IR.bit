@@ -1,7 +1,7 @@
 <?php
 
 $_LANG_CONFIG['DATA'] = array(
-	'native'=>'farsi - iran',
+	'native'=>'فارسی',
 	'english'=>'persian',
 	'last_update'=>'28/11/2012',
 	'author'=>'javadth',

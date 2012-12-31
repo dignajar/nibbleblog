@@ -2,7 +2,7 @@
 
 $_LANG_CONFIG['DATA'] = array(
 	'native'=>'čeština - čeština',
-	'english'=>'czech',
+	'english'=>'Czech',
 	'last_update'=>'05/12/2012',
 	'author'=>'JarynekZ',
 	'email'=>'j.zaoral@gmail.com',

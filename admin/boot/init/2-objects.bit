@@ -13,6 +13,7 @@
 	require(PATH_HELPERS . 'comment.class.php');
 	require(PATH_HELPERS . 'crypt.class.php');
 	require(PATH_HELPERS . 'date.class.php');
+	require(PATH_HELPERS . 'email.class.php');
 	require(PATH_HELPERS . 'filesystem.class.php');
 	require(PATH_HELPERS . 'html.class.php');
 	require(PATH_HELPERS . 'image.class.php');
