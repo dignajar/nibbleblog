@@ -134,6 +134,29 @@ p.no_comments {
 }
 
 /* ============================== */
+/* UPLOADER
+/* ============================== */
+#popup {
+	background: rgba(1, 1, 1, 0.5);
+	display: none;
+	left: 0;
+	top: 0;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: 1001;
+}
+
+#popup-wrap {
+display:table;
+}
+
+#popup-content {
+display:table-cell; vertical-align:middle;
+background: #fff;
+}
+
+/* ============================== */
 /* FORMS */
 /* ============================== */
 div.form_block {

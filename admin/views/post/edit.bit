@@ -42,8 +42,6 @@
 
 	echo Html::form_close();
 
-	echo Html::input( array('type'=>'file', 'id'=>'js_uploader_input_file', 'class'=>'hidden', 'size'=>'1') );
-
 ?>
 
 <?php
