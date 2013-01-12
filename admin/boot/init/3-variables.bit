@@ -33,6 +33,7 @@
 	define('HTML_PATH_ADMIN_AJAX',		HTML_PATH_ADMIN.'ajax/');
 
 	define('HTML_PATH_THEMES',			HTML_PATH_ROOT.'themes/');
+	define('HTML_PATH_PLUGINS',			HTML_PATH_ROOT.'plugins/');
 	define('HTML_PATH_UPLOAD',			HTML_PATH_ROOT.'content/public/upload/');
 
 // ============================================================================
