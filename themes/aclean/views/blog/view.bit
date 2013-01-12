@@ -1,0 +1,16 @@
+<?php
+
+// Variable $posts has all post for the page
+foreach($posts as $post)
+{
+	echo '<article class="post">';
+
+		include('includes/post_view.bit');
+
+	echo '</article>';
+}
+
+// Include the pager
+include('includes/pager.bit');
+
+?>
