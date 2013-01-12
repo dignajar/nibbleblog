@@ -34,6 +34,7 @@
 
 	<div id="container">
 
+
 		<header id="head">
 			<a class="name" href="<?php echo HTML_PATH_ROOT ?>">
 				<?php echo $settings['name'] ?>
@@ -43,8 +44,13 @@
 			</a>
 		</header>
 
-		<section id="plugins">
-			<?php
+
+		<?php
+			// Plugins
+			if(!empty($plugins))
+			{
+				echo '<section id="plugins">';
+
 				foreach($plugins as $plugin)
 				{
 					if($plugin->display())
@@ -54,12 +60,16 @@
 						echo '</div>';
 					}
 				}
-			?>
-		</section>
+
+				echo '</section>';
+			}
+		?>
+
 
 		<section id="main">
 			<?php include(THEME_VIEWS . $layout['view']); ?>
 		</section>
+
 
 		<footer id="foot">
 			<p>

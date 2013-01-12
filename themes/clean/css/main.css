@@ -32,7 +32,7 @@ a {
 }
 
 a:hover {
-	color: #00A1CB;
+	text-decoration: underline;
 }
 
 
@@ -41,8 +41,8 @@ a:hover {
 /* ============================== */
 #head {
 	overflow: auto;
-	margin: 40px 0;
-	font-size: 3em;
+	margin: 75px 0;
+	font-size: 3.2em;
 	font-weight: lighter;
 }
 
@@ -107,12 +107,6 @@ article.post {
 	overflow: auto;
 }
 
-article.post	h1.title {
-	font-weight: lighter;
-	margin: 0;
-	color: #222222;
-}
-
 article.post	pre {
 	background: url("img/bgcode.png");
 	border: 1px solid #E8E8E8;
@@ -146,6 +140,24 @@ article.post	footer.post {
 
 article.post	footer.post		span.date {
 	margin-right: 10px;
+}
+
+article.post	h1,
+article.post	h2,
+article.post	h3,
+article.post	h4,
+article.post	h5 {
+	font-weight: normal;
+}
+
+article.post	h1 {
+	font-size: 1.8em;
+}
+
+article.post	h1.title {
+	color: #222222;
+	font-size: 2em;
+	margin: 0;
 }
 
 /* ============================== */
@@ -197,7 +209,7 @@ article.post	footer.post		span.date {
 }
 
 #comment_form	h2 {
-	font-style: italic;
+	color: #222222;
 	font-weight: normal;
 	margin: 10px 0;
 }

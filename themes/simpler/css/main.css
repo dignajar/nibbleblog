@@ -143,6 +143,14 @@ article.post	footer.post {
 	font-size: 0.9em;
 }
 
+article.post	h1,
+article.post	h2,
+article.post	h3,
+article.post	h4,
+article.post	h5 {
+	font-weight: normal;
+}
+
 /* ============================== */
 /* COMMENT LIST */
 /* ============================== */
