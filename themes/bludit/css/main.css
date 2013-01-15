@@ -6,7 +6,6 @@
 
 body {
 	font-family: 'Open Sans',arial,sans-serif;
-	background-color: #F8F8F8;
 	margin: 0;
 	padding: 0;
 	font-size: 0.875em;
@@ -17,20 +16,17 @@ body {
     margin: 40px auto;
     overflow: auto;
 	max-width: 800px;
-    background: #FFFFFF;
-    border: 1px solid #F1F1F1;
 }
 
-#main {
-    margin-right: 290px;
+#right {
+    margin-right: 310px;
     padding: 20px 20px 0;
-    border-right: 1px solid #F1F1F1;
 }
 
-#sidebar {
+#left {
 	float: right;
 	margin-right: 15px;
-	width: 260px;
+	width: 290px;
 }
 
 a {
@@ -40,7 +36,7 @@ a {
 }
 
 a:hover {
-	color: #00A1CB;
+	text-decoration: underline;
 }
 
 
@@ -60,7 +56,7 @@ a:hover {
 /* ============================== */
 #pager {
 	overflow: auto;
-	padding-bottom: 20px;
+	margin: 20px 0;
 }
 
 #pager	a.newer {
@@ -72,13 +68,18 @@ a:hover {
 }
 
 /* ============================== */
-/* POST VIEW*/
+/* POSTS */
 /* ============================== */
+
+#posts {
+	background: #f8f8f8;
+	padding: 0 20px;
+	border: 1px solid #f2f2f2;
+}
+
 article.post {
-    background: #F1F1F1;
-    margin-bottom: 20px;
+    margin: 20px 0;
     overflow: hidden;
-    padding: 20px;
 }
 
 article.post	header.post {
@@ -224,9 +225,11 @@ article.post	h5 {
 /* PLUGINS */
 /* ============================== */
 div.plugin_box {
-	margin-top: 20px;
-    margin-bottom: 20px;
     overflow: auto;
+	background: #f8f8f8;
+	border: 1px solid #f2f2f2;
+	margin: 20px 0;
+	padding: 20px;
 }
 
 div.plugin_box ul {
@@ -236,8 +239,10 @@ div.plugin_box ul {
 }
 
 div.plugin_box	h3.title {
-	font-weight: normal;
-	margin-top: 0;
+	font-weight: lighter;
+	margin-bottom: 0;
+	text-align: right;
+	clear: both;
 }
 
 /* ============================== */

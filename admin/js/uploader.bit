@@ -1,6 +1,5 @@
 <?php
-	echo Html::input( array('type'=>'file', 'id'=>'js_uploader_input_file', 'class'=>'hidden', 'size'=>'1') );
-
+	echo Html::input( array('type'=>'file', 'id'=>'js_uploader_input_file', 'class'=>'hidden', 'size'=>'1', 'accept'=>'image/*') );
 ?>
 
 <script>

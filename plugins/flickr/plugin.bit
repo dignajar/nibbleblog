@@ -45,7 +45,7 @@ class PLUGIN_FLICKR extends Plugin
 					qstrings: {
 						id: "'.$this->get_field_db('id').'"
 					},
-					itemTemplate: \'<li><a href="{{image_b}}"><img src="{{image_s}}" alt="{{title}}" /></a></li>\'
+					itemTemplate: \'<li><a href="{{image_b}}"><img src="{{image_m}}" alt="{{title}}" /></a></li>\'
 				});
 			});
 			</script>
