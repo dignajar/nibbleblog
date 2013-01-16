@@ -48,7 +48,7 @@ a:hover {
 
 #head	a.name {
 	text-decoration: none;
-	color: #555;
+	color: #333;
 }
 
 #head	span.slogan {
@@ -66,7 +66,7 @@ a:hover {
 
 #head_post	a.name {
 	text-decoration: none;
-	color: #555;
+	color: #333;
 	font-size: 0.9em;
 }
 
@@ -155,7 +155,7 @@ article.post	h1 {
 }
 
 article.post	h1.title {
-	color: #222222;
+	color: #333;
 	font-size: 2em;
 	margin: 0;
 }

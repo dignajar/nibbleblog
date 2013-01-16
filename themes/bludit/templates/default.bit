@@ -29,6 +29,11 @@
 			echo $plugins_by_name['analytics']->get_html();
 		}
 	?>
+
+	<?php
+		// Disable plugins on sidebar
+		$plugins_by_name['about']->set_display(false);
+	?>
 </head>
 <body>
 
@@ -50,6 +55,15 @@
 		</section>
 
 		<section id="right">
+
+			<div id="about">
+				<?php
+					if( isset($plugins_by_name['about']) )
+					{
+						echo $plugins_by_name['about']->get_html();
+					}
+				?>
+			</div>
 
 			<div id="posts">
 				<?php

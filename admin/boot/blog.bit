@@ -27,8 +27,13 @@
 	// ---- PARTICULAR POST
 	elseif($url['id_post']!=null)
 	{
-		// The post
-		$posts[0] = $_DB_POST->get( array('id'=>$url['id_post']) );
+		// Get post
+		$post = $_DB_POST->get( array('id'=>$url['id_post']) );
+
+		if( !empty($post) )
+		{
+			$posts[0] = $post;
+		}
 	}
 	// ---- POSTS FILTER BY BLOG
 	else

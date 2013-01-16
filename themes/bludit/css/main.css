@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,200,300italic,700,700italic);
 
 /* ============================== */
 /* BODY */
@@ -9,7 +9,8 @@ body {
 	margin: 0;
 	padding: 0;
 	font-size: 0.875em;
-	color: #616161;
+	color: #646464;
+	background: #F1F1F1;
 }
 
 #wrapper {
@@ -30,7 +31,7 @@ body {
 }
 
 a {
-	color: #327CCB;
+	color: #008DDE;
 	cursor: pointer;
 	text-decoration: none;
 }
@@ -72,9 +73,8 @@ a:hover {
 /* ============================== */
 
 #posts {
-	background: #f8f8f8;
-	padding: 0 20px;
-	border: 1px solid #f2f2f2;
+	background: #FAFAFA;
+	padding: 20px;
 }
 
 article.post {
@@ -89,6 +89,7 @@ article.post	header.post {
 article.post	header.post		h1.title {
 	font-weight: normal;
 	margin: 0;
+	font-size: 1.6em;
 }
 
 article.post	footer.post {
@@ -122,8 +123,6 @@ article.post 	blockquote {
 	font-size: 2em;
 
 }
-
-
 
 article.post	h1,
 article.post	h2,
@@ -226,8 +225,7 @@ article.post	h5 {
 /* ============================== */
 div.plugin_box {
     overflow: auto;
-	background: #f8f8f8;
-	border: 1px solid #f2f2f2;
+	background: #FAFAFA;
 	margin: 20px 0;
 	padding: 20px;
 }
@@ -306,4 +304,43 @@ div.plugin_flickr {
 div.plugin_flickr	li {
 	float: left;
 	margin: 5px;
+}
+
+/* ============================== */
+/* PLUGIN ABOUT */
+/* ============================== */
+#about {
+	background: #FAFAFA;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+#about	ul {
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+}
+
+#about	li {
+    display: block;
+    font-size: 1.1em;
+    font-weight: lighter;
+    margin: 0;
+    padding: 0;
+}
+
+#about	li.name {
+    font-size: 1.6em;
+    font-weight: normal;
+    margin-top: -7px;
+}
+
+#about	li.image {
+	float: left;
+	overflow: auto;
+	width:120px;
+}
+
+#about	img.plugin_about {
+    max-width:103px;
 }

@@ -142,6 +142,11 @@ class Plugin {
 			$this->display = $args['display'];
 	}
 
+	public function set_display($display)
+	{
+		$this->display = $display;
+	}
+
 	public function get_name()
 	{
 		return( $this->name );

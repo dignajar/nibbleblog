@@ -5,7 +5,7 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 05/11/2012
+ * Last update: 15/01/2013
 
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
@@ -22,7 +22,7 @@ class Session {
 		$_SESSION['nibbleblog'] = array(
 							'error'=>false,
 							'alert'=>'',
-							'captcha'=>'',
+							'captcha'=>Text::random_text(16),
 							'comment'=>$comment
 		);
 	}
@@ -76,9 +76,6 @@ class Session {
 	{
 		return($_SESSION['nibbleblog']['comment']);
 	}
-
-
-
 
 }
 
