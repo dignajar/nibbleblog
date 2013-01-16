@@ -8,9 +8,9 @@ body {
 	font-family: 'Open Sans',arial,sans-serif;
 	margin: 0;
 	padding: 0;
-	font-size: 0.875em;
+	font-size: 0.8em;
 	color: #646464;
-	background: #F1F1F1;
+	background: #FFF;
 }
 
 #wrapper {
@@ -40,32 +40,113 @@ a:hover {
 	text-decoration: underline;
 }
 
-
-/* ============================== */
-/* FOOTER */
-/* ============================== */
-#foot {
-	text-align: right;
-	font-size: 0.9em;
-	max-width: 1240px;
-	overflow: auto;
-	margin: 30px auto;
-}
-
-/* ============================== */
-/* PAGER */
-/* ============================== */
-#pager {
-	overflow: auto;
+div.separator {
+	background: #ddd;
 	margin: 20px 0;
+	height: 1px;
 }
 
-#pager	a.newer {
-	float: right;
+/* ============================== */
+/* ABOUT */
+/* ============================== */
+#about {
+	padding: 20px;
 }
 
-#pager	a.older {
+#about	ul {
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+}
+
+#about	li {
+    display: block;
+    font-size: 1.1em;
+    font-weight: lighter;
+    margin: 0;
+    padding: 0;
+}
+
+#about	li.name {
+    font-size: 1.6em;
+    font-weight: normal;
+    margin-top: -7px;
+}
+
+#about	li.image {
 	float: left;
+	overflow: auto;
+	width:120px;
+}
+
+#about	img.plugin_about {
+    max-width:103px;
+}
+
+/* ============================== */
+/* PLUGINS */
+/* ============================== */
+div.plugin_box {
+    overflow: auto;
+	padding: 20px;
+}
+
+div.plugin_box ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+div.plugin_box	h3.title {
+	font-weight: lighter;
+	margin-bottom: 0;
+	text-align: right;
+	clear: both;
+}
+
+/* ============================== */
+/* PLUGIN CATEGORIES */
+/* ============================== */
+div.plugin_categories	li.category {
+    display: inline-block;
+    font-size: 1.3em;
+    padding: 2px 5px;
+}
+
+/* ============================== */
+/* PLUGIN TWITTER */
+/* ============================== */
+div.plugin_twitter_static	ul {
+
+}
+
+div.plugin_twitter_static	li {
+	display: block;
+	word-wrap: break-word;
+}
+
+div.plugin_twitter_static	li.username {
+    background: url("img/twitter.png") no-repeat;
+    line-height: 24px;
+    padding-left: 23px;
+}
+
+div.plugin_twitter_static	li.tweet {
+	border-left: 4px solid #EEEEEE;
+	margin: 15px 0;
+	padding-left: 20px;
+}
+
+/* ============================== */
+/* PLUGIN FLICKR */
+/* ============================== */
+div.plugin_flickr {
+	font-size: 0.9em;
+}
+
+div.plugin_flickr	li {
+	float: left;
+	margin: 5px;
 }
 
 /* ============================== */
@@ -78,7 +159,7 @@ a:hover {
 }
 
 article.post {
-    margin: 20px 0;
+    margin-bottom: 20px;
     overflow: hidden;
 }
 
@@ -87,14 +168,28 @@ article.post	header.post {
 }
 
 article.post	header.post		h1.title {
+	font-size: 1.5em;
 	font-weight: normal;
+	line-height: 24px;
 	margin: 0;
-	font-size: 1.6em;
+	padding-left: 32px;
+}
+
+.bg_icon_simple {
+	background: url("img/simple.png") no-repeat;
+}
+
+.bg_icon_quote {
+	background: url("img/quote.png") no-repeat;
+}
+
+.bg_icon_video {
+	background: url("img/video.png") no-repeat;
 }
 
 article.post	footer.post {
 	clear: both;
-	font-size: 0.9em;
+	font-size: 0.8em;
 }
 
 article.post	pre {
@@ -130,6 +225,34 @@ article.post	h3,
 article.post	h4,
 article.post	h5 {
 	font-weight: normal;
+}
+
+
+/* ============================== */
+/* FOOTER */
+/* ============================== */
+#foot {
+	text-align: right;
+	font-size: 0.9em;
+	max-width: 1240px;
+	overflow: auto;
+	margin: 30px auto;
+}
+
+/* ============================== */
+/* PAGER */
+/* ============================== */
+#pager {
+	overflow: auto;
+	margin: 20px 0;
+}
+
+#pager	a.newer {
+	float: right;
+}
+
+#pager	a.older {
+	float: left;
 }
 
 /* ============================== */
@@ -220,127 +343,5 @@ article.post	h5 {
 	padding: 3px 8px;
 }
 
-/* ============================== */
-/* PLUGINS */
-/* ============================== */
-div.plugin_box {
-    overflow: auto;
-	background: #FAFAFA;
-	margin: 20px 0;
-	padding: 20px;
-}
 
-div.plugin_box ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
 
-div.plugin_box	h3.title {
-	font-weight: lighter;
-	margin-bottom: 0;
-	text-align: right;
-	clear: both;
-}
-
-/* ============================== */
-/* PLUGIN CATEGORIES */
-/* ============================== */
-div.plugin_categories	li.category {
-	padding: 2px 5px;
-}
-
-/* ============================== */
-/* PLUGIN TWITTER */
-/* ============================== */
-div.plugin_twitter	ul {
-	height: 80px;
-    overflow: hidden;
-}
-
-div.plugin_twitter	li {
-	display: inline;
-	word-wrap: break-word;
-}
-
-div.plugin_twitter	li.username {
-	background: url("img/twitter.png") no-repeat 0 -2px;
-	margin-right: 5px;
-	padding-left: 23px;
-}
-
-/* ============================== */
-/* PLUGIN ABOUT */
-/* ============================== */
-div.plugin_about {
-	font-size: 0.9em;
-}
-
-div.plugin_about	li.name {
-	font-weight: bold;
-}
-
-div.plugin_about	li.about {
-
-}
-
-div.plugin_about	li.image {
-	float: left;
-	overflow: auto;
-	width:70px;
-}
-
-div.plugin_about	img.plugin_about {
-    max-width:64px;
-}
-
-/* ============================== */
-/* PLUGIN FLICKR */
-/* ============================== */
-div.plugin_flickr {
-	font-size: 0.9em;
-}
-
-div.plugin_flickr	li {
-	float: left;
-	margin: 5px;
-}
-
-/* ============================== */
-/* PLUGIN ABOUT */
-/* ============================== */
-#about {
-	background: #FAFAFA;
-	padding: 20px;
-	margin-bottom: 20px;
-}
-
-#about	ul {
-	margin: 0;
-	padding: 0;
-	overflow: auto;
-}
-
-#about	li {
-    display: block;
-    font-size: 1.1em;
-    font-weight: lighter;
-    margin: 0;
-    padding: 0;
-}
-
-#about	li.name {
-    font-size: 1.6em;
-    font-weight: normal;
-    margin-top: -7px;
-}
-
-#about	li.image {
-	float: left;
-	overflow: auto;
-	width:120px;
-}
-
-#about	img.plugin_about {
-    max-width:103px;
-}
