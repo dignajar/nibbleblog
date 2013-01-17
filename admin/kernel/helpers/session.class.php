@@ -22,7 +22,7 @@ class Session {
 		$_SESSION['nibbleblog'] = array(
 							'error'=>false,
 							'alert'=>'',
-							'captcha'=>Text::random_text(16),
+							'captcha'=>Text::random_text(64),
 							'comment'=>$comment
 		);
 	}
