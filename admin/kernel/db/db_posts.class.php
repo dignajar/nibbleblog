@@ -312,7 +312,7 @@ class DB_POSTS {
 		// Get all files, by category
 		private function set_files_by_category($id_cat)
 		{
-			$this->files = Filesystem::ls(PATH_POSTS, '*.'.$id_cat.'.*.*.*.*.*.*.*.*', 'xml', false, false, true);
+			$this->files = Filesystem::ls(PATH_POSTS, '*.'.$id_cat.'.*.NULL.*.*.*.*.*.*', 'xml', false, false, true);
 			$this->files_count = count( $this->files );
 		}
 
