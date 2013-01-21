@@ -3,19 +3,19 @@
 <head>
 	<meta charset="utf-8">
 
-	<!-- TITLE -->
+	<!-- Blog title -->
 	<title><?php echo $layout['title'] ?></title>
 
-	<!-- DESCRIPTION -->
+	<!-- Blog description -->
 	<meta name="description" content="<?php echo $layout['description'] ?>">
 
 	<!-- CSS3 -->
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'main.css?v='.$theme['version'] ?>" />
 
-	<!-- FAVICON -->
+	<!-- Favicon -->
 	<link rel="shortcut icon" href="<?php echo HTML_THEME_CSS.'img/favicon.ico' ?>" type="image/x-icon" />
 
-	<!-- JQUERY -->
+	<!-- jQuery -->
 	<script src="<?php echo JS_JQUERY ?>"></script>
 
 	<!-- ATOM Feed 2.0 -->
@@ -23,7 +23,7 @@
 
 </head>
 <body>
-		<!-- HEADER -->
+		<!-- Blog title and slogan -->
 		<header>
 			<?php
 				echo '<h1>'.$settings['name'].'</h1>';
@@ -31,25 +31,30 @@
 			?>
 		</header>
 
-		<section id="wrapper">
-
-			<!-- SIDEBAR(PLUGINS) -->
-			<section id="sidebar">
-				<?php
-					include('includes/plugins.bit');
-				?>
-			</section>
-
-			<!-- VIEW -->
-			<section id="main">
-				<?php
-					include(THEME_VIEWS . $layout['view']);
-				?>
-			</section>
-
+		<!-- Main -->
+		<section id="main">
+			<?php
+				include(THEME_VIEWS.$layout['view']);
+			?>
 		</section>
 
-		<!-- FOOTER -->
+		<!-- Plugins -->
+		<section id="plugins">
+		<?php
+			foreach($plugins as $plugin)
+			{
+				if($plugin->display())
+				{
+					echo '<div class="plugin_box">';
+						echo '<h3>'.$plugin->get_field_db('title').'</h3>';
+						echo $plugin->get_html();
+					echo '</div>';
+				}
+			}
+		?>
+		</section>
+
+		<!-- Footer -->
 		<footer>
 			<?php
 				echo $settings['footer'];

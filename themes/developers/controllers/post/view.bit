@@ -1,9 +1,11 @@
 <?php
 
+	$post = $posts[0];
+
 	// Changing the default title
-	$layout['title'] = $posts[0]['title'];
+	$layout['title'] = $post['title'];
 
 	// Changing the default description
-	$layout['description'] = $posts[0]['description'];
+	$layout['description'] = $post['description'];
 
 ?>
