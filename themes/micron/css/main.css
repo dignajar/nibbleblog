@@ -154,7 +154,6 @@ div.plugin_flickr	li {
 /* ============================== */
 
 #posts {
-	background: #FAFAFA;
 	padding: 20px;
 }
 
@@ -173,6 +172,12 @@ article.post	header.post		h1.title {
 	line-height: 24px;
 	margin: 0;
 	padding-left: 32px;
+}
+
+article.post	header.post		h1.title_post {
+	font-size: 1.5em;
+	font-weight: normal;
+	margin: 0;
 }
 
 .bg_icon_simple {
@@ -216,7 +221,6 @@ article.post	img:not(.captcha) {
 
 article.post 	blockquote {
 	font-size: 2em;
-
 }
 
 article.post	h1,
@@ -259,14 +263,16 @@ article.post	h5 {
 /* COMMENT LIST */
 /* ============================== */
 #comment_list {
-	margin-top: 30px;
-	width: 70%;
+    border-top: 1px solid #EEEEEE;
+    margin-top: 20px;
+    padding-top: 20px;
 }
 
 #comment_list	h2 {
-	font-style: italic;
-	font-weight: normal;
-	margin: 10px 0;
+    font-size: 1.3em;
+    font-style: italic;
+    font-weight: normal;
+    margin: 0 0 20px;
 }
 
 #comment_list	div.comment {
@@ -299,20 +305,24 @@ article.post	h5 {
 /* COMMENT FORM */
 /* ============================== */
 #comment_form {
-	margin-top: 30px;
-	width: 70%;
+    border-top: 1px solid #EEEEEE;
+    margin-top: 20px;
+    padding-top: 20px;
 }
 
 #comment_form	h2 {
-	font-style: italic;
-	font-weight: normal;
-	margin: 10px 0;
+    font-size: 1.3em;
+    font-style: italic;
+    font-weight: normal;
+    margin: 0 0 20px;
 }
 
-#comment_form	h3.alert {
-	color: #BE1C54;
-	font-style: italic;
-	margin: 0 0 15px;
+#comment_form	h2.alert {
+    font-size: 1.1em;
+    font-style: italic;
+    font-weight: bold;
+    color: #BE1C54;
+    margin: 0 0 20px;
 }
 
 #comment_form	input[type="text"],

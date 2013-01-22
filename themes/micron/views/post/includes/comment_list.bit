@@ -9,7 +9,7 @@ if(!empty($post['comments']))
 		foreach($post['comments'] as $comment)
 		{
 			echo '<div class="comment">';
-				echo '<img class="avatar" src="'.Image::get_gravatar($comment['author_email'],64).'">';
+				echo '<img class="avatar" src="'.Image::get_gravatar($comment['author_email'],32).'">';
 				echo '<span class="author_name">'.$comment['author_name'].'</span>';
 				echo '<span class="date">'.$comment['pub_date'].'</span>';
 				echo '<span class="content">'.$comment['content'].'</span>';

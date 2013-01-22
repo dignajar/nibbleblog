@@ -6,7 +6,7 @@ echo '<footer id="comment_form">';
 
 	if(Session::get_error())
 	{
-		echo '<h3 class="alert">'.Session::get_alert().'</h3>';
+		echo '<h2 class="alert">'.Session::get_alert().'</h2>';
 	}
 
 	echo '

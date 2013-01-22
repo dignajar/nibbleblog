@@ -2,11 +2,11 @@
 
 	$theme = array
 	(
-		'name'=>'Bludit',
-		'description'=>'Full HTML5 Theme',
+		'name'=>'Micron',
+		'description'=>'',
 		'author'=>'Diego Najar',
-		'version'=>'2.0',
-		'last_update'=>'02/09/2012', // dd/mm/yyyy
+		'version'=>'1.0',
+		'last_update'=>'16/01/2013', // dd/mm/yyyy
 		'url'=>'http://www.nibbleblog.com', // http://xxxxxxxxxxxxx
 		'video_width'=>'640',
 		'video_height'=>'360',

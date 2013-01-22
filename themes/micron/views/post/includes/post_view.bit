@@ -8,7 +8,7 @@
 
 		// print title if this is not empty
 		if( !empty($post['title']) )
-			echo '<h1 class="title">'.$post['title'].'</h1>';
+			echo '<h1 class="title_post">'.$post['title'].'</h1>';
 
 	echo '</header>';
 
