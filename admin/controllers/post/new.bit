@@ -12,11 +12,15 @@
 						'title'=>'',
 						'content'=>'',
 						'description'=>'',
-						'allow_comments'=>0
+						'allow_comments'=>0,
+						'slug'=>''
 		);
 
 		// Category ID
 		$safe['id_cat'] = $_POST['id_cat'];
+
+		// Slug URL
+		$safe['slug'] = $_POST['slug'];
 
 		// Mode
 		if( isset($_POST['button_draft']) )

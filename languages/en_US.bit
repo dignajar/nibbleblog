@@ -3,7 +3,7 @@
 $_LANG_CONFIG['DATA'] = array(
 	'native'=>'English - United States',
 	'english'=>'Enlgish',
-	'last_update'=>'14/11/2012',
+	'last_update'=>'21/01/2013',
 	'author'=>'Diego Najar',
 	'email'=>'dignajar@gmail.com',
 	'url'=>'http://diego.nibbleblog.com'
@@ -176,5 +176,6 @@ $_LANG['LANDSCAPE'] = 'Landscape';
 $_LANG['CROP'] = 'Crop';
 $_LANG['YOU_CAN_USE_HTML_OR_MARKDOWN_SYNTAX'] = 'You can use HTML or Markdown syntax';
 $_LANG['DRAFT'] = 'Draft';
+
 
 ?>

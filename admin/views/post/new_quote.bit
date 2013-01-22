@@ -7,6 +7,9 @@
 			echo Html::textarea( array('id'=>'js_quote', 'name'=>'quote', 'content'=>'', 'placeholder'=>$_LANG['ENTER_QUOTE_HERE']) );
 		echo Html::div_close();
 
+		// SLUG URL
+		include('includes/slug.bit');
+
 		// CATEGORIES
 		echo Html::div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
 			echo Html::label( array('class'=>'blocked', 'content'=>$_LANG['SELECT_A_CATEGORY']) );

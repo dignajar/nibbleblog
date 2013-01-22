@@ -27,6 +27,9 @@
 				echo Html::link( array('content'=>'HTML', 'class'=>'toggle_button', 'href'=>'javascript:;', 'onclick'=>'tinymce.execCommand(\'mceToggleEditor\',false,\'js_content\')', 'hidden'=>( !$settings['advanced_post_options'] || !$settings['enable_wysiwyg'] )) );
 			echo Html::div_close();
 
+			// SLUG URL
+			include('includes/slug.bit');
+
 			// SEO DESCRIPTION
 			echo Html::div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
 				echo Html::label( array('class'=>'blocked', 'content'=>$_LANG['SHORT_DESCRIPTION_NO_MORE_THAN']) );

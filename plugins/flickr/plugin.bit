@@ -18,7 +18,7 @@ class PLUGIN_FLICKR extends Plugin
 	{
 		parent::__construct();
 
-		$this->fields = array('id'=>'', 'items'=>'6');
+		$this->fields = array('id'=>'', 'items'=>'6', 'size'=>'s');
 	}
 
 	public function get_html_config()
@@ -28,6 +28,9 @@ class PLUGIN_FLICKR extends Plugin
 
 		$html .= '<label>Items</label>';
 		$html .= '<input name="items" type="text" value="'.$this->get_field_db('items').'">';
+
+		$html .= '<label>Size (s or m)</label>';
+		$html .= '<input name="size" type="text" value="'.$this->get_field_db('size').'">';
 
 		return($html);
 	}
@@ -45,7 +48,7 @@ class PLUGIN_FLICKR extends Plugin
 					qstrings: {
 						id: "'.$this->get_field_db('id').'"
 					},
-					itemTemplate: \'<li><a href="{{image_b}}"><img src="{{image_m}}" alt="{{title}}" /></a></li>\'
+					itemTemplate: \'<li><a href="{{image_b}}"><img src="{{image_'.$this->get_field_db('size').'}}" alt="{{title}}" /></a></li>\'
 				});
 			});
 			</script>

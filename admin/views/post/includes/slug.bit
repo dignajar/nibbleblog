@@ -1,0 +1,34 @@
+<?php
+	if(isset($post_edit['slug']))
+	{
+		$value['slug'] = $post_edit['slug'];
+	}
+	else
+	{
+		$value['slug'] = '';
+	}
+
+	echo Html::div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
+		echo Html::label( array('class'=>'blocked', 'content'=>$_LANG['PERMALINK']) );
+		echo Html::span( array('id'=>'js_slug_example', 'content'=>'') );
+		echo Html::input( array('id'=>'js_slug', 'name'=>'slug', 'type'=>'text', 'value'=>$value['slug'], 'autocomplete'=>'off') );
+	echo Html::div_close();
+?>
+
+<script>
+
+$(document).ready(function() {
+
+	var slug_example = "<?php echo $settings['url'].$settings['path'].'post-x/'; ?>";
+	var slug_slug = "<?php echo $value['slug']; ?>";
+
+	$("#js_slug_example").html(slug_example+slug_slug);
+
+	$("#js_slug").keyup(function() {
+		var slug_name = $(this).val();
+		$("#js_slug_example").html(slug_example+slug_name);
+	});
+
+});
+
+</script>

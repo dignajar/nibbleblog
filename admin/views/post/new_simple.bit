@@ -22,11 +22,7 @@
 		echo Html::div_close();
 
 		// SLUG URL
-		echo Html::div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
-			echo Html::label( array('class'=>'blocked', 'content'=>'#### FALTA: Slug URL') );
-			echo Html::span( array('content'=>$settings['url'].$settings['path'].'post-x/') );
-			echo Html::input( array('id'=>'js_slug', 'name'=>'slug', 'type'=>'text', 'value'=>'') );
-		echo Html::div_close();
+		include('includes/slug.bit');
 
 		// CATEGORIES
 		echo Html::div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );

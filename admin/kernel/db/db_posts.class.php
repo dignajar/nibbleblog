@@ -94,6 +94,7 @@ class DB_POSTS {
 			$new_obj->addChild('content',			$args['content']);
 			$new_obj->addChild('description',		$args['description']);
 			$new_obj->addChild('allow_comments',	$args['allow_comments']);
+			$new_obj->addChild('slug',				$args['slug']);
 
 			$new_obj->addChild('pub_date',			$time_unix);
 			$new_obj->addChild('mod_date',			'0');
@@ -158,8 +159,9 @@ class DB_POSTS {
 			$new_obj->setChild('title', 			$args['title']);
 			$new_obj->setChild('content', 			$args['content']);
 			$new_obj->setChild('description', 		$args['description']);
-			$new_obj->setChild('mod_date', 			Date::unixstamp());
 			$new_obj->setChild('allow_comments', 	$args['allow_comments']);
+			$new_obj->setChild('slug',				$args['slug']);
+			$new_obj->setChild('mod_date', 			Date::unixstamp());
 
 			if(isset($args['quote']))
 			{
@@ -341,6 +343,7 @@ class DB_POSTS {
 			$tmp_array['type']				= (string) $obj_xml->getChild('type');
 			$tmp_array['title']				= (string) $obj_xml->getChild('title');
 			$tmp_array['description']		= (string) $obj_xml->getChild('description');
+			$tmp_array['slug']				= (string) $obj_xml->getChild('slug');
 
 			$tmp_array['pub_date_unix']		= (string) $obj_xml->getChild('pub_date');
 			$tmp_array['mod_date_unix']		= (string) $obj_xml->getChild('mod_date');
@@ -375,13 +378,20 @@ class DB_POSTS {
 			// FRIENDLY URLS
 			if( $this->settings['friendly_urls'] )
 			{
-				if( Text::not_empty($tmp_array['title']))
+				if(  Text::not_empty($tmp_array['slug']) )
 				{
-					$slug = Text::clean_url($tmp_array['title']);
+					$slug = $tmp_array['slug'];
 				}
 				else
 				{
-					$slug = $tmp_array['type'];
+					if( Text::not_empty($tmp_array['title']))
+					{
+						$slug = Text::clean_url($tmp_array['title']);
+					}
+					else
+					{
+						$slug = $tmp_array['type'];
+					}
 				}
 
 				$tmp_array['permalink'] = HTML_PATH_ROOT.'post-'.$tmp_array['id'].'/'.$slug;
