@@ -28,6 +28,10 @@ $rss.= '<updated>'.$updated.'</updated>' . PHP_EOL;
 
 foreach($posts as $post)
 {
+	$full_link = htmlspecialchars($settings['url'].$post['permalink']);
+
+	$date = Date::atom($post['pub_date_unix']);
+
 	if($post['type']=='quote')
 	{
 		$title = 'quote';
@@ -45,11 +49,12 @@ foreach($posts as $post)
 		}
 
 		$content = htmlspecialchars($post['content'][1], ENT_QUOTES, 'UTF-8');
+
+		if(isset($post['content'][2]))
+		{
+			$content .= htmlspecialchars('<a href="'.$full_link.'">'.$_LANG['READ_MORE'].'</a>', ENT_QUOTES, 'UTF-8');
+		}
 	}
-
-	$full_link = htmlspecialchars($settings['url'].$post['permalink']);
-
-	$date = Date::atom($post['pub_date_unix']);
 
 	// Entry
 	$rss.= '<entry>' . PHP_EOL;
