@@ -49,8 +49,8 @@
 	define('FILE_XML_CATEGORIES',	PATH_PRIVATE . 'categories.xml');
 	define('FILE_XML_CONFIG',		PATH_PRIVATE . 'config.xml');
 	define('FILE_XML_SYSLOG',		PATH_PRIVATE . 'syslog.xml');
+	define('FILE_XML_NOTIFICATIONS',PATH_PRIVATE . 'notifications.xml');
 	define('FILE_XML_COMMENTS',		PATH_PRIVATE . 'comments.xml');
 	define('FILE_SHADOW',			PATH_PRIVATE . 'shadow.php');
 	define('FILE_KEYS',				PATH_PRIVATE . 'keys.php');
-
 ?>

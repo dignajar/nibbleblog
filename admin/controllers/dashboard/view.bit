@@ -12,4 +12,6 @@
 
 	$last_comments = $_DB_COMMENTS->get_last(AMOUNT_OF_COMMENTS);
 
+	$notifications = $_DB_NOTIFICATIONS->get_all();
+
 ?>
