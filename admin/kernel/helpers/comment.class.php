@@ -37,6 +37,8 @@ class Comment {
 */
 	public function add($delay = 0, $sanitize = true)
 	{
+		global $_DB_NOTIFICATIONS;
+
 		// Sleep
 		sleep($delay);
 
@@ -56,6 +58,9 @@ class Comment {
 
 		// Add to database
 		$this->db->add($data);
+
+		// Add notification
+		$_DB_NOTIFICATIONS->add('comment', true, 'NOTIFICATIONS');
 
 		// Clean session
 		Session::init();

@@ -30,9 +30,6 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 
 	if( $Login->is_logued() )
 	{
-		// Add a new session to syslog
-		$_DB_SYSLOG->add_session();
-
 		// Redirect to Dashboard
 		Redirect::controller('admin','dashboard','view');
 	}

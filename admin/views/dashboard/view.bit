@@ -48,15 +48,15 @@
 
 
 	// LAST SESSIONS
-	echo Html::separator( array('content'=>$_LANG['LAST_SESSIONS']) );
+	echo Html::separator( array('content'=>'Notifications') );
 
-	foreach($syslog_sessions as $session)
+	foreach($notifications as $notification)
 	{
-		$date = Date::format($session['date'], SESSION_DATE_FORMAT);
+		$date = Date::format($notification['date'], SESSION_DATE_FORMAT);
 
 		echo Html::div_open( array('class'=>'notification notification_session') );
 			echo Html::div( array('class'=>'type', 'content'=>$_LANG['NEW_SESSION_STARTED']) );
-			echo Html::div( array('class'=>'info', 'content'=>$_LANG['DATE'].': '.$date.' · IP:'.$session['ip']) );
+			echo Html::div( array('class'=>'info', 'content'=>$_LANG['DATE'].': '.$date.' · Message:'.$notification['message_key']) );
 		echo Html::div_close();
 	}
 ?>

@@ -13,7 +13,7 @@
 
 class Email {
 
-	public static send($args)
+	public static function send($args)
 	{
 		$headers  = 'MIME-Version: 1.0' . "\r\n";
 		$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";

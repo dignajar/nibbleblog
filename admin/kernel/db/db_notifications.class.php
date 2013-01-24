@@ -57,14 +57,19 @@ class DB_NOTIFICATIONS {
 			// Email
 			if($send_email)
 			{
-				$sent = Email::send(array('from_name'=>'', 'from_mail'=>'', 'to'=>'', 'subject'=>'', 'message'=>''));
+				//$sent = Email::send(array('from_name'=>'', 'from_mail'=>'', 'to'=>'', 'subject'=>'', 'message'=>''));
 			}
+
+			// Encrypt the user IP
+			include(FILE_KEYS);
+			$user_ip = Crypt::encrypt(Net::get_user_ip(), $_KEYS[0]);
 
 			// Save the notification
 			$node = $this->obj_xml->addChild('notification');
 			$node->addAttribute('type',			$type);
 			$node->addAttribute('mail',			$sent);
 			$node->addAttribute('message_key',	$message_key);
+			$node->addAttribute('ip',			$user_ip);
 			$node->addAttribute('date',			Date::unixstamp());
 
 			$this->savetofile();
@@ -74,14 +79,20 @@ class DB_NOTIFICATIONS {
 
 		public function get_all()
 		{
+			include(FILE_KEYS);
+
 			$tmp_array = array();
 			foreach( $this->obj_xml->notification as $notification )
 			{
+				// Decrypt the user IP
+				$user_ip = Crypt::decrypt((string) $notification->getAttribute('ip'), $_KEYS[0]);
+
 				$row = array();
 				$row['type']			= (string) $notification->getAttribute('type');
 				$row['mail']			= (bool) $notification->getAttribute('mail');
-				$row['message_key']		= (bool) $notification->getAttribute('message_key');
+				$row['message_key']		= (string) $notification->getAttribute('message_key');
 				$row['date']			= (string) $notification->getAttribute('date');
+				$row['ip'] 				= $user_ip;
 
 				array_push($tmp_array, $row);
 			}

@@ -177,5 +177,7 @@ $_LANG['CROP'] = 'Crop';
 $_LANG['YOU_CAN_USE_HTML_OR_MARKDOWN_SYNTAX'] = 'You can use HTML or Markdown syntax';
 $_LANG['DRAFT'] = 'Draft';
 
+$_LANG['YOU_HAVE_A_NEW_COMMENT_ON_YOUR_BLOG'] = 'You have a new comment on your blog';
+$_LANG['LOGIN_FAILED_ATTEMPT'] = 'Login failed attempt';
 
 ?>

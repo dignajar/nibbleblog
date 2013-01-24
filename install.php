@@ -170,13 +170,12 @@ Date::set_timezone('UTC');
 		$node = $obj->addChild('sticky', '');
 		$obj->asXml( FILE_XML_POST );
 
-		// syslog.xml
+		// notifications.xml
 		$xml  = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
-		$xml .= '<syslog>';
-		$xml .= '</syslog>';
+		$xml .= '<notifications>';
+		$xml .= '</notifications>';
 		$obj = new NBXML($xml, 0, FALSE, '', FALSE);
-		$obj->addChild('login', '');
-		$obj->asXml( FILE_XML_SYSLOG );
+		$obj->asXml( FILE_XML_NOTIFICATIONS );
 
 		// shadow.php
 		$new_salt = Text::random_text(11);
