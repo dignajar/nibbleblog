@@ -1,0 +1,36 @@
+<?php
+
+	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+
+		echo Html::separator( array('content'=>'Notifications via Email') );
+
+		// COMMENTS
+		echo Html::div_open( array('class'=>'form_block'));
+			echo Html::checkbox( array('id'=>'js_notification_comments', 'name'=>'notification_comments', 'class'=>'float'), $settings['notification_comments'] );
+			echo Html::label( array('content'=>$_LANG['COMMENTS'], 'class'=>'for_checkbox', 'for'=>'js_notification_comments') );
+			echo Html::div( array('content'=>'Notify when a user make a comment', 'class'=>'input_tip') );
+		echo Html::div_close();
+
+		// Session fail
+		echo Html::div_open( array('class'=>'form_block'));
+			echo Html::checkbox( array('id'=>'js_notification_session_fail', 'name'=>'notification_session_fail', 'class'=>'float'), $settings['notification_session_fail'] );
+			echo Html::label( array('content'=>'Session fail', 'class'=>'for_checkbox', 'for'=>'js_notification_session_fail') );
+			echo Html::div( array('content'=>'Notify when a user fail to login', 'class'=>'input_tip') );
+		echo Html::div_close();
+
+		// Session start
+		echo Html::div_open( array('class'=>'form_block'));
+			echo Html::checkbox( array('id'=>'js_notification_session_start', 'name'=>'notification_session_start', 'class'=>'float'), $settings['notification_session_start'] );
+			echo Html::label( array('content'=>'Session start', 'class'=>'for_checkbox', 'for'=>'js_notification_session_start') );
+			echo Html::div( array('content'=>'Notify when a user success login', 'class'=>'input_tip') );
+		echo Html::div_close();
+
+	echo Html::form_close();
+
+?>
+
+<?php
+	$ajax['url'] = HTML_PATH_ADMIN_AJAX.'settings.php';
+	$ajax['action'] = 'set';
+	include(PATH_ADMIN_JS.'ajax_form.bit');
+?>

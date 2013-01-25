@@ -37,7 +37,7 @@
 
 			echo Html::div_open( array('class'=>'notification notification_'.$notification['type']) );
 				echo Html::div( array('class'=>'type', 'content'=>$_LANG[$notification['message_key']]) );
-				echo Html::div( array('class'=>'info', 'content'=>$_LANG['DATE'].': '.$date) );
+				echo Html::div( array('class'=>'info', 'content'=>$_LANG['DATE'].': '.$date.' · IP: '.$notification['ip']) );
 			echo Html::div_close();
 		}
 

@@ -88,6 +88,10 @@ class DB_SETTINGS {
 			$tmp_array['img_thumbnail_height']		= (int) $this->obj_xml->getChild('img_thumbnail_height');
 			$tmp_array['img_thumbnail_option']		= (string) $this->obj_xml->getChild('img_thumbnail_option');
 
+			$tmp_array['notification_comments']		= (int) $this->obj_xml->getChild('notification_comments') == 1;
+			$tmp_array['notification_session_fail']	= (int) $this->obj_xml->getChild('notification_session_fail') == 1;
+			$tmp_array['notification_session_start']= (int) $this->obj_xml->getChild('notification_session_start') == 1;
+
 			$tmp_array['locale']					= (string) $this->obj_xml->getChild('locale');
 
 			return($tmp_array);

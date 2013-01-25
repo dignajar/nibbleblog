@@ -54,6 +54,6 @@
 	}
 
 	// APIs for Themers
-	$Comment = new Comment($_DB_COMMENTS);
+	$Comment = new Comment($_DB_COMMENTS, $_DB_SETTINGS->get());
 
 ?>

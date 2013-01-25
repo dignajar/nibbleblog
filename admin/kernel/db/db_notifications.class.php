@@ -54,6 +54,9 @@ class DB_NOTIFICATIONS {
 
 		public function add($type, $send_email, $message_key)
 		{
+			if( count( $this->obj_xml->notification ) >= AMOUNT_OF_NOTIFICATIONS )
+				unset( $this->obj_xml->notification[0] );
+
 			// Email
 			if($send_email)
 			{

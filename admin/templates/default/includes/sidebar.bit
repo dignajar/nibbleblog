@@ -31,6 +31,8 @@
 
 		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=themes', 'content'=>$_LANG['CHANGE_THEME']) );
 
+		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=notifications', 'content'=>$_LANG['NOTIFICATIONS']) );
+
 		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=username', 'content'=>$_LANG['USERNAME_AND_PASSWORD']) );
 
 	echo Html::div_close();

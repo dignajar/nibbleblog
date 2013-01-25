@@ -224,22 +224,31 @@ a.notification {
     display: block;
 }
 
+div.notification	div.type,
+a.notification	div.type {
+	margin-bottom: 5px;
+	font-size: 1.2em;
+}
+
+div.notification	div.info,
+a.notification	div.info {
+	margin-bottom: 5px;
+	font-size: 1.1em;
+}
+
 div.notification_session_start {
 	background: url("img/user.png") no-repeat scroll 16px center #F9F9F9;
     border: 1px solid #EEEEEE;
-    font-size: 12px;
 }
 
 div.notification_session_fail {
 	background: url("img/wondering.png") no-repeat scroll 16px center #F9F9F9;
     border: 1px solid #EEEEEE;
-    font-size: 12px;
 }
 
 div.notification_comment {
 	background: url("img/bubble.png") no-repeat scroll 16px center #F9F9F9;
     border: 1px solid #EEEEEE;
-    font-size: 12px;
 }
 
 /* ============================== */
@@ -249,25 +258,20 @@ div.notification_comment {
 div.dashboard_last_comments {
     float: left;
     margin-right: 20px;
-    width: 45%;
     margin-top: 25px;
+    overflow: auto;
+    width: 45%;
 }
 
 a.notification_last_comments {
 	background: url('img/bubble.png') no-repeat 16px center #F9F9F9;
     border: 1px solid #EEEEEE;
-    font-size: 12px;
     text-decoration: none;
     color: #555555;
 }
 
 a.notification_last_comments:hover {
 	background-color: #f1f1f1;
-}
-
-div.notification	div.type,
-a.notification	div.type {
-	margin-bottom: 5px;
 }
 
 /* ============================== */

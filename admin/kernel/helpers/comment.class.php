@@ -19,15 +19,17 @@ class Comment {
 ======================================================================================
 */
 	private $db;
+	private $settings;
 
 /*
 ======================================================================================
 	CONSTRUCTORS
 ======================================================================================
 */
-	function __construct($db)
+	function __construct($db, $settings)
 	{
 		$this->db = $db;
+		$this->settings = $settings;
 	}
 
 /*
@@ -60,7 +62,7 @@ class Comment {
 		$this->db->add($data);
 
 		// Add notification
-		$_DB_NOTIFICATIONS->add('comment', true, 'YOU_HAVE_A_NEW_COMMENT');
+		$_DB_NOTIFICATIONS->add('comment', $this->settings['notification_comments'], 'YOU_HAVE_A_NEW_COMMENT');
 
 		// Clean session
 		Session::init();
