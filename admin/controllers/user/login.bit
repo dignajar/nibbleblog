@@ -30,9 +30,15 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 
 	if( $Login->is_logued() )
 	{
+		// Notification - Session started
+		$_DB_NOTIFICATIONS->add('session_start', false, 'NEW_SESSION_STARTED');
+
 		// Redirect to Dashboard
 		Redirect::controller('admin','dashboard','view');
 	}
+
+	// Notification - Session failed
+	$_DB_NOTIFICATIONS->add('session_fail', false, 'LOGIN_FAILED_ATTEMPT');
 
 	$_SESSION['session_alert']['msg'] = $_LANG['INCORRECT_USERNAME_OR_PASSWORD'];
 	$_SESSION['session_alert']['active'] = true;

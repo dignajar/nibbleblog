@@ -59,6 +59,10 @@ class DB_NOTIFICATIONS {
 			{
 				//$sent = Email::send(array('from_name'=>'', 'from_mail'=>'', 'to'=>'', 'subject'=>'', 'message'=>''));
 			}
+			else
+			{
+				$sent = false;
+			}
 
 			// Encrypt the user IP
 			include(FILE_KEYS);

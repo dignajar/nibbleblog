@@ -116,12 +116,12 @@ a:hover {
 }
 
 div.separator {
-    border-top: 1px solid #EBEBEB;
+    clear: both;
     color: #0089F2;
-    font-size: 16px;
+    font-size: 1.6em;
     font-style: italic;
-    margin: 30px 0 12px;
-    padding: 15px 0 5px;
+    margin: 10px 0;
+    padding: 0;
 }
 
 .remove_margin_top {
@@ -154,6 +154,120 @@ display:table;
 #popup-content {
 display:table-cell; vertical-align:middle;
 background: #fff;
+}
+
+
+/* ============================== */
+/* DASHBOARD Quick Links
+/* ============================== */
+
+div.dashboard_qlinks {
+    float: left;
+    margin-right: 20px;
+    width: 45%;
+}
+
+div.dashboard_qlinks	a.item {
+    border-bottom: 2px solid #F1F1F1;
+    display: block;
+    padding: 20px 0 20px 60px;
+    text-align: left;
+    text-decoration: none;
+}
+
+div.dashboard_qlinks	a.item:hover {
+	border-bottom: 2px solid #ccc;
+}
+
+div.dashboard_qlinks	.bg_post_simple {
+	background: url(img/pencil.png) 10px 50% no-repeat;
+}
+
+div.dashboard_qlinks	.bg_post_video {
+	background: url(img/film.png) 10px 50% no-repeat;
+}
+
+div.dashboard_qlinks	.bg_post_quote {
+	background: url(img/quotes-left.png) 10px 50% no-repeat;
+}
+
+div.dashboard_qlinks	.bg_settings {
+	background: url(img/cog.png) 10px 50% no-repeat;
+}
+
+div.dashboard_qlinks	a.item span.type {
+	font-size: 1.4em;
+	display: block;
+}
+
+div.dashboard_qlinks	a.item span.description {
+	font-size: 1.2em;
+	display: block;
+	color: #555;
+}
+
+/* ============================== */
+/* DASHBOARD Notifications
+/* ============================== */
+
+div.dashboard_notifications {
+    float: right;
+    margin-right: 20px;
+    width: 45%;
+}
+
+div.notification,
+a.notification {
+	padding: 10px 0 10px 56px;
+	margin-bottom: 10px;
+    border-radius: 2px 2px 2px 2px;
+    display: block;
+}
+
+div.notification_session_start {
+	background: url("img/user.png") no-repeat scroll 16px center #F9F9F9;
+    border: 1px solid #EEEEEE;
+    font-size: 12px;
+}
+
+div.notification_session_fail {
+	background: url("img/wondering.png") no-repeat scroll 16px center #F9F9F9;
+    border: 1px solid #EEEEEE;
+    font-size: 12px;
+}
+
+div.notification_comment {
+	background: url("img/bubble.png") no-repeat scroll 16px center #F9F9F9;
+    border: 1px solid #EEEEEE;
+    font-size: 12px;
+}
+
+/* ============================== */
+/* DASHBOARD Last comments
+/* ============================== */
+
+div.dashboard_last_comments {
+    float: left;
+    margin-right: 20px;
+    width: 45%;
+    margin-top: 25px;
+}
+
+a.notification_last_comments {
+	background: url('img/bubble.png') no-repeat 16px center #F9F9F9;
+    border: 1px solid #EEEEEE;
+    font-size: 12px;
+    text-decoration: none;
+    color: #555555;
+}
+
+a.notification_last_comments:hover {
+	background-color: #f1f1f1;
+}
+
+div.notification	div.type,
+a.notification	div.type {
+	margin-bottom: 5px;
 }
 
 /* ============================== */
@@ -345,84 +459,6 @@ a.button {
 	font-size: 12px;
 }
 
-div.notification,
-a.notification {
-	padding: 10px 0 10px 56px;
-	margin-bottom: 10px;
-    border-radius: 2px 2px 2px 2px;
-    display: block;
-}
-
-div.notification_session {
-	background: url("img/session.png") no-repeat scroll 16px center #F9F9F9;
-    border: 1px solid #EEEEEE;
-    font-size: 12px;
-}
-
-a.notification_last_comments {
-	background: url('img/comments.png') no-repeat 16px center #F9F9F9;
-    border: 1px solid #EEEEEE;
-    font-size: 12px;
-    text-decoration: none;
-    color: #555555;
-}
-
-a.notification_last_comments:hover {
-	background-color: #f1f1f1;
-}
-
-
-div.notification	div.type,
-a.notification	div.type {
-	margin-bottom: 5px;
-}
-
-/* NUEVO */
-div.dash_items {
-	text-align: left;
-}
-
-div.dash_items	a.item {
-    display: inline-block;
-    margin: 5px 30px;
-	padding: 10px 0 10px 60px;
-	text-align: left;
-	text-decoration: none;
-	border-bottom: 2px solid #fff;
-}
-
-div.dash_items	a.item:hover {
-	border-bottom: 2px solid #ccc;
-}
-
-div.dash_items	.bg_post_simple {
-	background: url(img/add.png) 0 50% no-repeat;
-}
-
-div.dash_items	.bg_post_video {
-	background: url(img/video.png) 0 50% no-repeat;
-}
-
-div.dash_items	.bg_post_quote {
-	background: url(img/quote.png) 0 50% no-repeat;
-}
-
-div.dash_items	.bg_settings {
-	background: url(img/gear.png) 0 50% no-repeat;
-}
-
-div.dash_items	a.item span.type {
-	font-size: 1.4em;
-	display: block;
-	width: 140px;
-}
-
-div.dash_items	a.item span.description {
-	font-size: 1.2em;
-	display: block;
-	color: #555;
-	width: 120px;
-}
 
 
 
@@ -560,7 +596,7 @@ div.menu_box div.title {
 }
 
 div.menu_box div.bg_posts {
-	background: url("img/posts.png") no-repeat scroll 3px 0 transparent;
+	background: url("img/file.png") no-repeat scroll 3px 0 transparent;
 }
 
 div.menu_box div.bg_settings {
@@ -568,5 +604,5 @@ div.menu_box div.bg_settings {
 }
 
 div.menu_box div.bg_plugins {
-	background: url("img/plugins.png") no-repeat scroll 3px 0 transparent;
+	background: url("img/power-cord.png") no-repeat scroll 3px 0 transparent;
 }

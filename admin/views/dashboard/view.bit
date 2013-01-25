@@ -1,6 +1,7 @@
 <?php
 
-	echo Html::div_open( array('class'=>'dash_items') );
+	// QUICK LINKS
+	echo Html::div_open( array('class'=>'dashboard_qlinks') );
 
 		echo Html::link( array( 'class'=>'item bg_post_simple', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_simple', 'content'=>
 			Html::span( array('class'=>'type', 'content'=>$_LANG['SIMPLE']) ).
@@ -25,38 +26,47 @@
 	echo Html::div_close();
 
 
-	// LAST COMMENTS
-	echo Html::separator( array('content'=>$_LANG['LAST_COMMENTS']) );
+	// NOTIFICATIONS
+	echo Html::div_open( array('class'=>'dashboard_notifications') );
 
-	if(empty($last_comments))
-	{
-		echo Html::p( array('class'=>'no_comments', 'content'=>$_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS']) );
-	}
-	else
-	{
-		foreach($last_comments as $comment)
+		echo Html::separator( array('content'=>$_LANG['NOTIFICATIONS']) );
+
+		foreach($notifications as $notification)
 		{
-			$date = Date::format($comment['pub_date_unix'], COMMENT_DATE_FORMAT);
+			$date = Date::format($notification['date'], SESSION_DATE_FORMAT);
 
-			echo Html::link( array('class'=>'notification notification_last_comments', 'href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list&amp;id_post='.$comment['id_post'],
-				'content'=>
-				Html::div( array('class'=>'type', 'content'=>$comment['content']) ).
-				Html::div( array('class'=>'info', 'content'=>$_LANG['AUTHOR'].': '.$comment['author_name'].' · '.$_LANG['DATE'].': '.$date) )
-			) );
+			echo Html::div_open( array('class'=>'notification notification_'.$notification['type']) );
+				echo Html::div( array('class'=>'type', 'content'=>$_LANG[$notification['message_key']]) );
+				echo Html::div( array('class'=>'info', 'content'=>$_LANG['DATE'].': '.$date) );
+			echo Html::div_close();
 		}
-	}
+
+	echo Html::div_close();
 
 
-	// LAST SESSIONS
-	echo Html::separator( array('content'=>'Notifications') );
+	// LAST COMMENTS
+	echo Html::div_open( array('class'=>'dashboard_last_comments') );
 
-	foreach($notifications as $notification)
-	{
-		$date = Date::format($notification['date'], SESSION_DATE_FORMAT);
+		echo Html::separator( array('content'=>$_LANG['LAST_COMMENTS']) );
 
-		echo Html::div_open( array('class'=>'notification notification_session') );
-			echo Html::div( array('class'=>'type', 'content'=>$_LANG['NEW_SESSION_STARTED']) );
-			echo Html::div( array('class'=>'info', 'content'=>$_LANG['DATE'].': '.$date.' · Message:'.$notification['message_key']) );
-		echo Html::div_close();
-	}
+		if(empty($last_comments))
+		{
+			echo Html::p( array('class'=>'no_comments', 'content'=>$_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS']) );
+		}
+		else
+		{
+			foreach($last_comments as $comment)
+			{
+				$date = Date::format($comment['pub_date_unix'], COMMENT_DATE_FORMAT);
+
+				echo Html::link( array('class'=>'notification notification_last_comments', 'href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list&amp;id_post='.$comment['id_post'],
+					'content'=>
+					Html::div( array('class'=>'type', 'content'=>$comment['content']) ).
+					Html::div( array('class'=>'info', 'content'=>$_LANG['AUTHOR'].': '.$comment['author_name'].' · '.$_LANG['DATE'].': '.$date) )
+				) );
+			}
+		}
+
+	echo Html::div_close();
+
 ?>

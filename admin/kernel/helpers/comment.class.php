@@ -60,7 +60,7 @@ class Comment {
 		$this->db->add($data);
 
 		// Add notification
-		$_DB_NOTIFICATIONS->add('comment', true, 'NOTIFICATIONS');
+		$_DB_NOTIFICATIONS->add('comment', true, 'YOU_HAVE_A_NEW_COMMENT');
 
 		// Clean session
 		Session::init();
