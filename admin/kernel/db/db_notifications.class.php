@@ -5,8 +5,6 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 23/01/2013
-
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
 */
@@ -20,19 +18,21 @@ class DB_NOTIFICATIONS {
 */
 		public $file_xml; 			// Contains the link to XML file
 		public $obj_xml; 			// Contains the object
+		public $settings;
 
 /*
 ======================================================================================
 	CONSTRUCTORS
 ======================================================================================
 */
-		function DB_NOTIFICATIONS($file)
+		function DB_NOTIFICATIONS($file, $settings)
 		{
 			$this->file_xml = $file;
 
 			if( file_exists($this->file_xml) )
 			{
 				$this->obj_xml = new NBXML($this->file_xml, 0, TRUE, '', FALSE);
+				$this->settings = $settings;
 			}
 			else
 			{
@@ -52,15 +52,23 @@ class DB_NOTIFICATIONS {
 			return( $this->obj_xml->asXML($this->file_xml) );
 		}
 
-		public function add($type, $send_email, $message_key)
+		public function add($type, $send_email, $message_key, $email_message = '')
 		{
+			global $_LANG;
+
 			if( count( $this->obj_xml->notification ) >= AMOUNT_OF_NOTIFICATIONS )
 				unset( $this->obj_xml->notification[0] );
 
 			// Email
 			if($send_email)
 			{
-				//$sent = Email::send(array('from_name'=>'', 'from_mail'=>'', 'to'=>'', 'subject'=>'', 'message'=>''));
+				$sent = Email::send(array(
+									'from_name'=>$this->settings['notification_email_from'],
+									'from_mail'=>$this->settings['notification_email_from'],
+									'to'=>$this->settings['notification_email_to'],
+									'subject'=>$_LANG[$message_key],
+									'message'=>'IP: '.Net::get_user_ip()
+				));
 			}
 			else
 			{

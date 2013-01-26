@@ -5,8 +5,6 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 30/12/2012
-
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
 */
@@ -39,8 +37,9 @@ require(PATH_HELPERS . 'video.class.php');
 // ============================================================================
 $php_modules = array();
 $dependencies = true;
+$blog_domain = getenv('HTTP_HOST');
 $blog_base_path = '/';
-$blog_address = 'http://'.getenv('HTTP_HOST');
+$blog_address = 'http://'.$blog_domain;
 $installation_complete = false;
 $languagues = array(
 	'cs_CZ'=>'čeština',
@@ -135,6 +134,12 @@ Date::set_timezone('UTC');
 		$obj->addChild('img_thumbnail_width',	190);
 		$obj->addChild('img_thumbnail_height',	190);
 		$obj->addChild('img_thumbnail_option',	'landscape');
+
+		$obj->addChild('notification_comments',			1);
+		$obj->addChild('notification_session_fail',		0);
+		$obj->addChild('notification_session_start',	0);
+		$obj->addChild('notification_email_to',			$_POST['email']);
+		$obj->addChild('notification_email_from',		'noreply@'.$blog_domain);
 
 		$obj->asXml( FILE_XML_CONFIG );
 
@@ -438,15 +443,17 @@ Date::set_timezone('UTC');
 					echo Html::label( array('content'=>$_LANG['ADMINISTRATOR_PASSWORD'].'*') );
 					echo Html::input( array('id'=>'js_password', 'name'=>'password', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
 
+					echo Html::label( array('content'=>$_LANG['ADMINISTRATOR_EMAIL']) );
+					echo Html::input( array('name'=>'email', 'type'=>'text', 'autocomplete'=>'off') );
+
 					echo Html::div_open( array('hidden'=>!isset($_GET['expert'])) );
-						echo Html::label( array('content'=>$_LANG['ADMINISTRATOR_EMAIL']) );
-						echo Html::input( array('name'=>'email', 'type'=>'text', 'autocomplete'=>'off') );
 
 						echo Html::label( array('content'=>$_LANG['BLOG_ADDRESS']) );
 						echo Html::input( array('name'=>'url', 'type'=>'text', 'value'=>$blog_address, 'autocomplete'=>'off') );
 
 						echo Html::label( array('content'=>$_LANG['BLOG_BASE_PATH']) );
 						echo Html::input( array('name'=>'path', 'type'=>'text', 'value'=>$blog_base_path, 'autocomplete'=>'off') );
+
 					echo Html::div_close();
 
 					echo Html::input( array('type'=>'submit', 'value'=>$_LANG['INSTALL']) );
@@ -456,7 +463,7 @@ Date::set_timezone('UTC');
 		</section>
 
 		<footer>
-			<p><a href="http://nibbleblog.com">Nibbleblog <?php echo NIBBLEBLOG_VERSION ?> "<?php echo NIBBLEBLOG_NAME ?>"</a> | Copyright (2009 - 2012) + GPL v3 | Developed by Diego Najar | <?php echo Html::link( array('content'=>$_LANG['EXPERT_MODE'], 'href'=>'./install.php?expert=true&language='.$_GET['language']) ) ?></p>
+			<p><a href="http://nibbleblog.com">Nibbleblog <?php echo NIBBLEBLOG_VERSION ?> "<?php echo NIBBLEBLOG_NAME ?>"</a> | Copyright (2009 - 2013) + GPL v3 | Developed by Diego Najar | <?php echo Html::link( array('content'=>$_LANG['EXPERT_MODE'], 'href'=>'./install.php?expert=true&language='.$_GET['language']) ) ?></p>
 		</footer>
 
 	</div>

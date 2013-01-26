@@ -177,4 +177,9 @@ $_LANG['CROP'] = 'Recortar';
 $_LANG['YOU_CAN_USE_HTML_OR_MARKDOWN_SYNTAX'] = 'Puede usar codigo HTML o Markdown';
 $_LANG['DRAFT'] = 'Borrador';
 
+$_LANG['YOU_HAVE_A_NEW_COMMENT'] = 'You have a new comment';
+$_LANG['LOGIN_FAILED_ATTEMPT'] = 'Login failed attempt';
+$_LANG['NEW_VERSION_AVAILABLE'] = 'New version available';
+$_LANG['NOTIFICATIONS'] = 'Notifications';
+
 ?>

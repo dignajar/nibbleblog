@@ -25,6 +25,22 @@
 			echo Html::div( array('content'=>'Notify when a user success login', 'class'=>'input_tip') );
 		echo Html::div_close();
 
+		echo Html::separator( array('content'=>'Settings') );
+
+		// Notification email to
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>'E-mail Address to', 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_notification_email_to', 'name'=>'notification_email_to', 'type'=>'text', 'value'=>$settings['notification_email_to']) );
+			echo Html::div( array('content'=>'This email will be used to receive notifications', 'class'=>'input_tip') );
+		echo Html::div_close();
+
+		// Notification email from
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>'E-mail address from', 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_notification_email_from', 'name'=>'notification_email_from', 'type'=>'text', 'value'=>$settings['notification_email_from']) );
+			echo Html::div( array('content'=>'This email will be used to send notifications', 'class'=>'input_tip') );
+		echo Html::div_close();
+
 	echo Html::form_close();
 
 ?>
