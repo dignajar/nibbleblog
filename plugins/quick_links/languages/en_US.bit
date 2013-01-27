@@ -1,0 +1,8 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'name'=>'Quick Links',
+	'description'=>'Quick links to the admin area (Dashboard).'
+);
+
+?>
