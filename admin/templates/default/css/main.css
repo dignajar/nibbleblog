@@ -133,38 +133,27 @@ p.no_comments {
 	font-style: italic;
 }
 
-/* ============================== */
-/* UPLOADER
-/* ============================== */
-#popup {
-	background: rgba(1, 1, 1, 0.5);
-	display: none;
-	left: 0;
-	top: 0;
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	z-index: 1001;
+/* ============================================================ */
+/* DASHBOARD
+/* ============================================================ */
+div.dashboard_left {
+    float: left;
+    margin-right: 20px;
+    width: 45%;
 }
 
-#popup-wrap {
-display:table;
+div.dashboard_right {
+    float: right;
+    margin-right: 20px;
+    width: 45%;
 }
-
-#popup-content {
-display:table-cell; vertical-align:middle;
-background: #fff;
-}
-
 
 /* ============================== */
 /* DASHBOARD Quick Links
 /* ============================== */
 
 div.dashboard_qlinks {
-    float: left;
-    margin-right: 20px;
-    width: 45%;
+	margin-bottom: 40px;
 }
 
 div.dashboard_qlinks	a.item {
@@ -207,13 +196,30 @@ div.dashboard_qlinks	a.item span.description {
 }
 
 /* ============================== */
+/* DASHBOARD Last comments
+/* ============================== */
+
+div.dashboard_last_comments {
+
+}
+
+a.notification_last_comments {
+	background: url('img/bubble.png') no-repeat 16px center #F9F9F9;
+    border: 1px solid #EEEEEE;
+    text-decoration: none;
+    color: #555555;
+}
+
+a.notification_last_comments:hover {
+	background-color: #f1f1f1;
+}
+
+/* ============================== */
 /* DASHBOARD Notifications
 /* ============================== */
 
 div.dashboard_notifications {
-    float: right;
-    margin-right: 20px;
-    width: 45%;
+
 }
 
 div.notification,
@@ -249,29 +255,6 @@ div.notification_session_fail {
 div.notification_comment {
 	background: url("img/bubble.png") no-repeat scroll 16px center #F9F9F9;
     border: 1px solid #EEEEEE;
-}
-
-/* ============================== */
-/* DASHBOARD Last comments
-/* ============================== */
-
-div.dashboard_last_comments {
-    float: left;
-    margin-right: 20px;
-    margin-top: 25px;
-    overflow: auto;
-    width: 45%;
-}
-
-a.notification_last_comments {
-	background: url('img/bubble.png') no-repeat 16px center #F9F9F9;
-    border: 1px solid #EEEEEE;
-    text-decoration: none;
-    color: #555555;
-}
-
-a.notification_last_comments:hover {
-	background-color: #f1f1f1;
 }
 
 /* ============================== */

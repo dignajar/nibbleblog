@@ -16,3 +16,14 @@ function serial_form(form)
 
 	return( notchecked + form.serialize() );
 }
+
+function validate_email(email)
+{
+	var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+
+	if(!emailReg.test(email)) {
+		return false;
+	}
+
+	return true;
+}

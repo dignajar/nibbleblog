@@ -1,5 +1,7 @@
 <?php
 
+echo Html::div_open( array('class'=>'dashboard_left') );
+
 	// QUICK LINKS
 	echo Html::div_open( array('class'=>'dashboard_qlinks') );
 
@@ -25,25 +27,6 @@
 
 	echo Html::div_close();
 
-
-	// NOTIFICATIONS
-	echo Html::div_open( array('class'=>'dashboard_notifications') );
-
-		echo Html::separator( array('content'=>$_LANG['NOTIFICATIONS']) );
-
-		foreach($notifications as $notification)
-		{
-			$date = Date::format($notification['date'], SESSION_DATE_FORMAT);
-
-			echo Html::div_open( array('class'=>'notification notification_'.$notification['type']) );
-				echo Html::div( array('class'=>'type', 'content'=>$_LANG[$notification['message_key']]) );
-				echo Html::div( array('class'=>'info', 'content'=>$_LANG['DATE'].': '.$date.' · IP: '.$notification['ip']) );
-			echo Html::div_close();
-		}
-
-	echo Html::div_close();
-
-
 	// LAST COMMENTS
 	echo Html::div_open( array('class'=>'dashboard_last_comments') );
 
@@ -68,5 +51,29 @@
 		}
 
 	echo Html::div_close();
+
+echo Html::div_close();
+
+// RIGHT SIDE
+echo Html::div_open( array('class'=>'dashboard_right') );
+
+	// NOTIFICATIONS
+	echo Html::div_open( array('class'=>'dashboard_notifications') );
+
+		echo Html::separator( array('content'=>$_LANG['NOTIFICATIONS']) );
+
+		foreach($notifications as $notification)
+		{
+			$date = Date::format($notification['date'], SESSION_DATE_FORMAT);
+
+			echo Html::div_open( array('class'=>'notification notification_'.$notification['type']) );
+				echo Html::div( array('class'=>'type', 'content'=>$_LANG[$notification['message_key']]) );
+				echo Html::div( array('class'=>'info', 'content'=>$_LANG['DATE'].': '.$date.' · IP: '.$notification['ip']) );
+			echo Html::div_close();
+		}
+
+	echo Html::div_close();
+
+echo Html::div_close();
 
 ?>

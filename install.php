@@ -218,6 +218,7 @@ Date::set_timezone('UTC');
 	<title>Nibbleblog Installer</title>
 
 	<script src="./admin/js/jquery/jquery.js"></script>
+	<script src="./admin/js/functions.js"></script>
 
 	<style type="text/css">
 		body {
@@ -444,7 +445,7 @@ Date::set_timezone('UTC');
 					echo Html::input( array('id'=>'js_password', 'name'=>'password', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
 
 					echo Html::label( array('content'=>$_LANG['ADMINISTRATOR_EMAIL']) );
-					echo Html::input( array('name'=>'email', 'type'=>'text', 'autocomplete'=>'off') );
+					echo Html::input( array('id'=>'js_email', 'name'=>'email', 'type'=>'text', 'autocomplete'=>'off') );
 
 					echo Html::div_open( array('hidden'=>!isset($_GET['expert'])) );
 
@@ -480,26 +481,42 @@ Date::set_timezone('UTC');
 				echo '$("#dependencies").show()';
 		?>
 
+
 		$("form").submit(function(e){
 			var username = $("#js_username");
 			var password = $("#js_password");
+			var email = $("#js_email");
 
 			username.css("background-color", "");
 			password.css("background-color", "");
+			email.css("background-color", "");
 
-			if(username.attr("value").length<2)
+			if(empty(username.attr("value")))
 			{
 				username.css("background-color", "#F9EDBE");
 				return false;
 			}
 
-			if(password.attr("value").length<2)
+			if(empty(password.attr("value")))
 			{
 				password.css("background-color", "#F9EDBE");
 				return false;
 			}
 
-			return true;
+console.log(!validate_email(email.attr("value")));
+
+			if(!validate_email(email.attr("value")))
+			{
+				console.log("debug");
+				//email.attr("placeholder","Enter a valid email address");
+				email.css("background-color", "#F9EDBE");
+				return false;
+			}
+
+
+
+
+			return false;
 		});
 
 	});
