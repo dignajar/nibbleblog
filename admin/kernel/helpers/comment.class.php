@@ -42,7 +42,14 @@ class Comment {
 		// Sleep
 		sleep($delay);
 
+		// Comment data from session
 		$data = Session::get_comment_array();
+
+		// If the post allow comments
+		if(!$data['post_allow_comments'])
+		{
+			return(false);
+		}
 
 		// Sanitize
 		if($sanitize)
@@ -50,8 +57,8 @@ class Comment {
 			$data = $this->sanitize($data);
 		}
 
-		// If the post allow comments
-		if(!$data['post_allow_comments'])
+		// Anti-spam
+		if($this->check_spam($data['content']))
 		{
 			return(false);
 		}
@@ -82,6 +89,37 @@ class Comment {
 		}
 
 		return($safe);
+	}
+
+	private function check_spam($content)
+	{
+		$spam_monitor = $this->comment_db->get_spam_monitor();
+
+		if($spam_monitor['enable'])
+		{
+			$defensio = new Defensio($spam_monitor['api_key']);
+
+			$document = array(
+							'type'=>'comment',
+							'content'=>$content,
+							'platform'=>'Nibbleblog',
+							'client' => 'Nibbleblog',
+							'async' => 'false'
+			);
+
+			$defensio_result = $defensio->postDocument($document);
+
+			echo 'DEBUG <pre>';
+			print_r($defensio_result);
+			echo '</pre>';
+
+			if($defensio[1]['spaminess']>$spam_monitor['spaminess'])
+			{
+				return(true);
+			}
+		}
+
+		return(false);
 	}
 
 } // END Class

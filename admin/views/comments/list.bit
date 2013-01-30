@@ -1,41 +1,50 @@
 <?php
 
-	foreach( $comments as $comment )
+	if(empty($comments))
 	{
-		$date = Date::format($comment['pub_date_unix'], COMMENT_DATE_FORMAT);
-
-		$post = $_DB_POST->get( array('id'=>$comment['id_post']) );
-
-		echo Html::div_open( array('class'=>'comment_box') );
-
-			echo Html::div_open( array('class'=>'float'));
-				echo Html::div_open( array('class'=>'left'));
-
-					echo Html::h3( array('class'=>'content', 'content'=>$comment['content']) );
-					echo Html::h3( array('class'=>'author', 'content'=>$post['title'].' - '.$_LANG['AUTHOR'].': '.$comment['author_name'].' - '.$_LANG['EMAIL'].': '.$comment['author_email'].' - IP: '.$comment['author_ip']) );
-				echo Html::div_close();
-
-				echo Html::div_open( array('class'=>'right'));
-					echo Html::h3( array('class'=>'date', 'content'=>$date) );
-				echo Html::div_close();
-			echo Html::div_close();
-
-			echo Html::div_open( array('class'=>'options'));
-				echo Html::link( array('class'=>'js_button_delete', 'data-flag'=>'0', 'data-id'=>$comment['id'], 'content'=>$_LANG['DELETE']) );
-			echo Html::div_close();
-
-		echo Html::div_close();
+		echo Html::p( array('class'=>'no_comments', 'content'=>$_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS']) );
 	}
+	else
+	{
 
-	// Pager
-	echo Html::div_open( array('class'=>'pager') );
-		echo Html::span(array('content'=>'|'));
-		for( $i=0; $i<$total_pages; $i++ )
+		foreach( $comments as $comment )
 		{
-			echo Html::link( array('content'=>$i, 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=list&amp;page='.$i) );
+			$date = Date::format($comment['pub_date_unix'], COMMENT_DATE_FORMAT);
+
+			$post = $_DB_POST->get( array('id'=>$comment['id_post']) );
+
+			echo Html::div_open( array('class'=>'comment_box') );
+
+				echo Html::div_open( array('class'=>'float'));
+					echo Html::div_open( array('class'=>'left'));
+
+						echo Html::h3( array('class'=>'content', 'content'=>$comment['content']) );
+						echo Html::h3( array('class'=>'author', 'content'=>$post['title'].' - '.$_LANG['AUTHOR'].': '.$comment['author_name'].' - '.$_LANG['EMAIL'].': '.$comment['author_email'].' - IP: '.$comment['author_ip']) );
+					echo Html::div_close();
+
+					echo Html::div_open( array('class'=>'right'));
+						echo Html::h3( array('class'=>'date', 'content'=>$date) );
+					echo Html::div_close();
+				echo Html::div_close();
+
+				echo Html::div_open( array('class'=>'options'));
+					echo Html::link( array('class'=>'js_button_delete', 'data-flag'=>'0', 'data-id'=>$comment['id'], 'content'=>$_LANG['DELETE']) );
+				echo Html::div_close();
+
+			echo Html::div_close();
 		}
-		echo Html::span(array('content'=>'|'));
-	echo Html::div_close();
+
+		// Pager
+		echo Html::div_open( array('class'=>'pager') );
+			echo Html::span(array('content'=>'|'));
+			for( $i=0; $i<$total_pages; $i++ )
+			{
+				echo Html::link( array('content'=>$i, 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=list&amp;page='.$i) );
+			}
+			echo Html::span(array('content'=>'|'));
+		echo Html::div_close();
+
+	}
 
 ?>
 

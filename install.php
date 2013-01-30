@@ -164,7 +164,10 @@ Date::set_timezone('UTC');
 		$xml .= '<comments autoinc="0">';
 		$xml .= '</comments>';
 		$obj = new NBXML($xml, 0, FALSE, '', FALSE);
-		$node = $obj->addChild('spam', '');
+		$node = $obj->addChild('spam_monitor', '');
+		$node->addChild('enable', 0);
+		$node->addChild('spaminess', 0.7);
+		$node->addChild('api_key', '');
 		$obj->asXml( FILE_XML_COMMENTS );
 
 		// post.xml
@@ -205,7 +208,7 @@ Date::set_timezone('UTC');
 		$content .= '<p>'.$_LANG['WELCOME_POST_LINE3'].'  <a target="_blank" href="http://forum.nibbleblog.com">http://forum.nibbleblog.com</a></p>';
 		$content .= '<p>'.$_LANG['WELCOME_POST_LINE4'].'  <a target="_blank" href="http://www.facebook.com/nibbleblog">https://www.facebook.com/nibbleblog</a></p>';
 		$_DB_POST = new DB_POSTS(FILE_XML_POST, null);
-		$_DB_POST->add( array('id_user'=>0, 'id_cat'=>0, 'type'=>'simple', 'description'=>$_LANG['WELCOME_POST_TITLE'], 'title'=>$_LANG['WELCOME_POST_TITLE'], 'content'=>$content, 'allow_comments'=>'1', 'sticky'=>'0') );
+		$_DB_POST->add( array('id_user'=>0, 'id_cat'=>0, 'type'=>'simple', 'description'=>$_LANG['WELCOME_POST_TITLE'], 'title'=>$_LANG['WELCOME_POST_TITLE'], 'content'=>$content, 'allow_comments'=>'1', 'sticky'=>'0', 'slug'=>'welcome-post') );
 
 		$installation_complete = true;
 	}
@@ -503,20 +506,14 @@ Date::set_timezone('UTC');
 				return false;
 			}
 
-console.log(!validate_email(email.attr("value")));
-
 			if(!validate_email(email.attr("value")))
 			{
-				console.log("debug");
-				//email.attr("placeholder","Enter a valid email address");
+				email.attr("placeholder","Enter a valid email address");
 				email.css("background-color", "#F9EDBE");
 				return false;
 			}
 
-
-
-
-			return false;
+			return true;
 		});
 
 	});

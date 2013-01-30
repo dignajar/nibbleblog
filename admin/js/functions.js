@@ -19,7 +19,7 @@ function serial_form(form)
 
 function validate_email(email)
 {
-	var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+	var emailReg = /\S+@\S+\.\S+/;
 
 	if(!emailReg.test(email)) {
 		return false;

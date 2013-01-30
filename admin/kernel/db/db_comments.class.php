@@ -219,12 +219,20 @@ class DB_COMMENTS {
 
 		public function get_spam_monitor()
 		{
-			return( (int) $this->obj_xml['spam_monitor'] );
+			$tmp_array = array();
+			$tmp_array['enable'] 		= (string) $this->obj_xml->getChild('enable');
+			$tmp_array['spaminess'] 	= (float) $this->obj_xml->getChild('spaminess');
+			$tmp_array['api_key'] 		= (string) $this->obj_xml->getChild('api_key');
 		}
 
-		public function set_spam_monitor($set = 1)
+		public function set_spam_monitor($args)
 		{
-			$this->obj_xml['spam_monitor'] = $set;
+			foreach($args as $name=>$value)
+			{
+				$this->obj_xml->spam_monitor->setChild($name, $value);
+			}
+
+			return(true);
 		}
 
 /*
