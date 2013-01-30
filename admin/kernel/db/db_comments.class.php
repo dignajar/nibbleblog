@@ -5,8 +5,6 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 15/07/2012
-
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
 */
@@ -214,16 +212,26 @@ class DB_COMMENTS {
 			}
 		}
 
+		public function get_count()
+		{
+			return( $this->files_count );
+		}
+
+		public function get_spam_monitor()
+		{
+			return( (int) $this->obj_xml['spam_monitor'] );
+		}
+
+		public function set_spam_monitor($set = 1)
+		{
+			$this->obj_xml['spam_monitor'] = $set;
+		}
+
 /*
 ======================================================================================
 	PRIVATE METHODS
 ======================================================================================
 */
-		private function get_count()
-		{
-			return( $this->files_count );
-		}
-
 		private function get_autoinc()
 		{
 			return( (int) $this->obj_xml['autoinc'] );

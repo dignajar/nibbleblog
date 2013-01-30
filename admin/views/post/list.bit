@@ -25,7 +25,6 @@
 				if( !$post['draft'] )
 				{
 					echo Html::link( array('href'=>HTML_PATH_ROOT.'index.php?controller=post&amp;action=view&amp;id_post='.$post['id'], 'content'=>$_LANG['VIEW']) );
-					echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list&amp;id_post='.$post['id'], 'content'=>$_LANG['COMMENTS']) );
 				}
 				echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=edit_'.$post['type'].'&amp;id_post='.$post['id'], 'content'=>$_LANG['EDIT']) );
 				echo Html::link( array('class'=>'js_button_remove', 'data-remove'=>'0', 'data-id'=>$post['id'], 'content'=>$_LANG['DELETE']) );

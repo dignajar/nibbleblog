@@ -450,12 +450,12 @@ a.button {
 
 
 /* ============================== */
-/* POST LIST */
+/* POST LIST | COMMENT LIST */
 /* ============================== */
 
 div.list_box,
 div.comment_box {
-	padding: 15px 0;
+	padding: 15px;
 	border-top: 1px solid #EBEBEB;
 	font-size: 1.2em;
 }
@@ -517,21 +517,18 @@ div.list_box	h3.type {
 }
 
 div.comment_box		h3.content {
-	margin: 0 5px 0 0;
+	margin: 5px 0 0 0;
 	font-weight:normal;
-	font-style: italic;
-	color: #666;
 	display: block;
-	font-size: 14px;
+	font-size: 1.1em;
 }
 
 div.comment_box		h3.author {
 	margin: 5px 0 0 0;
 	font-weight:normal;
-	font-style: italic;
-	color: #444;
+	color: #666;
 	display: block;
-	font-size: 13px;
+	font-size: 0.9em;
 }
 
 div.pager {
@@ -543,15 +540,6 @@ div.pager {
 div.pager	a {
 	padding: 4px 8px;
 }
-
-
-/* ============================== */
-/* COMMENTS LIST */
-/* ============================== */
-div.comment_box {
-
-}
-
 
 
 /* ============================== */
@@ -592,4 +580,8 @@ div.menu_box div.bg_settings {
 
 div.menu_box div.bg_plugins {
 	background: url("img/power-cord.png") no-repeat scroll 3px 0 transparent;
+}
+
+div.menu_box div.bg_comment {
+	background: url("img/comment.png") no-repeat scroll 3px 0 transparent;
 }

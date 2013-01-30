@@ -10,8 +10,9 @@
 
 			echo Html::div_open( array('class'=>'float'));
 				echo Html::div_open( array('class'=>'left'));
+
 					echo Html::h3( array('class'=>'content', 'content'=>$comment['content']) );
-					echo Html::h3( array('class'=>'author', 'content'=>$comment['author_name'].' - '.$comment['author_email']) );
+					echo Html::h3( array('class'=>'author', 'content'=>$post['title'].' - '.$_LANG['AUTHOR'].': '.$comment['author_name'].' - '.$_LANG['EMAIL'].': '.$comment['author_email'].' - IP: '.$comment['author_ip']) );
 				echo Html::div_close();
 
 				echo Html::div_open( array('class'=>'right'));
@@ -25,6 +26,16 @@
 
 		echo Html::div_close();
 	}
+
+	// Pager
+	echo Html::div_open( array('class'=>'pager') );
+		echo Html::span(array('content'=>'|'));
+		for( $i=0; $i<$total_pages; $i++ )
+		{
+			echo Html::link( array('content'=>$i, 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=list&amp;page='.$i) );
+		}
+		echo Html::span(array('content'=>'|'));
+	echo Html::div_close();
 
 ?>
 

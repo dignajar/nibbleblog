@@ -5,8 +5,6 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 05/11/2012
-
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
 */
@@ -18,7 +16,8 @@ class Comment {
 	VARIABLES
 ======================================================================================
 */
-	private $db;
+	private $comment_db;
+	private $notification_db;
 	private $settings;
 
 /*
@@ -26,9 +25,10 @@ class Comment {
 	CONSTRUCTORS
 ======================================================================================
 */
-	function __construct($db, $settings)
+	function __construct($comment_db, $notification_db, $settings)
 	{
-		$this->db = $db;
+		$this->comment_db = $comment_db;
+		$this->notification_db = $notification_db;
 		$this->settings = $settings;
 	}
 
@@ -39,8 +39,6 @@ class Comment {
 */
 	public function add($delay = 0, $sanitize = true)
 	{
-		global $_DB_NOTIFICATIONS;
-
 		// Sleep
 		sleep($delay);
 
@@ -58,11 +56,11 @@ class Comment {
 			return(false);
 		}
 
-		// Add to database
-		$this->db->add($data);
+		// Add comment
+		$this->comment_db->add($data);
 
 		// Add notification
-		$_DB_NOTIFICATIONS->add('comment', $this->settings['notification_comments'], 'YOU_HAVE_A_NEW_COMMENT');
+		$this->notification_db->add('comment', $this->settings['notification_comments'], 'YOU_HAVE_A_NEW_COMMENT');
 
 		// Clean session
 		Session::init();

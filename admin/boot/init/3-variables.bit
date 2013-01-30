@@ -13,7 +13,7 @@
 //	CONSTANTS
 // ============================================================================
 	define('AMOUNT_OF_NOTIFICATIONS',	8);
-	define('AMOUNT_OF_COMMENTS',		3);
+	define('AMOUNT_OF_COMMENTS',		8);
 	define('AMOUNT_OF_POSTS',			8);
 	define('LOGIN_SLEEP',				2);
 

@@ -5,6 +5,7 @@
 // ============================================================================
 	require(PATH_KERNEL . 'login.class.php');
 	require(PATH_KERNEL . 'plugin.class.php');
+	require(PATH_KERNEL . 'defensio/Defensio.php');
 
 	// Helpers
 	require(PATH_HELPERS . 'resize.class.php');
@@ -54,6 +55,6 @@
 	}
 
 	// APIs for Themers
-	$Comment = new Comment($_DB_COMMENTS, $_DB_SETTINGS->get());
+	$Comment = new Comment($_DB_COMMENTS, $_DB_NOTIFICATIONS, $_DB_SETTINGS->get());
 
 ?>
