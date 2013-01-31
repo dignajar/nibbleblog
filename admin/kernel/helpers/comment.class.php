@@ -19,6 +19,7 @@ class Comment {
 	private $comment_db;
 	private $notification_db;
 	private $settings;
+	private $comment_settings;
 
 /*
 ======================================================================================
@@ -30,6 +31,7 @@ class Comment {
 		$this->comment_db = $comment_db;
 		$this->notification_db = $notification_db;
 		$this->settings = $settings;
+		$this->comment_settings = $comment_db->get_settings();
 	}
 
 /*
@@ -37,10 +39,10 @@ class Comment {
 	PUBLIC METHODS
 ======================================================================================
 */
-	public function add($delay = 0, $sanitize = true)
+	public function add()
 	{
 		// Sleep
-		sleep($delay);
+		sleep($this->comment_settings['sleep']);
 
 		// Comment data from session
 		$data = Session::get_comment_array();
@@ -51,16 +53,16 @@ class Comment {
 			return(false);
 		}
 
-		// Sanitize
-		if($sanitize)
-		{
-			$data = $this->sanitize($data);
-		}
-
 		// Anti-spam
 		if($this->check_spam($data['content']))
 		{
 			return(false);
+		}
+
+		// Sanitize
+		if($this->comment_settings['sanitize'])
+		{
+			$data = $this->sanitize($data);
 		}
 
 		// Add comment
@@ -93,11 +95,9 @@ class Comment {
 
 	private function check_spam($content)
 	{
-		$spam_monitor = $this->comment_db->get_spam_monitor();
-
-		if($spam_monitor['enable'])
+		if($this->comment_settings['monitor_enable'])
 		{
-			$defensio = new Defensio($spam_monitor['api_key']);
+			$defensio = new Defensio($this->comment_settings['monitor_api_key']);
 
 			$document = array(
 							'type'=>'comment',
@@ -109,11 +109,7 @@ class Comment {
 
 			$defensio_result = $defensio->postDocument($document);
 
-			echo 'DEBUG <pre>';
-			print_r($defensio_result);
-			echo '</pre>';
-
-			if($defensio[1]['spaminess']>$spam_monitor['spaminess'])
+			if((float)$defensio[1]['spaminess']>(float)$this->comment_settings['monitor_spaminess'])
 			{
 				return(true);
 			}

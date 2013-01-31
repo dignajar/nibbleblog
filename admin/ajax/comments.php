@@ -10,6 +10,19 @@ if( $_POST['action']=='delete' )
 
 	$error = !$_DB_COMMENTS->delete($safe);
 }
+elseif( $_POST['action']=='set' )
+{
+	parse_str($_POST['serial_data'], $data);
+
+	foreach( $data as $name=>$value )
+	{
+		$safe[$name] = Validation::sanitize_html($value);
+	}
+
+	$_DB_COMMENTS->set_settings($safe);
+
+	$error = !$_DB_COMMENTS->savetofile();
+}
 
 if( $error )
 {

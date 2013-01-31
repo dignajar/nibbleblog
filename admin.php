@@ -35,6 +35,7 @@ $controllers['post']['list'] 			= array('security'=>true, 'title'=>$_LANG['POSTS
 $controllers['categories']['list']		= array('security'=>true, 'title'=>$_LANG['MANAGE_CATEGORIES'], 'controller'=>'list', 'view'=>'list', 'template'=>'default');
 
 $controllers['comments']['list']		= array('security'=>true, 'title'=>$_LANG['COMMENTS'], 'controller'=>'list', 'view'=>'list', 'template'=>'default');
+$controllers['comments']['settings']	= array('security'=>true, 'title'=>$_LANG['COMMENTS'], 'controller'=>'settings', 'view'=>'settings', 'template'=>'default');
 
 $controllers['settings']['general']		= array('security'=>true, 'title'=>$_LANG['GENERAL_SETTINGS'], 'controller'=>'general', 'view'=>'general', 'template'=>'default');
 $controllers['settings']['advanced']	= array('security'=>true, 'title'=>$_LANG['ADVANCED_SETTINGS'], 'controller'=>'advanced', 'view'=>'advanced', 'template'=>'default');

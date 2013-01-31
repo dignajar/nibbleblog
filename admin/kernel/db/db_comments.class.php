@@ -217,19 +217,23 @@ class DB_COMMENTS {
 			return( $this->files_count );
 		}
 
-		public function get_spam_monitor()
+		public function get_settings()
 		{
 			$tmp_array = array();
-			$tmp_array['enable'] 		= (string) $this->obj_xml->getChild('enable');
-			$tmp_array['spaminess'] 	= (float) $this->obj_xml->getChild('spaminess');
-			$tmp_array['api_key'] 		= (string) $this->obj_xml->getChild('api_key');
+			$tmp_array['monitor_enable'] 		= (int) $this->obj_xml->getChild('monitor_enable');
+			$tmp_array['monitor_api_key'] 		= (string) $this->obj_xml->getChild('monitor_api_key');
+			$tmp_array['monitor_spaminess'] 	= (float) $this->obj_xml->getChild('monitor_spaminess');
+			$tmp_array['sleep'] 				= (int) $this->obj_xml->getChild('sleep');
+			$tmp_array['sanitize'] 				= (int) $this->obj_xml->getChild('sanitize');
+
+			return($tmp_array);
 		}
 
-		public function set_spam_monitor($args)
+		public function set_settings($args)
 		{
 			foreach($args as $name=>$value)
 			{
-				$this->obj_xml->spam_monitor->setChild($name, $value);
+				$this->obj_xml->setChild($name, $value);
 			}
 
 			return(true);
