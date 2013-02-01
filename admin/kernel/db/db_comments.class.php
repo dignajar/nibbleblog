@@ -16,7 +16,7 @@ class DB_COMMENTS {
 	VARIABLES
 ======================================================================================
 */
-		public $file_xml; 			// Contains the link to XML file
+		public $file_xml; 				// Contains the link to XML file
 		public $obj_xml; 				// Contains the object
 
 		private $files;
@@ -115,7 +115,7 @@ class DB_COMMENTS {
 			}
 
 			// Filename for new post
-			$filename = $new_id . '.' . $args['id_post'] . '.' . $id_user . '.NULL.' . $time_filename . '.xml';
+			$filename = $new_id . '.' . $args['id_post'] . '.' . $id_user . '.' . $args['type'] . '.' . $time_filename . '.xml';
 
 			// Save to file
 			if( $new_obj->asXml( PATH_COMMENTS . $filename ) )
@@ -225,6 +225,7 @@ class DB_COMMENTS {
 			$tmp_array['monitor_spaminess'] 	= (float) $this->obj_xml->getChild('monitor_spaminess');
 			$tmp_array['sleep'] 				= (int) $this->obj_xml->getChild('sleep');
 			$tmp_array['sanitize'] 				= (int) $this->obj_xml->getChild('sanitize');
+			$tmp_array['moderate'] 				= (int) $this->obj_xml->getChild('moderate');
 
 			return($tmp_array);
 		}
@@ -237,6 +238,25 @@ class DB_COMMENTS {
 			}
 
 			return(true);
+		}
+
+		public function approve($args)
+		{
+			$this->set_file( $args['id'] );
+
+			// Post not found
+			if($this->files_count == 0)
+			{
+				return(false);
+			}
+
+			$filename = $this->files[0];
+
+			$explode = explode('.', $filename);
+			$explode[3] = 'NULL';
+			$implode = implode('.', $explode);
+
+			return( rename( PATH_COMMENTS.$filename, PATH_COMMENTS.$implode ) );
 		}
 
 /*
@@ -272,7 +292,7 @@ class DB_COMMENTS {
 		// File name: IDComment.IDPost.IDUser.IDOther.YYYY.MM.DD.HH.mm.ss.xml
 		private function set_files_by_post($id_post)
 		{
-			$this->files = Filesystem::ls(PATH_COMMENTS, '*.'.$id_post.'.*.*.*.*.*.*.*.*', 'xml', false, true, false);
+			$this->files = Filesystem::ls(PATH_COMMENTS, '*.'.$id_post.'.*.NULL.*.*.*.*.*.*', 'xml', false, true, false);
 			$this->files_count = count( $this->files );
 		}
 

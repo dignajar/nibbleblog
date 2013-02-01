@@ -9,6 +9,13 @@
 			echo Html::div( array('content'=>'Enable this feature to protect your comment from spam', 'class'=>'input_tip') );
 		echo Html::div_close();
 
+		// MODERATE
+		echo Html::div_open( array('class'=>'form_block'));
+			echo Html::checkbox( array('id'=>'js_moderate', 'name'=>'moderate', 'class'=>'float'), $comment_settings['moderate'] );
+			echo Html::label( array('content'=>'Moderate comments', 'class'=>'for_checkbox', 'for'=>'js_moderate') );
+			echo Html::div( array('content'=>'Enable this feature for moderate the comments before publish', 'class'=>'input_tip') );
+		echo Html::div_close();
+
 		// SLEEP
 		echo Html::div_open( array('class'=>'form_block') );
 			echo Html::label( array('content'=>'Sleep', 'class'=>'blocked') );

@@ -18,6 +18,7 @@ class Comment {
 */
 	private $comment_db;
 	private $notification_db;
+
 	private $settings;
 	private $comment_settings;
 
@@ -54,9 +55,20 @@ class Comment {
 		}
 
 		// Anti-spam
-		if($this->check_spam($data['content']))
+		$spam_level = $this->get_spam_level($data['content']);
+
+		// Set type
+		if($spam_level>(float)$this->comment_settings['monitor_spaminess'])
 		{
-			return(false);
+			$data['type'] = 'spam';
+		}
+		elseif($this->comment_settings['moderate'])
+		{
+			$data['type'] = 'unapproved';
+		}
+		else
+		{
+			$data['type'] = 'NULL';
 		}
 
 		// Sanitize
@@ -93,7 +105,7 @@ class Comment {
 		return($safe);
 	}
 
-	private function check_spam($content)
+	private function get_spam_level($content)
 	{
 		if($this->comment_settings['monitor_enable'])
 		{
@@ -109,13 +121,10 @@ class Comment {
 
 			$defensio_result = $defensio->postDocument($document);
 
-			if((float)$defensio[1]['spaminess']>(float)$this->comment_settings['monitor_spaminess'])
-			{
-				return(true);
-			}
+			return( (float)$defensio_result[1]->spaminess );
 		}
 
-		return(false);
+		return(0);
 	}
 
 } // END Class

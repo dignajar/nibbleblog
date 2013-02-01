@@ -23,6 +23,12 @@ elseif( $_POST['action']=='set' )
 
 	$error = !$_DB_COMMENTS->savetofile();
 }
+elseif( $_POST['action']=='approve' )
+{
+	$safe['id'] = $_POST['id'];
+
+	$error = !$_DB_COMMENTS->approve($safe);
+}
 
 if( $error )
 {

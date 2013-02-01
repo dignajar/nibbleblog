@@ -28,6 +28,7 @@
 				echo Html::div_close();
 
 				echo Html::div_open( array('class'=>'options'));
+					echo Html::link( array('class'=>'js_button_approve', 'data-flag'=>'0', 'data-id'=>$comment['id'], 'content'=>'Approve') );
 					echo Html::link( array('class'=>'js_button_delete', 'data-flag'=>'0', 'data-id'=>$comment['id'], 'content'=>$_LANG['DELETE']) );
 				echo Html::div_close();
 
@@ -51,6 +52,32 @@
 <script>
 
 $(document).ready(function() {
+
+	$("a.js_button_approve").click( function() {
+		var self = $(this);
+		var box = self.parent().parent();
+		var flag = self.attr("data-flag");
+		var id = self.attr("data-id");
+
+		if( flag == "1" )
+		{
+			$.ajax({
+					url: HTML_PATH_ADMIN_AJAX + "comments.php", type: 'POST', cache: false, timeout: 15000, dataType: "xml", async: false,
+					data: { action:"approve", id:id },
+					success: function(xml)
+					{
+						box.fadeOut();
+					}
+			});
+		}
+		else
+		{
+			self.attr("data-flag", "1");
+			self.html("<?php echo $_LANG['ARE_YOU_SURE'] ?>");
+			self.addClass("remove");
+		}
+
+	});
 
 	$("a.js_button_delete").click( function() {
 		var self = $(this);
