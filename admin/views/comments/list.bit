@@ -6,7 +6,6 @@
 	}
 	else
 	{
-
 		foreach( $comments as $comment )
 		{
 			$date = Date::format($comment['pub_date_unix'], COMMENT_DATE_FORMAT);
@@ -18,8 +17,8 @@
 				echo Html::div_open( array('class'=>'float'));
 					echo Html::div_open( array('class'=>'left'));
 
-						echo Html::h3( array('class'=>'content', 'content'=>$comment['content']) );
-						echo Html::h3( array('class'=>'author', 'content'=>$post['title'].' - '.$_LANG['AUTHOR'].': '.$comment['author_name'].' - '.$_LANG['EMAIL'].': '.$comment['author_email'].' - IP: '.$comment['author_ip']) );
+						echo Html::h3( array('class'=>'comment', 'content'=>$comment['content']) );
+						echo Html::h3( array('class'=>'information', 'content'=>'<span class="title">'.$post['title'].'</span> - '.$_LANG['AUTHOR'].': '.$comment['author_name'].' - '.$_LANG['EMAIL'].': '.$comment['author_email'].' - IP: '.$comment['author_ip']) );
 					echo Html::div_close();
 
 					echo Html::div_open( array('class'=>'right'));
@@ -28,7 +27,21 @@
 				echo Html::div_close();
 
 				echo Html::div_open( array('class'=>'options'));
-					echo Html::link( array('class'=>'js_button_approve', 'data-flag'=>'0', 'data-id'=>$comment['id'], 'content'=>'Approve') );
+					if($comment['type']=='NULL')
+					{
+						echo Html::link( array('class'=>'js_button_unapprove', 'data-id'=>$comment['id'], 'content'=>'Unapprove') );
+					}
+					else
+					{
+						if($comment['type']=='spam')
+						{
+							echo Html::link( array('class'=>'js_button_approve', 'data-id'=>$comment['id'], 'content'=>'Approve (Spam detected)') );
+						}
+						else
+						{
+							echo Html::link( array('class'=>'js_button_approve', 'data-id'=>$comment['id'], 'content'=>'Approve') );
+						}
+					}
 					echo Html::link( array('class'=>'js_button_delete', 'data-flag'=>'0', 'data-id'=>$comment['id'], 'content'=>$_LANG['DELETE']) );
 				echo Html::div_close();
 
@@ -37,14 +50,11 @@
 
 		// Pager
 		echo Html::div_open( array('class'=>'pager') );
-			echo Html::span(array('content'=>'|'));
 			for( $i=0; $i<$total_pages; $i++ )
 			{
-				echo Html::link( array('content'=>$i, 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=list&amp;page='.$i) );
+				echo Html::link( array('content'=>$i, 'href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list&amp;page='.$i) );
 			}
-			echo Html::span(array('content'=>'|'));
 		echo Html::div_close();
-
 	}
 
 ?>
@@ -53,31 +63,44 @@
 
 $(document).ready(function() {
 
-	$("a.js_button_approve").click( function() {
+	function set_ajax(id, type)
+	{
+		var result = false;
+
+		$.ajax({
+				url: HTML_PATH_ADMIN_AJAX + "comments.php", type: 'POST', cache: false, timeout: 15000, dataType: "xml", async: false,
+				data: { action: type, id: id },
+				success: function(xml)
+				{
+					result = true;
+				}
+		});
+
+		return(result);
+	}
+
+	$("a.js_button_approve").live("click", function() {
 		var self = $(this);
-		var box = self.parent().parent();
-		var flag = self.attr("data-flag");
 		var id = self.attr("data-id");
 
-		if( flag == "1" )
+		if(set_ajax(id, "approve"))
 		{
-			$.ajax({
-					url: HTML_PATH_ADMIN_AJAX + "comments.php", type: 'POST', cache: false, timeout: 15000, dataType: "xml", async: false,
-					data: { action:"approve", id:id },
-					success: function(xml)
-					{
-						box.fadeOut();
-					}
-			});
+			self.removeClass().addClass("js_button_unapprove");
+			self.html("Unapprove");
 		}
-		else
-		{
-			self.attr("data-flag", "1");
-			self.html("<?php echo $_LANG['ARE_YOU_SURE'] ?>");
-			self.addClass("remove");
-		}
-
 	});
+
+	$("a.js_button_unapprove").live("click", function() {
+		var self = $(this);
+		var id = self.attr("data-id");
+
+		if(set_ajax(id, "unapprove"))
+		{
+			self.removeClass().addClass("js_button_approve");
+			self.html("Approve");
+		}
+	});
+
 
 	$("a.js_button_delete").click( function() {
 		var self = $(this);
@@ -85,16 +108,12 @@ $(document).ready(function() {
 		var flag = self.attr("data-flag");
 		var id = self.attr("data-id");
 
-		if( flag == "1" )
+		if(flag=="1")
 		{
-			$.ajax({
-					url: HTML_PATH_ADMIN_AJAX + "comments.php", type: 'POST', cache: false, timeout: 15000, dataType: "xml", async: false,
-					data: { action:"delete", id:id },
-					success: function(xml)
-					{
-						box.fadeOut();
-					}
-			});
+			if(set_ajax(id, "delete"))
+			{
+				box.fadeOut();
+			}
 		}
 		else
 		{
@@ -102,7 +121,6 @@ $(document).ready(function() {
 			self.html("<?php echo $_LANG['ARE_YOU_SURE'] ?>");
 			self.addClass("remove");
 		}
-
 	});
 
 }); // end document

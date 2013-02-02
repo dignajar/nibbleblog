@@ -242,9 +242,30 @@ class DB_COMMENTS {
 
 		public function approve($args)
 		{
-			$this->set_file( $args['id'] );
+			return($this->rename($args['id'], 3, 'NULL'));
+		}
 
-			// Post not found
+		public function unapprove($args)
+		{
+			return($this->rename($args['id'], 3, 'unapprove'));
+		}
+
+		public function spam($args)
+		{
+			return($this->rename($args['id'], 3, 'spam'));
+		}
+
+/*
+======================================================================================
+	PRIVATE METHODS
+======================================================================================
+*/
+
+		private function rename($id, $position, $string)
+		{
+			$this->set_file($id);
+
+			// File not found
 			if($this->files_count == 0)
 			{
 				return(false);
@@ -253,17 +274,12 @@ class DB_COMMENTS {
 			$filename = $this->files[0];
 
 			$explode = explode('.', $filename);
-			$explode[3] = 'NULL';
+			$explode[$position] = $string;
 			$implode = implode('.', $explode);
 
 			return( rename( PATH_COMMENTS.$filename, PATH_COMMENTS.$implode ) );
 		}
 
-/*
-======================================================================================
-	PRIVATE METHODS
-======================================================================================
-*/
 		private function get_autoinc()
 		{
 			return( (int) $this->obj_xml['autoinc'] );
@@ -334,6 +350,7 @@ class DB_COMMENTS {
 			$tmp_array['id']				= (int) $file_info[0];
 			$tmp_array['id_post']			= (int) $file_info[1];
 			$tmp_array['id_user']			= (int) $file_info[2];
+			$tmp_array['type']				= (string) $file_info[3];
 
 			$tmp_array['author_email']		= $user_email;
 			$tmp_array['author_ip']			= $user_ip;

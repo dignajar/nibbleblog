@@ -40,6 +40,8 @@ class Comment {
 	PUBLIC METHODS
 ======================================================================================
 */
+	// Return TRUE if the comment is inserted
+	// Return FALSE if the comment is spam or need moderation
 	public function add()
 	{
 		// Sleep
@@ -86,7 +88,7 @@ class Comment {
 		// Clean session
 		Session::init();
 
-		return(true);
+		return($data['type']=='NULL');
 	}
 
 /*

@@ -495,7 +495,6 @@ div.list_box		h3.date,
 div.comment_box		h3.date {
 	margin: 0 5px 0 0;
 	font-weight:normal;
-	color: #666;
 	display: block;
 	font-size: 1em;
 }
@@ -516,29 +515,42 @@ div.list_box	h3.type {
 	font-size: 1em;
 }
 
-div.comment_box		h3.content {
+div.comment_box		h3.comment {
 	margin: 5px 0 0 0;
 	font-weight:normal;
 	display: block;
 	font-size: 1.1em;
 }
 
-div.comment_box		h3.author {
+div.comment_box		h3.information {
 	margin: 5px 0 0 0;
 	font-weight:normal;
-	color: #666;
 	display: block;
-	font-size: 0.9em;
+	font-size: 1em;
+}
+
+div.comment_box		h3.information	span.title {
+    font-style: italic;
+    font-weight: bold;
+}
+
+div.comment_box		a.js_button_approve {
+	color: #BC0000;
 }
 
 div.pager {
-	border-top: 1px solid #EBEBEB;
-	padding: 8px 0;
-	font-size: 1.3em;
+    font-size: 1.3em;
+    text-align: left;
+    border-top: 1px solid #f1f1f1;
+    padding-top: 10px;
 }
 
 div.pager	a {
+	display: inline-block;
 	padding: 4px 8px;
+	border: 1px solid #ccc;
+	background: #F9F9F9;
+	margin: 0 5px;
 }
 
 

@@ -8,7 +8,11 @@ if( $_SERVER['REQUEST_METHOD'] != 'POST' )
 // Check captcha
 if(Validation::captcha($_POST['captcha']))
 {
-	$Comment->add();
+	if( !$Comment->add() )
+	{
+		Session::set_alert('The comment needs moderation');
+		Session::set_error(true);
+	}
 }
 
 // Redirect to the comment form

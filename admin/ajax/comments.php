@@ -29,6 +29,12 @@ elseif( $_POST['action']=='approve' )
 
 	$error = !$_DB_COMMENTS->approve($safe);
 }
+elseif( $_POST['action']=='unapprove' )
+{
+	$safe['id'] = $_POST['id'];
+
+	$error = !$_DB_COMMENTS->unapprove($safe);
+}
 
 if( $error )
 {
