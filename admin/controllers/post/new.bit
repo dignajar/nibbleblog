@@ -80,8 +80,8 @@
 //	VARIABLES
 // ============================================================================
 
-	$categories_html = array();
+	$categories_options = array();
 	foreach($categories as $category)
-		$categories_html[$category['id']] = $category['name'];
+		$categories_options[$category['id']] = $category['name'];
 
 ?>

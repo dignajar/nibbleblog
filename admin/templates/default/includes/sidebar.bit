@@ -18,9 +18,9 @@
 
 		echo Html::div( array('content'=>$_LANG['COMMENTS'], 'class'=>'title bg_comment') );
 
-		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list', 'content'=>'Manage comments') );
-
 		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=settings', 'content'=>$_LANG['SETTINGS']) );
+
+		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list', 'content'=>'Manage comments') );
 
 	echo Html::div_close();
 
@@ -48,18 +48,15 @@
 
 
 	// PLUGINS
-	$sidebar_plugins = $_DB_SETTINGS->get_plugins_installed();
-
 	echo Html::div_open( array('class'=>'menu_box') );
 
 		echo Html::div( array('content'=>$_LANG['PLUGINS'], 'class'=>'title bg_plugins') );
 
 		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=list', 'content'=>$_LANG['MANAGE_PLUGINS']) );
 
-		foreach($_PLUGINS as $obj)
+		foreach($plugins_installed as $obj)
 		{
-			if($obj->is_installed())
-				echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=config&amp;plugin='.$obj->get_dir_name(), 'content'=>'Plugin :: '.$obj->get_name()) );
+			echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=config&amp;plugin='.$obj->get_dir_name(), 'content'=>'Plugin :: '.$obj->get_name()) );
 		}
 
 	echo Html::div_close();

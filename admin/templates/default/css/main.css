@@ -283,13 +283,21 @@ div.form_block	textarea {
 div.form_block	input[type="text"].little {
 	margin-right: 10px;
 	text-align: center;
-	width: 70px;
+	width: 50px;
+	padding: 5px;
 }
 
 div.form_block		select {
 	border: 1px solid #ccc;
 	width: 100%;
 	padding: 6px;
+}
+
+div.form_block		select.little {
+	border: 1px solid #ccc;
+	width: 70px;
+	padding: 5px;
+	margin-right:10px;
 }
 
 div.form_block	textarea.wysiwyg {

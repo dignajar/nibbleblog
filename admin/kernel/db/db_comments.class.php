@@ -242,17 +242,17 @@ class DB_COMMENTS {
 
 		public function approve($args)
 		{
-			return($this->rename($args['id'], 3, 'NULL'));
+			return($this->rename_by_position($args['id'], 3, 'NULL'));
 		}
 
 		public function unapprove($args)
 		{
-			return($this->rename($args['id'], 3, 'unapprove'));
+			return($this->rename_by_position($args['id'], 3, 'unapprove'));
 		}
 
 		public function spam($args)
 		{
-			return($this->rename($args['id'], 3, 'spam'));
+			return($this->rename_by_position($args['id'], 3, 'spam'));
 		}
 
 /*
@@ -260,8 +260,7 @@ class DB_COMMENTS {
 	PRIVATE METHODS
 ======================================================================================
 */
-
-		private function rename($id, $position, $string)
+		private function rename_by_position($id, $position, $string)
 		{
 			$this->set_file($id);
 
@@ -277,7 +276,7 @@ class DB_COMMENTS {
 			$explode[$position] = $string;
 			$implode = implode('.', $explode);
 
-			return( rename( PATH_COMMENTS.$filename, PATH_COMMENTS.$implode ) );
+			return( rename(PATH_COMMENTS.$filename, PATH_COMMENTS.$implode) );
 		}
 
 		private function get_autoinc()

@@ -9,6 +9,7 @@
 	require('init/10-constants.bit');
 	require('init/10-regional.bit');
 	require('init/10-url.bit');
+	require('init/10-plugins.bit');
 
 // ============================================================================
 // VARIABLES
@@ -93,57 +94,7 @@
 	);
 
 // ============================================================================
-//	PLUGINS
-// ============================================================================
-	$plugins_on_system = $_DB_SETTINGS->get_plugins_on_system();
-
-	$plugins = array();
-
-	foreach($plugins_on_system as $dir_name)
-	{
-		include_once(PATH_PLUGINS.$dir_name.'/plugin.bit');
-		$class = 'PLUGIN_'.strtoupper($dir_name);
-		$obj = new $class;
-
-		// If the plugin installed
-		if($obj->init_db())
-		{
-			$position = $obj->get_field_db('position');
-
-			if(isset($plugins[$position]))
-			{
-				while( isset($plugins[$position]) )
-					$position += 100;
-			}
-
-			// Language
-			if( @!include(PATH_PLUGINS.$dir_name.'/languages/'.$settings['language'].'.bit') )
-				include(PATH_PLUGINS.$dir_name.'/languages/en_US.bit');
-
-			$obj->set_attributes(
-			array(
-				'name'=>$_PLUGIN_CONFIG['LANG']['name'],
-				'description'=>$_PLUGIN_CONFIG['LANG']['description'],
-				'author'=>$_PLUGIN_CONFIG['DATA']['author'],
-				'version'=>$_PLUGIN_CONFIG['DATA']['version'],
-				'url'=>$_PLUGIN_CONFIG['DATA']['url'],
-				'display'=>isset($_PLUGIN_CONFIG['DATA']['display'])?false:true
-			));
-
-			// Set slug name
-			include(PATH_PLUGINS.$dir_name.'/languages/en_US.bit');
-			$obj->set_slug_name($_PLUGIN_CONFIG['LANG']['name']);
-
-			// Add plugin to array
-			$plugins[$position]=$obj;
-			$plugins_by_name[$dir_name]=$obj;
-		}
-	}
-
-	ksort($plugins);
-
-// ============================================================================
-// CLEANING
+//	CLEAN
 // ============================================================================
 	unset($id_cat);
 
@@ -153,10 +104,6 @@
 	unset($href_newer);
 	unset($show_older);
 	unset($show_newer);
-
-	unset($plugins_on_system);
-	unset($_PLUGIN_CONFIG);
-	unset($class);
 
 // ============================================================================
 // SESSION

@@ -5,8 +5,6 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 15/07/2012
-
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
 */
@@ -128,7 +126,7 @@ class DB_POSTS {
 			$filename = $new_id . '.' . $args['id_cat'] . '.' . $args['id_user'] . '.' . $mode . '.' . $time_filename . '.xml';
 
 			// Save to file
-			if( $new_obj->asXml( PATH_POSTS . $filename ) )
+			if( $new_obj->asXml(PATH_POSTS.$filename) )
 			{
 				// Increment the AutoINC
 				$this->set_autoinc(1);
@@ -146,15 +144,12 @@ class DB_POSTS {
 
 		public function set($args)
 		{
-			$this->set_file( $args['id'] );
-
-			// Post not found
-			if($this->files_count == 0)
+			if(!$this->set_file($args['id']))
 			{
 				return(false);
 			}
 
-			$new_obj = new NBXML(PATH_POSTS . $this->files[0], 0, TRUE, '', FALSE);
+			$new_obj = new NBXML(PATH_POSTS.$this->files[0], 0, TRUE, '', FALSE);
 
 			$new_obj->setChild('title', 			$args['title']);
 			$new_obj->setChild('content', 			$args['content']);
@@ -168,52 +163,50 @@ class DB_POSTS {
 				$new_obj->setChild('quote', $args['quote']);
 			}
 
-			// Draft
+			// ------------------------------------
+			// Filename
+			// ------------------------------------
+			$file = explode('.', $this->files[0]);
+
+			// Category
+			$file[1] = $args['id_cat'];
+
+			// Draft / Published
 			if(isset($args['mode']) && ($args['mode']=='draft'))
 			{
-				$file = explode('.', $this->files[0]);
 				$file[3] = 'draft';
-
-				$filename = implode(".", $file);
 			}
-			// Published
 			else
 			{
-				$file = explode('.', $this->files[0]);
 				$file[3] = 'NULL';
-
-				$filename = implode(".", $file);
 			}
+
+			// Publish date
+			$file[4] = Date::format_gmt($args['unixstamp'], 'Y');
+			$file[5] = Date::format_gmt($args['unixstamp'], 'm');
+			$file[6] = Date::format_gmt($args['unixstamp'], 'd');
+			$file[7] = Date::format_gmt($args['unixstamp'], 'H');
+			$file[8] = Date::format_gmt($args['unixstamp'], 'i');
+			$file[9] = Date::format_gmt($args['unixstamp'], 's');
+
+			// Implode the filename
+			$filename = implode(".", $file);
 
 			// Delete the old post
 			$this->remove( array('id'=>$args['id']) );
 
 			// Save the new post
-			return($new_obj->asXml( PATH_POSTS . $filename ) );
+			return($new_obj->asXml(PATH_POSTS.$filename));
 		}
 
 		public function change_category($args)
 		{
-			$this->set_file( $args['id'] );
-
-			// Post not found
-			if($this->files_count == 0)
-			{
-				return(false);
-			}
-
-			$filename = $this->files[0];
-
-			$explode = explode('.', $filename);
-			$explode[1] = $args['id_cat'];
-			$implode = implode('.', $explode);
-
-			return( rename( PATH_POSTS.$filename, PATH_POSTS.$implode ) );
+			return( $this->rename_by_position($args['id'], 1, $args['id_cat']) );
 		}
 
 		public function remove($args)
 		{
-			$this->set_file( $args['id'] );
+			$this->set_file($args['id']);
 
 			if($this->files_count > 0)
 			{
@@ -285,6 +278,40 @@ class DB_POSTS {
 	PRIVATE METHODS
 ======================================================================================
 */
+		private function rename($id, $rename)
+		{
+			$this->set_file($id);
+
+			// File not found
+			if($this->files_count == 0)
+			{
+				return(false);
+			}
+
+			$filename = $this->files[0];
+
+			return( rename(PATH_POSTS.$filename, PATH_POSTS.$rename) );
+		}
+
+		private function rename_by_position($id, $position, $string)
+		{
+			$this->set_file($id);
+
+			// File not found
+			if($this->files_count == 0)
+			{
+				return(false);
+			}
+
+			$filename = $this->files[0];
+
+			$explode = explode('.', $filename);
+			$explode[$position] = $string;
+			$implode = implode('.', $explode);
+
+			return( rename(PATH_POSTS.$filename, PATH_POSTS.$implode) );
+		}
+
 		private function set_autoinc($value = 0)
 		{
 			$this->obj_xml['autoinc'] = $value + $this->get_autoinc();
@@ -295,6 +322,14 @@ class DB_POSTS {
 		{
 			$this->files = Filesystem::ls(PATH_POSTS, $id.'.*.*.*.*.*.*.*.*.*', 'xml', false, false, false);
 			$this->files_count = count( $this->files );
+
+			// Post not found
+			if($this->files_count == 0)
+			{
+				return(false);
+			}
+
+			return(true);
 		}
 
 		// Get all files, drafts and published

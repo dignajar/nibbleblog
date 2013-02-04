@@ -28,6 +28,7 @@ echo Html::div_open( array('class'=>'dashboard_left') );
 	echo Html::div_close();
 
 	// LAST COMMENTS
+	/*
 	echo Html::div_open( array('class'=>'dashboard_last_comments') );
 
 		echo Html::separator( array('content'=>$_LANG['LAST_COMMENTS']) );
@@ -51,6 +52,7 @@ echo Html::div_open( array('class'=>'dashboard_left') );
 		}
 
 	echo Html::div_close();
+	*/
 
 echo Html::div_close();
 
