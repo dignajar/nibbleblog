@@ -89,7 +89,7 @@
 
 	$years_options = array_combine(range(1970, date("Y")), range(1970, date("Y")));
 	$months_options = array_combine(range(1, 12), range(1, 12));
-	$days_options = range(1, 31);
+	$days_options = array_combine(range(1, 31), range(1, 31));
 	$hours_options = range(0, 23);
 	$seconds_options = $minutes_options = range(0, 59);
 

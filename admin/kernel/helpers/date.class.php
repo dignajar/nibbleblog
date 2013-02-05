@@ -62,10 +62,10 @@ class Date {
 		return( $date );
 	}
 
-	// Format a local time/date
+	// Format a GMT/UTC+0 date/time
 	public static function format_gmt($time, $format)
 	{
-		$date = date($format, $time);
+		$date = gmdate($format, $time);
 
 		return( $date );
 	}

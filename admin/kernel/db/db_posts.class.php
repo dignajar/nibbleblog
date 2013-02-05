@@ -156,6 +156,7 @@ class DB_POSTS {
 			$new_obj->setChild('description', 		$args['description']);
 			$new_obj->setChild('allow_comments', 	$args['allow_comments']);
 			$new_obj->setChild('slug',				$args['slug']);
+			$new_obj->setChild('pub_date',			$args['unixstamp']);
 			$new_obj->setChild('mod_date', 			Date::unixstamp());
 
 			if(isset($args['quote']))

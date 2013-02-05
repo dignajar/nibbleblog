@@ -5,22 +5,22 @@
 		// SANITIZE
 		echo Html::div_open( array('class'=>'form_block'));
 			echo Html::checkbox( array('id'=>'js_sanitize', 'name'=>'sanitize', 'class'=>'float'), $comment_settings['sanitize'] );
-			echo Html::label( array('content'=>'Enable satinize', 'class'=>'for_checkbox', 'for'=>'js_sanitize') );
-			echo Html::div( array('content'=>'Enable this feature to protect your comment from spam', 'class'=>'input_tip') );
+			echo Html::label( array('content'=>'Sanitize HTML code', 'class'=>'for_checkbox', 'for'=>'js_sanitize') );
+			echo Html::div( array('content'=>'Enable this feature to protect against cross-site scripting (XSS) attacks by sanitizing any HTML code.', 'class'=>'input_tip') );
 		echo Html::div_close();
 
 		// MODERATE
 		echo Html::div_open( array('class'=>'form_block'));
 			echo Html::checkbox( array('id'=>'js_moderate', 'name'=>'moderate', 'class'=>'float'), $comment_settings['moderate'] );
 			echo Html::label( array('content'=>'Moderate comments', 'class'=>'for_checkbox', 'for'=>'js_moderate') );
-			echo Html::div( array('content'=>'Enable this feature for moderate the comments before publish', 'class'=>'input_tip') );
+			echo Html::div( array('content'=>'Enable this feature to moderate comments before they are published.', 'class'=>'input_tip') );
 		echo Html::div_close();
 
 		// SLEEP
 		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::label( array('content'=>'Sleep', 'class'=>'blocked') );
-			echo Html::input( array('id'=>'js_sleep', 'name'=>'sleep', 'type'=>'text', 'value'=>$comment_settings['sleep']) );
-			echo Html::div( array('content'=>'Sleep for protect brute force', 'class'=>'input_tip') );
+			echo Html::label( array('class'=>'blocked', 'content'=>'Sleep') );
+			echo Html::select( array('name'=>'sleep'), $sleep_options, $comment_settings['sleep']);
+			echo Html::div( array('content'=>'Sleep time to protect flood comments.', 'class'=>'input_tip') );
 		echo Html::div_close();
 
 		// SPAM MONITOR
@@ -30,7 +30,7 @@
 		echo Html::div_open( array('class'=>'form_block'));
 			echo Html::checkbox( array('id'=>'js_monitor_enable', 'name'=>'monitor_enable', 'class'=>'float'), $comment_settings['monitor_enable'] );
 			echo Html::label( array('content'=>'Enable spam monitor', 'class'=>'for_checkbox', 'for'=>'js_monitor_enable') );
-			echo Html::div( array('content'=>'Enable this feature to protect your comment from spam', 'class'=>'input_tip') );
+			echo Html::div( array('content'=>'Enable this feature to protect your comments from spam.', 'class'=>'input_tip') );
 		echo Html::div_close();
 
 		// API KEY
@@ -44,9 +44,8 @@
 		echo Html::div_open( array('class'=>'form_block') );
 			echo Html::label( array('content'=>'Spaminess', 'class'=>'blocked') );
 			echo Html::input( array('id'=>'js_monitor_spaminess', 'name'=>'monitor_spaminess', 'type'=>'text', 'value'=>$comment_settings['monitor_spaminess']) );
-			echo Html::div( array('content'=>'The number', 'class'=>'input_tip') );
+			echo Html::div( array('content'=>'Lower values indicate. High values suggests a comment is very likely spam.', 'class'=>'input_tip') );
 		echo Html::div_close();
-
 
 	echo Html::form_close();
 

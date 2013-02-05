@@ -182,5 +182,7 @@ $_LANG['LOGIN_FAILED_ATTEMPT'] = 'Login failed attempt';
 $_LANG['NEW_VERSION_AVAILABLE'] = 'New version available';
 $_LANG['NOTIFICATIONS'] = 'Notifications';
 
+$_LANG['PREVIEW'] = 'Preview';
+
 
 ?>

@@ -4,7 +4,7 @@
 		$date = Date::format($post['pub_date_unix'], POST_DATE_FORMAT);
 
 		if( $post['draft'] )
-		{ $mode = '<b>(' . strtoupper($_LANG['DRAFT']) . ')</b> '; }
+		{ $mode = '<b>' . strtoupper($_LANG['DRAFT']) . '</b> - '; }
 		else
 		{ $mode = ''; }
 
@@ -22,10 +22,7 @@
 			echo Html::div_close();
 
 			echo Html::div_open( array('class'=>'options'));
-				if( !$post['draft'] )
-				{
-					echo Html::link( array('href'=>HTML_PATH_ROOT.'index.php?controller=post&amp;action=view&amp;id_post='.$post['id'], 'content'=>$_LANG['VIEW']) );
-				}
+				echo Html::link( array('href'=>HTML_PATH_ROOT.'index.php?controller=post&amp;action=view&amp;id_post='.$post['id'], 'content'=>$post['draft']?$_LANG['PREVIEW']:$_LANG['VIEW']) );
 				echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=edit_'.$post['type'].'&amp;id_post='.$post['id'], 'content'=>$_LANG['EDIT']) );
 				echo Html::link( array('class'=>'js_button_delete', 'data-flag'=>'0', 'data-id'=>$post['id'], 'content'=>$_LANG['DELETE']) );
 			echo Html::div_close();

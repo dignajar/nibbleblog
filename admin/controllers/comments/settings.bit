@@ -10,4 +10,6 @@
 
 	$comment_settings = $_DB_COMMENTS->get_settings();
 
+	$sleep_options = range(0, 10);
+
 ?>
