@@ -12,4 +12,6 @@
 
 	$sleep_options = range(0, 10);
 
+	$spam_level_options = array_combine(range(0, 1, 0.05), range(0, 100, 5));
+
 ?>

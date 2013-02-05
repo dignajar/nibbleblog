@@ -5,8 +5,6 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 20/11/2012
-
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
 */
@@ -35,7 +33,7 @@ $controllers['post']['list'] 			= array('security'=>true, 'title'=>$_LANG['POSTS
 $controllers['categories']['list']		= array('security'=>true, 'title'=>$_LANG['MANAGE_CATEGORIES'], 'controller'=>'list', 'view'=>'list', 'template'=>'default');
 
 $controllers['comments']['list']		= array('security'=>true, 'title'=>$_LANG['COMMENTS'], 'controller'=>'list', 'view'=>'list', 'template'=>'default');
-$controllers['comments']['settings']	= array('security'=>true, 'title'=>$_LANG['COMMENTS'], 'controller'=>'settings', 'view'=>'settings', 'template'=>'default');
+$controllers['comments']['settings']	= array('security'=>true, 'title'=>'Comment settings', 'controller'=>'settings', 'view'=>'settings', 'template'=>'default');
 
 $controllers['settings']['general']		= array('security'=>true, 'title'=>$_LANG['GENERAL_SETTINGS'], 'controller'=>'general', 'view'=>'general', 'template'=>'default');
 $controllers['settings']['advanced']	= array('security'=>true, 'title'=>$_LANG['ADVANCED_SETTINGS'], 'controller'=>'advanced', 'view'=>'advanced', 'template'=>'default');

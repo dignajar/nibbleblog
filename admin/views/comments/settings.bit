@@ -40,11 +40,11 @@
 			echo Html::div( array('content'=>'Insert the api key here. If you don\'t have one, please check the Nibbleblog wiki.', 'class'=>'input_tip') );
 		echo Html::div_close();
 
-		// SPAMINESS
+		// SPAM LEVEL
 		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::label( array('content'=>'Spaminess', 'class'=>'blocked') );
-			echo Html::input( array('id'=>'js_monitor_spaminess', 'name'=>'monitor_spaminess', 'type'=>'text', 'value'=>$comment_settings['monitor_spaminess']) );
-			echo Html::div( array('content'=>'Lower values indicate. High values suggests a comment is very likely spam.', 'class'=>'input_tip') );
+			echo Html::label( array('class'=>'blocked', 'content'=>'Spam Level') );
+			echo Html::select( array('name'=>'monitor_spaminess'), $spam_level_options, $comment_settings['monitor_spaminess']);
+			echo Html::div( array('content'=>'Probabilidad de que un comentario sea spam. Por ejemplo, si usted indica 75%, esto quiere decir que todo comentario con una probabilidad mayor a 75% sera tomado como spam.', 'class'=>'input_tip') );
 		echo Html::div_close();
 
 	echo Html::form_close();
