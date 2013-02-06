@@ -164,10 +164,13 @@ Date::set_timezone('UTC');
 		$xml .= '<comments autoinc="0">';
 		$xml .= '</comments>';
 		$obj = new NBXML($xml, 0, FALSE, '', FALSE);
-		$node = $obj->addChild('spam_monitor', '');
-		$node->addChild('enable', 0);
-		$node->addChild('spaminess', 0.7);
-		$node->addChild('api_key', '');
+		$obj->addChild('moderate', 1);
+		$obj->addChild('sanitize', 1);
+		$obj->addChild('sleep', '2');
+		$obj->addChild('monitor_enable', 0);
+		$obj->addChild('monitor_api_key', '');
+		$obj->addChild('monitor_spaminess', '0.75');
+		$obj->addChild('monitor_auto_delete', 0);
 		$obj->asXml( FILE_XML_COMMENTS );
 
 		// post.xml
@@ -436,19 +439,19 @@ Date::set_timezone('UTC');
 				echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
 					echo Html::label( array('content'=>$_LANG['BLOG_TITLE']) );
-					echo Html::input( array('id'=>'js_name', 'name'=>'name', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
+					echo Html::input( array('id'=>'js_name', 'name'=>'name', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254', 'value'=>'') );
 
 					echo Html::label( array('content'=>$_LANG['BLOG_SLOGAN']) );
-					echo Html::input( array('id'=>'js_slogan', 'name'=>'slogan', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
+					echo Html::input( array('id'=>'js_slogan', 'name'=>'slogan', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254', 'value'=>'') );
 
 					echo Html::label( array('content'=>$_LANG['ADMINISTRATOR_USERNAME'].'*') );
-					echo Html::input( array('id'=>'js_username', 'name'=>'username', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
+					echo Html::input( array('id'=>'js_username', 'name'=>'username', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254', 'value'=>'') );
 
 					echo Html::label( array('content'=>$_LANG['ADMINISTRATOR_PASSWORD'].'*') );
-					echo Html::input( array('id'=>'js_password', 'name'=>'password', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
+					echo Html::input( array('id'=>'js_password', 'name'=>'password', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254', 'value'=>'') );
 
 					echo Html::label( array('content'=>$_LANG['ADMINISTRATOR_EMAIL']) );
-					echo Html::input( array('id'=>'js_email', 'name'=>'email', 'type'=>'text', 'autocomplete'=>'off') );
+					echo Html::input( array('id'=>'js_email', 'name'=>'email', 'type'=>'text', 'autocomplete'=>'off', 'value'=>'', 'placeholder'=>'Enter a valid e-mail address') );
 
 					echo Html::div_open( array('hidden'=>!isset($_GET['expert'])) );
 
@@ -484,7 +487,6 @@ Date::set_timezone('UTC');
 				echo '$("#dependencies").show()';
 		?>
 
-
 		$("form").submit(function(e){
 			var username = $("#js_username");
 			var password = $("#js_password");
@@ -494,21 +496,20 @@ Date::set_timezone('UTC');
 			password.css("background-color", "");
 			email.css("background-color", "");
 
-			if(empty(username.attr("value")))
+			if(empty(username.val()))
 			{
 				username.css("background-color", "#F9EDBE");
 				return false;
 			}
 
-			if(empty(password.attr("value")))
+			if(empty(password.val()))
 			{
 				password.css("background-color", "#F9EDBE");
 				return false;
 			}
 
-			if(!validate_email(email.attr("value")))
+			if(!validate_email(email.val()))
 			{
-				email.attr("placeholder","Enter a valid email address");
 				email.css("background-color", "#F9EDBE");
 				return false;
 			}

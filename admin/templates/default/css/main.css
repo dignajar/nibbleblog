@@ -66,7 +66,7 @@ body {
 }
 
 #container_subhead	h2.title {
-    color: #0089F2;
+    color: #2361D3;
     font-size: 2.2em;
     font-weight: normal;
     margin: 0;
@@ -117,7 +117,7 @@ a:hover {
 
 div.separator {
     clear: both;
-    color: #0089F2;
+    color: #2361D3;
     font-size: 1.6em;
     font-style: italic;
     margin: 10px 0;
@@ -165,7 +165,7 @@ div.dashboard_qlinks	a.item {
 }
 
 div.dashboard_qlinks	a.item:hover {
-	border-bottom: 2px solid #ccc;
+	border-bottom: 2px solid #749ACF;
 }
 
 div.dashboard_qlinks	.bg_post_simple {

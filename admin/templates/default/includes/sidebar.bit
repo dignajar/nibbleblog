@@ -46,7 +46,6 @@
 
 	echo Html::div_close();
 
-
 	// PLUGINS
 	echo Html::div_open( array('class'=>'menu_box') );
 

@@ -33,6 +33,13 @@
 			echo Html::div( array('content'=>'Enable this feature to protect your comments from spam.', 'class'=>'input_tip') );
 		echo Html::div_close();
 
+		// AUTO DELETE SPAM
+		echo Html::div_open( array('class'=>'form_block'));
+			echo Html::checkbox( array('id'=>'js_monitor_auto_delete', 'name'=>'monitor_auto_delete', 'class'=>'float'), $comment_settings['monitor_auto_delete'] );
+			echo Html::label( array('content'=>'Automatically delete spam', 'class'=>'for_checkbox', 'for'=>'js_monitor_auto_delete') );
+			echo Html::div( array('content'=>'Enable this feature to delete spam automatically.', 'class'=>'input_tip') );
+		echo Html::div_close();
+
 		// API KEY
 		echo Html::div_open( array('class'=>'form_block') );
 			echo Html::label( array('content'=>'Api Key', 'class'=>'blocked') );
@@ -44,7 +51,7 @@
 		echo Html::div_open( array('class'=>'form_block') );
 			echo Html::label( array('class'=>'blocked', 'content'=>'Spam Level') );
 			echo Html::select( array('name'=>'monitor_spaminess'), $spam_level_options, $comment_settings['monitor_spaminess']);
-			echo Html::div( array('content'=>'Probabilidad de que un comentario sea spam. Por ejemplo, si usted indica 75%, esto quiere decir que todo comentario con una probabilidad mayor a 75% sera tomado como spam.', 'class'=>'input_tip') );
+			echo Html::div( array('content'=>'El monitor de spam devuelve la probabilidad de que un comentario sea spam, usted puede indicar este nivel para que los comentarios sean tomados como spam o no.', 'class'=>'input_tip') );
 		echo Html::div_close();
 
 	echo Html::form_close();

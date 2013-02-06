@@ -79,11 +79,14 @@ class Comment {
 			$data = $this->sanitize($data);
 		}
 
-		// Add comment
-		$this->comment_db->add($data);
+		if( ($data['type']!='spam') || !$this->comment_settings['monitor_auto_delete'] )
+		{
+			// Add comment
+			$this->comment_db->add($data);
 
-		// Add notification
-		$this->notification_db->add('comment', $this->settings['notification_comments'], 'YOU_HAVE_A_NEW_COMMENT');
+			// Add notification
+			$this->notification_db->add('comment', $this->settings['notification_comments'], 'YOU_HAVE_A_NEW_COMMENT');
+		}
 
 		// Clean session
 		Session::init();

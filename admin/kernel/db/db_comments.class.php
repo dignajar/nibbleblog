@@ -223,6 +223,7 @@ class DB_COMMENTS {
 			$tmp_array['monitor_enable'] 		= (int) $this->obj_xml->getChild('monitor_enable');
 			$tmp_array['monitor_api_key'] 		= (string) $this->obj_xml->getChild('monitor_api_key');
 			$tmp_array['monitor_spaminess'] 	= (float) $this->obj_xml->getChild('monitor_spaminess');
+			$tmp_array['monitor_auto_delete'] 	= (float) $this->obj_xml->getChild('monitor_auto_delete');
 			$tmp_array['sleep'] 				= (int) $this->obj_xml->getChild('sleep');
 			$tmp_array['sanitize'] 				= (int) $this->obj_xml->getChild('sanitize');
 			$tmp_array['moderate'] 				= (int) $this->obj_xml->getChild('moderate');
@@ -307,7 +308,7 @@ class DB_COMMENTS {
 		// File name: IDComment.IDPost.IDUser.IDOther.YYYY.MM.DD.HH.mm.ss.xml
 		private function set_files_by_post($id_post)
 		{
-			$this->files = Filesystem::ls(PATH_COMMENTS, '*.'.$id_post.'.*.NULL.*.*.*.*.*.*', 'xml', false, true, false);
+			$this->files = Filesystem::ls(PATH_COMMENTS, '*.'.$id_post.'.*.*.*.*.*.*.*.*', 'xml', false, true, false);
 			$this->files_count = count( $this->files );
 		}
 
@@ -363,7 +364,6 @@ class DB_COMMENTS {
 
 			return( $tmp_array );
 		}
-
 
 } // END Class
 

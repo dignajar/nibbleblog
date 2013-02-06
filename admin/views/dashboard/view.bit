@@ -22,7 +22,7 @@ echo Html::div_open( array('class'=>'dashboard_left') );
 
 		echo Html::link( array( 'class'=>'item bg_settings', 'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=general', 'content'=>
 			Html::span( array('class'=>'type', 'content'=>$_LANG['GENERAL_SETTINGS']) ).
-			Html::span( array('class'=>'description', 'content'=>$_LANG['BLOG_TITLE_SLOGAN_ABOUT']) )
+			Html::span( array('class'=>'description', 'content'=>'Basic configuration of your blog') )
 		));
 
 	echo Html::div_close();
