@@ -53,24 +53,13 @@
 			echo Html::div( array('content'=>$_LANG['COPY_THIS_CONTENT_ON_THE_FILE'], 'class'=>'input_tip') );
 
 			echo Html::textarea( array('style'=>'height:130px; margin-top: 8px;', 'content'=>'
-Options +FollowSymlinks
+AddDefaultCharset UTF-8
 Options -Indexes
 
 # Disable Magic Quotes
 <IfModule mod_php5.c>
   php_flag magic_quotes_gpc                 off
   php_flag magic_quotes_sybase              off
-</IfModule>
-
-# Enable expirations, 2 weeks
-<IfModule mod_expires.c>
-  ExpiresActive On
-
-  ExpiresDefault A1209600
-
-  <FilesMatch \.php$>
-    ExpiresActive Off
-  </FilesMatch>
 </IfModule>
 
 <IfModule mod_rewrite.c>
@@ -90,6 +79,9 @@ Options -Indexes
 ?>
 
 <?php
+	//-----------------------------------------------------------------
+	// AUTO-SAVE FORM
+	//-----------------------------------------------------------------
 	$ajax['url'] = HTML_PATH_ADMIN_AJAX.'settings.php';
 	$ajax['action'] = 'set';
 	include(PATH_ADMIN_JS.'ajax_form.bit');

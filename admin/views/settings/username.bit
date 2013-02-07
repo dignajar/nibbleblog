@@ -1,4 +1,5 @@
 <?php
+
 	echo Html::separator( array('style'=>'margin-top: 0;', 'content'=>$_LANG['CHANGE_USERNAME']) );
 
 	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );

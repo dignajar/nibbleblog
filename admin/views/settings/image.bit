@@ -49,6 +49,9 @@
 ?>
 
 <?php
+	//-----------------------------------------------------------------
+	// AUTO-SAVE FORM
+	//-----------------------------------------------------------------
 	$ajax['url'] = HTML_PATH_ADMIN_AJAX.'settings.php';
 	$ajax['action'] = 'set';
 	include(PATH_ADMIN_JS.'ajax_form.bit');

@@ -27,3 +27,19 @@ function validate_email(email)
 
 	return true;
 }
+
+function set_ajax(id, type, ajax)
+{
+	var result = false;
+
+	$.ajax({
+			url: HTML_PATH_ADMIN_AJAX + ajax, type: 'POST', cache: false, timeout: 15000, dataType: "xml", async: false,
+			data: { action: type, id: id },
+			success: function(xml)
+			{
+				result = true;
+			}
+	});
+
+	return(result);
+}

@@ -52,22 +52,6 @@
 
 $(document).ready(function() {
 
-	function set_ajax(id, type)
-	{
-		var result = false;
-
-		$.ajax({
-				url: HTML_PATH_ADMIN_AJAX + "posts.php", type: 'POST', cache: false, timeout: 15000, dataType: "xml", async: false,
-				data: { action: type, id: id },
-				success: function(xml)
-				{
-					result = true;
-				}
-		});
-
-		return(result);
-	}
-
 	$("a.js_button_delete").click( function() {
 		var self = $(this);
 		var box = self.parent().parent();
@@ -76,7 +60,9 @@ $(document).ready(function() {
 
 		if(flag=="1")
 		{
-			if(set_ajax(id, "delete"))
+			self.removeClass().html("<?php echo $_LANG['LOADING']; ?>");
+
+			if(set_ajax(id, "delete", "posts.php"))
 			{
 				box.fadeOut();
 			}

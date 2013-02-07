@@ -41,6 +41,9 @@
 ?>
 
 <?php
+	//-----------------------------------------------------------------
+	// AUTO-SAVE FORM
+	//-----------------------------------------------------------------
 	$ajax['url'] = HTML_PATH_ADMIN_AJAX.'categories.php';
 	$ajax['action'] = 'set';
 	include(PATH_ADMIN_JS.'ajax_form.bit');
@@ -58,14 +61,12 @@ $(document).ready(function() {
 
 		if( flag == "1" )
 		{
-			$.ajax({
-					url: HTML_PATH_ADMIN_AJAX + "categories.php", type: 'POST', cache: false, timeout: 15000, dataType: "xml", async: false,
-					data: { action:"delete", id: id },
-					success: function(xml)
-					{
-						box.fadeOut();
-					}
-			});
+			self.removeClass().html("<?php echo $_LANG['LOADING']; ?>");
+
+			if(set_ajax(id, "delete", "categories.php"))
+			{
+				box.fadeOut();
+			}
 		}
 		else
 		{
