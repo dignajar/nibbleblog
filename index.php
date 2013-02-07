@@ -5,11 +5,25 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 20/11/2012
-
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
 */
+
+$file = 'plugins/quick_links/plugin.bit';
+$tokens = token_get_all( file_get_contents($file) );
+echo '<pre>';
+print_r($tokens);
+echo '</pre>';
+$class_token = false;
+foreach ($tokens as $token) {
+    if ( !is_array($token) ) continue;
+    if ($token[0] == T_CLASS) {
+        $class_token = true;
+    } else if ($class_token && $token[0] == T_STRING) {
+        echo "Found class: $token[1]\n";
+        $class_token = false;
+    }
+}
 
 // ============================================================================
 //	BOOT
