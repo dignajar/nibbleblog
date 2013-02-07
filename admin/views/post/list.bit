@@ -1,42 +1,51 @@
 <?php
-	foreach( $post_list as $post )
+
+	if(empty($post_list))
 	{
-		$date = Date::format($post['pub_date_unix'], POST_DATE_FORMAT);
+		echo Html::p( array('class'=>'no_comments', 'content'=>$_LANG['THERE_ARE_NO_POSTS']) );
+	}
+	else
+	{
+		foreach( $post_list as $post )
+		{
+			$date = Date::format($post['pub_date_unix'], POST_DATE_FORMAT);
 
-		if( $post['draft'] )
-		{ $mode = '<b>' . strtoupper($_LANG['DRAFT']) . '</b> - '; }
-		else
-		{ $mode = ''; }
+			if( $post['draft'] )
+			{ $mode = '<b>' . strtoupper($_LANG['DRAFT']) . '</b> - '; }
+			else
+			{ $mode = ''; }
 
-		echo Html::div_open( array('class'=>'list_box') );
+			echo Html::div_open( array('class'=>'list_box') );
 
-			echo Html::div_open( array('class'=>'float'));
-				echo Html::div_open( array('class'=>'left'));
-					echo Html::h3( array('class'=>'type', 'content'=>$_LANG[strtoupper($post['type'])]) );
-					echo Html::h3( array('class'=>'title', 'content'=>$mode.$post['title']) );
+				echo Html::div_open( array('class'=>'float'));
+					echo Html::div_open( array('class'=>'left'));
+						echo Html::h3( array('class'=>'type', 'content'=>$_LANG[strtoupper($post['type'])]) );
+						echo Html::h3( array('class'=>'title', 'content'=>$mode.$post['title']) );
+					echo Html::div_close();
+
+					echo Html::div_open( array('class'=>'right'));
+						echo Html::h3( array('class'=>'date', 'content'=>$date) );
+					echo Html::div_close();
 				echo Html::div_close();
 
-				echo Html::div_open( array('class'=>'right'));
-					echo Html::h3( array('class'=>'date', 'content'=>$date) );
+				echo Html::div_open( array('class'=>'options'));
+					echo Html::link( array('href'=>HTML_PATH_ROOT.'index.php?controller=post&amp;action=view&amp;id_post='.$post['id'], 'content'=>$post['draft']?$_LANG['PREVIEW']:$_LANG['VIEW']) );
+					echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=edit_'.$post['type'].'&amp;id_post='.$post['id'], 'content'=>$_LANG['EDIT']) );
+					echo Html::link( array('class'=>'js_button_delete', 'data-flag'=>'0', 'data-id'=>$post['id'], 'content'=>$_LANG['DELETE']) );
 				echo Html::div_close();
-			echo Html::div_close();
 
-			echo Html::div_open( array('class'=>'options'));
-				echo Html::link( array('href'=>HTML_PATH_ROOT.'index.php?controller=post&amp;action=view&amp;id_post='.$post['id'], 'content'=>$post['draft']?$_LANG['PREVIEW']:$_LANG['VIEW']) );
-				echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=edit_'.$post['type'].'&amp;id_post='.$post['id'], 'content'=>$_LANG['EDIT']) );
-				echo Html::link( array('class'=>'js_button_delete', 'data-flag'=>'0', 'data-id'=>$post['id'], 'content'=>$_LANG['DELETE']) );
 			echo Html::div_close();
+		}
 
+		// Pager
+		echo Html::div_open( array('class'=>'pager') );
+			for( $i=0; $i<$total_pages; $i++ )
+			{
+				echo Html::link( array('content'=>$i, 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=list&amp;page='.$i) );
+			}
 		echo Html::div_close();
 	}
 
-	// Pager
-	echo Html::div_open( array('class'=>'pager') );
-		for( $i=0; $i<$total_pages; $i++ )
-		{
-			echo Html::link( array('content'=>$i, 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=list&amp;page='.$i) );
-		}
-	echo Html::div_close();
 ?>
 
 <script>

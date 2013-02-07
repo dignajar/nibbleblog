@@ -1,19 +1,8 @@
-Options +FollowSymlinks
+AddDefaultCharset UTF-8
 Options -Indexes
 
 # Disable Magic Quotes
 <IfModule mod_php5.c>
   php_flag magic_quotes_gpc                 off
   php_flag magic_quotes_sybase              off
-</IfModule>
-
-# Enable expirations, 2 weeks
-<IfModule mod_expires.c>
-  ExpiresActive On
-
-  ExpiresDefault A1209600
-
-  <FilesMatch \.php$>
-    ExpiresActive Off
-  </FilesMatch>
 </IfModule>

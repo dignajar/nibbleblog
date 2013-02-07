@@ -24,13 +24,11 @@ require(PATH_HELPERS . 'crypt.class.php');
 require(PATH_HELPERS . 'date.class.php');
 require(PATH_HELPERS . 'filesystem.class.php');
 require(PATH_HELPERS . 'html.class.php');
-require(PATH_HELPERS . 'image.class.php');
 require(PATH_HELPERS . 'net.class.php');
 require(PATH_HELPERS . 'number.class.php');
 require(PATH_HELPERS . 'redirect.class.php');
 require(PATH_HELPERS . 'text.class.php');
 require(PATH_HELPERS . 'validation.class.php');
-require(PATH_HELPERS . 'video.class.php');
 
 // ============================================================================
 //	VARIABLES
@@ -233,7 +231,7 @@ Date::set_timezone('UTC');
 			margin: 0;
 			padding: 0;
 			font-size: 0.875em;
-			color: #616161;
+			color: #555;
 		}
 
 		#container {
@@ -241,21 +239,23 @@ Date::set_timezone('UTC');
 			border: 1px solid #EBEBEB;
 			border-radius: 3px 3px 3px 3px;
 			margin: 50px auto;
-			max-width: 800px;
+			max-width: 700px;
 			padding: 20px 30px;
 			width: 60%;
+			box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
 		}
 
 		h1 {
-
+			margin: 0 0 20px 0;
+			text-align: center;
 		}
 
 		h2 {
-			color: #339900;
+			color: #6C7479;
 		}
 
 		a {
-			color: #3C6EB4;
+			color: #2361D3;
 			cursor: pointer;
 			text-decoration: none;
 		}
@@ -265,10 +265,8 @@ Date::set_timezone('UTC');
 		}
 
 		a.lang {
-			float: right;
-			font-size: 12px;
-			margin-left: 8px;
-			text-decoration:underline;
+			font-size: 0.9em;
+			display: inline-block;
 		}
 
 		div.dependency {
@@ -305,14 +303,14 @@ Date::set_timezone('UTC');
 			padding: 8px;
 			outline:none;
 			resize: none;
-			margin-bottom: 10px;
+			margin-bottom: 15px;
 		}
 
 		label {
 			color: #333;
 			margin-bottom:2px;
 			display:block;
-
+			font-size: 0.9em;
 		}
 
 		input[type="submit"] {
@@ -321,13 +319,19 @@ Date::set_timezone('UTC');
 
 		footer {
 			margin: 30px 0;
-			border-top: 1px dotted #ccc;
-			font-size:13px;
+			border-top: 1px solid #f1f1f1;
+			text-align: center;
+			font-size: 0.9em;
 		}
 		div.lang {
 			margin-right: -20px;
 			margin-top: -10px;
 			overflow: auto;
+			text-align: center;
+		}
+
+		#head {
+			margin-bottom: 20px;
 		}
 </style>
 
@@ -336,17 +340,20 @@ Date::set_timezone('UTC');
 
 	<div id="container">
 
-		<header>
-			<div class="lang">
+		<header id="head">
 			<?php
+				echo Html::h1( array('content'=>$_LANG['WELCOME_TO_NIBBLEBLOG']) );
+
 				if(!$installation_complete)
 				{
+					echo '<div class="lang">';
+
 					foreach( $languagues as $key=>$value)
-						echo '<a class="lang" href="./install.php?language='.$key.'">'.$value.'</a>';
+						echo '<a class="lang" href="./install.php?language='.$key.'">'.$value.'</a><span style="margin:0 5px;">·</span>';
+
+					echo '</div>';
 				}
 			?>
-			</div>
-			<?php echo Html::h1( array('content'=>$_LANG['WELCOME_TO_NIBBLEBLOG']) ); ?>
 		</header>
 
 		<noscript>
@@ -402,7 +409,7 @@ Date::set_timezone('UTC');
 				echo Html::div_close();
 
 				echo Html::div_open( array('class'=>'dependency') );
-					echo Html::link( array('class'=>'description', 'content'=>$_LANG['PHP_MODULE'].' - SimpleXML', 'href'=>'http://ar2.php.net/manual/en/book.simplexml.php', 'target'=>'_blank') );
+					echo Html::link( array('class'=>'description', 'content'=>$_LANG['PHP_MODULE'].' - SimpleXML', 'href'=>'http://www.php.net/manual/en/book.simplexml.php', 'target'=>'_blank') );
 
 					if( in_array('SimpleXML', $php_modules) )
 					{
@@ -417,7 +424,7 @@ Date::set_timezone('UTC');
 				echo Html::div_close();
 
 				echo Html::div_open( array('class'=>'dependency') );
-					echo Html::link( array('class'=>'description', 'content'=>$_LANG['WRITING_TEST_ON_CONTENT_DIRECTORY'], 'href'=>'http://forum.nibbleblog.com', 'target'=>'_blank') );
+					echo Html::link( array('class'=>'description', 'content'=>$_LANG['WRITING_TEST_ON_CONTENT_DIRECTORY'], 'href'=>'http://wiki.nibbleblog.com/doku.php?id=how_to_set_up_permissions', 'target'=>'_blank') );
 
 					if( $writing_test )
 					{
@@ -434,7 +441,7 @@ Date::set_timezone('UTC');
 		</section>
 
 		<section id="configuration">
-			<h2><?php echo $_LANG['CONFIGURATION'] ?></h2>
+
 			<?php
 				echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
@@ -450,7 +457,7 @@ Date::set_timezone('UTC');
 					echo Html::label( array('content'=>$_LANG['ADMINISTRATOR_PASSWORD'].'*') );
 					echo Html::input( array('id'=>'js_password', 'name'=>'password', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254', 'value'=>'') );
 
-					echo Html::label( array('content'=>$_LANG['ADMINISTRATOR_EMAIL']) );
+					echo Html::label( array('content'=>$_LANG['ADMINISTRATOR_EMAIL'].'*') );
 					echo Html::input( array('id'=>'js_email', 'name'=>'email', 'type'=>'text', 'autocomplete'=>'off', 'value'=>'', 'placeholder'=>'Enter a valid e-mail address') );
 
 					echo Html::div_open( array('hidden'=>!isset($_GET['expert'])) );
@@ -498,19 +505,19 @@ Date::set_timezone('UTC');
 
 			if(empty(username.val()))
 			{
-				username.css("background-color", "#F9EDBE");
+				username.css("background-color", "#D8F0F0");
 				return false;
 			}
 
 			if(empty(password.val()))
 			{
-				password.css("background-color", "#F9EDBE");
+				password.css("background-color", "#D8F0F0");
 				return false;
 			}
 
 			if(!validate_email(email.val()))
 			{
-				email.css("background-color", "#F9EDBE");
+				email.css("background-color", "#D8F0F0");
 				return false;
 			}
 

@@ -204,7 +204,7 @@ class DB_COMMENTS {
 
 		public function delete_all_by_post($args)
 		{
-			$this->set_files_by_post($args['id_post']);
+			$this->set_files_by_post($args['id_post'], '*');
 
 			foreach($this->files as $file)
 			{
@@ -306,9 +306,9 @@ class DB_COMMENTS {
 
 		// Setea los comentarios de un post en particular
 		// File name: IDComment.IDPost.IDUser.IDOther.YYYY.MM.DD.HH.mm.ss.xml
-		private function set_files_by_post($id_post)
+		private function set_files_by_post($id_post, $type='NULL')
 		{
-			$this->files = Filesystem::ls(PATH_COMMENTS, '*.'.$id_post.'.*.*.*.*.*.*.*.*', 'xml', false, true, false);
+			$this->files = Filesystem::ls(PATH_COMMENTS, '*.'.$id_post.'.*.'.$type.'.*.*.*.*.*.*', 'xml', false, true, false);
 			$this->files_count = count( $this->files );
 		}
 

@@ -181,8 +181,9 @@ $_LANG['YOU_HAVE_A_NEW_COMMENT'] = 'You have a new comment';
 $_LANG['LOGIN_FAILED_ATTEMPT'] = 'Login failed attempt';
 $_LANG['NEW_VERSION_AVAILABLE'] = 'New version available';
 $_LANG['NOTIFICATIONS'] = 'Notifications';
-
 $_LANG['PREVIEW'] = 'Preview';
-
+$_LANG['YOUR_COMMENT_IS_AWAITING_MODERATION'] = 'Your comment is awaiting moderation';
+$_LANG['PLEASE_COMPLETE_ALL_FIELDS'] = 'Please complete all fields';
+$_LANG['THERE_ARE_NO_POSTS'] = 'There are no posts';
 
 ?>

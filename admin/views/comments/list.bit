@@ -79,7 +79,7 @@ $(document).ready(function() {
 		return(result);
 	}
 
-	$("a.js_button_approve").live("click", function() {
+	$("a.js_button_approve").on("click", function() {
 		var self = $(this);
 		var id = self.attr("data-id");
 
@@ -90,7 +90,7 @@ $(document).ready(function() {
 		}
 	});
 
-	$("a.js_button_unapprove").live("click", function() {
+	$("a.js_button_unapprove").on("click", function() {
 		var self = $(this);
 		var id = self.attr("data-id");
 

@@ -5,12 +5,21 @@ if( $_SERVER['REQUEST_METHOD'] != 'POST' )
 	exit('Nibbleblog - Post request fail');
 }
 
-// Check captcha
-if(Validation::captcha($_POST['captcha']))
+// Get comment data
+$data = Session::get_comment_array();
+
+// Check: fields are complete
+if( Text::is_empty($data['author_email']) || Text::is_empty($data['content']))
 {
+	Session::set_alert($_LANG['PLEASE_COMPLETE_ALL_FIELDS']);
+	Session::set_error(true);
+}
+else
+{
+	// Check: Anti-spam / Approve / Sanitize
 	if( !$Comment->add() )
 	{
-		Session::set_alert('The comment needs moderation');
+		Session::set_alert($_LANG['YOUR_COMMENT_IS_AWAITING_MODERATION']);
 		Session::set_error(true);
 	}
 }
