@@ -17,7 +17,12 @@
 ?>
 
 <?php
-	$ajax['url'] = HTML_PATH_ADMIN_AJAX.'plugins.php';
-	$ajax['action'] = 'set';
+//======================================================================
+// AUTO-SAVE FORM
+//======================================================================
+	$javascript = array(
+			'url'=>HTML_PATH_ADMIN_AJAX.'plugins.php',
+			'action'=>'set'
+	);
 	include(PATH_ADMIN_JS.'ajax_form.bit');
 ?>

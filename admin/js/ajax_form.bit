@@ -1,8 +1,17 @@
+<?php
+
+	$action = isset($javascript['action']? $javascript['action'] : 'set';
+
+?>
+
 <script>
 
 $(document).ready(function() {
 
-	// Save the default configuration
+//
+//	VARIABLES
+//
+	// Get the default configuration
 	var datasrz = serial_form($("#js_form"));
 
 	// Timer
@@ -44,12 +53,10 @@ $(document).ready(function() {
 			datasrz = newdata;
 
 			$.ajax({
-					url:"<?php echo $ajax['url'] ?>", type: "POST", cache: false, timeout: 15000, dataType: "xml", async: true,
-					data:{ serial_data: newdata, action:"<?php echo $ajax['action'] ?>" }
+					url:"<?php echo $javascript['url']; ?>", type: "POST", cache: false, timeout: 15000, dataType: "xml", async: true,
+					data:{ serial_data: newdata, action:"<?php echo $action; ?>" }
 			});
 		}
-
-
 	}
 
 }); // end document
