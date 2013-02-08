@@ -1,8 +1,27 @@
 <?php
+/*
+========================================================================
+Nibbleblog
+http://www.nibbleblog.com
 
-// ============================================================================
+==== Require ====
+
+=== Return ===
+* $Login
+* $Resize
+* $_DB_SETTINGS
+* $_DB_CATEGORIES
+* $_DB_NOTIFICATIONS
+* $_DB_POST
+* $_DB_COMMENTS
+* $Comment
+
+========================================================================
+*/
+
+// =====================================================================
 //	CLASS
-// ============================================================================
+// =====================================================================
 	require(PATH_KERNEL . 'login.class.php');
 	require(PATH_KERNEL . 'plugin.class.php');
 	require(PATH_KERNEL . 'defensio/Defensio.php');
@@ -34,14 +53,14 @@
 	require(PATH_DB . 'db_comments.class.php');
 	require(PATH_DB . 'db_notifications.class.php');
 
-// ============================================================================
+// =====================================================================
 //	OBJECTS
-// ============================================================================
+// =====================================================================
 	// Login
-	$Login			= new Login();
+	$Login = new Login();
 
 	// Helpers
-	$Resize			= new Resize();
+	$Resize = new Resize();
 
 	// DB
 	if(defined('FILE_XML_POST') && defined('FILE_XML_CATEGORIES') && defined('FILE_XML_CONFIG') && defined('FILE_XML_NOTIFICATIONS'))

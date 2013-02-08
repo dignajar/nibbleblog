@@ -6,125 +6,16 @@
 	require('init/1-fs_php.bit');
 	require('init/2-objects.bit');
 	require('init/3-variables.bit');
-	require('init/10-constants.bit');
-	require('init/10-regional.bit');
-	require('init/10-url.bit');
+
+	require('init/5-regional.bit');
+	require('init/5-url.bit');
+
+	require('init/8-posts.bit');
+
 	require('init/10-plugins.bit');
+	require('init/10-pager.bit');
+	require('init/10-session.bit');
 
-// ============================================================================
-// VARIABLES
-// ============================================================================
-	$posts = array();
-
-	// ---- POSTS FILTER BY CATEGORY
-	if($url['category']!=null)
-	{
-		// Get the category ID
-		$id_cat = $_DB_CATEGORIES->get_id( array('name'=>$url['category']) );
-
-		// Posts by category
-		$posts = $_DB_POST->get_list_by_category( array('page'=>$url['page'], 'amount'=>$settings['items_page'], 'id_cat'=>$id_cat) );
-	}
-	// ---- PARTICULAR POST
-	elseif($url['id_post']!=null)
-	{
-		// Get post
-		$post = $_DB_POST->get( array('id'=>$url['id_post']) );
-
-		if( !empty($post) )
-		{
-			$posts[0] = $post;
-		}
-	}
-	// ---- POSTS FILTER BY BLOG
-	else
-	{
-		// Posts by page
-		$posts = $_DB_POST->get_list_by_page( array('page'=>$url['page'], 'amount'=>$settings['items_page']) );
-	}
-
-	// ---- COMMENTS
-	// Get all comments for each post
-	foreach($posts as $key=>$value)
-	{
-		$posts[$key]['comments'] = $_DB_COMMENTS->get_list_by_post( array('id_post'=>$value['id']) );
-	}
-
-	// ---- PAGER
-	$pager_next = $url['page'] + 1;
-	$pager_prev = $url['page'] - 1;
-
-	if($settings['friendly_urls'])
-	{
-		if($url['category']!=null)
-		{
-			$href_older = HTML_PATH_ROOT.'category/'.$url['category'].'/page-'.$pager_next;
-			$href_newer = HTML_PATH_ROOT.'category/'.$url['category'].'/page-'.$pager_prev;
-		}
-		else
-		{
-			$href_older = HTML_PATH_ROOT.'page-'.$pager_next;
-			$href_newer = HTML_PATH_ROOT.'page-'.$pager_prev;
-		}
-	}
-	else
-	{
-		if($url['category']!=null)
-		{
-			$href_older = HTML_PATH_ROOT.'index.php?controller=blog&action=view&category='.$url['category'].'&page='.$pager_next;
-			$href_newer = HTML_PATH_ROOT.'index.php?controller=blog&action=view&category='.$url['category'].'&page='.$pager_prev;
-		}
-		else
-		{
-			$href_older = HTML_PATH_ROOT.'index.php?controller=blog&action=view&page='.$pager_next;
-			$href_newer = HTML_PATH_ROOT.'index.php?controller=blog&action=view&page='.$pager_prev;
-		}
-	}
-
-	$show_older = ((int)ceil($_DB_POST->get_count() / $settings['items_page']) - 1) > $url['page'];
-	$show_newer = $url['page'] > 0;
-
-	$pager = array(
-						'next'=>$pager_next,
-						'prev'=>$pager_prev,
-						'href_older'=>$href_older,
-						'href_newer'=>$href_newer,
-						'show_older'=>$show_older,
-						'show_newer'=>$show_newer
-	);
-
-// ============================================================================
-//	CLEAN
-// ============================================================================
-	unset($id_cat);
-
-	unset($pager_next);
-	unset($pager_prev);
-	unset($href_older);
-	unset($href_newer);
-	unset($show_older);
-	unset($show_newer);
-
-// ============================================================================
-// SESSION
-// ============================================================================
-	if( !isset($_SESSION['nibbleblog']) )
-	{
-		Session::init();
-	}
-
-	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
-	{
-		if( isset($_POST['author_name']) && isset($_POST['author_email']) && isset($_POST['content']) )
-		{
-			Session::set_comment(array(
-							'author_name'=>$_POST['author_name'],
-							'author_email'=>$_POST['author_email'],
-							'content'=>$_POST['content'],
-							'post_allow_comments'=>$posts[0]['allow_comments'],
-							'id_post'=>$posts[0]['id']
-			));
-		}
-	}
+	require('init/99-constants.bit');
 
 ?>

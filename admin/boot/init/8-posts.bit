@@ -1,0 +1,62 @@
+<?php
+/*
+========================================================================
+Nibbleblog
+http://www.nibbleblog.com
+
+==== Require ====
+* $url
+* $settings
+* $_DB_CATEGORIES
+* $_DB_POST
+* $_DB_COMMENTS
+
+=== Return ===
+* $posts
+
+========================================================================
+*/
+
+	$posts = array();
+
+	// ---- POSTS FILTER BY CATEGORY
+	if($url['category']!=null)
+	{
+		// Get the category ID
+		$id_cat = $_DB_CATEGORIES->get_id( array('name'=>$url['category']) );
+
+		// Posts by category
+		$posts = $_DB_POST->get_list_by_category( array('page'=>$url['page'], 'amount'=>$settings['items_page'], 'id_cat'=>$id_cat) );
+	}
+	// ---- PARTICULAR POST
+	elseif($url['id_post']!=null)
+	{
+		// Get post
+		$post = $_DB_POST->get( array('id'=>$url['id_post']) );
+
+		if( !empty($post) )
+		{
+			$posts[0] = $post;
+		}
+	}
+	// ---- POSTS FILTER BY BLOG
+	else
+	{
+		// Posts by page
+		$posts = $_DB_POST->get_list_by_page( array('page'=>$url['page'], 'amount'=>$settings['items_page']) );
+	}
+
+	// ---- COMMENTS
+	// Get all comments for each post
+	foreach($posts as $key=>$value)
+	{
+		$posts[$key]['comments'] = $_DB_COMMENTS->get_list_by_post( array('id_post'=>$value['id']) );
+	}
+
+// =====================================================================
+// CLEANING
+// =====================================================================
+	unset($post);
+	unset($id_cat);
+
+?>
