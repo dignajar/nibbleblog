@@ -279,17 +279,35 @@ div.plugin_box	li {
 div.plugin_twitter {
 	padding: 0;
 	margin: 20px 0;
-	border-top: 1px solid #f1f1f1;
-	border-bottom: 1px solid #f1f1f1;
 	height: 58px;
 	line-height: 58px;
 	overflow: hidden;
+}
+
+div.plugin_twitter	ul {
+	margin: 0;
+	padding: 0;
+}
+
+div.plugin_twitter	li {
+	margin: 0;
+	padding: 0;
+	display: inline;
 }
 
 div.plugin_twitter	li.username {
 	background: url("img/twitter.png") no-repeat 0 -2px;
 	margin-right: 5px;
 	padding-left: 23px;
+}
+
+/* ============================== */
+/* PLUGIN TWITTER STATIC */
+/* ============================== */
+
+div.plugin_twitter_static	li.tweet {
+	display: block;
+	margin: 10px 0;
 }
 
 /* ============================== */

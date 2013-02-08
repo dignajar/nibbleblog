@@ -1,6 +1,6 @@
 <?php
 
-	$action = isset($javascript['action']? $javascript['action'] : 'set';
+	$action = isset($javascript['action'])? $javascript['action'] : 'set';
 
 ?>
 
