@@ -3,57 +3,26 @@
 	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
 		// TITLE
-		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::input( array('id'=>'js_title', 'name'=>'title', 'type'=>'text', 'placeholder'=>$_LANG['ENTER_TITLE_HERE']) );
-		echo Html::div_close();
+		include('includes/title.bit');
 
 		// CONTENT
-		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::textarea( array('id'=>'js_content', 'name'=>'content', 'content'=>'', 'class'=>'wysiwyg') );
-			echo Html::link( array('content'=>'HTML', 'class'=>'toggle_button', 'href'=>'javascript:;', 'onclick'=>'tinymce.execCommand(\'mceToggleEditor\',false,\'js_content\')', 'hidden'=>( !$settings['advanced_post_options'] || !$settings['enable_wysiwyg'] )) );
-			echo Html::span( array('id'=>'js_uploader_button', 'class'=>'uploader_button', 'content'=>$_LANG['INSERT_PICTURE']) );
-			echo Html::span( array('id'=>'js_uploader_loading', 'class'=>'uploader_button', 'content'=>$_LANG['UPLOADING'].'...', 'style'=>'display: none') );
-		echo Html::div_close();
+		include('includes/content.bit');
 
-		// SEO DESCRIPTION
-		echo Html::div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
-			echo Html::label( array('class'=>'blocked', 'content'=>$_LANG['SHORT_DESCRIPTION_NO_MORE_THAN']) );
-			echo Html::input( array('id'=>'js_description', 'name'=>'description', 'type'=>'text') );
-		echo Html::div_close();
+		// DESCRIPTION
+		include('includes/description.bit');
 
 		// SLUG URL
 		include('includes/slug.bit');
 
 		// CATEGORIES
-		echo Html::div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
-			echo Html::label( array('class'=>'blocked', 'content'=>$_LANG['SELECT_A_CATEGORY']) );
-			echo Html::select( array('name'=>'id_cat'), $categories_options, 0);
-		echo Html::div_close();
+		include('includes/categories.bit');
 
 		// ALLOW COMMENTS
-		echo Html::div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']));
-			echo Html::checkbox( array('id'=>'js_allow_comments', 'name'=>'allow_comments', 'class'=>'float'), true );
-			echo Html::label( array('class'=>'for_checkbox', 'content'=>$_LANG['ALLOW_COMMENTS'], 'for'=>'js_allow_comments') );
-			echo Html::div( array('class'=>'input_tip', 'content'=>$_LANG['ALLOW_YOUR_USERS_TO_COMMENT_YOUR_PUBLICATIONS']) );
-		echo Html::div_close();
+		include('includes/allow_comments.bit');
 
 		// BUTTONS
-		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::input( array('id'=>'js_button_add', 'name'=>'button_add', 'type'=>'submit', 'value'=>$_LANG['PUBLISH'], 'class'=>'save') );
-			echo Html::input( array('id'=>'js_button_draft', 'name'=>'button_draft', 'type'=>'submit', 'value'=>$_LANG['DRAFT'], 'class'=>'draft') );
-		echo Html::div_close();
+		include('includes/buttons.bit');
 
 	echo Html::form_close();
 
-?>
-
-<?php
-	if($settings['enable_wysiwyg'])
-	{
-		include(PATH_ADMIN_JS.'wysiwyg.bit');
-	}
-?>
-
-<?php
-	include(PATH_ADMIN_JS.'uploader.bit');
 ?>

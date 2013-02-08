@@ -255,6 +255,24 @@ article.post	h1.title {
 	margin: 40px 0;
 }
 
+div.plugin_box {
+	padding: 20px 0;
+	margin: 20px 0;
+	border-top: 1px solid #f1f1f1;
+	border-bottom: 1px solid #f1f1f1;
+}
+
+div.plugin_box	ul {
+	margin: 0;
+	padding: 0;
+}
+
+div.plugin_box	li {
+	margin: 0 5px;
+	padding: 0;
+	display: inline-block;
+}
+
 /* ============================== */
 /* PLUGIN TWITTER */
 /* ============================== */
@@ -266,17 +284,6 @@ div.plugin_twitter {
 	height: 58px;
 	line-height: 58px;
 	overflow: hidden;
-}
-
-div.plugin_twitter	ul {
-	margin: 0;
-	padding: 0;
-}
-
-div.plugin_twitter	li {
-	margin: 0;
-	padding: 0;
-	display: inline;
 }
 
 div.plugin_twitter	li.username {
@@ -296,15 +303,12 @@ div.plugin_categories {
 }
 
 div.plugin_categories	ul {
-	margin: 0;
-	padding: 0;
 	text-align: center;
 }
 
 div.plugin_categories	li {
 	margin: 0 20px;
 	padding: 0;
-	display: inline;
 	text-transform:uppercase;
 }
 

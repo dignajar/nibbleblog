@@ -26,7 +26,7 @@ $controllers['post']['new_quote'] 		= array('security'=>true, 'title'=>$_LANG['N
 
 $controllers['post']['edit_simple'] 	= array('security'=>true, 'title'=>$_LANG['EDIT_POST'], 'controller'=>'edit', 'view'=>'edit', 'template'=>'default');
 $controllers['post']['edit_video'] 		= array('security'=>true, 'title'=>$_LANG['EDIT_POST'], 'controller'=>'edit', 'view'=>'edit', 'template'=>'default');
-$controllers['post']['edit_quote'] 		= array('security'=>true, 'title'=>$_LANG['EDIT_POST'], 'controller'=>'edit', 'view'=>'edit_quote', 'template'=>'default');
+$controllers['post']['edit_quote'] 		= array('security'=>true, 'title'=>$_LANG['EDIT_POST'], 'controller'=>'edit', 'view'=>'new_quote', 'template'=>'default');
 
 $controllers['post']['list'] 			= array('security'=>true, 'title'=>$_LANG['POSTS'], 'controller'=>'list', 'view'=>'list', 'template'=>'default');
 

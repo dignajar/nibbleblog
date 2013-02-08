@@ -1,0 +1,6 @@
+<?php
+	echo Html::div_open( array('class'=>'form_block') );
+		echo Html::input( array('id'=>'js_button_add', 'name'=>'button_add', 'type'=>'submit', 'value'=>$_LANG['PUBLISH'], 'class'=>'save') );
+		echo Html::input( array('id'=>'js_button_draft', 'name'=>'button_draft', 'type'=>'submit', 'value'=>$_LANG['DRAFT'], 'class'=>'draft') );
+	echo Html::div_close();
+?>

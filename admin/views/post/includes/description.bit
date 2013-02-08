@@ -1,0 +1,8 @@
+<?php
+	$value = isset($post_edit['description']) ? $post_edit['description'] : '';
+
+	echo Html::div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
+		echo Html::label( array('class'=>'blocked', 'content'=>$_LANG['SHORT_DESCRIPTION_NO_MORE_THAN']) );
+		echo Html::input( array('id'=>'js_description', 'name'=>'description', 'type'=>'text', 'value'=>$value) );
+	echo Html::div_close();
+?>

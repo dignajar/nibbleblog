@@ -186,4 +186,8 @@ $_LANG['YOUR_COMMENT_IS_AWAITING_MODERATION'] = 'Your comment is awaiting modera
 $_LANG['PLEASE_COMPLETE_ALL_FIELDS'] = 'Please complete all fields';
 $_LANG['THERE_ARE_NO_POSTS'] = 'There are no posts';
 
+$_LANG['BACK_TO_BLOG'] = 'Back to blog';
+$_LANG['FORGOT_PASSWORD'] = 'Forgot Password?';
+$_LANG['REMEMBER_ME'] = 'Remember me';
+
 ?>
