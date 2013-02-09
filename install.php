@@ -13,7 +13,7 @@ if( file_exists('content/private') || file_exists('content/public') )
 	exit('Blog already installed');
 
 require('admin/boot/init/1-fs_php.bit');
-require('admin/boot/init/10-constants.bit');
+require('admin/boot/init/99-constants.bit');
 
 // DB
 require(PATH_DB . 'nbxml.class.php');

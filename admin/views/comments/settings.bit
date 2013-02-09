@@ -55,6 +55,6 @@
 //======================================================================
 // AUTO-SAVE FORM
 //======================================================================
-	$javascript = array('url'=>HTML_PATH_ADMIN_AJAX.'categories.php');
+	$javascript = array('url'=>HTML_PATH_ADMIN_AJAX.'comments.php');
 	include(PATH_ADMIN_JS.'ajax_form.bit');
 ?>
