@@ -182,12 +182,52 @@ $_LANG['LOGIN_FAILED_ATTEMPT'] = 'Login failed attempt';
 $_LANG['NEW_VERSION_AVAILABLE'] = 'New version available';
 $_LANG['NOTIFICATIONS'] = 'Notifications';
 $_LANG['PREVIEW'] = 'Preview';
-$_LANG['YOUR_COMMENT_IS_AWAITING_MODERATION'] = 'Your comment is awaiting moderation';
 $_LANG['PLEASE_COMPLETE_ALL_FIELDS'] = 'Please complete all fields';
 $_LANG['THERE_ARE_NO_POSTS'] = 'There are no posts';
 
 $_LANG['BACK_TO_BLOG'] = 'Back to blog';
 $_LANG['FORGOT_PASSWORD'] = 'Forgot Password?';
 $_LANG['REMEMBER_ME'] = 'Remember me';
+
+$_LANG['LOW_DETECTION_LEVEL'] = 'Low detection level';
+$_LANG['MEDIUM_DETECTION_LEVEL'] = 'Medium detection level';
+$_LANG['HIGH_DETECTION_LEVEL'] = 'High detection level';
+$_LANG['SPAM_CONTROL'] = 'Spam control';
+
+$_LANG['DISAPPROVE'] = 'Disapprove';
+$_LANG['APPROVE_SPAM_DETECTED'] = 'Approve (Spam detected)';
+$_LANG['APPROVE'] = 'Approve';
+$_LANG['API_KEY'] = 'Api Key';
+
+$_LANG['INSERT_THE_API_KEY_HERE'] = 'Insert the API key here. If you don\'t have one yet, or are not familiar with this feature, please check the Nibbleblog wiki.';
+$_LANG['SPAM_MONITOR'] = 'Spam monitor';
+
+$_LANG['ENABLE_THIS_FEATURE_TO_PROTECT_AGAINST_XSS'] = 'Enable this feature to protect against cross-site scripting (XSS) attacks by sanitizing any HTML code.';
+$_LANG['ENABLE_THIS_FEATURE_TO_MODERATE_COMMENTS'] = 'Enable this feature to moderate comments before they are published.';
+$_LANG['ENABLE_THIS_FEATURE_TO_PROTECT_YOUR_COMMENTS'] = 'Enable this feature to protect your comments from spam.';
+$_LANG['ENABLE_THIS_FEATURE_TO_DELETE_SPAM_AUTO'] = 'Enable this feature to delete spam automatically.';
+$_LANG['COMMENTS_DETECTED_AS_SPAM_WILL_BE_FILTERED'] = 'Comments detected as spam will be filtered.';
+
+$_LANG['NOTIFY_WHEN_A_USER_MAKES_A_COMMENT'] = 'Notify when a user makes a comment.';
+$_LANG['NOTIFY_WHEN_A_USER_FAILS_TO_LOGIN'] = 'Notify when a user fails to login.';
+$_LANG['NOTIFY_WHEN_A_USER_SUCCESSES_LOGIN'] = 'Notify when a user successes login';
+$_LANG['NOTIFICATIONS_WILL_BE_SENT_TO_THIS_EMAIL'] = 'Notifications will be sent to this email.';
+$_LANG['NOTIFICATIONS_WILL_BE_SENT_FROM_THIS_EMAIL'] = 'Notifications will be sent from this email.';
+$_LANG['EMAIL_ACCOUNTS_SETTINGS'] = 'Email accounts settings';
+$_LANG['NOTIFY_ME_FROM'] = 'Notify me from';
+$_LANG['NOTIFY_ME_TO'] = 'Notify me to';
+$_LANG['NOTIFICATIONS_VIA_EMAIL'] = 'Notifications via Email';
+$_LANG['YOUR_COMMENT_IS_UNDER_REVIEW_IT_WILL_BE'] = 'Your comment is under review, it will be published shortly';
+
+$_LANG['SANITIZE_HTML_CODE'] = 'Sanitize HTML code';
+$_LANG['MODERATE_COMMENTS'] = 'Moderate comments';
+$_LANG['ENABLE_SPAM_MONITOR'] = 'Enable spam monitor';
+$_LANG['AUTOMATICALLY_DELETE_SPAM'] = 'Automatically delete spam';
+
+$_LANG['COMMENT_SETTINGS'] = 'Comment settings';
+
+$_LANG['MANAGE_COMMENTS'] = 'Manage comments';
+
+$_LANG['BASIC_CONFIGURATION_OF_YOUR_BLOG'] = 'Basic configuration of your blog';
 
 ?>

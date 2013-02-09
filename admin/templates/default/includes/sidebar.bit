@@ -20,7 +20,7 @@
 
 		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=settings', 'content'=>$_LANG['SETTINGS']) );
 
-		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list', 'content'=>'Manage comments') );
+		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list', 'content'=>$_LANG['MANAGE_COMMENTS']) );
 
 	echo Html::div_close();
 

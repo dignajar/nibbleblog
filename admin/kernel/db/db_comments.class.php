@@ -222,7 +222,7 @@ class DB_COMMENTS {
 			$tmp_array = array();
 			$tmp_array['monitor_enable'] 		= (int) $this->obj_xml->getChild('monitor_enable');
 			$tmp_array['monitor_api_key'] 		= (string) $this->obj_xml->getChild('monitor_api_key');
-			$tmp_array['monitor_spaminess'] 	= (float) $this->obj_xml->getChild('monitor_spaminess');
+			$tmp_array['monitor_spam_control'] 	= (float) $this->obj_xml->getChild('monitor_spam_control');
 			$tmp_array['monitor_auto_delete'] 	= (float) $this->obj_xml->getChild('monitor_auto_delete');
 			$tmp_array['sleep'] 				= (int) $this->obj_xml->getChild('sleep');
 			$tmp_array['sanitize'] 				= (int) $this->obj_xml->getChild('sanitize');

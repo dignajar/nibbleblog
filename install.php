@@ -164,10 +164,9 @@ Date::set_timezone('UTC');
 		$obj = new NBXML($xml, 0, FALSE, '', FALSE);
 		$obj->addChild('moderate', 1);
 		$obj->addChild('sanitize', 1);
-		$obj->addChild('sleep', '2');
 		$obj->addChild('monitor_enable', 0);
 		$obj->addChild('monitor_api_key', '');
-		$obj->addChild('monitor_spaminess', '0.75');
+		$obj->addChild('monitor_spam_control', '0.75');
 		$obj->addChild('monitor_auto_delete', 0);
 		$obj->asXml( FILE_XML_COMMENTS );
 

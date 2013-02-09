@@ -1,5 +1,6 @@
 <?php
 
+// LEFT SIDE
 echo Html::div_open( array('class'=>'dashboard_left') );
 
 	// QUICK LINKS
@@ -22,37 +23,10 @@ echo Html::div_open( array('class'=>'dashboard_left') );
 
 		echo Html::link( array( 'class'=>'item bg_settings', 'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=general', 'content'=>
 			Html::span( array('class'=>'type', 'content'=>$_LANG['GENERAL_SETTINGS']) ).
-			Html::span( array('class'=>'description', 'content'=>'Basic configuration of your blog') )
+			Html::span( array('class'=>'description', 'content'=>$_LANG['BASIC_CONFIGURATION_OF_YOUR_BLOG']) )
 		));
 
 	echo Html::div_close();
-
-	// LAST COMMENTS
-	/*
-	echo Html::div_open( array('class'=>'dashboard_last_comments') );
-
-		echo Html::separator( array('content'=>$_LANG['LAST_COMMENTS']) );
-
-		if(empty($last_comments))
-		{
-			echo Html::p( array('class'=>'no_comments', 'content'=>$_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS']) );
-		}
-		else
-		{
-			foreach($last_comments as $comment)
-			{
-				$date = Date::format($comment['pub_date_unix'], COMMENT_DATE_FORMAT);
-
-				echo Html::link( array('class'=>'notification notification_last_comments', 'href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list&amp;id_post='.$comment['id_post'],
-					'content'=>
-					Html::div( array('class'=>'type', 'content'=>$comment['content']) ).
-					Html::div( array('class'=>'info', 'content'=>$_LANG['AUTHOR'].': '.$comment['author_name'].' · '.$_LANG['DATE'].': '.$date) )
-				) );
-			}
-		}
-
-	echo Html::div_close();
-	*/
 
 echo Html::div_close();
 

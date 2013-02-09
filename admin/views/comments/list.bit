@@ -29,17 +29,17 @@
 				echo Html::div_open( array('class'=>'options'));
 					if($comment['type']=='NULL')
 					{
-						echo Html::link( array('class'=>'js_button_unapprove', 'data-id'=>$comment['id'], 'content'=>'Unapprove') );
+						echo Html::link( array('class'=>'js_button_unapprove', 'data-id'=>$comment['id'], 'content'=>$_LANG['DISAPPROVE']) );
 					}
 					else
 					{
 						if($comment['type']=='spam')
 						{
-							echo Html::link( array('class'=>'js_button_approve', 'data-id'=>$comment['id'], 'content'=>'Approve (Spam detected)') );
+							echo Html::link( array('class'=>'js_button_approve', 'data-id'=>$comment['id'], 'content'=>$_LANG['APPROVE_SPAM_DETECTED']) );
 						}
 						else
 						{
-							echo Html::link( array('class'=>'js_button_approve', 'data-id'=>$comment['id'], 'content'=>'Approve') );
+							echo Html::link( array('class'=>'js_button_approve', 'data-id'=>$comment['id'], 'content'=>$_LANG['APPROVE']) );
 						}
 					}
 					echo Html::link( array('class'=>'js_button_delete', 'data-flag'=>'0', 'data-id'=>$comment['id'], 'content'=>$_LANG['DELETE']) );
