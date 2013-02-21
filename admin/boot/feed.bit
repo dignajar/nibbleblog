@@ -1,17 +1,13 @@
 <?php
+// =====================================================================
+//	RULES
+// =====================================================================
+	require('rules/1-fs_php.bit');
+	require('rules/2-objects.bit');
+	require('rules/3-variables.bit');
 
-// ============================================================================
-//	INCLUDES
-// ============================================================================
-	require('init/1-fs_php.bit');
-	require('init/2-objects.bit');
-	require('init/3-variables.bit');
+	require('rules/5-regional.bit');
 
-	require('init/5-regional.bit');
-
-// ============================================================================
-// VARIABLES
-// ============================================================================
-	$posts = $_DB_POST->get_list_by_page( array('page'=>0, 'amount'=>$settings['items_rss']) );
+	require('rules/8-posts_feed.bit');
 
 ?>

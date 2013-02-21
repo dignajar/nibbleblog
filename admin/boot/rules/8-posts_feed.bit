@@ -1,0 +1,16 @@
+<?php
+/*
+ * Nibbleblog
+ * http://www.nibbleblog.com
+
+ * Require
+ * $settings
+ * $_DB_POST
+
+ * Return
+ * (array) $posts
+*/
+
+	$posts = $_DB_POST->get_list_by_page( array('page'=>0, 'amount'=>$settings['items_rss']) );
+
+?>

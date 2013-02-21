@@ -1,14 +1,13 @@
 <?php
 /*
-========================================================================
-Nibbleblog
-http://www.nibbleblog.com
+ * Nibbleblog
+ * http://www.nibbleblog.com
 
-==== Require ====
+ * Require
+ *
 
-=== Return ===
-
-========================================================================
+ * Return
+ * (string) $current_path
 */
 
 // =====================================================================
@@ -31,6 +30,7 @@ http://www.nibbleblog.com
 	define('PATH_KERNEL',			PATH_ADMIN.'kernel/');
 	define('PATH_HELPERS',			PATH_ADMIN.'kernel/helpers/');
 	define('PATH_DB',				PATH_ADMIN.'kernel/db/');
+	define('PATH_API',				PATH_ADMIN.'kernel/api/');
 
 	define('PATH_ADMIN_CONTROLLER',	PATH_ADMIN.'controllers/');
 	define('PATH_ADMIN_VIEW',		PATH_ADMIN.'views/');

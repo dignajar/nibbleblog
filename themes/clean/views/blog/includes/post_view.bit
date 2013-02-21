@@ -1,9 +1,16 @@
 <?php
 
-	// ----- POST HEADER
-	// print title if this is not empty
-	if( !empty($post['title']) )
-		echo '<h1 class="title">'.$post['title'].'</h1>';
+	// ----- POST HEAD
+	echo '<header class="post">';
+
+		// print publish date
+		echo '<div class="date">'.$post['pub_date'].'</div>';
+
+		// print title if this is not empty
+		if( !empty($post['title']) )
+			echo '<h1 class="title">'.$post['title'].'</h1>';
+
+	echo '</header>';
 
 
 	// ----- POST CONTENT
@@ -29,12 +36,14 @@
 	// ----- POST FOOTER
 	echo '<footer class="post">';
 
-		echo '<span class="date">'.$post['pub_date'].'</span>';
-
 		if($post['read_more'])
 			echo '<a href="'.$post['permalink'].'">'.$_LANG['READ_MORE'].'</a>';
 		else
 			echo '<a href="'.$post['permalink'].'">'.$_LANG['PERMALINK'].'</a>';
+
+		echo ' · ';
+
+		echo '<a href="'.$post['permalink'].'#comment_form">'.$_LANG['COMMENTS'].' ('.count($post['comments']).')</a>';
 
 	echo '</footer>';
 

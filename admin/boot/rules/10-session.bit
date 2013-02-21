@@ -1,16 +1,15 @@
 <?php
 /*
-========================================================================
-Nibbleblog
-http://www.nibbleblog.com
+ * Nibbleblog
+ * http://www.nibbleblog.com
 
-==== Require ====
-* $posts
+ * Require
+ * $posts
 
-=== Return ===
-
-========================================================================
+ * Return
+ *
 */
+
 	if( !isset($_SESSION['nibbleblog']) )
 	{
 		Session::init();

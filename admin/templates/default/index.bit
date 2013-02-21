@@ -51,6 +51,10 @@
 
 		</div>
 
+		<div id="container_footer">
+			<p><a href="http://nibbleblog.com">Nibbleblog v<?php echo NIBBLEBLOG_VERSION ?> "<?php echo NIBBLEBLOG_NAME ?>"</a></p>
+		</div>
+
 	</div>
 
 </body>

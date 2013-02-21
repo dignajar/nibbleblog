@@ -16,8 +16,8 @@ class Comment {
 	VARIABLES
 ======================================================================================
 */
-	private $comment_db;
-	private $notification_db;
+	private $db;
+	private $db_notification;
 
 	private $settings;
 	private $comment_settings;
@@ -27,12 +27,13 @@ class Comment {
 	CONSTRUCTORS
 ======================================================================================
 */
-	function __construct($comment_db, $notification_db, $settings)
+	function __construct($db, $db_notification, $settings)
 	{
-		$this->comment_db = $comment_db;
-		$this->notification_db = $notification_db;
+		$this->db = $db;
+		$this->db_notification = $db_notification;
+
 		$this->settings = $settings;
-		$this->comment_settings = $comment_db->get_settings();
+		$this->comment_settings = $db->get_settings();
 	}
 
 /*
@@ -82,16 +83,78 @@ class Comment {
 		if( ($data['type']!='spam') || !$this->comment_settings['monitor_auto_delete'] )
 		{
 			// Add comment
-			$this->comment_db->add($data);
+			$this->db->add($data);
 
 			// Add notification
-			$this->notification_db->add('comment', $this->settings['notification_comments'], 'YOU_HAVE_A_NEW_COMMENT');
+			$this->db_notification->add('comment', $this->settings['notification_comments'], 'YOU_HAVE_A_NEW_COMMENT');
 		}
 
 		// Clean session
 		Session::init();
 
 		return($data['type']=='NULL');
+	}
+
+	// Return array with the comment if exist
+	// Return empty array if not exist
+	public function get($id)
+	{
+		$comment = $this->db->get( array('id'=>$id) );
+
+		if($comment==false)
+		{
+			return(array());
+		}
+
+		return($comment);
+	}
+
+	// Returns an array if there are comments in the system
+	// Returns an empty array if there are not comment on the system
+	public function get_by_page($page, $amount)
+	{
+		$comments = $this->db->get_list_by_page( array('page_number'=>$page, 'amount'=>$amount) );
+
+		if($comments==false)
+		{
+			return(array());
+		}
+
+		return($comments);
+	}
+
+	// Returns an array if there are comments in the post
+	// Returns an empty array if there are not comment on the post
+	public function get_by_post($id_post)
+	{
+		$comments = $this->db->get_list_by_post( array('id_post'=>$id_post) );
+
+		if($comments==false)
+		{
+			return(array());
+		}
+
+		return($comments);
+	}
+
+	// Returns an array if there are comments
+	// Returns an empty array if there are not comment
+	public function get_last($amount)
+	{
+		$comments = $this->db->get_last( array('amount'=>$amount) );
+
+		if($comments==false)
+		{
+			return(array());
+		}
+
+		return($comments);
+	}
+
+	// Return an array with the comments settings
+	public function get_settings()
+	{
+		return( $this->db->get_settings() );
 	}
 
 /*

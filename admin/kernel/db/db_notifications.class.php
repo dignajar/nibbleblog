@@ -56,7 +56,7 @@ class DB_NOTIFICATIONS {
 		{
 			global $_LANG;
 
-			if( count( $this->obj_xml->notification ) >= AMOUNT_OF_NOTIFICATIONS )
+			if( count( $this->obj_xml->notification ) >= NOTIFICATIONS_AMOUNT )
 				unset( $this->obj_xml->notification[0] );
 
 			// Email

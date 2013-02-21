@@ -83,6 +83,16 @@ a:hover {
 }
 
 /* ============================== */
+/* PAGES - 404 */
+/* ============================== */
+
+div.page_404 {
+    font-size: 16em;
+    margin-bottom: 75px;
+    text-align: center;
+}
+
+/* ============================== */
 /* PAGER */
 /* ============================== */
 #pager {
@@ -158,6 +168,16 @@ article.post	h1.title {
 	color: #333;
 	font-size: 2em;
 	margin: 0;
+}
+
+header.post		div.date {
+    background-color: #EEEEEE;
+    color: #666666;
+    display: inline-block;
+    font-size: 0.9em;
+    letter-spacing: 2px;
+    padding: 5px;
+    margin-bottom: 10px;
 }
 
 /* ============================== */

@@ -1,19 +1,17 @@
 <?php
 /*
-========================================================================
-Nibbleblog
-http://www.nibbleblog.com
+ * Nibbleblog
+ * http://www.nibbleblog.com
 
-==== Require ====
-* $_DB_SETTINGS
-* $settings
+ * Require
+ * $settings
+ * $_DB_SETTINGS
 
-=== Return ===
-* $plugins
-* $plugins_all
-* $plugins_installed
-
-========================================================================
+ * Return
+ * (array) $plugins
+ * (array) $plugins_all
+ * (array) $plugins_installed
+ * (array) $plugins_by_name
 */
 
 	$plugins_on_system = $_DB_SETTINGS->get_plugins_on_system();

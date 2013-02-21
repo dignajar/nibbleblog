@@ -1,18 +1,15 @@
 <?php
 /*
-========================================================================
-Nibbleblog
-http://www.nibbleblog.com
+ * Nibbleblog
+ * http://www.nibbleblog.com
 
-==== Require ====
-* $url
-* $settings
-* $_DB_POST
+ * Require
+ * $url
+ * $settings
+ * $_DB_POST
 
-=== Return ===
-* $pager
-
-========================================================================
+ * Return
+ * (array) $pager
 */
 
 	$pager_next = $url['page'] + 1;

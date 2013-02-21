@@ -37,13 +37,6 @@
 			echo Html::div( array('content'=>$_LANG['ADVANCED_OPTIONS_WHEN_PUBLISHING_CONTENT'], 'class'=>'input_tip') );
 		echo Html::div_close();
 
-		// ENABLE OR DISABLE WYSIWYG
-		echo Html::div_open( array('class'=>'form_block'));
-			echo Html::checkbox( array('id'=>'js_enable_wysiwyg', 'name'=>'enable_wysiwyg', 'class'=>'float'), $settings['enable_wysiwyg'] );
-			echo Html::label( array('content'=>$_LANG['ENABLE_WYSIWYG_EDITOR'], 'class'=>'for_checkbox', 'for'=>'js_enable_wysiwyg') );
-			echo Html::div( array('content'=>$_LANG['ENABLE_OR_DISABLE_THE_WYSIWYG_EDITOR'], 'class'=>'input_tip') );
-		echo Html::div_close();
-
 		// FRIENDLY URL
 		echo Html::separator( array('content'=>$_LANG['FRIENDLY_URLS']) );
 

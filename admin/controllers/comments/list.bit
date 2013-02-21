@@ -7,8 +7,8 @@
 // ============================================================================
 //	VARIABLES
 // ============================================================================
+	$comments = $_DB_COMMENTS->get_list_by_page(array('page_number'=>$url['page'], 'amount'=>COMMENTS_AMOUNT));
 
-	$comments = $_DB_COMMENTS->get_list_by_page(array('page_number'=>$url['page'], 'amount'=>AMOUNT_OF_COMMENTS));
+	$total_pages = ceil($_DB_COMMENTS->get_count() / COMMENTS_AMOUNT);
 
-	$total_pages = ceil($_DB_COMMENTS->get_count() / AMOUNT_OF_COMMENTS);
 ?>

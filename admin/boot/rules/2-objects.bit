@@ -1,22 +1,21 @@
 <?php
 /*
-========================================================================
-Nibbleblog
-http://www.nibbleblog.com
+ * Nibbleblog
+ * http://www.nibbleblog.com
 
-==== Require ====
+ * Require
+ *
 
-=== Return ===
-* $Login
-* $Resize
-* $_DB_SETTINGS
-* $_DB_CATEGORIES
-* $_DB_NOTIFICATIONS
-* $_DB_POST
-* $_DB_COMMENTS
-* $Comment
-
-========================================================================
+ * Return
+ * (object) $Login
+ * (object) $Resize
+ * (object) $Comment
+ * (object) $Post
+ * (object) $_DB_SETTINGS
+ * (object) $_DB_CATEGORIES
+ * (object) $_DB_NOTIFICATIONS
+ * (object) $_DB_POST
+ * (object) $_DB_COMMENTS
 */
 
 // =====================================================================
@@ -30,7 +29,7 @@ http://www.nibbleblog.com
 	require(PATH_HELPERS . 'resize.class.php');
 
 	// Static Helpers
-	require(PATH_HELPERS . 'comment.class.php');
+	require(PATH_HELPERS . 'cookie.class.php');
 	require(PATH_HELPERS . 'crypt.class.php');
 	require(PATH_HELPERS . 'date.class.php');
 	require(PATH_HELPERS . 'email.class.php');
@@ -53,6 +52,11 @@ http://www.nibbleblog.com
 	require(PATH_DB . 'db_comments.class.php');
 	require(PATH_DB . 'db_notifications.class.php');
 
+	// Api
+	require(PATH_API . 'comment.class.php');
+	require(PATH_API . 'post.class.php');
+
+
 // =====================================================================
 //	OBJECTS
 // =====================================================================
@@ -73,7 +77,7 @@ http://www.nibbleblog.com
 		$_DB_COMMENTS		= new DB_COMMENTS( FILE_XML_COMMENTS, $_DB_SETTINGS->get() );
 	}
 
-	// APIs for Themers
-	$Comment = new Comment($_DB_COMMENTS, $_DB_NOTIFICATIONS, $_DB_SETTINGS->get());
-
+	// API for humans
+	$Comment	= new Comment($_DB_COMMENTS, $_DB_NOTIFICATIONS, $_DB_SETTINGS->get());
+	$Post		= new Post($_DB_POST);
 ?>

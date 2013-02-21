@@ -1,23 +1,22 @@
 <?php
 /*
-========================================================================
-Nibbleblog
-http://www.nibbleblog.com
+ * Nibbleblog
+ * http://www.nibbleblog.com
 
-==== Require ====
-* $url
-* $settings
-* $_DB_CATEGORIES
-* $_DB_POST
-* $_DB_COMMENTS
+ * Require
+ * $url
+ * $settings
+ * $_DB_CATEGORIES
+ * $_DB_POST
+ * $_DB_COMMENTS
 
-=== Return ===
-* $posts
-
-========================================================================
+ * Return
+ * (array) $posts
+ * (array) $post
 */
 
 	$posts = array();
+	$post = array();
 
 	// ---- POSTS FILTER BY CATEGORY
 	if($url['category']!=null)
@@ -56,7 +55,6 @@ http://www.nibbleblog.com
 // =====================================================================
 // CLEANING
 // =====================================================================
-	unset($post);
 	unset($id_cat);
 
 ?>

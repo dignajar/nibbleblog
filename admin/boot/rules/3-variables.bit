@@ -1,18 +1,15 @@
 <?php
 /*
-========================================================================
-Nibbleblog
-http://www.nibbleblog.com
+ * Nibbleblog
+ * http://www.nibbleblog.com
 
-==== Require ====
-* $_DB_CATEGORIES
-* $_DB_SETTINGS
+ * Require
+ * $_DB_CATEGORIES
+ * $_DB_SETTINGS
 
-=== Return ===
-* $settings
-* $categories
-
-========================================================================
+ * Return
+ * (array) $settings
+ * (array) $categories
 */
 
 // =====================================================================
@@ -24,22 +21,28 @@ http://www.nibbleblog.com
 	// Categories
 	$categories = $_DB_CATEGORIES->get_all();
 
+	// Variables for ajax boot
+	$error = false;
+	$safe = array();
+
 // =====================================================================
 //	CONSTANTS
 // =====================================================================
-	define('AMOUNT_OF_NOTIFICATIONS',	8);
-	define('AMOUNT_OF_COMMENTS',		8);
-	define('AMOUNT_OF_POSTS',			8);
-	define('LOGIN_SLEEP',				2);
+	define('LOGIN_SLEEP',			2);
 
-	define('SESSION_DATE_FORMAT',	'%I:%M:%S %p - %m/%d/%y');
-	define('COMMENT_DATE_FORMAT',	'%I:%M:%S %p - %m/%d/%y');
-	define('POST_DATE_FORMAT',		'%I:%M:%S %p - %m/%d/%y');
+	define('NOTIFICATIONS_AMOUNT',	8);
+	define('LAST_COMMENTS_AMOUNT',	8);
+	define('COMMENTS_AMOUNT',		8);
+	define('POSTS_AMOUNT',			8);
+
+	define('NOTIFICATION_DATE_FORMAT',	'%d %B - %k:%M:%S');
+	define('LAST_COMMENT_DATE_FORMAT',	'%d %B - %k:%M:%S');
+	define('COMMENT_DATE_FORMAT',		'%I:%M:%S %p - %m/%d/%y');
+	define('POST_DATE_FORMAT',			'%I:%M:%S %p - %m/%d/%y');
 
 // =====================================================================
 //	HTML
 // =====================================================================
-
 	define('HTML_PATH_ROOT',			$settings['path']);
 
 	define('HTML_PATH_ADMIN',			HTML_PATH_ROOT.'admin/');
@@ -70,6 +73,12 @@ http://www.nibbleblog.com
 // =====================================================================
 //	JAVASCRIPT
 // =====================================================================
-	define('JS_JQUERY',					HTML_PATH_ADMIN_JS.'jquery/jquery.js');
+	// Comment if you are using jQuery from other server
+	define('JS_JQUERY',				HTML_PATH_ADMIN_JS.'jquery/jquery.js');
 
+	// Uncomment if you want to use jQuery from Google's servers
+	//define('JS_JQUERY',				'//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
+
+	// Uncomment if you want to use jQuery from jQuery's servers
+	//define('JS_JQUERY',				'http://code.jquery.com/jquery-latest.min.js');
 ?>

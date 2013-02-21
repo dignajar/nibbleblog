@@ -34,6 +34,8 @@
 		'template'=>'default.bit',
 		'title'=>$settings['name'].' - '.$settings['slogan'],
 		'description'=>$settings['about'],
+		'author'=>'',
+		'keywords'=>'',
 		'feed'=>HTML_PATH_ROOT.'feed.php'
 	);
 
@@ -41,6 +43,13 @@
 	{
 		$layout['controller']	= $url['controller'].'/'.$url['action'].'.bit';
 		$layout['view']			= $url['controller'].'/'.$url['action'].'.bit';
+
+		// Post not found
+		if( empty($post) )
+		{
+			$layout['controller']	= 'page/404.bit';
+			$layout['view']			= 'page/404.bit';
+		}
 	}
 
 	if(isset($theme['template'][$url['controller']]))

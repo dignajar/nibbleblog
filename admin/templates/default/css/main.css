@@ -56,6 +56,16 @@ body {
 }
 
 /* ============================== */
+/* FOOTER
+/* ============================== */
+#container_footer {
+    border-top: 1px solid #EBEBEB;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+/* ============================== */
 /* SUBHEAD
 /* ============================== */
 
@@ -121,7 +131,7 @@ div.separator {
     font-size: 1.6em;
     font-style: italic;
     margin: 10px 0;
-    padding: 0;
+    line-height: 22px;
 }
 
 .remove_margin_top {
@@ -168,22 +178,6 @@ div.dashboard_qlinks	a.item:hover {
 	border-bottom: 2px solid #749ACF;
 }
 
-div.dashboard_qlinks	.bg_post_simple {
-	background: url(img/pencil.png) 10px 50% no-repeat;
-}
-
-div.dashboard_qlinks	.bg_post_video {
-	background: url(img/film.png) 10px 50% no-repeat;
-}
-
-div.dashboard_qlinks	.bg_post_quote {
-	background: url(img/quotes-left.png) 10px 50% no-repeat;
-}
-
-div.dashboard_qlinks	.bg_settings {
-	background: url(img/cog.png) 10px 50% no-repeat;
-}
-
 div.dashboard_qlinks	a.item span.type {
 	font-size: 1.4em;
 	display: block;
@@ -204,7 +198,7 @@ div.dashboard_last_comments {
 }
 
 a.notification_last_comments {
-	background: url('img/bubble.png') no-repeat 16px center #F9F9F9;
+	background: url('img/16comment.png') no-repeat 16px center #F9F9F9;
     border: 1px solid #EEEEEE;
     text-decoration: none;
     color: #555555;
@@ -243,17 +237,17 @@ a.notification	div.info {
 }
 
 div.notification_session_start {
-	background: url("img/user.png") no-repeat scroll 16px center #F9F9F9;
+	background: url("img/16user.png") no-repeat scroll 16px center #F9F9F9;
     border: 1px solid #EEEEEE;
 }
 
 div.notification_session_fail {
-	background: url("img/wondering.png") no-repeat scroll 16px center #F9F9F9;
+	background: url("img/16sessionfail.png") no-repeat scroll 16px center #F9F9F9;
     border: 1px solid #EEEEEE;
 }
 
 div.notification_comment {
-	background: url("img/bubble.png") no-repeat scroll 16px center #F9F9F9;
+	background: url("img/16comment.png") no-repeat scroll 16px center #F9F9F9;
     border: 1px solid #EEEEEE;
 }
 
@@ -357,7 +351,7 @@ div.form_block		input[type="submit"].draft:hover {
 }
 
 div.form_block		.uploader_button {
-    background: url("img/picture.png") no-repeat scroll 5px 0 #F0F0EE;
+    background: url("img/picture.png") no-repeat scroll 11px 3px #F0F0EE;
     border-bottom: 1px solid #CCCCCC;
     border-left: 1px solid #CCCCCC;
     border-right: 1px solid #CCCCCC;
@@ -590,18 +584,49 @@ div.menu_box div.title {
     font-size: 1.5em;
 }
 
-div.menu_box div.bg_posts {
-	background: url("img/file.png") no-repeat scroll 3px 0 transparent;
+/* ============================== */
+/* ICONS
+/* ============================== */
+
+.icons_menu_posts_16 {
+	background: url("img/16posts.png") no-repeat 6px 3px;
 }
 
-div.menu_box div.bg_settings {
-	background: url("img/settings.png") no-repeat scroll 3px 0 transparent;
+.icons_menu_manage_16 {
+	background: url("img/16manage.png") no-repeat 6px 3px;
 }
 
-div.menu_box div.bg_plugins {
-	background: url("img/power-cord.png") no-repeat scroll 3px 0 transparent;
+.icons_menu_settings_16 {
+	background: url("img/16settings.png") no-repeat 6px 3px;
 }
 
-div.menu_box div.bg_comment {
-	background: url("img/comment.png") no-repeat scroll 3px 0 transparent;
+.icons_menu_plugins_16 {
+	background: url("img/16plugins.png") no-repeat 6px 3px;
 }
+
+.icons_quick_simple_28 {
+	background: url("img/28simple.png") no-repeat 16px 50%;
+}
+
+.icons_quick_video_28 {
+	background: url("img/28video.png") no-repeat 16px 50%;
+}
+
+.icons_quick_quote_28 {
+	background: url("img/28quote.png") no-repeat 16px 50%;
+}
+
+.icons_quick_settings_28 {
+	background: url("img/28settings.png") no-repeat 16px 50%;
+}
+
+.icons_separator_notification_18 {
+	background: url("img/18notification.png") no-repeat;
+	padding-left: 28px;
+}
+
+.icons_separator_comment_18 {
+	background: url("img/18comment.png") no-repeat;
+	padding-left: 28px;
+}
+

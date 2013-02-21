@@ -5,8 +5,6 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 15/07/2012
-
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
 */
@@ -76,7 +74,6 @@ class DB_SETTINGS {
 			$tmp_array['timestamp_format']			= (string) $this->obj_xml->getChild('timestamp_format');
 			$tmp_array['advanced_post_options']		= (int) $this->obj_xml->getChild('advanced_post_options') == 1;
 			$tmp_array['friendly_urls']				= (int) $this->obj_xml->getChild('friendly_urls') == 1;
-			$tmp_array['enable_wysiwyg']			= (int) $this->obj_xml->getChild('enable_wysiwyg') == 1;
 
 			$tmp_array['img_resize']				= (int) $this->obj_xml->getChild('img_resize') == 1;
 			$tmp_array['img_resize_width']			= (int) $this->obj_xml->getChild('img_resize_width');
@@ -112,11 +109,6 @@ class DB_SETTINGS {
 		public function get_language()
 		{
 			return((string) $this->obj_xml->getChild('language'));
-		}
-
-		public function get_wysiwyg()
-		{
-			return( (int)$this->obj_xml->getChild('enable_wysiwyg') == 1 );
 		}
 
 		public function get_base_path()

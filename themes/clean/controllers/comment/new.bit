@@ -19,12 +19,12 @@ else
 	// Check: Anti-spam / Approve / Sanitize
 	if( !$Comment->add() )
 	{
-		Session::set_alert($_LANG['YOUR_COMMENT_IS_AWAITING_MODERATION']);
+		Session::set_alert($_LANG['YOUR_COMMENT_IS_UNDER_REVIEW_IT_WILL_BE']);
 		Session::set_error(true);
 	}
 }
 
 // Redirect to the comment form
-Redirect::url( $posts[0]['permalink'].'#comment_form' );
+Redirect::url( $post['permalink'].'#comment_form' );
 
 ?>

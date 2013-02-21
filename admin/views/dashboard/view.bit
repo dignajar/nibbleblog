@@ -6,27 +6,48 @@ echo Html::div_open( array('class'=>'dashboard_left') );
 	// QUICK LINKS
 	echo Html::div_open( array('class'=>'dashboard_qlinks') );
 
-		echo Html::link( array( 'class'=>'item bg_post_simple', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_simple', 'content'=>
+		echo Html::link( array( 'class'=>'item icons_quick_simple_28', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_simple', 'content'=>
 			Html::span( array('class'=>'type', 'content'=>$_LANG['SIMPLE']) ).
 			Html::span( array('class'=>'description', 'content'=>$_LANG['POSTING_WITH_RICH_FORMATTING']) )
 		));
 
-		echo Html::link( array( 'class'=>'item bg_post_video', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_video', 'content'=>
+		echo Html::link( array( 'class'=>'item icons_quick_video_28', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_video', 'content'=>
 			Html::span( array('class'=>'type', 'content'=>$_LANG['VIDEO']) ).
 			Html::span( array('class'=>'description', 'content'=>$_LANG['AN_EASY_WAY_TO_PUBLISH_VIDEOS']) )
 		));
 
-		echo Html::link( array( 'class'=>'item bg_post_quote', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_quote', 'content'=>
+		echo Html::link( array( 'class'=>'item icons_quick_quote_28', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_quote', 'content'=>
 			Html::span( array('class'=>'type', 'content'=>$_LANG['QUOTE']) ).
 			Html::span( array('class'=>'description', 'content'=>$_LANG['AN_EASY_WAY_TO_PUBLISH_QUOTES']) )
 		));
 
-		echo Html::link( array( 'class'=>'item bg_settings', 'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=general', 'content'=>
+		echo Html::link( array( 'class'=>'item icons_quick_settings_28', 'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=general', 'content'=>
 			Html::span( array('class'=>'type', 'content'=>$_LANG['GENERAL_SETTINGS']) ).
 			Html::span( array('class'=>'description', 'content'=>$_LANG['BASIC_CONFIGURATION_OF_YOUR_BLOG']) )
 		));
 
 	echo Html::div_close();
+
+	// LAST COMMENTS
+	echo Html::separator( array('class'=>'icons_separator_comment_18', 'content'=>$_LANG['LAST_COMMENTS']) );
+
+	if(empty($last_comments))
+	{
+		echo Html::p( array('class'=>'no_comments', 'content'=>$_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS']) );
+	}
+	else
+	{
+		foreach($last_comments as $comment)
+		{
+			$date = Date::format($comment['pub_date_unix'], LAST_COMMENT_DATE_FORMAT);
+
+			echo Html::link( array('class'=>'notification notification_last_comments', 'href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list',
+				'content'=>
+				Html::div( array('class'=>'type', 'content'=>$comment['content']) ).
+				Html::div( array('class'=>'info', 'content'=>$date.' · '.$_LANG['AUTHOR'].': '.$comment['author_name']) )
+			) );
+		}
+	}
 
 echo Html::div_close();
 
@@ -36,15 +57,15 @@ echo Html::div_open( array('class'=>'dashboard_right') );
 	// NOTIFICATIONS
 	echo Html::div_open( array('class'=>'dashboard_notifications') );
 
-		echo Html::separator( array('content'=>$_LANG['NOTIFICATIONS']) );
+		echo Html::separator( array('class'=>'icons_separator_notification_18', 'content'=>$_LANG['NOTIFICATIONS']) );
 
 		foreach($notifications as $notification)
 		{
-			$date = Date::format($notification['date'], SESSION_DATE_FORMAT);
+			$date = Date::format($notification['date'], NOTIFICATION_DATE_FORMAT);
 
 			echo Html::div_open( array('class'=>'notification notification_'.$notification['type']) );
 				echo Html::div( array('class'=>'type', 'content'=>$_LANG[$notification['message_key']]) );
-				echo Html::div( array('class'=>'info', 'content'=>$_LANG['DATE'].': '.$date.' · IP: '.$notification['ip']) );
+				echo Html::div( array('class'=>'info', 'content'=>$date.' · IP: '.$notification['ip']) );
 			echo Html::div_close();
 		}
 
