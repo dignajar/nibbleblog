@@ -1,6 +1,6 @@
 <?php
 
-	// ----- POST HEAD
+// ========== POST HEADER ==========
 	echo '<header class="post">';
 
 		// print publish date
@@ -13,22 +13,25 @@
 	echo '</header>';
 
 
-	// ----- POST CONTENT
-	// quote post
+// ========== POST CONTENT ==========
+	// Quote post
 	if($post['type']=='quote')
 	{
 		echo '<blockquote>'.$post['quote'].'</blockquote>';
 	}
 	else
 	{
-		// video post
+		// Video post
 		if($post['type']=='video')
 		{
 			$video_info = Video::video_get_info($post['video'], $theme['video_width'], $theme['video_height']);
 
-			echo '<p>'.$video_info['embed'].'</p>';
+			echo '<div class="video_embed">';
+			echo '<p class="fitvids">'.$video_info['embed'].'</p>';
+			echo '</div>';
 		}
 
+		// Video and Simple post
 		echo $post['content'][0];
 	}
 

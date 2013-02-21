@@ -21,10 +21,6 @@ body {
     padding: 0 20px;
 }
 
-#main {
-	width:100%;
-}
-
 a {
 	color: #327CCB;
 	cursor: pointer;
@@ -35,11 +31,11 @@ a:hover {
 	text-decoration: underline;
 }
 
-
 /* ============================== */
 /* HEADER */
 /* ============================== */
 #head {
+	width:100%;
 	overflow: auto;
 	margin: 75px 0;
 	font-size: 3.2em;
@@ -47,8 +43,8 @@ a:hover {
 }
 
 #head	a.name {
-	text-decoration: none;
 	color: #333;
+	text-decoration: none;
 }
 
 #head	span.slogan {
@@ -56,28 +52,17 @@ a:hover {
 }
 
 /* ============================== */
-/* HEADER POST */
+/* MAIN */
 /* ============================== */
-#head_post {
-	overflow: auto;
-	margin: 10px 0;
-	text-align: center;
-}
-
-#head_post	a.name {
-	text-decoration: none;
-	color: #333;
-	font-size: 0.9em;
-}
-
-#head_post	span.slogan {
-	color: #327CCB;
+#main {
+	width:100%;
 }
 
 /* ============================== */
 /* FOOTER */
 /* ============================== */
 #foot {
+	width:100%;
 	text-align: right;
 	font-size: 0.9em;
 }
@@ -85,7 +70,6 @@ a:hover {
 /* ============================== */
 /* PAGES - 404 */
 /* ============================== */
-
 div.page_404 {
     font-size: 16em;
     margin-bottom: 75px;
@@ -101,22 +85,41 @@ div.page_404 {
 
 #pager	a.newer {
 	float: right;
+	display: block;
 }
 
 #pager	a.older {
 	float: left;
+	display: block;
 }
 
 /* ============================== */
 /* POST VIEW*/
 /* ============================== */
 article.post {
-	margin-top: 75px;
-	margin-bottom: 75px;
+	margin: 75px 0;
 	clear: both;
 	overflow: auto;
 }
 
+/* ========== POST HEADER ========== */
+article.post	header.post		div.date {
+    background-color: #EEEEEE;
+    color: #666666;
+    display: inline-block;
+    font-size: 0.9em;
+    letter-spacing: 2px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+article.post	header.post		h1.title {
+	color: #333;
+	font-size: 2em;
+	margin: 0;
+}
+
+/* ========== POST CONTENT ========== */
 article.post	pre {
 	background: url("img/bgcode.png");
 	border: 1px solid #E8E8E8;
@@ -143,15 +146,6 @@ article.post 	blockquote {
 	font-size: 2em;
 }
 
-article.post	footer.post {
-    clear: both;
-    margin-top: 20px;
-}
-
-article.post	footer.post		span.date {
-	margin-right: 10px;
-}
-
 article.post	h1,
 article.post	h2,
 article.post	h3,
@@ -164,20 +158,18 @@ article.post	h1 {
 	font-size: 1.8em;
 }
 
-article.post	h1.title {
-	color: #333;
-	font-size: 2em;
-	margin: 0;
+article.post	div.video_embed {
+
 }
 
-header.post		div.date {
-    background-color: #EEEEEE;
-    color: #666666;
-    display: inline-block;
-    font-size: 0.9em;
-    letter-spacing: 2px;
-    padding: 5px;
-    margin-bottom: 10px;
+/* ========== POST FOOTER ========== */
+article.post	footer.post {
+    clear: both;
+    margin-top: 20px;
+}
+
+article.post	footer.post		span.date {
+	margin-right: 10px;
 }
 
 /* ============================== */

@@ -10,7 +10,6 @@
 		'url'=>'http://www.nibbleblog.com', // http://xxxxxxxxxxxxx
 		'video_width'=>'640',
 		'video_height'=>'360',
-		'comment_sleep'=>'2' // seconds
 	);
 
 ?>
