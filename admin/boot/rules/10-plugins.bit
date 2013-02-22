@@ -35,10 +35,12 @@
 		if( @!include(PATH_PLUGINS.$dir_name.'/languages/'.$settings['language'].'.bit') )
 			include(PATH_PLUGINS.$dir_name.'/languages/en_US.bit');
 
+		$plugins_all[$class]->set_lang($_PLUGIN_CONFIG['LANG']);
+
 		$plugins_all[$class]->set_attributes(
 		array(
-			'name'=>$_PLUGIN_CONFIG['LANG']['name'],
-			'description'=>$_PLUGIN_CONFIG['LANG']['description'],
+			'name'=>$_PLUGIN_CONFIG['LANG']['NAME'],
+			'description'=>$_PLUGIN_CONFIG['LANG']['DESCRIPTION'],
 			'author'=>$_PLUGIN_CONFIG['DATA']['author'],
 			'version'=>$_PLUGIN_CONFIG['DATA']['version'],
 			'url'=>$_PLUGIN_CONFIG['DATA']['url'],
@@ -47,7 +49,7 @@
 
 		// Set slug name
 		include(PATH_PLUGINS.$dir_name.'/languages/en_US.bit');
-		$plugins_all[$class]->set_slug_name($_PLUGIN_CONFIG['LANG']['name']);
+		$plugins_all[$class]->set_slug_name($_PLUGIN_CONFIG['LANG']['NAME']);
 
 		// If the plugin installed
 		if($plugins_all[$class]->init_db())

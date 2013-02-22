@@ -1,8 +1,8 @@
 <?php
 
 $_PLUGIN_CONFIG['LANG'] = array(
-	'name'=>'Twitter static',
-	'description'=>'Show the last 5 tweets of a user. Tweets must be public for this plugin to work properly.'
+	'NAME'=>'Twitter static',
+	'DESCRIPTION'=>'Show the last 5 tweets of a user. Tweets must be public for this plugin to work properly.'
 );
 
 

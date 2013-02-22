@@ -75,9 +75,10 @@
 		$_DB_NOTIFICATIONS 	= new DB_NOTIFICATIONS( FILE_XML_NOTIFICATIONS, $_DB_SETTINGS->get() );
 		$_DB_POST			= new DB_POSTS( FILE_XML_POST, $_DB_SETTINGS->get() );
 		$_DB_COMMENTS		= new DB_COMMENTS( FILE_XML_COMMENTS, $_DB_SETTINGS->get() );
+
+		// API for humans
+		$Comment	= new Comment($_DB_COMMENTS, $_DB_NOTIFICATIONS, $_DB_SETTINGS->get());
+		$Post		= new Post($_DB_POST);
 	}
 
-	// API for humans
-	$Comment	= new Comment($_DB_COMMENTS, $_DB_NOTIFICATIONS, $_DB_SETTINGS->get());
-	$Post		= new Post($_DB_POST);
 ?>

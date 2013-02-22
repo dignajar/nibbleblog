@@ -5,8 +5,6 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 06/11/2012
-
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
 */
@@ -28,6 +26,8 @@ class Plugin {
 
 	public $dir_name;
 
+	public $_LANG;
+
 	function __construct()
 	{
 		$reflector = new ReflectionClass(get_class($this));
@@ -35,6 +35,8 @@ class Plugin {
 
 		$this->display = true;
 		$this->fields = array();
+
+		$this->_LANG = array();
 	}
 
 	public function install()
@@ -190,6 +192,21 @@ class Plugin {
 	public function get_html()
 	{
 		return(false);
+	}
+
+	public function set_lang($array)
+	{
+		$this->_LANG = $array;
+	}
+
+	public function language($key)
+	{
+		if(isset($this->_LANG[$key]))
+		{
+			return( $this->_LANG[$key] );
+		}
+
+		return('');
 	}
 
 }

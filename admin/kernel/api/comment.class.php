@@ -85,8 +85,11 @@ class Comment {
 			// Add comment
 			$this->db->add($data);
 
-			// Add notification
-			$this->db_notification->add('comment', $this->settings['notification_comments'], 'YOU_HAVE_A_NEW_COMMENT');
+			if($data['type']!='spam')
+			{
+				// Add notification
+				$this->db_notification->add('comment', $this->settings['notification_comments'], 'YOU_HAVE_A_NEW_COMMENT');
+			}
 		}
 
 		// Clean session

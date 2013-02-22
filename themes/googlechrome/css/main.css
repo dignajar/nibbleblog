@@ -6,29 +6,29 @@
 
 body {
 	font-family: 'Open Sans',arial,sans-serif;
-	background-color: #F8F8F8;
+	background-color: #FFFFFF;
+	color: #666666;
 	margin: 0;
 	padding: 0 20px;
-	font-size: 0.875em;
-	color: #616161;
+	font-size: 62.5%;
 }
 
 #container {
     margin: 0 auto;
-    max-width: 980px;
+    max-width: 900px;
     min-width: 600px;
     overflow: auto;
     padding: 0 20px;
 }
 
 a {
-	color: #327CCB;
-	cursor: pointer;
-	text-decoration: none;
+    color: #000000;
+    text-decoration: none;
 }
 
 a:hover {
-	color: #00A1CB;
+	color: #33AAFF;
+	text-decoration: underline;
 }
 
 /* ============================== */
@@ -37,9 +37,12 @@ a:hover {
 #head {
 	width:100%;
 	overflow: auto;
-	margin: 30px 0;
-	font-size: 3.2em;
+	margin: 20px 0;
+	font-size: 2.6em;
 	font-weight: lighter;
+	background: url('img/logo.png') no-repeat;
+	line-height: 140px;
+	padding-left: 200px;
 }
 
 #head	a.name {
@@ -58,20 +61,18 @@ a:hover {
 	width:100%;
     margin: 0 auto;
     overflow: auto;
-    background: #FFFFFF;
-    border: 1px solid #F1F1F1;
 }
 
 #left {
-    margin-right: 290px;
-    padding: 20px 20px 0;
-    border-right: 1px solid #F1F1F1;
+	font-size: 1.32em;
+    margin-right: 260px;
 }
 
 #sidebar {
 	float: right;
 	margin-right: 10px;
-	width: 260px;
+	width: 220px;
+	font-size: 1.2em;
 }
 
 /* ============================== */
@@ -164,11 +165,13 @@ article.post	div.video_embed {
 
 /* ========== POST FOOTER ========== */
 article.post	footer.post {
-	border-top: 1px solid #F1F1F1;
-	clear: both;
-	margin-top: 20px;
-	padding-top: 10px;
-	font-size: 0.9em;
+    background-color: #EEEEEE;
+    border-bottom: 1px solid #EEEEEE;
+    color: #666666;
+    font-size: 90%;
+    line-height: 1.6;
+    margin: 20px 0 0;
+    padding: 5px 10px;
 }
 
 /* ============================== */
@@ -280,8 +283,11 @@ div.plugin_box	li {
 }
 
 div.plugin_box	h3.title {
-	font-weight: normal;
-	color: #333;
+    color: #666666;
+    font-size: 1.1em;
+    margin: 0 0 1em;
+    text-transform: uppercase;
+    font-weight: normal;
 }
 
 /* ============================== */
