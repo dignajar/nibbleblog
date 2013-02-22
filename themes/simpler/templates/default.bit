@@ -19,6 +19,9 @@
 	<!-- JQUERY -->
 	<script src="<?php echo JS_JQUERY ?>"></script>
 
+	<!-- FitVids -->
+	<script src="<?php echo HTML_THEME_JS.'jquery.fitvids.min.js' ?>"></script>
+
 	<!-- ATOM Feed 2.0 -->
 	<link rel="alternate" type="application/atom+xml" title="ATOM Feed" href="<?php echo $layout['feed'] ?>" />
 
@@ -32,6 +35,9 @@
 </head>
 <body>
 
+	<div id="container">
+
+		<!-- HEADER -->
 		<header id="head">
 			<a class="name" href="<?php echo HTML_PATH_ROOT ?>">
 				<?php echo $settings['name'] ?>
@@ -41,7 +47,10 @@
 			</span>
 		</header>
 
-		<section id="wrapper">
+		<!-- MAIN -->
+		<section id="main">
+
+			<!-- SIDEBAR -->
 			<section id="sidebar">
 				<?php
 					foreach($plugins as $plugin)
@@ -56,18 +65,31 @@
 					}
 				?>
 			</section>
-			<section id="main">
+
+			<!-- MAIN -->
+			<section id="left">
 				<?php
 					include(THEME_VIEWS . $layout['view']);
 				?>
 			</section>
+
 		</section>
 
+		<!-- FOOTER -->
 		<footer id="foot">
 			<p>
 				<a href="<?php echo $layout['feed'] ?>">Atom</a> · <?php echo $settings['footer'] ?>
 			</p>
 		</footer>
+
+	</div>
+
+	<!-- FitVids -->
+	<script>
+	$(document).ready(function(){
+		$("p.fitvids").fitVids();
+	});
+	</script>
 
 </body>
 </html>

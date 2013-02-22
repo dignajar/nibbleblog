@@ -13,24 +13,12 @@ body {
 	color: #616161;
 }
 
-#wrapper {
+#container {
     margin: 0 auto;
+    max-width: 980px;
+    min-width: 600px;
     overflow: auto;
-	max-width: 1240px;
-    background: #FFFFFF;
-    border: 1px solid #F1F1F1;
-}
-
-#main {
-    margin-right: 290px;
-    padding: 20px 20px 0;
-    border-right: 1px solid #F1F1F1;
-}
-
-#sidebar {
-	float: right;
-	margin-right: 10px;
-	width: 260px;
+    padding: 0 20px;
 }
 
 a {
@@ -43,26 +31,53 @@ a:hover {
 	color: #00A1CB;
 }
 
-
 /* ============================== */
 /* HEADER */
 /* ============================== */
 #head {
-	font-size: 2.6em;
-	font-weight: lighter;
-	margin: 40px auto;
-	max-width: 1240px;
+	width:100%;
 	overflow: auto;
+	margin: 75px 0;
+	font-size: 3.2em;
+	font-weight: lighter;
 }
 
 #head	a.name {
+	color: #333;
 	text-decoration: none;
-	color: #555;
 }
 
 #head	span.slogan {
 	color: #327CCB;
 }
+
+/* ============================== */
+/* MAIN */
+/* ============================== */
+#main {
+	width:100%;
+    margin: 0 auto;
+    overflow: auto;
+    background: #FFFFFF;
+    border: 1px solid #F1F1F1;
+}
+
+#left {
+    margin-right: 290px;
+    padding: 20px 20px 0;
+    border-right: 1px solid #F1F1F1;
+}
+
+#sidebar {
+	float: right;
+	margin-right: 10px;
+	width: 260px;
+}
+
+
+
+
+
 
 /* ============================== */
 /* FOOTER */

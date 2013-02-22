@@ -33,6 +33,7 @@ require(PATH_HELPERS . 'validation.class.php');
 // ============================================================================
 //	VARIABLES
 // ============================================================================
+$permissions_dir = 0755;
 $php_modules = array();
 $dependencies = true;
 $blog_domain = getenv('HTTP_HOST');
@@ -67,9 +68,9 @@ if(function_exists('get_loaded_extensions'))
 // Try to give permissions to the directory content
 if(!file_exists('content'))
 {
-	@mkdir('content');
+	@mkdir('content', $permissions_dir, true);
 }
-@chmod('content',0777);
+@chmod('content', $permissions_dir);
 @rmdir('content/tmp');
 $writing_test = @mkdir('content/tmp');
 
@@ -94,12 +95,12 @@ Date::set_timezone('UTC');
 
 	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	{
-		mkdir('content/private',		0777, true);
-		mkdir('content/private/plugins',0777, true);
-		mkdir('content/public',			0777, true);
-		mkdir('content/public/upload',	0777, true);
-		mkdir('content/public/posts',	0777, true);
-		mkdir('content/public/comments',0777, true);
+		mkdir('content/private',		$permissions_dir, true);
+		mkdir('content/private/plugins',$permissions_dir, true);
+		mkdir('content/public',			$permissions_dir, true);
+		mkdir('content/public/upload',	$permissions_dir, true);
+		mkdir('content/public/posts',	$permissions_dir, true);
+		mkdir('content/public/comments',$permissions_dir, true);
 
 		// Config.xml
 		$xml  = '<?xml version="1.0" encoding="utf-8" standalone="yes"?>';
