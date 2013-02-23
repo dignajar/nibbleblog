@@ -44,8 +44,8 @@
 		$layout['controller']	= $url['controller'].'/'.$url['action'].'.bit';
 		$layout['view']			= $url['controller'].'/'.$url['action'].'.bit';
 
-		// Post not found
-		if( empty($post) )
+		// 404 ?
+		if( !file_exists(THEME_CONTROLLERS.$layout['controller']) || !file_exists(THEME_VIEWS.$layout['view']) || $post==false )
 		{
 			$layout['controller']	= 'page/404.bit';
 			$layout['view']			= 'page/404.bit';

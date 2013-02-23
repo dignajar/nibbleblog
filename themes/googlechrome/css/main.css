@@ -9,7 +9,7 @@ body {
 	background-color: #FFFFFF;
 	color: #666666;
 	margin: 0;
-	padding: 0 20px;
+	padding: 0;
 	font-size: 62.5%;
 }
 
@@ -17,8 +17,6 @@ body {
     margin: 0 auto;
     max-width: 900px;
     min-width: 600px;
-    overflow: auto;
-    padding: 0 20px;
 }
 
 a {
@@ -35,14 +33,12 @@ a:hover {
 /* HEADER */
 /* ============================== */
 #head {
-	width:100%;
-	overflow: auto;
 	margin: 20px 0;
-	font-size: 2.6em;
+	font-size: 3em;
 	font-weight: lighter;
 	background: url('img/logo.png') no-repeat;
 	line-height: 140px;
-	padding-left: 200px;
+	padding-left: 230px;
 }
 
 #head	a.name {
@@ -58,7 +54,6 @@ a:hover {
 /* MAIN */
 /* ============================== */
 #main {
-	width:100%;
     margin: 0 auto;
     overflow: auto;
 }
@@ -81,7 +76,7 @@ a:hover {
 #foot {
 	width:100%;
 	text-align: right;
-	font-size: 0.9em;
+	font-size: 1.1em;
 	margin: 30px 0;
 }
 
@@ -107,6 +102,10 @@ a:hover {
 article.post {
 	margin-bottom: 60px;
 	overflow: hidden;
+}
+
+article.post	a {
+	font-weight: bold;
 }
 
 /* ========== POST HEADER ========== */
@@ -144,7 +143,6 @@ article.post	img:not(.captcha) {
 
 article.post 	blockquote {
 	font-size: 2em;
-
 }
 
 article.post	h1,
@@ -167,11 +165,18 @@ article.post	div.video_embed {
 article.post	footer.post {
     background-color: #EEEEEE;
     border-bottom: 1px solid #EEEEEE;
-    color: #666666;
-    font-size: 90%;
     line-height: 1.6;
     margin: 20px 0 0;
     padding: 5px 10px;
+    font-size:0.85em;
+}
+
+article.post	footer.post		span {
+	margin:0 3px;
+}
+
+article.post	footer.post		a {
+	font-weight: normal;
 }
 
 /* ============================== */

@@ -226,9 +226,11 @@ class DB_POSTS {
 			$this->set_file($args['id']);
 
 			if($this->files_count > 0)
+			{
 				return( $this->get_items( $this->files[0] ) );
-			else
-				return( array() );
+			}
+
+			return(false);
 		}
 
 		public function get_list_by_page($args)

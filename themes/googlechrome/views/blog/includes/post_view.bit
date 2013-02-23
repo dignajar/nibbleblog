@@ -39,16 +39,16 @@
 
 		if($post['read_more'])
 		{
-			echo '<a href="'.$post['permalink'].'">'.$_LANG['READ_MORE'].'</a>';
+			echo '<span><a href="'.$post['permalink'].'">'.$_LANG['READ_MORE'].'</a></span>';
 		}
 		else
 		{
-			echo '<a href="'.$post['permalink'].'">'.$_LANG['PERMALINK'].'</a>';
+			echo '<span><a href="'.$post['permalink'].'">'.$_LANG['PERMALINK'].'</a></span>';
 		}
 
 		echo ' · ';
 
-		echo '<a href="'.$post['permalink'].'#comment_form">'.$_LANG['COMMENTS'].' ('.count($post['comments']).')</a>';
+		echo '<span><a href="'.$post['permalink'].'#comment_form">'.$_LANG['COMMENTS'].' ('.count($post['comments']).')</a></span>';
 
 	echo '</footer>';
 

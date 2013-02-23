@@ -16,7 +16,7 @@
 */
 
 	$posts = array();
-	$post = array();
+	$post = true;
 
 	// ---- POSTS FILTER BY CATEGORY
 	if($url['category']!=null)
@@ -33,7 +33,7 @@
 		// Get post
 		$post = $_DB_POST->get( array('id'=>$url['id_post']) );
 
-		if( !empty($post) )
+		if( $post!=false )
 		{
 			$posts[0] = $post;
 		}
@@ -51,6 +51,7 @@
 	{
 		$posts[$key]['comments'] = $_DB_COMMENTS->get_list_by_post( array('id_post'=>$value['id']) );
 	}
+
 
 // =====================================================================
 // CLEANING
