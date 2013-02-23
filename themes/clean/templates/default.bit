@@ -9,6 +9,9 @@
 	<!-- DESCRIPTION -->
 	<meta name="description" content="<?php echo $layout['description'] ?>">
 
+	<!-- GENERATOR -->
+	<meta name="generator" content="<?php echo $layout['generator'] ?>">
+
 	<!-- CSS3 -->
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'normalize.css?v='.$theme['version'] ?>" />
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'main.css?v='.$theme['version'] ?>" />

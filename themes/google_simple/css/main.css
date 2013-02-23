@@ -6,41 +6,39 @@
 
 body {
 	font-family: 'Open Sans',arial,sans-serif;
-	background-color: #F8F8F8;
+	background-color: #FFFFFF;
+	color: #666666;
 	margin: 0;
-	padding: 20px;
+	padding: 0 20px;
 	font-size: 62.5%;
-	color: #616161;
 }
 
 #container {
     margin: 0 auto;
-    max-width: 980px;
+    max-width: 900px;
     min-width: 600px;
-    overflow: auto;
-    padding: 20px;
-	border: 1px solid #F1F1F1;
-	background-color: #FFFFFF;
 }
 
 a {
-	color: #327CCB;
-	cursor: pointer;
-	text-decoration: none;
+    color: #000000;
+    text-decoration: none;
 }
 
 a:hover {
-	color: #00A1CB;
+	color: #33AAFF;
+	text-decoration: underline;
 }
 
 /* ============================== */
 /* HEADER */
 /* ============================== */
 #head {
-	overflow: auto;
-	margin: 10px 0 30px 0;
-	font-size: 3.6em;
+	margin: 20px 0;
+	font-size: 3em;
 	font-weight: lighter;
+	background: url('img/logo.png') no-repeat;
+	line-height: 140px;
+	padding-left: 230px;
 }
 
 #head	a.name {
@@ -58,25 +56,28 @@ a:hover {
 #main {
     margin: 0 auto;
     overflow: auto;
-	font-size: 1.25em;
 }
 
 #left {
-    margin-right: 280px;
+	font-size: 1.32em;
+    margin-right: 260px;
 }
 
 #sidebar {
 	float: right;
-	width: 230px;
 	margin-right: 10px;
+	width: 220px;
+	font-size: 1.2em;
 }
 
 /* ============================== */
 /* FOOTER */
 /* ============================== */
 #foot {
-	text-align: center;
+	width:100%;
+	text-align: right;
 	font-size: 1.1em;
+	margin: 30px 0;
 }
 
 /* ============================== */
@@ -92,6 +93,7 @@ div.page_404 {
 #pager {
 	overflow: auto;
 	text-align: center;
+	background: url('img/pager.png') repeat;
 }
 
 #pager	a.newer {
@@ -119,21 +121,19 @@ article.post {
 	overflow: hidden;
 }
 
+article.post	a {
+	font-weight: bold;
+}
+
 /* ========== POST HEADER ========== */
-article.post	header.post		div.date {
-    background-color: #EEEEEE;
-    color: #666666;
-    display: inline-block;
-    font-size: 0.9em;
-    letter-spacing: 2px;
-    padding: 5px;
-    margin-bottom: 10px;
+article.post	header.post {
+	margin-bottom: 10px;
 }
 
 article.post	header.post		h1.title {
 	color: #333;
-	font-size: 2em;
 	margin: 0;
+	font-size: 1.8em;
 }
 
 /* ========== POST CONTENT ========== */
@@ -161,7 +161,6 @@ article.post	img:not(.captcha) {
 
 article.post 	blockquote {
 	font-size: 2em;
-
 }
 
 article.post	h1,
@@ -173,7 +172,7 @@ article.post	h5 {
 }
 
 article.post	h1 {
-	font-size: 1.8em;
+	font-size: 1.6em;
 }
 
 article.post	div.video_embed {
@@ -182,12 +181,12 @@ article.post	div.video_embed {
 
 /* ========== POST FOOTER ========== */
 article.post	footer.post {
-	border-bottom: 1px solid #F1F1F1;
-	border-top: 1px solid #F1F1F1;
-	clear: both;
-	font-size: 0.9em;
-	margin-top: 20px;
-	padding: 10px 0;
+    background-color: #EEEEEE;
+    border-bottom: 1px solid #EEEEEE;
+    line-height: 1.6;
+    margin: 20px 0 0;
+    padding: 5px 10px;
+    font-size:0.85em;
 }
 
 article.post	footer.post		span {
@@ -203,7 +202,7 @@ article.post	footer.post		a {
 /* ============================== */
 #comment_list {
 	margin-top: 30px;
-	width: 70%;
+	width: 90%;
 }
 
 #comment_list	h2 {
@@ -243,7 +242,7 @@ article.post	footer.post		a {
 /* ============================== */
 #comment_form {
 	margin-top: 30px;
-	width: 70%;
+	width: 90%;
 }
 
 #comment_form	h2 {
@@ -307,12 +306,11 @@ div.plugin_box	li {
 }
 
 div.plugin_box	h3.title {
-	border-bottom: 1px solid #F1F1F1;
-	border-top: 1px solid #F1F1F1;
-	color: #333333;
-	font-weight: normal;
-	padding: 4px 0;
-	text-transform: uppercase;
+    color: #666666;
+    font-size: 1.1em;
+    margin: 0 0 1em;
+    text-transform: uppercase;
+    font-weight: normal;
 }
 
 /* ============================== */
@@ -352,7 +350,6 @@ div.plugin_twitter_static	li.tweet {
     padding: 20px 0 8px;
     word-wrap: break-word;
 }
-
 
 /* ============================== */
 /* PLUGIN ABOUT */

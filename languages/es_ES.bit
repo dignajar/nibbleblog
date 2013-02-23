@@ -222,5 +222,6 @@ $_LANG['CATEGORIES'] = 'Categorías';
 $_LANG['TAGS'] = 'Tags';
 $_LANG['KEYWORDS'] = 'Keywords';
 $_LANG['MANAGE'] = 'Administrar';
+$_LANG['404_PAGE_NOT_FOUND'] = 'Disculpe, la página que está buscando no existe o fue eliminada.';
 
 ?>

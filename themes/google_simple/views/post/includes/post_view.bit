@@ -12,6 +12,7 @@
 
 	echo '</header>';
 
+
 // ========== POST CONTENT ==========
 	// Quote post
 	if($post['type']=='quote')

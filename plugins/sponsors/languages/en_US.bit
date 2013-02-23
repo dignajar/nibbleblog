@@ -2,8 +2,8 @@
 
 $_PLUGIN_CONFIG['LANG'] = array(
 	'NAME'=>'Sponsors',
-	'DESCRIPTION'=>'Add advertising to your blog. You can add Google Adsense advertising or other sponsor.'
+	'DESCRIPTION'=>'Add advertising to your blog. You can add Google Adsense advertising or other sponsor.',
+	'SPONSOR_CODE'=>'Sponsor code'
 );
-
 
 ?>

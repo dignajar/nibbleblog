@@ -36,6 +36,7 @@
 		'description'=>$settings['about'],
 		'author'=>'',
 		'keywords'=>'',
+		'generator'=>'Nibbleblog',
 		'feed'=>HTML_PATH_ROOT.'feed.php'
 	);
 

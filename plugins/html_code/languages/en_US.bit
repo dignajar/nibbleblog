@@ -2,7 +2,8 @@
 
 $_PLUGIN_CONFIG['LANG'] = array(
 	'NAME'=>'HTML code',
-	'DESCRIPTION'=>'Add HTML code to your blog easily.'
+	'DESCRIPTION'=>'Add HTML code to your blog easily.',
+	'HTML_CODE'=>'HTML Code'
 );
 
 

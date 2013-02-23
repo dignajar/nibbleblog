@@ -18,10 +18,6 @@ echo '<footer id="comment_form">';
 
 		<textarea name="content" placeholder="'.$_LANG['TYPE_THE_COMMENT_HERE'].'">'.Session::get_comment('content').'</textarea>
 
-		<input type="text" name="captcha" class="captcha" placeholder="'.$_LANG['COPY_THE_TEXT_ON_THE_RIGHT'].'">
-
-		<img class="captcha" src="'.HTML_PATH_ADMIN.'kernel/captcha.php?w=100&h=36&bgcolor=254,254,254&txcolor=200,25,112" />
-
 		<input type="submit" value="'.$_LANG['PUBLISH'].'">
 
 		</form>

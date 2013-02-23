@@ -13,9 +13,9 @@
 // =====================================================================
 //	SYSTEM INFORMATION
 // =====================================================================
-	define('NIBBLEBLOG_VERSION',		'3.5rc1');
-	define('NIBBLEBLOG_NAME',			'');
-	define('NIBBLEBLOG_RELEASE_DATE',	'20/02/2013');
+	define('NIBBLEBLOG_VERSION',		'3.5 rc2');
+	define('NIBBLEBLOG_NAME',			'Easter egg');
+	define('NIBBLEBLOG_RELEASE_DATE',	'23/02/2013');
 
 // =====================================================================
 //	DEBUG

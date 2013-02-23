@@ -3,9 +3,6 @@
 // ========== POST HEADER ==========
 	echo '<header class="post">';
 
-		// print publish date
-		echo '<div class="date">'.$post['pub_date'].'</div>';
-
 		// print title if this is not empty
 		if( !empty($post['title']) )
 			echo '<h1 class="title">'.$post['title'].'</h1>';
@@ -31,7 +28,29 @@
 		}
 
 		// Video and Simple post
-		echo $post['content'][0];
+		echo $post['content'][1];
 	}
+
+// ========== POST FOOTER ==========
+	echo '<footer class="post">';
+
+		echo '<span>'.$post['pub_date'].'</span>';
+
+		echo ' · ';
+
+		if($post['read_more'])
+		{
+			echo '<span><a href="'.$post['permalink'].'">'.$_LANG['READ_MORE'].'</a></span>';
+		}
+		else
+		{
+			echo '<span><a href="'.$post['permalink'].'">'.$_LANG['PERMALINK'].'</a></span>';
+		}
+
+		echo ' · ';
+
+		echo '<span><a href="'.$post['permalink'].'#comment_form">'.$_LANG['COMMENTS'].' ('.count($post['comments']).')</a></span>';
+
+	echo '</footer>';
 
 ?>

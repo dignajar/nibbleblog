@@ -2,15 +2,18 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name='robots' content='noindex,nofollow' />
 
 	<title>Nibbleblog - Dashboard</title>
 
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/normalize.css' ?>" />
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/main.css' ?>" />
 
+	<!-- JAVASCRIPT -->
+	<script charset="utf-8" src="<?php echo JS_JQUERY ?>"></script>
 	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'system.php' ?>"></script>
 	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'functions.js' ?>"></script>
-	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'jquery/jquery.js' ?>"></script>
+
 </head>
 <body>
 
@@ -56,6 +59,16 @@
 		</div>
 
 	</div>
+
+	<!-- Easter egg -->
+	<script>
+	$(document).ready(function(){
+		$('#container_head').dblclick(function() {
+			var html = $(this).html();
+			$(this).html("All you need is love or maybe Nibbleblog");
+		});
+	});
+	</script>
 
 </body>
 </html>

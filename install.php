@@ -124,7 +124,7 @@ Date::set_timezone('UTC');
 		$obj->addChild('friendly_urls',			0);
 
 		$obj->addChild('img_resize',			1);
-		$obj->addChild('img_resize_width',		1240);
+		$obj->addChild('img_resize_width',		1000);
 		$obj->addChild('img_resize_height',		600);
 		$obj->addChild('img_resize_option',		'auto');
 

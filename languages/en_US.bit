@@ -222,5 +222,5 @@ $_LANG['CATEGORIES'] = 'Categories';
 $_LANG['TAGS'] = 'Tags';
 $_LANG['KEYWORDS'] = 'Keywords';
 $_LANG['MANAGE'] = 'Manage';
-
+$_LANG['404_PAGE_NOT_FOUND'] = 'Sorry, the page you were looking for doesn’t exist.';
 ?>
