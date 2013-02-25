@@ -46,9 +46,12 @@
 			echo '<span><a href="'.$post['permalink'].'">'.$_LANG['PERMALINK'].'</a></span>';
 		}
 
-		echo ' · ';
+		if($post['allow_comments'])
+		{
+			echo ' · ';
 
-		echo '<span><a href="'.$post['permalink'].'#comment_form">'.$_LANG['COMMENTS'].' ('.count($post['comments']).')</a></span>';
+			echo '<span><a href="'.$post['permalink'].'#comment_form">'.$_LANG['COMMENTS'].' ('.count($post['comments']).')</a></span>';
+		}
 
 	echo '</footer>';
 

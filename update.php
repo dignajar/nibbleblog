@@ -27,6 +27,9 @@ require( 'languages/en_US.bit' );
 // Set timezone
 Date::set_timezone('UTC');
 
+// Variables
+$blog_domain = getenv('HTTP_HOST');
+
 ?>
 
 <!DOCTYPE HTML>
@@ -127,7 +130,7 @@ Date::set_timezone('UTC');
 				$obj->setChild('notification_session_fail',		0);
 				$obj->setChild('notification_session_start',	0);
 				$obj->setChild('notification_email_to',			'');
-				$obj->setChild('notification_email_from',		'');
+				$obj->setChild('notification_email_from',		'noreply@'.$blog_domain);
 				$obj->asXml( FILE_XML_CONFIG );
 				echo Html::p( array('class'=>'pass', 'content'=>'DB updated: '.FILE_XML_CONFIG) );
 

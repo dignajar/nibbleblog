@@ -99,15 +99,10 @@ class Comment {
 	}
 
 	// Return array with the comment if exist
-	// Return empty array if not exist
+	// Return FALSE if not exist
 	public function get($id)
 	{
 		$comment = $this->db->get( array('id'=>$id) );
-
-		if($comment==false)
-		{
-			return(array());
-		}
 
 		return($comment);
 	}
@@ -118,11 +113,6 @@ class Comment {
 	{
 		$comments = $this->db->get_list_by_page( array('page_number'=>$page, 'amount'=>$amount) );
 
-		if($comments==false)
-		{
-			return(array());
-		}
-
 		return($comments);
 	}
 
@@ -131,11 +121,6 @@ class Comment {
 	public function get_by_post($id_post)
 	{
 		$comments = $this->db->get_list_by_post( array('id_post'=>$id_post) );
-
-		if($comments==false)
-		{
-			return(array());
-		}
 
 		return($comments);
 	}
@@ -146,18 +131,13 @@ class Comment {
 	{
 		$comments = $this->db->get_last( array('amount'=>$amount) );
 
-		if($comments==false)
-		{
-			return(array());
-		}
-
 		return($comments);
 	}
 
 	// Return an array with the comments settings
 	public function get_settings()
 	{
-		return( $this->db->get_settings() );
+		return($this->db->get_settings());
 	}
 
 /*

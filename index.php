@@ -46,7 +46,7 @@
 		$layout['view']			= $url['controller'].'/'.$url['action'].'.bit';
 
 		// 404 ?
-		if( !file_exists(THEME_CONTROLLERS.$layout['controller']) || !file_exists(THEME_VIEWS.$layout['view']) || $post==false )
+		if( !file_exists(THEME_CONTROLLERS.$layout['controller']) || !file_exists(THEME_VIEWS.$layout['view']) || $page_not_found )
 		{
 			$layout['controller']	= 'page/404.bit';
 			$layout['view']			= 'page/404.bit';

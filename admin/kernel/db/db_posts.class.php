@@ -213,12 +213,8 @@ class DB_POSTS {
 			{
 				return(unlink( PATH_POSTS . $this->files[0] ));
 			}
-			else
-			{
-				return(false);
-			}
 
-			return(true);
+			return(false);
 		}
 
 		public function get($args)
@@ -239,9 +235,11 @@ class DB_POSTS {
 			$this->set_files_by_published();
 
 			if($this->files_count > 0)
+			{
 				return( $this->get_list_by($args['page'], $args['amount']) );
-			else
-				return( array() );
+			}
+
+			return(array());
 		}
 
 		public function get_list_by_page_more_drafts($args)
@@ -250,9 +248,11 @@ class DB_POSTS {
 			$this->set_files();
 
 			if($this->files_count > 0)
+			{
 				return( $this->get_list_by($args['page'], $args['amount']) );
-			else
-				return( array() );
+			}
+
+			return(array());
 		}
 
 		public function get_list_by_category($args)
@@ -261,9 +261,11 @@ class DB_POSTS {
 			$this->set_files_by_category($args['id_cat']);
 
 			if($this->files_count > 0)
+			{
 				return( $this->get_list_by($args['page'], $args['amount']) );
-			else
-				return( array() );
+			}
+
+			return(array());
 		}
 
 		public function get_count()

@@ -35,15 +35,10 @@ class Post {
 */
 
 	// Return array with the post if exist
-	// Return empty array if not exist
+	// Return FALSE if not exist
 	public function get($id)
 	{
 		$post = $this->db->get( array('id'=>$id) );
-
-		if($post==false)
-		{
-			return(array());
-		}
 
 		return($post);
 	}
@@ -54,11 +49,6 @@ class Post {
 	{
 		$posts = $this->db->get_list_by_page( array('page_number'=>$page, 'amount'=>$amount) );
 
-		if($posts==false)
-		{
-			return(array());
-		}
-
 		return($posts);
 	}
 
@@ -67,11 +57,6 @@ class Post {
 	public function get_by_category($id_category, $page, $amount)
 	{
 		$posts = $this->db->get_list_by_category( array('id_cat'=>$id_category, 'page_number'=>$page, 'amount'=>$amount) );
-
-		if($posts==false)
-		{
-			return(array());
-		}
 
 		return($posts);
 	}

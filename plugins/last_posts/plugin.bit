@@ -38,7 +38,7 @@ class PLUGIN_LAST_POSTS extends Plugin
 
 		foreach($list as $post)
 		{
-			$title = empty($post['title'])? $post['type'] : $post['title'];
+			$title = empty($post['title'])? ucfirst($post['type']) : $post['title'];
 
 			$html .= '<li><a href="'.$post['permalink'].'">'.$title.'</a></li>';
 		}

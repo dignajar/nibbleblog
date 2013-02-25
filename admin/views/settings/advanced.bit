@@ -55,6 +55,8 @@ Options -Indexes
   php_flag magic_quotes_sybase              off
 </IfModule>
 
+ErrorDocument 404 '.$settings['path'].'index.php?controller=page&action=404
+
 <IfModule mod_rewrite.c>
 	RewriteEngine on
 	RewriteBase '.$settings['path'].'

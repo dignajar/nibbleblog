@@ -75,7 +75,7 @@ a:hover {
 /* FOOTER */
 /* ============================== */
 #foot {
-	text-align: center;
+	text-align: right;
 	font-size: 1.1em;
 }
 
@@ -160,8 +160,10 @@ article.post	img:not(.captcha) {
 }
 
 article.post 	blockquote {
-	font-size: 2em;
-
+	font-size: 1.1em;
+	font-style: italic;
+	margin: 0;
+	padding: 0;
 }
 
 article.post	h1,

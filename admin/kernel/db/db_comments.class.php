@@ -142,10 +142,8 @@ class DB_COMMENTS {
 			{
 				return( $this->get_items( $this->files[0] ) );
 			}
-			else
-			{
-				return( array() );
-			}
+
+			return(false);
 		}
 
 		public function get_list_by_post($args)
@@ -158,7 +156,7 @@ class DB_COMMENTS {
 				array_push( $tmp_array, $this->get_items( $file ) );
 			}
 
-			return( $tmp_array );
+			return($tmp_array);
 		}
 
 		public function get_list_by_page($args)
@@ -167,9 +165,11 @@ class DB_COMMENTS {
 			$this->set_files();
 
 			if($this->files_count > 0)
+			{
 				return( $this->get_list_by($args['page_number'], $args['amount']) );
-			else
-				return( array() );
+			}
+
+			return(array());
 		}
 
 		public function get_last($amount)
@@ -181,9 +181,11 @@ class DB_COMMENTS {
 			$total = min($amount, $this->files_count);
 
 			for($i = 0; $i < $total; $i++)
+			{
 				array_push( $tmp_array, $this->get_items( $this->files[$i] ) );
+			}
 
-			return( $tmp_array );
+			return($tmp_array);
 		}
 
 		public function delete($args)
@@ -194,12 +196,8 @@ class DB_COMMENTS {
 			{
 				return(unlink( PATH_COMMENTS . $this->files[0] ));
 			}
-			else
-			{
-				return(false);
-			}
 
-			return(true);
+			return(false);
 		}
 
 		public function delete_all_by_post($args)
@@ -214,7 +212,7 @@ class DB_COMMENTS {
 
 		public function get_count()
 		{
-			return( $this->files_count );
+			return($this->files_count);
 		}
 
 		public function get_settings()
