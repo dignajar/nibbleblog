@@ -75,7 +75,7 @@ $(document).ready(function() {
 			{title : 'Heading 1', block : 'h1'},
 			{title : 'Heading 2', block : 'h2'},
 			{title : 'Heading 3', block : 'h3'},
-			{title : 'Console', block : 'div', classes: 'console'},
+			{title : 'Console', block : 'pre', classes: 'console'},
 		],
 
 		height:"400px",

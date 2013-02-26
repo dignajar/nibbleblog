@@ -2,7 +2,7 @@
 
 $_PLUGIN_CONFIG['LANG'] = array(
 	'NAME'=>'Twitter',
-	'DESCRIPTION'=>'Show the last 5 tweets of a user. Tweets must be public for this plugin to work properly.',
+	'DESCRIPTION'=>'Show the last 5 tweets from a user. Tweets should be public to make this plugin work properly. The tweets will be displayed with an fade in/out effect.',
 	'TWITTER_USERNAME'=>'Twitter username'
 );
 

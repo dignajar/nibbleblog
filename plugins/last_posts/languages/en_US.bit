@@ -2,7 +2,7 @@
 
 $_PLUGIN_CONFIG['LANG'] = array(
 	'NAME'=>'Last posts',
-	'DESCRIPTION'=>'Show the last posts.',
+	'DESCRIPTION'=>'Displays the last published posts, sorted by date.',
 	'AMOUNT'=>'Amount'
 );
 

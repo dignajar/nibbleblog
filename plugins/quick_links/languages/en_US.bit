@@ -2,7 +2,7 @@
 
 $_PLUGIN_CONFIG['LANG'] = array(
 	'NAME'=>'Quick Links',
-	'DESCRIPTION'=>'Quick links to the admin area (Dashboard).',
+	'DESCRIPTION'=>'Quick access to the administration panel.',
 	'HOME'=>'Home',
 	'DASHBOARD'=>'Dashboard',
 	'NEW_SIMPLE_POST'=>'New Simple post',

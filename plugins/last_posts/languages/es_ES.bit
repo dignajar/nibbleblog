@@ -1,8 +1,8 @@
 <?php
 
 $_PLUGIN_CONFIG['LANG'] = array(
-	'NAME'=>'Ultimos posts',
-	'DESCRIPTION'=>'Muestra los ultmos post publicados.',
+	'NAME'=>'Últimos posts',
+	'DESCRIPTION'=>'Muestra los últimos post publicados, ordenados por fecha.',
 	'AMOUNT'=>'Cantidad a mostrar'
 );
 
