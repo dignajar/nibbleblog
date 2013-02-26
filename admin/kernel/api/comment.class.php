@@ -161,6 +161,14 @@ class Comment {
 		if($this->comment_settings['monitor_enable'])
 		{
 			$defensio = new Defensio($this->comment_settings['monitor_api_key']);
+echo '<pre>';
+print_r($defensio);
+echo '</pre>';
+exit;
+			if(array_shift($defensio->getUser()) != 200)
+			{
+				return((float)1);
+			}
 
 			$document = array(
 							'type'=>'comment',
