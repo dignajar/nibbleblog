@@ -91,10 +91,10 @@ img.mcePageBreak {
 }
 
 .console {
-	background: url("img/console.png") no-repeat scroll 10px center #F1F1F1;
-	color: #555555;
+	background: url("img/console.png") no-repeat 8px 8px #F1F1F1;
 	display: block;
-	line-height: 50px;
+	line-height: 34px;
 	margin: 5px 0;
-	padding-left: 60px;
+	min-height: 30px;
+	padding-left: 38px;
 }

@@ -148,11 +148,13 @@ article.post	pre {
 }
 
 article.post	.console {
-    background: url("img/console.png") no-repeat scroll 5px 5px #F1F1F1;
+    background: url("img/console.png") no-repeat 8px 8px #F1F1F1;
     display: block;
+    line-height: 24px;
     margin: 5px 0;
-    min-height: 40px;
-    padding-left: 50px;
+    min-height: 30px;
+    padding-left: 38px;
+    padding-top: 5px;
 }
 
 article.post	img:not(.captcha) {
