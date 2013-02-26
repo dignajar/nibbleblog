@@ -113,8 +113,19 @@ class Defensio_REST_Client
 
         $sock = fsockopen($url['host'], $url['port'], $errno, $errstr, $conn_timeout );
 
-        if ($sock === FALSE)
-            return Array(401, '', '');
+        if ($sock === FALSE){
+            $msg = 'Impossible to open socket to ' . $url['host'] . ':' . $url['port'];
+
+            if($errno == 110)
+                $ex = new DefensioConnectionTimedout($msg);
+            else
+                $ex = new DefensioConnectionError($msg);
+
+            $ex->error_code   = $errno;
+            $ex->error_string = $errstr;
+
+            throw $ex;
+        }
 
 
         $target = $url['path'];
@@ -152,7 +163,7 @@ class Defensio_REST_Client
         fclose($sock);
 
         if($info['timed_out'])
-           return Array(401, '', '');
+            throw new DefensioConnectionTimeout();
 
         $result = explode("\r\n\r\n", $result, 2);
         $header = isset($result[0]) ? explode("\r\n", $result[0]) : '';

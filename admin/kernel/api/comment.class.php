@@ -51,7 +51,7 @@ class Comment {
 		// Comment data from session
 		$data = Session::get_comment_array();
 
-		// If the post allow comments
+		// If the post doesn't allow comments
 		if(!$data['post_allow_comments'])
 		{
 			return(false);
@@ -60,18 +60,24 @@ class Comment {
 		// Anti-spam
 		$spam_level = $this->get_spam_level($data['content']);
 
-		// Set type
-		if($spam_level>(float)$this->comment_settings['monitor_spaminess'])
-		{
-			$data['type'] = 'spam';
-		}
-		elseif($this->comment_settings['moderate'])
+		if($spam_level===false)
 		{
 			$data['type'] = 'unapproved';
 		}
 		else
 		{
-			$data['type'] = 'NULL';
+			if($spam_level>(float)$this->comment_settings['monitor_spam_control'])
+			{
+				$data['type'] = 'spam';
+			}
+			elseif($this->comment_settings['moderate'])
+			{
+				$data['type'] = 'unapproved';
+			}
+			else
+			{
+				$data['type'] = 'NULL';
+			}
 		}
 
 		// Sanitize
@@ -160,29 +166,36 @@ class Comment {
 	{
 		if($this->comment_settings['monitor_enable'])
 		{
-			$defensio = new Defensio($this->comment_settings['monitor_api_key']);
-echo '<pre>';
-print_r($defensio);
-echo '</pre>';
-exit;
-			if(array_shift($defensio->getUser()) != 200)
-			{
-				return((float)1);
-			}
+            try
+            {
+				$defensio = new Defensio($this->comment_settings['monitor_api_key']);
 
-			$document = array(
-							'type'=>'comment',
-							'content'=>$content,
-							'platform'=>'Nibbleblog',
-							'client' => 'Nibbleblog',
-							'async' => 'false'
-			);
+				// Invalid API KEY
+				if(array_shift($defensio->getUser()) != 200)
+				{
+					return(false);
+				}
 
-			$defensio_result = $defensio->postDocument($document);
+				$document = array(
+								'type'=>'comment',
+								'content'=>$content,
+								'platform'=>'Nibbleblog',
+								'client' => 'Nibbleblog',
+								'async' => 'false'
+				);
 
-			return( (float)$defensio_result[1]->spaminess );
+				$defensio_result = $defensio->postDocument($document);
+
+				return( (float)$defensio_result[1]->spaminess );
+            }
+            catch( Exception $e )
+            {
+				// Something fail, timeout, invalid key, etc...
+                return(false);
+            }
 		}
 
+		// Spam monitor disabled
 		return(0);
 	}
 
