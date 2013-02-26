@@ -9,7 +9,7 @@
  * See COPYRIGHT.txt and LICENSE.txt.
 */
 
-define('UPDATER_VERSION', '1.0');
+define('UPDATER_VERSION', '1.1');
 
 require('admin/boot/rules/1-fs_php.bit');
 require('admin/boot/rules/99-constants.bit');
@@ -111,6 +111,14 @@ $blog_domain = getenv('HTTP_HOST');
 		<section id="configuration">
 			<?php
 
+				function set_if_not($obj, $name, $value)
+				{
+					if(!$obj->is_set($name))
+					{
+						$obj->setChild($name, $value);
+					}
+				}
+
 				// notifications.xml
 				if(!file_exists(FILE_XML_NOTIFICATIONS))
 				{
@@ -126,22 +134,22 @@ $blog_domain = getenv('HTTP_HOST');
 
 				// config.xml
 				$obj = new NBXML(FILE_XML_CONFIG, 0, TRUE, '', FALSE);
-				$obj->setChild('notification_comments',			0);
-				$obj->setChild('notification_session_fail',		0);
-				$obj->setChild('notification_session_start',	0);
-				$obj->setChild('notification_email_to',			'');
-				$obj->setChild('notification_email_from',		'noreply@'.$blog_domain);
+				set_if_not($obj,'notification_comments',0);
+				set_if_not($obj,'notification_session_fail',0);
+				set_if_not($obj,'notification_session_start',0);
+				set_if_not($obj,'notification_email_to','');
+				set_if_not($obj,'notification_email_from','noreply@'.$blog_domain);
 				$obj->asXml( FILE_XML_CONFIG );
 				echo Html::p( array('class'=>'pass', 'content'=>'DB updated: '.FILE_XML_CONFIG) );
 
 				// comments.xml
 				$obj = new NBXML(FILE_XML_COMMENTS, 0, TRUE, '', FALSE);
-				$obj->setChild('moderate', 1);
-				$obj->setChild('sanitize', 1);
-				$obj->setChild('monitor_enable', 0);
-				$obj->setChild('monitor_api_key', '');
-				$obj->setChild('monitor_spam_control', '0.75');
-				$obj->setChild('monitor_auto_delete', 0);
+				set_if_not($obj,'moderate',1);
+				set_if_not($obj,'sanitize',1);
+				set_if_not($obj,'monitor_enable',0);
+				set_if_not($obj,'monitor_api_key','');
+				set_if_not($obj,'monitor_spam_control','0.75');
+				set_if_not($obj,'monitor_auto_delete',0);
 				$obj->asXml( FILE_XML_COMMENTS );
 				echo Html::p( array('class'=>'pass', 'content'=>'DB updated: '.FILE_XML_COMMENTS) );
 

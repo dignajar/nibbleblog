@@ -66,6 +66,10 @@
 		$('#container_head').dblclick(function() {
 			var html = $(this).html();
 			$(this).html("All you need is love or maybe Nibbleblog");
+			$(this).css("background","url('admin/templates/default/css/img/egg.png') no-repeat scroll 30px 50% #F9F9F9");
+			$(this).css("text-align","left");
+			$(this).css("line-height","40px");
+			$(this).css("padding-left","70px");
 		});
 	});
 	</script>

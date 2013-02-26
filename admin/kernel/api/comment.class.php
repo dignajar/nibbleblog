@@ -46,7 +46,7 @@ class Comment {
 	public function add()
 	{
 		// Sleep
-		sleep($this->comment_settings['sleep']);
+		sleep(3);
 
 		// Comment data from session
 		$data = Session::get_comment_array();

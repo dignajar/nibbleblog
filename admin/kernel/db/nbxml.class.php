@@ -45,6 +45,11 @@ class NBXML extends SimpleXMLElement
 		return( utf8_decode((string)$this->{$name}) );
 	}
 
+	public function is_set($name)
+	{
+		return isset($this->{$name});
+	}
+
 }
 
 ?>
