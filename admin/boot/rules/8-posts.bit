@@ -40,11 +40,11 @@
 	elseif($url['id_post']!==null)
 	{
 		// Get post
-		$post = $_DB_POST->get( array('id'=>$url['id_post']) );
+		$tmp = $_DB_POST->get( array('id'=>$url['id_post']) );
 
-		if( $post!==false )
+		if( $tmp!==false )
 		{
-			$posts[0] = $post;
+			$posts[0] = $tmp;
 		}
 		else
 		{
@@ -65,9 +65,15 @@
 		$posts[$key]['comments'] = $_DB_COMMENTS->get_list_by_post( array('id_post'=>$value['id']) );
 	}
 
+	if(isset($posts[0]))
+	{
+		$post = $posts[0];
+	}
+
 // =====================================================================
 // CLEANING
 // =====================================================================
 	unset($id_cat);
+	unset($tmp);
 
 ?>
