@@ -116,11 +116,9 @@ class Login {
 		$this->session_started = false;
 	}
 
-
 // =================================================================
 // Methods for return the session parameters
 // =================================================================
-
 	public function get_user_id()
 	{
 		if( isset($_SESSION['session_user']['id']) )

@@ -75,6 +75,7 @@ class DB_SETTINGS {
 			$tmp_array['advanced_post_options']		= (int) $this->obj_xml->getChild('advanced_post_options') == 1;
 			$tmp_array['friendly_urls']				= (int) $this->obj_xml->getChild('friendly_urls') == 1;
 
+			// Images
 			$tmp_array['img_resize']				= (int) $this->obj_xml->getChild('img_resize') == 1;
 			$tmp_array['img_resize_width']			= (int) $this->obj_xml->getChild('img_resize_width');
 			$tmp_array['img_resize_height']			= (int) $this->obj_xml->getChild('img_resize_height');
@@ -85,12 +86,14 @@ class DB_SETTINGS {
 			$tmp_array['img_thumbnail_height']		= (int) $this->obj_xml->getChild('img_thumbnail_height');
 			$tmp_array['img_thumbnail_option']		= (string) $this->obj_xml->getChild('img_thumbnail_option');
 
+			// Notifications
 			$tmp_array['notification_comments']		= (int) $this->obj_xml->getChild('notification_comments') == 1;
 			$tmp_array['notification_session_fail']	= (int) $this->obj_xml->getChild('notification_session_fail') == 1;
 			$tmp_array['notification_session_start']= (int) $this->obj_xml->getChild('notification_session_start') == 1;
 			$tmp_array['notification_email_to']		= (string) $this->obj_xml->getChild('notification_email_to');
 			$tmp_array['notification_email_from']	= (string) $this->obj_xml->getChild('notification_email_from');
 
+			// Regional
 			$tmp_array['locale']					= (string) $this->obj_xml->getChild('locale');
 
 			return($tmp_array);

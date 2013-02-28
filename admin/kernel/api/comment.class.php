@@ -43,10 +43,17 @@ class Comment {
 */
 	// Return TRUE if the comment is inserted
 	// Return FALSE if the comment is spam or need moderation
+	// Return -1 if comment flood or post doesn't allow comments
 	public function add()
 	{
+		// Flood protection
+		if(Session::get_last_comment_at() + COMMENT_INTERVAL > time())
+		{
+			return -1;
+		}
+
 		// Sleep
-		sleep(3);
+		sleep(2);
 
 		// Comment data from session
 		$data = Session::get_comment_array();
@@ -54,7 +61,7 @@ class Comment {
 		// If the post doesn't allow comments
 		if(!$data['post_allow_comments'])
 		{
-			return(false);
+			return -1;
 		}
 
 		// Anti-spam
@@ -96,12 +103,14 @@ class Comment {
 				// Add notification
 				$this->db_notification->add('comment', $this->settings['notification_comments'], 'YOU_HAVE_A_NEW_COMMENT');
 			}
+
+			Session::set_last_comment_at(time());
 		}
 
 		// Clean session
-		Session::init();
+		Session::reset();
 
-		return($data['type']=='NULL');
+		return $data['type']=='NULL';
 	}
 
 	// Return array with the comment if exist

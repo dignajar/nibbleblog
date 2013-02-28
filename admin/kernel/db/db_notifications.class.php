@@ -67,7 +67,7 @@ class DB_NOTIFICATIONS {
 									'from_mail'=>$this->settings['notification_email_from'],
 									'to'=>$this->settings['notification_email_to'],
 									'subject'=>$_LANG[$message_key],
-									'message'=>'IP: '.Net::get_user_ip()
+									'message'=>EMAIL_NOTIFICATIONS
 				));
 			}
 			else

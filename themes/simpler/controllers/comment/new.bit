@@ -17,7 +17,7 @@ if( Text::is_empty($data['author_email']) || Text::is_empty($data['content']))
 else
 {
 	// Check: Anti-spam / Approve / Sanitize
-	if( !$Comment->add() )
+	if( $Comment->add()===false )
 	{
 		Session::set_alert($_LANG['YOUR_COMMENT_IS_UNDER_REVIEW_IT_WILL_BE']);
 		Session::set_error(true);
