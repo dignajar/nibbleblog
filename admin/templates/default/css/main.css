@@ -1,7 +1,6 @@
 /* ============================== */
 /* BODY
 /* ============================== */
-
 body {
 	font-family: arial,sans-serif;
 	background-color: #FEFEFE;
@@ -20,7 +19,6 @@ body {
 /* ============================== */
 /* HEAD
 /* ============================== */
-
 #container_head {
 	background: url("img/logo.png") no-repeat scroll 30px 50% #F9F9F9;
 	border-bottom: 1px solid #EBEBEB;
@@ -160,7 +158,6 @@ div.dashboard_right {
 /* ============================== */
 /* DASHBOARD Quick Links
 /* ============================== */
-
 div.dashboard_qlinks {
 	margin-bottom: 40px;
 }
@@ -191,7 +188,6 @@ div.dashboard_qlinks	a.item span.description {
 /* ============================== */
 /* DASHBOARD Last comments
 /* ============================== */
-
 div.dashboard_last_comments {
 
 }
@@ -210,7 +206,6 @@ a.notification_last_comments:hover {
 /* ============================== */
 /* DASHBOARD Notifications
 /* ============================== */
-
 div.dashboard_notifications {
 
 }
@@ -281,20 +276,18 @@ div.form_block	input[type="text"].little {
 }
 
 div.form_block		select {
-	border: 1px solid #ccc;
 	width: 100%;
 	padding: 6px;
 }
 
 div.form_block		select.little {
-	border: 1px solid #ccc;
 	width: 70px;
 	padding: 5px;
 	margin-right:10px;
 }
 
 div.form_block	textarea.wysiwyg {
-	height: 402px;
+	height: 502px;
 	resize: vertical;
 }
 
@@ -325,28 +318,40 @@ div.form_block		div.input_tip {
 div.form_block		input[type="submit"].save,
 div.form_block		input[type="submit"].draft,
 div.form_block		input[type="button"].save {
-	background-color: #337ACC;
-	border: 0 none;
-	border-radius: 2px 2px 2px 2px;
-	color: #FFFFFF;
-	cursor: pointer;
-	display: inline-block;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+    color: #444444;
+    cursor: pointer;
+    display: inline-block;
     font-size: 1em;
-    padding: 6px 32px;
+    padding: 7px 33px;
+
+	background: #F1F1F1;
+	background: -moz-linear-gradient(center top , #F5F5F5, #F1F1F1);
+	background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#F1F1F1));
 }
 
 div.form_block		input[type="submit"].save:hover,
 div.form_block		input[type="button"].save:hover {
-	background-color: #1B70C9;
+	background: #E1E1E1;
+	background: -moz-linear-gradient(center top , #EFEFEF, #E1E1E1);
+	background: -webkit-gradient(linear, left top, left bottom, from(#EFEFEF), to(#E1E1E1));
 }
 
 div.form_block		input[type="submit"].draft {
-	background-color: #616161;
 	margin-left:10px;
+	color: #FFFFFF;
+
+	background: #3EACBA;
+	background: -moz-linear-gradient(center top , #48C6D4, #3EACBA);
+	background: -webkit-gradient(linear, left top, left bottom, from(#48C6D4), to(#3EACBA));
 }
 
 div.form_block		input[type="submit"].draft:hover {
-	background-color: #313131;
+	background: #3EACBA;
+	background: -moz-linear-gradient(center top , #3EAAB8, #338C98);
+	background: -webkit-gradient(linear, left top, left bottom, from(#3EAAB8), to(#338C98));
 }
 
 div.form_block		.uploader_button {
@@ -381,7 +386,6 @@ input[type=file].hidden {
 /* ============================== */
 /* PLUGIN LIST */
 /* ============================== */
-
 div.plugin {
     background-color: #F9F9F9;
     border: 1px solid #EBEBEB;
@@ -417,8 +421,7 @@ form.plugins {
 
 form.plugins	input[type="text"],
 form.plugins	input[type="password"],
-form.plugins	textarea,
-form.plugins	select {
+form.plugins	textarea {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -426,9 +429,15 @@ form.plugins	select {
 	border: 1px solid #C4C4C4;
 	border-radius: 2px;
 	color: #858585;
-	padding: 8px;
-	outline:none;
+	padding: 10px 8px;
+	outline:none; /* not focus border on chrome */
 	resize: none;
+	margin-bottom: 15px;
+}
+
+form.plugins		select {
+	width: 100%;
+	padding: 6px;
 	margin-bottom: 15px;
 }
 
@@ -437,23 +446,9 @@ form.plugins		label {
 	display: block;
 }
 
-/*////////////////////////////////////*/
-
-a.remove {
-	color: #BC0000;
-}
-
-a.button {
-	font-size: 12px;
-}
-
-
-
-
 /* ============================== */
 /* POST LIST | COMMENT LIST */
 /* ============================== */
-
 div.list_box,
 div.comment_box {
 	padding: 15px;
@@ -558,7 +553,6 @@ div.pager	a {
 /* ============================== */
 /* SIDEBAR Update*/
 /* ============================== */
-
 div.menu_box {
 	margin-bottom: 25px;
 	padding: 0 0 0 20px;
@@ -586,7 +580,6 @@ div.menu_box div.title {
 /* ============================== */
 /* ICONS
 /* ============================== */
-
 .icons_menu_posts_16 {
 	background: url("img/16posts.png") no-repeat 6px 3px;
 }
@@ -628,4 +621,3 @@ div.menu_box div.title {
 	background: url("img/18comment.png") no-repeat;
 	padding-left: 28px;
 }
-
