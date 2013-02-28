@@ -58,7 +58,7 @@ a:hover {
 #main {
     margin: 0 auto;
     overflow: auto;
-	font-size: 1.25em;
+	font-size: 1.32em;
 }
 
 #left {
@@ -178,6 +178,10 @@ article.post	h5 {
 
 article.post	h1 {
 	font-size: 1.8em;
+}
+
+article.post	p {
+	line-height: 20px;
 }
 
 article.post	div.video_embed {
