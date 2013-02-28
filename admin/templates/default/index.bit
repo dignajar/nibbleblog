@@ -13,7 +13,6 @@
 	<script charset="utf-8" src="<?php echo JS_JQUERY ?>"></script>
 	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'system.php' ?>"></script>
 	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'functions.js' ?>"></script>
-
 </head>
 <body>
 

@@ -2,11 +2,14 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name='robots' content='noindex,nofollow' />
 
 	<title>Nibbleblog - Login</title>
 
+	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/normalize.css' ?>" />
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'login/css/main.css' ?>" />
 
+	<!-- JAVASCRIPT -->
 	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'system.php' ?>"></script>
 	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'functions.js' ?>"></script>
 </head>

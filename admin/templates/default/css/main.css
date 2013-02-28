@@ -69,7 +69,6 @@ body {
 /* ============================== */
 /* SUBHEAD
 /* ============================== */
-
 #container_subhead {
     border-bottom: 1px solid #EBEBEB;
     margin-bottom: 20px;
@@ -87,7 +86,6 @@ body {
 /* ============================== */
 /* MAIN
 /* ============================== */
-
 #container_float {
 	clear: both;
 	overflow: auto;
@@ -270,8 +268,8 @@ div.form_block	textarea {
 	border: 1px solid #C4C4C4;
 	border-radius: 2px;
 	color: #858585;
-	padding: 8px;
-	outline:none;
+	padding: 10px 8px;
+	outline:none; /* not focus border on chrome */
 	resize: none;
 }
 
