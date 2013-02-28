@@ -41,17 +41,18 @@ $blog_base_path = '/';
 $blog_address = 'http://'.$blog_domain;
 $installation_complete = false;
 $languagues = array(
-	'cs_CZ'=>'čeština',
+	//'cs_CZ'=>'čeština',
 	'de_DE'=>'Deutsch',
 	'en_US'=>'English',
 	'es_ES'=>'Español',
-	'fa_IR'=>'فارسی',
-	'fr_FR'=>'Français',
+	//'fa_IR'=>'فارسی',
+	//'fr_FR'=>'Français',
 	'pl_PL'=>'Polski',
 	'pt_PT'=>'Português',
 	'ru_RU'=>'Pyccĸий',
-	'tr_TR'=>'Tϋrkçe',
-	'zh_TW'=>'繁體中文'
+	'vi_VI'=>'Tiếng Việt'
+	//'tr_TR'=>'Tϋrkçe',
+	//'zh_TW'=>'繁體中文'
 );
 
 // ============================================================================

@@ -11,6 +11,7 @@
 */
 
 	// Include the language
+	include(PATH_LANGUAGES.'en_US.bit');
 	include(PATH_LANGUAGES.$settings['language'].'.bit');
 
 	// Set the timezone
