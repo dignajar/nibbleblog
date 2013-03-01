@@ -14,7 +14,14 @@
 //	MAGIC QUOTES
 // =====================================================================
 
-if (get_magic_quotes_gpc()) {
+// Try disable magic quotes at runtime
+if(get_magic_quotes_runtime())
+{
+    set_magic_quotes_runtime(false);
+}
+
+if(get_magic_quotes_gpc())
+{
     $process = array(&$_GET, &$_POST, &$_COOKIE, &$_REQUEST);
     while (list($key, $val) = each($process)) {
         foreach ($val as $k => $v) {

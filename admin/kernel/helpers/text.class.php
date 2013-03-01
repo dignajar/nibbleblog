@@ -11,6 +11,19 @@
 
 class Text {
 
+	public static function unserialize($string)
+	{
+		parse_str($string, $data);
+
+		// Clean magic quotes if this enabled
+		if(get_magic_quotes_gpc())
+		{
+			$data = self::clean_magic_quotes($data);
+		}
+
+		return($data);
+	}
+
 	public static function ajax_header($tmp)
 	{
 		$xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
