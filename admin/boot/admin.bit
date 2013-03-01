@@ -5,7 +5,7 @@
 	require('rules/1-fs_php.bit');
 	require('rules/2-objects.bit');
 	require('rules/3-variables.bit');
-
+	require('rules/4-remove_magic.bit');
 	require('rules/5-regional.bit');
 	require('rules/5-url.bit');
 
