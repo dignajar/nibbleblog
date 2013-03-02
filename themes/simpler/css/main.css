@@ -131,9 +131,16 @@ article.post	header.post		div.date {
 }
 
 article.post	header.post		h1.title {
-	color: #333;
 	font-size: 2em;
 	margin: 0;
+}
+
+article.post	header.post		h1.title	a {
+	color: #333;
+}
+
+article.post	header.post		h1.title	a:hover {
+	color: #00A1CB;
 }
 
 /* ========== POST CONTENT ========== */

@@ -44,6 +44,8 @@ $(document).ready(function() {
 		plugins : "paste, pagebreak, inlinepopups, pre, fullscreen",
 		paste_text_sticky : true,
 
+		inlinepopups_skin: "smskin2",
+
 		entity_encoding : "raw",
 
 		// When pasted text always pasted as plain text
