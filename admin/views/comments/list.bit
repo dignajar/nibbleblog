@@ -72,7 +72,7 @@ $(document).ready(function() {
 		if(set_ajax(id, "approve", "comments.php"))
 		{
 			self.removeClass().addClass("js_button_unapprove");
-			self.html("Unapprove");
+			self.html("<?php echo $_LANG['DISAPPROVE']; ?>");
 		}
 	});
 
@@ -85,7 +85,7 @@ $(document).ready(function() {
 		if(set_ajax(id, "unapprove", "comments.php"))
 		{
 			self.removeClass().addClass("js_button_approve");
-			self.html("Approve");
+			self.html("<?php echo $_LANG['APPROVE']; ?>");
 		}
 	});
 
