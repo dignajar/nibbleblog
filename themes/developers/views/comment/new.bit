@@ -1,9 +1,8 @@
 <?php
 
 /*
-  The controller redirect to the post.
   This view is not used, but is necessary because the blog generate a
-  404 page not found.
+  404 page not found if this file doesn't exist.
 */
 
 ?>
