@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<!-- TITLE -->
+	<title><?php echo $layout['title'] ?></title>
+
+	<!-- DESCRIPTION -->
+	<meta name="description" content="<?php echo $layout['description'] ?>">
+
+	<!-- GENERATOR -->
+	<meta name="generator" content="<?php echo $layout['generator'] ?>">
+
+	<!-- CSS3 -->
+	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'normalize.css?v='.$theme['version'] ?>" />
+	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'main.css?v='.$theme['version'] ?>" />
+
+	<!-- FAVICON -->
+	<link rel="shortcut icon" href="<?php echo HTML_THEME_CSS.'img/favicon.ico' ?>" type="image/x-icon" />
+
+	<!-- JQUERY -->
+	<script src="<?php echo JS_JQUERY ?>"></script>
+
+	<!-- FitVids -->
+	<script src="<?php echo HTML_THEME_JS.'jquery.fitvids.min.js' ?>"></script>
+
+	<!-- ATOM Feed 2.0 -->
+	<link rel="alternate" type="application/atom+xml" title="ATOM Feed" href="<?php echo $layout['feed'] ?>" />
+
+	<!-- Plugin::Analytics -->
+	<?php
+		if( isset($plugins_by_name['analytics']) )
+		{
+			echo $plugins_by_name['analytics']->get_html();
+		}
+	?>
+</head>
+<body>
+
+	<div id="container">
+
+		<!-- HEADER -->
+		<header id="head">
+			<a class="name" href="<?php echo HTML_PATH_ROOT ?>">
+				<?php echo $settings['name'] ?>
+			</a>
+			<span class="slogan">
+				<?php echo $settings['slogan'] ?>
+			</span>
+		</header>
+
+		<!-- MAIN -->
+		<section id="main">
+
+			<!-- SIDEBAR -->
+			<section id="sidebar">
+				<?php
+					foreach($plugins as $plugin)
+					{
+						if($plugin->display())
+						{
+							echo '<div class="plugin_box '.$plugin->get_slug_name().'">';
+								echo '<h3 class="title">'.$plugin->get_field_db('title').'</h3>';
+								echo $plugin->get_html();
+							echo '</div>';
+						}
+					}
+				?>
+			</section>
+
+			<!-- MAIN -->
+			<section id="left">
+				<?php
+					include(THEME_VIEWS . $layout['view']);
+				?>
+			</section>
+
+		</section>
+
+		<!-- FOOTER -->
+		<footer id="foot">
+			<p>
+				<a href="<?php echo $layout['feed'] ?>">Atom</a> · <?php echo $settings['footer'] ?>
+			</p>
+		</footer>
+
+	</div>
+
+	<!-- FitVids -->
+	<script>
+	$(document).ready(function(){
+		$("p.fitvids").fitVids();
+	});
+	</script>
+
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'nibbleblogblog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+
+
+</body>
+</html>
