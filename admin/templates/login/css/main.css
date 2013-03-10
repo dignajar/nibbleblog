@@ -89,6 +89,10 @@ label {
 	font-size: 1.3em;
 }
 
+label.remember {
+	color: #999999;
+}
+
 label.blocked {
 	display:block;
 }

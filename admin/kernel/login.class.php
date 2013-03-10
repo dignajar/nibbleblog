@@ -98,9 +98,6 @@ class Login {
 		return(false);
 	}
 
-	/*
-	 * Clean the variable session for logout the user
-	*/
 	public function logout()
 	{
 		$_SESSION = array();
@@ -114,6 +111,10 @@ class Login {
 		session_destroy();
 
 		$this->session_started = false;
+
+		// Clean remember me
+		setcookie('nibbleblog_hash', '', time()-42000, '/');
+		setcookie('nibbleblog_id', '', time()-42000, '/');
 	}
 
 	public function remember_me()
@@ -156,8 +157,8 @@ class Login {
 		$tmp_hash = Crypt::get_hash($this->get_username().$this->get_key(), $_KEYS[2]);
 
 		// Set cookies
-		setcookie('nibbleblog_hash', $tmp_hash, time()+(3600*24*15), '/');
-		setcookie('nibbleblog_id', $this->get_user_id(), time()+(3600*24*15), '/');
+		setcookie('nibbleblog_hash', $tmp_hash, time()+(3600*24*15));
+		setcookie('nibbleblog_id', $this->get_user_id(), time()+(3600*24*15));
 
 		return true;
 	}
