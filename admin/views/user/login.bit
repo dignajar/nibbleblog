@@ -13,6 +13,8 @@
 		echo Html::div_close();
 
 		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::checkbox( array('id'=>'js_remember','name'=>'remember', 'class'=>'float') );
+			echo Html::label( array('content'=>$_LANG['REMEMBER_ME'], 'class'=>'for_checkbox', 'for'=>'js_remember') );
 			echo Html::input( array('type'=>'submit', 'class'=>'save', 'value'=>$_LANG['LOGIN']) );
 		echo Html::div_close();
 

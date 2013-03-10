@@ -4,12 +4,8 @@
 //	CONTROLLER
 // ============================================================================
 
-if( $Login->is_logued() )
-{
+if( $Login->is_logued() || $Login->remember_me() )
 	Redirect::controller('admin','dashboard','view');
-}
-
-
 
 // ============================================================================
 //	POST
@@ -25,11 +21,16 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	$safe = array();
 	$safe['username'] = Validation::sanitize_html($_POST['username']);
 	$safe['password'] = Validation::sanitize_html($_POST['password']);
+	$safe['remember'] = Validation::sanitize_html($_POST['remember']);
 
 	$Login->verify_login( array('username'=>$safe['username'], 'password'=>$safe['password']) );
 
 	if( $Login->is_logued() )
 	{
+		// Check remember me
+		if( isset($_POST['remember']) && $_POST['remember']=='1' )
+			$Login->set_remember_me();
+
 		// Notification - Session started
 		$_DB_NOTIFICATIONS->add('session_start', $settings['notification_session_start'], 'NEW_SESSION_STARTED');
 
