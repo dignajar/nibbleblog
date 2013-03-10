@@ -10,7 +10,8 @@
 		'url'=>'http://www.nibbleblog.com', // http://xxxxxxxxxxxxx
 		'video_width'=>'640',
 		'video_height'=>'360',
-		'template'=> array('post'=>'post.bit') // array( CONTROLLER => templates/FILENAME.bit )
+		'template'=> array('post'=>'post.bit'), // array( CONTROLLER => templates/FILENAME.bit )
+		'disqus_account'=>'nibbleblogblog'
 	);
 
 ?>

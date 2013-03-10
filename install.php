@@ -114,7 +114,7 @@ Date::set_timezone('UTC');
 		$obj->addChild('about',					'');
 		$obj->addChild('language',				$_GET['language']);
 		$obj->addChild('timezone',				'UTC');
-		$obj->addChild('theme',					'clean');
+		$obj->addChild('theme',					'simpler');
 		$obj->addChild('url',					$_POST['url']);
 		$obj->addChild('path',					$_POST['path']);
 		$obj->addChild('items_rss',				'4');
