@@ -124,7 +124,8 @@ class Text {
 	{
 		$text = str_replace(array("!", "*", "&#039;", "&quot;", "(", ")", ";", ":", "@", "&amp", "=", "+", "$", ",", "/", "?", "%", "#", "[", "]", "|"),'',$text);
 		$text = str_replace(" ","-",$text);
-		return($text);
+		$text = strtolower($text);
+		return $text;
 	}
 
 	public static function random_text($length)

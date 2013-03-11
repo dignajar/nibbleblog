@@ -41,7 +41,7 @@ $blog_base_path = '/';
 $blog_address = 'http://'.$blog_domain;
 $installation_complete = false;
 $languagues = array(
-	//'cs_CZ'=>'čeština',
+	'cs_CZ'=>'čeština',
 	'de_DE'=>'Deutsch',
 	'en_US'=>'English',
 	'es_ES'=>'Español',
@@ -114,7 +114,7 @@ Date::set_timezone('UTC');
 		$obj->addChild('about',					'');
 		$obj->addChild('language',				$_GET['language']);
 		$obj->addChild('timezone',				'UTC');
-		$obj->addChild('theme',					'simpler');
+		$obj->addChild('theme',					'clean');
 		$obj->addChild('url',					$_POST['url']);
 		$obj->addChild('path',					$_POST['path']);
 		$obj->addChild('items_rss',				'4');
