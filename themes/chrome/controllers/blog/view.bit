@@ -1,0 +1,9 @@
+<?php
+
+	// Meta tag title
+	$layout['title'] = $settings['name'].' - '.$settings['slogan'];
+
+	// Meta tag description
+	$layout['description'] = $settings['about'];
+
+?>
