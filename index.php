@@ -60,7 +60,7 @@
 
 	if($settings['friendly_urls'])
 	{
-		$layout['feed'] = HTML_PATH_ROOT.'feed';
+		$layout['feed'] = HTML_PATH_ROOT.'feed/';
 	}
 
 	// Load the controller and template

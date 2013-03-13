@@ -134,6 +134,17 @@ class DB_CATEGORIES {
 			return(false);
 		}
 
+		public function get_name($args)
+		{
+			foreach($this->obj_xml as $children)
+			{
+				if( ((int)$children->attributes()->id) == $args['id'] )
+					return( (string)$children->attributes()->name );
+			}
+
+			return(false);
+		}
+
 /*
 ======================================================================================
 	PRIVATE METHODS

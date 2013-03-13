@@ -62,8 +62,11 @@
 		// --------------------------------
 		echo '<div id="comment_form">';
 
+			// If there are any problems when you add a comment,
+			// Session::get_error() will be TRUE
 			if(Session::get_error())
 			{
+				//
 				echo '<h2 class="alert">'.Session::get_alert().'</h2>';
 			}
 
