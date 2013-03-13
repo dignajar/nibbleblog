@@ -124,7 +124,6 @@ class Text {
 	{
 		$text = str_replace(array("!", "*", "&#039;", "&quot;", "(", ")", ";", ":", "@", "&amp", "=", "+", "$", ",", "/", "?", "%", "#", "[", "]", "|"),'',$text);
 		$text = str_replace(" ","-",$text);
-		$text = strtolower($text);
 		return $text;
 	}
 
