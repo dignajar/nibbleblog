@@ -1,0 +1,28 @@
+<?php
+
+	// If quote post
+	if($post['type']=='quote')
+	{
+		echo '<div class="index">';
+		echo '<a class="icon-right-open" href="'.$post['permalink'].'"><h2 class="title">Permalink</h2>';
+		echo '<span class="date icon-calendar">'.$post['pub_date'].'</span>';
+		echo '<blockquote>'.$post['quote'].'</blockquote></a></div>';
+	}
+	// If simple post or video post
+	else
+	{
+		echo '<header>';
+		// If the title is empty then print permalink, else print title
+		if(empty($post['title'])) {
+			echo '<a class="icon-right-open" href="'.$post['permalink'].'"><h2 class="title">'.$_LANG['PERMALINK'].'</h2>';
+		}
+		else{
+			echo '<a class="icon-right-open" href="'.$post['permalink'].'"><h2 class="title">'.$post['title'].'</h2>';
+		}
+
+		echo '<span class="date icon-calendar">'.$post['pub_date'].'</span>';
+		echo '</a>';
+		echo '</header>';
+	}
+
+?>

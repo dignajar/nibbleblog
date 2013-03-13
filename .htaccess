@@ -6,6 +6,3 @@ Options -Indexes
   php_flag magic_quotes_gpc                 off
   php_flag magic_quotes_sybase              off
 </IfModule>
-
-ErrorDocument 404 /nibbleblog/index.php?controller=page&action=404
-

@@ -1,0 +1,15 @@
+<?php
+
+	$theme = array
+	(
+		'name'=>'Note',
+		'description'=>'Mini HTML5 Responsive Theme',
+		'author'=>'Paulo Nunes',
+		'version'=>'1.0',
+		'last_update'=>'17/09/2012', // dd/mm/yyyy
+		'url'=>'http://blog.syndicate-fx.com',
+		'video_width'=>'',
+		'video_height'=>''
+	);
+
+?>

@@ -21,7 +21,6 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	$safe = array();
 	$safe['username'] = Validation::sanitize_html($_POST['username']);
 	$safe['password'] = Validation::sanitize_html($_POST['password']);
-	$safe['remember'] = Validation::sanitize_html($_POST['remember']);
 
 	$Login->verify_login( array('username'=>$safe['username'], 'password'=>$safe['password']) );
 
