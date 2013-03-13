@@ -22,7 +22,7 @@
 		// If video post, then print the embed video
 		if($post['type']=='video')
 		{
-			$video_info = $_VIDEO->video_get_info($post['video'], $theme['video_width'], $theme['video_height']);
+			$video_info = Video::video_get_info($post['video'], $theme['video_width'], $theme['video_height']);
 
 			echo '<p>'.$video_info['embed'].'</p>';
 		}
