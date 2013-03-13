@@ -12,7 +12,7 @@ if( $_POST['action']=='delete' )
 }
 elseif( $_POST['action']=='set' )
 {
-	parse_str($_POST['serial_data'], $data);
+	$data = Text::unserialize($_POST['serial_data']);
 
 	foreach( $data as $id=>$name )
 	{

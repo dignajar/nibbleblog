@@ -1,7 +1,5 @@
 <?php
 
-	$post = $posts[0];
-
 	// Changing the default title
 	$layout['title'] = $post['title'];
 

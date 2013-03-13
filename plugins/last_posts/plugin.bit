@@ -1,17 +1,16 @@
 <?php
-
-// =========================================
+// =====================================================================
 // PLUGIN INFO
-// =========================================
+// =====================================================================
 $_PLUGIN_CONFIG['DATA'] = array(
 	'author'=>'Diego Najar',
-	'version'=>'1.0',
+	'version'=>'1.1',
 	'url'=>'http://www.nibbleblog.com'
 );
 
-// =========================================
+// =====================================================================
 // PLUGIN CLASS
-// =========================================
+// =====================================================================
 class PLUGIN_LAST_POSTS extends Plugin
 {
 	function __construct()
@@ -23,9 +22,7 @@ class PLUGIN_LAST_POSTS extends Plugin
 
 	public function get_html_config()
 	{
-		global $_HTML;
-
-		$html  = '<label>Amount</label>';
+		$html  = '<label>'.$this->language('AMOUNT').'</label>';
 		$html .= '<input name="amount" type="text" value="'.$this->get_field_db('amount').'">';
 
 		return($html);
@@ -33,15 +30,17 @@ class PLUGIN_LAST_POSTS extends Plugin
 
 	public function get_html()
 	{
-		global $_DB_POST;
+		global $Post;
 
-		$posts = $_DB_POST->get_list_by_page( array('page'=>0, 'amount'=>$this->get_field_db('amount')) );
+		$list = $Post->get_by_page(0, $this->get_field_db('amount') );
 
 		$html = '<ul>';
 
-		foreach($posts as $post)
+		foreach($list as $post)
 		{
-			$html .= '<li><a href="'.$post['permalink'].'">'.$post['title'].'</a></li>';
+			$title = empty($post['title'])? ucfirst($post['type']) : $post['title'];
+
+			$html .= '<li><a href="'.$post['permalink'].'">'.$title.'</a></li>';
 		}
 
 		$html .= '</ul>';

@@ -12,8 +12,8 @@
 if( file_exists('content/private') || file_exists('content/public') )
 	exit('Blog already installed');
 
-require('admin/boot/init/1-fs_php.bit');
-require('admin/boot/init/10-constants.bit');
+require('admin/boot/rules/1-fs_php.bit');
+require('admin/boot/rules/99-constants.bit');
 
 // DB
 require(PATH_DB . 'nbxml.class.php');
@@ -33,6 +33,7 @@ require(PATH_HELPERS . 'validation.class.php');
 // ============================================================================
 //	VARIABLES
 // ============================================================================
+$permissions_dir = 0755;
 $php_modules = array();
 $dependencies = true;
 $blog_domain = getenv('HTTP_HOST');
@@ -44,13 +45,14 @@ $languagues = array(
 	'de_DE'=>'Deutsch',
 	'en_US'=>'English',
 	'es_ES'=>'Español',
-	'fa_IR'=>'فارسی',
-	'fr_FR'=>'Français',
+	//'fa_IR'=>'فارسی',
+	//'fr_FR'=>'Français',
 	'pl_PL'=>'Polski',
 	'pt_PT'=>'Português',
 	'ru_RU'=>'Pyccĸий',
-	'tr_TR'=>'Tϋrkçe',
-	'zh_TW'=>'繁體中文'
+	'vi_VI'=>'Tiếng Việt'
+	//'tr_TR'=>'Tϋrkçe',
+	//'zh_TW'=>'繁體中文'
 );
 
 // ============================================================================
@@ -67,9 +69,9 @@ if(function_exists('get_loaded_extensions'))
 // Try to give permissions to the directory content
 if(!file_exists('content'))
 {
-	@mkdir('content');
+	@mkdir('content', $permissions_dir, true);
 }
-@chmod('content',0777);
+@chmod('content', $permissions_dir);
 @rmdir('content/tmp');
 $writing_test = @mkdir('content/tmp');
 
@@ -94,12 +96,12 @@ Date::set_timezone('UTC');
 
 	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	{
-		mkdir('content/private',		0777, true);
-		mkdir('content/private/plugins',0777, true);
-		mkdir('content/public',			0777, true);
-		mkdir('content/public/upload',	0777, true);
-		mkdir('content/public/posts',	0777, true);
-		mkdir('content/public/comments',0777, true);
+		mkdir('content/private',		$permissions_dir, true);
+		mkdir('content/private/plugins',$permissions_dir, true);
+		mkdir('content/public',			$permissions_dir, true);
+		mkdir('content/public/upload',	$permissions_dir, true);
+		mkdir('content/public/posts',	$permissions_dir, true);
+		mkdir('content/public/comments',$permissions_dir, true);
 
 		// Config.xml
 		$xml  = '<?xml version="1.0" encoding="utf-8" standalone="yes"?>';
@@ -121,10 +123,9 @@ Date::set_timezone('UTC');
 		$obj->addChild('advanced_post_options',	'0');
 		$obj->addChild('locale',				$_GET['language']);
 		$obj->addChild('friendly_urls',			0);
-		$obj->addChild('enable_wysiwyg',		1);
 
 		$obj->addChild('img_resize',			1);
-		$obj->addChild('img_resize_width',		1240);
+		$obj->addChild('img_resize_width',		1000);
 		$obj->addChild('img_resize_height',		600);
 		$obj->addChild('img_resize_option',		'auto');
 
@@ -164,10 +165,9 @@ Date::set_timezone('UTC');
 		$obj = new NBXML($xml, 0, FALSE, '', FALSE);
 		$obj->addChild('moderate', 1);
 		$obj->addChild('sanitize', 1);
-		$obj->addChild('sleep', '2');
 		$obj->addChild('monitor_enable', 0);
 		$obj->addChild('monitor_api_key', '');
-		$obj->addChild('monitor_spaminess', '0.75');
+		$obj->addChild('monitor_spam_control', '0.75');
 		$obj->addChild('monitor_auto_delete', 0);
 		$obj->asXml( FILE_XML_COMMENTS );
 

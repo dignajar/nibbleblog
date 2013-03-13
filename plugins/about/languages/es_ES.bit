@@ -1,0 +1,12 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'NAME'=>'Acerca de',
+	'DESCRIPTION'=>'Escribe una breve reseña sobre ti o sobre tu blog, tambien puedes mostrar tu Gravatar. Para utilizar Gravatar se necesita una cuenta en http://gravatar.com',
+	'FULL_NAME'=>'Nombre completo',
+	'ABOUT'=>'Acerca de',
+	'GRAVATAR_EMAIL'=>'Gravatar E-mail',
+	'GRAVATAR_SIZE'=>'Gravatar tamaño'
+);
+
+?>

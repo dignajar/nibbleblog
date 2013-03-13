@@ -5,8 +5,6 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 29/10/2012
-
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
 */
@@ -100,14 +98,11 @@ class Login {
 		return(false);
 	}
 
-	/*
-	 * Clean the variable session for logout the user
-	*/
 	public function logout()
 	{
 		$_SESSION = array();
 
-		if (ini_get("session.use_cookies"))
+		if(ini_get("session.use_cookies"))
 		{
 			$params = session_get_cookie_params();
 			setcookie(session_name(), '', time() - 42000, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
@@ -116,13 +111,61 @@ class Login {
 		session_destroy();
 
 		$this->session_started = false;
+
+		// Clean remember me
+		setcookie('nibbleblog_hash', '', time()-42000, '/');
+		setcookie('nibbleblog_id', '', time()-42000, '/');
 	}
 
+	public function remember_me()
+	{
+		require(FILE_KEYS);
+		require(FILE_SHADOW);
+
+		// Check cookies
+		if( !isset($_COOKIE['nibbleblog_hash']) || !isset($_COOKIE['nibbleblog_id']) )
+			return false;
+
+		// Sanitize cookies
+		$cookie_hash = Validation::sanitize_html($_COOKIE['nibbleblog_hash']);
+		$cookie_id = Validation::sanitize_int($_COOKIE['nibbleblog_id']);
+
+		// Check user id
+		if(!isset($_USER[$cookie_id]))
+			return false;
+
+		// Generate tmp hash
+		$tmp_hash = Crypt::get_hash($_USER[$cookie_id]['username'].$this->get_key(), $_KEYS[2]);
+
+		// Check hash
+		if($tmp_hash!=$cookie_hash)
+			return false;
+
+		$this->set_login( array('id_user'=>$cookie_id, 'username'=>$_USER[$cookie_id]['username']) );
+
+		return true;
+	}
+
+	public function set_remember_me()
+	{
+		if(!$this->is_logued())
+			return false;
+
+		require(FILE_KEYS);
+
+		// Generate tmp hash
+		$tmp_hash = Crypt::get_hash($this->get_username().$this->get_key(), $_KEYS[2]);
+
+		// Set cookies
+		setcookie('nibbleblog_hash', $tmp_hash, time()+(3600*24*15));
+		setcookie('nibbleblog_id', $this->get_user_id(), time()+(3600*24*15));
+
+		return true;
+	}
 
 // =================================================================
 // Methods for return the session parameters
 // =================================================================
-
 	public function get_user_id()
 	{
 		if( isset($_SESSION['session_user']['id']) )

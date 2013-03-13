@@ -5,13 +5,24 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 15/07/2012
-
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
 */
 
 class Text {
+
+	public static function unserialize($string)
+	{
+		parse_str($string, $data);
+
+		// Clean magic quotes if this enabled
+		if(get_magic_quotes_gpc())
+		{
+			$data = self::clean_magic_quotes($data);
+		}
+
+		return($data);
+	}
 
 	public static function ajax_header($tmp)
 	{
@@ -113,7 +124,7 @@ class Text {
 	{
 		$text = str_replace(array("!", "*", "&#039;", "&quot;", "(", ")", ";", ":", "@", "&amp", "=", "+", "$", ",", "/", "?", "%", "#", "[", "]", "|"),'',$text);
 		$text = str_replace(" ","-",$text);
-		return($text);
+		return $text;
 	}
 
 	public static function random_text($length)

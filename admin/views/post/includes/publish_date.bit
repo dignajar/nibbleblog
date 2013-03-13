@@ -1,5 +1,5 @@
 <?php
-	echo Html::div_open( array('class'=>'form_block'));
+	echo Html::div_open( array('class'=>'form_block', 'hidden'=>( !$settings['advanced_post_options'] )));
 		echo Html::label( array('content'=>'Year/Month/Day - Hours:Minutes:Seconds', 'class'=>'blocked') );
 		echo Html::select( array('class'=>'little', 'name'=>'date_year'), $years_options, $year);
 		echo Html::select( array('class'=>'little', 'name'=>'date_month'), $months_options, $month);

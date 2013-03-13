@@ -1,8 +1,8 @@
 <?php
 
 $_PLUGIN_CONFIG['LANG'] = array(
-	'name'=>'Flickr',
-	'description'=>'Show your photostream from Flickr'
+	'NAME'=>'Flickr',
+	'DESCRIPTION'=>'Show your photostream from Flickr'
 );
 
 

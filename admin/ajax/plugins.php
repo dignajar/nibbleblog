@@ -6,7 +6,7 @@ require('../kernel/security.bit');
 
 if( $_POST['action']=='set' )
 {
-	parse_str($_POST['serial_data'], $data);
+	$data = Text::unserialize($_POST['serial_data']);
 
 	include_once( PATH_PLUGINS.$data['plugin'].'/plugin.bit');
 	$class = 'PLUGIN_'.strtoupper($data['plugin']);

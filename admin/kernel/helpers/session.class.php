@@ -13,16 +13,27 @@ class Session {
 
 	public static function init()
 	{
-		unset($_SESSION['nibbleblog']);
-
-		$comment = array('author_name'=>'', 'author_email'=>'', 'content'=>'', 'post_allow_comments'=>false, 'id_post'=>0);
+		$comment = array(
+			'author_name'=>'',
+			'author_email'=>'',
+			'content'=>'',
+			'post_allow_comments'=>false,
+			'id_post'=>0
+		);
 
 		$_SESSION['nibbleblog'] = array(
-							'error'=>false,
-							'alert'=>'',
-							'captcha'=>Text::random_text(64),
-							'comment'=>$comment
+			'error'=>false,
+			'alert'=>'',
+			'comment'=>$comment,
+			'last_comment_at'=>0
 		);
+	}
+
+	public static function reset()
+	{
+		$last_comment_at = $_SESSION['nibbleblog']['last_comment_at'];
+		self::init();
+		$_SESSION['nibbleblog']['last_comment_at'] = $last_comment_at;
 	}
 
 	public static function get_error()
@@ -30,34 +41,15 @@ class Session {
 		return($_SESSION['nibbleblog']['error']);
 	}
 
-	public static function set_error($boolean = true)
+	public static function get_last_comment_at()
 	{
-		$_SESSION['nibbleblog']['error'] = $boolean;
+		return($_SESSION['nibbleblog']['last_comment_at']);
 	}
 
 	public static function get_alert()
 	{
 		self::set_error(false);
 		return($_SESSION['nibbleblog']['alert']);
-	}
-
-	public static function set_alert($text = '')
-	{
-		$_SESSION['nibbleblog']['alert'] = $text;
-	}
-
-	public static function get_captcha()
-	{
-		return($_SESSION['nibbleblog']['captcha']);
-	}
-
-	public static function set_comment($comment)
-	{
-		$_SESSION['nibbleblog']['comment']['author_name'] = $comment['author_name'];
-		$_SESSION['nibbleblog']['comment']['author_email'] = $comment['author_email'];
-		$_SESSION['nibbleblog']['comment']['content'] = $comment['content'];
-		$_SESSION['nibbleblog']['comment']['post_allow_comments'] = $comment['post_allow_comments'];
-		$_SESSION['nibbleblog']['comment']['id_post'] = $comment['id_post'];
 	}
 
 	public static function get_comment($key)
@@ -73,6 +65,30 @@ class Session {
 	public static function get_comment_array()
 	{
 		return($_SESSION['nibbleblog']['comment']);
+	}
+
+	public static function set_error($boolean = true)
+	{
+		$_SESSION['nibbleblog']['error'] = $boolean;
+	}
+
+	public static function set_last_comment_at($time)
+	{
+		$_SESSION['nibbleblog']['last_comment_at'] = $time;
+	}
+
+	public static function set_alert($text = '')
+	{
+		$_SESSION['nibbleblog']['alert'] = $text;
+	}
+
+	public static function set_comment($comment)
+	{
+		$_SESSION['nibbleblog']['comment']['author_name'] = $comment['author_name'];
+		$_SESSION['nibbleblog']['comment']['author_email'] = $comment['author_email'];
+		$_SESSION['nibbleblog']['comment']['content'] = $comment['content'];
+		$_SESSION['nibbleblog']['comment']['post_allow_comments'] = $comment['post_allow_comments'];
+		$_SESSION['nibbleblog']['comment']['id_post'] = $comment['id_post'];
 	}
 
 }

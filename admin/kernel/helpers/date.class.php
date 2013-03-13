@@ -13,7 +13,13 @@ class Date {
 
 	public static function set_locale($string)
 	{
-		return(setlocale(LC_ALL,$string));
+		if(setlocale(LC_ALL,$string.'.UTF-8')!==false)
+			return true;
+
+		if(setlocale(LC_ALL,$string.'.UTF8')!==false)
+			return true;
+
+		return setlocale(LC_ALL,$string);
 	}
 
 	public static function set_timezone($string)

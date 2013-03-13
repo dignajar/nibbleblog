@@ -53,24 +53,6 @@ class Validation {
 		return(htmlspecialchars($text, ENT_QUOTES, 'UTF-8'));
 	}
 
-	public static function captcha($captcha)
-	{
-		global $_LANG;
-
-		$captcha = self::sanitize_html($captcha);
-
-		if(Session::get_captcha()==$captcha)
-		{
-			Session::set_error(false);
-			Session::set_alert('');
-			return(true);
-		}
-
-		Session::set_error(true);
-		Session::set_alert($_LANG['INVALID_CAPTCHA']);
-		return(false);
-	}
-
 }
 
 ?>

@@ -1,0 +1,79 @@
+<?php
+/*
+ * Nibbleblog
+ * http://www.nibbleblog.com
+
+ * Require
+ * $url
+ * $settings
+ * $_DB_CATEGORIES
+ * $_DB_POST
+ * $_DB_COMMENTS
+
+ * Return
+ * (array) $posts
+ * (array) $post
+ * (boolean) $page_not_found
+*/
+
+	$posts = array();
+	$post = array();
+	$page_not_found = false;
+
+	// ---- POSTS FILTER BY CATEGORY
+	if($url['category']!==null)
+	{
+		// Get the category ID
+		$id_cat = $_DB_CATEGORIES->get_id( array('name'=>$url['category']) );
+
+		if($id_cat!==false)
+		{
+			// Posts by category
+			$posts = $_DB_POST->get_list_by_category( array('page'=>$url['page'], 'amount'=>$settings['items_page'], 'id_cat'=>$id_cat) );
+		}
+		else
+		{
+			$page_not_found = true;
+		}
+	}
+	// ---- PARTICULAR POST
+	elseif($url['id_post']!==null)
+	{
+		// Get post
+		$tmp = $_DB_POST->get( array('id'=>$url['id_post']) );
+
+		if( $tmp!==false )
+		{
+			$posts[0] = $tmp;
+		}
+		else
+		{
+			$page_not_found = true;
+		}
+	}
+	// ---- POSTS FILTER BY BLOG
+	else
+	{
+		// Posts by page
+		$posts = $_DB_POST->get_list_by_page( array('page'=>$url['page'], 'amount'=>$settings['items_page']) );
+	}
+
+	// ---- COMMENTS
+	// Get all comments for each post
+	foreach($posts as $key=>$value)
+	{
+		$posts[$key]['comments'] = $_DB_COMMENTS->get_list_by_post( array('id_post'=>$value['id']) );
+	}
+
+	if(isset($posts[0]))
+	{
+		$post = $posts[0];
+	}
+
+// =====================================================================
+// CLEANING
+// =====================================================================
+	unset($id_cat);
+	unset($tmp);
+
+?>

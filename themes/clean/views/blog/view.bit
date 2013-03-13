@@ -1,6 +1,6 @@
 <?php
 
-// Variable $posts has all post for the page
+// $posts variable has all post for the page
 foreach($posts as $post)
 {
 	echo '<article class="post">';

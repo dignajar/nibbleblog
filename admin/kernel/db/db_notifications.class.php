@@ -56,7 +56,7 @@ class DB_NOTIFICATIONS {
 		{
 			global $_LANG;
 
-			if( count( $this->obj_xml->notification ) >= AMOUNT_OF_NOTIFICATIONS )
+			if( count( $this->obj_xml->notification ) >= NOTIFICATIONS_AMOUNT )
 				unset( $this->obj_xml->notification[0] );
 
 			// Email
@@ -67,7 +67,7 @@ class DB_NOTIFICATIONS {
 									'from_mail'=>$this->settings['notification_email_from'],
 									'to'=>$this->settings['notification_email_to'],
 									'subject'=>$_LANG[$message_key],
-									'message'=>'IP: '.Net::get_user_ip()
+									'message'=>EMAIL_NOTIFICATIONS
 				));
 			}
 			else
