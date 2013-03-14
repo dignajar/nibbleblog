@@ -1,0 +1,16 @@
+<?php
+
+	$theme = array
+	(
+		'name'=>'Suus',
+		'description'=>'Minimal personal blog theme',
+		'author'=>'Paulo Nunes',
+		'version'=>'1',
+		'last_update'=>'14/03/2013',
+		'url'=>'http://proj.syndicate-fx/nibbleblog',
+		'video_width'=>'',
+		'video_height'=>'',
+		'template'=> array('post'=>'post.bit')
+	);
+
+?>
