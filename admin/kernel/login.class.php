@@ -84,6 +84,10 @@ class Login {
 	{
 		require( FILE_SHADOW );
 
+		// Brute force protection
+		if(Session::get('last_session_at') + 30 > time())
+			return false;
+
 		if( Text::compare($args['username'], $_USER[0]['username']) )
 		{
 			$hash = Crypt::get_hash($args['password'], $_USER[0]['salt']);
@@ -95,7 +99,7 @@ class Login {
 			}
 		}
 
-		return(false);
+		return false;
 	}
 
 	public function logout()

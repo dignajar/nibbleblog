@@ -25,15 +25,31 @@ class Session {
 			'error'=>false,
 			'alert'=>'',
 			'comment'=>$comment,
-			'last_comment_at'=>0
+			'last_comment_at'=>0,
+			'last_session_at'=>0,
+			'fail_session'=>0
 		);
 	}
 
 	public static function reset()
 	{
 		$last_comment_at = $_SESSION['nibbleblog']['last_comment_at'];
+		$last_session_at = $_SESSION['nibbleblog']['last_session_at'];
+		$fail_session = $_SESSION['nibbleblog']['fail_session'];
+
 		self::init();
+
 		$_SESSION['nibbleblog']['last_comment_at'] = $last_comment_at;
+		$_SESSION['nibbleblog']['last_session_at'] = $last_session_at;
+		$_SESSION['nibbleblog']['fail_session'] = $fail_session;
+	}
+
+	public static function get($name)
+	{
+		if(isset($_SESSION['nibbleblog'][$name]))
+			return $_SESSION['nibbleblog'][$name];
+		else
+			return false;
 	}
 
 	public static function get_error()
@@ -44,6 +60,16 @@ class Session {
 	public static function get_last_comment_at()
 	{
 		return($_SESSION['nibbleblog']['last_comment_at']);
+	}
+
+	public static function get_last_session_at()
+	{
+		return($_SESSION['nibbleblog']['last_session_at']);
+	}
+
+	public static function get_fail_session()
+	{
+		return($_SESSION['nibbleblog']['fail_session']);
 	}
 
 	public static function get_alert()
@@ -75,6 +101,16 @@ class Session {
 	public static function set_last_comment_at($time)
 	{
 		$_SESSION['nibbleblog']['last_comment_at'] = $time;
+	}
+
+	public static function set_last_session_at($time)
+	{
+		$_SESSION['nibbleblog']['last_session_at'] = $time;
+	}
+
+	public static function set_fail_session($amount)
+	{
+		$_SESSION['nibbleblog']['fail_session'] = $amount;
 	}
 
 	public static function set_alert($text = '')
