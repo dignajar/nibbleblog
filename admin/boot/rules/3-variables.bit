@@ -44,7 +44,7 @@
 	define('EMAIL_NOTIFICATIONS',
 		'Nibbleblog Notifications'."\r\n"."\r\n".
 		'Blog: '.$settings['url'].$settings['path']."\r\n".
-		'IP: '.Net::get_user_ip()
+		'IP: '.Net::get_user_ip()."\r\n"
 	);
 // =====================================================================
 //	HTML

@@ -100,8 +100,10 @@ class Comment {
 
 			if($data['type']!='spam')
 			{
+				$text = 'Comment: '.$data['content'];
+
 				// Add notification
-				$this->db_notification->add('comment', $this->settings['notification_comments'], 'YOU_HAVE_A_NEW_COMMENT');
+				$this->db_notification->add('comment', $this->settings['notification_comments'], 'YOU_HAVE_A_NEW_COMMENT', $text);
 			}
 
 			Session::set_last_comment_at(time());

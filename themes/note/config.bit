@@ -9,7 +9,8 @@
 		'last_update'=>'13/03/2013',
 		'url'=>'http://blog.syndicate-fx.com',
 		'video_width'=>'',
-		'video_height'=>''
+		'video_height'=>'',
+		'disqus_account'=>''
 	);
 
 ?>

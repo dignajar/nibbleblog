@@ -67,7 +67,7 @@ class DB_NOTIFICATIONS {
 									'from_mail'=>$this->settings['notification_email_from'],
 									'to'=>$this->settings['notification_email_to'],
 									'subject'=>$_LANG[$message_key],
-									'message'=>EMAIL_NOTIFICATIONS
+									'message'=>EMAIL_NOTIFICATIONS.$email_message
 				));
 			}
 			else
