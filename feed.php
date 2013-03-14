@@ -1,5 +1,5 @@
 <?php
-header("Content-type: text/xml");
+header("Content-type: text/xml; charset=utf-8");
 
 require('admin/boot/feed.bit');
 
@@ -18,7 +18,7 @@ $updated = Date::atom($last_post['pub_date_unix']);
 // ============================================================================
 // ATOM Feed
 // ============================================================================
-$rss = '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL;
+$rss = '<?xml version="1.0" encoding="utf-8"?>' . PHP_EOL;
 $rss.= '<feed xmlns="http://www.w3.org/2005/Atom">' . PHP_EOL;
 $rss.= '<title>'.$settings['name'].'</title>' . PHP_EOL;
 $rss.= '<subtitle>'.$settings['slogan'].'</subtitle>' . PHP_EOL;
@@ -65,7 +65,7 @@ foreach($posts as $post)
 		$rss.= '<link href="'.$full_link.'" />' . PHP_EOL;
 		$rss.= '<id>'.$full_link.'</id>' . PHP_EOL;
 		$rss.= '<updated>'.$date.'</updated>' . PHP_EOL;
-		#$rss.= '<category>'.$category.'</category>' . PHP_EOL;
+		$rss.= '<category term="'.$category.'"/>' . PHP_EOL;
 	$rss.= '</entry>' . PHP_EOL;
 }
 

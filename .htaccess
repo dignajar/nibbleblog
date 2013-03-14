@@ -1,4 +1,6 @@
 AddDefaultCharset UTF-8
+
+# Disable directory browsing
 Options -Indexes
 
 # Disable Magic Quotes
@@ -6,19 +8,20 @@ Options -Indexes
   php_flag magic_quotes_gpc                 off
 </IfModule>
 
-ErrorDocument 404 /nibbleblog/index.php?controller=page&action=404
+# Secure .xml files
+<FilesMatch ".(xml)$">
+ Order Allow,Deny
+ Deny from all
+</FilesMatch>
 
-<IfModule mod_rewrite.c>
-	RewriteEngine on
-	RewriteBase /nibbleblog/
+# Secure shadow.php
+<Files shadow.php>
+ order allow,deny
+ deny from all
+</Files>
 
-	RewriteRule ^category/([^/]+)/page-([0-9]+)$ index.php?controller=blog&action=view&category=$1&page=$2 [L]
-	RewriteRule ^category/([^/]+)/$ index.php?controller=blog&action=view&category=$1&page=0 [L]
-	RewriteRule ^page-([0-9]+)$ index.php?controller=blog&action=view&page=$1 [L]
-	RewriteRule ^post-([0-9]+)/(.*)$ index.php?controller=post&action=view&id_post=$1 [L]
-
-	RewriteRule ^dashboard/$ admin.php?controller=user&action=login [L]
-	RewriteRule ^feed/$ feed.php [L]
-
-	RewriteRule ^([^/]+)/$ index.php?controller=page&action=$1 [L]
-</IfModule>
+# Secure keys.php
+<Files keys.php>
+ order allow,deny
+ deny from all
+</Files>
