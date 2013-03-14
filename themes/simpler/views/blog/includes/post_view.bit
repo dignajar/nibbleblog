@@ -50,7 +50,15 @@
 		{
 			echo ' · ';
 
-			echo '<span><a href="'.$post['permalink'].'#comment_form">'.$_LANG['COMMENTS'].' ('.count($post['comments']).')</a></span>';
+			// Include Disqus
+			if( !empty($theme['disqus_account']) )
+			{
+				echo '<span><a href="'.$post['permalink'].'#disqus_thread"></a></span>';
+			}
+			else
+			{
+				echo '<span><a href="'.$post['permalink'].'#comment_form">'.$_LANG['COMMENTS'].' ('.count($post['comments']).')</a></span>';
+			}
 		}
 
 	echo '</footer>';

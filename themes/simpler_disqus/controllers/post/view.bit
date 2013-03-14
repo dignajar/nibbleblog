@@ -1,9 +1,0 @@
-<?php
-
-	// Changing the default title
-	$layout['title'] = $post['title'];
-
-	// Changing the default description
-	$layout['description'] = $post['description'];
-
-?>
