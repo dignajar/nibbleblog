@@ -1,0 +1,109 @@
+<?php
+
+	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+
+		// TITLE
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>'Title', 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_seo_title', 'name'=>'seo_title', 'type'=>'text', 'value'=>$settings['seo_title']) );
+		echo Html::div_close();
+
+		// DESCRIPTION
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>'Description', 'class'=>'blocked') );
+			echo Html::textarea( array('id'=>'js_seo_description', 'name'=>'seo_description', 'content'=>$settings['seo_description']) );
+			echo Html::div( array('content'=>$_LANG['SHORT_DESCRIPTION_NO_MORE_THAN'], 'class'=>'input_tip') );
+		echo Html::div_close();
+
+		// KEYWORDS
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>'Keywords', 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_seo_keywords', 'name'=>'seo_keywords', 'type'=>'text', 'value'=>$settings['seo_keywords']) );
+			echo Html::div( array('content'=>'keywords separated by comma', 'class'=>'input_tip') );
+		echo Html::div_close();
+
+		// nofollow
+		echo Html::div_open( array('class'=>'form_block'));
+			echo Html::checkbox( array('id'=>'js_seo_nofollow', 'name'=>'seo_nofollow', 'class'=>'float'), $settings['seo_nofollow'] );
+			echo Html::label( array('content'=>'Nofollow', 'class'=>'for_checkbox', 'for'=>'js_seo_nofollow') );
+		echo Html::div_close();
+
+		// noindex
+		echo Html::div_open( array('class'=>'form_block'));
+			echo Html::checkbox( array('id'=>'js_seo_noindex', 'name'=>'seo_noindex', 'class'=>'float'), $settings['seo_noindex'] );
+			echo Html::label( array('content'=>'Noindex', 'class'=>'for_checkbox', 'for'=>'js_seo_noindex') );
+		echo Html::div_close();
+
+		// noarchive
+		echo Html::div_open( array('class'=>'form_block'));
+			echo Html::checkbox( array('id'=>'js_seo_noarchive', 'name'=>'seo_noarchive', 'class'=>'float'), $settings['seo_noarchive'] );
+			echo Html::label( array('content'=>'Noarchive', 'class'=>'for_checkbox', 'for'=>'js_seo_noarchive') );
+		echo Html::div_close();
+
+		// Webmaster tools'
+		echo Html::separator( array('content'=>'Webmaster tools') );
+
+		// GOOGLE WEBMASTER TOOLS
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>'Google Webmaster tools - Verification code', 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_seo_google_code', 'name'=>'seo_google_code', 'type'=>'text', 'value'=>$settings['seo_google_code']) );
+		echo Html::div_close();
+
+		// YAHOO WEBMASTER TOOLS
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>'Yahoo! - Verification code', 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_seo_yahoo_code', 'name'=>'seo_yahoo_code', 'type'=>'text', 'value'=>$settings['seo_yahoo_code']) );
+		echo Html::div_close();
+
+		// BING WEBMASTER TOOLS
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>'Bing Webmaster tools - Verification code', 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_seo_bing_code', 'name'=>'seo_bing_code', 'type'=>'text', 'value'=>$settings['seo_bing_code']) );
+		echo Html::div_close();
+
+		// FRIENDLY URL
+		echo Html::separator( array('content'=>$_LANG['FRIENDLY_URLS']) );
+
+		echo Html::div_open( array('class'=>'form_block'));
+			echo Html::checkbox( array('id'=>'js_friendly_urls', 'name'=>'friendly_urls', 'class'=>'float'), $settings['friendly_urls'] );
+			echo Html::label( array('content'=>$_LANG['ENABLE_FRIENDLY_URLS'], 'class'=>'for_checkbox', 'for'=>'js_friendly_urls') );
+			echo Html::div( array('content'=>$_LANG['COPY_THIS_CONTENT_ON_THE_FILE'], 'class'=>'input_tip') );
+
+			echo Html::textarea( array('style'=>'height:130px; margin-top: 8px;', 'content'=>'
+AddDefaultCharset UTF-8
+Options -Indexes
+
+# Disable Magic Quotes
+<IfModule mod_php5.c>
+  php_flag magic_quotes_gpc off
+</IfModule>
+
+ErrorDocument 404 '.$settings['path'].'index.php?controller=page&action=404
+
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteBase '.$settings['path'].'
+
+	RewriteRule ^category/([^/]+)/page-([0-9]+)$ index.php?controller=blog&action=view&category=$1&page=$2 [L]
+	RewriteRule ^category/([^/]+)/$ index.php?controller=blog&action=view&category=$1&page=0 [L]
+	RewriteRule ^page-([0-9]+)$ index.php?controller=blog&action=view&page=$1 [L]
+	RewriteRule ^post-([0-9]+)/(.*)$ index.php?controller=post&action=view&id_post=$1 [L]
+
+	RewriteRule ^dashboard/$ admin.php?controller=user&action=login [L]
+	RewriteRule ^feed/$ feed.php [L]
+
+	RewriteRule ^([^/]+)/$ index.php?controller=page&action=$1 [L]
+</IfModule>') );
+		echo Html::div_close();
+
+	echo Html::form_close();
+
+?>
+
+<?php
+//======================================================================
+// AUTO-SAVE FORM
+//======================================================================
+	$javascript = array('url'=>HTML_PATH_ADMIN_AJAX.'settings.php');
+	include(PATH_ADMIN_JS.'ajax_form.bit');
+?>

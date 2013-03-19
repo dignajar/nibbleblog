@@ -44,6 +44,8 @@
 
 		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=username', 'content'=>$_LANG['USERNAME_AND_PASSWORD']) );
 
+		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=seo', 'content'=>'SEO Options') );
+
 	echo Html::div_close();
 
 	// PLUGINS
