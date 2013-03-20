@@ -73,7 +73,6 @@ class DB_SETTINGS {
 			$tmp_array['timezone']					= (string) $this->obj_xml->getChild('timezone');
 			$tmp_array['timestamp_format']			= (string) $this->obj_xml->getChild('timestamp_format');
 			$tmp_array['advanced_post_options']		= (int) $this->obj_xml->getChild('advanced_post_options') == 1;
-			$tmp_array['friendly_urls']				= (int) $this->obj_xml->getChild('friendly_urls') == 1;
 
 			// Images
 			$tmp_array['img_resize']				= (int) $this->obj_xml->getChild('img_resize') == 1;
@@ -95,6 +94,17 @@ class DB_SETTINGS {
 
 			// Regional
 			$tmp_array['locale']					= (string) $this->obj_xml->getChild('locale');
+
+			// SEO
+			$tmp_array['seo_title']					= (string) $this->obj_xml->getChild('seo_title');
+			$tmp_array['seo_description']			= (string) $this->obj_xml->getChild('seo_description');
+			$tmp_array['seo_keywords']				= (string) $this->obj_xml->getChild('seo_keywords');
+			$tmp_array['seo_nofollow']				= (int) $this->obj_xml->getChild('seo_nofollow') == 1;
+			$tmp_array['seo_noindex']				= (int) $this->obj_xml->getChild('seo_noindex') == 1;
+			$tmp_array['seo_noarchive']				= (int) $this->obj_xml->getChild('seo_noarchive') == 1;
+			$tmp_array['seo_google_code']			= (string) $this->obj_xml->getChild('seo_google_code');
+			$tmp_array['seo_bing_code']				= (string) $this->obj_xml->getChild('seo_bing_code');
+			$tmp_array['friendly_urls']				= (int) $this->obj_xml->getChild('friendly_urls') == 1;
 
 			return($tmp_array);
 		}

@@ -122,7 +122,6 @@ $blog_domain = getenv('HTTP_HOST');
 				// notifications.xml
 				if(!file_exists(FILE_XML_NOTIFICATIONS))
 				{
-
 					$xml  = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
 					$xml .= '<notifications>';
 					$xml .= '</notifications>';
@@ -139,6 +138,17 @@ $blog_domain = getenv('HTTP_HOST');
 				set_if_not($obj,'notification_session_start',0);
 				set_if_not($obj,'notification_email_to','');
 				set_if_not($obj,'notification_email_from','noreply@'.$blog_domain);
+
+				// SEO Options
+				set_if_not($obj,'seo_title','');
+				set_if_not($obj,'seo_description','');
+				set_if_not($obj,'seo_keywords','');
+				set_if_not($obj,'seo_nofollow',0);
+				set_if_not($obj,'seo_noindex',0);
+				set_if_not($obj,'seo_noarchive',0);
+				set_if_not($obj,'seo_google_code','');
+				set_if_not($obj,'seo_bing_code','');
+
 				$obj->asXml( FILE_XML_CONFIG );
 				echo Html::p( array('class'=>'pass', 'content'=>'DB updated: '.FILE_XML_CONFIG) );
 

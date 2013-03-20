@@ -49,12 +49,6 @@
 			echo Html::input( array('id'=>'js_seo_google_code', 'name'=>'seo_google_code', 'type'=>'text', 'value'=>$settings['seo_google_code']) );
 		echo Html::div_close();
 
-		// YAHOO WEBMASTER TOOLS
-		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::label( array('content'=>'Yahoo! - Verification code', 'class'=>'blocked') );
-			echo Html::input( array('id'=>'js_seo_yahoo_code', 'name'=>'seo_yahoo_code', 'type'=>'text', 'value'=>$settings['seo_yahoo_code']) );
-		echo Html::div_close();
-
 		// BING WEBMASTER TOOLS
 		echo Html::div_open( array('class'=>'form_block') );
 			echo Html::label( array('content'=>'Bing Webmaster tools - Verification code', 'class'=>'blocked') );

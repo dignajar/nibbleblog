@@ -14,13 +14,6 @@
 			echo Html::input( array('id'=>'js_slogan', 'name'=>'slogan', 'type'=>'text', 'value'=>$settings['slogan']) );
 		echo Html::div_close();
 
-		// ABOUT
-		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::label( array('content'=>$_LANG['ABOUT_YOUR_BLOG'], 'class'=>'blocked') );
-			echo Html::textarea( array('id'=>'js_about', 'name'=>'about', 'content'=>$settings['about']) );
-			echo Html::div( array('content'=>$_LANG['SHORT_DESCRIPTION_NO_MORE_THAN'], 'class'=>'input_tip') );
-		echo Html::div_close();
-
 		// FOOTER TEXT
 		echo Html::div_open( array('class'=>'form_block') );
 			echo Html::label( array('content'=>$_LANG['FOOTER_TEXT'], 'class'=>'blocked') );
