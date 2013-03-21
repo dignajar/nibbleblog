@@ -19,6 +19,7 @@ body {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+	-webkit-filter: blur(5px);
 }
 
 #container {
@@ -97,6 +98,7 @@ div.page_404 {
 /* ============================== */
 #pager {
 	overflow: auto;
+	margin: 40px 0;
 }
 
 #pager	a.newer {
@@ -120,7 +122,6 @@ article.post {
 
 /* ========== POST HEADER ========== */
 article.post	header.post		div.date {
-    background-color: #EEEEEE;
     color: #666666;
     display: inline-block;
     font-size: 0.9em;
@@ -180,6 +181,10 @@ article.post	div.video_embed {
 
 }
 
+article.post	a.title {
+	color: #444444;
+}
+
 /* ========== POST FOOTER ========== */
 article.post	footer.post {
     border-bottom: 1px solid #CCCCCC;
@@ -199,7 +204,6 @@ article.post	footer.post		span.date {
 /* ============================== */
 #comment_list {
 	margin-top: 30px;
-	width: 70%;
 }
 
 #comment_list	h2 {
