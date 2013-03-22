@@ -9,6 +9,7 @@
  * $_DB_CATEGORIES
  * $_DB_POST
  * $_DB_COMMENTS
+ * $_LANG
 
  * Return
  * (array) $posts
@@ -24,7 +25,7 @@
 	if($url['category']!==null)
 	{
 		// Get the category ID
-		$id_cat = $_DB_CATEGORIES->get_id( array('name'=>$url['category']) );
+		$id_cat = $_DB_CATEGORIES->get_id( array('slug'=>$url['category']) );
 
 		if($id_cat!==false)
 		{
@@ -58,11 +59,21 @@
 		$posts = $_DB_POST->get_list_by_page( array('page'=>$url['page'], 'amount'=>$settings['items_page']) );
 	}
 
-	// ---- COMMENTS & PERMALINKS
+	// ---- COMMENTS
+	// ---- PERMALINKS
+	// ---- CATEGORY
+	// ---- PUBLISH DATE
 	foreach($posts as $key=>$value)
 	{
 		// Comments
 		$posts[$key]['comments'] = $_DB_COMMENTS->get_list_by_post( array('id_post'=>$value['id']) );
+
+		// Category
+		$posts[$key]['category'] = $_DB_CATEGORIES->get_name( array('id'=>$posts[$key]['id_cat']) );
+
+		// Publish date
+		$posts[$key]['pub_date'] = Date::format($posts[$key]['pub_date_unix'], $settings['timestamp_format']);
+		$posts[$key]['mod_date'] = Date::format($posts[$key]['mod_date_unix'], $settings['timestamp_format']);
 
 		// Permalink
 		if( $settings['friendly_urls'] )

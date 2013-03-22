@@ -24,36 +24,28 @@ class DB_POSTS {
 
 		private $last_insert_id;
 
-		private $settings;
-		private $db_categories;
-
 /*
 ======================================================================================
 	CONSTRUCTORS
 ======================================================================================
 */
-		function DB_POSTS($file, $settings, $db_categories)
+		function DB_POSTS($file)
 		{
 			$this->file_xml = $file;
 
 			if(file_exists($this->file_xml))
 			{
-				$this->settings = $settings;
-				$this->db_categories = $db_categories;
-
 				$this->last_insert_id = max($this->get_autoinc() - 1, 0);
 
 				$this->files = array();
 				$this->files_count = 0;
 
 				$this->obj_xml = new NBXML($this->file_xml, 0, TRUE, '', FALSE);
-			}
-			else
-			{
-				return(false);
+
+				return true;
 			}
 
-			return(true);
+			return false;
 		}
 
 /*
@@ -392,13 +384,6 @@ class DB_POSTS {
 			$tmp_array['mod_date_unix']		= (string) $obj_xml->getChild('mod_date');
 
 			$tmp_array['allow_comments']	= (bool) ((int)$obj_xml->getChild('allow_comments'))==1;
-
-			// Category
-			$tmp_array['category']			= $this->db_categories->get_name(array('id'=>$tmp_array['id_cat']));
-
-			// DATE
-			$tmp_array['pub_date'] = Date::format($tmp_array['pub_date_unix'], $this->settings['timestamp_format']);
-			$tmp_array['mod_date'] = Date::format($tmp_array['mod_date_unix'], $this->settings['timestamp_format']);
 
 			// CONTENT
 			$tmp_array['content'][0] = $content;

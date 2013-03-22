@@ -9,7 +9,7 @@
  * See COPYRIGHT.txt and LICENSE.txt.
 */
 
-define('UPDATER_VERSION', '1.1');
+define('UPDATER_VERSION', '1.2');
 
 // =====================================================================
 // Require
@@ -186,10 +186,9 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 
 				foreach( $obj->children() as $children )
 				{
-					$name = (string)$children->attributes()->name;
+					$name = utf8_decode((string)$children->attributes()->name);
 
 					$slug = Text::clean_url($name, '-', $translit_enable);
-					var_dump($slug);
 
 					@$children->addAttribute('slug','');
 

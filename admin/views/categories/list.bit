@@ -1,22 +1,5 @@
 <?php
 
-	// NEW CATEGORY
-	echo Html::separator( array('style'=>'margin-top: 0;', 'content'=>$_LANG['NEW_CATEGORY']) );
-
-	echo Html::form_open( array('id'=>'js_form_add', 'name'=>'form', 'method'=>'post') );
-
-		// NAME
-		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::input( array('id'=>'js_name', 'name'=>'name', 'type'=>'text', 'placeholder'=>$_LANG['ENTER_THE_NAME_OF_THE_NEW_CATEGORY']) );
-		echo Html::div_close();
-
-		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::input( array('id'=>'js_button_add', 'type'=>'submit', 'class'=>'save', 'value'=>$_LANG['ADD_CATEGORY']) );
-		echo Html::div_close();
-
-	echo Html::form_close();
-
-
 	// LIST
 	echo Html::separator( array('content'=>$_LANG['CATEGORIES_IN_YOUR_BLOG']) );
 
@@ -35,6 +18,22 @@
 					echo Html::div( array('class'=>'input_tip', 'content'=>$_LANG['CATEGORY_HAS_ONE_OR_MORE_POST']) );
 			echo Html::div_close();
 		}
+
+	echo Html::form_close();
+
+	// NEW CATEGORY
+	echo Html::separator( array('style'=>'margin-top: 0;', 'content'=>$_LANG['NEW_CATEGORY']) );
+
+	echo Html::form_open( array('id'=>'js_form_add', 'name'=>'form', 'method'=>'post') );
+
+		// NAME
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::input( array('id'=>'js_name', 'name'=>'name', 'type'=>'text', 'placeholder'=>$_LANG['ENTER_THE_NAME_OF_THE_NEW_CATEGORY']) );
+		echo Html::div_close();
+
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::input( array('id'=>'js_button_add', 'type'=>'submit', 'class'=>'save', 'value'=>$_LANG['ADD_CATEGORY']) );
+		echo Html::div_close();
 
 	echo Html::form_close();
 
