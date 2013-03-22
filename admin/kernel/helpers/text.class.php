@@ -120,10 +120,23 @@ class Text {
 	}
 
 	// Clean text for URL
-	public static function clean_url($text)
+	public static function clean_url($text, $spaces='-', $translit=false)
 	{
+		// Delete characters
 		$text = str_replace(array("!", "*", "&#039;", "&quot;", "(", ")", ";", ":", "@", "&amp", "=", "+", "$", ",", "/", "?", "%", "#", "[", "]", "|"),'',$text);
-		$text = str_replace(" ","-",$text);
+
+		// Translit
+		if($translit!=false)
+		{
+			$text = str_replace(array_keys($translit),array_values($translit),$text);
+		}
+
+		// Reemplace spaces by $spaces
+		$text = str_replace(' ',$spaces,$text);
+
+		// Make a string lowercase
+		$text = strtolower($text);
+
 		return $text;
 	}
 

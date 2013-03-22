@@ -11,24 +11,42 @@
 
 define('UPDATER_VERSION', '1.1');
 
+// =====================================================================
+// Require
+// =====================================================================
 require('admin/boot/rules/1-fs_php.bit');
 require('admin/boot/rules/99-constants.bit');
 
-// DB
 require(PATH_DB . 'nbxml.class.php');
+require(PATH_DB . 'db_settings.class.php');
 
-// Helpers
 require(PATH_HELPERS . 'html.class.php');
 require(PATH_HELPERS . 'date.class.php');
+require(PATH_HELPERS . 'text.class.php');
 
-// Language
-require( 'languages/en_US.bit' );
+// =====================================================================
+// DB
+// =====================================================================
+$_DB_SETTINGS	= new DB_SETTINGS( FILE_XML_CONFIG );
 
-// Set timezone
-Date::set_timezone('UTC');
-
+// =====================================================================
 // Variables
+// =====================================================================
 $blog_domain = getenv('HTTP_HOST');
+
+$settings = $_DB_SETTINGS->get();
+
+// =====================================================================
+// Language
+// =====================================================================
+include(PATH_LANGUAGES.'en_US.bit');
+include(PATH_LANGUAGES.$settings['language'].'.bit');
+
+Date::set_timezone($settings['timezone']);
+
+Date::set_locale($settings['locale']);
+
+$translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 
 ?>
 
@@ -162,6 +180,25 @@ $blog_domain = getenv('HTTP_HOST');
 				set_if_not($obj,'monitor_auto_delete',0);
 				$obj->asXml( FILE_XML_COMMENTS );
 				echo Html::p( array('class'=>'pass', 'content'=>'DB updated: '.FILE_XML_COMMENTS) );
+
+				// Categories
+				$obj = new NBXML(FILE_XML_CATEGORIES, 0, TRUE, '', FALSE);
+
+				foreach( $obj->children() as $children )
+				{
+					$name = (string)$children->attributes()->name;
+
+					$slug = Text::clean_url($name, '-', $translit_enable);
+					var_dump($slug);
+
+					@$children->addAttribute('slug','');
+
+					$children->attributes()->slug = $slug;
+				}
+
+				$obj->asXml( FILE_XML_CATEGORIES );
+
+				echo Html::p( array('class'=>'pass', 'content'=>'Categories updated...') );
 
 			?>
 		</section>

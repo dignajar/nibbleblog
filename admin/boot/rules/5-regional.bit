@@ -20,4 +20,7 @@
 	// Set the locale
 	Date::set_locale($settings['locale']);
 
+	// Translit
+	$translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
+
 ?>

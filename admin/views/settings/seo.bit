@@ -65,28 +65,48 @@
 
 			echo Html::textarea( array('style'=>'height:130px; margin-top: 8px;', 'content'=>'
 AddDefaultCharset UTF-8
+
+# Disable directory browsing
 Options -Indexes
 
 # Disable Magic Quotes
 <IfModule mod_php5.c>
-  php_flag magic_quotes_gpc off
+ php_flag magic_quotes_gpc off
 </IfModule>
+
+# Secure .xml files
+<FilesMatch ".(xml)$">
+ Order Allow,Deny
+ Deny from all
+</FilesMatch>
+
+# Secure shadow.php
+<Files shadow.php>
+ order allow,deny
+ deny from all
+</Files>
+
+# Secure keys.php
+<Files keys.php>
+ order allow,deny
+ deny from all
+</Files>
 
 ErrorDocument 404 '.$settings['path'].'index.php?controller=page&action=404
 
 <IfModule mod_rewrite.c>
-	RewriteEngine on
-	RewriteBase '.$settings['path'].'
+ RewriteEngine on
+ RewriteBase '.$settings['path'].'
 
-	RewriteRule ^category/([^/]+)/page-([0-9]+)$ index.php?controller=blog&action=view&category=$1&page=$2 [L]
-	RewriteRule ^category/([^/]+)/$ index.php?controller=blog&action=view&category=$1&page=0 [L]
-	RewriteRule ^page-([0-9]+)$ index.php?controller=blog&action=view&page=$1 [L]
-	RewriteRule ^post-([0-9]+)/(.*)$ index.php?controller=post&action=view&id_post=$1 [L]
+ RewriteRule ^category/([^/]+)/page-([0-9]+)$ index.php?controller=blog&action=view&category=$1&page=$2 [L]
+ RewriteRule ^category/([^/]+)/$ index.php?controller=blog&action=view&category=$1&page=0 [L]
+ RewriteRule ^page-([0-9]+)$ index.php?controller=blog&action=view&page=$1 [L]
+ RewriteRule ^post-([0-9]+)/(.*)$ index.php?controller=post&action=view&id_post=$1 [L]
 
-	RewriteRule ^dashboard/$ admin.php?controller=user&action=login [L]
-	RewriteRule ^feed/$ feed.php [L]
+ RewriteRule ^dashboard/$ admin.php?controller=user&action=login [L]
+ RewriteRule ^feed/$ feed.php [L]
 
-	RewriteRule ^([^/]+)/$ index.php?controller=page&action=$1 [L]
+ RewriteRule ^([^/]+)/$ index.php?controller=page&action=$1 [L]
 </IfModule>') );
 		echo Html::div_close();
 

@@ -58,11 +58,24 @@
 		$posts = $_DB_POST->get_list_by_page( array('page'=>$url['page'], 'amount'=>$settings['items_page']) );
 	}
 
-	// ---- COMMENTS
-	// Get all comments for each post
+	// ---- COMMENTS & PERMALINKS
 	foreach($posts as $key=>$value)
 	{
+		// Comments
 		$posts[$key]['comments'] = $_DB_COMMENTS->get_list_by_post( array('id_post'=>$value['id']) );
+
+		// Permalink
+		if( $settings['friendly_urls'] )
+		{
+			if(  Text::not_empty($posts[$key]['slug']) )
+				$slug = $posts[$key]['slug'];
+			elseif( Text::not_empty($posts[$key]['title']) )
+				$slug = Text::clean_url($posts[$key]['title'], '-', isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false);
+			else
+				$slug = $posts[$key]['type'];
+
+			$posts[$key]['permalink'] = HTML_PATH_ROOT.'post-'.$posts[$key]['id'].'/'.$slug;
+		}
 	}
 
 	if(isset($posts[0]))
@@ -75,5 +88,5 @@
 // =====================================================================
 	unset($id_cat);
 	unset($tmp);
-
+	unset($slug);
 ?>

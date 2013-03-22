@@ -59,6 +59,7 @@ class DB_CATEGORIES {
 				$new_node = $this->obj_xml->addChild('category','');
 				$new_node->addAttribute('id', $this->get_autoinc());
 				$new_node->addAttribute('name', $args['name'] );
+				$new_node->addAttribute('slug', $args['slug'] );
 				$this->set_autoinc(1);
 			}
 		}
@@ -69,11 +70,12 @@ class DB_CATEGORIES {
 
 			// Category not found
 			if( $tmp_node == array() )
-				return(false);
+				return false;
 
-			$tmp_node[0]->attributes()->name	= utf8_encode($args['name']);
+			$tmp_node[0]->attributes()->name = utf8_encode($args['name']);
+			$tmp_node[0]->attributes()->slug = utf8_encode($args['slug']);
 
-			return(true);
+			return true;
 		}
 
 		public function delete($args)
@@ -82,20 +84,20 @@ class DB_CATEGORIES {
 
 			// Category not found
 			if( $tmp_node == array() )
-				return(false);
+				return false;
 
 			// Need at least 1 category
 			if( $this->get_count() == 1 )
-				return(false);
+				return false;
 
 			// Check if the category have some post assoc
 			if( $this->get_post_count($args['id']) > 0)
-				return(false);
+				return false;
 
 			$dom = dom_import_simplexml($tmp_node[0]);
 			$dom->parentNode->removeChild($dom);
 
-			return( $this->savetofile() );
+			return $this->savetofile();
 		}
 
 		public function get_all()
@@ -106,6 +108,7 @@ class DB_CATEGORIES {
 				$row			= array();
 				$row['id']		= (int) $children->attributes()->id;
 				$row['name']	= (string) utf8_decode($children->attributes()->name);
+				$row['slug']	= (string) utf8_decode($children->attributes()->slug);
 
 				array_push($tmp_array, $row);
 			}
@@ -127,11 +130,11 @@ class DB_CATEGORIES {
 		{
 			foreach($this->obj_xml as $children)
 			{
-				if(Text::clean_url(utf8_decode((string)$children->attributes()->name)) == $args['name'])
-					return( (int)$children->attributes()->id );
+				if(utf8_decode((string)$children->attributes()->slug) == $args['slug'])
+					return (int)$children->attributes()->id;
 			}
 
-			return(false);
+			return false;
 		}
 
 		public function get_name($args)
@@ -139,10 +142,10 @@ class DB_CATEGORIES {
 			foreach($this->obj_xml as $children)
 			{
 				if( ((int)$children->attributes()->id) == $args['id'] )
-					return( (string)$children->attributes()->name );
+					return (string)$children->attributes()->name;
 			}
 
-			return(false);
+			return false;
 		}
 
 /*
