@@ -2,11 +2,11 @@
 
 	$theme = array
 	(
-		'name'=>'Color',
+		'name'=>'Panadero',
 		'description'=>'',
 		'author'=>'Diego Najar',
 		'version'=>'3.5',
-		'last_update'=>'28/02/2013', // dd/mm/yyyy
+		'last_update'=>'22/03/2013', // dd/mm/yyyy
 		'url'=>'http://www.nibbleblog.com', // http://xxxxxxxxxxxxx
 		'video_width'=>'640',
 		'video_height'=>'360',

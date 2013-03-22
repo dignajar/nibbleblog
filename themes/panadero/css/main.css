@@ -24,8 +24,7 @@ body {
 
 #container {
     margin: 0 auto;
-    max-width: 630px;
-    min-width: 600px;
+    width: 630px;
     overflow: auto;
     padding: 0 20px;
 }
@@ -291,13 +290,18 @@ article.post	footer.post		span.date {
 /* ============================== */
 #plugins {
 	margin: 40px 0;
+	background: rgba(1,1,1,0.4);
+	padding: 20px;
+	border-radius: 3px 3px 3px 3px;
+	overflow: auto;
+	color: #FFFFFF;
+	word-wrap: break-word;
 }
 
 div.plugin_box {
-	padding: 20px 0;
-	margin: 20px 0;
-	border-top: 1px solid #f1f1f1;
-	border-bottom: 1px solid #f1f1f1;
+	float: left;
+	margin: 10px 20px;
+    width: 250px;
 }
 
 div.plugin_box	ul {
@@ -308,23 +312,27 @@ div.plugin_box	ul {
 div.plugin_box	li {
 	margin: 0 5px;
 	padding: 0;
-	display: inline-block;
+	display: block;
+}
+
+div.plugin_box	a {
+	color: #FFFFFF;
+	text-shadow: 1px 1px 3px #444444;
+}
+
+div.plugin_box	h3 {
+    border-bottom: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    padding-bottom: 4px;
+    text-shadow: 1px 1px 3px #444444;
 }
 
 /* ============================== */
 /* PLUGIN TWITTER */
 /* ============================== */
 div.plugin_twitter {
-	padding: 0;
-	margin: 20px 0;
-	height: 58px;
-	line-height: 58px;
-	overflow: hidden;
-}
-
-div.plugin_twitter	ul {
-	margin: 0;
-	padding: 0;
+	height: 150px;
+	overflow: auto;
 }
 
 div.plugin_twitter	li {
@@ -349,26 +357,6 @@ div.plugin_twitter_static	li.tweet {
 }
 
 /* ============================== */
-/* PLUGIN CATEGORIES */
-/* ============================== */
-div.plugin_categories {
-	padding: 20px 0;
-	margin: 20px 0;
-	border-top: 1px solid #f1f1f1;
-	border-bottom: 1px solid #f1f1f1;
-}
-
-div.plugin_categories	ul {
-	text-align: center;
-}
-
-div.plugin_categories	li {
-	margin: 0 20px;
-	padding: 0;
-	text-transform:uppercase;
-}
-
-/* ============================== */
 /* PLUGIN ABOUT */
 /* ============================== */
 div.plugin_about {
@@ -383,8 +371,6 @@ div.plugin_about	ul {
 
 div.plugin_about	li {
     display: block;
-    font-size: 1.3em;
-    font-weight: lighter;
     margin: 0;
     padding: 0;
 }
