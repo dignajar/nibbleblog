@@ -150,12 +150,15 @@ Date::set_timezone('UTC');
 		$node = $obj->addChild('category', '');
 		$node->addAttribute('id',0);
 		$node->addAttribute('name', $_LANG['UNCATEGORIZED']);
+		$node->addAttribute('slug', $_LANG['UNCATEGORIZED']);
 		$node = $obj->addChild('category', '');
 		$node->addAttribute('id',1);
 		$node->addAttribute('name', $_LANG['MUSIC']);
+		$node->addAttribute('slug', $_LANG['UNCATEGORIZED']);
 		$node = $obj->addChild('category', '');
 		$node->addAttribute('id',2);
 		$node->addAttribute('name', $_LANG['VIDEOS']);
+		$node->addAttribute('slug', $_LANG['UNCATEGORIZED']);
 		$obj->asXml( FILE_XML_CATEGORIES );
 
 		// comments.xml
