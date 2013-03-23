@@ -30,7 +30,7 @@
 		</div>
 
 		<footer id="foot">
-			<p><a href="<?php echo $layout['feed'] ?>">Atom</a> | <?php echo $settings['footer'] ?> | <a href="http://proj.syndicate-fx.com/nibbleblog" target="_blank">Note theme</a></p>
+			<p><a href="<?php echo $layout['feed'] ?>">Atom</a> | <?php echo $settings['footer'] ?> | <a href="http://syndicatefx.com" target="_blank">Note theme</a></p>
 		</footer>
 
 <script src="<?php echo HTML_THEME_JS.'jquery.fitvids.js' ?>"></script>

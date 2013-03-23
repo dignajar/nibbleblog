@@ -25,7 +25,7 @@
 		?>
 	</section>
 	<footer>
-		<?php echo $settings['footer'];?> &middot; <a href="http://proj.syndicate-fx.com/nibbleblog" target="_blank">Suus Theme</a>
+		<?php echo $settings['footer'];?> &middot; <a href="http://syndicatefx.com" target="_blank">Suus Theme</a>
 	</footer>
 <script src="<?php echo HTML_THEME_JS.'script.js' ?>"></script>
 </body>

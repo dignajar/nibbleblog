@@ -7,7 +7,7 @@
 		'author'=>'Paulo Nunes',
 		'version'=>'1.0',
 		'last_update'=>'12/03/2013', // dd/mm/yyyy
-		'url'=>'http://proj.syndicate-fx.com/nibbleblog', // http://xxxxxxxxxxxxx
+		'url'=>'http://syndicatefx.com', // http://xxxxxxxxxxxxx
 		'video_width'=>'',
 		'video_height'=>''
 	);
