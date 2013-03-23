@@ -447,6 +447,67 @@ form.plugins		label {
 }
 
 /* ============================== */
+/* CATEGORIES */
+/* ============================== */
+
+.bg_color_1 {
+	background: #F9F9F9;
+}
+
+.bg_color_2 {
+	background: #FCFCFC;
+}
+
+div.table_box {
+	margin: 1px 0;
+	font-size: 1.3em;
+}
+
+/* Float system */
+div.table_box	div.float {
+	overflow: auto;
+}
+
+div.table_box	div.left {
+	float: left;
+	padding: 10px;
+}
+
+div.table_box	div.right {
+	float: right;
+}
+
+/* Left */
+div.table_box	div.left	div {
+	margin:5px 0;
+}
+
+div.table_box	div.left	a {
+	margin-right:10px;
+	color: #999999;
+}
+
+div.table_box	div.left	a:hover {
+	color: #333;
+}
+
+div.table_box	div.left	div.type {
+	text-transform:uppercase;
+	color: #999999;
+}
+
+div.table_box	div.left	div.title {
+	color: #009AD7;
+}
+
+/* Right */
+div.table_box	div.right	div.date {
+	background: #D9D9D9;
+	padding: 3px 10px;
+	font-size: 0.9em;
+}
+
+/* ============================== */
 /* POST LIST | COMMENT LIST */
 /* ============================== */
 div.list_box,
