@@ -34,7 +34,7 @@
 					}
 				echo '</div>';
 			?>
-		<footer><a href="<?php echo $layout['feed'] ?>">Atom</a> | <?php echo $settings['footer']; ?> | <a href="http://proj.syndicate-fx.com/nibbleblog" target="_blank">Lithium Theme</a></footer>
+		<footer><a href="<?php echo $layout['feed'] ?>">Atom</a> | <?php echo $settings['footer']; ?> | <a href="http://syndicatefx.com" target="_blank">Lithium Theme</a></footer>
 	</div>
 	<section class="plugins">
 		<div class="sidebar">
