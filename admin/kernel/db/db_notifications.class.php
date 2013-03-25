@@ -16,8 +16,8 @@ class DB_NOTIFICATIONS {
 	VARIABLES
 ======================================================================================
 */
-		public $file_xml; 			// Contains the link to XML file
-		public $obj_xml; 			// Contains the object
+		public $file; 			// Contains the link to XML file
+		public $xml; 			// Contains the object
 		public $settings;
 
 /*
@@ -27,19 +27,18 @@ class DB_NOTIFICATIONS {
 */
 		function DB_NOTIFICATIONS($file, $settings)
 		{
-			$this->file_xml = $file;
-
-			if( file_exists($this->file_xml) )
+			if(file_exists($file))
 			{
-				$this->obj_xml = new NBXML($this->file_xml, 0, TRUE, '', FALSE);
+				$this->file = $file;
+
 				$this->settings = $settings;
-			}
-			else
-			{
-				return(false);
+
+				$this->xml = new NBXML($this->file, 0, TRUE, '', FALSE);
+
+				return true;
 			}
 
-			return(true);
+			return false;
 		}
 
 /*
@@ -49,15 +48,15 @@ class DB_NOTIFICATIONS {
 */
 		public function savetofile()
 		{
-			return( $this->obj_xml->asXML($this->file_xml) );
+			return( $this->xml->asXML($this->file) );
 		}
 
 		public function add($type, $send_email, $message_key, $email_message = '')
 		{
 			global $_LANG;
 
-			if( count( $this->obj_xml->notification ) >= NOTIFICATIONS_AMOUNT )
-				unset( $this->obj_xml->notification[0] );
+			if( count( $this->xml->notification ) >= NOTIFICATIONS_AMOUNT )
+				unset( $this->xml->notification[0] );
 
 			// Email
 			if($send_email)
@@ -80,7 +79,7 @@ class DB_NOTIFICATIONS {
 			$user_ip = Crypt::encrypt(Net::get_user_ip(), $_KEYS[0]);
 
 			// Save the notification
-			$node = $this->obj_xml->addChild('notification');
+			$node = $this->xml->addChild('notification');
 			$node->addAttribute('type',			$type);
 			$node->addAttribute('mail',			$sent);
 			$node->addAttribute('message_key',	$message_key);
@@ -97,7 +96,7 @@ class DB_NOTIFICATIONS {
 			include(FILE_KEYS);
 
 			$tmp_array = array();
-			foreach( $this->obj_xml->notification as $notification )
+			foreach( $this->xml->notification as $notification )
 			{
 				// Decrypt the user IP
 				$user_ip = Crypt::decrypt((string) $notification->getAttribute('ip'), $_KEYS[0]);

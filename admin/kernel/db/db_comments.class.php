@@ -16,8 +16,8 @@ class DB_COMMENTS {
 	VARIABLES
 ======================================================================================
 */
-		public $file_xml; 				// Contains the link to XML file
-		public $obj_xml; 				// Contains the object
+		public $file; 				// Contains the link to XML file
+		public $xml; 				// Contains the object
 
 		private $files;
 		private $files_count;
@@ -33,25 +33,24 @@ class DB_COMMENTS {
 */
 		function DB_COMMENTS($file, $settings)
 		{
-			$this->file_xml = $file;
-
-			if(file_exists($this->file_xml))
+			if(file_exists($file))
 			{
+				$this->file = $file;
+
 				$this->settings = $settings;
 
 				$this->last_insert_id = max($this->get_autoinc() - 1, 0);
 
 				$this->files = array();
+
 				$this->files_count = 0;
 
-				$this->obj_xml = new NBXML($this->file_xml, 0, TRUE, '', FALSE);
-			}
-			else
-			{
-				return(false);
+				$this->xml = new NBXML($this->file, 0, TRUE, '', FALSE);
+
+				return true;
 			}
 
-			return(true);
+			return false;
 		}
 /*
 ======================================================================================
@@ -60,7 +59,7 @@ class DB_COMMENTS {
 */
 		public function savetofile()
 		{
-			return( $this->obj_xml->asXML($this->file_xml) );
+			return( $this->xml->asXML($this->file) );
 		}
 
 		public function get_last_insert_id()
@@ -125,13 +124,11 @@ class DB_COMMENTS {
 
 				// Save config file
 				$this->savetofile();
-			}
-			else
-			{
-				return(false);
+
+				return $new_id;
 			}
 
-			return($new_id);
+			return false;
 		}
 
 		public function get($args)
@@ -143,7 +140,7 @@ class DB_COMMENTS {
 				return( $this->get_items( $this->files[0] ) );
 			}
 
-			return(false);
+			return false;
 		}
 
 		public function get_list_by_post($args)
@@ -169,7 +166,7 @@ class DB_COMMENTS {
 				return( $this->get_list_by($args['page_number'], $args['amount']) );
 			}
 
-			return(array());
+			return array();
 		}
 
 		public function get_last($amount)
@@ -218,13 +215,13 @@ class DB_COMMENTS {
 		public function get_settings()
 		{
 			$tmp_array = array();
-			$tmp_array['monitor_enable'] 		= (int) $this->obj_xml->getChild('monitor_enable');
-			$tmp_array['monitor_api_key'] 		= (string) $this->obj_xml->getChild('monitor_api_key');
-			$tmp_array['monitor_spam_control'] 	= (float) $this->obj_xml->getChild('monitor_spam_control');
-			$tmp_array['monitor_auto_delete'] 	= (float) $this->obj_xml->getChild('monitor_auto_delete');
-			$tmp_array['sleep'] 				= (int) $this->obj_xml->getChild('sleep');
-			$tmp_array['sanitize'] 				= (int) $this->obj_xml->getChild('sanitize');
-			$tmp_array['moderate'] 				= (int) $this->obj_xml->getChild('moderate');
+			$tmp_array['monitor_enable'] 		= (int) $this->xml->getChild('monitor_enable');
+			$tmp_array['monitor_api_key'] 		= (string) $this->xml->getChild('monitor_api_key');
+			$tmp_array['monitor_spam_control'] 	= (float) $this->xml->getChild('monitor_spam_control');
+			$tmp_array['monitor_auto_delete'] 	= (float) $this->xml->getChild('monitor_auto_delete');
+			$tmp_array['sleep'] 				= (int) $this->xml->getChild('sleep');
+			$tmp_array['sanitize'] 				= (int) $this->xml->getChild('sanitize');
+			$tmp_array['moderate'] 				= (int) $this->xml->getChild('moderate');
 
 			return($tmp_array);
 		}
@@ -233,7 +230,7 @@ class DB_COMMENTS {
 		{
 			foreach($args as $name=>$value)
 			{
-				$this->obj_xml->setChild($name, $value);
+				$this->xml->setChild($name, $value);
 			}
 
 			return(true);
@@ -280,12 +277,12 @@ class DB_COMMENTS {
 
 		private function get_autoinc()
 		{
-			return( (int) $this->obj_xml['autoinc'] );
+			return( (int) $this->xml['autoinc'] );
 		}
 
 		private function set_autoinc($value = 0)
 		{
-			$this->obj_xml['autoinc'] = $value + $this->get_autoinc();
+			$this->xml['autoinc'] = $value + $this->get_autoinc();
 		}
 
 		private function set_file($id)
@@ -333,13 +330,13 @@ class DB_COMMENTS {
 		// File name: IDComment.IDPost.IDUser.NULL.YYYY.MM.DD.HH.mm.ss.xml
 		private function get_items($file)
 		{
-			$obj_xml = new NBXML(PATH_COMMENTS . $file, 0, TRUE, '', FALSE);
+			$xml = new NBXML(PATH_COMMENTS . $file, 0, TRUE, '', FALSE);
 
 			$file_info = explode('.', $file);
 
 			include(FILE_KEYS);
-			$user_ip = Crypt::decrypt((string) $obj_xml->getChild('author_ip'), $_KEYS[1]);
-			$user_email = Crypt::decrypt((string) $obj_xml->getChild('author_email'), $_KEYS[1]);
+			$user_ip = Crypt::decrypt((string) $xml->getChild('author_ip'), $_KEYS[1]);
+			$user_email = Crypt::decrypt((string) $xml->getChild('author_email'), $_KEYS[1]);
 
 			$tmp_array = array();
 
@@ -353,10 +350,10 @@ class DB_COMMENTS {
 			$tmp_array['author_email']		= $user_email;
 			$tmp_array['author_ip']			= $user_ip;
 
-			$tmp_array['author_name']		= (string) $obj_xml->getChild('author_name');
-			$tmp_array['content']			= (string) $obj_xml->getChild('content');
-			$tmp_array['pub_date_unix']		= (string) $obj_xml->getChild('pub_date');
-			$tmp_array['highlight']			= (bool) ((int)$obj_xml->getChild('content')==1);
+			$tmp_array['author_name']		= (string) $xml->getChild('author_name');
+			$tmp_array['content']			= (string) $xml->getChild('content');
+			$tmp_array['pub_date_unix']		= (string) $xml->getChild('pub_date');
+			$tmp_array['highlight']			= (bool) ((int)$xml->getChild('content')==1);
 
 			$tmp_array['pub_date'] = Date::format($tmp_array['pub_date_unix'], $this->settings['timestamp_format']);
 

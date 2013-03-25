@@ -6,46 +6,62 @@ if(empty($comments))
 }
 else
 {
-
-	$bg_color = true;
+	echo '
+	<table>
+		<thead>
+			<tr>
+				<th>Comment</th>
+				<th>Post</th>
+				<th>Author</th>
+				<th>E-mail</th>
+				<th>IP</th>
+				<th>Publish date</th>
+			</tr>
+		</thead>
+		<tbody>
+	';
 
 	foreach( $comments as $comment )
 	{
 		$post = $_DB_POST->get( array('id'=>$comment['id_post']) );
 
-		echo Html::div_open( array('class'=>'table_box '.(($bg_color=!$bg_color)?'bg_color_1':'bg_color_2')) );
-			echo Html::div_open( array('class'=>'float') );
+		echo '
+			<tr>
+				<td class="content">
+				'.$comment['content'].'
+				<div class="options">
+		';
 
-				echo Html::div_open( array('class'=>'left') );
-					echo Html::div( array('class'=>'title', 'content'=>$comment['content']) );
-					echo Html::div( array('class'=>'info', 'content'=>$post['title'].'</span> - '.$_LANG['AUTHOR'].': '.$comment['author_name'].' - '.$_LANG['EMAIL'].': '.$comment['author_email'].' - IP: '.$comment['author_ip']) );
-					echo Html::div_open( array('class'=>'options') );
-						if($comment['type']=='NULL')
-						{
-							echo Html::link( array('class'=>'js_button_unapprove', 'data-id'=>$comment['id'], 'content'=>$_LANG['DISAPPROVE']) );
-						}
-						else
-						{
-							if($comment['type']=='spam')
-							{
-								echo Html::link( array('class'=>'js_button_approve', 'data-id'=>$comment['id'], 'content'=>$_LANG['APPROVE_SPAM_DETECTED']) );
-							}
-							else
-							{
-								echo Html::link( array('class'=>'js_button_approve', 'data-id'=>$comment['id'], 'content'=>$_LANG['APPROVE']) );
-							}
-						}
-						echo Html::link( array('class'=>'js_button_delete', 'data-flag'=>'0', 'data-id'=>$comment['id'], 'content'=>$_LANG['DELETE']) );
-					echo Html::div_close();
-				echo Html::div_close();
+		if($comment['type']=='NULL')
+		{
+			echo Html::link( array('class'=>'js_button_unapprove', 'data-id'=>$comment['id'], 'content'=>$_LANG['DISAPPROVE']) );
+		}
+		else
+		{
+			if($comment['type']=='spam')
+			{
+				echo Html::link( array('class'=>'js_button_approve', 'data-id'=>$comment['id'], 'content'=>$_LANG['APPROVE_SPAM_DETECTED']) );
+			}
+			else
+			{
+				echo Html::link( array('class'=>'js_button_approve', 'data-id'=>$comment['id'], 'content'=>$_LANG['APPROVE']) );
+			}
+		}
+		echo Html::link( array('class'=>'js_button_delete', 'data-flag'=>'0', 'data-id'=>$comment['id'], 'content'=>$_LANG['DELETE']) );
 
-				echo Html::div_open( array('class'=>'right') );
-					echo Html::div( array('class'=>'date', 'content'=>Date::format($comment['pub_date_unix'], COMMENT_DATE_FORMAT)) );
-				echo Html::div_close();
-
-			echo Html::div_close();
-		echo Html::div_close();
+		echo '
+				</div>
+				</td>
+				<td>'.$post['title'].'</td>
+				<td>'.$comment['author_name'].'</td>
+				<td>'.$comment['author_email'].'</td>
+				<td>'.$comment['author_ip'].'</td>
+				<td>'.Date::format($comment['pub_date_unix'], COMMENT_DATE_FORMAT).'</td>
+			</tr>
+		';
 	}
+
+	echo '</tbody></table>';
 
 	// Pager
 	echo Html::div_open( array('class'=>'pager') );
@@ -62,7 +78,7 @@ else
 
 $(document).ready(function() {
 
-	$("div.table_box").on("click", "a.js_button_approve", function() {
+	$("div.options").on("click", "a.js_button_approve", function() {
 		var self = $(this);
 		var id = self.attr("data-id");
 
@@ -75,7 +91,7 @@ $(document).ready(function() {
 		}
 	});
 
-	$("div.table_box").on("click", "a.js_button_unapprove", function() {
+	$("div.options").on("click", "a.js_button_unapprove", function() {
 		var self = $(this);
 		var id = self.attr("data-id");
 

@@ -57,7 +57,7 @@ echo Html::div_open( array('class'=>'dashboard_right') );
 	// NOTIFICATIONS
 	echo Html::div_open( array('class'=>'dashboard_notifications') );
 
-		echo Html::separator( array('class'=>'icons_separator_notification_18', 'content'=>$_LANG['NOTIFICATIONS']) );
+		echo Html::separator( array('class'=>'icons_separator_notification_18', 'content'=>$_LANG['NOTIFICATIONS']), true);
 
 		foreach($notifications as $notification)
 		{

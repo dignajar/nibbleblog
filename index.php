@@ -32,10 +32,10 @@
 		'controller'=>'blog/view.bit',
 		'view'=>'blog/view.bit',
 		'template'=>'default.bit',
-		'title'=>$settings['name'].' - '.$settings['slogan'],
-		'description'=>$settings['about'],
-		'author'=>'',
-		'keywords'=>'',
+		'title'=>$seo['site_title'],
+		'description'=>$seo['site_description'],
+		'author'=>$seo['author'],
+		'keywords'=>$seo['keywords'],
 		'generator'=>'Nibbleblog',
 		'feed'=>HTML_PATH_ROOT.'feed.php'
 	);

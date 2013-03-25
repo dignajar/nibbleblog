@@ -31,6 +31,7 @@ $controllers['post']['edit_quote'] 		= array('security'=>true, 'title'=>$_LANG['
 $controllers['post']['list'] 			= array('security'=>true, 'title'=>$_LANG['POSTS'], 'controller'=>'list', 'view'=>'list', 'template'=>'default');
 
 $controllers['categories']['list']		= array('security'=>true, 'title'=>$_LANG['MANAGE_CATEGORIES'], 'controller'=>'list', 'view'=>'list', 'template'=>'default');
+$controllers['categories']['edit']		= array('security'=>true, 'title'=>$_LANG['MANAGE_CATEGORIES'], 'controller'=>'edit', 'view'=>'edit', 'template'=>'default');
 
 $controllers['comments']['list']		= array('security'=>true, 'title'=>$_LANG['COMMENTS'], 'controller'=>'list', 'view'=>'list', 'template'=>'default');
 $controllers['comments']['settings']	= array('security'=>true, 'title'=>$_LANG['COMMENT_SETTINGS'], 'controller'=>'settings', 'view'=>'settings', 'template'=>'default');

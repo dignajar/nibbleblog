@@ -96,14 +96,13 @@ class DB_SETTINGS {
 			$tmp_array['locale']					= (string) $this->obj_xml->getChild('locale');
 
 			// SEO
-			$tmp_array['seo_title']					= (string) $this->obj_xml->getChild('seo_title');
-			$tmp_array['seo_description']			= (string) $this->obj_xml->getChild('seo_description');
+			$tmp_array['seo_site_title']			= (string) $this->obj_xml->getChild('seo_site_title');
+			$tmp_array['seo_site_description']		= (string) $this->obj_xml->getChild('seo_site_description');
 			$tmp_array['seo_keywords']				= (string) $this->obj_xml->getChild('seo_keywords');
-			$tmp_array['seo_nofollow']				= (int) $this->obj_xml->getChild('seo_nofollow') == 1;
-			$tmp_array['seo_noindex']				= (int) $this->obj_xml->getChild('seo_noindex') == 1;
-			$tmp_array['seo_noarchive']				= (int) $this->obj_xml->getChild('seo_noarchive') == 1;
+			$tmp_array['seo_robots']				= (string) $this->obj_xml->getChild('seo_robots');
 			$tmp_array['seo_google_code']			= (string) $this->obj_xml->getChild('seo_google_code');
 			$tmp_array['seo_bing_code']				= (string) $this->obj_xml->getChild('seo_bing_code');
+			$tmp_array['seo_author']				= (string) $this->obj_xml->getChild('seo_author');
 			$tmp_array['friendly_urls']				= (int) $this->obj_xml->getChild('friendly_urls') == 1;
 
 			return($tmp_array);

@@ -2,16 +2,18 @@
 
 	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
-		// TITLE
+		echo Html::separator(array('content'=>'Site'), true);
+
+		// SITE TITLE
 		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::label( array('content'=>'Title', 'class'=>'blocked') );
-			echo Html::input( array('id'=>'js_seo_title', 'name'=>'seo_title', 'type'=>'text', 'value'=>$settings['seo_title']) );
+			echo Html::label( array('content'=>'Site title', 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_seo_site_title', 'name'=>'seo_site_title', 'type'=>'text', 'value'=>$settings['seo_site_title']) );
 		echo Html::div_close();
 
 		// DESCRIPTION
 		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::label( array('content'=>'Description', 'class'=>'blocked') );
-			echo Html::textarea( array('id'=>'js_seo_description', 'name'=>'seo_description', 'content'=>$settings['seo_description']) );
+			echo Html::label( array('content'=>'Site description', 'class'=>'blocked') );
+			echo Html::textarea( array('id'=>'js_seo_site_description', 'name'=>'seo_site_description', 'content'=>$settings['seo_site_description']) );
 			echo Html::div( array('content'=>$_LANG['SHORT_DESCRIPTION_NO_MORE_THAN'], 'class'=>'input_tip') );
 		echo Html::div_close();
 
@@ -22,23 +24,19 @@
 			echo Html::div( array('content'=>'keywords separated by comma', 'class'=>'input_tip') );
 		echo Html::div_close();
 
-		// nofollow
-		echo Html::div_open( array('class'=>'form_block'));
-			echo Html::checkbox( array('id'=>'js_seo_nofollow', 'name'=>'seo_nofollow', 'class'=>'float'), $settings['seo_nofollow'] );
-			echo Html::label( array('content'=>'Nofollow', 'class'=>'for_checkbox', 'for'=>'js_seo_nofollow') );
+		// AUTHOR
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>'Author', 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_seo_author', 'name'=>'seo_author', 'type'=>'text', 'value'=>$settings['seo_author']) );
 		echo Html::div_close();
 
-		// noindex
-		echo Html::div_open( array('class'=>'form_block'));
-			echo Html::checkbox( array('id'=>'js_seo_noindex', 'name'=>'seo_noindex', 'class'=>'float'), $settings['seo_noindex'] );
-			echo Html::label( array('content'=>'Noindex', 'class'=>'for_checkbox', 'for'=>'js_seo_noindex') );
+		// ROBOTS
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>'Robots', 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_seo_robots', 'name'=>'seo_robots', 'type'=>'text', 'value'=>$settings['seo_robots']) );
+			echo Html::div( array('content'=>'Robots separated by comma. Example: nofollow, noindex, noarchive', 'class'=>'input_tip') );
 		echo Html::div_close();
 
-		// noarchive
-		echo Html::div_open( array('class'=>'form_block'));
-			echo Html::checkbox( array('id'=>'js_seo_noarchive', 'name'=>'seo_noarchive', 'class'=>'float'), $settings['seo_noarchive'] );
-			echo Html::label( array('content'=>'Noarchive', 'class'=>'for_checkbox', 'for'=>'js_seo_noarchive') );
-		echo Html::div_close();
 
 		// Webmaster tools'
 		echo Html::separator( array('content'=>'Webmaster tools') );

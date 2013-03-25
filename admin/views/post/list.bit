@@ -6,30 +6,44 @@ if(empty($post_list))
 }
 else
 {
-	$bg_color = true;
+	echo '
+	<table>
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Type</th>
+				<th>Category</th>
+				<th>Comments</th>
+				<th>Publish date</th>
+			</tr>
+		</thead>
+		<tbody>
+	';
 
 	foreach( $post_list as $post )
 	{
-		echo Html::div_open( array('class'=>'table_box '.(($bg_color=!$bg_color)?'bg_color_1':'bg_color_2')) );
-			echo Html::div_open( array('class'=>'float') );
+		$category = $_DB_CATEGORIES->get( array('id'=>$post['id_cat']) );
+		$comments = $_DB_COMMENTS->get_list_by_post( array('id_post'=>$post['id']) );
 
-				echo Html::div_open( array('class'=>'left') );
-					echo Html::div( array('class'=>'type', 'content'=>$_LANG[strtoupper($post['type'])]) );
-					echo Html::div( array('class'=>'title', 'content'=>$post['title']) );
-					echo Html::div_open( array('class'=>'options') );
-						echo Html::link( array('href'=>HTML_PATH_ROOT.'index.php?controller=post&amp;action=view&amp;id_post='.$post['id'], 'content'=>$post['draft']?$_LANG['PREVIEW']:$_LANG['VIEW']) );
-						echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=edit_'.$post['type'].'&amp;id_post='.$post['id'], 'content'=>$_LANG['EDIT']) );
-						echo Html::link( array('class'=>'js_button_delete', 'data-flag'=>'0', 'data-id'=>$post['id'], 'content'=>$_LANG['DELETE']) );
-					echo Html::div_close();
-				echo Html::div_close();
-
-				echo Html::div_open( array('class'=>'right') );
-					echo Html::div( array('class'=>'date', 'content'=>Date::format($post['pub_date_unix'], POST_DATE_FORMAT)) );
-				echo Html::div_close();
-
-			echo Html::div_close();
-		echo Html::div_close();
+		echo '
+			<tr>
+				<td class="content">
+				'.$post['title'].'
+				<div class="options">
+					<a href="'.HTML_PATH_ROOT.'index.php?controller=post&amp;action=view&amp;id_post='.$post['id'].'">'.($post['draft']?$_LANG['PREVIEW']:$_LANG['VIEW']).'</a>
+					<a href="'.HTML_PATH_ROOT.'admin.php?controller=post&amp;action=edit_'.$post['type'].'&amp;id_post='.$post['id'].'">'.$_LANG['EDIT'].'</a>
+					<a class="js_button_delete" data-flag="0" data-id="'.$post['id'].'" href="javascript:void(0)">'.$_LANG['DELETE'].'</a>
+				</div>
+				</td>
+				<td>'.$_LANG[strtoupper($post['type'])].'</td>
+				<td>'.$category['name'].'</td>
+				<td>'.(count($comments)).'</td>
+				<td>'.Date::format($post['pub_date_unix'], POST_DATE_FORMAT).'</td>
+			</tr>
+		';
 	}
+
+	echo '</tbody></table>';
 
 	// Pager
 	echo Html::div_open( array('class'=>'pager') );
@@ -65,8 +79,8 @@ $(document).ready(function() {
 		{
 			self.attr("data-flag", "1");
 			self.html("<?php echo $_LANG['ARE_YOU_SURE'] ?>");
-			self.addClass("remove");
-			self.parent().children("h3").css("opacity","0.5");
+			self.parent().parent().parent().css("opacity","0.8");
+			self.css("color","red");
 		}
 	});
 

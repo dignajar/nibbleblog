@@ -34,7 +34,7 @@
 
 		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=regional', 'content'=>$_LANG['REGIONAL_SETTINGS']) );
 
-		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=settings', 'content'=>$_LANG['COMMENT_SETTINGS']) );
+		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=settings', 'content'=>$_LANG['COMMENTS']) );
 
 		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=image', 'content'=>$_LANG['IMAGE_SETTINGS']) );
 

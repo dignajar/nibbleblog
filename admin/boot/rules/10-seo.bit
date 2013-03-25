@@ -1,0 +1,32 @@
+<?php
+/*
+ * Nibbleblog
+ * http://www.nibbleblog.com
+
+ * Require
+ * $settings
+
+ * Return
+ * (array) $seo
+*/
+
+	$seo['site_title'] = $settings['seo_site_title'];
+	$seo['site_description'] = $settings['seo_site_description'];
+	$seo['keywords'] = $settings['seo_keywords'];
+	$seo['robots'] = $settings['seo_robots'];
+
+	$seo['google_code'] = $settings['seo_google_code'];
+	$seo['bing_code'] = $settings['seo_bing_code'];
+
+	$seo['friendly_urls'] = $settings['friendly_urls'];
+
+	$seo['generator'] = 'Nibbleblog';
+	$seo['author'] = $settings['seo_author'];
+
+
+// =====================================================================
+// CLEANING
+// =====================================================================
+
+
+?>

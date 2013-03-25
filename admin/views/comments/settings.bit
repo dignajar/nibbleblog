@@ -2,6 +2,8 @@
 
 	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
+		echo Html::separator(array('content'=>$_LANG['GENERAL_SETTINGS']), true);
+
 		// SANITIZE
 		echo Html::div_open( array('class'=>'form_block'));
 			echo Html::checkbox( array('id'=>'js_sanitize', 'name'=>'sanitize', 'class'=>'float'), $comment_settings['sanitize'] );

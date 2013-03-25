@@ -2,7 +2,7 @@
 
 	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
-		echo Html::separator( array('content'=>$_LANG['NOTIFICATIONS_VIA_EMAIL']) );
+		echo Html::separator( array('style'=>'margin-top: 0;', 'content'=>$_LANG['NOTIFICATIONS_VIA_EMAIL']), true);
 
 		// COMMENTS
 		echo Html::div_open( array('class'=>'form_block'));

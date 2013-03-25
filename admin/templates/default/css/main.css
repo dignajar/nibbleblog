@@ -122,13 +122,24 @@ a:hover {
 	text-decoration: underline;
 }
 
+header.separator {
+	border-bottom: 1px solid #DDDDDD;
+	margin: 40px 0 20px 0;
+}
+
+header.separator_top {
+	border-bottom: 1px solid #DDDDDD;
+	margin: 0px 0 20px 0;
+}
+
 div.separator {
-    clear: both;
-    color: #2361D3;
-    font-size: 1.6em;
-    font-style: italic;
-    margin: 10px 0;
-    line-height: 22px;
+	border-bottom: 4px solid #DDDDDD;
+	color: #4C4C4C;
+	font-size: 1.9em;
+	font-weight: normal;
+	line-height: 20px;
+	padding: 0 0 10px;
+	display: inline-block;
 }
 
 .remove_margin_top {
@@ -328,14 +339,14 @@ div.form_block		input[type="button"].save {
     padding: 7px 33px;
 
 	background: #F1F1F1;
-	background: -moz-linear-gradient(center top , #F5F5F5, #F1F1F1);
+	background: -moz-linear-gradient(center top, #F5F5F5, #F1F1F1);
 	background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#F1F1F1));
 }
 
 div.form_block		input[type="submit"].save:hover,
 div.form_block		input[type="button"].save:hover {
 	background: #E1E1E1;
-	background: -moz-linear-gradient(center top , #EFEFEF, #E1E1E1);
+	background: -moz-linear-gradient(center top, #EFEFEF, #E1E1E1);
 	background: -webkit-gradient(linear, left top, left bottom, from(#EFEFEF), to(#E1E1E1));
 }
 
@@ -343,15 +354,15 @@ div.form_block		input[type="submit"].draft {
 	margin-left:10px;
 	color: #FFFFFF;
 
-	background: #3EACBA;
-	background: -moz-linear-gradient(center top , #48C6D4, #3EACBA);
-	background: -webkit-gradient(linear, left top, left bottom, from(#48C6D4), to(#3EACBA));
+	background: #54A1E6;
+	background: -moz-linear-gradient(center top , #54A1E6, #498AC6);
+	background: -webkit-gradient(linear, left top, left bottom, from(#54A1E6), to(#498AC6));
 }
 
 div.form_block		input[type="submit"].draft:hover {
 	background: #3EACBA;
-	background: -moz-linear-gradient(center top , #3EAAB8, #338C98);
-	background: -webkit-gradient(linear, left top, left bottom, from(#3EAAB8), to(#338C98));
+	background: -moz-linear-gradient(center top, #498AC6, #3D74A7);
+	background: -webkit-gradient(linear, left top, left bottom, from(#498AC6), to(#3D74A7));
 }
 
 div.form_block		.uploader_button {
@@ -444,6 +455,45 @@ form.plugins		select {
 form.plugins		label {
 	margin-bottom: 2px;
 	display: block;
+}
+
+/* ============================== */
+/* TABLES */
+/* ============================== */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+    border: 1px solid #E7E7E7;
+    margin: 0 -1px 24px 0;
+    text-align: left;
+    width: 100%;
+    font-size: 1.3em;
+}
+
+table thead {
+	background: #E9E9E9;
+}
+
+table thead	th {
+	border-top: 1px solid #E7E7E7;
+	line-height: 23px;
+	padding: 6px 10px 8px;
+	vertical-align: top;
+}
+
+table tr td {
+	border-top: 1px solid #E7E7E7;
+	line-height: 23px;
+	padding: 6px 10px 8px;
+	vertical-align: top;
+}
+
+table td.content {
+	width: 330px;
+}
+
+table div.options a {
+	margin-right: 10px;
 }
 
 /* ============================== */
@@ -675,10 +725,10 @@ div.menu_box div.title {
 
 .icons_separator_notification_18 {
 	background: url("img/18notification.png") no-repeat;
-	padding-left: 28px;
+	padding-left: 28px !important;
 }
 
 .icons_separator_comment_18 {
 	background: url("img/18comment.png") no-repeat;
-	padding-left: 28px;
+	padding-left: 28px !important;
 }

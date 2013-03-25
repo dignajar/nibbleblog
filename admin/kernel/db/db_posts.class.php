@@ -31,10 +31,10 @@ class DB_POSTS {
 */
 		function DB_POSTS($file)
 		{
-			$this->file_xml = $file;
-
-			if(file_exists($this->file_xml))
+			if(file_exists($file))
 			{
+				$this->file_xml = $file;
+
 				$this->last_insert_id = max($this->get_autoinc() - 1, 0);
 
 				$this->files = array();

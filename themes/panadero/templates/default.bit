@@ -4,13 +4,22 @@
 	<meta charset="utf-8">
 
 	<!-- TITLE -->
-	<title><?php echo $layout['title'] ?></title>
+	<title><?php echo $seo['site_title'] ?></title>
 
 	<!-- DESCRIPTION -->
-	<meta name="description" content="<?php echo $layout['description'] ?>">
+	<meta name="description" content="<?php echo $seo['site_description'] ?>">
+
+	<!-- KEYWORDS -->
+	<meta name="keywords" content="<?php echo $seo['keywords'] ?>">
 
 	<!-- GENERATOR -->
-	<meta name="generator" content="<?php echo $layout['generator'] ?>">
+	<meta name="generator" content="<?php echo $seo['generator'] ?>">
+
+	<!-- AUTHOR -->
+	<meta name="author" content="<?php echo $seo['author'] ?>">
+
+	<!-- ROBOTS -->
+	<meta name="robots" content="<?php echo $seo['robots'] ?>">
 
 	<!-- CSS3 -->
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'normalize.css?v='.$theme['version'] ?>" />

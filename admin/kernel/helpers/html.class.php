@@ -74,11 +74,11 @@ class Html {
 		return( '<p '.$attributes.'>'.$array['content'].'</p>' );
 	}
 
-	public static function separator($array = array())
+	public static function separator($array = array(), $top=false)
 	{
 		if(isset($array['class']))
 		{
-			$array['class'] = $array['class'].' separator';
+			$array['class'] = 'separator '.$array['class'];
 		}
 		else
 		{
@@ -87,7 +87,7 @@ class Html {
 
 		$attributes = self::get_attributes($array);
 
-		return( '<div '.$attributes.'>'.$array['content'].'</div>' );
+		return( '<header class="'.($top?'separator_top':'separator').'"><div '.$attributes.'>'.$array['content'].'</div></header>' );
 	}
 
 	public static function form_open($array = array())

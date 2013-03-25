@@ -1,0 +1,26 @@
+<?php
+
+	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+
+		// NAME
+		$value = isset($category['name']) ? $category['name'] : '';
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('class'=>'blocked', 'content'=>'Category name') );
+			echo Html::input( array('id'=>'js_name', 'name'=>'name', 'type'=>'text', 'value'=>$value) );
+		echo Html::div_close();
+
+		// SLUG
+		$value = isset($category['slug']) ? $category['slug'] : '';
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('class'=>'blocked', 'content'=>'Category slug') );
+			echo Html::input( array('id'=>'js_slug', 'name'=>'slug', 'type'=>'text', 'value'=>$value) );
+		echo Html::div_close();
+
+		// BUTTONS
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::input( array('id'=>'js_button_add', 'name'=>'button_add', 'type'=>'submit', 'value'=>$_LANG['SAVE_CHANGES'], 'class'=>'save') );
+		echo Html::div_close();
+
+	echo Html::form_close();
+
+?>

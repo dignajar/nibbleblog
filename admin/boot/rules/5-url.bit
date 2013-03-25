@@ -17,6 +17,7 @@
 				'controller'=>null,
 				'action'=>null,
 				'id_post'=>null,
+				'id_cat'=>null,
 				'page'=>0,
 				'plugin'=>null,
 				'category'=>null,
@@ -28,6 +29,8 @@
 	if( isset($_GET['action']) ) { $url['action'] = Validation::sanitize_html($_GET['action']); }
 
 	if( isset($_GET['id_post']) ) { $url['id_post'] = Validation::sanitize_int($_GET['id_post']); }
+
+	if( isset($_GET['id_cat']) ) { $url['id_cat'] = Validation::sanitize_int($_GET['id_cat']); }
 
 	if( isset($_GET['page']) ) { $url['page'] = Validation::sanitize_html($_GET['page']); }
 
