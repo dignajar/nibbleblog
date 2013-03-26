@@ -156,6 +156,14 @@ article.post	.console {
     padding-top: 5px;
 }
 
+article.post	img.alignleft {
+	margin-right: 10px;
+}
+
+article.post	img.alignright {
+	margin-left: 10px;
+}
+
 article.post	img:not(.captcha) {
 	max-width:100%;
 }

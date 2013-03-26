@@ -48,6 +48,11 @@ $(document).ready(function() {
 
 		entity_encoding : "raw",
 
+		formats:{
+			alignleft:{selector:'img', attributes:{class:"alignleft"} },
+			alignright:{selector:'img', attributes:{class:"alignright"} }
+		},
+
 		// When pasted text always pasted as plain text
 		setup : function(ed) {
 			ed.onInit.add(function(ed) {
@@ -136,7 +141,7 @@ $(document).ready(function() {
 			uploader_button.show();
 
 			var src = $(xml).find("file").text();
-			var img = '<img data-mce-src="'+src+'" src="'+src+'" alt="" >';
+			var img = '<img data-mce-src="'+src+'" src="'+src+'" alt="">';
 
 			tinyMCE.execCommand("mceInsertContent", false, img);
 		}

@@ -192,7 +192,7 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 
 					@$children->addAttribute('slug','');
 
-					$children->attributes()->slug = $slug;
+					$children->attributes()->slug = utf8_encode($slug);
 				}
 
 				$obj->asXml( FILE_XML_CATEGORIES );

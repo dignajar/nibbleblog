@@ -182,7 +182,7 @@ div.dashboard_qlinks	a.item {
 }
 
 div.dashboard_qlinks	a.item:hover {
-	border-bottom: 2px solid #749ACF;
+	border-bottom: 2px solid #009AD7;
 }
 
 div.dashboard_qlinks	a.item span.type {
@@ -239,21 +239,22 @@ div.notification	div.info,
 a.notification	div.info {
 	margin-bottom: 5px;
 	font-size: 1.1em;
+	color: #AAAAAA;
 }
 
 div.notification_session_start {
 	background: url("img/16user.png") no-repeat scroll 16px center #F9F9F9;
-    border: 1px solid #EEEEEE;
+    border-left: 2px solid #009AD7;
 }
 
 div.notification_session_fail {
 	background: url("img/16sessionfail.png") no-repeat scroll 16px center #F9F9F9;
-    border: 1px solid #EEEEEE;
+    border-left: 2px solid #C22439;
 }
 
 div.notification_comment {
 	background: url("img/16comment.png") no-repeat scroll 16px center #F9F9F9;
-    border: 1px solid #EEEEEE;
+    border-left: 2px solid #68AF27;
 }
 
 /* ============================== */
@@ -463,26 +464,25 @@ form.plugins		label {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-    border: 1px solid #E7E7E7;
-    margin: 0 -1px 24px 0;
+    margin: 0;
     text-align: left;
     width: 100%;
     font-size: 1.3em;
 }
 
 table thead {
-	background: #E9E9E9;
+	background: #009AD7;
+	color: #FFFFFF;
 }
 
 table thead	th {
-	border-top: 1px solid #E7E7E7;
 	line-height: 23px;
 	padding: 6px 10px 8px;
 	vertical-align: top;
 }
 
 table tr td {
-	border-top: 1px solid #E7E7E7;
+	border-bottom: 1px solid #E7E7E7;
 	line-height: 23px;
 	padding: 6px 10px 8px;
 	vertical-align: top;
@@ -496,159 +496,9 @@ table div.options a {
 	margin-right: 10px;
 }
 
-/* ============================== */
-/* CATEGORIES */
-/* ============================== */
-
-.bg_color_1 {
-	background: #F9F9F9;
-}
-
-.bg_color_2 {
-	background: #FCFCFC;
-}
-
-div.table_box {
-	margin: 1px 0;
-	font-size: 1.3em;
-}
-
-/* Float system */
-div.table_box	div.float {
-	overflow: auto;
-}
-
-div.table_box	div.left {
-	float: left;
-	padding: 10px;
-}
-
-div.table_box	div.right {
-	float: right;
-}
-
-/* Left */
-div.table_box	div.left	div {
-	margin:5px 0;
-}
-
-div.table_box	div.left	a {
-	margin-right:10px;
-	color: #999999;
-}
-
-div.table_box	div.left	a:hover {
-	color: #333;
-}
-
-div.table_box	div.left	div.type {
-	text-transform:uppercase;
-	color: #999999;
-}
-
-div.table_box	div.left	div.title {
-	color: #009AD7;
-}
-
-/* Right */
-div.table_box	div.right	div.date {
-	background: #D9D9D9;
-	padding: 3px 10px;
-	font-size: 0.9em;
-}
-
-/* ============================== */
-/* POST LIST | COMMENT LIST */
-/* ============================== */
-div.list_box,
-div.comment_box {
-	padding: 15px;
-	border-top: 1px solid #EBEBEB;
-	font-size: 1.2em;
-}
-
-div.list_box:hover,
-div.comment_box:hover {
-	background-color:#F9F9F9;
-}
-
-div.list_box	div.float,
-div.comment_box	div.float {
-	overflow: auto;
-}
-
-div.list_box	div.left,
-div.comment_box	div.left {
-	float:left;
-	width: 85%;
-}
-
-div.list_box	div.right,
-div.comment_box	div.right {
-	float:right;
-}
-
-div.list_box	div.options,
-div.comment_box	div.options {
-	margin-top: 8px;
-}
-
-div.list_box	a,
-div.comment_box	a {
-	margin-right: 10px;
-}
-
-div.list_box		h3.date,
-div.comment_box		h3.date {
-	margin: 0 5px 0 0;
-	font-weight:normal;
-	display: block;
-	font-size: 1em;
-}
-
-div.list_box	h3.title {
-	margin: 0;
-	font-weight:normal;
-	display: inline-block;
-}
-
-div.list_box	h3.type {
-	margin: 0 5px 0 0;
-	font-weight:normal;
-	font-style: italic;
-	color: #F7C305;
-	display: inline-block;
-	width: 100%;
-	font-size: 1em;
-}
-
-div.comment_box		h3.comment {
-	margin: 5px 0 0 0;
-	font-weight:normal;
-	display: block;
-	font-size: 1.1em;
-}
-
-div.comment_box		h3.information {
-	margin: 5px 0 0 0;
-	font-weight:normal;
-	display: block;
-	font-size: 1em;
-}
-
-div.comment_box		h3.information	span.title {
-    font-style: italic;
-    font-weight: bold;
-}
-
-div.comment_box		a.js_button_approve {
-	color: #BC0000;
-}
-
 div.pager {
     font-size: 1.3em;
     text-align: left;
-    border-top: 1px solid #f1f1f1;
     padding-top: 10px;
 }
 
