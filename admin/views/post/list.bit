@@ -10,11 +10,11 @@ else
 	<table>
 		<thead>
 			<tr>
-				<th>Title</th>
-				<th>Type</th>
-				<th>Category</th>
-				<th>Comments</th>
-				<th>Publish date</th>
+				<th>'.$_LANG['TITLE'].'</th>
+				<th>'.$_LANG['TYPE'].'</th>
+				<th>'.$_LANG['CATEGORY'].'</th>
+				<th>'.$_LANG['COMMENTS'].'</th>
+				<th>'.$_LANG['PUBLISH_DATE'].'</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -28,7 +28,7 @@ else
 		echo '
 			<tr>
 				<td class="content">
-				'.$post['title'].'
+				'.(empty($post['title'])?'['.$_LANG['NO_TITLE'].']':$post['title']).'
 				<div class="options">
 					<a href="'.HTML_PATH_ROOT.'index.php?controller=post&amp;action=view&amp;id_post='.$post['id'].'">'.($post['draft']?$_LANG['PREVIEW']:$_LANG['VIEW']).'</a>
 					<a href="'.HTML_PATH_ROOT.'admin.php?controller=post&amp;action=edit_'.$post['type'].'&amp;id_post='.$post['id'].'">'.$_LANG['EDIT'].'</a>

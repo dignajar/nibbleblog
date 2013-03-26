@@ -223,4 +223,23 @@ $_LANG['TAGS'] = 'Tags';
 $_LANG['KEYWORDS'] = 'Keywords';
 $_LANG['MANAGE'] = 'Manage';
 $_LANG['404_PAGE_NOT_FOUND'] = 'Sorry, the page you were looking for doesn’t exist.';
+$_LANG['NO_TITLE'] = 'No title';
+$_LANG['TITLE'] = 'Title';
+$_LANG['TYPE'] = 'Type';
+$_LANG['CATEGORY'] = 'Category';
+$_LANG['PUBLISH_DATE'] = 'Publish date';
+$_LANG['LAST_MODIFIED'] = 'Last modified';
+$_LANG['COMMENT'] = 'Comment';
+$_LANG['POST'] = 'Post';
+$_LANG['SLUG'] = 'Slug';
+$_LANG['SITE'] = 'Site';
+$_LANG['SITE_TITLE'] = 'Site title';
+$_LANG['SITE_DESCRIPTION'] = 'Site description';
+$_LANG['KEYWORDS'] = 'Keywords';
+$_LANG['KEYWORDS_SEPARATED_BY_COMMA'] = 'keywords separated by comma';
+$_LANG['ROBOTS'] = 'Robots';
+$_LANG['WEBMASTER_TOOLS'] = 'Webmaster tools';
+$_LANG['GOOGLE_WEBMASTER_TOOLS'] = 'Google Webmaster tools - Verification code';
+$_LANG['BING_WEBMASTER_TOOLS'] = 'Bing Webmaster tools - Verification code';
+
 ?>

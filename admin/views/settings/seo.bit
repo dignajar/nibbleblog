@@ -2,54 +2,54 @@
 
 	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
-		echo Html::separator(array('content'=>'Site'), true);
+		echo Html::separator(array('content'=>$_LANG['SITE']), true);
 
 		// SITE TITLE
 		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::label( array('content'=>'Site title', 'class'=>'blocked') );
+			echo Html::label( array('content'=>$_LANG['SITE_TITLE'], 'class'=>'blocked') );
 			echo Html::input( array('id'=>'js_seo_site_title', 'name'=>'seo_site_title', 'type'=>'text', 'value'=>$settings['seo_site_title']) );
 		echo Html::div_close();
 
 		// DESCRIPTION
 		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::label( array('content'=>'Site description', 'class'=>'blocked') );
+			echo Html::label( array('content'=>$_LANG['SITE_DESCRIPTION'], 'class'=>'blocked') );
 			echo Html::textarea( array('id'=>'js_seo_site_description', 'name'=>'seo_site_description', 'content'=>$settings['seo_site_description']) );
 			echo Html::div( array('content'=>$_LANG['SHORT_DESCRIPTION_NO_MORE_THAN'], 'class'=>'input_tip') );
 		echo Html::div_close();
 
 		// KEYWORDS
 		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::label( array('content'=>'Keywords', 'class'=>'blocked') );
+			echo Html::label( array('content'=>$_LANG['KEYWORDS'], 'class'=>'blocked') );
 			echo Html::input( array('id'=>'js_seo_keywords', 'name'=>'seo_keywords', 'type'=>'text', 'value'=>$settings['seo_keywords']) );
-			echo Html::div( array('content'=>'keywords separated by comma', 'class'=>'input_tip') );
+			echo Html::div( array('content'=>$_LANG['KEYWORDS_SEPARATED_BY_COMMA'], 'class'=>'input_tip') );
 		echo Html::div_close();
 
 		// AUTHOR
 		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::label( array('content'=>'Author', 'class'=>'blocked') );
+			echo Html::label( array('content'=>$_LANG['AUTHOR'], 'class'=>'blocked') );
 			echo Html::input( array('id'=>'js_seo_author', 'name'=>'seo_author', 'type'=>'text', 'value'=>$settings['seo_author']) );
 		echo Html::div_close();
 
 		// ROBOTS
 		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::label( array('content'=>'Robots', 'class'=>'blocked') );
+			echo Html::label( array('content'=>$_LANG['ROBOTS'], 'class'=>'blocked') );
 			echo Html::input( array('id'=>'js_seo_robots', 'name'=>'seo_robots', 'type'=>'text', 'value'=>$settings['seo_robots']) );
 			echo Html::div( array('content'=>'Robots separated by comma. Example: nofollow, noindex, noarchive', 'class'=>'input_tip') );
 		echo Html::div_close();
 
 
 		// Webmaster tools'
-		echo Html::separator( array('content'=>'Webmaster tools') );
+		echo Html::separator( array('content'=>$_LANG['WEBMASTER_TOOLS']) );
 
 		// GOOGLE WEBMASTER TOOLS
 		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::label( array('content'=>'Google Webmaster tools - Verification code', 'class'=>'blocked') );
+			echo Html::label( array('content'=>$_LANG['GOOGLE_WEBMASTER_TOOLS'], 'class'=>'blocked') );
 			echo Html::input( array('id'=>'js_seo_google_code', 'name'=>'seo_google_code', 'type'=>'text', 'value'=>$settings['seo_google_code']) );
 		echo Html::div_close();
 
 		// BING WEBMASTER TOOLS
 		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::label( array('content'=>'Bing Webmaster tools - Verification code', 'class'=>'blocked') );
+			echo Html::label( array('content'=>$_LANG['BING_WEBMASTER_TOOLS'], 'class'=>'blocked') );
 			echo Html::input( array('id'=>'js_seo_bing_code', 'name'=>'seo_bing_code', 'type'=>'text', 'value'=>$settings['seo_bing_code']) );
 		echo Html::div_close();
 

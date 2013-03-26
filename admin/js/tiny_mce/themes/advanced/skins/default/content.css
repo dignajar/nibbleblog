@@ -83,11 +83,21 @@ ul, ol {
 }
 
 img:not(.mcePageBreak) {
-	margin: 0 10px;
+	margin: 0;
 }
 
 img.mcePageBreak {
 	margin: 15px 0;
+}
+
+img.align_left {
+	margin-right: 10px;
+	float: left;
+}
+
+img.align_right {
+	margin-left: 10px;
+	float: right;
 }
 
 .console {

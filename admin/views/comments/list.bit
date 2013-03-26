@@ -10,12 +10,12 @@ else
 	<table>
 		<thead>
 			<tr>
-				<th>Comment</th>
-				<th>Post</th>
-				<th>Author</th>
-				<th>E-mail</th>
+				<th>'.$_LANG['COMMENT'].'</th>
+				<th>'.$_LANG['POST'].'</th>
+				<th>'.$_LANG['AUTHOR'].'</th>
+				<th>'.$_LANG['EMAIL'].'</th>
 				<th>IP</th>
-				<th>Publish date</th>
+				<th>'.$_LANG['PUBLISH_DATE'].'</th>
 			</tr>
 		</thead>
 		<tbody>

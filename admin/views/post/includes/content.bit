@@ -49,8 +49,8 @@ $(document).ready(function() {
 		entity_encoding : "raw",
 
 		formats:{
-			alignleft:{selector:'img', attributes:{class:"alignleft"} },
-			alignright:{selector:'img', attributes:{class:"alignright"} }
+			alignleft:{selector:'img', attributes:{class:"align_left"} },
+			alignright:{selector:'img', attributes:{class:"align_right"} }
 		},
 
 		// When pasted text always pasted as plain text

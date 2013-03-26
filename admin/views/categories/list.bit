@@ -22,8 +22,8 @@
 	<table>
 		<thead>
 			<tr>
-				<th>Name</th>
-				<th>Slug URL</th>
+				<th>'.$_LANG['NAME'].'</th>
+				<th>'.$_LANG['SLUG'].'</th>
 			</tr>
 		</thead>
 		<tbody>
