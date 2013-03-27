@@ -144,6 +144,16 @@ article.post	img:not(.captcha) {
 	max-width:100%;
 }
 
+article.post	img.align_left {
+	margin: 5px 10px 5px 0px;
+	float: left;
+}
+
+article.post	img.align_right {
+	margin: 5px 0px 5px 10px;
+	float: right;
+}
+
 article.post 	blockquote {
 	font-size: 2em;
 }
@@ -161,7 +171,7 @@ article.post	h1 {
 }
 
 article.post	div.video_embed {
-
+	display: block;
 }
 
 /* ========== POST FOOTER ========== */

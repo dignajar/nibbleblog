@@ -3,7 +3,6 @@
 /* ============================== */
 /* BODY */
 /* ============================== */
-
 body {
 	font-family: 'Open Sans',arial,sans-serif;
 	background-color: #FEFEFE;
@@ -12,14 +11,11 @@ body {
 	font-size: 0.875em;
 	color: #616161;
 
-
-
 	background: url(img/background.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	-webkit-filter: blur(5px);
 }
 
 #container {
@@ -359,7 +355,6 @@ div.plugin_twitter	li.username {
 /* ============================== */
 /* PLUGIN TWITTER STATIC */
 /* ============================== */
-
 div.plugin_twitter_static	li.tweet {
 	display: block;
 	margin: 10px 0;

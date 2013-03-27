@@ -61,7 +61,7 @@ button{width:auto;overflow:visible}
 a,a:hover{color:#1B70C9;text-decoration:none;}
 a:focus,a:active{outline:0;}
 
-/*--------------TEXT SELECTION-------------------------*/ 
+/*--------------TEXT SELECTION-------------------------*/
 ::-moz-selection{background:#0E9FD3;color:#fff;}
 ::selection{background:#0E9FD3;color:#fff;}
 
@@ -385,10 +385,10 @@ resize: vertical;
 margin-bottom:0.938em;
 font-family:'Open Sans',sans-serif;
 font-size:0.9em;
--webkit-transition:all .2s linear;  
--moz-transition:all .2s linear;  
--o-transition:all .2s linear;  
--ms-transition:all .2s linear;  
+-webkit-transition:all .2s linear;
+-moz-transition:all .2s linear;
+-o-transition:all .2s linear;
+-ms-transition:all .2s linear;
 transition:all .2s linear;
 }
 #comment_form textarea{

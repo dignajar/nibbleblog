@@ -4,13 +4,28 @@
 	<meta charset="utf-8">
 
 	<!-- TITLE -->
-	<title><?php echo $layout['title'] ?></title>
+	<title><?php echo $seo['site_title'] ?></title>
 
 	<!-- DESCRIPTION -->
-	<meta name="description" content="<?php echo $layout['description'] ?>">
+	<?php if(!empty($seo['description'])) echo '<meta name="description" content="'.$seo['description'].'">'; ?>
 
 	<!-- GENERATOR -->
-	<meta name="generator" content="<?php echo $layout['generator'] ?>">
+	<?php if(!empty($seo['generator'])) echo '<meta name="generator" content="'.$seo['generator'].'">'; ?>
+
+	<!-- KEYWORDS -->
+	<?php if(!empty($seo['keywords'])) echo '<meta name="keywords" content="'.$seo['keywords'].'">'; ?>
+
+	<!-- AUTHOR -->
+	<?php if(!empty($seo['author'])) echo '<meta name="author" content="'.$seo['author'].'">'; ?>
+
+	<!-- ROBOTS -->
+	<?php if(!empty($seo['robots'])) echo '<meta name="robots" content="'.$seo['robots'].'">'; ?>
+
+	<!-- GOOGLE WEBMASTER TOOLS -->
+	<?php if(!empty($seo['google_code'])) echo '<meta name="google-site-verification" content="'.$seo['google_code'].'">'; ?>
+
+	<!-- BING WEBMASTER TOOLS -->
+	<?php if(!empty($seo['bing_code'])) echo '<meta name="msvalidate.01" content="'.$seo['bing_code'].'">'; ?>
 
 	<!-- CSS3 -->
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'normalize.css?v='.$theme['version'] ?>" />
@@ -31,9 +46,7 @@
 	<!-- Plugin::Analytics -->
 	<?php
 		if( isset($plugins_by_name['analytics']) )
-		{
 			echo $plugins_by_name['analytics']->get_html();
-		}
 	?>
 </head>
 <body>

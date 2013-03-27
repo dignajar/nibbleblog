@@ -161,6 +161,16 @@ article.post	img:not(.captcha) {
 	max-width:100%;
 }
 
+article.post	img.align_left {
+	margin: 5px 10px 5px 0px;
+	float: left;
+}
+
+article.post	img.align_right {
+	margin: 5px 0px 5px 10px;
+	float: right;
+}
+
 article.post 	blockquote {
 	font-size: 1.1em;
 	font-style: italic;
@@ -181,7 +191,7 @@ article.post	h1 {
 }
 
 article.post	div.video_embed {
-
+	display: block;
 }
 
 /* ========== POST FOOTER ========== */
@@ -192,6 +202,7 @@ article.post	footer.post {
     margin: 20px 0 0;
     padding: 5px 10px;
     font-size:0.85em;
+    clear: both;
 }
 
 article.post	footer.post		span {
