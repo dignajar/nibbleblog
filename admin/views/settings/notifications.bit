@@ -1,8 +1,8 @@
 <?php
 
-	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
-		echo Html::separator( array('style'=>'margin-top: 0;', 'content'=>$_LANG['NOTIFICATIONS_VIA_EMAIL']), true);
+	echo Html::separator( array('style'=>'margin-top: 0;', 'content'=>$_LANG['NOTIFICATIONS_VIA_EMAIL']), true);
 
 		// COMMENTS
 		echo Html::div_open( array('class'=>'form_block'));
@@ -25,7 +25,7 @@
 			echo Html::div( array('content'=>$_LANG['NOTIFY_WHEN_A_USER_SUCCESSES_LOGIN'], 'class'=>'input_tip') );
 		echo Html::div_close();
 
-		echo Html::separator( array('content'=>$_LANG['EMAIL_ACCOUNTS_SETTINGS']) );
+	echo Html::separator( array('content'=>$_LANG['EMAIL_ACCOUNTS_SETTINGS']) );
 
 		// Notification email to
 		echo Html::div_open( array('class'=>'form_block') );
@@ -41,7 +41,12 @@
 			echo Html::div( array('content'=>$_LANG['NOTIFICATIONS_WILL_BE_SENT_FROM_THIS_EMAIL'], 'class'=>'input_tip') );
 		echo Html::div_close();
 
-	echo Html::form_close();
+		// BUTTONS
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::input( array('id'=>'js_button_save', 'type'=>'button', 'class'=>'disabled', 'value'=>$_LANG['SAVE_CHANGES']) );
+		echo Html::div_close();
+
+echo Html::form_close();
 
 ?>
 

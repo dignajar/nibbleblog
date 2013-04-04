@@ -18,7 +18,7 @@
 
 	<div id="container">
 
-		<div id="alert">Saved successfully</div>
+		<div id="alert"></div>
 
 		<div id="container_head">
 			<a href="<?php echo HTML_PATH_ROOT ?>" class="home"><?php echo $_LANG['VIEW_BLOG']; ?></a>

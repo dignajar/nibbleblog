@@ -104,15 +104,18 @@ body {
 }
 
 #alert {
-    background-color: #EDF4FF;
-    border: 1px solid #CDD4EF;
-    border-radius: 2px 2px 2px 2px;
+    background-color: #009AD7;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    color: #FFFFFF;
+    display: block;
     font-size: 1.3em;
     margin-bottom: 20px;
-    padding: 20px;
-    display: block;
+    padding: 16px 0;
     position: fixed;
+    text-align: center;
     top: 0;
+    width: 100%;
+    display: none;
 }
 
 a {
@@ -330,9 +333,10 @@ div.form_block		div.input_tip {
 	font-size: 0.85em;
 }
 
-div.form_block		input[type="submit"].save,
 div.form_block		input[type="submit"].draft,
-div.form_block		input[type="button"].save {
+div.form_block		input[type="submit"].save,
+div.form_block		input[type="button"].save,
+div.form_block		input[type="button"].disabled {
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 2px 2px 2px 2px;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
@@ -352,6 +356,10 @@ div.form_block		input[type="button"].save:hover {
 	background: #E1E1E1;
 	background: -moz-linear-gradient(center top, #EFEFEF, #E1E1E1);
 	background: -webkit-gradient(linear, left top, left bottom, from(#EFEFEF), to(#E1E1E1));
+}
+
+div.form_block		input[type="button"].disabled {
+	color: #CCC;
 }
 
 div.form_block		input[type="submit"].draft {
@@ -448,6 +456,32 @@ form.plugins	textarea {
 	outline:none; /* not focus border on chrome */
 	resize: none;
 	margin-bottom: 15px;
+}
+
+form.plugins	input[type="button"].save,
+form.plugins	input[type="button"].disabled {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+    color: #444444;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1em;
+    padding: 7px 33px;
+
+	background: #F1F1F1;
+	background: -moz-linear-gradient(center top, #F5F5F5, #F1F1F1);
+	background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#F1F1F1));
+}
+
+form.plugins		input[type="button"].save:hover {
+	background: #E1E1E1;
+	background: -moz-linear-gradient(center top, #EFEFEF, #E1E1E1);
+	background: -webkit-gradient(linear, left top, left bottom, from(#EFEFEF), to(#E1E1E1));
+}
+
+form.plugins		input[type="button"].disabled {
+	color: #CCCCCC;
 }
 
 form.plugins		select {

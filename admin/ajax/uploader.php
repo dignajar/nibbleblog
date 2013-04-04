@@ -31,7 +31,7 @@ if( $filename )
 
 	if( ($ext!='jpg') && ($ext!='jpeg') && ($ext!='gif') && ($ext!='png') )
 	{
-		exit( Text::ajax_header('<error><![CDATA[1]]></error><i18n><![CDATA[fail 2]]></i18n>') );
+		exit( Text::ajax_header('<error><![CDATA[1]]></error><alert><![CDATA[fail 2]]></alert>') );
 	}
 
 	// Stream
@@ -39,7 +39,7 @@ if( $filename )
 
 	if( $content == false )
 	{
-		exit( Text::ajax_header('<error><![CDATA[1]]></error><i18n><![CDATA[fail 3]]></i18n>') );
+		exit( Text::ajax_header('<error><![CDATA[1]]></error><alert><![CDATA[fail 3]]></alert>') );
 	}
 
 	// Hash
@@ -65,6 +65,6 @@ if( $filename )
 	}
 }
 
-exit( Text::ajax_header('<error><![CDATA[1]]></error><i18n><![CDATA[fail 4]]></i18n>') );
+exit( Text::ajax_header('<error><![CDATA[1]]></error><alert><![CDATA[fail 4]]></alert>') );
 
 ?>
