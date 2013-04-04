@@ -61,7 +61,7 @@ echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') )
 
 		// BUTTONS
 		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::input( array('id'=>'js_button_save', 'type'=>'button', 'class'=>'save', 'value'=>$_LANG['SAVE_CHANGES']) );
+			echo Html::input( array('id'=>'js_button_save', 'type'=>'button', 'class'=>'disabled', 'value'=>$_LANG['SAVE_CHANGES']) );
 		echo Html::div_close();
 
 echo Html::form_close();

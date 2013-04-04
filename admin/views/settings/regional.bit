@@ -1,6 +1,6 @@
 <?php
 
-	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
 		// LANGUAGE
 		echo Html::div_open( array('class'=>'form_block') );
@@ -30,7 +30,12 @@
 			echo Html::div( array('content'=>$_LANG['THIS_FIELD_IS_SET_EACH_TIME_YOU_CHANGE_THE_LANGUAGE_OF_THE_BLOG'], 'class'=>'input_tip') );
 		echo Html::div_close();
 
-	echo Html::form_close();
+		// BUTTONS
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::input( array('id'=>'js_button_save', 'type'=>'button', 'class'=>'disabled', 'value'=>$_LANG['SAVE_CHANGES']) );
+		echo Html::div_close();
+
+echo Html::form_close();
 
 ?>
 
@@ -49,7 +54,7 @@ $(document).ready(function() {
 	$("#js_language").change(function () {
 		var locale = $("#js_language option:selected").val();
 		$("#js_locale").attr("value",locale);
-		setTimeout("location.reload()",1000);
+		setTimeout("location.reload()",8000);
 	});
 
 	$("#js_timestamp_select").change(function () {

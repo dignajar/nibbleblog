@@ -11,14 +11,11 @@ $(document).ready(function() {
 //
 //	VARIABLES
 //
-	// Get the default configuration
-	var datasrz = serial_form($("#js_form"));
-
 	// Timer
 	var timer;
 
 	// Time to request the save
-	var time_to_save = 700;
+	var time_to_save = 5000;
 
 //
 //	EVENTS
@@ -27,8 +24,13 @@ $(document).ready(function() {
 		set_timer();
 	});
 
-	$("select, input[type='checkbox']").change(function () {
+	$("select, input[type='checkbox']").change(function() {
 		set_timer();
+	});
+
+	$(document).on("click", ".save", function() {
+		window.clearTimeout(timer);
+		save();
 	});
 
 //
@@ -36,29 +38,34 @@ $(document).ready(function() {
 //
 	function set_timer()
 	{
+		$("#js_button_save").removeClass().addClass("save");
+
 		window.clearTimeout(timer);
 		timer = window.setTimeout(function(){save()},time_to_save);
+
 		console.log("Nibbleblog: Timer set");
 	}
 
 	function save()
 	{
-		var newdata = serial_form($("#js_form"));
+		var data = serial_form($("#js_form"));
 
-		if( newdata != datasrz )
-		{
-			// Save the new default
-			datasrz = newdata;
+		$("#js_button_save").removeClass().addClass("disabled");
 
-			$.ajax({
-					url:"<?php echo $javascript['url']; ?>", type: "POST", cache: false, timeout: 15000, dataType: "xml", async: true,
-					data:{ serial_data: newdata, action:"<?php echo $action; ?>" },
-					success:function(xml)
-					{
-						console.log("Nibbleblog: Form saved");
-					}
-			});
-		}
+		$.ajax({
+				url:"<?php echo $javascript['url']; ?>", type: "POST", cache: false, timeout: 15000, dataType: "xml", async: true,
+				data:{ serial_data: data, action:"<?php echo $action; ?>" },
+				success:function(xml)
+				{
+					var text = $(xml).find("alert").text();
+
+					$("#alert").html(text).fadeIn(1000);
+
+					setTimeout(function(){$("#alert").fadeOut(1000);}, 3500);
+
+					console.log("Nibbleblog: Form saved");
+				}
+		});
 	}
 
 }); // end document

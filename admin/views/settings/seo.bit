@@ -1,8 +1,9 @@
 <?php
 
-	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
-		echo Html::separator(array('content'=>$_LANG['SITE']), true);
+	// Site
+	echo Html::separator(array('content'=>$_LANG['SITE']), true);
 
 		// SITE TITLE
 		echo Html::div_open( array('class'=>'form_block') );
@@ -37,9 +38,8 @@
 			echo Html::div( array('content'=>'Robots separated by comma. Example: nofollow, noindex, noarchive', 'class'=>'input_tip') );
 		echo Html::div_close();
 
-
-		// Webmaster tools'
-		echo Html::separator( array('content'=>$_LANG['WEBMASTER_TOOLS']) );
+	// Webmaster tools
+	echo Html::separator( array('content'=>$_LANG['WEBMASTER_TOOLS']) );
 
 		// GOOGLE WEBMASTER TOOLS
 		echo Html::div_open( array('class'=>'form_block') );
@@ -53,8 +53,8 @@
 			echo Html::input( array('id'=>'js_seo_bing_code', 'name'=>'seo_bing_code', 'type'=>'text', 'value'=>$settings['seo_bing_code']) );
 		echo Html::div_close();
 
-		// FRIENDLY URL
-		echo Html::separator( array('content'=>$_LANG['FRIENDLY_URLS']) );
+	// Friendly URLs
+	echo Html::separator( array('content'=>$_LANG['FRIENDLY_URLS']) );
 
 		echo Html::div_open( array('class'=>'form_block'));
 			echo Html::checkbox( array('id'=>'js_friendly_urls', 'name'=>'friendly_urls', 'class'=>'float'), $settings['friendly_urls'] );
@@ -108,7 +108,12 @@ ErrorDocument 404 '.$settings['path'].'index.php?controller=page&action=404
 </IfModule>') );
 		echo Html::div_close();
 
-	echo Html::form_close();
+		// BUTTONS
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::input( array('id'=>'js_button_save', 'type'=>'button', 'class'=>'disabled', 'value'=>$_LANG['SAVE_CHANGES']) );
+		echo Html::div_close();
+
+echo Html::form_close();
 
 ?>
 

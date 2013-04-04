@@ -18,12 +18,9 @@ if( $_POST['action']=='set' )
 	$error = !$plugin->set_fields_db($data);
 }
 
-if( $error)
-{
-	exit( Text::ajax_header('<error><![CDATA[1]]></error>') );
-}
+if($error)
+	exit( Text::ajax_header('<error><![CDATA[1]]></error><alert><![CDATA['.$_LANG['FAIL'].']]></alert>') );
 else
-{
-	exit( Text::ajax_header('<success><![CDATA[1]]></success>') );
-}
+	exit( Text::ajax_header('<success><![CDATA[1]]></success><alert><![CDATA['.$_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY'].']]></alert>') );
+
 ?>

@@ -1,8 +1,8 @@
 <?php
 
-	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
-		echo Html::separator(array('content'=>$_LANG['GENERAL_SETTINGS']), true);
+	echo Html::separator(array('content'=>$_LANG['GENERAL_SETTINGS']), true);
 
 		// SANITIZE
 		echo Html::div_open( array('class'=>'form_block'));
@@ -18,8 +18,8 @@
 			echo Html::div( array('content'=>$_LANG['ENABLE_THIS_FEATURE_TO_MODERATE_COMMENTS'], 'class'=>'input_tip') );
 		echo Html::div_close();
 
-		// SPAM MONITOR
-		echo Html::separator( array('content'=>$_LANG['SPAM_MONITOR']) );
+	// SPAM MONITOR
+	echo Html::separator( array('content'=>$_LANG['SPAM_MONITOR']) );
 
 		// ENABLE OR DISABLE SPAM MONITOR
 		echo Html::div_open( array('class'=>'form_block'));
@@ -49,7 +49,12 @@
 			echo Html::div( array('content'=>$_LANG['COMMENTS_DETECTED_AS_SPAM_WILL_BE_FILTERED'], 'class'=>'input_tip') );
 		echo Html::div_close();
 
-	echo Html::form_close();
+		// BUTTONS
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::input( array('id'=>'js_button_save', 'type'=>'button', 'class'=>'disabled', 'value'=>$_LANG['SAVE_CHANGES']) );
+		echo Html::div_close();
+
+echo Html::form_close();
 
 ?>
 

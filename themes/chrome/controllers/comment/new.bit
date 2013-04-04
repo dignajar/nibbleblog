@@ -12,7 +12,6 @@ $data = Session::get_comment_array();
 if( Text::is_empty($data['author_email']) || Text::is_empty($data['content']))
 {
 	Session::set_alert($_LANG['PLEASE_COMPLETE_ALL_FIELDS']);
-	Session::set_error(true);
 }
 else
 {
@@ -20,7 +19,6 @@ else
 	if( $Comment->add()===false )
 	{
 		Session::set_alert($_LANG['YOUR_COMMENT_IS_UNDER_REVIEW_IT_WILL_BE']);
-		Session::set_error(true);
 	}
 }
 

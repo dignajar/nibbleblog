@@ -15,12 +15,9 @@ if( $_POST['action']=='delete' )
 	$error = !$_DB_POST->remove($safe);
 }
 
-if( $error )
-{
-	exit( Text::ajax_header('<error><![CDATA[1]]></error>') );
-}
+if($error)
+	exit( Text::ajax_header('<error><![CDATA[1]]></error><alert><![CDATA['.$_LANG['FAIL'].']]></alert>') );
 else
-{
-	exit( Text::ajax_header('<success><![CDATA[1]]></success>') );
-}
+	exit( Text::ajax_header('<success><![CDATA[1]]></success><alert><![CDATA['.$_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY'].']]></alert>') );
+
 ?>

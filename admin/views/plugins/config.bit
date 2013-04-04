@@ -12,6 +12,8 @@
 
 		echo $html;
 
+		echo Html::input( array('id'=>'js_button_save', 'type'=>'button', 'class'=>'disabled', 'value'=>$_LANG['SAVE_CHANGES']) );
+
 	echo Html::form_close();
 
 ?>
@@ -20,9 +22,6 @@
 //======================================================================
 // AUTO-SAVE FORM
 //======================================================================
-	$javascript = array(
-			'url'=>HTML_PATH_ADMIN_AJAX.'plugins.php',
-			'action'=>'set'
-	);
+	$javascript = array('url'=>HTML_PATH_ADMIN_AJAX.'plugins.php');
 	include(PATH_ADMIN_JS.'ajax_form.bit');
 ?>
