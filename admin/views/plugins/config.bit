@@ -22,9 +22,6 @@
 //======================================================================
 // AUTO-SAVE FORM
 //======================================================================
-	$javascript = array(
-			'url'=>HTML_PATH_ADMIN_AJAX.'plugins.php',
-			'action'=>'set'
-	);
+	$javascript = array('url'=>HTML_PATH_ADMIN_AJAX.'plugins.php');
 	include(PATH_ADMIN_JS.'ajax_form.bit');
 ?>
