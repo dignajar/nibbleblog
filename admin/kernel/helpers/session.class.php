@@ -115,6 +115,7 @@ class Session {
 
 	public static function set_alert($text = '')
 	{
+		self::set_error(true);
 		$_SESSION['nibbleblog']['alert'] = $text;
 	}
 

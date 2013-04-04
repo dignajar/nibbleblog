@@ -104,7 +104,7 @@ body {
 }
 
 #alert {
-    background-color: #009AD7;
+    background-color: #4DBFD9;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     color: #FFFFFF;
     display: block;
@@ -502,13 +502,13 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
     margin: 0;
-    text-align: left;
+    text-align: center;
     width: 100%;
     font-size: 1.3em;
 }
 
 table thead {
-	background: #009AD7;
+	background: #4DBFD9;
 	color: #FFFFFF;
 }
 
@@ -516,6 +516,7 @@ table thead	th {
 	line-height: 23px;
 	padding: 6px 10px 8px;
 	vertical-align: top;
+	border-right: 1px solid #FFFFFF;
 }
 
 table tr td {
@@ -526,7 +527,13 @@ table tr td {
 }
 
 table td.content {
+	text-align: left;
 	width: 330px;
+}
+
+table td.category {
+	text-align: left;
+	width: 70%
 }
 
 table div.options a {

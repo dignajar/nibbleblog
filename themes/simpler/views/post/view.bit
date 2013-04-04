@@ -4,6 +4,8 @@ echo '<article class="post">';
 
 	include('includes/post_view.bit');
 
+	include('includes/social.bit');
+
 	if($post['allow_comments'])
 	{
 		// Include Disqus

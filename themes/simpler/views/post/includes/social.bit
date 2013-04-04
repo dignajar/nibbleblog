@@ -1,0 +1,7 @@
+<?php
+
+echo '<footer id="social">';
+	echo Social::twitter_share(array('url'=>$settings['url'].$post['permalink'], 'text'=>$post['title']));
+echo '</footer>';
+
+?>

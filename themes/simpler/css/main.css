@@ -224,15 +224,23 @@ article.post	footer.post		a {
 }
 
 /* ============================== */
+/* SOCIAL */
+/* ============================== */
+#social {
+	margin-top: 30px;
+	border-top: 1px solid #F1F1F1;
+	border-bottom: 1px solid #F1F1F1;
+	padding: 10px;
+}
+
+/* ============================== */
 /* COMMENT LIST */
 /* ============================== */
 #comment_list {
 	margin-top: 30px;
-	width: 70%;
 }
 
 #comment_list	h2 {
-	font-style: italic;
 	font-weight: normal;
 	margin: 10px 0;
 }
@@ -254,7 +262,6 @@ article.post	footer.post		a {
 }
 
 #comment_list	span.content {
-	font-style: italic;
 	display: block;
 }
 
@@ -272,7 +279,6 @@ article.post	footer.post		a {
 }
 
 #comment_form	h2 {
-	font-style: italic;
 	font-weight: normal;
 	margin: 10px 0;
 }

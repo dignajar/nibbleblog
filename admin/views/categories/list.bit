@@ -33,7 +33,7 @@
 	{
 		echo '
 			<tr>
-				<td>
+				<td class="category">
 				'.$category['name'].'
 				<div class="options">
 		';
