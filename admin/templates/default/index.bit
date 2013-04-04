@@ -18,6 +18,8 @@
 
 	<div id="container">
 
+		<div id="alert">Saved successfully</div>
+
 		<div id="container_head">
 			<a href="<?php echo HTML_PATH_ROOT ?>" class="home"><?php echo $_LANG['VIEW_BLOG']; ?></a>
 			<a href="<?php echo HTML_PATH_ROOT.'admin.php' ?>" class="dashboard"><?php echo $_LANG['DASHBOARD']; ?></a>
@@ -39,13 +41,6 @@
 
 			<div id="container_right">
 				<?php
-					// ALERT
-					if($_SESSION['session_alert']['active'])
-					{
-						echo '<div id="alert">'.$_SESSION['session_alert']['msg'].'</div>';
-						$_SESSION['session_alert']['active'] = false;
-					}
-
 					// LAYOUT_VIEW defined on controller
 					include(PATH_ADMIN_VIEW . LAYOUT_VIEW);
 				?>

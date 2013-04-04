@@ -38,7 +38,7 @@ $(document).ready(function() {
 	{
 		window.clearTimeout(timer);
 		timer = window.setTimeout(function(){save()},time_to_save);
-		console.log("timer set");
+		console.log("Nibbleblog: Timer set");
 	}
 
 	function save()
@@ -47,14 +47,16 @@ $(document).ready(function() {
 
 		if( newdata != datasrz )
 		{
-			console.log("saved");
-
 			// Save the new default
 			datasrz = newdata;
 
 			$.ajax({
 					url:"<?php echo $javascript['url']; ?>", type: "POST", cache: false, timeout: 15000, dataType: "xml", async: true,
-					data:{ serial_data: newdata, action:"<?php echo $action; ?>" }
+					data:{ serial_data: newdata, action:"<?php echo $action; ?>" },
+					success:function(xml)
+					{
+						console.log("Nibbleblog: Form saved");
+					}
 			});
 		}
 	}

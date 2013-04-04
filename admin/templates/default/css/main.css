@@ -110,6 +110,9 @@ body {
     font-size: 1.3em;
     margin-bottom: 20px;
     padding: 20px;
+    display: block;
+    position: fixed;
+    top: 0;
 }
 
 a {
