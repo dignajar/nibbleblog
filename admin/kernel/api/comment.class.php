@@ -43,7 +43,7 @@ class Comment {
 */
 	// Return TRUE if the comment is inserted
 	// Return FALSE if the comment is spam or need moderation
-	// Return -1 if comment flood or post doesn't allow comments
+	// Return -1 errors(comment flooding, post doesn't allow comments, others)
 	public function add()
 	{
 		// Flood protection
