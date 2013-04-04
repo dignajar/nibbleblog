@@ -29,7 +29,7 @@
 			{
 				echo '<a class="more" href="'.$post['permalink'].'">'.$_LANG['READ_MORE'].'</a> &middot; ';
 			}
-			echo '<a href="'.$post['permalink'].'">$_LANG['PERMALINK']</a> &middot; <a href="'.$post['permalink'].'#comment_list">'.$_LANG['COMMENTS'].' ('.count($post['comments']).')</a>';
+			echo '<a href="'.$post['permalink'].'">'.$_LANG['PERMALINK'].'</a> &middot; <a href="'.$post['permalink'].'#comment_list">'.$_LANG['COMMENTS'].' ('.count($post['comments']).')</a>';
 
 
 		echo '</article>';
