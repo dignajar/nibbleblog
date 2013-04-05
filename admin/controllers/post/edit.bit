@@ -65,8 +65,7 @@
 		// Set post
 		if( $_DB_POST->set($safe) )
 		{
-			$_SESSION['session_alert']['msg'] = $_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY'];
-			$_SESSION['session_alert']['active'] = true;
+			Session::set_alert($_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY']);
 
 			Redirect::controller('admin', 'post', 'list');
 		}

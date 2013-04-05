@@ -42,7 +42,7 @@
 		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=categories&amp;action=edit&amp;id_cat='.$category['id'], 'content'=>$_LANG['EDIT']) );
 
 		if($_DB_CATEGORIES->get_post_count($category['id']) == 0)
-			echo Html::link( array('class'=>'js_button_delete button', 'data-flag'=>'0', 'data-id'=>$category['id'], 'content'=>$_LANG['DELETE']) );
+			echo Html::link( array('class'=>'js_button_delete button', 'data-flag'=>'0', 'data-id'=>$category['id'], 'content'=>$_LANG['DELETE'], 'href'=>'javascript:void(0)') );
 		elseif($_DB_CATEGORIES->get_count() == 1)
 			echo Html::span( array('content'=>$_LANG['AT_LEAST_ONE_CATEGORY']) );
 		else
@@ -70,20 +70,18 @@ $(document).ready(function() {
 		var flag = self.attr("data-flag");
 		var id = self.attr("data-id");
 
-		if( flag == "1" )
+		if(flag=="1")
 		{
 			self.removeClass().html("<?php echo $_LANG['LOADING']; ?>");
 
 			if(set_ajax(id, "delete", "categories.php"))
-			{
 				box.fadeOut();
-			}
 		}
 		else
 		{
 			self.attr("data-flag", "1");
 			self.html("<?php echo $_LANG['ARE_YOU_SURE'] ?>");
-			self.addClass("remove");
+			self.css("color","red");
 		}
 	});
 

@@ -59,9 +59,7 @@ $(document).ready(function() {
 				{
 					var text = $(xml).find("alert").text();
 
-					$("#alert").html(text).fadeIn(1000);
-
-					setTimeout(function(){$("#alert").fadeOut(1000);}, 3500);
+					show_alert(text, 3500);
 
 					console.log("Nibbleblog: Form saved");
 				}

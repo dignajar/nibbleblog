@@ -62,7 +62,7 @@ $(document).ready(function() {
 
 	$("a.js_button_delete").click( function() {
 		var self = $(this);
-		var box = self.parent().parent();
+		var box = self.parent();
 		var flag = self.attr("data-flag");
 		var id = self.attr("data-id");
 
@@ -71,15 +71,12 @@ $(document).ready(function() {
 			self.removeClass().html("<?php echo $_LANG['LOADING']; ?>");
 
 			if(set_ajax(id, "delete", "posts.php"))
-			{
 				box.fadeOut();
-			}
 		}
 		else
 		{
 			self.attr("data-flag", "1");
 			self.html("<?php echo $_LANG['ARE_YOU_SURE'] ?>");
-			self.parent().parent().parent().css("opacity","0.8");
 			self.css("color","red");
 		}
 	});

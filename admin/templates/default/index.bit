@@ -54,6 +54,19 @@
 
 	</div>
 
+	<!-- Alert -->
+	<script>
+	$(document).ready(function(){
+
+		$("#alert").click(function() {
+			$(this).hide();
+		});
+
+		<?php if(Session::get_error()) { echo 'show_alert("'.Session::get_alert().'",3500);'; } ?>
+
+	});
+	</script>
+
 	<!-- Easter egg -->
 	<script>
 	$(document).ready(function(){

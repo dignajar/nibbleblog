@@ -43,3 +43,9 @@ function set_ajax(id, type, ajax)
 
 	return(result);
 }
+
+function show_alert(text, hidden_time)
+{
+	$("#alert").html(text).fadeIn(1000);
+	setTimeout(function(){$("#alert").fadeOut(1000);}, hidden_time);
+}

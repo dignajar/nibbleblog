@@ -13,8 +13,7 @@
 
 		if( $_DB_CATEGORIES->set($safe) )
 		{
-			$_SESSION['session_alert']['msg'] = $_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY'];
-			$_SESSION['session_alert']['active'] = true;
+			Session::set_alert($_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY']);
 
 			Redirect::controller('admin', 'categories', 'list');
 		}
