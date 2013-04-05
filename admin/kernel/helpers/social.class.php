@@ -20,6 +20,30 @@ class Social {
 		return $code;
 	}
 
+	public static function facebook_share($args = array())
+	{
+		// HTML Code
+		$code  = '<fb:share-button type="button" href="'.$args['url'].'" />';
+		$code .= '<script type="text/javascript" src="http://static.ak.fbcdn.net/connect.php/js/FB.Share"></script>';
+
+		return $code;
+	}
+
+	public static function facebook_like($args = array())
+	{
+		// HTML Code
+		$code  = '<fb:share-button type="button" href="'.$args['url'].'" />';
+		$code = '
+
+    <iframe src="https://www.facebook.com/plugins/like.php?href='.$args['url'].'"
+            scrolling="no" frameborder="0"
+      style="border:none; width:450px; height:80px"></iframe>
+
+';
+
+		return $code;
+	}
+
 }
 
 ?>
