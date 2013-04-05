@@ -58,32 +58,33 @@ class DB_SETTINGS {
 			// General
 			$tmp_array['name']						= (string) $this->obj_xml->getChild('name');
 			$tmp_array['slogan']					= (string) $this->obj_xml->getChild('slogan');
-			$tmp_array['about']						= (string) $this->obj_xml->getChild('about');
 			$tmp_array['footer']					= (string) $this->obj_xml->getChild('footer');
-			$tmp_array['language']					= (string) $this->obj_xml->getChild('language');
-
-			// Theme
-			$tmp_array['theme']						= (string) $this->obj_xml->getChild('theme');
+			$tmp_array['advanced_post_options']		= (int) $this->obj_xml->getChild('advanced_post_options') == 1;
 
 			// Advanced
 			$tmp_array['url']						= (string) $this->obj_xml->getChild('url');
 			$tmp_array['path']						= (string) $this->obj_xml->getChild('path');
 			$tmp_array['items_page']				= (string) $this->obj_xml->getChild('items_page');
 			$tmp_array['items_rss']					= (string) $this->obj_xml->getChild('items_rss');
+
+			// Regional
+			$tmp_array['language']					= (string) $this->obj_xml->getChild('language');
 			$tmp_array['timezone']					= (string) $this->obj_xml->getChild('timezone');
 			$tmp_array['timestamp_format']			= (string) $this->obj_xml->getChild('timestamp_format');
-			$tmp_array['advanced_post_options']		= (int) $this->obj_xml->getChild('advanced_post_options') == 1;
+			$tmp_array['locale']					= (string) $this->obj_xml->getChild('locale');
 
 			// Images
 			$tmp_array['img_resize']				= (int) $this->obj_xml->getChild('img_resize') == 1;
 			$tmp_array['img_resize_width']			= (int) $this->obj_xml->getChild('img_resize_width');
 			$tmp_array['img_resize_height']			= (int) $this->obj_xml->getChild('img_resize_height');
 			$tmp_array['img_resize_option']			= (string) $this->obj_xml->getChild('img_resize_option');
-
 			$tmp_array['img_thumbnail']				= (int) $this->obj_xml->getChild('img_thumbnail') == 1;
 			$tmp_array['img_thumbnail_width']		= (int) $this->obj_xml->getChild('img_thumbnail_width');
 			$tmp_array['img_thumbnail_height']		= (int) $this->obj_xml->getChild('img_thumbnail_height');
 			$tmp_array['img_thumbnail_option']		= (string) $this->obj_xml->getChild('img_thumbnail_option');
+
+			// Theme
+			$tmp_array['theme']						= (string) $this->obj_xml->getChild('theme');
 
 			// Notifications
 			$tmp_array['notification_comments']		= (int) $this->obj_xml->getChild('notification_comments') == 1;
@@ -91,9 +92,6 @@ class DB_SETTINGS {
 			$tmp_array['notification_session_start']= (int) $this->obj_xml->getChild('notification_session_start') == 1;
 			$tmp_array['notification_email_to']		= (string) $this->obj_xml->getChild('notification_email_to');
 			$tmp_array['notification_email_from']	= (string) $this->obj_xml->getChild('notification_email_from');
-
-			// Regional
-			$tmp_array['locale']					= (string) $this->obj_xml->getChild('locale');
 
 			// SEO
 			$tmp_array['seo_site_title']			= (string) $this->obj_xml->getChild('seo_site_title');

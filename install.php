@@ -108,37 +108,54 @@ Date::set_timezone('UTC');
 		$xml .= '<config>';
 		$xml .= '</config>';
 		$obj = new NBXML($xml, 0, FALSE, '', FALSE);
+
+		// General
 		$obj->addChild('name',					$_POST['name']);
 		$obj->addChild('slogan',				$_POST['slogan']);
 		$obj->addChild('footer',				$_LANG['POWERED_BY_NIBBLEBLOG']);
-		$obj->addChild('about',					'');
-		$obj->addChild('language',				$_GET['language']);
-		$obj->addChild('timezone',				'UTC');
-		$obj->addChild('theme',					'clean');
+		$obj->addChild('advanced_post_options', 0);
+
+		// Advanced
 		$obj->addChild('url',					$_POST['url']);
 		$obj->addChild('path',					$_POST['path']);
 		$obj->addChild('items_rss',				'4');
 		$obj->addChild('items_page',			'6');
-		$obj->addChild('timestamp_format',		'%d %B, %Y');
-		$obj->addChild('advanced_post_options',	'0');
-		$obj->addChild('locale',				$_GET['language']);
-		$obj->addChild('friendly_urls',			0);
 
+		// Regional
+		$obj->addChild('language',				$_GET['language']);
+		$obj->addChild('timezone',				'UTC');
+		$obj->addChild('timestamp_format',		'%d %B, %Y');
+		$obj->addChild('locale',				$_GET['language']);
+
+		// Images
 		$obj->addChild('img_resize',			1);
 		$obj->addChild('img_resize_width',		1000);
 		$obj->addChild('img_resize_height',		600);
 		$obj->addChild('img_resize_option',		'auto');
-
 		$obj->addChild('img_thumbnail',			1);
 		$obj->addChild('img_thumbnail_width',	190);
 		$obj->addChild('img_thumbnail_height',	190);
 		$obj->addChild('img_thumbnail_option',	'landscape');
 
+		// Theme
+		$obj->addChild('theme',					'clean');
+
+		// Notifications
 		$obj->addChild('notification_comments',			1);
 		$obj->addChild('notification_session_fail',		0);
 		$obj->addChild('notification_session_start',	0);
 		$obj->addChild('notification_email_to',			$_POST['email']);
 		$obj->addChild('notification_email_from',		'noreply@'.$blog_domain);
+
+		// SEO
+		$obj->addChild('seo_site_title',		$_POST['name'].' - '.$_POST['slogan']);
+		$obj->addChild('seo_site_description',	'');
+		$obj->addChild('seo_keywords',			'');
+		$obj->addChild('seo_robots',			'');
+		$obj->addChild('seo_google_code',		'');
+		$obj->addChild('seo_bing_code',			'');
+		$obj->addChild('seo_author',			'');
+		$obj->addChild('friendly_urls',			0);
 
 		$obj->asXml( FILE_XML_CONFIG );
 
