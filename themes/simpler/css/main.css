@@ -231,6 +231,13 @@ article.post	footer.post		a {
 	border-top: 1px solid #F1F1F1;
 	border-bottom: 1px solid #F1F1F1;
 	padding: 10px;
+	overflow: auto;
+}
+
+#social	span {
+	height: 24px;
+	display: block;
+	float: left;
 }
 
 /* ============================== */
