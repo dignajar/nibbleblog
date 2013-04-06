@@ -32,14 +32,7 @@ class Social {
 	public static function facebook_like($args = array())
 	{
 		// HTML Code
-		$code  = '<fb:share-button type="button" href="'.$args['url'].'" />';
-		$code = '
-
-    <iframe src="https://www.facebook.com/plugins/like.php?href='.$args['url'].'"
-            scrolling="no" frameborder="0"
-      style="border:none; width:450px; height:80px"></iframe>
-
-';
+		$code = '<iframe src="https://www.facebook.com/plugins/like.php?href='.$args['url'].'&amp;layout=button_count" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:21px;"></iframe>';
 
 		return $code;
 	}
