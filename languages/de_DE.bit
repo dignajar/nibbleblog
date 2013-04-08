@@ -1,13 +1,13 @@
 <?php
 
 $_LANG_CONFIG['DATA'] = array(
-	'native'=>'Deutsch - Deutsch',
-	'english'=>'German',
-	'last_update'=>'22/02/2013',
-	'author'=>'Daniel Randazzo',
-	'email'=>'pcrepariert@gmail.com',
-	'url'=>'http://pc-repariert.de'
-);
+		'native'=>'Deutsch - Deutsch',
+		'english'=>'German',
+		'last_update'=>'07/04/2013',
+		'author'=>'Daniel Randazzo',
+		'email'=>'pcrepariert@gmail.com',
+		'url'=>'http://pc-repariert.de'
+	);
 
 $_LANG['LAST_COMMENTS'] = 'Neueste Kommentare';
 $_LANG['THEME'] = 'Design';
@@ -222,5 +222,24 @@ $_LANG['CATEGORIES'] = 'Kategorien';
 $_LANG['TAGS'] = 'Tags';
 $_LANG['KEYWORDS'] = 'Keywords';
 $_LANG['MANAGE'] = 'Verwalten';
+$_LANG['404_PAGE_NOT_FOUND'] = 'Die gesuchte Seite existiert leider nicht.';
+$_LANG['NO_TITLE'] = 'Kein Titel';
+$_LANG['TITLE'] = 'Titel';
+$_LANG['TYPE'] = 'Typ';
+$_LANG['CATEGORY'] = 'Kategorie';
+$_LANG['PUBLISH_DATE'] = 'Veröffentlichungsdatum';
+$_LANG['LAST_MODIFIED'] = 'Zuletzt geändert';
+$_LANG['COMMENT'] = 'Kommentar';
+$_LANG['POST'] = 'Post';
+$_LANG['SLUG'] = 'Slug';
+$_LANG['SITE'] = 'Seite';
+$_LANG['SITE_TITLE'] = 'Titel der Seite';
+$_LANG['SITE_DESCRIPTION'] = 'Beschreibung der Seite';
+$_LANG['KEYWORDS_SEPARATED_BY_COMMA'] = 'Schlüsselwörter durch Komma getrennt';
+$_LANG['ROBOTS'] = 'Robots';
+$_LANG['WEBMASTER_TOOLS'] = 'Webmaster Tools';
+$_LANG['GOOGLE_WEBMASTER_TOOLS'] = 'Google Webmaster Tools - Verifizierungscode';
+$_LANG['BING_WEBMASTER_TOOLS'] = 'Bing Webmaster Tools - Verifizierungscode';
+$_LANG['SEO_OPTIONS'] = 'SEO-Optionen';
 
 ?>

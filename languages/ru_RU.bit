@@ -1,13 +1,13 @@
 <?php
 
 $_LANG_CONFIG['DATA'] = array(
-	'native'=>'Pyccĸий - Pyccĸий',
-	'english'=>'Russian',
-	'last_update'=>'25/02/2013',
-	'author'=>'Сергей Ворон',
-	'email'=>'voron.s.a@gmail.com',
-	'url'=>'http://voronsa.ru'
-);
+		'native'=>'Pyccĸий - Pyccĸий',
+		'english'=>'Russian',
+		'last_update'=>'07/04/2013',
+		'author'=>'Сергей Ворон',
+		'email'=>'voron.s.a@gmail.com',
+		'url'=>'http://voronsa.ru'
+	);
 
 $_LANG['TRANSLIT'] = array (
   'А'=>'a','Б'=>'b','В'=>'v',
@@ -51,7 +51,7 @@ $_LANG['ENTER_THE_NAME_OF_THE_NEW_CATEGORY'] = 'Введите имя новой
 $_LANG['ADD_CATEGORY'] = 'Добавить категорию';
 $_LANG['CATEGORIES_IN_YOUR_BLOG'] = 'Категории в блоге';
 $_LANG['DELETE'] = 'Удалить';
-$_LANG['ENTER_TITLE_HERE'] = 'Введите заголовок здесь';
+$_LANG['ENTER_TITLE_HERE'] = 'Введите название здесь';
 $_LANG['SELECT_A_CATEGORY'] = 'Выберите категорию';
 $_LANG['ALLOW_COMMENTS'] = 'Разрешить комментарии';
 $_LANG['ALLOW_YOUR_USERS_TO_COMMENT_YOUR_PUBLICATIONS'] = 'Разрешить вашим пользователям комментировать ваши публикации';
@@ -241,5 +241,23 @@ $_LANG['TAGS'] = 'Теги';
 $_LANG['KEYWORDS'] = 'Ключевые слова';
 $_LANG['MANAGE'] = 'Управление';
 $_LANG['404_PAGE_NOT_FOUND'] = 'К сожалению, страница, которую вы ищете, не существует.';
+$_LANG['NO_TITLE'] = 'Без названия';
+$_LANG['TITLE'] = 'Название';
+$_LANG['TYPE'] = 'Тип';
+$_LANG['CATEGORY'] = 'Категория';
+$_LANG['PUBLISH_DATE'] = 'Дата публикации';
+$_LANG['LAST_MODIFIED'] = 'Последнее изменение';
+$_LANG['COMMENT'] = 'Комментировать';
+$_LANG['POST'] = 'Запись';
+$_LANG['SLUG'] = 'Заголовок для URL';
+$_LANG['SITE'] = 'Сайт';
+$_LANG['SITE_TITLE'] = 'Название сайта';
+$_LANG['SITE_DESCRIPTION'] = 'Описание сайта';
+$_LANG['KEYWORDS_SEPARATED_BY_COMMA'] = 'ключевые слова через запятую';
+$_LANG['ROBOTS'] = 'Мета тег Robots';
+$_LANG['WEBMASTER_TOOLS'] = 'Вебмастеру';
+$_LANG['GOOGLE_WEBMASTER_TOOLS'] = 'Проверочный код - Google Webmaster Tools';
+$_LANG['BING_WEBMASTER_TOOLS'] = 'Проверочный код - Bing Webmaster tools';
+$_LANG['SEO_OPTIONS'] = 'СЕО опции';
 
 ?>

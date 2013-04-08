@@ -1,13 +1,13 @@
 <?php
 
 $_LANG_CONFIG['DATA'] = array(
-	'native'=>'Polski - Polski',
-	'english'=>'Polish',
-	'last_update'=>'02/03/2013',
-	'author'=>'kaaleth',
-	'email'=>'dawid.stawicki@windowslive.com',
-	'url'=>''
-);
+		'native'=>'Polski - Polski',
+		'english'=>'Polish',
+		'last_update'=>'07/04/2013',
+		'author'=>'kaaleth',
+		'email'=>'dawid.stawicki@windowslive.com',
+		'url'=>''
+	);
 
 $_LANG['LAST_COMMENTS'] = 'Ostatnie komentarze';
 $_LANG['THEME'] = 'Motyw';
@@ -127,7 +127,7 @@ $_LANG['CHOOSE_YOUR_LANGUAGE'] = 'Wybierz swój język';
 $_LANG['WRITING_TEST_ON_CONTENT_DIRECTORY'] = 'Możliwość zapisu katalogu "content"';
 $_LANG['INSTALLATION_LINE1'] = 'Gratulację!';
 $_LANG['INSTALLATION_LINE2'] = 'Instalacja Nibbleblog została zakończona.';
-$_LANG['INSTALLATION_LINE3'] = 'Aby zarządzać blogiem przejdź do poniższego adresu';
+$_LANG['INSTALLATION_LINE3'] = 'Aby zarządzać blogiem przejdź do następującego adresu';
 $_LANG['INSTALLATION_LINE4'] = 'lub odwiedź jego stronę główną';
 $_LANG['INSTALLATION_LINE5'] = 'Jeśli potrzebujesz pomocy, zajrzyj na forum';
 $_LANG['WELCOME_POST_TITLE'] = 'Witaj w Nibbleblog';
@@ -191,7 +191,7 @@ $_LANG['DISAPPROVE'] = 'Odrzuć';
 $_LANG['APPROVE_SPAM_DETECTED'] = 'Zatwierdź (wykryto spam)';
 $_LANG['APPROVE'] = 'Zatwierdź';
 $_LANG['API_KEY'] = 'Klucz API';
-$_LANG['INSERT_THE_API_KEY_HERE'] = '';
+$_LANG['INSERT_THE_API_KEY_HERE'] = 'Proszę wprowadzić klucz API. Jeśli nie posiadasz takowego lub nie wiesz do czego służy, proszę odwiedzić wiki Nibbleblog.';
 $_LANG['SPAM_MONITOR'] = 'Monitor spamu';
 $_LANG['ENABLE_THIS_FEATURE_TO_PROTECT_AGAINST_XSS'] = '';
 $_LANG['ENABLE_THIS_FEATURE_TO_MODERATE_COMMENTS'] = 'Włącz tę funkcję, aby wymusić przeglądu komentarzy przed ich opublikowaniem.';
@@ -222,6 +222,24 @@ $_LANG['CATEGORIES'] = 'Kategorie';
 $_LANG['TAGS'] = 'Tagi';
 $_LANG['KEYWORDS'] = 'Słowa kluczowe';
 $_LANG['MANAGE'] = 'Zarządzaj';
-$_LANG['404_PAGE_NOT_FOUND'] = 'Przepraszam. Strona, której szukasz nie istnieje.';
+$_LANG['404_PAGE_NOT_FOUND'] = 'Przepraszamy. Strona, której szukasz nie istnieje.';
+$_LANG['NO_TITLE'] = 'Brak tytułu';
+$_LANG['TITLE'] = 'Tytuł';
+$_LANG['TYPE'] = 'Typ';
+$_LANG['CATEGORY'] = 'Kategoria';
+$_LANG['PUBLISH_DATE'] = 'Data publikacji';
+$_LANG['LAST_MODIFIED'] = 'Ostatnia modyfikacja';
+$_LANG['COMMENT'] = 'Komentarz';
+$_LANG['POST'] = 'Wyślij';
+$_LANG['SLUG'] = 'Slogan';
+$_LANG['SITE'] = 'Strona';
+$_LANG['SITE_TITLE'] = 'Tytuł strony';
+$_LANG['SITE_DESCRIPTION'] = 'Opis strony';
+$_LANG['KEYWORDS_SEPARATED_BY_COMMA'] = 'Słowa kluczowe oddzielone przecinkiem';
+$_LANG['ROBOTS'] = 'Roboty';
+$_LANG['WEBMASTER_TOOLS'] = 'Narzędzia webmastera';
+$_LANG['GOOGLE_WEBMASTER_TOOLS'] = 'Google, narzędzia webmastera - kod weryfikacyjny';
+$_LANG['BING_WEBMASTER_TOOLS'] = 'Bing, narzędzia webmastera - kod weryfikacyjny';
+$_LANG['SEO_OPTIONS'] = 'Ustawienia SEO';
 
 ?>

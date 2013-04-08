@@ -226,18 +226,22 @@ article.post	footer.post		a {
 /* ============================== */
 /* SOCIAL */
 /* ============================== */
-#social {
-	margin-top: 30px;
-	border-top: 1px solid #F1F1F1;
-	border-bottom: 1px solid #F1F1F1;
-	padding: 10px;
-	overflow: auto;
+div.share {
+	float: right;
+	overflow:auto;
 }
 
-#social	span {
-	height: 24px;
-	display: block;
-	float: left;
+div.share	a.twitter {
+    background: url("img/32twitter.png") no-repeat right center;
+    display: block;
+    line-height: 32px;
+    padding-right: 32px;
+    color: #333;
+    opacity: 0.5;
+}
+
+div.share	a.twitter:hover {
+	opacity: 1;
 }
 
 /* ============================== */

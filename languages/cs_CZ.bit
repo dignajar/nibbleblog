@@ -1,13 +1,13 @@
 <?php
 
 $_LANG_CONFIG['DATA'] = array(
-	'native'=>'čeština - čeština',
-	'english'=>'czech',
-	'last_update'=>'05/03/2013',
-	'author'=>'JarynekZ',
-	'email'=>'j.zaoral@gmail.com',
-	'url'=>'http://www.lamilide.cz'
-);
+		'native'=>'čeština - čeština',
+		'english'=>'czech',
+		'last_update'=>'07/04/2013',
+		'author'=>'',
+		'email'=>'j.zaoral@gmail.com',
+		'url'=>''
+	);
 
 $_LANG['LAST_COMMENTS'] = 'Poslední komentáře';
 $_LANG['THEME'] = 'Téma';
@@ -223,5 +223,23 @@ $_LANG['TAGS'] = 'Tagy';
 $_LANG['KEYWORDS'] = 'Klíčová slova';
 $_LANG['MANAGE'] = 'Spravovat';
 $_LANG['404_PAGE_NOT_FOUND'] = 'Omlouváme se, ale stránka kterou požadujete neexistuje.';
+$_LANG['NO_TITLE'] = '';
+$_LANG['TITLE'] = '';
+$_LANG['TYPE'] = '';
+$_LANG['CATEGORY'] = '';
+$_LANG['PUBLISH_DATE'] = '';
+$_LANG['LAST_MODIFIED'] = '';
+$_LANG['COMMENT'] = '';
+$_LANG['POST'] = '';
+$_LANG['SLUG'] = '';
+$_LANG['SITE'] = '';
+$_LANG['SITE_TITLE'] = '';
+$_LANG['SITE_DESCRIPTION'] = '';
+$_LANG['KEYWORDS_SEPARATED_BY_COMMA'] = '';
+$_LANG['ROBOTS'] = '';
+$_LANG['WEBMASTER_TOOLS'] = '';
+$_LANG['GOOGLE_WEBMASTER_TOOLS'] = '';
+$_LANG['BING_WEBMASTER_TOOLS'] = '';
+$_LANG['SEO_OPTIONS'] = '';
 
 ?>

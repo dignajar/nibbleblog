@@ -6,6 +6,11 @@
 		// print publish date
 		echo '<div class="date">'.$post['pub_date'].'</div>';
 
+		// share
+		echo '<div class="share">';
+			echo '<a class="twitter" href="https://twitter.com/share?url='.(urlencode($settings['url'].$post['permalink'])).'">Share</a>';
+		echo '</div>';
+
 		// print title if this is not empty
 		if( !empty($post['title']) )
 			echo '<h1 class="title"><a href="'.$post['permalink'].'">'.$post['title'].'</a></h1>';

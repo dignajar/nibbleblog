@@ -1,13 +1,13 @@
 <?php
 
 $_LANG_CONFIG['DATA'] = array(
-	'native'=>'Português - Português',
-	'english'=>'Portuguese',
-	'last_update'=>'25/02/2013',
-	'author'=>'Paulo Nunes',
-	'email'=>'syndicatefx@gmail.com',
-	'url'=>'http://syndicate-fx.com'
-);
+		'native'=>'Português - Português',
+		'english'=>'Portuguese',
+		'last_update'=>'07/04/2013',
+		'author'=>'Paulo Nunes',
+		'email'=>'syndicatefx@gmail.com',
+		'url'=>'http://syndicate-fx.com'
+	);
 
 $_LANG['LAST_COMMENTS'] = 'Últimos comentários';
 $_LANG['THEME'] = 'Tema';
@@ -223,5 +223,23 @@ $_LANG['TAGS'] = 'Etiquetas';
 $_LANG['KEYWORDS'] = 'Palavras-chave';
 $_LANG['MANAGE'] = 'Gerir';
 $_LANG['404_PAGE_NOT_FOUND'] = 'Pedimos desculpa, mas a página que procura não existe.';
+$_LANG['NO_TITLE'] = 'Sem título';
+$_LANG['TITLE'] = 'Título';
+$_LANG['TYPE'] = 'Tipo';
+$_LANG['CATEGORY'] = 'Categoria';
+$_LANG['PUBLISH_DATE'] = 'Data de Publicação';
+$_LANG['LAST_MODIFIED'] = 'Última modificação';
+$_LANG['COMMENT'] = 'Comentário';
+$_LANG['POST'] = 'Post';
+$_LANG['SLUG'] = 'Slug';
+$_LANG['SITE'] = 'Site';
+$_LANG['SITE_TITLE'] = 'Título do site';
+$_LANG['SITE_DESCRIPTION'] = 'Descrição do site';
+$_LANG['KEYWORDS_SEPARATED_BY_COMMA'] = 'palavras-chave separadas por vírgula';
+$_LANG['ROBOTS'] = 'Robots';
+$_LANG['WEBMASTER_TOOLS'] = 'Ferramentas webmaster';
+$_LANG['GOOGLE_WEBMASTER_TOOLS'] = 'Código de verificação - Ferramentas webmaster do Google';
+$_LANG['BING_WEBMASTER_TOOLS'] = 'Código de verificação - Ferramentas webmaster do Bing';
+$_LANG['SEO_OPTIONS'] = 'Opções SEO';
 
 ?>

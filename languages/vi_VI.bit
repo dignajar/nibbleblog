@@ -1,13 +1,13 @@
 <?php
 
 $_LANG_CONFIG['DATA'] = array(
-	'native'=>'Tiếng Việt - Tiếng Việt',
-	'english'=>'Vietnamese',
-	'last_update'=>'25/02/2013',
-	'author'=>'babycntt',
-	'email'=>'quan0909@gmail.com',
-	'url'=>''
-);
+		'native'=>'Tiếng Việt - Tiếng Việt',
+		'english'=>'Vietnamese',
+		'last_update'=>'07/04/2013',
+		'author'=>'babycntt',
+		'email'=>'quan0909@gmail.com',
+		'url'=>''
+	);
 
 $_LANG['LAST_COMMENTS'] = 'Bình luận mới nhất';
 $_LANG['THEME'] = 'Giao diện';
@@ -223,5 +223,23 @@ $_LANG['TAGS'] = 'Thẻ';
 $_LANG['KEYWORDS'] = 'Từ khóa';
 $_LANG['MANAGE'] = 'Quản lý';
 $_LANG['404_PAGE_NOT_FOUND'] = 'Không tồn tại trang này.';
+$_LANG['NO_TITLE'] = 'Không có tiêu đề';
+$_LANG['TITLE'] = 'Tiêu đề';
+$_LANG['TYPE'] = 'Đánh máy';
+$_LANG['CATEGORY'] = 'Chuyên mục';
+$_LANG['PUBLISH_DATE'] = 'Ngày đăng';
+$_LANG['LAST_MODIFIED'] = 'Thay đổi lần cuối lúc';
+$_LANG['COMMENT'] = 'Bình luận';
+$_LANG['POST'] = 'Đăng';
+$_LANG['SLUG'] = 'Slug';
+$_LANG['SITE'] = 'Trang';
+$_LANG['SITE_TITLE'] = 'Tiêu đề trang';
+$_LANG['SITE_DESCRIPTION'] = 'Mô tả trang';
+$_LANG['KEYWORDS_SEPARATED_BY_COMMA'] = 'từ khóa được phân cách nhau bằng dấu phẩy';
+$_LANG['ROBOTS'] = 'Robots';
+$_LANG['WEBMASTER_TOOLS'] = 'Công cụ quản trị web';
+$_LANG['GOOGLE_WEBMASTER_TOOLS'] = 'Công cụ quản trị web của Google - Mã xác thực';
+$_LANG['BING_WEBMASTER_TOOLS'] = 'Công cụ quản trị web của  Bing - Mã xác thực';
+$_LANG['SEO_OPTIONS'] = 'Tùy chọn tối ưu hóa công cụ tìm kiếm (SEO)';
 
 ?>
