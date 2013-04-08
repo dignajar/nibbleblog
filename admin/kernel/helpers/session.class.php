@@ -54,7 +54,12 @@ class Session {
 
 	public static function get_error()
 	{
-		return($_SESSION['nibbleblog']['error']);
+		if(isset($_SESSION['nibbleblog']['error']))
+		{
+			return($_SESSION['nibbleblog']['error']);
+		}
+
+		return false;
 	}
 
 	public static function get_last_comment_at()
