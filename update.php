@@ -158,14 +158,13 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 				set_if_not($obj,'notification_email_from','noreply@'.$blog_domain);
 
 				// SEO Options
-				set_if_not($obj,'seo_title','');
-				set_if_not($obj,'seo_description','');
+				set_if_not($obj,'seo_site_title','');
+				set_if_not($obj,'seo_site_description','');
 				set_if_not($obj,'seo_keywords','');
-				set_if_not($obj,'seo_nofollow',0);
-				set_if_not($obj,'seo_noindex',0);
-				set_if_not($obj,'seo_noarchive',0);
+				set_if_not($obj,'seo_robots','');
 				set_if_not($obj,'seo_google_code','');
 				set_if_not($obj,'seo_bing_code','');
+				set_if_not($obj,'seo_author','');
 
 				$obj->asXml( FILE_XML_CONFIG );
 				echo Html::p( array('class'=>'pass', 'content'=>'DB updated: '.FILE_XML_CONFIG) );
