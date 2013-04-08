@@ -118,13 +118,13 @@ Date::set_timezone('UTC');
 		$obj->addChild('name',					$_POST['name']);
 		$obj->addChild('slogan',				$_POST['slogan']);
 		$obj->addChild('footer',				$_LANG['POWERED_BY_NIBBLEBLOG']);
-		$obj->addChild('advanced_post_options', 0);
+		$obj->addChild('advanced_post_options', false);
 
 		// Advanced
 		$obj->addChild('url',					$_POST['url']);
 		$obj->addChild('path',					$_POST['path']);
-		$obj->addChild('items_rss',				'4');
-		$obj->addChild('items_page',			'6');
+		$obj->addChild('items_rss',				4);
+		$obj->addChild('items_page',			6);
 
 		// Regional
 		$obj->addChild('language',				$_GET['language']);
@@ -133,11 +133,11 @@ Date::set_timezone('UTC');
 		$obj->addChild('locale',				$_GET['language']);
 
 		// Images
-		$obj->addChild('img_resize',			1);
+		$obj->addChild('img_resize',			true);
 		$obj->addChild('img_resize_width',		1000);
 		$obj->addChild('img_resize_height',		600);
 		$obj->addChild('img_resize_option',		'auto');
-		$obj->addChild('img_thumbnail',			1);
+		$obj->addChild('img_thumbnail',			true);
 		$obj->addChild('img_thumbnail_width',	190);
 		$obj->addChild('img_thumbnail_height',	190);
 		$obj->addChild('img_thumbnail_option',	'landscape');
@@ -146,9 +146,9 @@ Date::set_timezone('UTC');
 		$obj->addChild('theme',					'simpler');
 
 		// Notifications
-		$obj->addChild('notification_comments',			1);
-		$obj->addChild('notification_session_fail',		0);
-		$obj->addChild('notification_session_start',	0);
+		$obj->addChild('notification_comments',			true);
+		$obj->addChild('notification_session_fail',		false);
+		$obj->addChild('notification_session_start',	false);
 		$obj->addChild('notification_email_to',			$_POST['email']);
 		$obj->addChild('notification_email_from',		'noreply@'.$blog_domain);
 
@@ -160,7 +160,7 @@ Date::set_timezone('UTC');
 		$obj->addChild('seo_google_code',		'');
 		$obj->addChild('seo_bing_code',			'');
 		$obj->addChild('seo_author',			'');
-		$obj->addChild('friendly_urls',			0);
+		$obj->addChild('friendly_urls',			false);
 
 		$obj->asXml( FILE_XML_CONFIG );
 
@@ -188,12 +188,12 @@ Date::set_timezone('UTC');
 		$xml .= '<comments autoinc="0">';
 		$xml .= '</comments>';
 		$obj = new NBXML($xml, 0, FALSE, '', FALSE);
-		$obj->addChild('moderate', 1);
-		$obj->addChild('sanitize', 1);
-		$obj->addChild('monitor_enable', 0);
+		$obj->addChild('moderate', true);
+		$obj->addChild('sanitize', true);
+		$obj->addChild('monitor_enable', false);
 		$obj->addChild('monitor_api_key', '');
-		$obj->addChild('monitor_spam_control', '0.75');
-		$obj->addChild('monitor_auto_delete', 0);
+		$obj->addChild('monitor_spam_control', 0.75);
+		$obj->addChild('monitor_auto_delete', false);
 		$obj->asXml( FILE_XML_COMMENTS );
 
 		// post.xml
