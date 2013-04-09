@@ -13,7 +13,7 @@ class NBXML extends SimpleXMLElement
 {
 	public function addChild($name, $value='', $namespace='')
 	{
-		$type	= gettype($value);
+		//$type	= gettype($value);
 		$name	= utf8_encode($name);
 		$value	= utf8_encode($value);
 
@@ -21,7 +21,7 @@ class NBXML extends SimpleXMLElement
 		$node[0] = $value; // (BUG) Con esta forma escapamos el & que no escapa el addChild
 
 		// Add type
-		$node->addAttribute('type', $type);
+		//$node->addAttribute('type', $type);
 
       return $node;
 	}
