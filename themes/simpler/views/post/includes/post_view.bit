@@ -8,7 +8,7 @@
 
 		// share
 		echo '<div class="share">';
-			echo '<a class="twitter" target="_blank" href="https://twitter.com/share?url='.(urlencode($settings['url'].$post['permalink'])).'">Share</a>';
+			echo '<a class="twitter" target="_blank" href="https://twitter.com/share?url='.(urlencode($settings['url'].$post['permalink'])).'">'.$_LANG['SHARE'].'</a>';
 		echo '</div>';
 
 		// print title if this is not empty
