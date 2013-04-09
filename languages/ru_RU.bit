@@ -259,5 +259,6 @@ $_LANG['WEBMASTER_TOOLS'] = 'Вебмастеру';
 $_LANG['GOOGLE_WEBMASTER_TOOLS'] = 'Проверочный код - Google Webmaster Tools';
 $_LANG['BING_WEBMASTER_TOOLS'] = 'Проверочный код - Bing Webmaster tools';
 $_LANG['SEO_OPTIONS'] = 'СЕО опции';
+$_LANG['SHARE'] = 'Поделиться';
 
 ?>
