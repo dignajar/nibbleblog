@@ -6,11 +6,36 @@
  * Require
  * $settings
  * $_DB_POST
+ * $_DB_CATEGORIES
+ * $_LANG
 
  * Return
  * (array) $posts
 */
 
-	$posts = $_DB_POST->get_list_by_page( array('page'=>0, 'amount'=>$settings['items_rss']) );
+$posts = $_DB_POST->get_list_by_page( array('page'=>0, 'amount'=>$settings['items_rss']) );
+
+// ---- PERMALINKS
+// ---- CATEGORY
+// ---- PUBLISH DATE
+foreach($posts as $key=>$value)
+{
+	// Category
+	$category = $_DB_CATEGORIES->get( array('id'=>$posts[$key]['id_cat']) );
+	$posts[$key]['category'] = $category['name'];
+
+	// Permalink
+	if( $settings['friendly_urls'] )
+	{
+		if(  Text::not_empty($posts[$key]['slug']) )
+			$slug = $posts[$key]['slug'];
+		elseif( Text::not_empty($posts[$key]['title']) )
+			$slug = Text::clean_url($posts[$key]['title'], '-', isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false);
+		else
+			$slug = $posts[$key]['type'];
+
+		$posts[$key]['permalink'] = HTML_PATH_ROOT.'post-'.$posts[$key]['id'].'/'.$slug;
+	}
+}
 
 ?>
