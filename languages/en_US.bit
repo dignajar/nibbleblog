@@ -242,5 +242,6 @@ $_LANG['WEBMASTER_TOOLS'] = 'Webmaster tools';
 $_LANG['GOOGLE_WEBMASTER_TOOLS'] = 'Google Webmaster tools - Verification code';
 $_LANG['BING_WEBMASTER_TOOLS'] = 'Bing Webmaster tools - Verification code';
 $_LANG['SEO_OPTIONS'] = 'SEO Options';
+$_LANG['SHARE'] = 'Share';
 
 ?>
