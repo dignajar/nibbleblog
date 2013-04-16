@@ -120,7 +120,7 @@ class DB_CATEGORIES {
 
 		public function get_by_slug($args)
 		{
-			$tmp_node = $this->xml->xpath('/categories/category[@slug="'.$args['slug'].'"]');
+			$tmp_node = $this->xml->xpath('/categories/category[@slug="'.utf8_encode($args['slug']).'"]');
 
 			// Category not found
 			if( $tmp_node == array() )
