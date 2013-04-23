@@ -135,7 +135,7 @@ class Text {
 		$text = str_replace(' ',$spaces,$text);
 
 		// Make a string lowercase
-		$text = strtolower($text);
+		$text = mb_strtolower($text, 'UTF-8');
 
 		return $text;
 	}
