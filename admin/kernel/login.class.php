@@ -82,14 +82,19 @@ class Login {
 	*/
 	public function verify_login($args)
 	{
-		require( FILE_SHADOW );
-
-		// Brute force protection
-		if(Session::get('last_session_at') + 30 > time())
+		// Check the file FILE_SHADOW=shadow.php
+		if(!file_exists(FILE_SHADOW))
 			return false;
 
+		require(FILE_SHADOW);
+
+		// Bruteforce
+		$this->check
+
+		// Check username
 		if( Text::compare($args['username'], $_USER[0]['username']) )
 		{
+			// Check password
 			$hash = Crypt::get_hash($args['password'], $_USER[0]['salt']);
 
 			if( Text::compare($hash, $_USER[0]['password']) )
@@ -204,6 +209,16 @@ class Login {
 		{
 			return(false);
 		}
+	}
+
+/*
+========================================================================
+	PRIVATE METHODS
+========================================================================
+*/
+	private function brute_force_protection($username)
+	{
+		global $_DB_USERS;
 	}
 
 } // END class LOGIN

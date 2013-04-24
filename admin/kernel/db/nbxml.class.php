@@ -45,7 +45,10 @@ class NBXML extends SimpleXMLElement
 
 	public function setChild($name, $value)
 	{
-		$this->{$name} = utf8_encode($value);
+		if(isset($this->{$name}))
+			$this->{$name} = utf8_encode($value);
+
+		return false;
 	}
 
 	public function getChild($name)

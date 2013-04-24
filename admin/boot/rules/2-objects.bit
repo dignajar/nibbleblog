@@ -52,6 +52,7 @@
 	require(PATH_DB . 'db_settings.class.php');
 	require(PATH_DB . 'db_comments.class.php');
 	require(PATH_DB . 'db_notifications.class.php');
+	require(PATH_DB . 'db_users.class.php');
 
 	// Api
 	require(PATH_API . 'comment.class.php');
@@ -74,6 +75,7 @@
 		$_DB_SETTINGS		= new DB_SETTINGS( FILE_XML_CONFIG );
 		$_DB_CATEGORIES		= new DB_CATEGORIES( FILE_XML_CATEGORIES );
 		$_DB_POST			= new DB_POSTS( FILE_XML_POST );
+		$_DB_USERS			= new DB_USERS( FILE_XML_USERS );
 
 		// Level 2
 		$_DB_COMMENTS		= new DB_COMMENTS( FILE_XML_COMMENTS, $_DB_SETTINGS->get() );

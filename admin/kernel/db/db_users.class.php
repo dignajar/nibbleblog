@@ -16,100 +16,99 @@ class DB_USERS {
 	VARIABLES
 ========================================================================
 */
-		public $file;	// File db
-		public $xml;	// Simplexml Obj
+	public $file;	// File db
+	public $xml;	// Simplexml Obj
 
 /*
 ========================================================================
 	CONSTRUCTORS
 ========================================================================
 */
-		function DB_USERS($file)
+	function DB_USERS($file)
+	{
+		if(file_exists($file))
 		{
-			if(file_exists($file))
-			{
-				$this->file = $file;
+			$this->file = $file;
 
-				$this->xml = new NBXML($this->file, 0, TRUE, '', FALSE);
+			$this->xml = new NBXML($this->file, 0, TRUE, '', FALSE);
 
-				return true;
-			}
-
-			return false;
+			return true;
 		}
+
+		return false;
+	}
 
 /*
 ========================================================================
 	PUBLIC METHODS
 ========================================================================
 */
-		public function savetofile()
-		{
-			return $this->xml->asXML($this->file);
-		}
+	public function add($args)
+	{
+		$node = $this->xml->xpath('/users/user[@username="'.utf8_encode($args['username']).'"]');
 
-		public function add($args)
-		{
-			$tmp_node = $this->xml->xpath('/users/user[@username="'.utf8_encode($args['username']).'"]');
-
-			if( $tmp_node == array() )
-			{
-				$new_node = $this->xml->addChild('user','');
-				$new_node->addAttribute('id', $args['id'] );
-				$new_node->addAttribute('session_fail_count', 0);
-				$new_node->addAttribute('session_date', 0);
-
-				return $this->savetofile();
-			}
-
+		if($node==array())
 			return false;
-		}
 
-		public function get($args)
-		{
-			$node = $this->xml->xpath('/users/user[@username="'.utf8_encode($args['username']).'"]');
+		// Add the table
+		$node = $this->xml->addChild('user','');
 
-			if($node==array())
-				return false;
+		// Add the key
+		$node->addAttribute('username', $args['username']);
 
-			$tmp = array();
-			foreach($node[0]->children() as $field=>$n)
-				$tmp[$field] = $node[0]->getChild($field);
+		// Add the registers
+		$node->addChild('id', 					$args['id']);
+		$node->addChild('session_fail_count',	$args['session_fail_count']);
+		$node->addChild('session_date',			$args['session_date']);
 
-			return $tmp;
-		}
+		return $this->savetofile();
+	}
 
-		public function set_session_fail($args)
-		{
-			$node = $this->xml->xpath('/users/user[@username="'.utf8_encode($args['username']).'"]');
+	public function get($args)
+	{
+		$node = $this->xml->xpath('/users/user[@username="'.utf8_encode($args['username']).'"]');
 
-			if($node== array())
-				return false;
+		if($node==array())
+			return false;
 
-			$node[0]->setChild('session_fail_count', $args['value']);
+		$tmp = array();
+		foreach($node[0]->children() as $field=>$n)
+			$tmp[$field] = $node[0]->getChild($field);
 
-			return true;
-		}
+		return $tmp;
+	}
 
-		public function is_valid($args)
-		{
-			return $this->xml->xpath('/users/user[@username="'.utf8_encode($args['username']).'"]') != array();
-		}
+	public function set($args)
+	{
+		$node = $this->xml->xpath('/users/user[@username="'.utf8_encode($args['username']).'"]');
+
+		if($node== array())
+			return false;
+
+		unset($args['username']);
+
+		foreach($args as $key=>$value)
+			$node[0]->setChild($key, $value);
+
+		return $this->savetofile();
+	}
+
+	public function is_valid($args)
+	{
+		return $this->xml->xpath('/users/user[@username="'.utf8_encode($args['username']).'"]') != array();
+	}
+
+	public function savetofile()
+	{
+		return $this->xml->asXML($this->file);
+	}
 
 /*
 ========================================================================
 	PRIVATE METHODS
 ========================================================================
 */
-		private function get_autoinc()
-		{
-			return (int)$this->xml['autoinc'];
-		}
 
-		private function set_autoinc($value = 0)
-		{
-			$this->xml['autoinc'] = $value + $this->get_autoinc();
-		}
 
 } // END Class
 

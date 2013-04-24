@@ -61,6 +61,7 @@
 	define('FILE_XML_CONFIG',		PATH_PRIVATE . 'config.xml');
 	define('FILE_XML_NOTIFICATIONS',PATH_PRIVATE . 'notifications.xml');
 	define('FILE_XML_COMMENTS',		PATH_PRIVATE . 'comments.xml');
+	define('FILE_XML_USERS',		PATH_PRIVATE . 'users.xml');
 	define('FILE_SHADOW',			PATH_PRIVATE . 'shadow.php');
 	define('FILE_KEYS',				PATH_PRIVATE . 'keys.php');
 
