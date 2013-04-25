@@ -13,11 +13,6 @@ if( $Login->is_logued() || $Login->remember_me() )
 
 if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 {
-	if(defined(LOGIN_SLEEP))
-		sleep(LOGIN_SLEEP);
-	else
-		sleep(5);
-
 	$safe = array();
 	$safe['username'] = Validation::sanitize_html($_POST['username']);
 	$safe['password'] = Validation::sanitize_html($_POST['password']);

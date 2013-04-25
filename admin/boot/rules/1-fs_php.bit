@@ -9,6 +9,17 @@
  * Return
  * (string) $current_path
 */
+// =====================================================================
+//	SESSIONS
+// =====================================================================
+	// Set HTTPOnly
+	session_set_cookie_params(0, NULL, NULL, NULL, TRUE);
+
+	// Session start
+	$session_started = session_start();
+
+	// Regenerate the SESSION ID, this for prevent session hijacking "man-in-the-middle attack"
+	//session_regenerate_id(true);
 
 // =====================================================================
 //	PATHS

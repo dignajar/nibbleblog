@@ -4,7 +4,7 @@
  * http://www.nibbleblog.com
 
  * Require
- *
+ * $session_started
 
  * Return
  * (object) $Login
@@ -16,6 +16,7 @@
  * (object) $_DB_NOTIFICATIONS
  * (object) $_DB_POST
  * (object) $_DB_COMMENTS
+ * (object) $_DB_USERS
 */
 
 // =====================================================================
@@ -62,8 +63,6 @@
 // =====================================================================
 //	OBJECTS
 // =====================================================================
-	// Login and Session
-	$Login = new Login();
 
 	// Helpers
 	$Resize = new Resize();
@@ -85,6 +84,7 @@
 		// API for humans
 		$Comment	= new Comment($_DB_COMMENTS, $_DB_NOTIFICATIONS, $_DB_SETTINGS->get());
 		$Post		= new Post($_DB_POST);
+		$Login		= new Login($session_started, $_DB_USERS);
 	}
 
 ?>

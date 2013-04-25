@@ -51,7 +51,7 @@ class DB_NOTIFICATIONS {
 			return( $this->xml->asXML($this->file) );
 		}
 
-		public function add($type, $send_email, $message_key, $email_message = '')
+		public function add($category, $send_email, $message_key, $email_message = '')
 		{
 			global $_LANG;
 
@@ -80,7 +80,7 @@ class DB_NOTIFICATIONS {
 
 			// Save the notification
 			$node = $this->xml->addChild('notification');
-			$node->addAttribute('type',			$type);
+			$node->addAttribute('category',		$category);
 			$node->addAttribute('mail',			$sent);
 			$node->addAttribute('message_key',	$message_key);
 			$node->addAttribute('ip',			$user_ip);
@@ -102,7 +102,7 @@ class DB_NOTIFICATIONS {
 				$user_ip = Crypt::decrypt((string) $notification->getAttribute('ip'), $_KEYS[0]);
 
 				$row = array();
-				$row['type']			= (string) $notification->getAttribute('type');
+				$row['category']			= (string) $notification->getAttribute('category');
 				$row['mail']			= (bool) $notification->getAttribute('mail');
 				$row['message_key']		= (string) $notification->getAttribute('message_key');
 				$row['date']			= (string) $notification->getAttribute('date');

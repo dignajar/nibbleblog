@@ -12,25 +12,12 @@
 class Login {
 
 	private $session_started;
+	private $db_users;
 
-	function __construct()
+	function Login($started, $db_users)
 	{
-		// Set HTTPOnly
-		session_set_cookie_params(0, NULL, NULL, NULL, TRUE);
-
-		// Session start
-		$this->session_started = session_start();
-
-		// Regenerate the SESSION ID, this for prevent session hijacking "man-in-the-middle attack"
-		//session_regenerate_id(true);
-	}
-
-	/*
-	 * Return a key, with user agent and user IP
-	*/
-	private function get_key()
-	{
-		return( Crypt::get_hash( Net::get_user_agent() . Net::get_user_ip() ) );
+		$this->session_started = $started;
+		$this->db_users = $db_users;
 	}
 
 	/*
@@ -43,34 +30,28 @@ class Login {
 	public function set_login($args)
 	{
 		$_SESSION = array();
-
-		$_SESSION['session_user']['id'] = $args['id_user'];
-		$_SESSION['session_user']['username'] = $args['username'];
-
-		$_SESSION['session_login']['at'] = Date::unixstamp();
-		$_SESSION['session_login']['key'] = $this->get_key();
-
-		$_SESSION['session_alert']['active'] = false;
-		$_SESSION['session_alert']['msg'] = '';
+		$_SESSION['session_user']['id']			= $args['id_user'];
+		$_SESSION['session_user']['username']	= $args['username'];
+		$_SESSION['session_login']['key']		= $this->get_key();
 	}
 
 	/*
-	 * Check the user is logued
+	 * Check if the user is logued
 	*/
 	public function is_logued()
 	{
-		if( $this->session_started )
+		if($this->session_started)
 		{
-			if( isset($_SESSION['session_user']['id']) && isset($_SESSION['session_login']['key']) )
+			if(isset($_SESSION['session_user']['id']) && isset($_SESSION['session_login']['key']))
 			{
-				if( Text::compare($_SESSION['session_login']['key'], $this->get_key()) )
+				if(Text::compare($_SESSION['session_login']['key'], $this->get_key()))
 				{
-					return(true);
+					return true;
 				}
 			}
 		}
 
-		return(false);
+		return false;
 	}
 
 	/*
@@ -88,21 +69,30 @@ class Login {
 
 		require(FILE_SHADOW);
 
-		// Bruteforce
-		$this->check
+		// Brute force protection
+		$this->brute_force_protection($args['username']);
 
 		// Check username
-		if( Text::compare($args['username'], $_USER[0]['username']) )
+		if(Text::compare($args['username'], $_USER[0]['username']))
 		{
-			// Check password
+			// Generate the password hash
 			$hash = Crypt::get_hash($args['password'], $_USER[0]['salt']);
 
-			if( Text::compare($hash, $_USER[0]['password']) )
+			// Check password
+			if(Text::compare($hash, $_USER[0]['password']))
 			{
+				$this->db_users->set(array('username'=>$args['username'], 'session_fail_count'=>0, 'session_date'=>time()));
+
 				$this->set_login( array('id_user'=>0, 'username'=>$args['username']) );
-				return(true);
+
+				return true;
 			}
 		}
+
+		// Increment the failed count and last failed session date
+		$user = $this->db_users->get(array('username'=>$args['username']));
+		$count = $user['session_fail_count'] + 1;
+		$this->db_users->set(array('username'=>$args['username'], 'session_fail_count'=>$count, 'session_date'=>time()));
 
 		return false;
 	}
@@ -128,16 +118,25 @@ class Login {
 
 	public function remember_me()
 	{
-		require(FILE_KEYS);
+		// Check the file FILE_SHADOW=shadow.php
+		if(!file_exists(FILE_SHADOW))
+			return false;
+
 		require(FILE_SHADOW);
+
+		// Check the file FILE_KEYS=keys.php
+		if(!file_exists(FILE_KEYS))
+			return false;
+
+		require(FILE_KEYS);
 
 		// Check cookies
 		if( !isset($_COOKIE['nibbleblog_hash']) || !isset($_COOKIE['nibbleblog_id']) )
 			return false;
 
 		// Sanitize cookies
-		$cookie_hash = Validation::sanitize_html($_COOKIE['nibbleblog_hash']);
-		$cookie_id = Validation::sanitize_int($_COOKIE['nibbleblog_id']);
+		$cookie_hash	= Validation::sanitize_html($_COOKIE['nibbleblog_hash']);
+		$cookie_id		= Validation::sanitize_int($_COOKIE['nibbleblog_id']);
 
 		// Check user id
 		if(!isset($_USER[$cookie_id]))
@@ -199,18 +198,6 @@ class Login {
 		}
 	}
 
-	public function get_time_user_logued()
-	{
-		if( isset($_SESSION['session_login']['at']) )
-		{
-			return($_SESSION['session_login']['at']);
-		}
-		else
-		{
-			return(false);
-		}
-	}
-
 /*
 ========================================================================
 	PRIVATE METHODS
@@ -218,7 +205,38 @@ class Login {
 */
 	private function brute_force_protection($username)
 	{
-		global $_DB_USERS;
+		$user = $this->db_users->get(array('username'=>$username));
+		$random = rand(3, 8);
+
+		// if the user doesn't exist, sleep 5
+		if($user==false)
+		{
+			sleep($random);
+			echo "Debug - usuario no existe sleep:".$random;
+			return true;
+		}
+
+		// if last session date are older than 30 seconds then don't sleep
+		if($user['session_date']+30>time())
+			return true;
+
+		// if session failed count > 3 then sleep a lot :P
+		if($user['session_fail_count']>3)
+		{
+			sleep($user['session_fail_count']*$random);
+			echo "Debug - fail_count>3 random:".$random." - count:".$user['session_fail_count'];
+			return true;
+		}
+
+		return true;
+	}
+
+	/*
+	 * Return a key, with user agent and user IP
+	*/
+	private function get_key()
+	{
+		return( Crypt::get_hash( Net::get_user_agent() . Net::get_user_ip() ) );
 	}
 
 } // END class LOGIN
