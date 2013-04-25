@@ -1,0 +1,49 @@
+<?php
+/*
+ * Nibbleblog
+ * http://www.nibbleblog.com
+
+ * Require
+ * $settings
+
+ * Return
+ * (array) $seo
+*/
+
+	$seo['site_title'] = $settings['seo_site_title'];
+	$seo['site_description'] = $settings['seo_site_description'];
+	$seo['keywords'] = $settings['seo_keywords'];
+	$seo['robots'] = $settings['seo_robots'];
+
+	$seo['google_code'] = $settings['seo_google_code'];
+	$seo['bing_code'] = $settings['seo_bing_code'];
+
+	$seo['friendly_urls'] = $settings['friendly_urls'];
+
+	$seo['generator'] = 'Nibbleblog';
+	$seo['author'] = $settings['seo_author'];
+
+	$seo['meta_tags'] = '<meta name="generator" content="'.$seo['generator'].'">';
+
+	if(!empty($seo['site_description']))
+		$seo['meta_tags'] .= '<meta name="description" content="'.$seo['site_description'].'">';
+
+	if(!empty($seo['keywords']))
+		$seo['meta_tags'] .= '<meta name="keywords" content="'.$seo['keywords'].'">';
+
+	if(!empty($seo['robots']))
+		$seo['meta_tags'] .= '<meta name="robots" content="'.$seo['robots'].'">';
+
+	if(!empty($seo['google_code']))
+		$seo['meta_tags'] .= '<meta name="google-site-verification" content="'.$seo['google_code'].'">';
+
+	if(!empty($seo['bing_code']))
+		$seo['meta_tags'] .= '<meta name="msvalidate.01" content="'.$seo['bing_code'].'">';
+
+
+// =====================================================================
+// CLEANING
+// =====================================================================
+
+
+?>

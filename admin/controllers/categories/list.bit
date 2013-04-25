@@ -5,8 +5,10 @@
 // ============================================================================
 	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	{
+		// New category
 		$safe = array();
 		$safe['name'] = Validation::sanitize_html( $_POST['name'] );
+		$safe['slug'] = Text::clean_url($safe['name'], '-', $translit_enable);
 
 		if(Text::not_empty($safe['name']))
 		{

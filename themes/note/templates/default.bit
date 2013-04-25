@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="cleartype" content="on">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title><?php echo $layout['title'] ?></title>
+	<meta name="description" content="<?php echo $layout['description'] ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'main.css?v='.$theme['version'] ?>" />
+	<link rel="shortcut icon" href="<?php echo HTML_THEME_CSS.'img/favicon.ico' ?>" type="image/x-icon" />
+	<script src="<?php echo JS_JQUERY ?>"></script>
+</head>
+<body>
+	<div id="top">
+		<header id="head">
+
+				<h1><a class="name" href="<?php echo HTML_PATH_ROOT ?>"><?php echo $settings['name'] ?></a></h1>
+
+				<h4><a class="slogan" href="<?php echo HTML_PATH_ROOT ?>"><?php echo $settings['slogan'] ?></a></h4>
+
+		</header>
+	</div>
+
+		<div role="main">
+				<?php
+					include(THEME_VIEWS . $layout['view']);
+				?>
+		</div>
+
+		<footer id="foot">
+			<p><a href="<?php echo $layout['feed'] ?>">Atom</a> | <?php echo $settings['footer'] ?> | <a href="http://syndicatefx.com" target="_blank">Note theme</a></p>
+		</footer>
+
+<script src="<?php echo HTML_THEME_JS.'jquery.fitvids.js' ?>"></script>
+<script>
+$(document).ready(function(){
+
+	$(".post").fitVids();
+	$('p > img').removeAttr('height').removeAttr('width').unwrap();
+	$('p > a > img').removeAttr('height').removeAttr('width').parent().unwrap();
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<?php
+/*
+ * Nibbleblog
+ * http://www.nibbleblog.com
+
+ * Require
+ * $_GET
+
+ * Return
+ * (array) $url
+*/
+
+// =====================================================================
+//	VARIABLES URL
+// =====================================================================
+	$url = array(
+				'controller'=>null,
+				'action'=>null,
+				'id_post'=>null,
+				'id_cat'=>null,
+				'page'=>0,
+				'plugin'=>null,
+				'category'=>null,
+				'other'=>null
+	);
+
+	if( isset($_GET['controller']) ){ $url['controller'] = Validation::sanitize_html($_GET['controller']); }
+
+	if( isset($_GET['action']) ) { $url['action'] = Validation::sanitize_html($_GET['action']); }
+
+	if( isset($_GET['id_post']) ) { $url['id_post'] = Validation::sanitize_int($_GET['id_post']); }
+
+	if( isset($_GET['id_cat']) ) { $url['id_cat'] = Validation::sanitize_int($_GET['id_cat']); }
+
+	if( isset($_GET['page']) ) { $url['page'] = Validation::sanitize_html($_GET['page']); }
+
+	if( isset($_GET['plugin']) ) { $url['plugin'] = Validation::sanitize_html($_GET['plugin']); }
+
+	if( isset($_GET['category']) ) { $url['category'] = Validation::sanitize_html($_GET['category']); }
+
+	if( isset($_GET['other']) ) { $url['other'] = Validation::sanitize_html($_GET['other']); }
+
+?>

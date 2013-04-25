@@ -1,0 +1,23 @@
+<?php
+
+echo '<article class="post cf">';
+
+	include('includes/post_view.bit');
+
+	if($post['allow_comments'])
+	{
+		// Include Disqus
+		if( !empty($theme['disqus_account']) )
+		{
+			include('includes/disqus.bit');
+		}
+		else
+		{
+			include('includes/comment_list.bit');
+			include('includes/comment_form.bit');
+		}
+	}
+
+echo '</article>';
+
+?>

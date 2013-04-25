@@ -16,3 +16,36 @@ function serial_form(form)
 
 	return( notchecked + form.serialize() );
 }
+
+function validate_email(email)
+{
+	var emailReg = /\S+@\S+\.\S+/;
+
+	if(!emailReg.test(email)) {
+		return false;
+	}
+
+	return true;
+}
+
+function set_ajax(id, type, ajax)
+{
+	var result = false;
+
+	$.ajax({
+			url: HTML_PATH_ADMIN_AJAX + ajax, type: 'POST', cache: false, timeout: 15000, dataType: "xml", async: false,
+			data: { action: type, id: id },
+			success: function(xml)
+			{
+				result = true;
+			}
+	});
+
+	return(result);
+}
+
+function show_alert(text, hidden_time)
+{
+	$("#alert").html(text).fadeIn(1000);
+	setTimeout(function(){$("#alert").fadeOut(1000);}, hidden_time);
+}

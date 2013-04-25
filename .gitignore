@@ -1,3 +1,5 @@
-content/*
+content/tmp/*
+content/public/*
+content/private/*
 *.espressostorage
 *.esproj

@@ -4,7 +4,7 @@
 //	VARIABLES
 // ============================================================================
 
-	$plugin = $_PLUGINS['PLUGIN_'.strtoupper($url['plugin'])];
+	$plugin = $plugins_all['PLUGIN_'.strtoupper($url['plugin'])];
 
 	// If the plugin is not installed, install
 	if ( $plugin->is_installed() )

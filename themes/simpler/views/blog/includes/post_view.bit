@@ -1,54 +1,70 @@
 <?php
 
-	// ----- POST HEADER
+// ========== POST HEADER ==========
 	echo '<header class="post">';
+
+		// print publish date
+		echo '<div class="date">'.$post['pub_date'].'</div>';
+
+		// share
+		echo '<div class="share">';
+			echo '<a class="twitter" target="_blank" href="https://twitter.com/share?url='.(urlencode($settings['url'].$post['permalink'])).'">'.$_LANG['SHARE'].'</a>';
+		echo '</div>';
 
 		// print title if this is not empty
 		if( !empty($post['title']) )
-			echo '<h1 class="title">'.$post['title'].'</h1>';
+			echo '<h1 class="title"><a href="'.$post['permalink'].'">'.$post['title'].'</a></h1>';
 
 	echo '</header>';
 
-
-	// ----- POST CONTENT
-	// quote post
+// ========== POST CONTENT ==========
+	// Quote post
 	if($post['type']=='quote')
 	{
 		echo '<blockquote>'.$post['quote'].'</blockquote>';
 	}
-	// simple and video post
 	else
 	{
-		// if video post
+		// Video post
 		if($post['type']=='video')
 		{
 			$video_info = Video::video_get_info($post['video'], $theme['video_width'], $theme['video_height']);
 
-			echo '<p>'.$video_info['embed'].'</p>';
+			echo '<div class="video_embed">';
+			echo '<p class="fitvids">'.$video_info['embed'].'</p>';
+			echo '</div>';
 		}
 
+		// Video and Simple post
 		echo $post['content'][1];
 	}
 
-	// ----- POST FOOTER
+// ========== POST FOOTER ==========
 	echo '<footer class="post">';
-
-		echo '<span>'.$post['pub_date'].'</span>';
-
-		echo ' · ';
 
 		if($post['read_more'])
 		{
-			echo '<a href="'.$post['permalink'].'">'.$_LANG['READ_MORE'].'</a>';
+			echo '<span><a href="'.$post['permalink'].'">'.$_LANG['READ_MORE'].'</a></span>';
 		}
 		else
 		{
-			echo '<a href="'.$post['permalink'].'">'.$_LANG['PERMALINK'].'</a>';
+			echo '<span><a href="'.$post['permalink'].'">'.$_LANG['PERMALINK'].'</a></span>';
 		}
 
-		echo ' · ';
+		if($post['allow_comments'])
+		{
+			echo ' · ';
 
-		echo '<a href="'.$post['permalink'].'#comment_form">'.$_LANG['COMMENTS'].' ('.count($post['comments']).')</a>';
+			// Include Disqus
+			if( !empty($theme['disqus_account']) )
+			{
+				echo '<span><a href="'.$post['permalink'].'#disqus_thread"></a></span>';
+			}
+			else
+			{
+				echo '<span><a href="'.$post['permalink'].'#comment_form">'.$_LANG['COMMENTS'].' ('.count($post['comments']).')</a></span>';
+			}
+		}
 
 	echo '</footer>';
 

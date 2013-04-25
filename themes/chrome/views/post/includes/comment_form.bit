@@ -1,0 +1,26 @@
+<?php
+
+echo '<footer id="comment_form">';
+
+	echo '<h3>'.$_LANG['NEW_COMMENT'].'</h3>';
+
+	if(Session::get_error())
+	{
+		echo '<h5 class="alert">'.Session::get_alert().'</h5>';
+	}
+
+	echo '<form method="post" name="form" action="'.HTML_PATH_ROOT.'index.php?controller=comment&amp;action=new&amp;id_post='.$url['id_post'].'">';
+
+		echo '<input type="text" name="author_name" value="'.Session::get_comment('author_name').'" placeholder="'.$_LANG['NAME'].'">';
+
+		echo '<input type="email" name="author_email" value="'.Session::get_comment('author_email').'" placeholder="'.$_LANG['EMAIL'].'">';
+
+		echo '<textarea placeholder="'.$_LANG['TYPE_THE_COMMENT_HERE'].'" name="content">'.Session::get_comment('content').'</textarea>';
+
+		echo '<input type="submit" value="'.$_LANG['PUBLISH'].'">';
+
+	echo '</form>';
+
+echo '</footer>';
+
+?>

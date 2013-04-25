@@ -5,8 +5,6 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 20/11/2012
-
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
 */
@@ -28,13 +26,15 @@ $controllers['post']['new_quote'] 		= array('security'=>true, 'title'=>$_LANG['N
 
 $controllers['post']['edit_simple'] 	= array('security'=>true, 'title'=>$_LANG['EDIT_POST'], 'controller'=>'edit', 'view'=>'edit', 'template'=>'default');
 $controllers['post']['edit_video'] 		= array('security'=>true, 'title'=>$_LANG['EDIT_POST'], 'controller'=>'edit', 'view'=>'edit', 'template'=>'default');
-$controllers['post']['edit_quote'] 		= array('security'=>true, 'title'=>$_LANG['EDIT_POST'], 'controller'=>'edit', 'view'=>'edit_quote', 'template'=>'default');
+$controllers['post']['edit_quote'] 		= array('security'=>true, 'title'=>$_LANG['EDIT_POST'], 'controller'=>'edit', 'view'=>'new_quote', 'template'=>'default');
 
 $controllers['post']['list'] 			= array('security'=>true, 'title'=>$_LANG['POSTS'], 'controller'=>'list', 'view'=>'list', 'template'=>'default');
 
 $controllers['categories']['list']		= array('security'=>true, 'title'=>$_LANG['MANAGE_CATEGORIES'], 'controller'=>'list', 'view'=>'list', 'template'=>'default');
+$controllers['categories']['edit']		= array('security'=>true, 'title'=>$_LANG['MANAGE_CATEGORIES'], 'controller'=>'edit', 'view'=>'edit', 'template'=>'default');
 
 $controllers['comments']['list']		= array('security'=>true, 'title'=>$_LANG['COMMENTS'], 'controller'=>'list', 'view'=>'list', 'template'=>'default');
+$controllers['comments']['settings']	= array('security'=>true, 'title'=>$_LANG['COMMENT_SETTINGS'], 'controller'=>'settings', 'view'=>'settings', 'template'=>'default');
 
 $controllers['settings']['general']		= array('security'=>true, 'title'=>$_LANG['GENERAL_SETTINGS'], 'controller'=>'general', 'view'=>'general', 'template'=>'default');
 $controllers['settings']['advanced']	= array('security'=>true, 'title'=>$_LANG['ADVANCED_SETTINGS'], 'controller'=>'advanced', 'view'=>'advanced', 'template'=>'default');
@@ -42,6 +42,8 @@ $controllers['settings']['regional']	= array('security'=>true, 'title'=>$_LANG['
 $controllers['settings']['image']		= array('security'=>true, 'title'=>$_LANG['IMAGE_SETTINGS'], 'controller'=>'image', 'view'=>'image', 'template'=>'default');
 $controllers['settings']['themes']		= array('security'=>true, 'title'=>$_LANG['CHANGE_THEME'], 'controller'=>'themes', 'view'=>'themes', 'template'=>'default');
 $controllers['settings']['username']	= array('security'=>true, 'title'=>$_LANG['USERNAME_AND_PASSWORD'], 'controller'=>'username', 'view'=>'username', 'template'=>'default');
+$controllers['settings']['notifications']= array('security'=>true, 'title'=>$_LANG['NOTIFICATIONS'], 'controller'=>'notifications', 'view'=>'notifications', 'template'=>'default');
+$controllers['settings']['seo'] 		 = array('security'=>true, 'title'=>$_LANG['SEO_OPTIONS'], 'controller'=>'seo', 'view'=>'seo', 'template'=>'default');
 
 $controllers['plugins']['list']			= array('security'=>true, 'title'=>$_LANG['PLUGINS'], 'controller'=>'list', 'view'=>'list', 'template'=>'default');
 $controllers['plugins']['install']		= array('security'=>true, 'title'=>$_LANG['PLUGINS'], 'controller'=>'install', 'view'=>'config', 'template'=>'default');

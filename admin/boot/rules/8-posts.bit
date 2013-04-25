@@ -1,0 +1,105 @@
+<?php
+/*
+ * Nibbleblog
+ * http://www.nibbleblog.com
+
+ * Require
+ * $url
+ * $settings
+ * $_DB_CATEGORIES
+ * $_DB_POST
+ * $_DB_COMMENTS
+ * $_LANG
+
+ * Return
+ * (array) $posts
+ * (array) $post
+ * (boolean) $page_not_found
+*/
+
+	$posts = array();
+	$post = array();
+	$page_not_found = false;
+
+	// ---- POSTS FILTER BY CATEGORY
+	if($url['category']!==null)
+	{
+		// Get the category ID
+		$category = $_DB_CATEGORIES->get_by_slug( array('slug'=>$url['category']) );
+
+		if($category!==false)
+		{
+			// Posts by category
+			$posts = $_DB_POST->get_list_by_category( array('page'=>$url['page'], 'amount'=>$settings['items_page'], 'id_cat'=>$category['id']) );
+		}
+		else
+		{
+			$page_not_found = true;
+		}
+	}
+	// ---- PARTICULAR POST
+	elseif($url['id_post']!==null)
+	{
+		// Get post
+		$tmp = $_DB_POST->get( array('id'=>$url['id_post']) );
+
+		if( $tmp!==false )
+		{
+			$posts[0] = $tmp;
+		}
+		else
+		{
+			$page_not_found = true;
+		}
+	}
+	// ---- POSTS FILTER BY BLOG
+	else
+	{
+		// Posts by page
+		$posts = $_DB_POST->get_list_by_page( array('page'=>$url['page'], 'amount'=>$settings['items_page']) );
+	}
+
+	// ---- COMMENTS
+	// ---- PERMALINKS
+	// ---- CATEGORY
+	// ---- PUBLISH DATE
+	foreach($posts as $key=>$value)
+	{
+		// Comments
+		$posts[$key]['comments'] = $_DB_COMMENTS->get_list_by_post( array('id_post'=>$value['id']) );
+
+		// Category
+		$category = $_DB_CATEGORIES->get( array('id'=>$posts[$key]['id_cat']) );
+		$posts[$key]['category'] = $category['name'];
+
+		// Publish date
+		$posts[$key]['pub_date'] = Date::format($posts[$key]['pub_date_unix'], $settings['timestamp_format']);
+		$posts[$key]['mod_date'] = Date::format($posts[$key]['mod_date_unix'], $settings['timestamp_format']);
+
+		// Permalink
+		if( $settings['friendly_urls'] )
+		{
+			if(  Text::not_empty($posts[$key]['slug']) )
+				$slug = $posts[$key]['slug'];
+			elseif( Text::not_empty($posts[$key]['title']) )
+				$slug = Text::clean_url($posts[$key]['title'], '-', isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false);
+			else
+				$slug = $posts[$key]['type'];
+
+			$posts[$key]['permalink'] = HTML_PATH_ROOT.'post-'.$posts[$key]['id'].'/'.$slug;
+		}
+	}
+
+	if(isset($posts[0]))
+	{
+		$post = $posts[0];
+	}
+
+// =====================================================================
+// CLEANING
+// =====================================================================
+	unset($id_cat);
+	unset($tmp);
+	unset($slug);
+	unset($category);
+?>

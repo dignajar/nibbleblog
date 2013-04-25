@@ -5,8 +5,6 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 14/08/2012
-
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
 */
@@ -15,7 +13,13 @@ class Date {
 
 	public static function set_locale($string)
 	{
-		return(setlocale(LC_ALL,$string));
+		if(setlocale(LC_ALL,$string.'.UTF-8')!==false)
+			return true;
+
+		if(setlocale(LC_ALL,$string.'.UTF8')!==false)
+			return true;
+
+		return setlocale(LC_ALL,$string);
 	}
 
 	public static function set_timezone($string)
@@ -64,10 +68,10 @@ class Date {
 		return( $date );
 	}
 
-	// Format a local time/date
+	// Format a GMT/UTC+0 date/time
 	public static function format_gmt($time, $format)
 	{
-		$date = date($format, $time);
+		$date = gmdate($format, $time);
 
 		return( $date );
 	}

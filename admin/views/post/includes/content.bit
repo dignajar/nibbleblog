@@ -1,0 +1,151 @@
+<?php
+	$value = isset($post_edit['content'][0]) ? htmlspecialchars($post_edit['content'][0]) : '';
+
+	echo Html::div_open( array('class'=>'form_block') );
+		echo Html::textarea( array('id'=>'js_content', 'name'=>'content', 'content'=>$value, 'class'=>'wysiwyg') );
+		echo Html::link( array('content'=>'HTML', 'class'=>'toggle_button', 'href'=>'javascript:;', 'onclick'=>'toggle_wysiwyg()', 'hidden'=>( !$settings['advanced_post_options'] )) );
+		echo Html::span( array('id'=>'js_uploader_button', 'class'=>'uploader_button', 'content'=>$_LANG['INSERT_PICTURE']) );
+		echo Html::span( array('id'=>'js_uploader_loading', 'class'=>'uploader_button', 'content'=>$_LANG['UPLOADING'].'...', 'style'=>'display: none') );
+	echo Html::div_close();
+
+	echo Html::input( array('type'=>'file', 'id'=>'js_uploader_input_file', 'class'=>'hidden', 'size'=>'1', 'accept'=>'image/*') );
+?>
+
+<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'tiny_mce/jquery.tinymce.js' ?>"></script>
+<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'tiny_mce/tiny_mce.js' ?>"></script>
+
+<script>
+
+// =====================================================================
+// WYSIWYG
+// =====================================================================
+
+// Enable or Disable WYSIWYG Editor
+function toggle_wysiwyg()
+{
+	if(tinymce.editors.length>0)
+	{
+		tinymce.execCommand("mceRemoveControl", false, "js_content");
+	}
+	else
+	{
+		tinymce.execCommand("mceAddControl", false, "js_content");
+	}
+}
+
+$(document).ready(function() {
+
+	// Initialized WYSIWYG Editor
+	tinyMCE.init({
+		mode : "textareas",
+
+		theme : "advanced",
+
+		plugins : "paste, pagebreak, inlinepopups, pre, fullscreen",
+		paste_text_sticky : true,
+
+		inlinepopups_skin: "smskin2",
+
+		entity_encoding : "raw",
+
+		formats:{
+			alignleft:{selector:'img', attributes:{class:"align_left", style:"float: left;"} },
+			alignright:{selector:'img', attributes:{class:"align_right", style:"float: right;"} }
+		},
+
+		// When pasted text always pasted as plain text
+		setup : function(ed) {
+			ed.onInit.add(function(ed) {
+				ed.pasteAsPlainText = true;
+			});
+		},
+
+		theme_advanced_resizing : true,
+		theme_advanced_resize_horizontal : false,
+		theme_advanced_statusbar_location : "bottom",
+		theme_advanced_path : false,
+
+		preformatted : true,
+
+		relative_urls : false,
+
+		theme_advanced_toolbar_location : "top",
+
+		theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,forecolor,backcolor,|,styleselect,|,fullscreen",
+		theme_advanced_buttons2 : "link,unlink,removeformat,image,|,bullist,numlist,outdent,indent,|,pre,pagebreak",
+		theme_advanced_buttons3 : "",
+
+		style_formats : [
+			{title : 'Paragraph', block : 'p'},
+			{title : 'Preformatted', block : 'pre'},
+			{title : 'Heading 1', block : 'h1'},
+			{title : 'Heading 2', block : 'h2'},
+			{title : 'Heading 3', block : 'h3'},
+			{title : 'Console', block : 'pre', classes: 'console'},
+		],
+
+		height:"500px",
+		width:"100%"
+	});
+
+});
+
+// =====================================================================
+// UPLOADER
+// =====================================================================
+$(document).ready(function() {
+
+	var uploader_button;
+	var uploader_loading = $("#js_uploader_loading");
+	var uploader_input_file = $("#js_uploader_input_file");
+
+	$("#js_uploader_button").click(
+	function() {
+		uploader_button = $(this);
+		uploader_input_file.trigger("click");
+	});
+
+	uploader_input_file.change(
+	function() {
+
+		var file = this.files[0];
+
+		uploader_button.hide();
+		uploader_loading.css("display", "inline-block");
+
+		// New XMLHttpRequest
+		var xhr = new XMLHttpRequest();
+
+		// Events
+		xhr.addEventListener("load", complete, false);
+
+		// Open new connection async
+		xhr.open('POST', HTML_PATH_ADMIN_AJAX + 'uploader.php', true);
+
+		// Parameters headers
+		xhr.setRequestHeader("Cache-Control", "no-cache");
+		xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+		xhr.setRequestHeader("X-FILE-NAME", file.name);
+
+		// Send file
+		xhr.send(file);
+	});
+
+	function complete(e)
+	{
+		var xml = $.parseXML(e.target.responseText);
+
+		if( $(xml).find("success").text() == "1" )
+		{
+			uploader_loading.hide();
+			uploader_button.show();
+
+			var src = $(xml).find("file").text();
+			var img = '<img data-mce-src="'+src+'" src="'+src+'" alt="">';
+
+			tinyMCE.execCommand("mceInsertContent", false, img);
+		}
+	}
+
+});
+</script>

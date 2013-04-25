@@ -1,0 +1,13 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'NAME'=>'Quick Links',
+	'DESCRIPTION'=>'Quick access to the administration panel.',
+	'HOME'=>'Home',
+	'DASHBOARD'=>'Dashboard',
+	'NEW_SIMPLE_POST'=>'New Simple post',
+	'NEW_VIDEO_POST'=>'New Video post',
+	'NEW_QUOTE_POST'=>'New Quote post'
+);
+
+?>

@@ -11,7 +11,8 @@
 						'title'=>'',
 						'content'=>'',
 						'description'=>'',
-						'allow_comments'=>0
+						'allow_comments'=>0,
+						'slug'=>''
 		);
 
 		// Post ID
@@ -19,6 +20,9 @@
 
 		// Category ID
 		$safe['id_cat']	= $_POST['id_cat'];
+
+		// Slug URL
+		$safe['slug'] = $_POST['slug'];
 
 		// Mode
 		if( isset($_POST['button_draft']) )
@@ -55,15 +59,13 @@
 			$safe['allow_comments'] = 1;
 		}
 
-		if( $_DB_POST->set( $safe ) )
-		{
-			// ******************
-			// DEBERIA COMPROBAR SI SE CAMBIO DE CATEGORIA, PARA NO RENOMBRAR
-			// ******************
-			$_DB_POST->change_category($safe);
+		// Publish date
+		$safe['unixstamp'] = mktime($_POST['date_hours'],$_POST['date_minutes'],$_POST['date_seconds'],$_POST['date_month'],$_POST['date_day'],$_POST['date_year']);
 
-			$_SESSION['session_alert']['msg'] = $_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY'];
-			$_SESSION['session_alert']['active'] = true;
+		// Set post
+		if( $_DB_POST->set($safe) )
+		{
+			Session::set_alert($_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY']);
 
 			Redirect::controller('admin', 'post', 'list');
 		}
@@ -80,8 +82,21 @@
 		Redirect::controller('admin', 'post', 'list');
 	}
 
-	$categories_html = array();
+	$categories_options = array();
 	foreach($categories as $category)
-		$categories_html[$category['id']] = $category['name'];
-?>
+		$categories_options[$category['id']] = $category['name'];
 
+	$years_options = array_combine(range(1970, date("Y")), range(1970, date("Y")));
+	$months_options = array_combine(range(1, 12), range(1, 12));
+	$days_options = array_combine(range(1, 31), range(1, 31));
+	$hours_options = range(0, 23);
+	$seconds_options = $minutes_options = range(0, 59);
+
+	$year = Date::format($post_edit['pub_date_unix'], '%Y');
+	$month = Date::format($post_edit['pub_date_unix'], '%m');
+	$day = Date::format($post_edit['pub_date_unix'], '%d');
+	$hours = Date::format($post_edit['pub_date_unix'], '%H');
+	$minutes = Date::format($post_edit['pub_date_unix'], '%M');
+	$seconds = Date::format($post_edit['pub_date_unix'], '%S');
+
+?>

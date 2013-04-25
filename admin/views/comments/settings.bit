@@ -1,0 +1,67 @@
+<?php
+
+echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+
+	echo Html::separator(array('content'=>$_LANG['GENERAL_SETTINGS']), true);
+
+		// SANITIZE
+		echo Html::div_open( array('class'=>'form_block'));
+			echo Html::checkbox( array('id'=>'js_sanitize', 'name'=>'sanitize', 'class'=>'float'), $comment_settings['sanitize'] );
+			echo Html::label( array('content'=>$_LANG['SANITIZE_HTML_CODE'], 'class'=>'for_checkbox', 'for'=>'js_sanitize') );
+			echo Html::div( array('content'=>$_LANG['ENABLE_THIS_FEATURE_TO_PROTECT_AGAINST_XSS'], 'class'=>'input_tip') );
+		echo Html::div_close();
+
+		// MODERATE
+		echo Html::div_open( array('class'=>'form_block'));
+			echo Html::checkbox( array('id'=>'js_moderate', 'name'=>'moderate', 'class'=>'float'), $comment_settings['moderate'] );
+			echo Html::label( array('content'=>$_LANG['MODERATE_COMMENTS'], 'class'=>'for_checkbox', 'for'=>'js_moderate') );
+			echo Html::div( array('content'=>$_LANG['ENABLE_THIS_FEATURE_TO_MODERATE_COMMENTS'], 'class'=>'input_tip') );
+		echo Html::div_close();
+
+	// SPAM MONITOR
+	echo Html::separator( array('content'=>$_LANG['SPAM_MONITOR']) );
+
+		// ENABLE OR DISABLE SPAM MONITOR
+		echo Html::div_open( array('class'=>'form_block'));
+			echo Html::checkbox( array('id'=>'js_monitor_enable', 'name'=>'monitor_enable', 'class'=>'float'), $comment_settings['monitor_enable'] );
+			echo Html::label( array('content'=>$_LANG['ENABLE_SPAM_MONITOR'], 'class'=>'for_checkbox', 'for'=>'js_monitor_enable') );
+			echo Html::div( array('content'=>$_LANG['ENABLE_THIS_FEATURE_TO_PROTECT_YOUR_COMMENTS'], 'class'=>'input_tip') );
+		echo Html::div_close();
+
+		// AUTO DELETE SPAM
+		echo Html::div_open( array('class'=>'form_block'));
+			echo Html::checkbox( array('id'=>'js_monitor_auto_delete', 'name'=>'monitor_auto_delete', 'class'=>'float'), $comment_settings['monitor_auto_delete'] );
+			echo Html::label( array('content'=>$_LANG['AUTOMATICALLY_DELETE_SPAM'], 'class'=>'for_checkbox', 'for'=>'js_monitor_auto_delete') );
+			echo Html::div( array('content'=>$_LANG['ENABLE_THIS_FEATURE_TO_DELETE_SPAM_AUTO'], 'class'=>'input_tip') );
+		echo Html::div_close();
+
+		// API KEY
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>$_LANG['API_KEY'], 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_monitor_api_key', 'name'=>'monitor_api_key', 'type'=>'text', 'value'=>$comment_settings['monitor_api_key']) );
+			echo Html::div( array('content'=>$_LANG['INSERT_THE_API_KEY_HERE'], 'class'=>'input_tip') );
+		echo Html::div_close();
+
+		// SPAM LEVEL
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('class'=>'blocked', 'content'=>$_LANG['SPAM_CONTROL']) );
+			echo Html::select( array('name'=>'monitor_spam_control'), $spam_control_options, $comment_settings['monitor_spam_control']);
+			echo Html::div( array('content'=>$_LANG['COMMENTS_DETECTED_AS_SPAM_WILL_BE_FILTERED'], 'class'=>'input_tip') );
+		echo Html::div_close();
+
+		// BUTTONS
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::input( array('id'=>'js_button_save', 'type'=>'button', 'class'=>'disabled', 'value'=>$_LANG['SAVE_CHANGES']) );
+		echo Html::div_close();
+
+echo Html::form_close();
+
+?>
+
+<?php
+//======================================================================
+// AUTO-SAVE FORM
+//======================================================================
+	$javascript = array('url'=>HTML_PATH_ADMIN_AJAX.'comments.php');
+	include(PATH_ADMIN_JS.'ajax_form.bit');
+?>

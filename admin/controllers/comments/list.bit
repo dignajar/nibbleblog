@@ -7,9 +7,8 @@
 // ============================================================================
 //	VARIABLES
 // ============================================================================
-	// Comments
-	if( $url['id_post'] != null)
-	{
-		$comments = $_DB_COMMENTS->get_list_by_post( array('id_post'=>$url['id_post']) );
-	}
+	$comments = $_DB_COMMENTS->get_list_by_page(array('page_number'=>$url['page'], 'amount'=>COMMENTS_AMOUNT));
+
+	$total_pages = ceil($_DB_COMMENTS->get_count() / COMMENTS_AMOUNT);
+
 ?>

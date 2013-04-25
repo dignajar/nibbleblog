@@ -3,28 +3,19 @@
 	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
 		// QUOTE
-		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::textarea( array('id'=>'js_quote', 'name'=>'quote', 'content'=>'', 'placeholder'=>$_LANG['ENTER_QUOTE_HERE']) );
-		echo Html::div_close();
+		include('includes/quote.bit');
+
+		// SLUG URL
+		include('includes/slug.bit');
 
 		// CATEGORIES
-		echo Html::div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
-			echo Html::label( array('class'=>'blocked', 'content'=>$_LANG['SELECT_A_CATEGORY']) );
-			echo Html::select( array('name'=>'id_cat'), $categories_html, 0);
-		echo Html::div_close();
+		include('includes/categories.bit');
 
 		// ALLOW COMMENTS
-		echo Html::div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']));
-			echo Html::checkbox( array('id'=>'js_allow_comments', 'name'=>'allow_comments', 'class'=>'float'), true );
-			echo Html::label( array('class'=>'for_checkbox', 'content'=>$_LANG['ALLOW_COMMENTS'], 'for'=>'js_allow_comments') );
-			echo Html::div( array('class'=>'input_tip', 'content'=>$_LANG['ALLOW_YOUR_USERS_TO_COMMENT_YOUR_PUBLICATIONS']) );
-		echo Html::div_close();
+		include('includes/allow_comments.bit');
 
 		// BUTTONS
-		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::input( array('id'=>'js_button_add', 'name'=>'button_add', 'type'=>'submit', 'value'=>$_LANG['PUBLISH'], 'class'=>'save') );
-			echo Html::input( array('id'=>'js_button_draft', 'name'=>'button_draft', 'type'=>'submit', 'value'=>$_LANG['DRAFT'], 'class'=>'draft') );
-		echo Html::div_close();
+		include('includes/buttons.bit');
 
 	echo Html::form_close();
 

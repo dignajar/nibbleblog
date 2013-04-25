@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<!-- Blog title -->
+	<title><?php echo $layout['title'] ?></title>
+
+	<!-- Blog description -->
+	<meta name="description" content="<?php echo $layout['description'] ?>">
+
+	<!-- CSS3 -->
+	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'main.css?v='.$theme['version'] ?>" />
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="<?php echo HTML_THEME_CSS.'img/favicon.ico' ?>" type="image/x-icon" />
+
+	<!-- jQuery -->
+	<script src="<?php echo JS_JQUERY ?>"></script>
+
+	<!-- ATOM Feed 2.0 -->
+	<link rel="alternate" type="application/atom+xml" title="ATOM Feed" href="<?php echo $layout['feed'] ?>" />
+
+</head>
+<body>
+		<!-- Blog title and slogan -->
+		<header>
+			<?php
+				echo '<h1>'.$settings['name'].'</h1>';
+				echo '<h2>'.$settings['slogan'].'</h2>';
+			?>
+		</header>
+
+		<!-- Main -->
+		<section id="main">
+			<?php
+				include(THEME_VIEWS.$layout['view']);
+			?>
+		</section>
+
+		<!-- Plugins -->
+		<section id="plugins">
+		<?php
+			foreach($plugins as $plugin)
+			{
+				if($plugin->display())
+				{
+					echo '<div class="plugin_box">';
+						echo '<h3>'.$plugin->get_field_db('title').'</h3>';
+						echo $plugin->get_html();
+					echo '</div>';
+				}
+			}
+		?>
+		</section>
+
+		<!-- Footer -->
+		<footer>
+			<?php
+				echo $settings['footer'];
+			?>
+		</footer>
+
+</body>
+</html>

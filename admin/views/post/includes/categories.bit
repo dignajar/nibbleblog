@@ -1,0 +1,8 @@
+<?php
+	$value = isset($post_edit['id_cat']) ? $post_edit['id_cat'] : '0';
+
+	echo Html::div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
+		echo Html::label( array('class'=>'blocked', 'content'=>$_LANG['SELECT_A_CATEGORY']) );
+		echo Html::select( array('name'=>'id_cat'), $categories_options, $value);
+	echo Html::div_close();
+?>

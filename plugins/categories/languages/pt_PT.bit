@@ -1,9 +1,0 @@
-<?php
-
-$_PLUGIN_CONFIG['LANG'] = array(
-	'name'=>'Categorias',
-	'description'=>'Dispoem uma lista das categorias existentes no seu blog.'
-);
-
-
-?>

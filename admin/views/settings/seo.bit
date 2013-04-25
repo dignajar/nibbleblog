@@ -1,0 +1,126 @@
+<?php
+
+echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+
+	// Site
+	echo Html::separator(array('content'=>$_LANG['SITE']), true);
+
+		// SITE TITLE
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>$_LANG['SITE_TITLE'], 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_seo_site_title', 'name'=>'seo_site_title', 'type'=>'text', 'value'=>$settings['seo_site_title']) );
+		echo Html::div_close();
+
+		// DESCRIPTION
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>$_LANG['SITE_DESCRIPTION'], 'class'=>'blocked') );
+			echo Html::textarea( array('id'=>'js_seo_site_description', 'name'=>'seo_site_description', 'content'=>$settings['seo_site_description']) );
+			echo Html::div( array('content'=>$_LANG['SHORT_DESCRIPTION_NO_MORE_THAN'], 'class'=>'input_tip') );
+		echo Html::div_close();
+
+		// KEYWORDS
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>$_LANG['KEYWORDS'], 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_seo_keywords', 'name'=>'seo_keywords', 'type'=>'text', 'value'=>$settings['seo_keywords']) );
+			echo Html::div( array('content'=>$_LANG['KEYWORDS_SEPARATED_BY_COMMA'], 'class'=>'input_tip') );
+		echo Html::div_close();
+
+		// AUTHOR
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>$_LANG['AUTHOR'], 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_seo_author', 'name'=>'seo_author', 'type'=>'text', 'value'=>$settings['seo_author']) );
+		echo Html::div_close();
+
+		// ROBOTS
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>$_LANG['ROBOTS'], 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_seo_robots', 'name'=>'seo_robots', 'type'=>'text', 'value'=>$settings['seo_robots']) );
+			echo Html::div( array('content'=>'Robots separated by comma. Example: nofollow, noindex, noarchive', 'class'=>'input_tip') );
+		echo Html::div_close();
+
+	// Webmaster tools
+	echo Html::separator( array('content'=>$_LANG['WEBMASTER_TOOLS']) );
+
+		// GOOGLE WEBMASTER TOOLS
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>$_LANG['GOOGLE_WEBMASTER_TOOLS'], 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_seo_google_code', 'name'=>'seo_google_code', 'type'=>'text', 'value'=>$settings['seo_google_code']) );
+		echo Html::div_close();
+
+		// BING WEBMASTER TOOLS
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>$_LANG['BING_WEBMASTER_TOOLS'], 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_seo_bing_code', 'name'=>'seo_bing_code', 'type'=>'text', 'value'=>$settings['seo_bing_code']) );
+		echo Html::div_close();
+
+	// Friendly URLs
+	echo Html::separator( array('content'=>$_LANG['FRIENDLY_URLS']) );
+
+		echo Html::div_open( array('class'=>'form_block'));
+			echo Html::checkbox( array('id'=>'js_friendly_urls', 'name'=>'friendly_urls', 'class'=>'float'), $settings['friendly_urls'] );
+			echo Html::label( array('content'=>$_LANG['ENABLE_FRIENDLY_URLS'], 'class'=>'for_checkbox', 'for'=>'js_friendly_urls') );
+			echo Html::div( array('content'=>$_LANG['COPY_THIS_CONTENT_ON_THE_FILE'], 'class'=>'input_tip') );
+
+			echo Html::textarea( array('style'=>'height:130px; margin-top: 8px;', 'content'=>'
+AddDefaultCharset UTF-8
+
+# Disable directory browsing
+Options -Indexes
+
+# Disable Magic Quotes
+<IfModule mod_php5.c>
+ php_flag magic_quotes_gpc off
+</IfModule>
+
+# Secure .xml files
+<FilesMatch ".(xml)$">
+ Order Allow,Deny
+ Deny from all
+</FilesMatch>
+
+# Secure shadow.php
+<Files shadow.php>
+ order allow,deny
+ deny from all
+</Files>
+
+# Secure keys.php
+<Files keys.php>
+ order allow,deny
+ deny from all
+</Files>
+
+ErrorDocument 404 '.$settings['path'].'index.php?controller=page&action=404
+
+<IfModule mod_rewrite.c>
+ RewriteEngine on
+ RewriteBase '.$settings['path'].'
+
+ RewriteRule ^category/([^/]+)/page-([0-9]+)$ index.php?controller=blog&action=view&category=$1&page=$2 [L]
+ RewriteRule ^category/([^/]+)/$ index.php?controller=blog&action=view&category=$1&page=0 [L]
+ RewriteRule ^page-([0-9]+)$ index.php?controller=blog&action=view&page=$1 [L]
+ RewriteRule ^post-([0-9]+)/(.*)$ index.php?controller=post&action=view&id_post=$1 [L]
+
+ RewriteRule ^dashboard/$ admin.php?controller=user&action=login [L]
+ RewriteRule ^feed/$ feed.php [L]
+
+ RewriteRule ^([^/]+)/$ index.php?controller=page&action=$1 [L]
+</IfModule>') );
+		echo Html::div_close();
+
+		// BUTTONS
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::input( array('id'=>'js_button_save', 'type'=>'button', 'class'=>'disabled', 'value'=>$_LANG['SAVE_CHANGES']) );
+		echo Html::div_close();
+
+echo Html::form_close();
+
+?>
+
+<?php
+//======================================================================
+// AUTO-SAVE FORM
+//======================================================================
+	$javascript = array('url'=>HTML_PATH_ADMIN_AJAX.'settings.php');
+	include(PATH_ADMIN_JS.'ajax_form.bit');
+?>

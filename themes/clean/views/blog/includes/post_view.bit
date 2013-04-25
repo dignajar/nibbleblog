@@ -1,6 +1,6 @@
 <?php
 
-	// ----- POST HEADER
+// ========== POST HEADER ==========
 	echo '<header class="post">';
 
 		// print publish date
@@ -13,31 +13,48 @@
 	echo '</header>';
 
 
-	// ----- POST CONTENT
-	// quote post
+// ========== POST CONTENT ==========
+	// Quote post
 	if($post['type']=='quote')
 	{
 		echo '<blockquote>'.$post['quote'].'</blockquote>';
 	}
 	else
 	{
-		// video post
+		// Video post
 		if($post['type']=='video')
 		{
 			$video_info = Video::video_get_info($post['video'], $theme['video_width'], $theme['video_height']);
 
-			echo '<p>'.$video_info['embed'].'</p>';
+			echo '<div class="video_embed">';
+			echo '<p class="fitvids">'.$video_info['embed'].'</p>';
+			echo '</div>';
 		}
 
+		// Video and Simple post
 		echo $post['content'][1];
 	}
 
-	// ----- POST FOOTER
+
+// ========== POST FOOTER ==========
 	echo '<footer class="post">';
+
 		if($post['read_more'])
-			echo '<a href="'.$post['permalink'].'">-'.$_LANG['READ_MORE'].'-</a>';
+		{
+			echo '<a href="'.$post['permalink'].'">'.$_LANG['READ_MORE'].'</a>';
+		}
 		else
-			echo '<a href="'.$post['permalink'].'">-'.$_LANG['PERMALINK'].'-</a>';
+		{
+			echo '<a href="'.$post['permalink'].'">'.$_LANG['PERMALINK'].'</a>';
+		}
+
+		if($post['allow_comments'])
+		{
+			echo ' · ';
+
+			echo '<span><a href="'.$post['permalink'].'#comment_form">'.$_LANG['COMMENTS'].' ('.count($post['comments']).')</a></span>';
+		}
+
 	echo '</footer>';
 
 ?>

@@ -1,10 +1,15 @@
 <?php
 
-	// ----- POST HEAD
+// ========== POST HEADER ==========
 	echo '<header class="post">';
 
 		// print publish date
 		echo '<div class="date">'.$post['pub_date'].'</div>';
+
+		// share
+		echo '<div class="share">';
+			echo '<a class="twitter" target="_blank" href="https://twitter.com/share?url='.(urlencode($settings['url'].$post['permalink'])).'">'.$_LANG['SHARE'].'</a>';
+		echo '</div>';
 
 		// print title if this is not empty
 		if( !empty($post['title']) )
@@ -12,23 +17,25 @@
 
 	echo '</header>';
 
-
-	// ----- POST CONTENT
-	// quote post
+// ========== POST CONTENT ==========
+	// Quote post
 	if($post['type']=='quote')
 	{
 		echo '<blockquote>'.$post['quote'].'</blockquote>';
 	}
 	else
 	{
-		// video post
+		// Video post
 		if($post['type']=='video')
 		{
 			$video_info = Video::video_get_info($post['video'], $theme['video_width'], $theme['video_height']);
 
-			echo '<p>'.$video_info['embed'].'</p>';
+			echo '<div class="video_embed">';
+			echo '<p class="fitvids">'.$video_info['embed'].'</p>';
+			echo '</div>';
 		}
 
+		// Video and Simple post
 		echo $post['content'][0];
 	}
 

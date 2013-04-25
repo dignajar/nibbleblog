@@ -1,0 +1,389 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic&subset=latin,cyrillic);
+
+/* ============================== */
+/* BODY */
+/* ============================== */
+body {
+	font-family: 'Open Sans',arial,sans-serif;
+	background-color: #FEFEFE;
+	margin: 0;
+	padding: 0;
+	font-size: 0.875em;
+	color: #616161;
+
+	background: url(img/background.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+#container {
+    margin: 0 auto;
+    width: 630px;
+    overflow: auto;
+    padding: 0 20px;
+}
+
+a {
+	color: #327CCB;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/* ============================== */
+/* HEADER */
+/* ============================== */
+#head {
+	border-bottom: 1px solid #FFFFFF;
+	font-size: 3.2em;
+	font-weight: normal;
+	margin: 40px 0;
+	overflow: auto;
+}
+
+#head	a.name {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+#head	span.slogan {
+	color: #FFFFFF;
+}
+
+/* ============================== */
+/* MAIN */
+/* ============================== */
+#main {
+	background: #FFFFFF;
+	border-radius: 3px 3px 3px 3px;
+	padding: 0 40px;
+	overflow: auto;
+}
+
+/* ============================== */
+/* FOOTER */
+/* ============================== */
+#foot {
+	font-size: 0.9em;
+	margin: 40px 0;
+	text-align: right;
+	color: #FFFFFF;
+}
+
+#foot a {
+	color: #FFFFFF;
+}
+
+/* ============================== */
+/* PAGES - 404 */
+/* ============================== */
+div.page_404 {
+    font-size: 16em;
+    margin-bottom: 75px;
+    text-align: center;
+}
+
+/* ============================== */
+/* PAGER */
+/* ============================== */
+#pager {
+	overflow: auto;
+	margin: 40px 0;
+}
+
+#pager	a.newer {
+	float: right;
+	display: block;
+}
+
+#pager	a.older {
+	float: left;
+	display: block;
+}
+
+/* ============================== */
+/* POST VIEW*/
+/* ============================== */
+article.post {
+	margin: 40px 0;
+	clear: both;
+	overflow: auto;
+}
+
+/* ========== POST HEADER ========== */
+article.post	header.post		div.date {
+    color: #666666;
+    display: inline-block;
+    font-size: 0.9em;
+    letter-spacing: 2px;
+    margin-bottom: 7px;
+}
+
+article.post	header.post		h1.title {
+	color: #333;
+	font-size: 2em;
+	margin: 0;
+}
+
+/* ========== POST CONTENT ========== */
+article.post	pre {
+	background: url("img/bgcode.png");
+	border: 1px solid #E8E8E8;
+	line-height: 23px;
+	margin: 0;
+	padding: 0 5px 0 5px;
+	white-space: pre-wrap;
+	font-size: 0.9em;
+}
+
+article.post	.console {
+    background: url("img/console.png") no-repeat 8px 8px #F1F1F1;
+    display: block;
+    line-height: 24px;
+    margin: 5px 0;
+    min-height: 30px;
+    padding-left: 38px;
+    padding-top: 5px;
+}
+
+article.post	img:not(.captcha) {
+	max-width:100%;
+}
+
+article.post	img.align_left {
+	margin: 5px 10px 5px 0px;
+	float: left;
+}
+
+article.post	img.align_right {
+	margin: 5px 0px 5px 10px;
+	float: right;
+}
+
+article.post 	blockquote {
+	font-size: 2em;
+}
+
+article.post	h1,
+article.post	h2,
+article.post	h3,
+article.post	h4,
+article.post	h5 {
+	font-weight: normal;
+}
+
+article.post	h1 {
+	font-size: 1.8em;
+}
+
+article.post	div.video_embed {
+	display: block;
+}
+
+article.post	a.title {
+	color: #444444;
+}
+
+/* ========== POST FOOTER ========== */
+article.post	footer.post {
+    border-bottom: 1px solid #CCCCCC;
+    border-top: 1px solid #CCCCCC;
+    clear: both;
+    font-size: 0.85em;
+    margin-top: 20px;
+    padding: 10px 10px;
+}
+
+article.post	footer.post		span.date {
+	margin-right: 10px;
+}
+
+/* ============================== */
+/* COMMENT LIST */
+/* ============================== */
+#comment_list {
+	margin-top: 30px;
+}
+
+#comment_list	h2 {
+	font-weight: normal;
+	margin: 10px 0;
+}
+
+#comment_list	div.comment {
+	margin: 20px 0;
+	overflow: auto;
+}
+
+#comment_list	span.author_name {
+	font-weight: bold;
+}
+
+#comment_list	span.date {
+	margin-left: 10px;
+	font-style: italic;
+}
+
+#comment_list	span.content {
+	font-style: italic;
+	display: block;
+}
+
+#comment_list	img.avatar {
+	float:left;
+	margin-right: 10px;
+	border: 3px solid #F1F1F1;
+	border-radius: 50px;
+	padding: 5px;
+}
+
+/* ============================== */
+/* COMMENT FORM */
+/* ============================== */
+#comment_form {
+	margin-top: 30px;
+}
+
+#comment_form	h2 {
+	color: #222222;
+	font-weight: normal;
+	margin: 10px 0;
+}
+
+#comment_form	h3.alert {
+	color: #BE1C54;
+	font-style: italic;
+	margin: 0 0 15px;
+}
+
+#comment_form	input[type="text"],
+#comment_form	textarea {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	border: 1px solid #C4C4C4;
+	border-radius: 2px;
+	color: #858585;
+	padding: 8px;
+	outline:none;
+	resize: none;
+	margin-bottom: 15px;
+	font-family: font-family: 'Open Sans', helvetica,arial,sans-serif;
+	font-size: 0.9em;
+}
+
+#comment_form	input[type="text"].captcha {
+	width: 50%;
+	float: left;
+}
+
+#comment_form	input[type="submit"] {
+	display: block;
+	clear: left;
+	padding: 3px 8px;
+}
+
+/* ============================== */
+/* PLUGINS */
+/* ============================== */
+#plugins {
+	margin: 40px 0;
+	background: rgba(1,1,1,0.4);
+	padding: 20px;
+	border-radius: 3px 3px 3px 3px;
+	overflow: auto;
+	color: #FFFFFF;
+	word-wrap: break-word;
+}
+
+div.plugin_box {
+	float: left;
+	margin: 10px 20px;
+    width: 250px;
+}
+
+div.plugin_box	ul {
+	margin: 0;
+	padding: 0;
+}
+
+div.plugin_box	li {
+	margin: 0 5px;
+	padding: 0;
+	display: block;
+}
+
+div.plugin_box	a {
+	color: #FFFFFF;
+	text-shadow: 1px 1px 3px #444444;
+}
+
+div.plugin_box	h3 {
+    border-bottom: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    padding-bottom: 4px;
+    text-shadow: 1px 1px 3px #444444;
+}
+
+/* ============================== */
+/* PLUGIN TWITTER */
+/* ============================== */
+div.plugin_twitter {
+	height: 150px;
+	overflow: auto;
+}
+
+div.plugin_twitter	li {
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
+div.plugin_twitter	li.username {
+	background: url("img/twitter.png") no-repeat 0 -2px;
+	margin-right: 5px;
+	padding-left: 23px;
+}
+
+/* ============================== */
+/* PLUGIN TWITTER STATIC */
+/* ============================== */
+div.plugin_twitter_static	li.tweet {
+	display: block;
+	margin: 10px 0;
+}
+
+/* ============================== */
+/* PLUGIN ABOUT */
+/* ============================== */
+div.plugin_about {
+
+}
+
+div.plugin_about	ul {
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+}
+
+div.plugin_about	li {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+div.plugin_about	li.image {
+	float: left;
+	overflow: auto;
+	width:70px;
+}
+
+div.plugin_about	img.plugin_about {
+    max-width:64px;
+}

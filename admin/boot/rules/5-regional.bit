@@ -1,0 +1,26 @@
+<?php
+/*
+ * Nibbleblog
+ * http://www.nibbleblog.com
+
+ * Require
+ * $settings
+
+ * Return
+ *
+*/
+
+	// Include the language
+	include(PATH_LANGUAGES.'en_US.bit');
+	include(PATH_LANGUAGES.$settings['language'].'.bit');
+
+	// Set the timezone
+	Date::set_timezone($settings['timezone']);
+
+	// Set the locale
+	Date::set_locale($settings['locale']);
+
+	// Translit
+	$translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
+
+?>

@@ -1,0 +1,32 @@
+<?php
+
+// ============================================================================
+//	POST
+// ============================================================================
+	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
+	{
+		$safe['id']	= $url['id_cat'];
+
+		$safe['name'] = Validation::sanitize_html( $_POST['name'] );
+
+		$safe['slug'] = Validation::sanitize_html( $_POST['slug'] );
+
+		if( $_DB_CATEGORIES->set($safe) )
+		{
+			Session::set_alert($_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY']);
+
+			Redirect::controller('admin', 'categories', 'list');
+		}
+	}
+
+// ============================================================================
+//	VARIABLES
+// ============================================================================
+	$category = $_DB_CATEGORIES->get( array('id'=>$url['id_cat']) );
+
+	if($category === false )
+	{
+		Redirect::controller('admin', 'categories', 'list');
+	}
+
+?>

@@ -13,4 +13,10 @@ foreach($posts as $post)
 // Include the pager
 include('includes/pager.bit');
 
+// Include Disqus
+if( !empty($theme['disqus_account']) )
+{
+	include('includes/disqus.bit');
+}
+
 ?>

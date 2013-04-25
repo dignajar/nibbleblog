@@ -1,4 +1,4 @@
-All Nibbleblog code is Copyright 2009 - 2012 by Diego Ignacio Gabriel Najar Carrascal.
+All Nibbleblog code is Copyright 2009 - 2013 by Diego Ignacio Gabriel Najar Carrascal.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -19,5 +19,7 @@ license, including:
 
 - jQuery and jQuery UI - Copyright (c) Team JQuery - http://jquery.org/license
 - tinyMCE - Copyright (c) Moxiecode Systems AB. - http://www.tinymce.com
-- Icons by TWG - Retina Display - http://blog.twg.ca/2010/11/retina-display-icon-set/
-- PHP class HELPER_RESIZE - Author: Jarrod Oberto - http://net.tutsplus.com/tutorials/php/image-resizing-made-easy-with-php/
+- Helper resize.class.php - Author: Jarrod Oberto - http://net.tutsplus.com/tutorials/php/image-resizing-made-easy-with-php/
+- Icons: Dave Gandy (Font Awesome)
+- Icons: Daniel Bruce (Entypo)
+- Icons: Keyamoon (IcoMoon - Free)

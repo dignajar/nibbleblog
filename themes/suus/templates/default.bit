@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="cleartype" content="on">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title><?php echo $layout['title'] ?></title>
+	<meta name="description" content="<?php echo $layout['description'] ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'main.css?v='.$theme['version'] ?>" />
+	<link rel="shortcut icon" href="<?php echo HTML_THEME_CSS.'img/favicon.ico' ?>" type="image/x-icon" />
+	<script src="<?php echo JS_JQUERY ?>"></script>
+	<link rel="alternate" type="application/atom+xml" title="ATOM Feed" href="<?php echo $layout['feed'] ?>" />
+	<!--[if lt IE 9]><script type="text/javascript" src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+	<div class="header">
+		<header>
+			<h1><a href="<?php echo HTML_PATH_ROOT ?>"><?php echo $settings['name'] ?></a></h1>
+		</header>
+			<?php
+				if( isset($plugins_by_name['about']) ){
+					echo '<div class="plugin_box">';
+						echo $plugins_by_name['about']->get_html();
+					echo '</div>';
+				}
+			?>
+	</div>
+	<section id="main">
+		<?php
+			include(THEME_VIEWS.$layout['view']);
+		?>
+	</section>
+	<footer>
+		<?php echo $settings['footer'];?> &middot; <a href="http://syndicatefx.com" target="_blank">Suus Theme</a>
+	</footer>
+<script src="<?php echo HTML_THEME_JS.'script.js' ?>"></script>
+</body>
+</html>

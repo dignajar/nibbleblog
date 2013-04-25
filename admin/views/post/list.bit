@@ -1,79 +1,84 @@
 <?php
+
+if(empty($post_list))
+{
+	echo Html::p( array('class'=>'no_comments', 'content'=>$_LANG['THERE_ARE_NO_POSTS']) );
+}
+else
+{
+	echo '
+	<table>
+		<thead>
+			<tr>
+				<th>'.$_LANG['TITLE'].'</th>
+				<th>'.$_LANG['TYPE'].'</th>
+				<th>'.$_LANG['CATEGORY'].'</th>
+				<th>'.$_LANG['COMMENTS'].'</th>
+				<th>'.$_LANG['PUBLISH_DATE'].'</th>
+			</tr>
+		</thead>
+		<tbody>
+	';
+
 	foreach( $post_list as $post )
 	{
-		$date = Date::format($post['pub_date_unix'], POST_DATE_FORMAT);
+		$category = $_DB_CATEGORIES->get( array('id'=>$post['id_cat']) );
+		$comments = $_DB_COMMENTS->get_list_by_post( array('id_post'=>$post['id']) );
 
-		if( $post['draft'] )
-		{ $mode = '<b>(' . strtoupper($_LANG['DRAFT']) . ')</b> '; }
-		else
-		{ $mode = ''; }
-
-		echo Html::div_open( array('class'=>'list_box') );
-
-			echo Html::div_open( array('class'=>'float'));
-				echo Html::div_open( array('class'=>'left'));
-					echo Html::h3( array('class'=>'type', 'content'=>$_LANG[strtoupper($post['type'])]) );
-					echo Html::h3( array('class'=>'title', 'content'=>$mode.$post['title']) );
-				echo Html::div_close();
-
-				echo Html::div_open( array('class'=>'right'));
-					echo Html::h3( array('class'=>'date', 'content'=>$date) );
-				echo Html::div_close();
-			echo Html::div_close();
-
-			echo Html::div_open( array('class'=>'options'));
-				if( !$post['draft'] )
-				{
-					echo Html::link( array('href'=>HTML_PATH_ROOT.'index.php?controller=post&amp;action=view&amp;id_post='.$post['id'], 'content'=>$_LANG['VIEW']) );
-					echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list&amp;id_post='.$post['id'], 'content'=>$_LANG['COMMENTS']) );
-				}
-				echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=edit_'.$post['type'].'&amp;id_post='.$post['id'], 'content'=>$_LANG['EDIT']) );
-				echo Html::link( array('class'=>'js_button_remove', 'data-remove'=>'0', 'data-id'=>$post['id'], 'content'=>$_LANG['DELETE']) );
-			echo Html::div_close();
-
-		echo Html::div_close();
+		echo '
+			<tr>
+				<td class="content">
+				'.(empty($post['title'])?'['.$_LANG['NO_TITLE'].']':$post['title']).'
+				<div class="options">
+					<a href="'.HTML_PATH_ROOT.'index.php?controller=post&amp;action=view&amp;id_post='.$post['id'].'">'.($post['draft']?$_LANG['PREVIEW']:$_LANG['VIEW']).'</a>
+					<a href="'.HTML_PATH_ROOT.'admin.php?controller=post&amp;action=edit_'.$post['type'].'&amp;id_post='.$post['id'].'">'.$_LANG['EDIT'].'</a>
+					<a class="js_button_delete" data-flag="0" data-id="'.$post['id'].'" href="javascript:void(0)">'.$_LANG['DELETE'].'</a>
+				</div>
+				</td>
+				<td>'.$_LANG[strtoupper($post['type'])].'</td>
+				<td>'.$category['name'].'</td>
+				<td>'.(count($comments)).'</td>
+				<td>'.Date::format($post['pub_date_unix'], POST_DATE_FORMAT).'</td>
+			</tr>
+		';
 	}
+
+	echo '</tbody></table>';
 
 	// Pager
 	echo Html::div_open( array('class'=>'pager') );
-		echo Html::span(array('content'=>'|'));
 		for( $i=0; $i<$total_pages; $i++ )
 		{
 			echo Html::link( array('content'=>$i, 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=list&amp;page='.$i) );
 		}
-		echo Html::span(array('content'=>'|'));
 	echo Html::div_close();
+}
+
 ?>
 
 <script>
 
 $(document).ready(function() {
 
-	$("a.js_button_remove").click( function() {
+	$("a.js_button_delete").click( function() {
 		var self = $(this);
-		var parent = self.parent();
-		var remove = self.attr("data-remove");
+		var box = self.parent();
+		var flag = self.attr("data-flag");
 		var id = self.attr("data-id");
 
-		if( remove == "1" )
+		if(flag=="1")
 		{
-			$.ajax({
-					url: HTML_PATH_ADMIN_AJAX + "posts.php", type: 'POST', cache: false, timeout: 15000, dataType: "xml", async: false,
-					data: { action:"delete", id:id },
-					success: function(xml)
-					{
-						parent.fadeOut();
-					}
-			});
+			self.removeClass().html("<?php echo $_LANG['LOADING']; ?>");
+
+			if(set_ajax(id, "delete", "posts.php"))
+				box.fadeOut();
 		}
 		else
 		{
-			self.attr("data-remove", "1");
+			self.attr("data-flag", "1");
 			self.html("<?php echo $_LANG['ARE_YOU_SURE'] ?>");
-			self.addClass("remove");
-			self.parent().children("h3").css("opacity","0.5");
+			self.css("color","red");
 		}
-
 	});
 
 }); // end document

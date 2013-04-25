@@ -1,0 +1,7 @@
+<?php
+	$value = isset($post_edit['quote']) ? $post_edit['quote'] : '';
+
+	echo Html::div_open( array('class'=>'form_block') );
+		echo Html::textarea( array('id'=>'js_quote', 'name'=>'quote', 'content'=>$value, 'placeholder'=>$_LANG['ENTER_QUOTE_HERE']) );
+	echo Html::div_close();
+?>

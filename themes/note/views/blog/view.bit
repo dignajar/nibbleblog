@@ -1,0 +1,16 @@
+<?php
+
+// All post for a page
+foreach($posts as $post)
+{
+	echo '<article class="post-index cf">';
+
+		include('includes/post_view.bit');
+
+	echo '</article>';
+}
+
+// Pager
+include('includes/pager.bit');
+
+?>

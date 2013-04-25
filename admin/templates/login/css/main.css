@@ -1,29 +1,24 @@
-
 /* ============================== */
 /* BODY */
 /* ============================== */
-
 body {
 	font-family: helvetica,arial,sans-serif;
 	margin: 0;
 	padding: 0;
 	font-size:12px;
-	color: #333333z;
+	color: #333333;
 	background-color: #FEFEFE;
-
+	font-size: 62.5%;
 }
 
 #container {
-
-}
-
-#main {
 	background: none repeat scroll 0 0 #F9F9F9;
 	border: 1px solid #EEEEEE;
 	border-radius: 3px 3px 3px 3px;
-	margin: 130px auto;
+	margin: 130px auto 0;
 	padding: 50px;
-	width: 400px;
+	max-width: 400px;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.08);
 }
 
 footer {
@@ -65,6 +60,7 @@ a.forgot_password {
 div.form_block {
 	overflow:auto;
 	margin: 15px 0;
+	line-height: 28px;
 }
 
 input[type="text"],
@@ -79,16 +75,22 @@ textarea {
     border-top:0;
     border-right:0;
     border-left:0;
+    outline:none; /* not focus border on chrome */
 }
 
 input[type="checkbox"].float {
 	vertical-align: middle;
-	margin-left: 0px;
+	margin-right: 5px;
+	margin-bottom: 2px;
 }
 
 label {
-	font-size: 13px;
 	color: #333;
+	font-size: 1.3em;
+}
+
+label.remember {
+	color: #999999;
 }
 
 label.blocked {
@@ -96,23 +98,27 @@ label.blocked {
 }
 
 div.input_tip {
-	font-size: 12px;
 	color: #666;
 }
 
 input[type="submit"].save {
-	background-color: #337ACC;
-	border: 0 none;
-	border-radius: 2px 2px 2px 2px;
-	color: #FFFFFF;
-	cursor: pointer;
-	display: inline-block;
-	font-family: helvetica,arial,sans-serif;
-	font-size: 12px;
-	padding: 6px 26px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+    color: #444444;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.3em;
+    padding: 7px 33px;
 	float: right;
+
+	background: #F1F1F1;
+	background: -moz-linear-gradient(center top , #F5F5F5, #F1F1F1);
+	background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#F1F1F1));
 }
 
 input[type="submit"].save:hover {
-	background-color: #1B70C9;
+	background: #E1E1E1;
+	background: -moz-linear-gradient(center top , #EFEFEF, #E1E1E1);
+	background: -webkit-gradient(linear, left top, left bottom, from(#EFEFEF), to(#E1E1E1));
 }

@@ -1,8 +1,0 @@
-<?php
-
-$_PLUGIN_CONFIG['LANG'] = array(
-	'name'=>'Google Analytics',
-	'description'=>'Dodaj usługę Google Analytics do swojego bloga i sprawdź, jak wiele użytkowników przegląda Twoją witrynę. Aby móc skorzystać z wtyczki, musisz być w posiadaniu konta na Google Analytics.'
-);
-
-?>

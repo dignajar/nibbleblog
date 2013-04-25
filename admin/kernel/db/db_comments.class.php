@@ -5,8 +5,6 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 15/07/2012
-
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
 */
@@ -18,8 +16,8 @@ class DB_COMMENTS {
 	VARIABLES
 ======================================================================================
 */
-		public $file_xml; 			// Contains the link to XML file
-		public $obj_xml; 				// Contains the object
+		public $file; 				// Contains the link to XML file
+		public $xml; 				// Contains the object
 
 		private $files;
 		private $files_count;
@@ -35,25 +33,24 @@ class DB_COMMENTS {
 */
 		function DB_COMMENTS($file, $settings)
 		{
-			$this->file_xml = $file;
-
-			if(file_exists($this->file_xml))
+			if(file_exists($file))
 			{
+				$this->file = $file;
+
 				$this->settings = $settings;
 
 				$this->last_insert_id = max($this->get_autoinc() - 1, 0);
 
 				$this->files = array();
+
 				$this->files_count = 0;
 
-				$this->obj_xml = new NBXML($this->file_xml, 0, TRUE, '', FALSE);
-			}
-			else
-			{
-				return(false);
+				$this->xml = new NBXML($this->file, 0, TRUE, '', FALSE);
+
+				return true;
 			}
 
-			return(true);
+			return false;
 		}
 /*
 ======================================================================================
@@ -62,7 +59,7 @@ class DB_COMMENTS {
 */
 		public function savetofile()
 		{
-			return( $this->obj_xml->asXML($this->file_xml) );
+			return( $this->xml->asXML($this->file) );
 		}
 
 		public function get_last_insert_id()
@@ -117,7 +114,7 @@ class DB_COMMENTS {
 			}
 
 			// Filename for new post
-			$filename = $new_id . '.' . $args['id_post'] . '.' . $id_user . '.NULL.' . $time_filename . '.xml';
+			$filename = $new_id . '.' . $args['id_post'] . '.' . $id_user . '.' . $args['type'] . '.' . $time_filename . '.xml';
 
 			// Save to file
 			if( $new_obj->asXml( PATH_COMMENTS . $filename ) )
@@ -127,13 +124,11 @@ class DB_COMMENTS {
 
 				// Save config file
 				$this->savetofile();
-			}
-			else
-			{
-				return(false);
+
+				return $new_id;
 			}
 
-			return($new_id);
+			return false;
 		}
 
 		public function get($args)
@@ -144,10 +139,8 @@ class DB_COMMENTS {
 			{
 				return( $this->get_items( $this->files[0] ) );
 			}
-			else
-			{
-				return( array() );
-			}
+
+			return false;
 		}
 
 		public function get_list_by_post($args)
@@ -160,7 +153,7 @@ class DB_COMMENTS {
 				array_push( $tmp_array, $this->get_items( $file ) );
 			}
 
-			return( $tmp_array );
+			return($tmp_array);
 		}
 
 		public function get_list_by_page($args)
@@ -169,9 +162,11 @@ class DB_COMMENTS {
 			$this->set_files();
 
 			if($this->files_count > 0)
+			{
 				return( $this->get_list_by($args['page_number'], $args['amount']) );
-			else
-				return( array() );
+			}
+
+			return array();
 		}
 
 		public function get_last($amount)
@@ -183,9 +178,11 @@ class DB_COMMENTS {
 			$total = min($amount, $this->files_count);
 
 			for($i = 0; $i < $total; $i++)
+			{
 				array_push( $tmp_array, $this->get_items( $this->files[$i] ) );
+			}
 
-			return( $tmp_array );
+			return($tmp_array);
 		}
 
 		public function delete($args)
@@ -196,17 +193,13 @@ class DB_COMMENTS {
 			{
 				return(unlink( PATH_COMMENTS . $this->files[0] ));
 			}
-			else
-			{
-				return(false);
-			}
 
-			return(true);
+			return(false);
 		}
 
 		public function delete_all_by_post($args)
 		{
-			$this->set_files_by_post($args['id_post']);
+			$this->set_files_by_post($args['id_post'], '*');
 
 			foreach($this->files as $file)
 			{
@@ -214,24 +207,81 @@ class DB_COMMENTS {
 			}
 		}
 
+		public function get_count()
+		{
+			return($this->files_count);
+		}
+
+		public function get_settings()
+		{
+			$tmp_array = array();
+			$tmp_array['monitor_enable'] 		= (int) $this->xml->getChild('monitor_enable');
+			$tmp_array['monitor_api_key'] 		= (string) $this->xml->getChild('monitor_api_key');
+			$tmp_array['monitor_spam_control'] 	= (float) $this->xml->getChild('monitor_spam_control');
+			$tmp_array['monitor_auto_delete'] 	= (float) $this->xml->getChild('monitor_auto_delete');
+			$tmp_array['sanitize'] 				= (int) $this->xml->getChild('sanitize');
+			$tmp_array['moderate'] 				= (int) $this->xml->getChild('moderate');
+
+			return($tmp_array);
+		}
+
+		public function set_settings($args)
+		{
+			foreach($args as $name=>$value)
+			{
+				$this->xml->setChild($name, $value);
+			}
+
+			return(true);
+		}
+
+		public function approve($args)
+		{
+			return($this->rename_by_position($args['id'], 3, 'NULL'));
+		}
+
+		public function unapprove($args)
+		{
+			return($this->rename_by_position($args['id'], 3, 'unapprove'));
+		}
+
+		public function spam($args)
+		{
+			return($this->rename_by_position($args['id'], 3, 'spam'));
+		}
+
 /*
 ======================================================================================
 	PRIVATE METHODS
 ======================================================================================
 */
-		private function get_count()
+		private function rename_by_position($id, $position, $string)
 		{
-			return( $this->files_count );
+			$this->set_file($id);
+
+			// File not found
+			if($this->files_count == 0)
+			{
+				return(false);
+			}
+
+			$filename = $this->files[0];
+
+			$explode = explode('.', $filename);
+			$explode[$position] = $string;
+			$implode = implode('.', $explode);
+
+			return( rename(PATH_COMMENTS.$filename, PATH_COMMENTS.$implode) );
 		}
 
 		private function get_autoinc()
 		{
-			return( (int) $this->obj_xml['autoinc'] );
+			return( (int) $this->xml['autoinc'] );
 		}
 
 		private function set_autoinc($value = 0)
 		{
-			$this->obj_xml['autoinc'] = $value + $this->get_autoinc();
+			$this->xml['autoinc'] = $value + $this->get_autoinc();
 		}
 
 		private function set_file($id)
@@ -250,9 +300,9 @@ class DB_COMMENTS {
 
 		// Setea los comentarios de un post en particular
 		// File name: IDComment.IDPost.IDUser.IDOther.YYYY.MM.DD.HH.mm.ss.xml
-		private function set_files_by_post($id_post)
+		private function set_files_by_post($id_post, $type='NULL')
 		{
-			$this->files = Filesystem::ls(PATH_COMMENTS, '*.'.$id_post.'.*.*.*.*.*.*.*.*', 'xml', false, true, false);
+			$this->files = Filesystem::ls(PATH_COMMENTS, '*.'.$id_post.'.*.'.$type.'.*.*.*.*.*.*', 'xml', false, true, false);
 			$this->files_count = count( $this->files );
 		}
 
@@ -279,13 +329,13 @@ class DB_COMMENTS {
 		// File name: IDComment.IDPost.IDUser.NULL.YYYY.MM.DD.HH.mm.ss.xml
 		private function get_items($file)
 		{
-			$obj_xml = new NBXML(PATH_COMMENTS . $file, 0, TRUE, '', FALSE);
+			$xml = new NBXML(PATH_COMMENTS . $file, 0, TRUE, '', FALSE);
 
 			$file_info = explode('.', $file);
 
 			include(FILE_KEYS);
-			$user_ip = Crypt::decrypt((string) $obj_xml->getChild('author_ip'), $_KEYS[1]);
-			$user_email = Crypt::decrypt((string) $obj_xml->getChild('author_email'), $_KEYS[1]);
+			$user_ip = Crypt::decrypt((string) $xml->getChild('author_ip'), $_KEYS[1]);
+			$user_email = Crypt::decrypt((string) $xml->getChild('author_email'), $_KEYS[1]);
 
 			$tmp_array = array();
 
@@ -294,20 +344,20 @@ class DB_COMMENTS {
 			$tmp_array['id']				= (int) $file_info[0];
 			$tmp_array['id_post']			= (int) $file_info[1];
 			$tmp_array['id_user']			= (int) $file_info[2];
+			$tmp_array['type']				= (string) $file_info[3];
 
 			$tmp_array['author_email']		= $user_email;
 			$tmp_array['author_ip']			= $user_ip;
 
-			$tmp_array['author_name']		= (string) $obj_xml->getChild('author_name');
-			$tmp_array['content']			= (string) $obj_xml->getChild('content');
-			$tmp_array['pub_date_unix']		= (string) $obj_xml->getChild('pub_date');
-			$tmp_array['highlight']			= (bool) ((int)$obj_xml->getChild('content')==1);
+			$tmp_array['author_name']		= (string) $xml->getChild('author_name');
+			$tmp_array['content']			= (string) $xml->getChild('content');
+			$tmp_array['pub_date_unix']		= (string) $xml->getChild('pub_date');
+			$tmp_array['highlight']			= (bool) ((int)$xml->getChild('content')==1);
 
 			$tmp_array['pub_date'] = Date::format($tmp_array['pub_date_unix'], $this->settings['timestamp_format']);
 
 			return( $tmp_array );
 		}
-
 
 } // END Class
 

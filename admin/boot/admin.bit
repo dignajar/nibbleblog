@@ -1,40 +1,16 @@
 <?php
+// =====================================================================
+//	RULES
+// =====================================================================
+	require('rules/1-fs_php.bit');
+	require('rules/2-objects.bit');
+	require('rules/3-variables.bit');
+	require('rules/4-remove_magic.bit');
+	require('rules/5-regional.bit');
+	require('rules/5-url.bit');
 
-// ============================================================================
-//	INCLUDES
-// ============================================================================
-	require('init/1-fs_php.bit');
-	require('init/2-objects.bit');
-	require('init/3-variables.bit');
-	require('init/10-regional.bit');
-	require('init/10-url.bit');
-	require('init/10-constants.bit');
-	
-// ============================================================================
-//	PLUGINS
-// ============================================================================
-	$plugins_on_system = $_DB_SETTINGS->get_plugins_on_system();
+	require('rules/10-plugins.bit');
 
-	$_PLUGINS = array();
-
-	foreach($plugins_on_system as $dir_name)
-	{
-		include_once(PATH_PLUGINS.$dir_name.'/plugin.bit');
-		$class = 'PLUGIN_'.strtoupper($dir_name);
-		$_PLUGINS[$class] = new $class;
-
-		// Language
-		if( @!include(PATH_PLUGINS.$dir_name.'/languages/'.$settings['language'].'.bit') )
-			include(PATH_PLUGINS.$dir_name.'/languages/en_US.bit');
-
-		$_PLUGINS[$class]->set_attributes(
-		array(
-			'name'=>$_PLUGIN_CONFIG['LANG']['name'],
-			'description'=>$_PLUGIN_CONFIG['LANG']['description'],
-			'author'=>$_PLUGIN_CONFIG['DATA']['author'],
-			'version'=>$_PLUGIN_CONFIG['DATA']['version'],
-			'url'=>$_PLUGIN_CONFIG['DATA']['url']
-		));
-	}
+	require('rules/99-constants.bit');
 
 ?>

@@ -2,19 +2,23 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name='robots' content='noindex,nofollow' />
 
 	<title>Nibbleblog - Dashboard</title>
 
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/normalize.css' ?>" />
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/main.css' ?>" />
 
+	<!-- JAVASCRIPT -->
+	<script charset="utf-8" src="<?php echo JS_JQUERY ?>"></script>
 	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'system.php' ?>"></script>
 	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'functions.js' ?>"></script>
-	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'jquery/jquery.js' ?>"></script>
 </head>
 <body>
 
 	<div id="container">
+
+		<div id="alert"></div>
 
 		<div id="container_head">
 			<a href="<?php echo HTML_PATH_ROOT ?>" class="home"><?php echo $_LANG['VIEW_BLOG']; ?></a>
@@ -37,13 +41,6 @@
 
 			<div id="container_right">
 				<?php
-					// ALERT
-					if($_SESSION['session_alert']['active'])
-					{
-						echo '<div id="alert">'.$_SESSION['session_alert']['msg'].'</div>';
-						$_SESSION['session_alert']['active'] = false;
-					}
-
 					// LAYOUT_VIEW defined on controller
 					include(PATH_ADMIN_VIEW . LAYOUT_VIEW);
 				?>
@@ -51,7 +48,38 @@
 
 		</div>
 
+		<div id="container_footer">
+			<p><a href="http://nibbleblog.com">Nibbleblog v<?php echo NIBBLEBLOG_VERSION ?> "<?php echo NIBBLEBLOG_NAME ?>"</a></p>
+		</div>
+
 	</div>
+
+	<!-- Alert -->
+	<script>
+	$(document).ready(function(){
+
+		$("#alert").click(function() {
+			$(this).hide();
+		});
+
+		<?php if(Session::get_error()) { echo 'show_alert("'.Session::get_alert().'",3500);'; } ?>
+
+	});
+	</script>
+
+	<!-- Easter egg -->
+	<script>
+	$(document).ready(function(){
+		$('#container_head').dblclick(function() {
+			var html = $(this).html();
+			$(this).html("All you need is love or maybe Nibbleblog");
+			$(this).css("background","url('admin/templates/default/css/img/egg.png') no-repeat scroll 30px 50% #F9F9F9");
+			$(this).css("text-align","left");
+			$(this).css("line-height","40px");
+			$(this).css("padding-left","70px");
+		});
+	});
+	</script>
 
 </body>
 </html>

@@ -5,8 +5,6 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 15/07/2012
-
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
 */
@@ -76,11 +74,20 @@ class Html {
 		return( '<p '.$attributes.'>'.$array['content'].'</p>' );
 	}
 
-	public static function separator($array = array())
+	public static function separator($array = array(), $top=false)
 	{
+		if(isset($array['class']))
+		{
+			$array['class'] = 'separator '.$array['class'];
+		}
+		else
+		{
+			$array['class'] = 'separator';
+		}
+
 		$attributes = self::get_attributes($array);
 
-		return( '<div class="separator" '.$attributes.'>'.$array['content'].'</div>' );
+		return( '<header class="'.($top?'separator_top':'separator').'"><div '.$attributes.'>'.$array['content'].'</div></header>' );
 	}
 
 	public static function form_open($array = array())

@@ -1,6 +1,6 @@
 <?php
 
-	foreach($_PLUGINS as $obj)
+	foreach($plugins_all as $obj)
 	{
 		echo Html::div_open( array('class'=>'plugin') );
 			echo Html::h3( array('class'=>'name', 'content'=>$obj->get_name()) );
@@ -18,4 +18,3 @@
 	}
 
 ?>
-

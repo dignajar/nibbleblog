@@ -1,0 +1,13 @@
+<?php
+	echo Html::div_open( array('class'=>'form_block', 'hidden'=>( !$settings['advanced_post_options'] )));
+		echo Html::label( array('content'=>'Year/Month/Day - Hours:Minutes:Seconds', 'class'=>'blocked') );
+		echo Html::select( array('class'=>'little', 'name'=>'date_year'), $years_options, $year);
+		echo Html::select( array('class'=>'little', 'name'=>'date_month'), $months_options, $month);
+		echo Html::select( array('class'=>'little', 'name'=>'date_day'), $days_options, $day);
+		echo ' - ';
+		echo Html::select( array('style'=>'margin-left:10px;', 'class'=>'little', 'name'=>'date_hours'), $hours_options, $hours);
+		echo Html::select( array('class'=>'little', 'name'=>'date_minutes'), $minutes_options, $minutes);
+		echo Html::select( array('class'=>'little', 'name'=>'date_seconds'), $seconds_options, $seconds);
+	echo Html::div_close();
+
+?>

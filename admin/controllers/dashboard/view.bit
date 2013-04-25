@@ -8,8 +8,8 @@
 //	VARIABLES
 // ============================================================================
 
-	$syslog_sessions = $_DB_SYSLOG->get_all_sessions();
+	$last_comments = $_DB_COMMENTS->get_last(LAST_COMMENTS_AMOUNT);
 
-	$last_comments = $_DB_COMMENTS->get_last(AMOUNT_OF_COMMENTS);
+	$notifications = $_DB_NOTIFICATIONS->get_all();
 
 ?>

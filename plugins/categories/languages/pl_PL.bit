@@ -1,9 +1,0 @@
-<?php
-
-$_PLUGIN_CONFIG['LANG'] = array(
-	'name'=>'Kategorie',
-	'description'=>'Wyświetla dostępne kategorie bloga.'
-);
-
-
-?>

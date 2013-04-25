@@ -1,0 +1,80 @@
+<?php
+/*
+ * Nibbleblog
+ * http://www.nibbleblog.com
+
+ * Require
+ * $settings
+ * $_DB_SETTINGS
+
+ * Return
+ * (array) $plugins
+ * (array) $plugins_all
+ * (array) $plugins_installed
+ * (array) $plugins_by_name
+*/
+
+	$plugins_on_system = $_DB_SETTINGS->get_plugins_on_system();
+
+	// Plugins installed order by position
+	$plugins = array();
+
+	// Plugins installed order by position
+	$plugins_installed = array();
+
+	// All plugins, installed and not
+	$plugins_all = array();
+
+	foreach($plugins_on_system as $dir_name)
+	{
+		include_once(PATH_PLUGINS.$dir_name.'/plugin.bit');
+		$class = 'PLUGIN_'.strtoupper($dir_name);
+		$plugins_all[$class] = new $class;
+
+		// Language
+		if( @!include(PATH_PLUGINS.$dir_name.'/languages/'.$settings['language'].'.bit') )
+			include(PATH_PLUGINS.$dir_name.'/languages/en_US.bit');
+
+		$plugins_all[$class]->set_lang($_PLUGIN_CONFIG['LANG']);
+
+		$plugins_all[$class]->set_attributes(
+		array(
+			'name'=>$_PLUGIN_CONFIG['LANG']['NAME'],
+			'description'=>$_PLUGIN_CONFIG['LANG']['DESCRIPTION'],
+			'author'=>$_PLUGIN_CONFIG['DATA']['author'],
+			'version'=>$_PLUGIN_CONFIG['DATA']['version'],
+			'url'=>$_PLUGIN_CONFIG['DATA']['url'],
+			'display'=>isset($_PLUGIN_CONFIG['DATA']['display'])?false:true
+		));
+
+		// Set slug name
+		include(PATH_PLUGINS.$dir_name.'/languages/en_US.bit');
+		$plugins_all[$class]->set_slug_name($_PLUGIN_CONFIG['LANG']['NAME']);
+
+		// If the plugin installed
+		if($plugins_all[$class]->init_db())
+		{
+			$position = $plugins_all[$class]->get_field_db('position');
+
+			while( isset($plugins_installed[$position]) )
+				$position += 100;
+
+			$plugins_installed[$position] = $plugins_all[$class];
+			$plugins_by_name[$dir_name] = $plugins_all[$class];
+		}
+	}
+
+	// Sort plugins
+	ksort($plugins_installed);
+
+	$plugins = $plugins_installed;
+
+// =====================================================================
+//	CLEANING
+// =====================================================================
+	unset($plugins_on_system);
+	unset($_PLUGIN_CONFIG);
+	unset($class);
+	unset($position);
+
+?>

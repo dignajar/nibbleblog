@@ -16,25 +16,34 @@ else
 	if(function_exists('apache_request_headers'))
 	{
 		$headers = apache_request_headers();
-		$filename = $headers['X-FILE-NAME'];
+
+		if(isset($headers['X-FILE-NAME']))
+		{
+			$filename = $headers['X-FILE-NAME'];
+		}
 	}
 }
 
 if( $filename )
 {
 	// Ext
-	$ext = pathinfo($filename, PATHINFO_EXTENSION);
+	$ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
 
-	// Hash
-	$hash = Crypt::get_hash(time().$filename);
+	if( ($ext!='jpg') && ($ext!='jpeg') && ($ext!='gif') && ($ext!='png') )
+	{
+		exit( Text::ajax_header('<error><![CDATA[1]]></error><alert><![CDATA[fail 2]]></alert>') );
+	}
 
 	// Stream
 	$content = file_get_contents("php://input");
 
 	if( $content == false )
 	{
-		exit( Text::ajax_header('<error><![CDATA[1]]></error><i18n><![CDATA[fail 2]]></i18n>') );
+		exit( Text::ajax_header('<error><![CDATA[1]]></error><alert><![CDATA[fail 3]]></alert>') );
 	}
+
+	// Hash
+	$hash = Crypt::get_hash(time().$filename);
 
 	if( file_put_contents(PATH_UPLOAD.$hash.'_o.'.$ext, $content) )
 	{
@@ -56,6 +65,6 @@ if( $filename )
 	}
 }
 
-exit( Text::ajax_header('<error><![CDATA[1]]></error><i18n><![CDATA[fail 3]]></i18n>') );
+exit( Text::ajax_header('<error><![CDATA[1]]></error><alert><![CDATA[fail 4]]></alert>') );
 
 ?>

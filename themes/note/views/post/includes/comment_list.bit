@@ -1,0 +1,21 @@
+<?php
+
+if(!empty($post['comments']))
+{
+	echo '<footer id="comment_list">';
+
+		echo '<h2 class="icon-chat">'.$_LANG['COMMENTS'].'</h2>';
+
+		foreach($post['comments'] as $comment)
+		{
+			echo '<div class="comment">';
+				echo '<span class="author_name icon-user">'.$comment['author_name'].'</span>';
+				echo '<span class="date icon-calendar">'.$comment['pub_date'].'</span>';
+				echo '<span class="content">'.$comment['content'].'</span>';
+			echo '</div>';
+		}
+
+	echo '</footer>';
+}
+
+?>

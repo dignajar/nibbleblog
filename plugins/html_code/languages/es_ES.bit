@@ -1,8 +1,9 @@
 <?php
 
 $_PLUGIN_CONFIG['LANG'] = array(
-	'name'=>'Codigo HTML',
-	'description'=>'Agregue codigo HTML a su blog de forma facil.'
+	'NAME'=>'HTML code',
+	'DESCRIPTION'=>'Este plugin permite incrustar código HTML en tu blog.',
+	'HTML_CODE'=>'HTML Code'
 );
 
 ?>

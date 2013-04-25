@@ -1,0 +1,1 @@
+<article class="page_404"><h1>404</h1><p><?php echo $_LANG['404_PAGE_NOT_FOUND'] ?></p></article>

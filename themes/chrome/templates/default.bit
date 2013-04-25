@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="cleartype" content="on">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title><?php echo $layout['title'] ?></title>
+	<meta name="description" content="<?php echo $layout['description'] ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'main.css?v='.$theme['version'] ?>" />
+	<link rel="shortcut icon" href="<?php echo HTML_THEME_CSS.'img/favicon.ico' ?>" type="image/x-icon" />
+	<script src="<?php echo JS_JQUERY ?>"></script>
+	<link rel="alternate" type="application/atom+xml" title="ATOM Feed" href="<?php echo $layout['feed'] ?>" />
+</head>
+<body>
+	<div id="top">
+		<header id="head" class="wrap cf">
+
+				<h1><a class="name" href="<?php echo HTML_PATH_ROOT ?>"><?php echo $settings['name'] ?></a></h1>
+				
+				<h4><a class="slogan" href="<?php echo HTML_PATH_ROOT ?>"><?php echo $settings['slogan'] ?></a></h4>
+
+		</header>
+	</div>
+	
+		<div class="wrap cf" role="main">
+			<div class="page">
+			<?php include(THEME_VIEWS . $layout['view']); ?>
+			</div>
+
+			<aside class="sidebar">
+				<?php
+					foreach($plugins as $plugin)
+					{
+						if($plugin->display())
+						{
+							echo '<div class="plugin '.$plugin->get_slug_name().'">';
+								echo '<h3 class="title">'.$plugin->get_field_db('title').'</h3>';
+								echo $plugin->get_html();
+							echo '</div>';
+						}
+					}
+				?>
+			</aside>
+		</div>
+
+		<footer id="foot" class="wrap">
+			<p><a href="<?php echo $layout['feed'] ?>">Atom</a> | <?php echo $settings['footer'] ?> | Theme <a href="https://github.com/syndicatefx/Chrome-Nibbleblog-Theme" target="_blank">Chrome</a></p>
+		</footer>
+
+<script src="<?php echo HTML_THEME_JS.'jquery.fitvids.js' ?>"></script>		
+<script>		
+$(document).ready(function(){
+	
+	$(".post").fitVids();
+
+	$('p > img').removeAttr('height').removeAttr('width').unwrap();
+	$('p > a > img').removeAttr('height').removeAttr('width').parent().unwrap();
+
+});
+</script>
+</body>
+</html>

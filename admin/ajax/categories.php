@@ -12,7 +12,7 @@ if( $_POST['action']=='delete' )
 }
 elseif( $_POST['action']=='set' )
 {
-	parse_str($_POST['serial_data'], $data);
+	$data = Text::unserialize($_POST['serial_data']);
 
 	foreach( $data as $id=>$name )
 	{
@@ -29,12 +29,9 @@ elseif( $_POST['action']=='set' )
 	$error = !$_DB_CATEGORIES->savetofile();
 }
 
-if( $error )
-{
-	exit( Text::ajax_header('<error><![CDATA[1]]></error>') );
-}
+if($error)
+	exit( Text::ajax_header('<error><![CDATA[1]]></error><alert><![CDATA['.$_LANG['FAIL'].']]></alert>') );
 else
-{
-	exit( Text::ajax_header('<success><![CDATA[1]]></success>') );
-}
+	exit( Text::ajax_header('<success><![CDATA[1]]></success><alert><![CDATA['.$_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY'].']]></alert>') );
+
 ?>

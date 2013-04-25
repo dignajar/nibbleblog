@@ -1,8 +1,8 @@
 <?php
 
 $_PLUGIN_CONFIG['LANG'] = array(
-	'name'=>'Categorias',
-	'description'=>'Muestra las categorias disponibles de su blog.'
+	'NAME'=>'Categorias',
+	'DESCRIPTION'=>'Muestra todas las categorías de su blog y permite al usuario filtrar publicaciones por categoría.'
 );
 
 ?>

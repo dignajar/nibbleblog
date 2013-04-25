@@ -1,0 +1,16 @@
+<?php
+
+	$theme = array
+	(
+		'name'=>'Note',
+		'description'=>'Mini HTML5 Responsive Theme',
+		'author'=>'Paulo Nunes',
+		'version'=>'1.1',
+		'last_update'=>'13/03/2013',
+		'url'=>'http://syndicatefx.com',
+		'video_width'=>'',
+		'video_height'=>'',
+		'disqus_account'=>''
+	);
+
+?>

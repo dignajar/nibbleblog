@@ -5,8 +5,6 @@
  * http://www.nibbleblog.com
  * Author Diego Najar
 
- * Last update: 15/07/2012
-
  * All Nibbleblog code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
 */
@@ -53,26 +51,6 @@ class Validation {
 	public static function sanitize_html($text)
 	{
 		return(htmlspecialchars($text, ENT_QUOTES, 'UTF-8'));
-	}
-
-	public static function captcha($captcha)
-	{
-		global $_LANG;
-
-		$captcha = self::sanitize_html($captcha);
-
-		if(Session::get_captcha()==$captcha)
-		{
-			Session::set_error(false);
-			Session::set_alert('');
-			return(true);
-		}
-		else
-		{
-			Session::set_error(true);
-			Session::set_alert($_LANG['INVALID_CAPTCHA']);
-			return(false);
-		}
 	}
 
 }

@@ -1,0 +1,59 @@
+<?php
+
+echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+
+	echo Html::separator( array('style'=>'margin-top: 0;', 'content'=>$_LANG['NOTIFICATIONS_VIA_EMAIL']), true);
+
+		// COMMENTS
+		echo Html::div_open( array('class'=>'form_block'));
+			echo Html::checkbox( array('id'=>'js_notification_comments', 'name'=>'notification_comments', 'class'=>'float'), $settings['notification_comments'] );
+			echo Html::label( array('content'=>$_LANG['COMMENTS'], 'class'=>'for_checkbox', 'for'=>'js_notification_comments') );
+			echo Html::div( array('content'=>$_LANG['NOTIFY_WHEN_A_USER_MAKES_A_COMMENT'], 'class'=>'input_tip') );
+		echo Html::div_close();
+
+		// Session fail
+		echo Html::div_open( array('class'=>'form_block'));
+			echo Html::checkbox( array('id'=>'js_notification_session_fail', 'name'=>'notification_session_fail', 'class'=>'float'), $settings['notification_session_fail'] );
+			echo Html::label( array('content'=>'Session fail', 'class'=>'for_checkbox', 'for'=>'js_notification_session_fail') );
+			echo Html::div( array('content'=>$_LANG['NOTIFY_WHEN_A_USER_FAILS_TO_LOGIN'], 'class'=>'input_tip') );
+		echo Html::div_close();
+
+		// Session start
+		echo Html::div_open( array('class'=>'form_block'));
+			echo Html::checkbox( array('id'=>'js_notification_session_start', 'name'=>'notification_session_start', 'class'=>'float'), $settings['notification_session_start'] );
+			echo Html::label( array('content'=>'Session start', 'class'=>'for_checkbox', 'for'=>'js_notification_session_start') );
+			echo Html::div( array('content'=>$_LANG['NOTIFY_WHEN_A_USER_SUCCESSES_LOGIN'], 'class'=>'input_tip') );
+		echo Html::div_close();
+
+	echo Html::separator( array('content'=>$_LANG['EMAIL_ACCOUNTS_SETTINGS']) );
+
+		// Notification email to
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>$_LANG['NOTIFY_ME_TO'], 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_notification_email_to', 'name'=>'notification_email_to', 'type'=>'text', 'value'=>$settings['notification_email_to']) );
+			echo Html::div( array('content'=>$_LANG['NOTIFICATIONS_WILL_BE_SENT_TO_THIS_EMAIL'], 'class'=>'input_tip') );
+		echo Html::div_close();
+
+		// Notification email from
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>$_LANG['NOTIFY_ME_FROM'], 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_notification_email_from', 'name'=>'notification_email_from', 'type'=>'text', 'value'=>$settings['notification_email_from']) );
+			echo Html::div( array('content'=>$_LANG['NOTIFICATIONS_WILL_BE_SENT_FROM_THIS_EMAIL'], 'class'=>'input_tip') );
+		echo Html::div_close();
+
+		// BUTTONS
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::input( array('id'=>'js_button_save', 'type'=>'button', 'class'=>'disabled', 'value'=>$_LANG['SAVE_CHANGES']) );
+		echo Html::div_close();
+
+echo Html::form_close();
+
+?>
+
+<?php
+//======================================================================
+// AUTO-SAVE FORM
+//======================================================================
+	$javascript = array('url'=>HTML_PATH_ADMIN_AJAX.'settings.php');
+	include(PATH_ADMIN_JS.'ajax_form.bit');
+?>

@@ -1,0 +1,90 @@
+<?php
+/*
+ * Nibbleblog
+ * http://www.nibbleblog.com
+
+ * Require
+ * $_DB_CATEGORIES
+ * $_DB_SETTINGS
+
+ * Return
+ * (array) $settings
+ * (array) $categories
+*/
+
+// =====================================================================
+//	VARIABLES
+// =====================================================================
+	// Settings
+	$settings = $_DB_SETTINGS->get();
+
+	// Categories
+	$categories = $_DB_CATEGORIES->get_all();
+
+	// Variables for ajax boot
+	$error = false;
+	$safe = array();
+
+// =====================================================================
+//	CONSTANTS
+// =====================================================================
+	define('LOGIN_SLEEP',			2);
+	define('COMMENT_INTERVAL',		30);
+
+	define('NOTIFICATIONS_AMOUNT',	8);
+	define('LAST_COMMENTS_AMOUNT',	8);
+	define('COMMENTS_AMOUNT',		8);
+	define('POSTS_AMOUNT',			8);
+
+	define('NOTIFICATION_DATE_FORMAT',	'%d %B - %H:%M:%S');
+	define('LAST_COMMENT_DATE_FORMAT',	'%d %B - %H:%M:%S');
+	define('COMMENT_DATE_FORMAT',		'%I:%M:%S %p - %m/%d/%y');
+	define('POST_DATE_FORMAT',			'%I:%M:%S %p - %m/%d/%y');
+
+	define('EMAIL_NOTIFICATIONS',
+		'Nibbleblog Notifications'."\r\n"."\r\n".
+		'Blog: '.$settings['url'].$settings['path']."\r\n".
+		'IP: '.Net::get_user_ip()."\r\n"
+	);
+// =====================================================================
+//	HTML
+// =====================================================================
+	define('HTML_PATH_ROOT',			$settings['path']);
+
+	define('HTML_PATH_ADMIN',			HTML_PATH_ROOT.'admin/');
+	define('HTML_PATH_ADMIN_TEMPLATES',	HTML_PATH_ADMIN.'templates/');
+	define('HTML_PATH_ADMIN_JS',		HTML_PATH_ADMIN.'js/');
+	define('HTML_PATH_ADMIN_AJAX',		HTML_PATH_ADMIN.'ajax/');
+
+	define('HTML_PATH_THEMES',			HTML_PATH_ROOT.'themes/');
+	define('HTML_PATH_PLUGINS',			HTML_PATH_ROOT.'plugins/');
+	define('HTML_PATH_UPLOAD',			HTML_PATH_ROOT.'content/public/upload/');
+
+// =====================================================================
+//	THEME
+// =====================================================================
+	// PHP
+	define('THEME_ROOT',			PATH_THEMES . $settings['theme'] . '/');
+	define('THEME_CONTROLLERS',		THEME_ROOT.'controllers/');
+	define('THEME_VIEWS',			THEME_ROOT.'views/');
+	define('THEME_TEMPLATES',		THEME_ROOT.'templates/');
+	define('THEME_CSS',				THEME_ROOT.'css/');
+	define('THEME_LANGUAGE',		THEME_ROOT.'language/');
+
+	// HTML
+	define('HTML_THEME_ROOT',		HTML_PATH_THEMES . $settings['theme'] . '/');
+	define('HTML_THEME_CSS',		HTML_THEME_ROOT.'css/');
+	define('HTML_THEME_JS',			HTML_THEME_ROOT.'js/');
+
+// =====================================================================
+//	JAVASCRIPT
+// =====================================================================
+	// Comment if you are using jQuery from other server
+	define('JS_JQUERY',				HTML_PATH_ADMIN_JS.'jquery/jquery.js');
+
+	// Uncomment if you want to use jQuery from Google's servers
+	//define('JS_JQUERY',				'//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
+
+	// Uncomment if you want to use jQuery from jQuery's servers
+	//define('JS_JQUERY',				'http://code.jquery.com/jquery-latest.min.js');
+?>
