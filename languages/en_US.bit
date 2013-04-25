@@ -2,7 +2,7 @@
 
 $_LANG_CONFIG['DATA'] = array(
 	'native'=>'English - United States',
-	'english'=>'Enlgish',
+	'english'=>'English',
 	'last_update'=>'20/02/2013',
 	'author'=>'Diego Najar',
 	'email'=>'dignajar@gmail.com',
@@ -74,7 +74,7 @@ $_LANG['AT_LEAST_ONE_CATEGORY'] = 'This category cannot delete because you need 
 $_LANG['ARE_YOU_SURE'] = 'Are you sure ?';
 $_LANG['VIEW'] = 'View';
 $_LANG['EDIT'] = 'Edit';
-$_LANG['TIMESTAMP_FORMAT'] = 'Timestamp format';
+$_LANG['TIMESTAMP_FORMAT'] = 'Time stamp format';
 $_LANG['SELECT_A_TIMEZONE_FOR_A_CORRECT_DATE_VISUALIZATION'] = 'Select a timezone for a correct date visualization.';
 $_LANG['ABSOLUT_URL_ADDRESS_OF_YOUR_BLOG'] = 'Absolut URL address of your blog. For example http://www.domain.com/blog';
 $_LANG['ABSOLUT_ADDRESS_THAT_CONTAINS_THE_BLOGS_FILE_SYSTEM'] = 'Absolut address that contains the blog\'s file system, if you uploaded the content of Nibbleblog to your root you should only put "/", and if you uploaded into another directory then it should be "/directory".';
@@ -149,7 +149,7 @@ $_LANG['NEW_COMMENT'] = 'New comment';
 $_LANG['REGIONAL_SETTINGS'] = 'Regional settings';
 $_LANG['LOCALE'] = 'Locale';
 $_LANG['THIS_FIELD_IS_SET_EACH_TIME_YOU_CHANGE_THE_LANGUAGE_OF_THE_BLOG'] = 'This field is set each time you change the language of the blog. If needed you can change this with a more appropriate one. Note that the options you enter must be supported by your server.';
-$_LANG['UNCATEGORIZED'] = 'Uncategorized';
+$_LANG['UNCATEGORIZED'] = 'Uncategorised';
 $_LANG['MUSIC'] = 'Music';
 $_LANG['VIDEOS'] = 'Videos';
 $_LANG['POWERED_BY_NIBBLEBLOG'] = 'Powered by Nibbleblog';
