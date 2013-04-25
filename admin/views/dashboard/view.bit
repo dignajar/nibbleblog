@@ -63,7 +63,7 @@ echo Html::div_open( array('class'=>'dashboard_right') );
 		{
 			$date = Date::format($notification['date'], NOTIFICATION_DATE_FORMAT);
 
-			echo Html::div_open( array('class'=>'notification notification_'.$notification['type']) );
+			echo Html::div_open( array('class'=>'notification notification_'.$notification['category']) );
 				echo Html::div( array('class'=>'type', 'content'=>$_LANG[$notification['message_key']]) );
 				echo Html::div( array('class'=>'info', 'content'=>$date.' · IP: '.$notification['ip']) );
 			echo Html::div_close();

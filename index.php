@@ -35,8 +35,9 @@ $layout = array(
 	'title'=>$seo['site_title'],
 	'description'=>$seo['site_description'],
 	'author'=>$seo['author'],
+	'robots'=>$seo['robots'],
 	'keywords'=>$seo['keywords'],
-	'generator'=>'Nibbleblog',
+	'generator'=>$seo['generator'],
 	'feed'=>HTML_PATH_ROOT.'feed.php'
 );
 

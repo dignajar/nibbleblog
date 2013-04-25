@@ -216,8 +216,8 @@ class Login {
 			return true;
 		}
 
-		// if last session date are older than 30 seconds then don't sleep
-		if($user['session_date']+30>time())
+		// if last session date are older than 45 seconds then don't sleep
+		if($user['session_date']+45<time())
 			return true;
 
 		// if session failed count > 3 then sleep a lot :P
