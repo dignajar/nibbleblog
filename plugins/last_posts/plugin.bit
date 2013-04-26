@@ -31,6 +31,8 @@ class PLUGIN_LAST_POSTS extends Plugin
 	public function get_html()
 	{
 		global $Post;
+		global $settings;
+		global $_LANG;
 
 		$list = $Post->get_by_page(0, $this->get_field_db('amount') );
 
@@ -38,6 +40,26 @@ class PLUGIN_LAST_POSTS extends Plugin
 
 		foreach($list as $post)
 		{
+			// Permalink
+			if( $settings['friendly_urls'] )
+			{
+				if(Text::not_empty($post['slug']))
+				{
+					$slug = $post['slug'];
+				}
+				elseif( Text::not_empty($post['title']) )
+				{
+					$slug = Text::clean_url($post['title'], '-', isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false);
+				}
+				else
+				{
+					$slug = $post['type'];
+				}
+
+				$post['permalink'] = HTML_PATH_ROOT.'post-'.$post['id'].'/'.$slug;
+			}
+
+			// Title
 			$title = empty($post['title'])? ucfirst($post['type']) : $post['title'];
 
 			$html .= '<li><a href="'.$post['permalink'].'">'.$title.'</a></li>';

@@ -220,8 +220,8 @@ class Login {
 		if($user['session_date']+45<time())
 			return true;
 
-		// if session failed count > 3 then sleep a lot :P
-		if($user['session_fail_count']>3)
+		// if session failed count > 2 then sleep a lot :P
+		if($user['session_fail_count']>2)
 		{
 			sleep($user['session_fail_count']*$random);
 			echo "Debug - fail_count>3 random:".$random." - count:".$user['session_fail_count'];

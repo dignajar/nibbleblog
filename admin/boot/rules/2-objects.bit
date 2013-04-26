@@ -22,7 +22,6 @@
 // =====================================================================
 //	CLASS
 // =====================================================================
-	require(PATH_KERNEL . 'login.class.php');
 	require(PATH_KERNEL . 'plugin.class.php');
 	require(PATH_KERNEL . 'defensio/Defensio.php');
 
@@ -56,6 +55,7 @@
 	require(PATH_DB . 'db_users.class.php');
 
 	// Api
+	require(PATH_API . 'login.class.php');
 	require(PATH_API . 'comment.class.php');
 	require(PATH_API . 'post.class.php');
 

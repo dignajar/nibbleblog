@@ -133,6 +133,7 @@ article.post	header.post		div.date {
 article.post	header.post		h1.title {
 	font-size: 2em;
 	margin: 0;
+	color: #333;
 }
 
 article.post	header.post		h1.title	a {
