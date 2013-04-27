@@ -211,6 +211,18 @@ Date::set_timezone('UTC');
 		$obj = new NBXML($xml, 0, FALSE, '', FALSE);
 		$obj->asXml( FILE_XML_NOTIFICATIONS );
 
+		// users.xml
+		$xml  = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
+		$xml .= '<users>';
+		$xml .= '</users>';
+		$obj = new NBXML($xml, 0, FALSE, '', FALSE);
+		$node = $obj->addChild('user', '');
+		$node->addAttribute('username', $_POST['username']);
+		$node->addChild('id', 0);
+		$node->addChild('session_fail_count', 0);
+		$node->addChild('session_date', 0);
+		$obj->asXml( FILE_XML_USERS );
+
 		// shadow.php
 		$new_salt = Text::random_text(11);
 		$new_hash = Crypt::get_hash($_POST['password'],$new_salt);

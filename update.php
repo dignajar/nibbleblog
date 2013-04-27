@@ -149,6 +149,25 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 					echo Html::p( array('class'=>'pass', 'content'=>'File created: '.FILE_XML_NOTIFICATIONS) );
 				}
 
+				// users.xml
+				if(!file_exists(FILE_XML_USERS))
+				{
+					require(FILE_SHADOW);
+
+					$xml  = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
+					$xml .= '<users>';
+					$xml .= '</users>';
+					$obj = new NBXML($xml, 0, FALSE, '', FALSE);
+					$node = $obj->addChild('user', '');
+					$node->addAttribute('username', $_USER[0]["username"]);
+					$node->addChild('id', 0);
+					$node->addChild('session_fail_count', 0);
+					$node->addChild('session_date', 0);
+					$obj->asXml( FILE_XML_USERS );
+
+					echo Html::p( array('class'=>'pass', 'content'=>'File created: '.FILE_XML_USERS) );
+				}
+
 				// config.xml
 				$obj = new NBXML(FILE_XML_CONFIG, 0, TRUE, '', FALSE);
 				set_if_not($obj,'notification_comments',0);
