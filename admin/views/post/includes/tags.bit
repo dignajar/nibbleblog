@@ -1,0 +1,9 @@
+<?php
+	$value = isset($post_edit['tags']) ? $post_edit['tags'] : '';
+
+	echo Html::div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
+		echo Html::label( array('class'=>'blocked', 'content'=>'Tags or keywords') );
+		echo Html::input( array('id'=>'js_description', 'name'=>'description', 'type'=>'text', 'value'=>$value) );
+		echo Html::div( array('content'=>$_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_PER_PAGE'], 'class'=>'input_tip') );
+	echo Html::div_close();
+?>

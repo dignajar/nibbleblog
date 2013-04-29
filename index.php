@@ -68,4 +68,13 @@ if($settings['friendly_urls'])
 @require(THEME_CONTROLLERS.$layout['controller']);
 @require(THEME_TEMPLATES.$layout['template']);
 
+
+//$lista = 'prueba,nuevo';
+
+//$_DB_TAGS->add_and_link(array('tags'=>$lista, 'id_post'=>5));
+//$_DB_TAGS->add_and_link(array('tags'=>$lista, 'id_post'=>2));
+
+//$_DB_TAGS->delete_links(array('id_post'=>5));
+//$_DB_TAGS->savetofile();
+
 ?>

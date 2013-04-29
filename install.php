@@ -183,6 +183,15 @@ Date::set_timezone('UTC');
 		$node->addAttribute('slug', 'videos');
 		$obj->asXml( FILE_XML_CATEGORIES );
 
+		// tags.xml
+		$xml  = '<?xml version="1.0" encoding="utf-8" standalone="yes"?>';
+		$xml .= '<tags autoinc="0">';
+		$xml .= '<list></list>';
+		$xml .= '<links></links>';
+		$xml .= '</tags>';
+		$obj = new NBXML($xml, 0, FALSE, '', FALSE);
+		$obj->asXml( FILE_XML_TAGS );
+
 		// comments.xml
 		$xml  = '<?xml version="1.0" encoding="utf-8" standalone="yes"?>';
 		$xml .= '<comments autoinc="0">';
@@ -216,8 +225,7 @@ Date::set_timezone('UTC');
 		$xml .= '<users>';
 		$xml .= '</users>';
 		$obj = new NBXML($xml, 0, FALSE, '', FALSE);
-		$node = $obj->addChild('user', '');
-		$node->addAttribute('username', $_POST['username']);
+		$node = $obj->addGodChild('user', array('username'=>$_POST['username']));
 		$node->addChild('id', 0);
 		$node->addChild('session_fail_count', 0);
 		$node->addChild('session_date', 0);

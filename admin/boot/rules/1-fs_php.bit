@@ -68,6 +68,7 @@
 // =====================================================================
 	// Private
 	define('FILE_XML_POST',			PATH_PRIVATE . 'post.xml');
+	define('FILE_XML_TAGS',			PATH_PRIVATE . 'tags.xml');
 	define('FILE_XML_CATEGORIES',	PATH_PRIVATE . 'categories.xml');
 	define('FILE_XML_CONFIG',		PATH_PRIVATE . 'config.xml');
 	define('FILE_XML_NOTIFICATIONS',PATH_PRIVATE . 'notifications.xml');

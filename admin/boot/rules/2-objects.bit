@@ -48,6 +48,7 @@
 	// Database
 	require(PATH_DB . 'nbxml.class.php');
 	require(PATH_DB . 'db_posts.class.php');
+	require(PATH_DB . 'db_tags.class.php');
 	require(PATH_DB . 'db_categories.class.php');
 	require(PATH_DB . 'db_settings.class.php');
 	require(PATH_DB . 'db_comments.class.php');
@@ -75,6 +76,7 @@
 		$_DB_CATEGORIES		= new DB_CATEGORIES( FILE_XML_CATEGORIES );
 		$_DB_POST			= new DB_POSTS( FILE_XML_POST );
 		$_DB_USERS			= new DB_USERS( FILE_XML_USERS );
+		$_DB_TAGS			= new DB_TAGS( FILE_XML_TAGS );
 
 		// Level 2
 		$_DB_COMMENTS		= new DB_COMMENTS( FILE_XML_COMMENTS, $_DB_SETTINGS->get() );

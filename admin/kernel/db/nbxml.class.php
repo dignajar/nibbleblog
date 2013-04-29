@@ -11,6 +11,21 @@
 
 class NBXML extends SimpleXMLElement
 {
+	// Private keys = array('username'=>'diego');
+	public function addGodChild($name, $private_key)
+	{
+		$name = utf8_encode($name);
+
+		// Add and scape &
+		$node = parent::addChild($name);
+		$node[0] = ''; // (BUG) Con esta forma escapamos el & que no escapa el addChild
+
+		foreach($private_key as $name=>$value)
+			$node->addAttribute($name, $value);
+
+		return $node;
+	}
+
 	public function addChild($name, $value='', $namespace='')
 	{
 		// Get type of the value will be insert
