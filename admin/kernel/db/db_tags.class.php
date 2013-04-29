@@ -54,15 +54,10 @@ class DB_TAGS {
 			return $id;
 
 		// Add table
-		$node = $this->xml->list->addChild('tag','');
-
-		// Add key
-		$node->addAttribute('name', $args['name']);
-
-		// Add registers
 		$id = $this->get_autoinc();
-		$node->addChild('id', $id);
 		$this->set_autoinc();
+
+		$node = $this->xml->list->addGodChild('tag', array('id'=>$id, 'name'=>$args['name']));
 
 		return $id;
 	}
@@ -77,32 +72,33 @@ class DB_TAGS {
 			return false;
 
 		// Add the table
-		$node = $this->xml->links->addChild('link','');
-
-		// Add keys
-		$node->addAttribute('id_tag', $args['id_tag']);
-		$node->addAttribute('id_post', $args['id_post']);
+		$node = $this->xml->links->addGodChild('link', array('id_tag'=>$args['id_tag'], 'id_post'=>$args['id_post']));
 
 		return true;
 	}
 
-	// Get tag information
-	private function get($args)
+	// Get tag information, by ID or by name
+	public function get($args)
 	{
-		$node = $this->xml->xpath('/tags/list/tag[@name="'.utf8_encode($args['name']).'"]');
+		if(isset($args['name']))
+			$where = '@name="'.utf8_encode($args['name']).'"';
+		elseif(isset($args['id']))
+			$where = '@id="'.utf8_encode($args['id']).'"';
+
+		$node = $this->xml->xpath('/tags/list/tag['.$where.']');
 
 		if($node==array())
 			return false;
 
 		$tmp = array();
-		foreach($node[0]->children() as $field=>$n)
-			$tmp[$field] = $node[0]->getChild($field);
+		$tmp['id'] = $node[0]->getAttribute('id');
+		$tmp['name'] = $node[0]->getAttribute('name');
 
 		return $tmp;
 	}
 
 	// Get tag ID
-	private function get_id($args)
+	public function get_id($args)
 	{
 		$tag = $this->get($args);
 
@@ -110,6 +106,24 @@ class DB_TAGS {
 			return false;
 
 		return $tag['id'];
+	}
+
+	// Get tags by post ID
+	public function get_by_idpost($args)
+	{
+		$nodes = $this->xml->xpath('/tags/links/link[@id_post="'.utf8_encode($args['id_post']).'"]');
+
+		$tmp = array();
+
+		foreach($nodes as $node)
+		{
+			$id_tag = $node->getAttribute('id_tag');
+			$tag = $this->get(array('id'=>$id_tag));
+
+			array_push($tmp, $tag['name']);
+		}
+
+		return $tmp;
 	}
 
 	// Add tags and link this with a id post
@@ -131,9 +145,6 @@ class DB_TAGS {
 	public function delete_links($args)
 	{
 		$nodes = $this->xml->xpath('/tags/links/link[@id_post="'.utf8_encode($args['id_post']).'"]');
-
-		if($nodes==array())
-			return false;
 
 		foreach($nodes as $node)
 		{

@@ -42,6 +42,11 @@
 // ========== POST FOOTER ==========
 	echo '<footer class="post">';
 
+		echo '<div class="tags">';
+			foreach($post['tags'] as $tag)
+				echo '<a href="/tag/'.$tag.'">'.$tag.'</a>';
+		echo '</div>';
+
 		if($post['read_more'])
 		{
 			echo '<span><a href="'.$post['permalink'].'">'.$_LANG['READ_MORE'].'</a></span>';

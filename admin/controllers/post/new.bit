@@ -67,8 +67,16 @@
 		// Add new post
 		$id_post = $_DB_POST->add( $safe );
 
-		if($id_post != false)
+		if($id_post !== false)
 		{
+			// Tags
+			if( isset($_POST['tags']) )
+			{
+				$safe['tags'] = Validation::sanitize_html($_POST['tags']);
+				$_DB_TAGS->add_tags(array('tags'=>$safe['tags'], 'id_post'=>$id_post));
+				$_DB_TAGS->savetofile();
+			}
+
 			$_SESSION['session_alert']['msg'] = $_LANG['POST_HAS_BEEN_PUBLISHED_SUCCESSFULLY'];
 			$_SESSION['session_alert']['active'] = true;
 
