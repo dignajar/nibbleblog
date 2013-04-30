@@ -42,11 +42,7 @@
 // ========== POST FOOTER ==========
 	echo '<footer class="post">';
 
-		echo '<div class="tags">';
-			foreach($post['tags'] as $tag)
-				echo '<a href="/tag/'.$tag.'">'.$tag.'</a>';
-		echo '</div>';
-
+		// Readmore and Permalink
 		if($post['read_more'])
 		{
 			echo '<span><a href="'.$post['permalink'].'">'.$_LANG['READ_MORE'].'</a></span>';
@@ -56,6 +52,7 @@
 			echo '<span><a href="'.$post['permalink'].'">'.$_LANG['PERMALINK'].'</a></span>';
 		}
 
+		// Comments
 		if($post['allow_comments'])
 		{
 			echo ' · ';
@@ -69,6 +66,18 @@
 			{
 				echo '<span><a href="'.$post['permalink'].'#comment_form">'.$_LANG['COMMENTS'].' ('.count($post['comments']).')</a></span>';
 			}
+		}
+
+		// Show tags
+		if(!empty($post['tags']))
+		{
+			echo '<div class="tags">';
+				echo '<span>Tags:</span>';
+				echo '<span>';
+					foreach($post['tags'] as $tag)
+						echo '<a href="'.Url::tag($tag, $settings['friendly_urls']).'">'.$tag.'</a>';
+				echo '</span>';
+			echo '</div>';
 		}
 
 	echo '</footer>';

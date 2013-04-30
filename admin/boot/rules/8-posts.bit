@@ -81,17 +81,14 @@
 		$posts[$key]['mod_date'] = Date::format($posts[$key]['mod_date_unix'], $settings['timestamp_format']);
 
 		// Permalink
-		if( $settings['friendly_urls'] )
-		{
-			if(  Text::not_empty($posts[$key]['slug']) )
-				$slug = $posts[$key]['slug'];
-			elseif( Text::not_empty($posts[$key]['title']) )
-				$slug = Text::clean_url($posts[$key]['title'], '-', isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false);
-			else
-				$slug = $posts[$key]['type'];
+		$slug = $posts[$key]['type'];
 
-			$posts[$key]['permalink'] = HTML_PATH_ROOT.'post-'.$posts[$key]['id'].'/'.$slug;
-		}
+		if(  Text::not_empty($posts[$key]['slug']) )
+			$slug = $posts[$key]['slug'];
+		elseif( Text::not_empty($posts[$key]['title']) )
+			$slug = Text::clean_url($posts[$key]['title'], '-', isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false);
+
+		$posts[$key]['permalink'] = Url::post($posts[$key]['id'], $slug, $settings['friendly_urls']);
 	}
 
 	if(isset($posts[0]))

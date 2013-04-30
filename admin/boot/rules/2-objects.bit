@@ -38,6 +38,7 @@
 	require(PATH_HELPERS . 'image.class.php');
 	require(PATH_HELPERS . 'net.class.php');
 	require(PATH_HELPERS . 'number.class.php');
+	require(PATH_HELPERS . 'url.class.php');
 	require(PATH_HELPERS . 'redirect.class.php');
 	require(PATH_HELPERS . 'session.class.php');
 	require(PATH_HELPERS . 'social.class.php');

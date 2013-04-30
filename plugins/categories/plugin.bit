@@ -22,14 +22,8 @@ class PLUGIN_CATEGORIES extends Plugin
 
 		foreach($categories as $category)
 		{
-			if($settings['friendly_urls'])
-			{
-				$href = HTML_PATH_ROOT.'category/'.$category['slug'].'/';
-			}
-			else
-			{
-				$href = HTML_PATH_ROOT.'index.php?controller=blog&action=view&category='.$category['slug'];
-			}
+			// URL generator
+			$href = Url::category($category['slug'], $settings['friendly_urls']);
 
 			$html .= '<li class="category"><a href="'.$href.'">'.$category['name'].'</a></li>';
 		}

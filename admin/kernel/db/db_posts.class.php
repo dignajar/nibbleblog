@@ -396,9 +396,6 @@ class DB_POSTS {
 				$tmp_array['read_more'] = true;
 			}
 
-			// Permalink
-			$tmp_array['permalink'] = HTML_PATH_ROOT.'index.php?controller=post&action=view&id_post='.$tmp_array['id'];
-
 			// POST TYPE
 			if($tmp_array['type']=='video')
 			{

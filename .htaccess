@@ -34,6 +34,7 @@ ErrorDocument 404 /nibbleblog/index.php?controller=page&action=404
 
  RewriteRule ^category/([^/]+)/page-([0-9]+)$ index.php?controller=blog&action=view&category=$1&page=$2 [L]
  RewriteRule ^category/([^/]+)/$ index.php?controller=blog&action=view&category=$1&page=0 [L]
+ RewriteRule ^tag/([^/]+)/$ index.php?controller=blog&action=view&tag=$1&page=0 [L]
  RewriteRule ^page-([0-9]+)$ index.php?controller=blog&action=view&page=$1 [L]
  RewriteRule ^post-([0-9]+)/(.*)$ index.php?controller=post&action=view&id_post=$1 [L]
 
