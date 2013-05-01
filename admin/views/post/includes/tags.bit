@@ -1,5 +1,12 @@
 <?php
 
+	$value = '';
+
+	if(!empty($post_edit['tags']))
+	{
+		$value = implode(',',$post_edit['tags']);
+	}
+
 	echo Html::div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
 		echo Html::label( array('class'=>'blocked', 'content'=>'Tags or keywords') );
 		echo Html::input( array('id'=>'js_tags', 'name'=>'tags', 'type'=>'text', 'value'=>$value) );

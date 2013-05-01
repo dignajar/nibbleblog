@@ -225,7 +225,7 @@ article.post	footer.post		a {
 }
 
 article.post	footer.post		div.tags {
-	margin-top: 4px;
+	margin-bottom: 4px;
 }
 
 article.post	footer.post		div.tags	a {

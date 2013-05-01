@@ -65,6 +65,15 @@
 		// Set post
 		if( $_DB_POST->set($safe) )
 		{
+			// Tags
+			if( isset($_POST['tags']) )
+			{
+				$safe['tags'] = Validation::sanitize_html($_POST['tags']);
+				$_DB_TAGS->delete_links(array('id_post'=>$safe['id']));
+				$_DB_TAGS->add_tags(array('tags'=>$safe['tags'], 'id_post'=>$safe['id']));
+				$_DB_TAGS->savetofile();
+			}
+
 			Session::set_alert($_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY']);
 
 			Redirect::controller('admin', 'post', 'list');
@@ -81,6 +90,9 @@
 	{
 		Redirect::controller('admin', 'post', 'list');
 	}
+
+	// Tags
+	$post_edit['tags'] = $_DB_TAGS->get_by_idpost( array('id_post'=>$post_edit['id']) );
 
 	$categories_options = array();
 	foreach($categories as $category)
