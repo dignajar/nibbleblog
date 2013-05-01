@@ -21,6 +21,7 @@
 				'page'=>0,
 				'plugin'=>null,
 				'category'=>null,
+				'tag'=>null,
 				'other'=>null
 	);
 
@@ -37,6 +38,8 @@
 	if( isset($_GET['plugin']) ) { $url['plugin'] = Validation::sanitize_html($_GET['plugin']); }
 
 	if( isset($_GET['category']) ) { $url['category'] = Validation::sanitize_html($_GET['category']); }
+
+	if( isset($_GET['tag']) ) { $url['tag'] = Validation::sanitize_html($_GET['tag']); }
 
 	if( isset($_GET['other']) ) { $url['other'] = Validation::sanitize_html($_GET['other']); }
 

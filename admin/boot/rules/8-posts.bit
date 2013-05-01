@@ -37,6 +37,25 @@
 			$page_not_found = true;
 		}
 	}
+	// ---- POSTS FILTER BY TAG
+	elseif($url['tag']!==null)
+	{
+		// Get IDs posts linked with the tag
+		$id_posts = $_DB_TAGS->get_all_posts(array('name'=>$url['tag']));
+
+		if($id_posts!==false)
+		{
+			foreach($id_posts as $id)
+			{
+				array_push($posts, $_DB_POST->get( array('id'=>$id) ));
+			}
+		}
+		else
+		{
+			$page_not_found = true;
+		}
+
+	}
 	// ---- PARTICULAR POST
 	elseif($url['id_post']!==null)
 	{

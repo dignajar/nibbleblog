@@ -155,6 +155,27 @@ class DB_TAGS {
 		return true;
 	}
 
+	// Get all id post by tag name
+	public function get_all_posts($args)
+	{
+		$id_tag = $this->get_id(array('name'=>$args['name']));
+
+		if($id_tag===false)
+			return false;
+
+		$nodes = $this->xml->xpath('/tags/links/link[@id_tag="'.utf8_encode($id_tag).'"]');
+
+		$tmp = array();
+
+		foreach($nodes as $node)
+		{
+			$id_post = (int)$node->getAttribute('id_post');
+			array_push($tmp, $id_post);
+		}
+
+		return $tmp;
+	}
+
 	// Save all changes
 	public function savetofile()
 	{
