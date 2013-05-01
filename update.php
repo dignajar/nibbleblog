@@ -176,6 +176,7 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 					$xml .= '<list></list>';
 					$xml .= '<links></links>';
 					$xml .= '</tags>';
+					$obj = new NBXML($xml, 0, FALSE, '', FALSE);
 					$obj->asXml( FILE_XML_TAGS );
 
 					echo Html::p( array('class'=>'pass', 'content'=>'File created: '.FILE_XML_TAGS) );
