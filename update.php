@@ -168,6 +168,18 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 					echo Html::p( array('class'=>'pass', 'content'=>'File created: '.FILE_XML_USERS) );
 				}
 
+				// tags.xml
+				if(!file_exists(FILE_XML_TAGS))
+				{
+					$xml  = '<?xml version="1.0" encoding="utf-8" standalone="yes"?>';
+					$xml .= '<tags autoinc="0">';
+					$xml .= '<list></list>';
+					$xml .= '<links></links>';
+					$xml .= '</tags>';
+
+					echo Html::p( array('class'=>'pass', 'content'=>'File created: '.FILE_XML_TAGS) );
+				}
+
 				// config.xml
 				$obj = new NBXML(FILE_XML_CONFIG, 0, TRUE, '', FALSE);
 				set_if_not($obj,'notification_comments',0);
