@@ -45,6 +45,8 @@
 
 		if($id_posts!==false)
 		{
+			arsort($id_posts);
+
 			foreach($id_posts as $id)
 			{
 				array_push($posts, $_DB_POST->get( array('id'=>$id) ));
