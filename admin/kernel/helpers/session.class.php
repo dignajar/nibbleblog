@@ -17,6 +17,7 @@ class Session {
 			'author_name'=>'',
 			'author_email'=>'',
 			'content'=>'',
+			'hash'=>'',
 			'post_allow_comments'=>false,
 			'id_post'=>0
 		);
@@ -131,6 +132,11 @@ class Session {
 		$_SESSION['nibbleblog']['comment']['content'] = $comment['content'];
 		$_SESSION['nibbleblog']['comment']['post_allow_comments'] = $comment['post_allow_comments'];
 		$_SESSION['nibbleblog']['comment']['id_post'] = $comment['id_post'];
+	}
+
+	public static function set($key, $value)
+	{
+		$_SESSION['nibbleblog'][$key] = $value;
 	}
 
 }
