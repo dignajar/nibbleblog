@@ -11,6 +11,8 @@ echo '<footer id="comment_form">';
 
 	echo '<form method="post" name="form" action="'.HTML_PATH_ROOT.'index.php?controller=comment&amp;action=new&amp;id_post='.$url['id_post'].'">';
 
+		echo '<input type="hidden" name="hash" value="'.Comment::get_hash().'">';
+
 		echo '<input type="text" name="author_name" value="'.Session::get_comment('author_name').'" placeholder="'.$_LANG['NAME'].'">';
 
 		echo '<input type="email" name="author_email" value="'.Session::get_comment('author_email').'" placeholder="'.$_LANG['EMAIL'].'">';
