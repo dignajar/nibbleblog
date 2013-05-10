@@ -157,6 +157,18 @@ class Comment {
 		return($this->db->get_settings());
 	}
 
+	public function get_hash()
+	{
+		return Session::get('hash');
+	}
+
+	public function set_hash()
+	{
+		$hash = Crypt::get_hash(time(),time());
+		Session::set('hash', $hash);
+	}
+
+
 /*
 ======================================================================================
 	PRIVATE METHODS

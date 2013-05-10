@@ -13,21 +13,33 @@
 	if( !isset($_SESSION['nibbleblog']) )
 	{
 		Session::init();
+
+		// New comment hash
+		$Comment->set_hash();
 	}
 
 	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	{
-		if( isset($_POST['author_name']) && isset($_POST['author_email']) && isset($_POST['content']) )
+		// XSS protection
+		if(isset($_POST['hash']))
 		{
-			if(isset($posts[0]['id']) && isset($posts[0]['allow_comments']))
+			// XSS protection
+			if($Comment->get_hash()===$_POST['hash'])
 			{
-				Session::set_comment(array(
-								'author_name'=>$_POST['author_name'],
-								'author_email'=>$_POST['author_email'],
-								'content'=>$_POST['content'],
-								'post_allow_comments'=>$posts[0]['allow_comments'],
-								'id_post'=>$posts[0]['id']
-				));
+				// Post allows comments ?
+				if(isset($posts[0]['id']) && isset($posts[0]['allow_comments']))
+				{
+					Session::set_comment(array(
+									'author_name'=>$_POST['author_name'],
+									'author_email'=>$_POST['author_email'],
+									'content'=>$_POST['content'],
+									'post_allow_comments'=>$posts[0]['allow_comments'],
+									'id_post'=>$posts[0]['id']
+					));
+
+					// Renew comment hash
+					$Comment->set_hash();
+				}
 			}
 		}
 	}
