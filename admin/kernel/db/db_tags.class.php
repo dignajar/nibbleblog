@@ -200,6 +200,8 @@ class DB_TAGS {
 	// Recive an string $tags and convert this to an array
 	private function recondition($tags)
 	{
+		$tags = Text::strip_spaces($tags);
+
 		$explode = explode(',', $tags);
 
 		$tmp_array = array();

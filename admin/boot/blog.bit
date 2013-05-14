@@ -12,10 +12,10 @@
 	require('rules/8-posts.bit');
 
 	require('rules/10-seo.bit');
-	require('rules/10-plugins.bit');
 	require('rules/10-pager.bit');
 	require('rules/10-session.bit');
 
+	require('rules/99-plugins.bit');
 	require('rules/99-constants.bit');
 
 ?>

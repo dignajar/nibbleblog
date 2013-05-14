@@ -68,7 +68,7 @@ class NBXML extends SimpleXMLElement
 
 	public function getChild($name)
 	{
-		$type = $this->{$name}->getAttribute('type');
+		$type = @$this->{$name}->getAttribute('type');
 		$value = utf8_decode((string)$this->{$name});
 
 		return empty($type) ? $value : $this->cast($type, $value);

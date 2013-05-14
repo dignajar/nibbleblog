@@ -7,7 +7,7 @@
  * $settings
 
  * Return
- *
+ * (boolean) $translit_enable
 */
 
 	// Include the language

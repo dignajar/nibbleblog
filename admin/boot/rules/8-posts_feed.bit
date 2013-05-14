@@ -5,9 +5,9 @@
 
  * Require
  * $settings
+ * $translit_enable
  * $_DB_POST
  * $_DB_CATEGORIES
- * $_LANG
 
  * Return
  * (array) $posts
@@ -25,17 +25,7 @@ foreach($posts as $key=>$value)
 	$posts[$key]['category'] = $category['name'];
 
 	// Permalink
-	if( $settings['friendly_urls'] )
-	{
-		if(  Text::not_empty($posts[$key]['slug']) )
-			$slug = $posts[$key]['slug'];
-		elseif( Text::not_empty($posts[$key]['title']) )
-			$slug = Text::clean_url($posts[$key]['title'], '-', isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false);
-		else
-			$slug = $posts[$key]['type'];
-
-		$posts[$key]['permalink'] = HTML_PATH_ROOT.'post-'.$posts[$key]['id'].'/'.$slug;
-	}
+	$posts[$key]['permalink'] = Url::post($posts[$key], $translit_enable, $settings['friendly_urls']);
 }
 
 ?>
