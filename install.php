@@ -13,7 +13,7 @@ if( file_exists('content/private') || file_exists('content/public') )
 	exit('Blog already installed... May be you want to <a href="update.php">update</a> ?');
 
 require('admin/boot/rules/1-fs_php.bit');
-require('admin/boot/rules/99-constants.bit');
+require('admin/boot/rules/98-constants.bit');
 
 // DB
 require(PATH_DB . 'nbxml.class.php');
