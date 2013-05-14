@@ -10,4 +10,5 @@
 
 	require('rules/8-posts_feed.bit');
 
+	require('rules/99-misc.bit');
 ?>

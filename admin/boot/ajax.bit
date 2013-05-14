@@ -8,4 +8,5 @@
 	require('rules/4-remove_magic.bit');
 	require('rules/5-regional.bit');
 
+	require('rules/99-misc.bit');
 ?>

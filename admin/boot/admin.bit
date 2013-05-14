@@ -9,7 +9,10 @@
 	require('rules/5-regional.bit');
 	require('rules/5-url.bit');
 
-	require('rules/99-plugins.bit');
-	require('rules/99-constants.bit');
+	require('rules/98-plugins.bit');
+	require('rules/98-constants.bit');
 
+	require('rules/98-constants.bit');
+
+	require('rules/99-misc.bit');
 ?>
