@@ -310,7 +310,8 @@ class DB_COMMENTS {
 		{
 			$init = (int) $amount * $page_number;
 			$end  = (int) min( ($init + $amount - 1), $this->files_count - 1 );
-			$outrange = $init > $end;
+
+			$outrange = $init<0 ? true : $init > $end;
 
 			$tmp_array = array();
 
