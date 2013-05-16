@@ -32,9 +32,13 @@ class Validation {
 		return( filter_var($valor, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_THOUSAND) );
 	}
 
+	// Valid an integer positive
 	public static function sanitize_int($valor)
 	{
-		return( filter_var($valor, FILTER_SANITIZE_NUMBER_INT) );
+		if(is_int($valor) && $valor>0)
+			return $valor;
+		else
+			return 0;
 	}
 
 	public static function sanitize_email($valor)
