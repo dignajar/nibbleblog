@@ -1,0 +1,628 @@
+/* ============================== */
+/* BODY
+/* ============================== */
+body {
+	font-family: arial,sans-serif;
+	background-color: #FEFEFE;
+	margin: 0;
+	padding: 0;
+	font-size: 62.5%;
+	color: #555;
+	overflow-y: scroll;
+}
+
+#container {
+	width: 100%;
+	background-color: #fff;
+}
+
+/* ============================== */
+/* HEAD
+/* ============================== */
+#container_head {
+	background: url("img/logo.png") no-repeat scroll 30px 50% #F9F9F9;
+	border-bottom: 1px solid #EBEBEB;
+	font-size: 1.1em;
+	padding-right: 30px;
+	text-align: right;
+	height: 40px;
+}
+
+#container_head	a {
+    color: #333333;
+    display: inline-block;
+    height: 40px;
+    line-height: 42px;
+    padding-left: 36px;
+    padding-right: 10px;
+}
+
+#container_head a.dashboard {
+	background: url("img/dashboard.png") no-repeat 10px center transparent;
+}
+
+#container_head a.home {
+	background: url("img/home.png") no-repeat 10px center transparent;
+}
+
+#container_head a.logout {
+	background: url("img/logout.png") no-repeat 10px center transparent;
+}
+
+#container_head	a:hover {
+	text-decoration: none;
+	background-color: #f1f1f1;
+}
+
+/* ============================== */
+/* FOOTER
+/* ============================== */
+#container_footer {
+    border-top: 1px solid #EBEBEB;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+/* ============================== */
+/* SUBHEAD
+/* ============================== */
+#container_subhead {
+    border-bottom: 1px solid #EBEBEB;
+    margin-bottom: 20px;
+    padding: 20px 0 20px 230px;
+}
+
+#container_subhead	h2.title {
+    color: #2361D3;
+    font-size: 2.2em;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================== */
+/* MAIN
+/* ============================== */
+#container_float {
+	clear: both;
+	overflow: auto;
+}
+
+#container_left {
+    clear: left;
+    float: left;
+    margin-right: 10px;
+    width: 220px;
+}
+
+#container_right {
+    border-right: 1px solid #F1F1F1;
+    max-width: 80%;
+    overflow: hidden;
+    padding-right: 30px;
+}
+
+#alert {
+    background-color: #4DBFD9;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    color: #FFFFFF;
+    display: block;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    padding: 16px 0;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    display: none;
+}
+
+a {
+	color: #2361D3;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+header.separator {
+	border-bottom: 1px solid #DDDDDD;
+	margin: 40px 0 20px 0;
+}
+
+header.separator_top {
+	border-bottom: 1px solid #DDDDDD;
+	margin: 0px 0 20px 0;
+}
+
+div.separator {
+	border-bottom: 4px solid #DDDDDD;
+	color: #4C4C4C;
+	font-size: 1.9em;
+	font-weight: normal;
+	line-height: 20px;
+	padding: 0 0 10px;
+	display: inline-block;
+}
+
+.remove_margin_top {
+	margin-top: 0;
+}
+
+p.no_comments {
+	font-size: 1.2em;
+	font-style: italic;
+}
+
+/* ============================================================ */
+/* DASHBOARD
+/* ============================================================ */
+div.dashboard_left {
+    float: left;
+    margin-right: 20px;
+    width: 45%;
+}
+
+div.dashboard_right {
+    float: right;
+    margin-right: 20px;
+    width: 45%;
+}
+
+/* ============================== */
+/* DASHBOARD Quick Links
+/* ============================== */
+div.dashboard_qlinks {
+	margin-bottom: 40px;
+}
+
+div.dashboard_qlinks	a.item {
+    border-bottom: 2px solid #F1F1F1;
+    display: block;
+    padding: 20px 0 20px 60px;
+    text-align: left;
+    text-decoration: none;
+}
+
+div.dashboard_qlinks	a.item:hover {
+	border-bottom: 2px solid #009AD7;
+}
+
+div.dashboard_qlinks	a.item span.type {
+	font-size: 1.4em;
+	display: block;
+}
+
+div.dashboard_qlinks	a.item span.description {
+	font-size: 1.2em;
+	display: block;
+	color: #555;
+}
+
+/* ============================== */
+/* DASHBOARD Last comments
+/* ============================== */
+div.dashboard_last_comments {
+
+}
+
+a.notification_last_comments {
+	background: url('img/16comment.png') no-repeat 16px center #F9F9F9;
+    border: 1px solid #EEEEEE;
+    text-decoration: none;
+    color: #555555;
+}
+
+a.notification_last_comments:hover {
+	background-color: #f1f1f1;
+}
+
+/* ============================== */
+/* DASHBOARD Notifications
+/* ============================== */
+div.dashboard_notifications {
+
+}
+
+div.notification,
+a.notification {
+	padding: 10px 0 10px 56px;
+	margin-bottom: 10px;
+    border-radius: 2px 2px 2px 2px;
+    display: block;
+}
+
+div.notification	div.type,
+a.notification	div.type {
+	margin-bottom: 5px;
+	font-size: 1.2em;
+}
+
+div.notification	div.info,
+a.notification	div.info {
+	margin-bottom: 5px;
+	font-size: 1.1em;
+	color: #AAAAAA;
+}
+
+div.notification_session_start {
+	background: url("img/16user.png") no-repeat scroll 16px center #F9F9F9;
+    border-left: 2px solid #009AD7;
+}
+
+div.notification_session_fail {
+	background: url("img/16sessionfail.png") no-repeat scroll 16px center #F9F9F9;
+    border-left: 2px solid #C22439;
+}
+
+div.notification_comment {
+	background: url("img/16comment.png") no-repeat scroll 16px center #F9F9F9;
+    border-left: 2px solid #68AF27;
+}
+
+/* ============================== */
+/* FORMS */
+/* ============================== */
+div.form_block {
+	margin-bottom: 22px;
+	font-size: 1.3em;
+}
+
+div.form_block	input[type="text"],
+div.form_block	input[type="password"],
+div.form_block	textarea {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	border: 1px solid #C4C4C4;
+	border-radius: 2px;
+	color: #858585;
+	padding: 10px 8px;
+	outline:none; /* not focus border on chrome */
+	resize: none;
+}
+
+div.form_block	input[type="text"].little {
+	margin-right: 10px;
+	text-align: center;
+	width: 50px;
+	padding: 5px;
+}
+
+div.form_block		select {
+	width: 100%;
+	padding: 6px;
+}
+
+div.form_block		select.little {
+	width: 70px;
+	padding: 5px;
+	margin-right:10px;
+}
+
+div.form_block	textarea.wysiwyg {
+	height: 502px;
+	resize: vertical;
+}
+
+div.form_block		input[type="checkbox"].float {
+	vertical-align: middle;
+	margin-left: 0px;
+}
+
+div.form_block		label {
+	margin-bottom:2px;
+}
+
+div.form_block		label.for_checkbox {
+	margin-left: 3px;
+	margin-bottom: 0;
+}
+
+div.form_block		label.blocked {
+	display:block;
+}
+
+div.form_block		div.input_tip {
+	color: #777;
+	font-style: italic;
+	font-size: 0.85em;
+}
+
+div.form_block		input[type="submit"].draft,
+div.form_block		input[type="submit"].save,
+div.form_block		input[type="button"].save,
+div.form_block		input[type="button"].disabled {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+    color: #444444;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1em;
+    padding: 7px 33px;
+
+	background: #F1F1F1;
+	background: -moz-linear-gradient(center top, #F5F5F5, #F1F1F1);
+	background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#F1F1F1));
+}
+
+div.form_block		input[type="submit"].save:hover,
+div.form_block		input[type="button"].save:hover {
+	background: #E1E1E1;
+	background: -moz-linear-gradient(center top, #EFEFEF, #E1E1E1);
+	background: -webkit-gradient(linear, left top, left bottom, from(#EFEFEF), to(#E1E1E1));
+}
+
+div.form_block		input[type="button"].disabled {
+	color: #CCC;
+}
+
+div.form_block		input[type="submit"].draft {
+	margin-left:10px;
+	color: #FFFFFF;
+
+	background: #54A1E6;
+	background: -moz-linear-gradient(center top , #54A1E6, #498AC6);
+	background: -webkit-gradient(linear, left top, left bottom, from(#54A1E6), to(#498AC6));
+}
+
+div.form_block		input[type="submit"].draft:hover {
+	background: #3EACBA;
+	background: -moz-linear-gradient(center top, #498AC6, #3D74A7);
+	background: -webkit-gradient(linear, left top, left bottom, from(#498AC6), to(#3D74A7));
+}
+
+div.form_block		.uploader_button {
+    background: url("img/picture.png") no-repeat scroll 11px 3px #F0F0EE;
+    border-bottom: 1px solid #CCCCCC;
+    border-left: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    padding: 8px 16px 8px 45px;
+    float:right;
+}
+
+div.form_block		.toggle_button {
+    background: #F0F0EE;
+    border-bottom: 1px solid #CCCCCC;
+    border-left: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    padding: 8px 8px 8px 8px;
+}
+
+input[type=file].hidden {
+	height: 0px;
+	opacity: 0;
+	display: block;
+}
+
+/* ============================== */
+/* PLUGIN LIST */
+/* ============================== */
+div.plugin {
+    background-color: #F9F9F9;
+    border: 1px solid #EBEBEB;
+    border-radius: 2px 2px 2px 2px;
+    font-size: 13px;
+    margin-bottom: 15px;
+    padding: 12px;
+}
+
+div.plugin	h3.name {
+	margin: 0;
+	font-size: 1em;
+	font-weight: normal;
+	border-bottom: 1px dotted #CCCCCC;
+	padding-bottom: 2px;
+}
+
+div.plugin	h4.description {
+	margin: 8px 0;
+	font-weight: normal;
+}
+
+div.plugin	a {
+	margin-right: 15px;
+}
+
+/* ============================== */
+/* FORMS FOR PLUGINS */
+/* ============================== */
+form.plugins {
+	font-size: 1.3em;
+}
+
+form.plugins	input[type="text"],
+form.plugins	input[type="password"],
+form.plugins	textarea {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	border: 1px solid #C4C4C4;
+	border-radius: 2px;
+	color: #858585;
+	padding: 10px 8px;
+	outline:none; /* not focus border on chrome */
+	resize: none;
+	margin-bottom: 15px;
+}
+
+form.plugins	input[type="button"].save,
+form.plugins	input[type="button"].disabled {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+    color: #444444;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1em;
+    padding: 7px 33px;
+
+	background: #F1F1F1;
+	background: -moz-linear-gradient(center top, #F5F5F5, #F1F1F1);
+	background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#F1F1F1));
+}
+
+form.plugins		input[type="button"].save:hover {
+	background: #E1E1E1;
+	background: -moz-linear-gradient(center top, #EFEFEF, #E1E1E1);
+	background: -webkit-gradient(linear, left top, left bottom, from(#EFEFEF), to(#E1E1E1));
+}
+
+form.plugins		input[type="button"].disabled {
+	color: #CCCCCC;
+}
+
+form.plugins		select {
+	width: 100%;
+	padding: 6px;
+	margin-bottom: 15px;
+}
+
+form.plugins		label {
+	margin-bottom: 2px;
+	display: block;
+}
+
+/* ============================== */
+/* TABLES */
+/* ============================== */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 1.3em;
+}
+
+table thead {
+	background: #4DBFD9;
+	color: #FFFFFF;
+}
+
+table thead	th {
+	line-height: 23px;
+	padding: 6px 10px 8px;
+	vertical-align: top;
+	border-right: 1px solid #FFFFFF;
+}
+
+table tr td {
+	border-bottom: 1px solid #E7E7E7;
+	line-height: 23px;
+	padding: 6px 10px 8px;
+	vertical-align: top;
+}
+
+table td.content {
+	text-align: left;
+	width: 330px;
+}
+
+table td.category {
+	text-align: left;
+	width: 70%
+}
+
+table div.options a {
+	margin-right: 10px;
+}
+
+div.pager {
+    font-size: 1.3em;
+    text-align: left;
+    padding-top: 10px;
+}
+
+div.pager	a {
+	display: inline-block;
+	padding: 4px 8px;
+	border: 1px solid #ccc;
+	background: #F9F9F9;
+	margin: 0 5px;
+}
+
+
+/* ============================== */
+/* SIDEBAR Update*/
+/* ============================== */
+div.menu_box {
+	margin-bottom: 25px;
+	padding: 0 0 0 20px;
+}
+
+div.menu_box a {
+	text-decoration: none;
+	display: block;
+	padding: 5px 30px;
+	font-size: 1.2em;
+}
+
+div.menu_box a:hover {
+	background-color: #F5F5F5;
+}
+
+div.menu_box div.title {
+	font-weight:normal;
+	color: #333;
+    line-height: 22px;
+    padding: 0 28px;
+    font-size: 1.5em;
+}
+
+/* ============================== */
+/* ICONS
+/* ============================== */
+.icons_menu_posts_16 {
+	background: url("img/16posts.png") no-repeat 6px 3px;
+}
+
+.icons_menu_manage_16 {
+	background: url("img/16manage.png") no-repeat 6px 3px;
+}
+
+.icons_menu_settings_16 {
+	background: url("img/16settings.png") no-repeat 6px 3px;
+}
+
+.icons_menu_plugins_16 {
+	background: url("img/16plugins.png") no-repeat 6px 3px;
+}
+
+.icons_quick_simple_28 {
+	background: url("img/28simple.png") no-repeat 16px 50%;
+}
+
+.icons_quick_video_28 {
+	background: url("img/28video.png") no-repeat 16px 50%;
+}
+
+.icons_quick_quote_28 {
+	background: url("img/28quote.png") no-repeat 16px 50%;
+}
+
+.icons_quick_settings_28 {
+	background: url("img/28settings.png") no-repeat 16px 50%;
+}
+
+.icons_separator_notification_18 {
+	background: url("img/18notification.png") no-repeat;
+	padding-left: 28px !important;
+}
+
+.icons_separator_comment_18 {
+	background: url("img/18comment.png") no-repeat;
+	padding-left: 28px !important;
+}

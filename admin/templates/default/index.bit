@@ -18,68 +18,41 @@
 
 	<div id="container">
 
-		<div id="alert"></div>
+		<!-- HEAD -->
+		<div id="head">
 
-		<div id="container_head">
-			<a href="<?php echo HTML_PATH_ROOT ?>" class="home"><?php echo $_LANG['VIEW_BLOG']; ?></a>
-			<a href="<?php echo HTML_PATH_ROOT.'admin.php' ?>" class="dashboard"><?php echo $_LANG['DASHBOARD']; ?></a>
-			<a href="<?php echo HTML_PATH_ROOT.'admin.php?controller=user&amp;action=logout' ?>" class="logout"><?php echo $_LANG['LOGOUT']; ?></a>
+			<div class="buttons">
+				<a href="" class="button img_button_mrnibbler"></a>
+				<a href="" class="button img_button_dashboard button_selected"></a>
+				<a href="" class="button img_button_post"></a>
+				<a href="" class="button img_button_video"></a>
+				<a href="" class="button img_button_quote"></a>
+			</div>
+
+			<div class="title">
+				<span>Dashboard</span>
+			</div>
+
 		</div>
 
-		<div id="container_subhead">
-			<?php
-				// LAYOUT_TITLE defined on controller
-				echo '<h2 class="title">'.LAYOUT_TITLE.'</h2>';
-			?>
-		</div>
+		<!-- MAIN -->
+		<div id="main">
 
-		<div id="container_float">
-
-			<div id="container_left">
+			<div id="main_left">
 				<?php include('includes/sidebar.bit'); ?>
 			</div>
 
-			<div id="container_right">
-				<?php
-					// LAYOUT_VIEW defined on controller
-					include(PATH_ADMIN_VIEW . LAYOUT_VIEW);
-				?>
+			<div id="main_right">
+				<?php include(PATH_ADMIN_VIEW . LAYOUT_VIEW); ?>
 			</div>
 
 		</div>
 
-		<div id="container_footer">
-			<p><a href="http://nibbleblog.com">Nibbleblog v<?php echo NIBBLEBLOG_VERSION ?> "<?php echo NIBBLEBLOG_NAME ?>"</a></p>
+		<!-- FOOTER -->
+		<div id="footer">
 		</div>
 
 	</div>
-
-	<!-- Alert -->
-	<script>
-	$(document).ready(function(){
-
-		$("#alert").click(function() {
-			$(this).hide();
-		});
-
-		<?php if(Session::get_error()) { echo 'show_alert("'.Session::get_alert().'",3500);'; } ?>
-
-	});
-	</script>
-
-	<!-- Easter egg -->
-	<script>
-	$(document).ready(function(){
-		$('#container_head').dblclick(function() {
-			var html = $(this).html();
-			$(this).html("All you need is love or maybe Nibbleblog");
-			$(this).css("background","url('admin/templates/default/css/img/egg.png') no-repeat scroll 30px 50% #F9F9F9");
-			$(this).css("text-align","left");
-			$(this).css("line-height","40px");
-			$(this).css("padding-left","70px");
-		});
-	});
-	</script>
 
 </body>
 </html>

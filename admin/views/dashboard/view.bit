@@ -3,31 +3,6 @@
 // LEFT SIDE
 echo Html::div_open( array('class'=>'dashboard_left') );
 
-	// QUICK LINKS
-	echo Html::div_open( array('class'=>'dashboard_qlinks') );
-
-		echo Html::link( array( 'class'=>'item icons_quick_simple_28', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_simple', 'content'=>
-			Html::span( array('class'=>'type', 'content'=>$_LANG['SIMPLE']) ).
-			Html::span( array('class'=>'description', 'content'=>$_LANG['POSTING_WITH_RICH_FORMATTING']) )
-		));
-
-		echo Html::link( array( 'class'=>'item icons_quick_video_28', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_video', 'content'=>
-			Html::span( array('class'=>'type', 'content'=>$_LANG['VIDEO']) ).
-			Html::span( array('class'=>'description', 'content'=>$_LANG['AN_EASY_WAY_TO_PUBLISH_VIDEOS']) )
-		));
-
-		echo Html::link( array( 'class'=>'item icons_quick_quote_28', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_quote', 'content'=>
-			Html::span( array('class'=>'type', 'content'=>$_LANG['QUOTE']) ).
-			Html::span( array('class'=>'description', 'content'=>$_LANG['AN_EASY_WAY_TO_PUBLISH_QUOTES']) )
-		));
-
-		echo Html::link( array( 'class'=>'item icons_quick_settings_28', 'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=general', 'content'=>
-			Html::span( array('class'=>'type', 'content'=>$_LANG['GENERAL_SETTINGS']) ).
-			Html::span( array('class'=>'description', 'content'=>$_LANG['BASIC_CONFIGURATION_OF_YOUR_BLOG']) )
-		));
-
-	echo Html::div_close();
-
 	// LAST COMMENTS
 	echo Html::separator( array('class'=>'icons_separator_comment_18', 'content'=>$_LANG['LAST_COMMENTS']) );
 
