@@ -15,6 +15,16 @@ body {
 	width: 100%;
 }
 
+a {
+	color: #333;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
 /*====================================================================*/
 /* HEAD
 /*====================================================================*/
@@ -23,7 +33,7 @@ body {
 }
 
 #head	div.buttons {
-	margin-left: 300px;
+	margin-left: 260px;
 	height: 60px;
 	overflow: auto;
 }
@@ -42,7 +52,7 @@ body {
 	font-size: 2.3em;
 	background-color: #2db7c8;
 	color: #FFFFFF;
-	padding: 22px 0 22px 300px;
+	padding: 22px 0 22px 260px;
 }
 
 .img_button_mrnibbler {
@@ -83,38 +93,83 @@ body {
     clear: left;
     float: left;
     margin-right: 10px;
-    width: 290px;
+    width: 250px;
 }
 
 #main_right {
-    border-right: 1px solid #F1F1F1;
-    max-width: 80%;
     overflow: hidden;
-    padding-right: 30px;
+    margin: 20px 0;
 }
 
 /*====================================================================*/
 /* SIDEBAR
 /*====================================================================*/
 div.menu_box {
-	margin: 25px 0;
+	margin: 25px 0 25px 20px;
+}
+
+div.menu_box div.title {
+	font-weight:normal;
+	color: #333333;
+	line-height: 22px;
+	padding: 0 0 0 26px;
+	font-size: 1.5em;
+	background-position: left center;
+	background-repeat: no-repeat;
+	margin-bottom: 8px;
 }
 
 div.menu_box a {
 	text-decoration: none;
 	display: block;
-	padding: 5px 30px;
-	font-size: 1.2em;
+	padding: 5px 0 5px 0;
+	font-size: 1.3em;
+	color: #555555;
 }
 
 div.menu_box a:hover {
 	background-color: #F5F5F5;
 }
 
-div.menu_box div.title {
-	font-weight:normal;
-	color: #333;
-    line-height: 22px;
-    padding: 0 28px;
-    font-size: 1.5em;
+.img_side_posts {
+	background-image: url('img/side_posts.png');
+}
+
+.img_side_manager {
+	background-image: url('img/side_manager.png');
+}
+
+.img_side_settings {
+	background-image: url('img/side_settings.png');
+}
+
+.img_side_plugins {
+	background-image: url('img/side_plugins.png');
+}
+
+/*====================================================================*/
+/* DASHBOARD
+/*====================================================================*/
+div.dashboard_left {
+    float: left;
+    margin-right: 20px;
+    width: 45%;
+}
+
+div.dashboard_right {
+    float: left;
+    margin-right: 20px;
+    max-width: 100%;
+}
+
+div.dashboard_box {
+    background: #FFFFFF;
+    border: 1px solid #D8D8D8;
+    border-radius: 3px 3px 3px 3px;
+    padding: 20px;
+}
+
+div.dashboard_title {
+	font-size: 1.8em;
+	margin-bottom: 20px;
 }

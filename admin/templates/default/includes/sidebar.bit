@@ -2,7 +2,7 @@
 
 	echo Html::div_open( array('class'=>'menu_box') );
 
-		echo Html::div( array('content'=>$_LANG['POSTS'], 'class'=>'title icons_menu_posts_16') );
+		echo Html::div( array('content'=>$_LANG['POSTS'], 'class'=>'title img_side_posts') );
 
 		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_simple', 'content'=>$_LANG['SIMPLE_POST']) );
 
@@ -14,7 +14,7 @@
 
 	echo Html::div_open( array('class'=>'menu_box') );
 
-		echo Html::div( array('content'=>$_LANG['MANAGE'], 'class'=>'title icons_menu_manage_16') );
+		echo Html::div( array('content'=>$_LANG['MANAGE'], 'class'=>'title img_side_manager') );
 
 		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=list', 'content'=>$_LANG['POSTS']) );
 
@@ -26,7 +26,7 @@
 
 	echo Html::div_open( array('class'=>'menu_box') );
 
-		echo Html::div( array('content'=>$_LANG['SETTINGS'], 'class'=>'title icons_menu_settings_16') );
+		echo Html::div( array('content'=>$_LANG['SETTINGS'], 'class'=>'title img_side_settings') );
 
 		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=general', 'content'=>$_LANG['GENERAL_SETTINGS']) );
 
@@ -49,7 +49,7 @@
 	// PLUGINS
 	echo Html::div_open( array('class'=>'menu_box') );
 
-		echo Html::div( array('content'=>$_LANG['PLUGINS'], 'class'=>'title icons_menu_plugins_16') );
+		echo Html::div( array('content'=>$_LANG['PLUGINS'], 'class'=>'title img_side_plugins') );
 
 		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=list', 'content'=>$_LANG['MANAGE_PLUGINS']) );
 

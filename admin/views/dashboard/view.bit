@@ -3,8 +3,9 @@
 // LEFT SIDE
 echo Html::div_open( array('class'=>'dashboard_left') );
 
-	// LAST COMMENTS
-	echo Html::separator( array('class'=>'icons_separator_comment_18', 'content'=>$_LANG['LAST_COMMENTS']) );
+	echo Html::div_open( array('class'=>'dashboard_box') );
+
+	echo Html::div( array('class'=>'dashboard_title', 'content'=>'Last comments') );
 
 	if(empty($last_comments))
 	{
@@ -24,15 +25,16 @@ echo Html::div_open( array('class'=>'dashboard_left') );
 		}
 	}
 
+	echo Html::div_close();
+
 echo Html::div_close();
 
 // RIGHT SIDE
 echo Html::div_open( array('class'=>'dashboard_right') );
 
-	// NOTIFICATIONS
-	echo Html::div_open( array('class'=>'dashboard_notifications') );
+	echo Html::div_open( array('class'=>'dashboard_box') );
 
-		echo Html::separator( array('class'=>'icons_separator_notification_18', 'content'=>$_LANG['NOTIFICATIONS']), true);
+	echo Html::div( array('class'=>'dashboard_title', 'content'=>'Last comments') );
 
 		foreach($notifications as $notification)
 		{
