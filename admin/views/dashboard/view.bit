@@ -3,9 +3,35 @@
 // LEFT SIDE
 echo Html::div_open( array('class'=>'dashboard_left') );
 
+	// Drafts
 	echo Html::div_open( array('class'=>'dashboard_box') );
 
-	echo Html::div( array('class'=>'dashboard_title', 'content'=>'Last comments') );
+	echo Html::div( array('class'=>'dashboard_title img_dashboard_comments', 'content'=>'Drafts posts') );
+
+	if(empty($last_comments))
+	{
+		echo Html::p( array('class'=>'no_comments', 'content'=>'There are not drafts posts') );
+	}
+	else
+	{
+		foreach($last_comments as $comment)
+		{
+			$date = Date::format($comment['pub_date_unix'], LAST_COMMENT_DATE_FORMAT);
+
+			echo Html::link( array('class'=>'notification notification_last_comments', 'href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list',
+				'content'=>
+				Html::div( array('class'=>'type', 'content'=>$comment['content']) ).
+				Html::div( array('class'=>'info', 'content'=>$date.' · '.$_LANG['AUTHOR'].': '.$comment['author_name']) )
+			) );
+		}
+	}
+
+	echo Html::div_close();
+
+	// Last comments
+	echo Html::div_open( array('class'=>'dashboard_box') );
+
+	echo Html::div( array('class'=>'dashboard_title img_dashboard_comments', 'content'=>$_LANG['LAST_COMMENTS']) );
 
 	if(empty($last_comments))
 	{
@@ -32,15 +58,16 @@ echo Html::div_close();
 // RIGHT SIDE
 echo Html::div_open( array('class'=>'dashboard_right') );
 
+	// Notifications
 	echo Html::div_open( array('class'=>'dashboard_box') );
 
-	echo Html::div( array('class'=>'dashboard_title', 'content'=>'Last comments') );
+	echo Html::div( array('class'=>'dashboard_title img_dashboard_notifications', 'content'=>$_LANG['NOTIFICATIONS']) );
 
 		foreach($notifications as $notification)
 		{
 			$date = Date::format($notification['date'], NOTIFICATION_DATE_FORMAT);
 
-			echo Html::div_open( array('class'=>'notification notification_'.$notification['category']) );
+			echo Html::div_open( array('class'=>'notification img_notification_'.$notification['category']) );
 				echo Html::div( array('class'=>'type', 'content'=>$_LANG[$notification['message_key']]) );
 				echo Html::div( array('class'=>'info', 'content'=>$date.' · IP: '.$notification['ip']) );
 			echo Html::div_close();

@@ -3,7 +3,7 @@
 /*====================================================================*/
 body {
 	font-family: arial, sans-serif;
-	background-color: #F9F9F9;
+	background-color: #FFFFFF;
 	margin: 0;
 	padding: 0;
 	font-size: 62.5%;
@@ -50,7 +50,7 @@ a:hover {
 
 #head	div.title {
 	font-size: 2.3em;
-	background-color: #2db7c8;
+	background-color: #0DA4D4;
 	color: #FFFFFF;
 	padding: 22px 0 22px 260px;
 }
@@ -78,7 +78,7 @@ a:hover {
 }
 
 .button_selected {
-	background-color: #2db7c8 !important;
+	background-color: #0DA4D4 !important;
 }
 
 /*====================================================================*/
@@ -90,22 +90,29 @@ a:hover {
 }
 
 #main_left {
+    background-color: #FAFBFA;
+    border-bottom: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    border-top: 1px solid #DDDDDD;
+    border-radius: 2px;
     clear: left;
     float: left;
-    margin-right: 10px;
-    width: 250px;
+    margin-right: 30px;
+    margin-top: 30px;
+    width: 240px;
 }
 
 #main_right {
     overflow: hidden;
-    margin: 20px 0;
+    margin: 30px 30px 30px 0;
+    max-width: 1160px;
 }
 
 /*====================================================================*/
 /* SIDEBAR
 /*====================================================================*/
 div.menu_box {
-	margin: 25px 0 25px 20px;
+	margin: 25px 0 25px 25px;
 }
 
 div.menu_box div.title {
@@ -113,10 +120,10 @@ div.menu_box div.title {
 	color: #333333;
 	line-height: 22px;
 	padding: 0 0 0 26px;
-	font-size: 1.5em;
+	font-size: 1.7em;
+	margin-bottom: 8px;
 	background-position: left center;
 	background-repeat: no-repeat;
-	margin-bottom: 8px;
 }
 
 div.menu_box a {
@@ -151,25 +158,287 @@ div.menu_box a:hover {
 /* DASHBOARD
 /*====================================================================*/
 div.dashboard_left {
+    border-right: 1px solid #DDDDDD;
     float: left;
-    margin-right: 20px;
+    margin-right: 30px;
+    max-width: 550px;
+    padding-right: 50px;
     width: 45%;
 }
 
 div.dashboard_right {
     float: left;
-    margin-right: 20px;
-    max-width: 100%;
+    margin-right: 30px;
+    width: 45%;
+    max-width: 550px;
 }
 
 div.dashboard_box {
     background: #FFFFFF;
-    border: 1px solid #D8D8D8;
-    border-radius: 3px 3px 3px 3px;
+    border-bottom: 1px solid #DDDDDD;
+    margin-bottom: 20px;
     padding: 20px;
 }
 
 div.dashboard_title {
 	font-size: 1.8em;
 	margin-bottom: 20px;
+	padding-left: 32px;
+	background-position: left center;
+	background-repeat: no-repeat;
+}
+
+.img_dashboard_comments {
+	background-image: url('img/dashboard_comments.png');
+}
+
+.img_dashboard_notifications {
+	background-image: url('img/dashboard_notifications.png');
+}
+
+p.no_comments {
+	font-size: 1.2em;
+	font-style: italic;
+}
+
+div.dashboard_notifications {
+
+}
+
+div.notification,
+a.notification {
+	padding: 10px 0 10px 56px;
+	margin-bottom: 10px;
+    border-radius: 2px 2px 2px 2px;
+    display: block;
+}
+
+div.notification	div.type,
+a.notification	div.type {
+	margin-bottom: 5px;
+	font-size: 1.2em;
+}
+
+div.notification	div.info,
+a.notification	div.info {
+	margin-bottom: 5px;
+	font-size: 1.1em;
+	color: #AAAAAA;
+}
+
+.img_notification_session_start {
+	background: url("img/notification_session_start.png") no-repeat scroll 16px center #F9F9F9;
+    border-left: 4px solid #009AD7;
+}
+
+.img_notification_session_fail {
+	background: url("img/notification_session_fail.png") no-repeat scroll 16px center #F9F9F9;
+    border-left: 4px solid #ED4545;
+}
+
+.img_notification_comment {
+	background: url("img/notification_comment.png") no-repeat scroll 16px center #F9F9F9;
+    border-left: 4px solid #00B2C2;
+}
+
+/*====================================================================*/
+/* FORMS
+/*====================================================================*/
+div.form_block {
+	margin-bottom: 22px;
+	font-size: 1.3em;
+}
+
+div.form_block	input[type="text"],
+div.form_block	input[type="password"],
+div.form_block	textarea {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	border: 1px solid #C4C4C4;
+	border-radius: 2px;
+	color: #858585;
+	padding: 10px 8px;
+	outline:none; /* not focus border on chrome */
+	resize: none;
+}
+
+div.form_block	input[type="text"].little {
+	margin-right: 10px;
+	text-align: center;
+	width: 50px;
+	padding: 5px;
+}
+
+div.form_block		select {
+	width: 100%;
+	padding: 6px;
+}
+
+div.form_block		select.little {
+	width: 70px;
+	padding: 5px;
+	margin-right:10px;
+}
+
+div.form_block	textarea.wysiwyg {
+	height: 502px;
+	resize: vertical;
+}
+
+div.form_block		input[type="checkbox"].float {
+	vertical-align: middle;
+	margin-left: 0px;
+}
+
+div.form_block		label {
+	margin-bottom:2px;
+}
+
+div.form_block		label.for_checkbox {
+	margin-left: 3px;
+	margin-bottom: 0;
+}
+
+div.form_block		label.blocked {
+	display:block;
+}
+
+div.form_block		div.input_tip {
+	color: #777;
+	font-style: italic;
+	font-size: 0.85em;
+}
+
+div.form_block		input[type="submit"].draft,
+div.form_block		input[type="submit"].save,
+div.form_block		input[type="button"].save,
+div.form_block		input[type="button"].disabled {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+    color: #444444;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1em;
+    padding: 7px 33px;
+
+	background: #F1F1F1;
+	background: -moz-linear-gradient(center top, #F5F5F5, #F1F1F1);
+	background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#F1F1F1));
+}
+
+div.form_block		input[type="submit"].save:hover,
+div.form_block		input[type="button"].save:hover {
+	background: #E1E1E1;
+	background: -moz-linear-gradient(center top, #EFEFEF, #E1E1E1);
+	background: -webkit-gradient(linear, left top, left bottom, from(#EFEFEF), to(#E1E1E1));
+}
+
+div.form_block		input[type="button"].disabled {
+	color: #CCC;
+}
+
+div.form_block		input[type="submit"].draft {
+	margin-left:10px;
+	color: #FFFFFF;
+
+	background: #54A1E6;
+	background: -moz-linear-gradient(center top , #54A1E6, #498AC6);
+	background: -webkit-gradient(linear, left top, left bottom, from(#54A1E6), to(#498AC6));
+}
+
+div.form_block		input[type="submit"].draft:hover {
+	background: #3EACBA;
+	background: -moz-linear-gradient(center top, #498AC6, #3D74A7);
+	background: -webkit-gradient(linear, left top, left bottom, from(#498AC6), to(#3D74A7));
+}
+
+div.form_block		.uploader_button {
+    background: url("img/picture.png") no-repeat scroll 11px 3px #F0F0EE;
+    border-bottom: 1px solid #CCCCCC;
+    border-left: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    padding: 8px 16px 8px 45px;
+    float:right;
+}
+
+div.form_block		.toggle_button {
+    background: #F0F0EE;
+    border-bottom: 1px solid #CCCCCC;
+    border-left: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    padding: 8px 8px 8px 8px;
+}
+
+input[type=file].hidden {
+	height: 0px;
+	opacity: 0;
+	display: block;
+}
+
+/*====================================================================*/
+/* TABLES
+/*====================================================================*/
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 1.3em;
+}
+
+table thead {
+	background: #4DBFD9;
+	color: #FFFFFF;
+}
+
+table thead	th {
+	line-height: 23px;
+	padding: 6px 10px 8px;
+	vertical-align: top;
+	border-right: 1px solid #FFFFFF;
+}
+
+table tr td {
+	border-bottom: 1px solid #E7E7E7;
+	line-height: 23px;
+	padding: 6px 10px 8px;
+	vertical-align: top;
+}
+
+table td.content {
+	text-align: left;
+	width: 330px;
+}
+
+table td.category {
+	text-align: left;
+	width: 70%
+}
+
+table div.options a {
+	margin-right: 10px;
+}
+
+div.pager {
+    font-size: 1.3em;
+    text-align: left;
+    padding-top: 10px;
+}
+
+div.pager	a {
+	display: inline-block;
+	padding: 4px 8px;
+	border: 1px solid #ccc;
+	background: #F9F9F9;
+	margin: 0 5px;
 }
