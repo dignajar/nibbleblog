@@ -29,7 +29,7 @@ echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') )
 			echo Html::div( array('content'=>$_LANG['ADVANCED_OPTIONS_WHEN_PUBLISHING_CONTENT'], 'class'=>'input_tip') );
 		echo Html::div_close();
 
-	echo Html::separator( array('content'=>$_LANG['ADVANCED_SETTINGS']), true);
+	echo Html::separator( array('content'=>$_LANG['ADVANCED_SETTINGS']) );
 
 		// POSTS PER PAGE
 		echo Html::div_open( array('class'=>'form_block') );

@@ -7,7 +7,7 @@
  *
 
  * Return
- * (string) $current_path
+ * (boolean) $session_started
 */
 // =====================================================================
 //	SESSIONS
@@ -76,5 +76,10 @@
 	define('FILE_XML_USERS',		PATH_PRIVATE . 'users.xml');
 	define('FILE_SHADOW',			PATH_PRIVATE . 'shadow.php');
 	define('FILE_KEYS',				PATH_PRIVATE . 'keys.php');
+
+// =====================================================================
+//	CLEANING
+// =====================================================================
+	unset($current_path);
 
 ?>

@@ -10,17 +10,13 @@
 */
 
 if(!isset($Login))
-{
 	exit('Nibbleblog security error');
-}
 
 if( !$Login->is_logued() )
 {
 	// Called from AJAX ?
 	if( basename(getcwd()) == 'ajax' )
-	{
-		exit();
-	}
+		exit('Nibbleblog security error');
 
 	// Redirect to login form
 	Redirect::controller('admin','user','login');

@@ -25,6 +25,25 @@ a:hover {
 	text-decoration: underline;
 }
 
+header.separator {
+	border-bottom: 1px solid #DDDDDD;
+	margin: 40px 0 20px 0;
+}
+
+header.separator_top {
+	border-bottom: 1px solid #DDDDDD;
+	margin: 0px 0 20px 0;
+}
+
+div.separator {
+	border-bottom: 4px solid #DDDDDD;
+	color: #4C4C4C;
+	font-size: 1.9em;
+	font-weight: normal;
+	line-height: 20px;
+	padding: 0 0 10px;
+	display: inline-block;
+}
 /*====================================================================*/
 /* HEAD
 /*====================================================================*/
@@ -441,4 +460,94 @@ div.pager	a {
 	border: 1px solid #ccc;
 	background: #F9F9F9;
 	margin: 0 5px;
+}
+
+
+/*====================================================================*/
+/* PLUGINS
+/*====================================================================*/
+div.plugin {
+    background-color: #FAFBFA;
+    border: 1px solid #EBEBEB;
+    border-radius: 2px 2px 2px 2px;
+    font-size: 13px;
+    margin-bottom: 15px;
+    padding: 12px;
+}
+
+div.plugin	h3.name {
+	margin: 0;
+	font-size: 1em;
+	font-weight: normal;
+	border-bottom: 1px dotted #CCCCCC;
+	padding-bottom: 2px;
+}
+
+div.plugin	h4.description {
+	margin: 8px 0;
+	font-weight: normal;
+}
+
+div.plugin	a {
+	margin-right: 15px;
+}
+
+/*====================================================================*/
+/* PLUGINS: FORMS
+/*====================================================================*/
+form.plugins {
+	font-size: 1.3em;
+}
+
+form.plugins	input[type="text"],
+form.plugins	input[type="password"],
+form.plugins	textarea {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	border: 1px solid #C4C4C4;
+	border-radius: 2px;
+	color: #858585;
+	padding: 10px 8px;
+	outline:none; /* not focus border on chrome */
+	resize: none;
+	margin-bottom: 15px;
+}
+
+form.plugins	input[type="button"].save,
+form.plugins	input[type="button"].disabled {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+    color: #444444;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1em;
+    padding: 7px 33px;
+
+	background: #F1F1F1;
+	background: -moz-linear-gradient(center top, #F5F5F5, #F1F1F1);
+	background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#F1F1F1));
+}
+
+form.plugins		input[type="button"].save:hover {
+	background: #E1E1E1;
+	background: -moz-linear-gradient(center top, #EFEFEF, #E1E1E1);
+	background: -webkit-gradient(linear, left top, left bottom, from(#EFEFEF), to(#E1E1E1));
+}
+
+form.plugins		input[type="button"].disabled {
+	color: #CCCCCC;
+}
+
+form.plugins		select {
+	width: 100%;
+	padding: 6px;
+	margin-bottom: 15px;
+}
+
+form.plugins		label {
+	margin-bottom: 2px;
+	display: block;
 }

@@ -30,7 +30,7 @@
 			</div>
 
 			<div class="title">
-				<span>Dashboard</span>
+				<span><?php echo LAYOUT_TITLE; ?></span>
 			</div>
 
 		</div>
