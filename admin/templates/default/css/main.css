@@ -16,7 +16,7 @@ body {
 }
 
 a {
-	color: #333;
+	color: #258AAF;
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -118,6 +118,7 @@ div.separator {
     float: left;
     margin-right: 30px;
     margin-top: 30px;
+    margin-bottom: 30px;
     width: 240px;
 }
 
@@ -181,7 +182,7 @@ div.dashboard_left {
     float: left;
     margin-right: 30px;
     max-width: 550px;
-    padding-right: 50px;
+    padding-right: 30px;
     width: 45%;
 }
 
@@ -196,7 +197,7 @@ div.dashboard_box {
     background: #FFFFFF;
     border-bottom: 1px solid #DDDDDD;
     margin-bottom: 20px;
-    padding: 20px;
+    padding-bottom: 20px;
 }
 
 div.dashboard_title {
@@ -477,7 +478,7 @@ div.plugin {
 
 div.plugin	h3.name {
 	margin: 0;
-	font-size: 1em;
+	font-size: 1.1em;
 	font-weight: normal;
 	border-bottom: 1px dotted #CCCCCC;
 	padding-bottom: 2px;

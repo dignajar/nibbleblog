@@ -22,11 +22,36 @@
 		<div id="head">
 
 			<div class="buttons">
-				<a href="" class="button img_button_mrnibbler"></a>
-				<a href="" class="button img_button_dashboard button_selected"></a>
-				<a href="" class="button img_button_post"></a>
-				<a href="" class="button img_button_video"></a>
-				<a href="" class="button img_button_quote"></a>
+				<?php
+					$buttons[0]['href']='';
+					$buttons[0]['class']='button img_button_mrnibbler';
+
+					$buttons[1]['href']=HTML_PATH_ROOT.'admin.php?controller=dashboard&amp;action=view';
+					$buttons[1]['class']='button img_button_dashboard';
+
+					$buttons[2]['href']=HTML_PATH_ROOT.'admin.php?controller=post&action=new_simple';
+					$buttons[2]['class']='button img_button_post';
+
+					$buttons[3]['href']=HTML_PATH_ROOT.'admin.php?controller=post&action=new_video';
+					$buttons[3]['class']='button img_button_video';
+
+					$buttons[4]['href']=HTML_PATH_ROOT.'admin.php?controller=post&action=new_quote';
+					$buttons[4]['class']='button img_button_quote';
+
+					if($url['controller']=='post' && $url['action']=='new_simple')
+						$buttons[2]['class'] .= ' button_selected';
+					elseif($url['controller']=='post' && $url['action']=='new_video')
+						$buttons[3]['class'] .= ' button_selected';
+					elseif($url['controller']=='post' && $url['action']=='new_quote')
+						$buttons[4]['class'] .= ' button_selected';
+					elseif($url['controller']!='dashboard')
+						$buttons[0]['class'] .= ' button_selected';
+					else
+						$buttons[1]['class'] .= ' button_selected';
+
+					foreach($buttons as $button)
+						echo '<a href="'.$button['href'].'" class="'.$button['class'].'"></a>';
+				?>
 			</div>
 
 			<div class="title">
