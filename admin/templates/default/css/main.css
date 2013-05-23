@@ -206,6 +206,7 @@ div.dashboard_title {
 	padding-left: 32px;
 	background-position: left center;
 	background-repeat: no-repeat;
+	line-height: 22px;
 }
 
 .img_dashboard_comments {
@@ -233,6 +234,15 @@ div.dashboard_box	a.draft {
     display: block;
     background: #F9F9F9;
 	font-size: 1.5em;
+	color: #333;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+div.dashboard_box	a.draft:hover {
+	text-decoration: none;
+	background: #F4F4F4;
 }
 
 /* Last comments */
@@ -242,6 +252,15 @@ div.dashboard_box	a.last_comments {
     border-radius: 2px 2px 2px 2px;
     display: block;
     background: #F9F9F9;
+    color: #333;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+div.dashboard_box	a.last_comments:hover {
+	text-decoration: none;
+	background: #F4F4F4;
 }
 
 div.dashboard_box	a.last_comments	div.content {
