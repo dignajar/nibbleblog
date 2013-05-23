@@ -35,7 +35,9 @@ class Validation {
 	// Valid an integer positive
 	public static function sanitize_int($value)
 	{
-		if(is_int($value) && $value>=0)
+		$value = (int)$value;
+
+		if($value>=0)
 			return $value;
 		else
 			return 0;

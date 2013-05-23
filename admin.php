@@ -79,6 +79,7 @@ else
 	define('LAYOUT_TEMPLATE',	'login/index.bit');
 }
 
+
 require(PATH_ADMIN_CONTROLLER .	LAYOUT_CONTROLLER);
 require(PATH_ADMIN_TEMPLATES  .	LAYOUT_TEMPLATE);
 

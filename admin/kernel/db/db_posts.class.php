@@ -249,6 +249,19 @@ class DB_POSTS {
 			return(array());
 		}
 
+		public function get_drafts($args)
+		{
+			// Set list of posts drafts
+			$this->set_files_by_draft();
+
+			if($this->files_count > 0)
+			{
+				return( $this->get_list_by($args['page'], $args['amount']) );
+			}
+
+			return(array());
+		}
+
 		public function get_list_by_category($args)
 		{
 			// Set list of posts by category
@@ -342,6 +355,13 @@ class DB_POSTS {
 		private function set_files_by_published()
 		{
 			$this->files = Filesystem::ls(PATH_POSTS, '*.*.*.NULL.*.*.*.*.*.*', 'xml', false, false, true);
+			$this->files_count = count( $this->files );
+		}
+
+		// Get all files, only drafts
+		private function set_files_by_draft()
+		{
+			$this->files = Filesystem::ls(PATH_POSTS, '*.*.*.draft.*.*.*.*.*.*', 'xml', false, false, true);
 			$this->files_count = count( $this->files );
 		}
 

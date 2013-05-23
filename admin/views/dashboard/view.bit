@@ -6,23 +6,17 @@ echo Html::div_open( array('class'=>'dashboard_left') );
 	// Drafts
 	echo Html::div_open( array('class'=>'dashboard_box') );
 
-	echo Html::div( array('class'=>'dashboard_title img_dashboard_comments', 'content'=>'Drafts posts') );
+	echo Html::div( array('class'=>'dashboard_title img_dashboard_drafts', 'content'=>'Drafts posts') );
 
-	if(empty($last_comments))
+	if(empty($drafts))
 	{
-		echo Html::p( array('class'=>'no_comments', 'content'=>'There are not drafts posts') );
+		echo Html::p( array('class'=>'empty', 'content'=>'There are not drafts posts') );
 	}
 	else
 	{
-		foreach($last_comments as $comment)
+		foreach($drafts as $post)
 		{
-			$date = Date::format($comment['pub_date_unix'], LAST_COMMENT_DATE_FORMAT);
-
-			echo Html::link( array('class'=>'notification notification_last_comments', 'href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list',
-				'content'=>
-				Html::div( array('class'=>'type', 'content'=>$comment['content']) ).
-				Html::div( array('class'=>'info', 'content'=>$date.' · '.$_LANG['AUTHOR'].': '.$comment['author_name']) )
-			) );
+			echo Html::link( array('class'=>'draft', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&action=edit_simple&id_post='.$post['id'], 'content'=>empty($post['title'])?'['.$_LANG['NO_TITLE'].']':$post['title']) );
 		}
 	}
 
@@ -35,7 +29,7 @@ echo Html::div_open( array('class'=>'dashboard_left') );
 
 	if(empty($last_comments))
 	{
-		echo Html::p( array('class'=>'no_comments', 'content'=>$_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS']) );
+		echo Html::p( array('class'=>'empty', 'content'=>$_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS']) );
 	}
 	else
 	{
@@ -43,9 +37,9 @@ echo Html::div_open( array('class'=>'dashboard_left') );
 		{
 			$date = Date::format($comment['pub_date_unix'], LAST_COMMENT_DATE_FORMAT);
 
-			echo Html::link( array('class'=>'notification notification_last_comments', 'href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list',
+			echo Html::link( array('class'=>'last_comments', 'href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list',
 				'content'=>
-				Html::div( array('class'=>'type', 'content'=>$comment['content']) ).
+				Html::div( array('class'=>'content', 'content'=>$comment['content']) ).
 				Html::div( array('class'=>'info', 'content'=>$date.' · '.$_LANG['AUTHOR'].': '.$comment['author_name']) )
 			) );
 		}

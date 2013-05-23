@@ -216,31 +216,59 @@ div.dashboard_title {
 	background-image: url('img/dashboard_notifications.png');
 }
 
-p.no_comments {
+.img_dashboard_drafts {
+	background-image: url('img/dashboard_drafts.png');
+}
+
+p.empty {
 	font-size: 1.2em;
 	font-style: italic;
 }
 
-div.dashboard_notifications {
-
+/* Drafts */
+div.dashboard_box	a.draft {
+	padding: 15px 15px;
+	margin-bottom: 10px;
+    border-radius: 2px 2px 2px 2px;
+    display: block;
+    background: #F9F9F9;
+	font-size: 1.5em;
 }
 
-div.notification,
-a.notification {
+/* Last comments */
+div.dashboard_box	a.last_comments {
+	padding: 15px;
+	margin-bottom: 10px;
+    border-radius: 2px 2px 2px 2px;
+    display: block;
+    background: #F9F9F9;
+}
+
+div.dashboard_box	a.last_comments	div.content {
+	margin-bottom: 5px;
+	font-size: 1.2em;
+}
+
+div.dashboard_box	a.last_comments	div.info {
+	margin-bottom: 5px;
+	font-size: 1.1em;
+	color: #AAAAAA;
+}
+
+/* Notifications */
+div.notification {
 	padding: 10px 0 10px 56px;
 	margin-bottom: 10px;
     border-radius: 2px 2px 2px 2px;
     display: block;
 }
 
-div.notification	div.type,
-a.notification	div.type {
+div.notification	div.type {
 	margin-bottom: 5px;
 	font-size: 1.2em;
 }
 
-div.notification	div.info,
-a.notification	div.info {
+div.notification	div.info {
 	margin-bottom: 5px;
 	font-size: 1.1em;
 	color: #AAAAAA;

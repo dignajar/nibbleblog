@@ -12,4 +12,6 @@
 
 	$notifications = $_DB_NOTIFICATIONS->get_all();
 
+	$drafts = $_DB_POST->get_drafts(array('page'=>0, 'amount'=>5));
+
 ?>
