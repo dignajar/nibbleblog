@@ -1,0 +1,12 @@
+<?php
+
+	// Changing the default title
+	$layout['title'] = $post['title'];
+
+	// Changing the default description
+	$layout['description'] = $post['description'];
+
+	// Changing the default keywrods
+	$layout['keywords'] = implode(',',$post['tags']);
+
+?>

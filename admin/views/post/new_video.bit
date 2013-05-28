@@ -22,17 +22,22 @@
 			// CONTENT
 			include('includes/content.bit');
 
-			// DESCRIPTION
-			include('includes/description.bit');
-
-			// SLUG URL
-			include('includes/slug.bit');
+			// ALLOW COMMENTS
+			include('includes/allow_comments.bit');
 
 			// CATEGORIES
 			include('includes/categories.bit');
 
-			// ALLOW COMMENTS
-			include('includes/allow_comments.bit');
+			echo Html::separator( array('content'=>$_LANG['SEO_OPTIONS']), false, !$settings['advanced_post_options']);
+
+			// DESCRIPTION
+			include('includes/description.bit');
+
+			// TAGS
+			include('includes/tags.bit');
+
+			// SLUG URL
+			include('includes/slug.bit');
 
 			// BUTTONS
 			include('includes/buttons.bit');

@@ -2,7 +2,7 @@
 
 if(empty($post_list))
 {
-	echo Html::p( array('class'=>'no_comments', 'content'=>$_LANG['THERE_ARE_NO_POSTS']) );
+	echo Html::p( array('class'=>'empty', 'content'=>$_LANG['THERE_ARE_NO_POSTS']) );
 }
 else
 {
