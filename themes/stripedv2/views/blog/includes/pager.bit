@@ -1,12 +1,21 @@
-<div class="pager">
-	<!--<a href="#" class="button previous">Previous Page</a>-->
-	<div class="pages">
-		<a href="#" class="active">1</a>
-		<a href="#">2</a>
-		<a href="#">3</a>
-		<a href="#">4</a>
-		<span>&hellip;</span>
-		<a href="#">20</a>
-	</div>
-	<a href="#" class="button next">Next Page</a>
-</div>
+<?php
+
+	echo '<div class="pager">';
+	echo '<div class="pages">';
+
+		if($pager['show_newer'])
+		{
+			echo '<a href="'.$pager['href_newer'].'" class="button next">'.$_LANG['NEWER_POSTS'].'</a>';
+		}
+
+		echo '<a class="home" href="'.HTML_PATH_ROOT.'">Home</a>';
+
+		if($pager['show_older'])
+		{
+			echo '<a href="'.$pager['href_older'].'" class="button previous">'.$_LANG['OLDER_POSTS'].'</a>';
+		}
+
+	echo '</div>';
+	echo '</div>';
+
+?>
