@@ -8,6 +8,17 @@
 		// CONTENT
 		include('includes/content.bit');
 
+		// ALLOW COMMENTS
+		include('includes/allow_comments.bit');
+
+		// CATEGORIES
+		include('includes/categories.bit');
+
+		// PUBLISH DATE
+		include('includes/publish_date.bit');
+
+		echo Html::separator( array('content'=>$_LANG['SEO_OPTIONS']), false, !$settings['advanced_post_options']);
+
 		// DESCRIPTION
 		include('includes/description.bit');
 
@@ -16,15 +27,6 @@
 
 		// SLUG URL
 		include('includes/slug.bit');
-
-		// PUBLISH DATE
-		include('includes/publish_date.bit');
-
-		// CATEGORIES
-		include('includes/categories.bit');
-
-		// ALLOW COMMENTS
-		include('includes/allow_comments.bit');
 
 		// BUTTONS
 		include('includes/buttons.bit');

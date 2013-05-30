@@ -53,6 +53,7 @@ div.separator {
 
 #head	div.buttons {
 	margin-left: 260px;
+	margin-right:50px;
 	height: 60px;
 	overflow: auto;
 }
@@ -65,6 +66,15 @@ div.separator {
 	background-color: #e6e6e6;
 	background-position: center center;
 	background-repeat: no-repeat;
+}
+
+#head	div.buttons		a.button_r {
+	float: right;
+	display: block;
+	line-height: 60px;
+	margin-left: 20px;
+	font-size: 1.3em;
+	color: #333;
 }
 
 #head	div.title {
@@ -423,7 +433,7 @@ div.form_block		input[type="submit"].draft:hover {
 }
 
 div.form_block		.uploader_button {
-    background: url("img/picture.png") no-repeat scroll 11px 3px #F0F0EE;
+    background: url("img/picture.png") no-repeat scroll 14px 6px #F0F0EE;
     border-bottom: 1px solid #CCCCCC;
     border-left: 1px solid #CCCCCC;
     border-right: 1px solid #CCCCCC;

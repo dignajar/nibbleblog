@@ -51,6 +51,9 @@
 
 					foreach($buttons as $button)
 						echo '<a href="'.$button['href'].'" class="'.$button['class'].'"></a>';
+
+					echo '<a href="'.HTML_PATH_ROOT.'admin.php?controller=user&amp;action=logout" class="button_r">'.$_LANG['LOGOUT'].'</a>';
+					echo '<a href="'.HTML_PATH_ROOT.'" class="button_r">'.$_LANG['VIEW_BLOG'].'</a>';
 				?>
 			</div>
 

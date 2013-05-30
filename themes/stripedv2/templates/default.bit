@@ -92,41 +92,11 @@
 							}
 						?>
 
-
-						<!-- Recent Posts -->
-							<section class="is-recent-posts">
-								<header>
-									<h2>Recent Posts</h2>
-								</header>
-								<ul>
-									<li><a href="#">Nothing happened</a></li>
-									<li><a href="#">My Dearest Cthulhu</a></li>
-									<li><a href="#">The Meme Meme</a></li>
-									<li><a href="#">Now Full Cyborg</a></li>
-									<li><a href="#">Temporal Flux</a></li>
-								</ul>
-							</section>
-
-						<!-- Recent Comments -->
-							<section class="is-recent-comments">
-								<header>
-									<h2>Recent Comments</h2>
-								</header>
-								<ul>
-									<li>case on <a href="#">Now Full Cyborg</a></li>
-									<li>molly on <a href="#">Untitled Post</a></li>
-									<li>case on <a href="#">Temporal Flux</a></li>
-								</ul>
-							</section>
-
-
 						<!-- Copyright -->
 							<div id="copyright">
-								<p>
-									&copy; 2013 An Untitled Site.<br />
-									Images: <a href="http://n33.co">n33</a>, <a href="http://fotogrph.com">fotogrph</a>, <a href="http://iconify.it">Iconify.it</a>
-									Design: <a href="http://html5up.net/">HTML5 UP</a>
-								</p>
+							<p>
+								<a href="<?php echo $layout['feed'] ?>">Atom</a> · <?php echo $settings['footer'] ?>
+							</p>
 							</div>
 
 					</div>
