@@ -49,6 +49,9 @@
 	</noscript>
 	<!--[if lte IE 9]><link rel="stylesheet" href="<?php echo HTML_THEME_CSS.'ie9.css' ?>" /><![endif]-->
 
+	<!-- FitVids -->
+	<script src="<?php echo HTML_THEME_JS.'jquery.fitvids.min.js' ?>"></script>
+
 	<!-- ATOM Feed 2.0 -->
 	<link rel="alternate" type="application/atom+xml" title="ATOM Feed" href="<?php echo $layout['feed'] ?>" />
 
@@ -102,6 +105,13 @@
 					</div>
 
 			</div>
+
+	<!-- FitVids -->
+	<script>
+	$(document).ready(function(){
+		$("p.fitvids").fitVids();
+	});
+	</script>
 
 	</body>
 </html>

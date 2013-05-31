@@ -1,23 +1,26 @@
-<?php
+<!-- Post -->
+<article class="is-post is-post-excerpt">
+	<header>
+		<h2><a href="<?php echo $post['permalink'] ?>"><?php echo $post['title'] ?></a></h2>
+		<?php
+			if(!empty($post['description']))
+				echo '<span class="byline">'.$post['description'].'</span>';
+		?>
+	</header>
+	<div class="info">
+		<?php
+			$month = Date::format($post['pub_date_unix'], '%b');
+			$day = Date::format($post['pub_date_unix'], '%d');
+			$year = Date::format($post['pub_date_unix'], '%Y');
+			echo '<span class="date"><span class="month">'.$month.'</span> <span class="day">'.$day.'</span><span class="year">, '.$year.'</span></span>';
+		?>
 
-// ========== POST HEADER ==========
-	echo '<header class="post">';
+		<ul class="stats">
+			<li><a href="<?php echo $post['permalink'].'#comment_form' ?>" class="link-icon24 link-icon24-1"><?php echo count($post['comments']) ?></a></li>
+		</ul>
+	</div>
 
-		// print publish date
-		echo '<div class="date">'.$post['pub_date'].'</div>';
-
-		// share
-		echo '<div class="share">';
-			echo '<a class="twitter" target="_blank" href="https://twitter.com/share?url='.(urlencode($settings['url'].$post['permalink'])).'">'.$_LANG['SHARE'].'</a>';
-		echo '</div>';
-
-		// print title if this is not empty
-		if( !empty($post['title']) )
-			echo '<h1 class="title">'.$post['title'].'</h1>';
-
-	echo '</header>';
-
-// ========== POST CONTENT ==========
+	<?php
 	// Quote post
 	if($post['type']=='quote')
 	{
@@ -36,7 +39,8 @@
 		}
 
 		// Video and Simple post
-		echo $post['content'][0];
+		echo $post['content'][1];
 	}
+	?>
 
-?>
+</article>
