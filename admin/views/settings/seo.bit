@@ -22,7 +22,7 @@ echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') )
 		echo Html::div_open( array('class'=>'form_block') );
 			echo Html::label( array('content'=>$_LANG['KEYWORDS'], 'class'=>'blocked') );
 			echo Html::input( array('id'=>'js_seo_keywords', 'name'=>'seo_keywords', 'type'=>'text', 'value'=>$settings['seo_keywords']) );
-			echo Html::div( array('content'=>$_LANG['KEYWORDS_SEPARATED_BY_COMMA'], 'class'=>'input_tip') );
+			echo Html::div( array('content'=>$_LANG['TAGS_SEPARATED_BY_COMMA'], 'class'=>'input_tip') );
 		echo Html::div_close();
 
 		// AUTHOR

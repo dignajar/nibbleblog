@@ -167,7 +167,8 @@ $_LANG['HEIGHT'] = 'Height';
 $_LANG['OPTION'] = 'Option';
 $_LANG['THIS_OPTION_AUTOMATICALLY_CHANGES_THE_IMAGE'] = 'This option automatically changes the image size after uploading.';
 $_LANG['ENABLE_THIS_OPTION_IF_YOU_WANT_TO_GENERATE'] = 'Enable this option if you want to generate a thumbnail when uploading an image.';
-$_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS'] = 'There are no published comments';
+$_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS'] = 'There are no published comments.';
+$_LANG['THERE_ARE_NO_DRAFTS_POSTS'] = 'There are no drafts posts.';
 $_LANG['AUTOMATIC'] = 'Automatic';
 $_LANG['EXACT'] = 'Exact';
 $_LANG['PORTRAIT'] = 'Portrait';
@@ -200,7 +201,7 @@ $_LANG['ENABLE_THIS_FEATURE_TO_DELETE_SPAM_AUTO'] = 'Enable this feature to dele
 $_LANG['COMMENTS_DETECTED_AS_SPAM_WILL_BE_FILTERED'] = 'Comments detected as spam will be filtered.';
 $_LANG['NOTIFY_WHEN_A_USER_MAKES_A_COMMENT'] = 'Notify when a user makes a comment.';
 $_LANG['NOTIFY_WHEN_A_USER_FAILS_TO_LOGIN'] = 'Notify when a user fails to login.';
-$_LANG['NOTIFY_WHEN_A_USER_SUCCESSES_LOGIN'] = 'Notify when a user successes login';
+$_LANG['NOTIFY_WHEN_A_USER_SUCCESSES_LOGIN'] = 'Notify when a user successes login.';
 $_LANG['NOTIFICATIONS_WILL_BE_SENT_TO_THIS_EMAIL'] = 'Notifications will be sent to this email.';
 $_LANG['NOTIFICATIONS_WILL_BE_SENT_FROM_THIS_EMAIL'] = 'Notifications will be sent from this email.';
 $_LANG['EMAIL_ACCOUNTS_SETTINGS'] = 'Email accounts settings';
@@ -235,13 +236,13 @@ $_LANG['SLUG'] = 'Slug';
 $_LANG['SITE'] = 'Site';
 $_LANG['SITE_TITLE'] = 'Site title';
 $_LANG['SITE_DESCRIPTION'] = 'Site description';
-$_LANG['KEYWORDS'] = 'Keywords';
-$_LANG['KEYWORDS_SEPARATED_BY_COMMA'] = 'keywords separated by comma';
+$_LANG['TAGS_SEPARATED_BY_COMMA'] = 'Tags separated by comma.';
 $_LANG['ROBOTS'] = 'Robots';
 $_LANG['WEBMASTER_TOOLS'] = 'Webmaster tools';
 $_LANG['GOOGLE_WEBMASTER_TOOLS'] = 'Google Webmaster tools - Verification code';
 $_LANG['BING_WEBMASTER_TOOLS'] = 'Bing Webmaster tools - Verification code';
 $_LANG['SEO_OPTIONS'] = 'SEO Options';
 $_LANG['SHARE'] = 'Share';
+
 
 ?>

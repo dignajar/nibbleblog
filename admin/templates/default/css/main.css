@@ -44,6 +44,20 @@ div.separator {
 	padding: 0 0 10px;
 	display: inline-block;
 }
+
+#alert {
+    background-color: #0DA4D4;
+    color: #FFFFFF;
+    display: block;
+    font-size: 1.3em;
+    padding: 16px 0;
+    position: fixed;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+	display: none;
+}
+
 /*====================================================================*/
 /* HEAD
 /*====================================================================*/
@@ -86,24 +100,27 @@ div.separator {
 
 .img_button_mrnibbler {
 	background-image: url('img/button_mrnibbler.png');
-}
-
-.img_button_post {
-	background-image: url('img/button_post.png');
+	background-color: #E9E9E9 !important;
 }
 
 .img_button_dashboard {
 	background-image: url('img/button_dashboard.png');
+	background-color: #3890B7 !important;
+}
+
+.img_button_post {
+	background-image: url('img/button_post.png');
+	background-color: #A9B3B7 !important;
 }
 
 .img_button_video {
 	background-image: url('img/button_video.png');
-	background-color: #cccccc !important;
+	background-color: #A9B3B7 !important;
 }
 
 .img_button_quote {
 	background-image: url('img/button_quote.png');
-	background-color: #b3b3b3 !important;
+	background-color: #A9B3B7 !important;
 }
 
 .button_selected {
@@ -341,6 +358,14 @@ div.form_block	textarea {
 	resize: none;
 }
 
+div.form_block	input[type="text"]:hover,
+div.form_block	input[type="text"]:focus,
+div.form_block	textarea:hover,
+div.form_block	textarea:focus {
+	border-color: #4EAFE3;
+	box-shadow: 0px 1px 1px #4EAFE3;
+}
+
 div.form_block	input[type="text"].little {
 	margin-right: 10px;
 	text-align: center;
@@ -386,6 +411,7 @@ div.form_block		div.input_tip {
 	color: #777;
 	font-style: italic;
 	font-size: 0.85em;
+	margin-top: 2px;
 }
 
 div.form_block		input[type="submit"].draft,
@@ -571,6 +597,16 @@ form.plugins	textarea {
 	outline:none; /* not focus border on chrome */
 	resize: none;
 	margin-bottom: 15px;
+}
+
+form.plugins	input[type="text"]:hover,
+form.plugins	input[type="text"]:focus,
+form.plugins	input[type="password"]:hover,
+form.plugins	input[type="password"]:focus,
+form.plugins	textarea:hover,
+form.plugins	textarea:focus {
+	border-color: #4EAFE3;
+	box-shadow: 0px 1px 1px #4EAFE3;
 }
 
 form.plugins	input[type="button"].save,

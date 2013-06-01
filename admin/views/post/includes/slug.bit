@@ -3,8 +3,8 @@
 
 	echo Html::div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
 		echo Html::label( array('class'=>'blocked', 'content'=>$_LANG['PERMALINK']) );
-		echo Html::span( array('id'=>'js_slug_example', 'content'=>'') );
 		echo Html::input( array('id'=>'js_slug', 'name'=>'slug', 'type'=>'text', 'value'=>$value, 'autocomplete'=>'off') );
+		echo Html::div( array('id'=>'js_slug_example', 'content'=>'', 'class'=>'input_tip') );
 	echo Html::div_close();
 ?>
 

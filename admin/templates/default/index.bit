@@ -18,6 +18,8 @@
 
 	<div id="container">
 
+		<div id="alert">Mr Nibbler is Cool!</div>
+
 		<!-- HEAD -->
 		<div id="head">
 
@@ -81,6 +83,19 @@
 		</div>
 
 	</div>
+
+	<!-- Alert -->
+	<script>
+	$(document).ready(function(){
+
+		$("#alert").click(function() {
+			$(this).hide();
+		});
+
+		<?php if(Session::get_error()) { echo 'show_alert("'.Session::get_alert().'",3500);'; } ?>
+
+	});
+	</script>
 
 </body>
 </html>
