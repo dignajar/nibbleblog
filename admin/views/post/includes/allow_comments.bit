@@ -4,6 +4,6 @@
 	echo Html::div_open( array('class'=>'form_block') );
 		echo Html::checkbox( array('id'=>'js_allow_comments', 'name'=>'allow_comments', 'class'=>'float'), $value );
 		echo Html::label( array('class'=>'for_checkbox', 'content'=>$_LANG['ALLOW_COMMENTS'], 'for'=>'js_allow_comments') );
-		echo Html::div( array('class'=>'input_tip', 'content'=>$_LANG['ALLOW_YOUR_USERS_TO_COMMENT_YOUR_PUBLICATIONS']) );
+		echo Html::div( array('class'=>'input_tip', 'content'=>$_LANG['ALLOW_COMMENTS_ON_THIS_POST']) );
 	echo Html::div_close();
 ?>

@@ -76,11 +76,11 @@ $_LANG['VIEW'] = 'View';
 $_LANG['EDIT'] = 'Edit';
 $_LANG['TIMESTAMP_FORMAT'] = 'Time stamp format';
 $_LANG['SELECT_A_TIMEZONE_FOR_A_CORRECT_DATE_VISUALIZATION'] = 'Select a timezone for a correct date visualization.';
-$_LANG['ABSOLUT_URL_ADDRESS_OF_YOUR_BLOG'] = 'Absolute URL address of your blog. For example http://www.domain.com/blog';
+$_LANG['ABSOLUT_URL_ADDRESS_OF_YOUR_BLOG'] = 'Absolute URL address of your blog. Example http://www.domain.com/blog';
 $_LANG['ABSOLUT_ADDRESS_THAT_CONTAINS_THE_BLOGS_FILE_SYSTEM'] = 'Absolute address that contains the blog\'s file system, if you upload the content of Nibbleblog to your root you should only put a "/", and if you upload it into another directory then it should be "/directory".';
 $_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_PER_PAGE'] = 'Amount of posts that you wish to see per page.';
 $_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_ON_RSS'] = 'Amount of posts that you wish to see on RSS.';
-$_LANG['ADVANCED_OPTIONS_WHEN_PUBLISHING_CONTENT'] = 'Advanced options when publishing content. For example: Ability to allow or disallow the publication of comments, category selection, etc.';
+$_LANG['ADVANCED_OPTIONS_WHEN_PUBLISHING_CONTENT'] = 'Advanced options when publishing content.';
 $_LANG['ADMINISTRATORS_USERNAME'] = 'Administrator\'s username.';
 $_LANG['DO_NOT_FORGET_THIS_PASSWORD'] = 'Do not forget this password.';
 $_LANG['NEW_SESSION_STARTED'] = 'New session started';
@@ -243,6 +243,7 @@ $_LANG['GOOGLE_WEBMASTER_TOOLS'] = 'Google Webmaster tools - Verification code';
 $_LANG['BING_WEBMASTER_TOOLS'] = 'Bing Webmaster tools - Verification code';
 $_LANG['SEO_OPTIONS'] = 'SEO Options';
 $_LANG['SHARE'] = 'Share';
-
+$_LANG['ALLOW_COMMENTS_ON_THIS_POST'] = 'Allow comments on this post.';
+$_LANG['MULTIPLE_DIRECTIVES_MAY_BE_COMBINED_IN'] = 'Multiple directives may be combined in a comma-separated. Example: nofollow, noindex, noarchive.';
 
 ?>

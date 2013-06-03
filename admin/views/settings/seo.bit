@@ -20,7 +20,7 @@ echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') )
 
 		// KEYWORDS
 		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::label( array('content'=>$_LANG['KEYWORDS'], 'class'=>'blocked') );
+			echo Html::label( array('content'=>$_LANG['KEYWORDS'].' / '.$_LANG['TAGS'], 'class'=>'blocked') );
 			echo Html::input( array('id'=>'js_seo_keywords', 'name'=>'seo_keywords', 'type'=>'text', 'value'=>$settings['seo_keywords']) );
 			echo Html::div( array('content'=>$_LANG['TAGS_SEPARATED_BY_COMMA'], 'class'=>'input_tip') );
 		echo Html::div_close();
@@ -35,7 +35,7 @@ echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') )
 		echo Html::div_open( array('class'=>'form_block') );
 			echo Html::label( array('content'=>$_LANG['ROBOTS'], 'class'=>'blocked') );
 			echo Html::input( array('id'=>'js_seo_robots', 'name'=>'seo_robots', 'type'=>'text', 'value'=>$settings['seo_robots']) );
-			echo Html::div( array('content'=>'Robots separated by comma. Example: nofollow, noindex, noarchive', 'class'=>'input_tip') );
+			echo Html::div( array('content'=>$_LANG['MULTIPLE_DIRECTIVES_MAY_BE_COMBINED_IN'], 'class'=>'input_tip') );
 		echo Html::div_close();
 
 	// Webmaster tools
