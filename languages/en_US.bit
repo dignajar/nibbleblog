@@ -168,7 +168,7 @@ $_LANG['OPTION'] = 'Option';
 $_LANG['THIS_OPTION_AUTOMATICALLY_CHANGES_THE_IMAGE'] = 'This option automatically changes the image size after uploading.';
 $_LANG['ENABLE_THIS_OPTION_IF_YOU_WANT_TO_GENERATE'] = 'Enable this option if you want to generate a thumbnail when uploading an image.';
 $_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS'] = 'There are no published comments.';
-$_LANG['THERE_ARE_NO_DRAFTS_POSTS'] = 'There are no drafts posts.';
+$_LANG['THERE_ARE_NO_DRAFT_POSTS'] = 'There are no draft posts.';
 $_LANG['AUTOMATIC'] = 'Automatic';
 $_LANG['EXACT'] = 'Exact';
 $_LANG['PORTRAIT'] = 'Portrait';
@@ -245,5 +245,6 @@ $_LANG['SEO_OPTIONS'] = 'SEO Options';
 $_LANG['SHARE'] = 'Share';
 $_LANG['ALLOW_COMMENTS_ON_THIS_POST'] = 'Allow comments on this post.';
 $_LANG['MULTIPLE_DIRECTIVES_MAY_BE_COMBINED_IN'] = 'Multiple directives may be combined in a comma-separated. Example: nofollow, noindex, noarchive.';
+$_LANG['DRAFT_POSTS'] = 'Draft posts';
 
 ?>

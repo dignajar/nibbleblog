@@ -6,7 +6,7 @@ echo Html::div_open( array('class'=>'dashboard_left') );
 	// Drafts
 	echo Html::div_open( array('class'=>'dashboard_box') );
 
-	echo Html::div( array('class'=>'dashboard_title img_dashboard_drafts', 'content'=>'Drafts posts') );
+	echo Html::div( array('class'=>'dashboard_title img_dashboard_drafts', 'content'=>$_LANG['DRAFT_POSTS']) );
 
 	if(empty($drafts))
 	{
