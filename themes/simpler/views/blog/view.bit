@@ -1,16 +1,22 @@
 <?php
 
-// Posts
+// Variable $posts has all post for the page
 foreach($posts as $post)
 {
-	echo '<article class="is-post is-post-excerpt">';
+	echo '<article class="post">';
 
 		include('includes/post_view.bit');
 
 	echo '</article>';
 }
 
-// Pager
+// Include the pager
 include('includes/pager.bit');
+
+// Include Disqus
+if( !empty($theme['disqus_account']) )
+{
+	include('includes/disqus.bit');
+}
 
 ?>

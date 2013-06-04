@@ -66,9 +66,11 @@
 		<!-- MAIN -->
 		<section id="main">
 
-			<!-- SIDEBAR -->
-			<section id="sidebar">
-				<?php
+			<?php
+				if(!empty($plugins))
+				{
+					echo '<section id="sidebar">';
+
 					foreach($plugins as $plugin)
 					{
 						if($plugin->display())
@@ -79,11 +81,12 @@
 							echo '</div>';
 						}
 					}
-				?>
-			</section>
 
-			<!-- MAIN -->
-			<section id="left">
+					echo '</section>';
+				}
+			?>
+
+			<section <?php if(!empty($plugins)) echo 'id=left' ?> >
 				<?php
 					include(THEME_VIEWS . $layout['view']);
 				?>

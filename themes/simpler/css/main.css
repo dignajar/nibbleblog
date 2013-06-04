@@ -133,7 +133,6 @@ article.post	header.post		div.date {
 article.post	header.post		h1.title {
 	font-size: 2em;
 	margin: 0;
-	color: #333;
 }
 
 article.post	header.post		h1.title	a {
@@ -223,18 +222,6 @@ article.post	footer.post		span {
 article.post	footer.post		a {
 	font-weight: normal;
 }
-
-article.post	footer.post		div.tags {
-	margin-bottom: 4px;
-}
-
-article.post	footer.post		div.tags	a {
-	margin: 0 4px;
-	background: #f1f1f1;
-	padding: 0 5px;
-	border-radius: 3px;
-}
-
 
 /* ============================== */
 /* SOCIAL */
