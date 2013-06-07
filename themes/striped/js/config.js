@@ -5,7 +5,7 @@
 */
 
 window._skel_config = {
-	prefix: 'css/style',
+	prefix: 'themes/stripedv2/css/style',
 	resetCSS: true,
 	useOrientation: true,
 	breakpoints: {
@@ -41,14 +41,14 @@ window._skel_ui_config = {
 			position: 'left',
 			style: 'reveal',
 			size: '250px',
-			html: '<div data-action="moveElement" data-target="sidebar"></div>'			
+			html: '<div data-action="moveElement" data-target="sidebar"></div>'
 		},
 		sidePanelNarrower: {
 			breakpoints: 'narrower',
 			position: 'left',
 			style: 'reveal',
 			size: '300px',
-			html: '<div data-action="moveElement" data-target="sidebar"></div>'			
+			html: '<div data-action="moveElement" data-target="sidebar"></div>'
 		}
 	},
 	bars: {

@@ -1,22 +1,24 @@
 <?php
 
-// Variable $posts has all post for the page
+// Show posts
 foreach($posts as $post)
 {
-	echo '<article class="post">';
-
-		include('includes/post_view.bit');
-
-	echo '</article>';
+	include('includes/post_view.bit');
 }
 
-// Include the pager
+// If there are no posts
+if(empty($posts))
+{
+	echo '<p>'.$_LANG['THERE_ARE_NO_POSTS'].'</p>';
+}
+
+// Pager
 include('includes/pager.bit');
 
 // Include Disqus
 if( !empty($theme['disqus_account']) )
 {
-	include('includes/disqus.bit');
+include('includes/disqus.bit');
 }
 
 ?>

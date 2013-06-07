@@ -1,5 +1,7 @@
 <?php
 
+echo '<article class="post">';
+
 // ========== POST HEADER ==========
 	echo '<header class="post">';
 
@@ -49,7 +51,7 @@
 				echo '<span>Tags:</span>';
 				echo '<span>';
 					foreach($post['tags'] as $tag)
-						echo '<a href="'.Url::tag($tag, $settings['friendly_urls']).'">'.$tag.'</a>';
+						echo '<a class="tag" href="'.Url::tag($tag, $settings['friendly_urls']).'">'.$tag.'</a>';
 				echo '</span>';
 			echo '</div>';
 		}
@@ -81,5 +83,7 @@
 		}
 
 	echo '</footer>';
+
+echo '</article>';
 
 ?>

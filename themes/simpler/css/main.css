@@ -223,6 +223,18 @@ article.post	footer.post		a {
 	font-weight: normal;
 }
 
+article.post	footer.post		div.tags {
+	margin-bottom: 3px;
+}
+
+article.post	footer.post		a.tag {
+	background: #F1F1F1;
+	padding: 0 6px;
+	margin-right: 5px;
+	border-radius: 2px;
+	color: #333;
+}
+
 /* ============================== */
 /* SOCIAL */
 /* ============================== */

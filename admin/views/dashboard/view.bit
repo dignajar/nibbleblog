@@ -10,7 +10,7 @@ echo Html::div_open( array('class'=>'dashboard_left') );
 
 	if(empty($drafts))
 	{
-		echo Html::p( array('class'=>'empty', 'content'=>$_LANG['THERE_ARE_NO_DRAFTS_POSTS']) );
+		echo Html::p( array('class'=>'empty', 'content'=>$_LANG['THERE_ARE_NO_DRAFT_POSTS']) );
 	}
 	else
 	{
