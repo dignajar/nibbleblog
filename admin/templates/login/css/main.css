@@ -18,7 +18,7 @@ body {
 	margin: 130px auto 0;
 	padding: 50px;
 	max-width: 400px;
-	box-shadow: 0 0 4px rgba(0, 0, 0, 0.08);
+	box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.08);
 }
 
 footer {
@@ -66,16 +66,28 @@ div.form_block {
 input[type="text"],
 input[type="password"],
 textarea {
-    color: #858585;
-    font-size: 15px;
-    padding: 8px 0px;
-    width: 100%;
-    background: transparent;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
     border-bottom: 1px solid #ccc;
     border-top:0;
     border-right:0;
     border-left:0;
-    outline:none; /* not focus border on chrome */
+	border-radius: 2px;
+	color: #858585;
+	padding: 10px 8px 10px 35px;
+	outline:none; /* not focus border on chrome */
+	resize: none;
+	font-size: 1.5em;
+}
+
+input[type="text"].username {
+	background: url('img/user.png') no-repeat 8px center;
+}
+
+input[type="password"].password {
+	background: url('img/password.png') no-repeat 8px center;
 }
 
 input[type="checkbox"].float {

@@ -6,7 +6,7 @@
 
 	$plugin = $plugins_all['PLUGIN_'.strtoupper($url['plugin'])];
 
-	// If the plugin is not installed, install
+	// If the plugin is not installed, install it
 	if ( !$plugin->is_installed() )
 	{
 		$plugin->install();

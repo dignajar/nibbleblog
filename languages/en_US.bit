@@ -246,5 +246,6 @@ $_LANG['SHARE'] = 'Share';
 $_LANG['ALLOW_COMMENTS_ON_THIS_POST'] = 'Allow comments on this post.';
 $_LANG['MULTIPLE_DIRECTIVES_MAY_BE_COMBINED_IN'] = 'Multiple directives may be combined in a comma-separated. Example: nofollow, noindex, noarchive.';
 $_LANG['DRAFT_POSTS'] = 'Draft posts';
+$_LANG['POSITION'] = 'Position';
 
 ?>

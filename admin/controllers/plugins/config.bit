@@ -3,7 +3,36 @@
 // ============================================================================
 //	POST
 // ============================================================================
+if( $_SERVER['REQUEST_METHOD'] == 'POST' )
+{
+	$plugin = $plugins_all['PLUGIN_'.strtoupper($_POST['plugin'])];
 
+	if( $plugin->init_db() )
+	{
+		// upload files
+		foreach($_FILES as $field_name=>$file)
+		{
+			$extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+			$destination = PATH_PLUGINS_DB.$plugin->get_dir_name();
+			$complete = $destination.'/'.$field_name.'.'.$extension;
+
+			// Upload file and move
+			move_uploaded_file($file["tmp_name"], $complete);
+
+			// Resize images
+			if(isset($_POST[$field_name.'_resize']))
+			{
+				$Resize->setImage($complete, 200, 200, 'auto');
+				$Resize->saveImage($complete, 100);
+			}
+		}
+
+		unset($_POST['plugin']);
+
+		// update fields
+		$plugin->set_fields_db($_POST);
+	}
+}
 // ============================================================================
 //	VARIABLES
 // ============================================================================

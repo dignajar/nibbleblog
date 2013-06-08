@@ -1,23 +1,23 @@
 <?php
 
-	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
-		// USERNAME
-		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::input( array('name'=>'username', 'type'=>'text', 'placeholder'=>$_LANG['USERNAME'], 'autocomplete'=>'off', 'maxlength'=>'254') );
-		echo Html::div_close();
+	// USERNAME
+	echo Html::div_open( array('class'=>'form_block') );
+		echo Html::input( array('class'=>'username', 'name'=>'username', 'type'=>'text', 'placeholder'=>$_LANG['USERNAME'], 'autocomplete'=>'off', 'maxlength'=>'254') );
+	echo Html::div_close();
 
-		// PASSWORD
-		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::input( array('name'=>'password', 'type'=>'password', 'placeholder'=>$_LANG['PASSWORD'], 'autocomplete'=>'off', 'maxlength'=>'254') );
-		echo Html::div_close();
+	// PASSWORD
+	echo Html::div_open( array('class'=>'form_block') );
+		echo Html::input( array('class'=>'password', 'name'=>'password', 'type'=>'password', 'placeholder'=>$_LANG['PASSWORD'], 'autocomplete'=>'off', 'maxlength'=>'254') );
+	echo Html::div_close();
 
-		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::checkbox( array('id'=>'js_remember','name'=>'remember', 'class'=>'float') );
-			echo Html::label( array('content'=>$_LANG['REMEMBER_ME'], 'class'=>'for_checkbox remember', 'for'=>'js_remember') );
-			echo Html::input( array('type'=>'submit', 'class'=>'save', 'value'=>$_LANG['LOGIN']) );
-		echo Html::div_close();
+	echo Html::div_open( array('class'=>'form_block') );
+		echo Html::checkbox( array('id'=>'js_remember','name'=>'remember', 'class'=>'float') );
+		echo Html::label( array('content'=>$_LANG['REMEMBER_ME'], 'class'=>'for_checkbox remember', 'for'=>'js_remember') );
+		echo Html::input( array('type'=>'submit', 'class'=>'save', 'value'=>$_LANG['LOGIN']) );
+	echo Html::div_close();
 
-	echo Html::form_close();
+echo Html::form_close();
 
 ?>

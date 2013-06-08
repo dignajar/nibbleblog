@@ -30,19 +30,15 @@ class PLUGIN_ABOUT extends Plugin
 		$html .= Html::label( array('content'=>$this->language('ABOUT')) );
 		$html .= Html::textarea( array('name'=>'about', 'content'=>$this->get_field_db('about')) );
 
-		$html .= Html::label( array('content'=>$this->language('GRAVATAR_EMAIL')) );
-		$html .= Html::input( array('name'=>'email', 'type'=>'text', 'value'=>$this->get_field_db('email')) );
-
-		$html .= Html::label( array('content'=>$this->language('GRAVATAR_SIZE')) );
-		$html .= Html::input( array('name'=>'size', 'type'=>'text', 'value'=>$this->get_field_db('size')) );
+		$html .= Html::label( array('content'=>'Image') );
+		$html .= Html::input( array('name'=>'profile_picture', 'type'=>'file') );
+		$html .= Html::input( array('name'=>'profile_picture_resize', 'type'=>'hidden', 'value'=>'1') );
 
 		return($html);
 	}
 
 	public function get_html()
 	{
-		$src = Image::get_gravatar($this->get_field_db('email'), $this->get_field_db('size'));
-
 		$html  = '<ul>';
 		$html .= '<li class="image"><img class="plugin_about" alt="'.$this->get_field_db('name').'" src="'.$src.'" /></li>';
 		$html .= '<li class="name">'.$this->get_field_db('name').'</li>';

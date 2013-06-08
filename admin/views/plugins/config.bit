@@ -1,27 +1,19 @@
 <?php
 
-	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post', 'class'=>'plugins') );
+	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post', 'enctype'=>'multipart/form-data', 'class'=>'plugins') );
 
 		echo Html::input( array('name'=>'plugin', 'type'=>'hidden', 'value'=>$url['plugin']) );
 
-		echo Html::label( array('content'=>'Title') );
+		echo Html::label( array('content'=>$_LANG['TITLE']) );
 		echo Html::input( array('name'=>'title', 'type'=>'text', 'value'=>$plugin->get_field_db('title')) );
 
-		echo Html::label( array('content'=>'Position') );
+		echo Html::label( array('content'=>$_LANG['POSITION']) );
 		echo Html::select( array('name'=>'position'), $positions_html, $plugin->get_field_db('position'));
 
 		echo $html;
 
-		echo Html::input( array('id'=>'js_button_save', 'type'=>'button', 'class'=>'disabled', 'value'=>$_LANG['SAVE_CHANGES']) );
+		echo Html::input( array('class'=>'save', 'type'=>'submit', 'value'=>$_LANG['SAVE_CHANGES']) );
 
 	echo Html::form_close();
 
-?>
-
-<?php
-//======================================================================
-// AUTO-SAVE FORM
-//======================================================================
-	$javascript = array('url'=>HTML_PATH_ADMIN_AJAX.'plugins.php');
-	include(PATH_ADMIN_JS.'ajax_form.bit');
 ?>

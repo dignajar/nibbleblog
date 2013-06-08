@@ -7,7 +7,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-size: 62.5%;
-	color: #333333;
+	color: #555;
 	overflow-y: scroll;
 }
 
@@ -80,6 +80,7 @@ div.separator {
 	background-color: #e6e6e6;
 	background-position: center center;
 	background-repeat: no-repeat;
+	border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 #head	div.buttons		a.button_r {
@@ -93,9 +94,10 @@ div.separator {
 
 #head	div.title {
 	font-size: 2.3em;
-	background-color: #0DA4D4;
+	background-color: #5FB1D9;
 	color: #FFFFFF;
 	padding: 22px 0 22px 260px;
+	border-bottom: 2px solid #DDDDDD;
 }
 
 .img_button_mrnibbler {
@@ -124,7 +126,7 @@ div.separator {
 }
 
 .button_selected {
-	background-color: #0DA4D4 !important;
+	background-color: #5FB1D9 !important;
 }
 
 /*====================================================================*/
@@ -234,6 +236,7 @@ div.dashboard_title {
 	background-position: left center;
 	background-repeat: no-repeat;
 	line-height: 22px;
+	color: #555;
 }
 
 .img_dashboard_comments {
@@ -609,7 +612,22 @@ form.plugins	textarea:focus {
 	box-shadow: 0px 1px 1px #4EAFE3;
 }
 
+form.plugins	input[type="file"] {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	border: 1px solid #C4C4C4;
+	border-radius: 2px;
+	color: #858585;
+	padding: 10px 8px;
+	outline:none; /* not focus border on chrome */
+	resize: none;
+	margin-bottom: 15px;
+}
+
 form.plugins	input[type="button"].save,
+form.plugins	input[type="submit"].save,
 form.plugins	input[type="button"].disabled {
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 2px 2px 2px 2px;
@@ -625,7 +643,8 @@ form.plugins	input[type="button"].disabled {
 	background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#F1F1F1));
 }
 
-form.plugins		input[type="button"].save:hover {
+form.plugins		input[type="button"].save:hover,
+form.plugins		input[type="submit"].save:hover {
 	background: #E1E1E1;
 	background: -moz-linear-gradient(center top, #EFEFEF, #E1E1E1);
 	background: -webkit-gradient(linear, left top, left bottom, from(#EFEFEF), to(#E1E1E1));
