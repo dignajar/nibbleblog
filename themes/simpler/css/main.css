@@ -19,18 +19,18 @@ body {
     min-width: 600px;
     overflow: auto;
     padding: 20px;
-	border: 1px solid #F1F1F1;
+	border: 1px solid #E4E4E4;
 	background-color: #FFFFFF;
 }
 
 a {
-	color: #327CCB;
+	color: #006AC8;
 	cursor: pointer;
 	text-decoration: none;
 }
 
 a:hover {
-	color: #00A1CB;
+	text-decoration: underline;
 }
 
 /* ============================== */
@@ -41,6 +41,8 @@ a:hover {
 	margin: 10px 0 30px 0;
 	font-size: 3.6em;
 	font-weight: lighter;
+	border-bottom: 1px solid #F1F1F1;
+	padding-bottom: 20px;
 }
 
 #head	a.name {
@@ -49,7 +51,7 @@ a:hover {
 }
 
 #head	span.slogan {
-	color: #327CCB;
+	color: #006AC8;
 }
 
 /* ============================== */
@@ -140,7 +142,8 @@ article.post	header.post		h1.title	a {
 }
 
 article.post	header.post		h1.title	a:hover {
-	color: #00A1CB;
+	color: #006AC8;
+	text-decoration: none;
 }
 
 /* ========== POST CONTENT ========== */
@@ -367,6 +370,7 @@ div.plugin_box	h3.title {
 	font-weight: normal;
 	padding: 4px 0;
 	text-transform: uppercase;
+	margin: 0 0 10px 0;
 }
 
 /* ============================== */

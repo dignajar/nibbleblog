@@ -2,7 +2,7 @@
 
 	$theme = array
 	(
-		'name'=>'Striped v2',
+		'name'=>'Striped',
 		'description'=>'',
 		'author'=>'Diego Najar',
 		'version'=>'3.5',
