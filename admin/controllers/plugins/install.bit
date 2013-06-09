@@ -9,9 +9,8 @@
 	// If the plugin is not installed, install it
 	if ( !$plugin->is_installed() )
 	{
-		$plugin->install();
-
-		Redirect::controller('admin','plugins','config',array('plugin'=>$url['plugin']));
+		if($plugin->install())
+			Redirect::controller('admin','plugins','config',array('plugin'=>$url['plugin']));
 	}
 
 	Redirect::controller('admin','plugins','list');

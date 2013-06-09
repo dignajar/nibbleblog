@@ -664,3 +664,11 @@ form.plugins		label {
 	margin-bottom: 2px;
 	display: block;
 }
+
+form.plugins		div.tip {
+    color: #777777;
+    font-size: 0.85em;
+    font-style: italic;
+    margin-bottom: 15px;
+    margin-top: -13px;
+}

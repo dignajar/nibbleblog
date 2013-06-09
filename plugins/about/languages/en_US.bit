@@ -2,11 +2,11 @@
 
 $_PLUGIN_CONFIG['LANG'] = array(
 	'NAME'=>'About',
-	'DESCRIPTION'=>'Write a brief description about your blog or you, also can show your Gravatar. For use Gravatar account required at gravatar.com.',
+	'DESCRIPTION'=>'Write a brief description about your blog or you.',
 	'FULL_NAME'=>'Full name',
 	'ABOUT'=>'About',
-	'GRAVATAR_EMAIL'=>'Gravatar E-mail',
-	'GRAVATAR_SIZE'=>'Gravatar size'
+	'PICTURE'=>'Picture',
+	'SUPPORT_JPG_AND_PNG_IMAGES'=>'Support JPG and PNG images. The image will be resized to 200x200px.'
 );
 
 ?>

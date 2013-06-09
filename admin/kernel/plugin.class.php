@@ -75,12 +75,14 @@ class Plugin {
 
 	public function uninstall()
 	{
-		if( unlink( PATH_PLUGINS_DB.$this->dir_name.'/db.xml' ) )
-		{
-			return( rmdir( PATH_PLUGINS_DB.$this->dir_name ) );
-		}
+		$path = PATH_PLUGINS_DB.$this->dir_name;
 
-		return(false);
+		$files = Filesystem::ls($path.'/', '*', '*');
+
+		foreach($files as $file)
+			unlink($path.'/'.$file);
+
+		return rmdir($path);
 	}
 
 	public function is_installed()

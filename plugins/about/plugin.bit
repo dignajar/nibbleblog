@@ -30,17 +30,29 @@ class PLUGIN_ABOUT extends Plugin
 		$html .= Html::label( array('content'=>$this->language('ABOUT')) );
 		$html .= Html::textarea( array('name'=>'about', 'content'=>$this->get_field_db('about')) );
 
-		$html .= Html::label( array('content'=>'Image') );
+		$html .= Html::label( array('content'=>$this->language('PICTURE')) );
 		$html .= Html::input( array('name'=>'profile_picture', 'type'=>'file') );
 		$html .= Html::input( array('name'=>'profile_picture_resize', 'type'=>'hidden', 'value'=>'1') );
+		$html .= Html::input( array('name'=>'profile_picture_width', 'type'=>'hidden', 'value'=>'200') );
+		$html .= Html::input( array('name'=>'profile_picture_height', 'type'=>'hidden', 'value'=>'200') );
+		$html .= Html::input( array('name'=>'profile_picture_option', 'type'=>'hidden', 'value'=>'auto') );
+		$html .= Html::div( array('class'=>'tip', 'content'=>$this->language('SUPPORT_JPG_AND_PNG_IMAGES')) );
 
 		return($html);
 	}
 
 	public function get_html()
 	{
+		// Picture
+		$destination = PATH_PLUGINS_DB.$this->get_dir_name();
+
+		if(file_exists($destination.'/profile_picture.jpg'))
+			$src = $destination.'/profile_picture.jpg';
+		elseif(file_exists($destination.'/profile_picture.png'))
+			$src = $destination.'/profile_picture.png';
+
 		$html  = '<ul>';
-		$html .= '<li class="image"><img class="plugin_about" alt="'.$this->get_field_db('name').'" src="'.$src.'" /></li>';
+		if(isset($src)) $html .= '<li class="image"><img class="plugin_about" alt="'.$this->get_field_db('name').'" src="'.$src.'" /></li>';
 		$html .= '<li class="name">'.$this->get_field_db('name').'</li>';
 		$html .= '<li class="about">'.$this->get_field_db('about').'</li>';
 		$html .= '</ul>';

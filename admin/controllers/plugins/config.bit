@@ -17,13 +17,18 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 			$complete = $destination.'/'.$field_name.'.'.$extension;
 
 			// Upload file and move
-			move_uploaded_file($file["tmp_name"], $complete);
-
-			// Resize images
-			if(isset($_POST[$field_name.'_resize']))
+			if(move_uploaded_file($file["tmp_name"], $complete))
 			{
-				$Resize->setImage($complete, 200, 200, 'auto');
-				$Resize->saveImage($complete, 100);
+				// Resize images
+				if(isset($_POST[$field_name.'_resize']))
+				{
+					$width = isset($_POST[$field_name.'_width'])?$_POST[$field_name.'_width']:200;
+					$height = isset($_POST[$field_name.'_height'])?$_POST[$field_name.'_height']:200;
+					$option = isset($_POST[$field_name.'_option'])?$_POST[$field_name.'_option']:'auto';
+
+					$Resize->setImage($complete, $width, $height, $option);
+					$Resize->saveImage($complete, 100);
+				}
 			}
 		}
 
@@ -31,6 +36,8 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 
 		// update fields
 		$plugin->set_fields_db($_POST);
+
+		Session::set_alert($_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY']);
 	}
 }
 // ============================================================================

@@ -13,8 +13,8 @@ class Filesystem {
 
 	// Devuelve un arreglo con el listado de archivos
 	// $path con una barra al final, ej: /home/
-	// $ext : xml
 	// $file_expression : *.0.*.*.*.*.*.*.*.*
+	// $ext : xml
 	// $flag_dir : si quiero listar directorios
 	// $sort_asc_numeric : ordeno ascedente numerico
 	// $sort_desc_numeric : ordeno descendente numerico

@@ -51,7 +51,7 @@
 		include(PATH_PLUGINS.$dir_name.'/languages/en_US.bit');
 		$plugins_all[$class]->set_slug_name($_PLUGIN_CONFIG['LANG']['NAME']);
 
-		// If the plugin installed
+		// If the plugin is installed
 		if($plugins_all[$class]->init_db())
 		{
 			$position = $plugins_all[$class]->get_field_db('position');
