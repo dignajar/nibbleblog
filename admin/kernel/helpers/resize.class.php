@@ -26,54 +26,59 @@ class Resize {
 		$this->width  = imagesx($this->image);
 		$this->height = imagesy($this->image);
 
-		//
 		$this->resizeImage($newWidth, $newHeight, $option);
 	}
 
-	public function saveImage($savePath, $imageQuality="100")
+	public function saveImage($savePath, $imageQuality="100", $force_jpg=false)
 	{
-		// *** Get extension
-		$extension = strrchr($savePath, '.');
-		$extension = strtolower($extension);
+		$extension = strtolower(pathinfo($savePath, PATHINFO_EXTENSION));
 
-		switch($extension)
+		// Remove the extension
+		$filename = substr($savePath, 0,strrpos($savePath,'.'));
+
+		$path_complete = $filename.'.'.$extension;
+
+		if($force_jpg)
 		{
-			case '.jpg':
-			case '.jpeg':
-				if (imagetypes() & IMG_JPG) {
-					imagejpeg($this->imageResized, $savePath, $imageQuality);
-				}
-				break;
+			imagejpeg($this->imageResized, $filename.'.jpg', $imageQuality);
+		}
+		else
+		{
+			switch($extension)
+			{
+				case 'jpg':
+				case 'jpeg':
+					if (imagetypes() & IMG_JPG) {
+						imagejpeg($this->imageResized, $path_complete, $imageQuality);
+					}
+					break;
 
-			case '.gif':
-				if (imagetypes() & IMG_GIF) {
-					imagegif($this->imageResized, $savePath);
-				}
-				break;
+				case 'gif':
+					if (imagetypes() & IMG_GIF) {
+						imagegif($this->imageResized, $path_complete);
+					}
+					break;
 
-			case '.png':
-				// *** Scale quality from 0-100 to 0-9
-				$scaleQuality = round(($imageQuality/100) * 9);
+				case 'png':
+					// *** Scale quality from 0-100 to 0-9
+					$scaleQuality = round(($imageQuality/100) * 9);
 
-				// *** Invert quality setting as 0 is best, not 9
-				$invertScaleQuality = 9 - $scaleQuality;
+					// *** Invert quality setting as 0 is best, not 9
+					$invertScaleQuality = 9 - $scaleQuality;
 
-				if (imagetypes() & IMG_PNG) {
-					 imagepng($this->imageResized, $savePath, $invertScaleQuality);
-				}
-				break;
+					if (imagetypes() & IMG_PNG) {
+						 imagepng($this->imageResized, $path_complete, $invertScaleQuality);
+					}
+					break;
 
-			// ... etc
-
-			default:
-				// *** No extension - No save.
-				break;
+				default:
+					// *** No extension - No save.
+					break;
+			}
 		}
 
 		imagedestroy($this->imageResized);
 	}
-
-	## --------------------------------------------------------
 
 	private function openImage($file)
 	{
@@ -99,8 +104,6 @@ class Resize {
 		return $img;
 	}
 
-	## --------------------------------------------------------
-
 	private function resizeImage($newWidth, $newHeight, $option)
 	{
 		// *** Get optimal width and height - based on $option
@@ -120,8 +123,6 @@ class Resize {
 			$this->crop($optimalWidth, $optimalHeight, $newWidth, $newHeight);
 		}
 	}
-
-	## --------------------------------------------------------
 
 	private function getDimensions($newWidth, $newHeight, $option)
 	{
@@ -159,8 +160,6 @@ class Resize {
 
 		return array('optimalWidth' => $optimalWidth, 'optimalHeight' => $optimalHeight);
 	}
-
-	## --------------------------------------------------------
 
 	private function getSizeByFixedHeight($newHeight)
 	{
@@ -209,8 +208,6 @@ class Resize {
 		return array('optimalWidth' => $optimalWidth, 'optimalHeight' => $optimalHeight);
 	}
 
-	## --------------------------------------------------------
-
 	private function getOptimalCrop($newWidth, $newHeight)
 	{
 
@@ -228,8 +225,6 @@ class Resize {
 
 		return array('optimalWidth' => $optimalWidth, 'optimalHeight' => $optimalHeight);
 	}
-
-	## --------------------------------------------------------
 
 	private function crop($optimalWidth, $optimalHeight, $newWidth, $newHeight)
 	{

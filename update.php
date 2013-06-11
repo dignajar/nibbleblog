@@ -129,11 +129,11 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 		<section id="configuration">
 			<?php
 
-				function set_if_not($obj, $name, $value)
+				function add_if_not($obj, $name, $value)
 				{
 					if(!$obj->is_set($name))
 					{
-						$obj->setChild($name, $value);
+						$obj->addChild($name, $value);
 					}
 				}
 
@@ -184,32 +184,34 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 
 				// config.xml
 				$obj = new NBXML(FILE_XML_CONFIG, 0, TRUE, '', FALSE);
-				set_if_not($obj,'notification_comments',0);
-				set_if_not($obj,'notification_session_fail',0);
-				set_if_not($obj,'notification_session_start',0);
-				set_if_not($obj,'notification_email_to','');
-				set_if_not($obj,'notification_email_from','noreply@'.$blog_domain);
+				add_if_not($obj,'notification_comments',0);
+				add_if_not($obj,'notification_session_fail',0);
+				add_if_not($obj,'notification_session_start',0);
+				add_if_not($obj,'notification_email_to','');
+				add_if_not($obj,'notification_email_from','noreply@'.$blog_domain);
 
 				// SEO Options
-				set_if_not($obj,'seo_site_title','');
-				set_if_not($obj,'seo_site_description','');
-				set_if_not($obj,'seo_keywords','');
-				set_if_not($obj,'seo_robots','');
-				set_if_not($obj,'seo_google_code','');
-				set_if_not($obj,'seo_bing_code','');
-				set_if_not($obj,'seo_author','');
+				add_if_not($obj,'seo_site_title','');
+				add_if_not($obj,'seo_site_description','');
+				add_if_not($obj,'seo_keywords','');
+				add_if_not($obj,'seo_robots','');
+				add_if_not($obj,'seo_google_code','');
+				add_if_not($obj,'seo_bing_code','');
+				add_if_not($obj,'seo_author','');
 
-				$obj->asXml( FILE_XML_CONFIG );
-				echo Html::p( array('class'=>'pass', 'content'=>'DB updated: '.FILE_XML_CONFIG) );
+				if($obj->asXml( FILE_XML_CONFIG ))
+					echo Html::p( array('class'=>'pass', 'content'=>'DB updated: '.FILE_XML_CONFIG) );
+				else
+					echo Html::p( array('class'=>'pass', 'content'=>'FAIL - DB updated: '.FILE_XML_CONFIG) );
 
 				// comments.xml
 				$obj = new NBXML(FILE_XML_COMMENTS, 0, TRUE, '', FALSE);
-				set_if_not($obj,'moderate',1);
-				set_if_not($obj,'sanitize',1);
-				set_if_not($obj,'monitor_enable',0);
-				set_if_not($obj,'monitor_api_key','');
-				set_if_not($obj,'monitor_spam_control','0.75');
-				set_if_not($obj,'monitor_auto_delete',0);
+				add_if_not($obj,'moderate',1);
+				add_if_not($obj,'sanitize',1);
+				add_if_not($obj,'monitor_enable',0);
+				add_if_not($obj,'monitor_api_key','');
+				add_if_not($obj,'monitor_spam_control','0.75');
+				add_if_not($obj,'monitor_auto_delete',0);
 				$obj->asXml( FILE_XML_COMMENTS );
 				echo Html::p( array('class'=>'pass', 'content'=>'DB updated: '.FILE_XML_COMMENTS) );
 

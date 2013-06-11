@@ -48,8 +48,6 @@ class PLUGIN_ABOUT extends Plugin
 
 		if(file_exists($destination.'/profile_picture.jpg'))
 			$src = $destination.'/profile_picture.jpg';
-		elseif(file_exists($destination.'/profile_picture.png'))
-			$src = $destination.'/profile_picture.png';
 
 		$html  = '<ul>';
 		if(isset($src)) $html .= '<li class="image"><img class="plugin_about" alt="'.$this->get_field_db('name').'" src="'.$src.'" /></li>';

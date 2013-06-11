@@ -16,10 +16,10 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 			$destination = PATH_PLUGINS_DB.$plugin->get_dir_name();
 			$complete = $destination.'/'.$field_name.'.'.$extension;
 
-			// Upload file and move
+			// Upload the new file and move
 			if(move_uploaded_file($file["tmp_name"], $complete))
 			{
-				// Resize images
+				// Resize images if requested by the plugin
 				if(isset($_POST[$field_name.'_resize']))
 				{
 					$width = isset($_POST[$field_name.'_width'])?$_POST[$field_name.'_width']:200;
@@ -27,7 +27,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 					$option = isset($_POST[$field_name.'_option'])?$_POST[$field_name.'_option']:'auto';
 
 					$Resize->setImage($complete, $width, $height, $option);
-					$Resize->saveImage($complete, 100);
+					$Resize->saveImage($complete, 100, true);
 				}
 			}
 		}
