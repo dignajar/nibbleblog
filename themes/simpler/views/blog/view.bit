@@ -1,24 +1,26 @@
 <?php
 
-// Show posts
-foreach($posts as $post)
-{
-	include('includes/post_view.bit');
-}
-
 // If there are no posts
 if(empty($posts))
 {
 	echo '<p>'.$_LANG['THERE_ARE_NO_POSTS'].'</p>';
 }
+else
+{
+	// Show posts
+	foreach($posts as $post)
+	{
+		include('includes/post_view.bit');
+	}
+
+	// Disqus
+	if(!empty($theme['disqus_account']))
+	{
+		include('includes/disqus.bit');
+	}
+}
 
 // Pager
 include('includes/pager.bit');
-
-// Include Disqus
-if( !empty($theme['disqus_account']) )
-{
-include('includes/disqus.bit');
-}
 
 ?>

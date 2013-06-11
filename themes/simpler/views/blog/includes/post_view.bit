@@ -15,7 +15,9 @@ echo '<article class="post">';
 
 		// print title if this is not empty
 		if( !empty($post['title']) )
+		{
 			echo '<h1 class="title"><a href="'.$post['permalink'].'">'.$post['title'].'</a></h1>';
+		}
 
 	echo '</header>';
 
@@ -71,11 +73,12 @@ echo '<article class="post">';
 		{
 			echo ' · ';
 
-			// Include Disqus
+			// Disqus
 			if( !empty($theme['disqus_account']) )
 			{
 				echo '<span><a href="'.$post['permalink'].'#disqus_thread"></a></span>';
 			}
+			// Nibbleblog comment system
 			else
 			{
 				echo '<span><a href="'.$post['permalink'].'#comment_form">'.$_LANG['COMMENTS'].' ('.count($post['comments']).')</a></span>';

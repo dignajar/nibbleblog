@@ -78,9 +78,10 @@
 
 		</div>
 
-		<!-- FOOTER -->
-		<div id="footer">
-		</div>
+				<!-- FOOTER -->
+				<div id="footer">
+					<p>Nibbleblog v<?php echo NIBBLEBLOG_VERSION.' "'.NIBBLEBLOG_NAME.'"'; ?> </p>
+				</div>
 
 	</div>
 

@@ -97,7 +97,8 @@ div.separator {
 	background-color: #5FB1D9;
 	color: #FFFFFF;
 	padding: 22px 0 22px 260px;
-	border-bottom: 2px solid #DDDDDD;
+	box-shadow: 0 1px 3px #999999;
+	border-bottom: 1px solid #999999;
 }
 
 .img_button_mrnibbler {
@@ -127,6 +128,22 @@ div.separator {
 
 .button_selected {
 	background-color: #5FB1D9 !important;
+}
+
+/*====================================================================*/
+/* FOOTER
+/*====================================================================*/
+#footer {
+    border-top: 1px solid #DDDDDD;
+    clear: both;
+    float: right;
+    padding: 10px 100px;
+    text-align: center;
+}
+
+#footer	p {
+	font-size: 1.3em;
+	margin: 0;
 }
 
 /*====================================================================*/

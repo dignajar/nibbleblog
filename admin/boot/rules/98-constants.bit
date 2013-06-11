@@ -13,8 +13,8 @@
 // =====================================================================
 //	SYSTEM INFORMATION
 // =====================================================================
-	define('NIBBLEBLOG_VERSION',		'3.6 beta1');
-	define('NIBBLEBLOG_NAME',			'');
+	define('NIBBLEBLOG_VERSION',		'3.6 beta2');
+	define('NIBBLEBLOG_NAME',			'---');
 	define('NIBBLEBLOG_RELEASE_DATE',	'03/06/2013');
 
 // =====================================================================

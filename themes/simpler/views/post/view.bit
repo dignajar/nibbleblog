@@ -6,11 +6,12 @@ echo '<article class="post">';
 
 	if($post['allow_comments'])
 	{
-		// Include Disqus
+		// Disqus
 		if( !empty($theme['disqus_account']) )
 		{
 			include('includes/disqus.bit');
 		}
+		// Nibbleblog comment system
 		else
 		{
 			include('includes/comment_list.bit');

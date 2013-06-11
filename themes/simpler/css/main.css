@@ -146,7 +146,7 @@ article.post	header.post		h1.title	a:hover {
 	text-decoration: none;
 }
 
-/* ========== POST CONTENT ========== */
+/* ========== POST CONTENT ==========
 article.post	pre {
 	background: url("img/bgcode.png");
 	border: 1px solid #E8E8E8;
@@ -155,7 +155,7 @@ article.post	pre {
 	padding: 0 5px 0 5px;
 	white-space: pre-wrap;
 	font-size: 0.9em;
-}
+}*/
 
 article.post	.console {
     background: url("img/console.png") no-repeat 8px 8px #F1F1F1;
