@@ -41,11 +41,9 @@ class PLUGIN_ABOUT extends Plugin
 
 	public function blog_body()
 	{
-		// Picture
-		$destination = PATH_PLUGINS_DB.$this->get_dir_name();
-
-		if(file_exists($destination.'/profile_picture.jpg'))
-			$src = $destination.'/profile_picture.jpg';
+		// Check if the picture exists
+		if(file_exists(PATH_PLUGINS_DB.'about/profile_picture.jpg'))
+			$src = HTML_PATH_PLUGINS_DB.'about/profile_picture.jpg';
 
 		$html  = '<ul>';
 		if(isset($src)) $html .= '<li class="image"><img class="plugin_about" alt="'.$this->get_field_db('name').'" src="'.$src.'" /></li>';
@@ -55,7 +53,6 @@ class PLUGIN_ABOUT extends Plugin
 
 		return $html;
 	}
-
 }
 
 ?>
