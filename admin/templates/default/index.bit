@@ -9,10 +9,20 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/normalize.css' ?>" />
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/main.css' ?>" />
 
-	<!-- JAVASCRIPT -->
+	<!-- Javascript -->
 	<script charset="utf-8" src="<?php echo JS_JQUERY ?>"></script>
 	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'system.php' ?>"></script>
 	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'functions.js' ?>"></script>
+
+	<!-- Plugin -->
+	<?php
+		foreach($plugins as $plugin)
+		{
+			if($plugin->dashboard_head()) {
+				echo $plugin->dashboard_head();
+			}
+		}
+	?>
 </head>
 <body>
 
@@ -78,10 +88,10 @@
 
 		</div>
 
-				<!-- FOOTER -->
-				<div id="footer">
-					<p>Nibbleblog v<?php echo NIBBLEBLOG_VERSION.' "'.NIBBLEBLOG_NAME.'"'; ?> </p>
-				</div>
+		<!-- FOOTER -->
+		<div id="footer">
+			<p>Nibbleblog v<?php echo NIBBLEBLOG_VERSION.' "'.NIBBLEBLOG_NAME.'"'; ?> </p>
+		</div>
 
 	</div>
 

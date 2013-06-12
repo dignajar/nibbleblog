@@ -61,6 +61,8 @@
 
 			$plugins_installed[$position] = $plugins_all[$class];
 			$plugins_by_name[$dir_name] = $plugins_all[$class];
+
+			$plugins_all[$class]->boot();
 		}
 	}
 

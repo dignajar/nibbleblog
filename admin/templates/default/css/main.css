@@ -16,7 +16,7 @@ body {
 }
 
 a {
-	color: #258AAF;
+	color: #006AC8;
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -572,7 +572,7 @@ div.pager	a {
 /*====================================================================*/
 div.plugin {
     background-color: #FAFBFA;
-    border: 1px solid #EBEBEB;
+    border: 1px solid #DDDDDD;
     border-radius: 2px 2px 2px 2px;
     font-size: 13px;
     margin-bottom: 15px;

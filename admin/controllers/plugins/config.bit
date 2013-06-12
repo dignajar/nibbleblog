@@ -47,13 +47,13 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	$plugin = $plugins_all['PLUGIN_'.strtoupper($url['plugin'])];
 	$plugin->init_db();
 
-	$html = $plugin->get_html_config();
+	$html = $plugin->dashboard_config();
 
 	if($html==false)
 	{
 		$html = '';
 	}
 
-	$positions_html = array_combine(range(1, count($plugins)), range(1, count($plugins)) );
+	$positions_html = array_combine(range(1, count($plugins)), range(1, count($plugins)));
 
 ?>

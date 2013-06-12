@@ -20,7 +20,7 @@ class PLUGIN_TWITTER_STATIC extends Plugin
 		$this->fields = array('username'=>'');
 	}
 
-	public function get_html_config()
+	public function dashboard_config()
 	{
 		$html  = '<label>'.$this->language('TWITTER_USERNAME').'</label>';
 		$html .= '<input name="username" type="text" value="'.$this->get_field_db('username').'">';
@@ -28,7 +28,7 @@ class PLUGIN_TWITTER_STATIC extends Plugin
 		return($html);
 	}
 
-	public function get_html()
+	public function blog_body()
 	{
 		$html  = '<ul>';
 		$html .= '<li class="username"><a target="_blank" href="http://twitter.com/'.$this->get_field_db('username').'">@'.$this->get_field_db('username').'</a></li>';

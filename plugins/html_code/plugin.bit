@@ -20,21 +20,19 @@ class PLUGIN_HTML_CODE extends Plugin
 		$this->fields = array('code'=>'<p>Hello world!</p>');
 	}
 
-	public function get_html_config()
+	public function dashboard_config()
 	{
-		global $_HTML;
-
 		$html  = Html::label( array('content'=>$this->language('HTML_CODE')) );
 		$html .= Html::textarea( array('name'=>'code', 'type'=>'text', 'content'=>$this->get_field_db('code')) );
 
-		return($html);
+		return $html;
 	}
 
-	public function get_html()
+	public function blog_body()
 	{
 		$html = $this->get_field_db('code');
 
-		return($html);
+		return $html;
 	}
 
 }

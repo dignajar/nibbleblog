@@ -5,8 +5,7 @@
 $_PLUGIN_CONFIG['DATA'] = array(
 	'author'=>'Diego Najar',
 	'version'=>'1.2',
-	'url'=>'http://www.nibbleblog.com',
-	'display'=>false
+	'url'=>'http://www.nibbleblog.com'
 );
 
 // =====================================================================
@@ -21,17 +20,15 @@ class PLUGIN_ANALYTICS extends Plugin
 		$this->fields = array('id'=>'');
 	}
 
-	public function get_html_config()
+	public function dashboard_config()
 	{
-		global $_HTML;
-
 		$html  = Html::label( array('content'=>$this->language('GOOGLE_ANALYTICS_ID') ));
 		$html .= Html::input( array('name'=>'id', 'type'=>'text', 'value'=>$this->get_field_db('id')) );
 
-		return($html);
+		return $html;
 	}
 
-	public function get_html()
+	public function blog_head()
 	{
 		$html = '
 		<script type="text/javascript">
@@ -49,7 +46,7 @@ class PLUGIN_ANALYTICS extends Plugin
 		</script>
 		';
 
-		return($html);
+		return $html;
 	}
 
 }

@@ -1,9 +1,0 @@
-<?php
-
-$_PLUGIN_CONFIG['LANG'] = array(
-	'NAME'=>'HTML code',
-	'DESCRIPTION'=>'This plugin allows you to embed HTML code in your blog.',
-	'HTML_CODE'=>'HTML Code'
-);
-
-?>

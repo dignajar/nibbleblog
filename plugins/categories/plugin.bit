@@ -13,7 +13,7 @@ $_PLUGIN_CONFIG['DATA'] = array(
 // =====================================================================
 class PLUGIN_CATEGORIES extends Plugin
 {
-	public function get_html()
+	public function blog_body()
 	{
 		global $categories;
 		global $settings;
@@ -30,7 +30,7 @@ class PLUGIN_CATEGORIES extends Plugin
 
 		$html .= '</ul>';
 
-		return($html);
+		return $html;
 	}
 }
 

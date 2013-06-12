@@ -186,16 +186,6 @@ class Plugin {
 		return( $this->display );
 	}
 
-	public function get_html_config()
-	{
-		return(false);
-	}
-
-	public function get_html()
-	{
-		return(false);
-	}
-
 	public function set_lang($array)
 	{
 		$this->_LANG = $array;
@@ -209,6 +199,36 @@ class Plugin {
 		}
 
 		return('');
+	}
+
+	public function boot()
+	{
+		return false;
+	}
+
+	public function blog_head()
+	{
+		return false;
+	}
+
+	public function blog_body()
+	{
+		return false;
+	}
+
+	public function dashboard_head()
+	{
+		return false;
+	}
+
+	public function dashboard_body()
+	{
+		return false;
+	}
+
+	public function dashboard_config()
+	{
+		return false;
 	}
 
 }

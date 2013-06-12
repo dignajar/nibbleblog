@@ -14,9 +14,9 @@ $_PLUGIN_CONFIG['DATA'] = array(
 class PLUGIN_QUICK_LINKS extends Plugin
 {
 
-	public function get_html()
+	public function blog_body()
 	{
-		$html .= '<ul>';
+		$html  = '<ul>';
 
 		$html .= '<li><a class="quick_links_home" href="'.HTML_PATH_ROOT.'">'.$this->language('HOME').'</a></li>';
 		$html .= '<li><a class="quick_links_dashboard" href="'.HTML_PATH_ROOT.'admin.php">'.$this->language('DASHBOARD').'</a></li>';
@@ -26,7 +26,7 @@ class PLUGIN_QUICK_LINKS extends Plugin
 
 		$html .= '</ul>';
 
-		return($html);
+		return $html;
 	}
 
 }

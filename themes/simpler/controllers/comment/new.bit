@@ -5,6 +5,8 @@ if( $_SERVER['REQUEST_METHOD'] != 'POST' )
 	exit('Nibbleblog - Post request fail');
 }
 
+var_dump($_POST);
+
 // Get comment data
 $data = Session::get_comment_array();
 

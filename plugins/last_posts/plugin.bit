@@ -20,15 +20,15 @@ class PLUGIN_LAST_POSTS extends Plugin
 		$this->fields = array('amount'=>'10');
 	}
 
-	public function get_html_config()
+	public function dashboard_config()
 	{
 		$html  = '<label>'.$this->language('AMOUNT').'</label>';
 		$html .= '<input name="amount" type="text" value="'.$this->get_field_db('amount').'">';
 
-		return($html);
+		return $html;
 	}
 
-	public function get_html()
+	public function blog_body()
 	{
 		global $Post;
 		global $settings;
@@ -51,7 +51,7 @@ class PLUGIN_LAST_POSTS extends Plugin
 
 		$html .= '</ul>';
 
-		return($html);
+		return $html;
 	}
 
 }
