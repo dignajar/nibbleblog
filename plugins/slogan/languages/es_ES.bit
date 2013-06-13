@@ -1,9 +1,8 @@
 <?php
 
 $_PLUGIN_CONFIG['LANG'] = array(
-	'NAME'=>'HTML code',
-	'DESCRIPTION'=>'Este plugin permite incrustar código HTML en tu blog.',
-	'HTML_CODE'=>'HTML Code'
+	'NAME'=>'Slogan',
+	'DESCRIPTION'=>'Este plugin es un ejemplo de como modificar aspectos del blog a bajo nivel. Por ejemplo como modificar el slogan a "Hola Mundo".'
 );
 
 ?>

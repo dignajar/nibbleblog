@@ -9,14 +9,14 @@
  * See COPYRIGHT.txt and LICENSE.txt.
 */
 
-// ============================================================================
+// =====================================================================
 //	BOOT
-// ============================================================================
+// =====================================================================
 require('admin/boot/admin.bit');
 
-// ============================================================================
+// =====================================================================
 //	CONTROLLER, VIEW and TEMPLATE
-// ============================================================================
+// =====================================================================
 
 $controllers['dashboard']['view'] 		= array('security'=>true, 'title'=>$_LANG['DASHBOARD'], 'controller'=>'view', 'view'=>'view', 'template'=>'default');
 
@@ -58,24 +58,26 @@ if(isset($controllers[$url['controller']][$url['action']]))
 	$dirname = $url['controller'].'/';
 	$parameters = $controllers[$url['controller']][$url['action']];
 
-	define('LAYOUT_TITLE',		$parameters['title']);
-	define('LAYOUT_CONTROLLER',	$dirname.$parameters['controller'].'.bit');
-	define('LAYOUT_VIEW',		$dirname.$parameters['view'].'.bit');
-	define('LAYOUT_TEMPLATE',	$parameters['template'].'/index.bit');
-
 	if($parameters['security'])
 	{
-		require('admin/kernel/security.bit');
+		if(!isset($Login))
+			exit('Nibbleblog security error');
+
+		if($Login->is_logued())
+		{
+			define('LAYOUT_TITLE',		$parameters['title']);
+			define('LAYOUT_CONTROLLER',	$dirname.$parameters['controller'].'.bit');
+			define('LAYOUT_VIEW',		$dirname.$parameters['view'].'.bit');
+			define('LAYOUT_TEMPLATE',	$parameters['template'].'/index.bit');
+		}
 	}
 }
 else
 {
-	// Default parameters
+	// Default
 	define('LAYOUT_TITLE',		$_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA']);
 	define('LAYOUT_CONTROLLER',	'user/login.bit');
 	define('LAYOUT_VIEW',		'user/login.bit');
-
-	// Default template
 	define('LAYOUT_TEMPLATE',	'login/index.bit');
 }
 
