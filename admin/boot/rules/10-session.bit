@@ -4,44 +4,18 @@
  * http://www.nibbleblog.com
 
  * Require
- * $posts
+ *
 
  * Return
  *
 */
 
-	if( !isset($_SESSION['nibbleblog']) )
-	{
-		Session::init();
+if( !isset($_SESSION['nibbleblog']) )
+{
+	Session::init();
 
-		// New comment hash
-		$Comment->set_hash();
-	}
-
-	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
-	{
-		// XSS protection
-		if(isset($_POST['hash']))
-		{
-			// XSS protection
-			if($Comment->get_hash()===$_POST['hash'])
-			{
-				// Post allows comments ?
-				if(isset($posts[0]['id']) && isset($posts[0]['allow_comments']))
-				{
-					Session::set_comment(array(
-									'author_name'=>$_POST['author_name'],
-									'author_email'=>$_POST['author_email'],
-									'content'=>$_POST['content'],
-									'post_allow_comments'=>$posts[0]['allow_comments'],
-									'id_post'=>$posts[0]['id']
-					));
-
-					// Renew comment hash
-					$Comment->set_hash();
-				}
-			}
-		}
-	}
+	// Init comment hash
+	$Comment->set_hash();
+}
 
 ?>

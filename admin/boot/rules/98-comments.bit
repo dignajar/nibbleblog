@@ -1,0 +1,52 @@
+<?php
+/*
+ * Nibbleblog
+ * http://www.nibbleblog.com
+
+ * Require
+ *
+
+ * Return
+ *
+*/
+
+if($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+	// Check: fields are complete
+	if( Text::is_empty($_POST['author_email']) || Text::is_empty($_POST['content']) )
+	{
+		Session::set_alert($_LANG['PLEASE_COMPLETE_ALL_FIELDS']);
+	}
+	else
+	{
+		// XSS protection
+		if(isset($_POST['hash']))
+		{
+			// XSS protection
+			if($Comment->get_hash()===$_POST['hash'])
+			{
+				// Post allows comments
+				if(isset($posts[0]['id']) && isset($posts[0]['allow_comments']))
+				{
+					$safe					= array();
+					$safe['id_post'] 		= $posts[0]['id'];
+					$safe['author_name']	= $_POST['author_name'];
+					$safe['author_email']	= $_POST['author_email'];
+					$safe['content']		= $_POST['content'];
+
+					// Check: Anti-spam / Approve / Sanitize
+					if($Comment->add($safe)===false)
+						Session::set_alert($_LANG['YOUR_COMMENT_IS_UNDER_REVIEW_IT_WILL_BE']);
+
+					// Clean $_POST
+					unset($_POST);
+
+					// Renew comment hash
+					$Comment->set_hash();
+				}
+			}
+		}
+	}
+}
+
+?>

@@ -15,6 +15,7 @@
 	require('rules/10-pager.bit');
 	require('rules/10-session.bit');
 
+	require('rules/98-comments.bit');
 	require('rules/98-plugins.bit');
 	require('rules/98-constants.bit');
 

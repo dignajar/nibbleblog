@@ -1,23 +1,24 @@
 <?php
 
-	if(empty($posts))
+// If there are no posts
+if(empty($posts))
+{
+	echo '<p>'.$_LANG['THERE_ARE_NO_POSTS'].'</p>';
+}
+else
+{
+	// Show posts
+	foreach($posts as $post)
 	{
-		echo '<p>'.$_LANG['THERE_ARE_NO_POSTS'].'</p>';
+		echo '<article class="post">';
+
+			include('includes/post_view.bit');
+
+		echo '</article>';
 	}
-	else
-	{
-		// Variable $posts has all post for the page
-		foreach($posts as $post)
-		{
-			echo '<article class="post">';
+}
 
-				include('includes/post_view.bit');
-
-			echo '</article>';
-		}
-
-		// Include the pager
-		include('includes/pager.bit');
-	}
+// Pager
+include('includes/pager.bit');
 
 ?>

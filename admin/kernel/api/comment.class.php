@@ -41,28 +41,20 @@ class Comment {
 	PUBLIC METHODS
 ======================================================================================
 */
+
 	// Return TRUE if the comment is inserted
 	// Return FALSE if the comment is spam or need moderation
 	// Return -1 errors(comment flooding, post doesn't allow comments, others)
-	public function add()
+	public function add($data)
 	{
 		// Flood protection
-		if(Session::get_last_comment_at() + COMMENT_INTERVAL > time())
+		if( $this->get_last_time() + COMMENT_INTERVAL > time())
 		{
 			return -1;
 		}
 
 		// Sleep
 		sleep(2);
-
-		// Comment data from session
-		$data = Session::get_comment_array();
-
-		// If the post doesn't allow comments
-		if(!$data['post_allow_comments'])
-		{
-			return -1;
-		}
 
 		// Anti-spam
 		$spam_level = $this->get_spam_level($data['content']);
@@ -106,7 +98,7 @@ class Comment {
 				$this->db_notification->add('comment', $this->settings['notification_comments'], 'YOU_HAVE_A_NEW_COMMENT', $text);
 			}
 
-			Session::set_last_comment_at(time());
+			$this->set_last_time();
 		}
 
 		// Clean session
@@ -168,6 +160,15 @@ class Comment {
 		Session::set('hash', $hash);
 	}
 
+	public function get_last_time()
+	{
+		return Session::get_last_comment_at();
+	}
+
+	public function set_last_time()
+	{
+		Session::set_last_comment_at(time());
+	}
 
 /*
 ======================================================================================

@@ -13,19 +13,9 @@ class Session {
 
 	public static function init()
 	{
-		$comment = array(
-			'author_name'=>'',
-			'author_email'=>'',
-			'content'=>'',
-			'hash'=>'',
-			'post_allow_comments'=>false,
-			'id_post'=>0
-		);
-
 		$_SESSION['nibbleblog'] = array(
 			'error'=>false,
 			'alert'=>'',
-			'comment'=>$comment,
 			'last_comment_at'=>0,
 			'last_session_at'=>0,
 			'fail_session'=>0
@@ -51,6 +41,11 @@ class Session {
 			return $_SESSION['nibbleblog'][$name];
 		else
 			return false;
+	}
+
+	public static function set($key, $value)
+	{
+		$_SESSION['nibbleblog'][$key] = $value;
 	}
 
 	public static function get_error()
@@ -84,21 +79,6 @@ class Session {
 		return($_SESSION['nibbleblog']['alert']);
 	}
 
-	public static function get_comment($key)
-	{
-		if(isset($_SESSION['nibbleblog']['comment'][$key]))
-		{
-			return($_SESSION['nibbleblog']['comment'][$key]);
-		}
-
-		return false;
-	}
-
-	public static function get_comment_array()
-	{
-		return($_SESSION['nibbleblog']['comment']);
-	}
-
 	public static function set_error($boolean = true)
 	{
 		$_SESSION['nibbleblog']['error'] = $boolean;
@@ -123,20 +103,6 @@ class Session {
 	{
 		self::set_error(true);
 		$_SESSION['nibbleblog']['alert'] = $text;
-	}
-
-	public static function set_comment($comment)
-	{
-		$_SESSION['nibbleblog']['comment']['author_name'] = $comment['author_name'];
-		$_SESSION['nibbleblog']['comment']['author_email'] = $comment['author_email'];
-		$_SESSION['nibbleblog']['comment']['content'] = $comment['content'];
-		$_SESSION['nibbleblog']['comment']['post_allow_comments'] = $comment['post_allow_comments'];
-		$_SESSION['nibbleblog']['comment']['id_post'] = $comment['id_post'];
-	}
-
-	public static function set($key, $value)
-	{
-		$_SESSION['nibbleblog'][$key] = $value;
 	}
 
 }
