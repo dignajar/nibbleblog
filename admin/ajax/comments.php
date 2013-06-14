@@ -1,8 +1,7 @@
-<?php
-header("Content-Type: text/xml");
+<?php header("Content-Type: text/xml");
 
 require('../boot/ajax.bit');
-require('../kernel/security.bit');
+require('security.bit');
 
 if( $_POST['action']=='delete' )
 {

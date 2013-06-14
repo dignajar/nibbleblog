@@ -1,0 +1,9 @@
+<?php
+
+if(!isset($Login))
+	exit('<error><![CDATA[1]]></error><alert><![CDATA[Nibbleblog security error(512)]]></alert>');
+
+if(!$Login->is_logued())
+	exit('<error><![CDATA[1]]></error><alert><![CDATA[Nibbleblog security error(1024)]]></alert>');
+
+?>

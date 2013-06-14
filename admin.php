@@ -17,7 +17,6 @@ require('admin/boot/admin.bit');
 // =====================================================================
 //	CONTROLLER, VIEW and TEMPLATE
 // =====================================================================
-
 $controllers['dashboard']['view'] 		= array('security'=>true, 'title'=>$_LANG['DASHBOARD'], 'controller'=>'view', 'view'=>'view', 'template'=>'default');
 
 $controllers['post']['new_simple'] 		= array('security'=>true, 'title'=>$_LANG['NEW_SIMPLE_POST'], 'controller'=>'new', 'view'=>'new_simple', 'template'=>'default');
@@ -58,18 +57,18 @@ if(isset($controllers[$url['controller']][$url['action']]))
 	$dirname = $url['controller'].'/';
 	$parameters = $controllers[$url['controller']][$url['action']];
 
+	define('LAYOUT_TITLE',		$parameters['title']);
+	define('LAYOUT_CONTROLLER',	$dirname.$parameters['controller'].'.bit');
+	define('LAYOUT_VIEW',		$dirname.$parameters['view'].'.bit');
+	define('LAYOUT_TEMPLATE',	$parameters['template'].'/index.bit');
+
 	if($parameters['security'])
 	{
 		if(!isset($Login))
 			exit('Nibbleblog security error');
 
-		if($Login->is_logued())
-		{
-			define('LAYOUT_TITLE',		$parameters['title']);
-			define('LAYOUT_CONTROLLER',	$dirname.$parameters['controller'].'.bit');
-			define('LAYOUT_VIEW',		$dirname.$parameters['view'].'.bit');
-			define('LAYOUT_TEMPLATE',	$parameters['template'].'/index.bit');
-		}
+		if(!$Login->is_logued())
+			exit('Nibbleblog security error');
 	}
 }
 else
@@ -80,7 +79,6 @@ else
 	define('LAYOUT_VIEW',		'user/login.bit');
 	define('LAYOUT_TEMPLATE',	'login/index.bit');
 }
-
 
 require(PATH_ADMIN_CONTROLLER .	LAYOUT_CONTROLLER);
 require(PATH_ADMIN_TEMPLATES  .	LAYOUT_TEMPLATE);

@@ -99,6 +99,7 @@ class Login {
 
 	public function logout()
 	{
+		// Unset all of the session variables.
 		$_SESSION = array();
 
 		if(ini_get("session.use_cookies"))
@@ -212,7 +213,6 @@ class Login {
 		if($user==false)
 		{
 			sleep($random);
-			echo "Debug - usuario no existe sleep:".$random;
 			return true;
 		}
 
@@ -224,7 +224,6 @@ class Login {
 		if($user['session_fail_count']>2)
 		{
 			sleep($user['session_fail_count']*$random);
-			echo "Debug - fail_count>3 random:".$random." - count:".$user['session_fail_count'];
 			return true;
 		}
 

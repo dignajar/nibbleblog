@@ -120,16 +120,6 @@ article.post	header.post		h1.title {
 }
 
 /* ========== POST CONTENT ========== */
-article.post	pre {
-	background: url("img/bgcode.png");
-	border: 1px solid #E8E8E8;
-	line-height: 23px;
-	margin: 0;
-	padding: 0 5px 0 5px;
-	white-space: pre-wrap;
-	font-size: 0.9em;
-}
-
 article.post	.console {
     background: url("img/console.png") no-repeat 8px 8px #F1F1F1;
     display: block;

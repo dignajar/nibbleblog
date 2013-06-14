@@ -3,7 +3,7 @@
 $_LANG_CONFIG['DATA'] = array(
 	'native'=>'Español - Español',
 	'english'=>'Spanish',
-	'last_update'=>'03/06/2013',
+	'last_update'=>'13/06/2013',
 	'author'=>'Diego Najar',
 	'email'=>'dignajar@gmail.com',
 	'url'=>'http://diego.nibbleblog.com'
@@ -246,5 +246,6 @@ $_LANG['SHARE'] = 'Compartir';
 $_LANG['ALLOW_COMMENTS_ON_THIS_POST'] = 'Permitir comentarios para este post.';
 $_LANG['MULTIPLE_DIRECTIVES_MAY_BE_COMBINED_IN'] = 'Ingrese las directivas separadas por comas. Ejemplo: nofollow, noindex, noarchive.';
 $_LANG['DRAFT_POSTS'] = 'Borradores';
+$_LANG['POSITION'] = 'Posición';
 
 ?>

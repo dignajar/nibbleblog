@@ -30,6 +30,7 @@
 	<!-- CSS3 -->
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'normalize.css?v='.$theme['version'] ?>" />
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'main.css?v='.$theme['version'] ?>" />
+	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'rainbow.css?v='.$theme['version'] ?>" />
 
 	<!-- FAVICON -->
 	<link rel="shortcut icon" href="<?php echo HTML_THEME_CSS.'img/favicon.ico' ?>" type="image/x-icon" />
@@ -40,13 +41,20 @@
 	<!-- FitVids -->
 	<script src="<?php echo HTML_THEME_JS.'jquery.fitvids.min.js' ?>"></script>
 
+	<!-- Rainbow - Syntax highlighting library -->
+	<script src="<?php echo HTML_THEME_JS.'rainbow-custom.min.js' ?>"></script>
+
 	<!-- ATOM Feed 2.0 -->
 	<link rel="alternate" type="application/atom+xml" title="ATOM Feed" href="<?php echo $layout['feed'] ?>" />
 
-	<!-- Plugin::Analytics -->
+	<!-- Plugin -->
 	<?php
-		if( isset($plugins_by_name['analytics']) )
-			echo $plugins_by_name['analytics']->get_html();
+		foreach($plugins as $plugin)
+		{
+			if($plugin->blog_head()) {
+				echo $plugin->blog_head();
+			}
+		}
 	?>
 </head>
 <body>
@@ -71,10 +79,10 @@
 
 				foreach($plugins as $plugin)
 				{
-					if($plugin->display())
+					if($plugin->blog_body())
 					{
 						echo '<div class="plugin_box '.$plugin->get_slug_name().'">';
-							echo $plugin->get_html();
+							echo $plugin->blog_body();
 						echo '</div>';
 					}
 				}

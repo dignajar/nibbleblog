@@ -1,8 +1,7 @@
-<?php
-header("Content-Type: text/xml");
+<?php header("Content-Type: text/xml");
 
 require('../boot/ajax.bit');
-require('../kernel/security.bit');
+require('security.bit');
 
 $error = Video::video_get_info($_POST['url']);
 

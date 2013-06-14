@@ -1,5 +1,4 @@
-<?php
-header("Content-Type: text/xml");
+<?php header("Content-Type: text/xml");
 
 require('../boot/ajax.bit');
 
