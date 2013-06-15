@@ -6,4 +6,7 @@
 	// Changing the default description
 	$layout['description'] = $post['description'];
 
+	// Changing the default keywrods
+	$layout['keywords'] = implode(',',$post['tags']);
+
 ?>

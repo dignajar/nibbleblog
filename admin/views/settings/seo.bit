@@ -103,7 +103,7 @@ ErrorDocument 404 '.$settings['path'].'index.php?controller=page&action=404
  RewriteRule ^page-([0-9]+)$ index.php?controller=blog&action=view&page=$1 [L]
  RewriteRule ^post-([0-9]+)/(.*)$ index.php?controller=post&action=view&id_post=$1 [L]
 
- RewriteRule ^dashboard/$ admin.php?controller=user&action=login [L]
+ RewriteRule ^admin/$ admin.php?controller=user&action=login [L]
  RewriteRule ^feed/$ feed.php [L]
 
  RewriteRule ^([^/]+)/$ index.php?controller=page&action=$1 [L]

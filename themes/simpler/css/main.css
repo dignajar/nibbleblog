@@ -201,7 +201,7 @@ article.post	h1 {
 }
 
 article.post	p {
-	line-height: 20px;
+	line-height: 1.5em;
 }
 
 article.post	div.video_embed {

@@ -1,23 +1,22 @@
 <?php
 
-// ========== COMMENT LIST ==========
-	if(!empty($post['comments']))
-	{
-		echo '<footer id="comment_list">';
+if(!empty($post['comments']))
+{
+	echo '<footer id="comment_list">';
 
-			echo '<h2>'.$_LANG['COMMENTS'].'</h2>';
+		echo '<h2>'.$_LANG['COMMENTS'].'</h2>';
 
-			foreach($post['comments'] as $comment)
-			{
-				echo '<div class="comment">';
-					echo '<img class="avatar" src="'.Image::get_gravatar($comment['author_email'],64).'">';
-					echo '<span class="author_name">'.$comment['author_name'].'</span>';
-					echo '<span class="date">'.$comment['pub_date'].'</span>';
-					echo '<span class="content">'.$comment['content'].'</span>';
-				echo '</div>';
-			}
+		foreach($post['comments'] as $comment)
+		{
+			echo '<div class="comment">';
+				echo '<img class="avatar" src="'.Image::get_gravatar($comment['author_email'],64).'">';
+				echo '<span class="author_name">'.$comment['author_name'].'</span>';
+				echo '<span class="date">'.$comment['pub_date'].'</span>';
+				echo '<span class="content">'.$comment['content'].'</span>';
+			echo '</div>';
+		}
 
-		echo '</footer>';
-	}
+	echo '</footer>';
+}
 
 ?>
