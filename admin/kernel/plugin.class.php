@@ -16,7 +16,6 @@ class Plugin {
 	public $author;
 	public $version;
 	public $url;
-	public $display;
 
 	public $slug_name;
 
@@ -33,7 +32,6 @@ class Plugin {
 		$reflector = new ReflectionClass(get_class($this));
 		$this->dir_name = basename(dirname($reflector->getFileName()));
 
-		$this->display = true;
 		$this->fields = array();
 
 		$this->_LANG = array();
@@ -141,14 +139,6 @@ class Plugin {
 		$this->author = $args['author'];
 		$this->version = $args['version'];
 		$this->url = $args['url'];
-
-		if(isset($args['display']))
-			$this->display = $args['display'];
-	}
-
-	public function set_display($display)
-	{
-		$this->display = $display;
 	}
 
 	public function get_name()
@@ -179,11 +169,6 @@ class Plugin {
 	public function get_dir_name()
 	{
 		return( $this->dir_name );
-	}
-
-	public function display()
-	{
-		return( $this->display );
 	}
 
 	public function set_lang($array)

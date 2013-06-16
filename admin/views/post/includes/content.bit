@@ -8,7 +8,7 @@
 		echo Html::span( array('id'=>'js_uploader_loading', 'class'=>'uploader_button', 'content'=>$_LANG['UPLOADING'].'...', 'style'=>'display: none') );
 	echo Html::div_close();
 
-	echo Html::input( array('type'=>'file', 'id'=>'js_uploader_input_file', 'class'=>'hidden', 'size'=>'1', 'accept'=>'image/*') );
+	echo Html::input( array('type'=>'file', 'id'=>'js_uploader_input_file', 'class'=>'hidden', 'hidden'=>'hidden', 'size'=>'1', 'accept'=>'image/*') );
 ?>
 
 <script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'tiny_mce/jquery.tinymce.js' ?>"></script>
