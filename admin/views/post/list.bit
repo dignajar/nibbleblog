@@ -25,10 +25,19 @@ else
 		$category = $_DB_CATEGORIES->get( array('id'=>$post['id_cat']) );
 		$comments = $_DB_COMMENTS->get_list_by_post( array('id_post'=>$post['id']) );
 
+		$title = '';
+		if($post['draft'])
+			$title .= '['.$_LANG['DRAFT'].'] ';
+
+		if(empty($post['title']))
+			$title .= '['.$_LANG['NO_TITLE'].']';
+
+		$title .= $post['title'];
+
 		echo '
 			<tr>
 				<td class="content">
-				'.(empty($post['title'])?'['.$_LANG['NO_TITLE'].']':$post['title']).'
+				'.$title.'
 				<div class="options">
 					<a href="'.HTML_PATH_ROOT.'index.php?controller=post&amp;action=view&amp;id_post='.$post['id'].'">'.($post['draft']?$_LANG['PREVIEW']:$_LANG['VIEW']).'</a>
 					<a href="'.HTML_PATH_ROOT.'admin.php?controller=post&amp;action=edit_'.$post['type'].'&amp;id_post='.$post['id'].'">'.$_LANG['EDIT'].'</a>

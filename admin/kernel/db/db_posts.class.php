@@ -150,7 +150,6 @@ class DB_POSTS {
 			$new_obj->setChild('description', 		$args['description']);
 			$new_obj->setChild('allow_comments', 	$args['allow_comments']);
 			$new_obj->setChild('slug',				$args['slug']);
-			$new_obj->setChild('pub_date',			$args['unixstamp']);
 			$new_obj->setChild('mod_date', 			Date::unixstamp());
 
 			if(isset($args['quote']))
@@ -177,12 +176,17 @@ class DB_POSTS {
 			}
 
 			// Publish date
-			$file[4] = Date::format_gmt($args['unixstamp'], 'Y');
-			$file[5] = Date::format_gmt($args['unixstamp'], 'm');
-			$file[6] = Date::format_gmt($args['unixstamp'], 'd');
-			$file[7] = Date::format_gmt($args['unixstamp'], 'H');
-			$file[8] = Date::format_gmt($args['unixstamp'], 'i');
-			$file[9] = Date::format_gmt($args['unixstamp'], 's');
+			if(isset($args['unixstamp']))
+			{
+				$new_obj->setChild('pub_date', $args['unixstamp']);
+
+				$file[4] = Date::format_gmt($args['unixstamp'], 'Y');
+				$file[5] = Date::format_gmt($args['unixstamp'], 'm');
+				$file[6] = Date::format_gmt($args['unixstamp'], 'd');
+				$file[7] = Date::format_gmt($args['unixstamp'], 'H');
+				$file[8] = Date::format_gmt($args['unixstamp'], 'i');
+				$file[9] = Date::format_gmt($args['unixstamp'], 's');
+			}
 
 			// Implode the filename
 			$filename = implode(".", $file);

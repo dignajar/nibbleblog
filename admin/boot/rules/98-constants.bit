@@ -13,9 +13,9 @@
 // =====================================================================
 //	SYSTEM INFORMATION
 // =====================================================================
-	define('NIBBLEBLOG_VERSION',		'3.6 beta2');
+	define('NIBBLEBLOG_VERSION',		'3.6 rc1');
 	define('NIBBLEBLOG_NAME',			'---');
-	define('NIBBLEBLOG_RELEASE_DATE',	'03/06/2013');
+	define('NIBBLEBLOG_RELEASE_DATE',	'14/06/2013');
 
 // =====================================================================
 //	DEBUG
@@ -30,7 +30,7 @@
 		ini_set('display_startup_errors',1);
 		ini_set("track_errors", 1);
 		ini_set("html_errors", 1);
-		error_reporting(E_ALL);
+		error_reporting(E_ALL | E_STRICT | E_NOTICE);
 	}
 
 ?>

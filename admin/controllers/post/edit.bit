@@ -60,7 +60,10 @@
 		}
 
 		// Publish date
-		$safe['unixstamp'] = mktime($_POST['date_hours'],$_POST['date_minutes'],$_POST['date_seconds'],$_POST['date_month'],$_POST['date_day'],$_POST['date_year']);
+		if( isset($_POST['date_hours']) )
+		{
+			$safe['unixstamp'] = mktime($_POST['date_hours'],$_POST['date_minutes'],$_POST['date_seconds'],$_POST['date_month'],$_POST['date_day'],$_POST['date_year']);
+		}
 
 		// Set post
 		if( $_DB_POST->set($safe) )
