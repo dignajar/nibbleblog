@@ -2,22 +2,9 @@
 
 echo '<article class="post">';
 
-	include('includes/post_view.bit');
-
-	if($post['allow_comments'])
-	{
-		// Disqus
-		if( !empty($theme['disqus_account']) )
-		{
-			include('includes/disqus.bit');
-		}
-		// Nibbleblog comment system
-		else
-		{
-			include('includes/comment_list.bit');
-			include('includes/comment_form.bit');
-		}
-	}
+	include('includes/post_head.bit');
+	include('includes/post_body.bit');
+	include('includes/post_foot.bit');
 
 echo '</article>';
 

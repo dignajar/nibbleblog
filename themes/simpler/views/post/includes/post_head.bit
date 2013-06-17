@@ -1,0 +1,19 @@
+<?php
+
+echo '<header class="post">';
+
+	// print publish date
+	echo '<div class="date">'.$post['pub_date'].'</div>';
+
+	// share
+	echo '<div class="share">';
+		echo '<a class="twitter" target="_blank" href="https://twitter.com/share?url='.(urlencode($settings['url'].$post['permalink'])).'">'.$_LANG['SHARE'].'</a>';
+	echo '</div>';
+
+	// print title if this is not empty
+	if( !empty($post['title']) )
+		echo '<h1 class="title">'.$post['title'].'</h1>';
+
+echo '</header>';
+
+?>

@@ -59,6 +59,19 @@
 </head>
 <body>
 
+	<?php
+		if( !empty($theme['disqus_account']) )
+		{
+			// Disqus comments
+			include('includes/comments_disqus.bit');
+		}
+		elseif( !empty($theme['facebook_appId']) )
+		{
+			// Facebook comments
+			include('includes/comments_facebook.bit');
+		}
+	?>
+
 	<div id="container">
 
 		<!-- HEADER -->

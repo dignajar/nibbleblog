@@ -10,7 +10,8 @@ $theme = array
 	'url'=>'http://www.nibbleblog.com', // http://xxxxxxxxxxxxx
 	'video_width'=>'640',
 	'video_height'=>'360',
-	'disqus_account'=>''
+	'disqus_account'=>'',
+	'facebook_appId'=>''
 );
 
 ?>

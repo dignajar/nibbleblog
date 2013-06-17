@@ -29,7 +29,7 @@ class PLUGIN_MY_IMAGE extends Plugin
 		// Image
 		$html .= '<input name="image" type="file">';
 		$html .= '<input name="image_resize" type="hidden" value="1">';
-		$html .= '<input name="image_width" type="hidden" value="200">';
+		$html .= '<input name="image_width" type="hidden" value="230">';
 		$html .= '<input name="image_height" type="hidden" value="200">';
 		$html .= '<input name="image_option" type="hidden" value="auto">'; // exact,portrait,landscape,auto,crop
 
