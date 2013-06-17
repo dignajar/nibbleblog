@@ -116,8 +116,11 @@ class DB_POSTS {
 				$mode = 'NULL';
 			}
 
+			// January 19, 2038 3:14:07 am (32bits max number)
+			$time_unix_2038 = 2147483647 - $time_unix;
+
 			// Filename for new post
-			$filename = $new_id . '.' . $args['id_cat'] . '.' . $args['id_user'] . '.' . $mode . '.' . $time_filename . '.xml';
+			$filename = $time_unix_2038.'.'.$new_id.'.'.$args['id_cat'].'.'.$args['id_user'].'.'.$mode.'.'.$time_filename.'.xml';
 
 			// Save to file
 			if( $new_obj->asXml(PATH_POSTS.$filename) )
@@ -163,33 +166,37 @@ class DB_POSTS {
 			$file = explode('.', $this->files[0]);
 
 			// Category
-			$file[1] = $args['id_cat'];
+			$file[2] = $args['id_cat'];
 
 			// Draft / Published
 			if(isset($args['mode']) && ($args['mode']=='draft'))
 			{
-				$file[3] = 'draft';
+				$file[4] = 'draft';
 			}
 			else
 			{
-				$file[3] = 'NULL';
+				$file[4] = 'NULL';
 			}
 
 			// Publish date
 			if(isset($args['unixstamp']))
 			{
+				// January 19, 2038 3:14:07 am (32bits max number)
+				$time_unix_2038 = 2147483647 - $args['unixstamp'];
+				$file[0] = $time_unix_2038;
+
 				$new_obj->setChild('pub_date', $args['unixstamp']);
 
-				$file[4] = Date::format_gmt($args['unixstamp'], 'Y');
-				$file[5] = Date::format_gmt($args['unixstamp'], 'm');
-				$file[6] = Date::format_gmt($args['unixstamp'], 'd');
-				$file[7] = Date::format_gmt($args['unixstamp'], 'H');
-				$file[8] = Date::format_gmt($args['unixstamp'], 'i');
-				$file[9] = Date::format_gmt($args['unixstamp'], 's');
+				$file[5] = Date::format_gmt($args['unixstamp'], 'Y');
+				$file[6] = Date::format_gmt($args['unixstamp'], 'm');
+				$file[7] = Date::format_gmt($args['unixstamp'], 'd');
+				$file[8] = Date::format_gmt($args['unixstamp'], 'H');
+				$file[9] = Date::format_gmt($args['unixstamp'], 'i');
+				$file[10] = Date::format_gmt($args['unixstamp'], 's');
 			}
 
 			// Implode the filename
-			$filename = implode(".", $file);
+			$filename = implode('.', $file);
 
 			// Delete the old post
 			$this->remove( array('id'=>$args['id']) );
@@ -336,7 +343,7 @@ class DB_POSTS {
 		// Get only the post file
 		private function set_file($id)
 		{
-			$this->files = Filesystem::ls(PATH_POSTS, $id.'.*.*.*.*.*.*.*.*.*', 'xml', false, false, false);
+			$this->files = Filesystem::ls(PATH_POSTS, '*.'.$id.'.*', 'xml', false, false, false);
 			$this->files_count = count( $this->files );
 
 			// Post not found
@@ -351,33 +358,33 @@ class DB_POSTS {
 		// Get all files, drafts and published
 		private function set_files()
 		{
-			$this->files = Filesystem::ls(PATH_POSTS, '*', 'xml', false, false, true);
+			$this->files = Filesystem::ls(PATH_POSTS, '*', 'xml', false, false, false);
 			$this->files_count = count( $this->files );
 		}
 
 		// Get all files, only published
 		private function set_files_by_published()
 		{
-			$this->files = Filesystem::ls(PATH_POSTS, '*.*.*.NULL.*.*.*.*.*.*', 'xml', false, false, true);
+			$this->files = Filesystem::ls(PATH_POSTS, '*.*.*.*.NULL.*', 'xml', false, false, false);
 			$this->files_count = count( $this->files );
 		}
 
 		// Get all files, only drafts
 		private function set_files_by_draft()
 		{
-			$this->files = Filesystem::ls(PATH_POSTS, '*.*.*.draft.*.*.*.*.*.*', 'xml', false, false, true);
+			$this->files = Filesystem::ls(PATH_POSTS, '*.*.*.*.draft.*', 'xml', false, false, false);
 			$this->files_count = count( $this->files );
 		}
 
 		// Get all files, by category
 		private function set_files_by_category($id_cat)
 		{
-			$this->files = Filesystem::ls(PATH_POSTS, '*.'.$id_cat.'.*.NULL.*.*.*.*.*.*', 'xml', false, false, true);
+			$this->files = Filesystem::ls(PATH_POSTS, '*.*.'.$id_cat.'.*.NULL.*', 'xml', false, false, false);
 			$this->files_count = count( $this->files );
 		}
 
 		// Devuelve los items de un post
-		// File name: ID_POST.ID_CATEGORY.ID_USER.NULL.YYYY.MM.DD.HH.mm.ss.xml
+		// File name: UNIXSTAMP.ID_POST.ID_CATEGORY.ID_USER.NULL.YYYY.MM.DD.HH.mm.ss.xml
 		private function get_items($file)
 		{
 			global $_LANG;
@@ -392,11 +399,11 @@ class DB_POSTS {
 
 			$tmp_array['filename']			= (string) $file;
 
-			$tmp_array['id']				= (int) $file_info[0];
-			$tmp_array['id_cat']			= (int) $file_info[1];
-			$tmp_array['id_user']			= (int) $file_info[2];
-			$tmp_array['mode']				= (string) $file_info[3];
-			$tmp_array['draft']				= (bool) ($file_info[3]=='draft');
+			$tmp_array['id']				= (int) $file_info[1];
+			$tmp_array['id_cat']			= (int) $file_info[2];
+			$tmp_array['id_user']			= (int) $file_info[3];
+			$tmp_array['mode']				= (string) $file_info[4];
+			$tmp_array['draft']				= (bool) ($file_info[5]=='draft');
 			$tmp_array['visits']			= (int) $obj_xml->getChild('visits');
 
 			$tmp_array['type']				= (string) $obj_xml->getChild('type');

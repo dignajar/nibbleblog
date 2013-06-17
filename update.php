@@ -9,25 +9,28 @@
  * See COPYRIGHT.txt and LICENSE.txt.
 */
 
-define('UPDATER_VERSION', '1.2');
+define('UPDATER_VERSION', '1.3');
 
 // =====================================================================
 // Require
 // =====================================================================
 require('admin/boot/rules/1-fs_php.bit');
-require('admin/boot/rules/99-constants.bit');
+require('admin/boot/rules/98-constants.bit');
 
 require(PATH_DB . 'nbxml.class.php');
 require(PATH_DB . 'db_settings.class.php');
+require(PATH_DB . 'db_posts.class.php');
 
 require(PATH_HELPERS . 'html.class.php');
 require(PATH_HELPERS . 'date.class.php');
 require(PATH_HELPERS . 'text.class.php');
+require(PATH_HELPERS . 'filesystem.class.php');
 
 // =====================================================================
 // DB
 // =====================================================================
 $_DB_SETTINGS	= new DB_SETTINGS( FILE_XML_CONFIG );
+$_DB_POST		= new DB_POSTS( FILE_XML_POST );
 
 // =====================================================================
 // Variables
@@ -134,6 +137,36 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 					if(!$obj->is_set($name))
 					{
 						$obj->addChild($name, $value);
+					}
+				}
+
+				$posts_files = Filesystem::ls(PATH_POSTS, '*', 'xml', false, false, false);
+
+				foreach($posts_files as $file_old)
+				{
+					$explode = explode('.', $file_old);
+
+					if(count($explode)==11)
+					{
+						$post = new NBXML(PATH_POSTS.$file_old, 0, TRUE, '', FALSE);
+
+						$time_unix_2038 = 2147483647 - (int)$post->getChild('pub_date');
+						$mod = (int)$post->getChild('mod_date');
+						if( ($mod!=0) && (!empty($mod)) )
+							$time_unix_2038 = 2147483647 - $mod;
+
+						array_unshift($explode, $time_unix_2038);
+
+						// Implode the filename
+						$filename = implode('.', $explode);
+
+						// Delete the old post
+						unlink(PATH_POSTS.$file_old);
+
+						// Save the new post
+						$post->asXml(PATH_POSTS.$filename);
+
+						echo Html::p( array('class'=>'pass', 'content'=>'File renamed: '.$file_old.' => '.$filename) );
 					}
 				}
 

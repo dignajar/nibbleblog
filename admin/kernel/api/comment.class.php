@@ -101,9 +101,6 @@ class Comment {
 			$this->set_last_time();
 		}
 
-		// Clean session
-		Session::reset();
-
 		return $data['type']=='NULL';
 	}
 

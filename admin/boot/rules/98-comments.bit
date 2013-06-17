@@ -42,11 +42,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 					unset($_POST);
 
 					// Renew comment hash
-					$Comment->set_hash();
+//					$Comment->set_hash();
 				}
 			}
 		}
 	}
 }
+
+// Init comment hash
+$Comment->set_hash();
 
 ?>
