@@ -1,32 +1,29 @@
 <?php
 
-// ========== COMMENT FORM ==========
-	echo '<footer id="comment_form">';
+// Comment form
+echo '<footer id="comment_form">';
 
-		echo '<h2>'.$_LANG['NEW_COMMENT'].'</h2>';
+	echo '<h2>'.$_LANG['NEW_COMMENT'].'</h2>';
 
-		if(Session::get_error())
-		{
-			echo '<h3 class="alert">'.Session::get_alert().'</h3>';
-		}
+	if(Session::get_error())
+	echo '<h3 class="alert">'.Session::get_alert().'</h3>';
 
-		// This form call the controller(comment) and the action(new)
-		echo '
-			<form method="post" name="form" action="'.HTML_PATH_ROOT.'index.php?controller=comment&amp;action=new&amp;id_post='.$url['id_post'].'">
+	echo '
+		<form method="post" name="form" action="#comment_form">
 
-			<input type="hidden" name="hash" value="'.Comment::get_hash().'">
+		<input type="hidden" name="hash" value="'.$Comment->get_hash().'">
 
-			<input type="text" name="author_name" value="'.Session::get_comment('author_name').'" placeholder="'.$_LANG['NAME'].'">
+		<input type="text" name="author_name" value="'.$_POST['author_name'].'" placeholder="'.$_LANG['NAME'].'">
 
-			<input type="text" name="author_email" value="'.Session::get_comment('author_email').'" placeholder="'.$_LANG['EMAIL'].'">
+		<input type="text" name="author_email" value="'.$_POST['author_email'].'" placeholder="'.$_LANG['EMAIL'].'">
 
-			<textarea name="content" placeholder="'.$_LANG['TYPE_THE_COMMENT_HERE'].'">'.Session::get_comment('content').'</textarea>
+		<textarea name="content" placeholder="'.$_LANG['TYPE_THE_COMMENT_HERE'].'">'.$_POST['content'].'</textarea>
 
-			<input type="submit" value="'.$_LANG['PUBLISH'].'">
+		<input type="submit" value="'.$_LANG['PUBLISH'].'">
 
-			</form>
-		';
+		</form>
+	';
 
-	echo '</footer>';
+echo '</footer>';
 
 ?>

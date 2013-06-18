@@ -1,15 +1,15 @@
 <?php
 
-	$theme = array
-	(
-		'name'=>'GoogleSimple',
-		'description'=>'Designed by Josh Peterson (www.noaesthetic.com)',
-		'author'=>'Diego Najar',
-		'version'=>'1.0',
-		'last_update'=>'23/02/2013', // dd/mm/yyyy
-		'url'=>'http://www.nibbleblog.com', // http://xxxxxxxxxxxxx
-		'video_width'=>'640',
-		'video_height'=>'360',
-	);
+$theme = array
+(
+	'name'=>'GoogleSimple',
+	'description'=>'Designed by Josh Peterson (www.noaesthetic.com)',
+	'author'=>'Diego Najar',
+	'version'=>'3.6',
+	'last_update'=>'17/06/2013', // dd/mm/yyyy
+	'url'=>'http://www.nibbleblog.com', // http://xxxxxxxxxxxxx
+	'video_width'=>'640',
+	'video_height'=>'360',
+);
 
 ?>
