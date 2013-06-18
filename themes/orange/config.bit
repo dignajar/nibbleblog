@@ -1,0 +1,17 @@
+<?php
+
+$theme = array
+(
+	'name'=>'Orange',
+	'description'=>'Clean and fast theme',
+	'author'=>'Diego Najar',
+	'version'=>'3.6',
+	'last_update'=>'18/06/2013', // dd/mm/yyyy
+	'url'=>'http://www.nibbleblog.com', // http://xxxxxxxxxxxxx
+	'video_width'=>'640',
+	'video_height'=>'360',
+	'disqus_account'=>'',
+	'facebook_appId'=>''
+);
+
+?>
