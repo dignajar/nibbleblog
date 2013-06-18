@@ -8,4 +8,4 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <h2><?php echo $_LANG['NEW_COMMENT'] ?></h2>
-<div class="fb-comments" data-href="<?php echo BLOG_URL.$post['permalink'] ?>" data-width="470" data-num-posts="10"></div>
+<div class="fb-comments" data-href="<?php echo BLOG_URL.$post['permalink'] ?>" data-num-posts="10"></div>

@@ -343,6 +343,11 @@ div.share	a.twitter:hover {
 	padding: 3px 8px;
 }
 
+/* For Facebook comments */
+.fb-comments, .fb-comments span, .fb-comments.fb_iframe_widget span iframe {
+	width: 100% !important;
+}
+
 /* ============================== */
 /* PLUGINS */
 /* ============================== */
