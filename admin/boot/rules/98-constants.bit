@@ -13,14 +13,14 @@
 // =====================================================================
 //	SYSTEM INFORMATION
 // =====================================================================
-	define('NIBBLEBLOG_VERSION',		'3.6 rc2');
-	define('NIBBLEBLOG_NAME',			'');
-	define('NIBBLEBLOG_RELEASE_DATE',	'18/06/2013');
+	define('NIBBLEBLOG_VERSION',		'3.6');
+	define('NIBBLEBLOG_NAME',			'Echo');
+	define('NIBBLEBLOG_RELEASE_DATE',	'xx/06/2013');
 
 // =====================================================================
 //	DEBUG
 // =====================================================================
-	define('DEBUG_MODE',	TRUE);
+	define('DEBUG_MODE',	FALSE);
 
 	error_reporting(0);
 

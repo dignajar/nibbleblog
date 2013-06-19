@@ -41,7 +41,7 @@
 		echo Html::link( array('href'=>HTML_PATH_ROOT.'index.php?controller=blog&action=view&category='.$category['slug'], 'content'=>$_LANG['VIEW']) );
 		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=categories&amp;action=edit&amp;id_cat='.$category['id'], 'content'=>$_LANG['EDIT']) );
 
-		if($_DB_CATEGORIES->get_post_count($category['id']) == 0)
+		if($_DB_POST->get_list_by_category(array('id_cat'=>$category['id'], 'page'=>0, 'amount'=>1)) == array())
 			echo Html::link( array('class'=>'js_button_delete button', 'data-flag'=>'0', 'data-id'=>$category['id'], 'content'=>$_LANG['DELETE'], 'href'=>'javascript:void(0)') );
 		elseif($_DB_CATEGORIES->get_count() == 1)
 			echo Html::span( array('content'=>$_LANG['AT_LEAST_ONE_CATEGORY']) );
