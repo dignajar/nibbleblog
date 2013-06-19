@@ -319,42 +319,8 @@ div.plugin_box	h3.title {
     font-weight: normal;
 }
 
-/* ============================== */
-/* PLUGIN TWITTER */
-/* ============================== */
-div.plugin_twitter	ul {
-	height: 80px;
-    overflow: hidden;
-}
-
-div.plugin_twitter	li {
-	display: inline;
-	word-wrap: break-word;
-}
-
-div.plugin_twitter	li.username {
-	background: url("img/twitter.png") no-repeat 0 -2px;
-	margin-right: 5px;
-	padding-left: 23px;
-}
-
-/* ============================== */
-/* PLUGIN TWITTER STATIC */
-/* ============================== */
-div.plugin_twitter_static	ul {
-
-}
-
-div.plugin_twitter_static	li.username {
-	display: none;
-}
-
-div.plugin_twitter_static	li.tweet {
-    background: url("img/twitter.png") no-repeat 50% 0;
-    display: block;
-    font-size: 0.95em;
-    padding: 20px 0 8px;
-    word-wrap: break-word;
+div.plugin_box img {
+	max-width: 100%;
 }
 
 /* ============================== */

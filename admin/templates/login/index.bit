@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/normalize.css' ?>" />
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'login/css/main.css' ?>" />
 
-	<!-- JAVASCRIPT -->
+	<!-- Javascript -->
 	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'system.php' ?>"></script>
 	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'functions.js' ?>"></script>
 </head>
@@ -19,7 +19,7 @@
 
 		<?php
 			// LAYOUT_TITLE defined on controller
-			echo '<div class="title">'.LAYOUT_TITLE.'</div>';
+			echo '<div class="title">'.$layout['title'].'</div>';
 
 			// ALERT
 			if( (isset($_SESSION['session_alert'])) && ($_SESSION['session_alert']['active']) )
@@ -29,7 +29,7 @@
 			}
 
 			// LAYOUT_VIEW defined on controller
-			include(PATH_ADMIN_VIEW. LAYOUT_VIEW);
+			include(PATH_ADMIN_VIEW.$layout['view']);
 		?>
 
 	</div>

@@ -52,35 +52,40 @@ $controllers['plugins']['config']		= array('security'=>true, 'title'=>$_LANG['PL
 $controllers['user']['logout']			= array('security'=>false, 'title'=>$_LANG['LOGOUT'], 'controller'=>'logout', 'view'=>'logout', 'template'=>'login');
 $controllers['user']['login']			= array('security'=>false, 'title'=>$_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA'], 'controller'=>'login', 'view'=>'login', 'template'=>'login');
 
+$layout = array(
+	'controller'=>'user/login.bit',
+	'view'=>'user/login.bit',
+	'template'=>'login/index.bit',
+	'title'=>$_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA'],
+	'type'=>'admin'
+);
+
 if(isset($controllers[$url['controller']][$url['action']]))
 {
 	$dirname = $url['controller'].'/';
 	$parameters = $controllers[$url['controller']][$url['action']];
-
-	define('LAYOUT_TITLE',		$parameters['title']);
-	define('LAYOUT_CONTROLLER',	$dirname.$parameters['controller'].'.bit');
-	define('LAYOUT_VIEW',		$dirname.$parameters['view'].'.bit');
-	define('LAYOUT_TEMPLATE',	$parameters['template'].'/index.bit');
 
 	if($parameters['security'])
 	{
 		if(!isset($Login))
 			exit('Nibbleblog security error');
 
-		if(!$Login->is_logued())
-			exit('Nibbleblog security error');
+		if($Login->is_logued())
+		{
+			$layout['controller'] 	= $dirname.$parameters['controller'].'.bit';
+			$layout['view'] 		= $dirname.$parameters['view'].'.bit';
+			$layout['template'] 	= $parameters['template'].'/index.bit';
+			$layout['title'] 		= $parameters['title'];
+		}
 	}
 }
-else
-{
-	// Default
-	define('LAYOUT_TITLE',		$_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA']);
-	define('LAYOUT_CONTROLLER',	'user/login.bit');
-	define('LAYOUT_VIEW',		'user/login.bit');
-	define('LAYOUT_TEMPLATE',	'login/index.bit');
-}
 
-require(PATH_ADMIN_CONTROLLER .	LAYOUT_CONTROLLER);
-require(PATH_ADMIN_TEMPLATES  .	LAYOUT_TEMPLATE);
+// Plugins
+foreach($plugins as $plugin)
+	$plugin->boot();
+
+// Load the controller and template
+@require(PATH_ADMIN_CONTROLLER.$layout['controller']);
+@require(PATH_ADMIN_TEMPLATES.$layout['template']);
 
 ?>

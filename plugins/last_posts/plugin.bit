@@ -4,7 +4,7 @@
 // =====================================================================
 $_PLUGIN_CONFIG['DATA'] = array(
 	'author'=>'Diego Najar',
-	'version'=>'1.1',
+	'version'=>'3.6',
 	'url'=>'http://www.nibbleblog.com'
 );
 

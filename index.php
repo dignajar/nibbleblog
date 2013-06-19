@@ -38,7 +38,8 @@ $layout = array(
 	'robots'=>$seo['robots'],
 	'keywords'=>$seo['keywords'],
 	'generator'=>$seo['generator'],
-	'feed'=>HTML_PATH_ROOT.'feed.php'
+	'feed'=>HTML_PATH_ROOT.'feed.php',
+	'type'=>'blog'
 );
 
 if( ($url['controller']!=null) && ($url['action']!=null) )
@@ -63,6 +64,10 @@ if($settings['friendly_urls'])
 {
 	$layout['feed'] = HTML_PATH_ROOT.'feed/';
 }
+
+// Plugins
+foreach($plugins as $plugin)
+	$plugin->boot();
 
 // Load the controller and template
 @require(THEME_CONTROLLERS.$layout['controller']);
