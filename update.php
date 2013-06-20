@@ -150,12 +150,12 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 					{
 						$post = new NBXML(PATH_POSTS.$file_old, 0, TRUE, '', FALSE);
 
-						$time_unix_2038 = 2147483647 - (int)$post->getChild('pub_date');
-						$mod = (int)$post->getChild('mod_date');
-						if( ($mod!=0) && (!empty($mod)) )
-							$time_unix_2038 = 2147483647 - $mod;
+						$unixstamp = (int)$post->getChild('pub_date');
+						//$mod = (int)$post->getChild('mod_date');
+						//if( ($mod!=0) && (!empty($mod)) )
+							//$time_unix_2038 = 2147483647 - $mod;
 
-						array_unshift($explode, $time_unix_2038);
+						array_unshift($explode, $unixstamp);
 
 						// Implode the filename
 						$filename = implode('.', $explode);

@@ -116,11 +116,8 @@ class DB_POSTS {
 				$mode = 'NULL';
 			}
 
-			// January 19, 2038 3:14:07 am (32bits max number)
-			$time_unix_2038 = 2147483647 - $time_unix;
-
 			// Filename for new post
-			$filename = $time_unix_2038.'.'.$new_id.'.'.$args['id_cat'].'.'.$args['id_user'].'.'.$mode.'.'.$time_filename.'.xml';
+			$filename = $time_unix.'.'.$new_id.'.'.$args['id_cat'].'.'.$args['id_user'].'.'.$mode.'.'.$time_filename.'.xml';
 
 			// Save to file
 			if( $new_obj->asXml(PATH_POSTS.$filename) )
@@ -181,9 +178,7 @@ class DB_POSTS {
 			// Publish date
 			if(isset($args['unixstamp']))
 			{
-				// January 19, 2038 3:14:07 am (32bits max number)
-				$time_unix_2038 = 2147483647 - $args['unixstamp'];
-				$file[0] = $time_unix_2038;
+				$file[0] = $args['unixstamp'];
 
 				$new_obj->setChild('pub_date', $args['unixstamp']);
 
@@ -343,7 +338,7 @@ class DB_POSTS {
 		// Get only the post file
 		private function set_file($id)
 		{
-			$this->files = Filesystem::ls(PATH_POSTS, '*.'.$id.'.*', 'xml', false, false, false);
+			$this->files = Filesystem::ls(PATH_POSTS, '*.'.$id.'.*.*.*.*.*.*.*.*.*', 'xml', false, false, true);
 			$this->files_count = count( $this->files );
 
 			// Post not found
@@ -358,28 +353,28 @@ class DB_POSTS {
 		// Get all files, drafts and published
 		private function set_files()
 		{
-			$this->files = Filesystem::ls(PATH_POSTS, '*', 'xml', false, false, false);
+			$this->files = Filesystem::ls(PATH_POSTS, '*', 'xml', false, false, true);
 			$this->files_count = count( $this->files );
 		}
 
 		// Get all files, only published
 		private function set_files_by_published()
 		{
-			$this->files = Filesystem::ls(PATH_POSTS, '*.*.*.*.NULL.*', 'xml', false, false, false);
+			$this->files = Filesystem::ls(PATH_POSTS, '*.*.*.*.NULL.*', 'xml', false, false, true);
 			$this->files_count = count( $this->files );
 		}
 
 		// Get all files, only drafts
 		private function set_files_by_draft()
 		{
-			$this->files = Filesystem::ls(PATH_POSTS, '*.*.*.*.draft.*', 'xml', false, false, false);
+			$this->files = Filesystem::ls(PATH_POSTS, '*.*.*.*.draft.*', 'xml', false, false, true);
 			$this->files_count = count( $this->files );
 		}
 
 		// Get all files, by category
 		private function set_files_by_category($id_cat)
 		{
-			$this->files = Filesystem::ls(PATH_POSTS, '*.*.'.$id_cat.'.*.NULL.*', 'xml', false, false, false);
+			$this->files = Filesystem::ls(PATH_POSTS, '*.*.'.$id_cat.'.*.NULL.*.*.*.*.*.*', 'xml', false, false, true);
 			$this->files_count = count( $this->files );
 		}
 

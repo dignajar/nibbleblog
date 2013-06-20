@@ -18,7 +18,7 @@ class Filesystem {
 	// $flag_dir : si quiero listar directorios
 	// $sort_asc_numeric : ordeno ascedente numerico
 	// $sort_desc_numeric : ordeno descendente numerico
-	public static function ls($path, $file_expression = NULL, $ext, $flag_dir = false, $sort_asc_numeric = false, $sort_desc_numeric = false)
+	public static function ls($path, $file_expression = NULL, $ext, $flag_dir = false, $sort_asc_numeric = false, $sort_desc_numeric = true)
 	{
 		if($flag_dir)
 		{

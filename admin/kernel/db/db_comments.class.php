@@ -286,7 +286,7 @@ class DB_COMMENTS {
 
 		private function set_file($id)
 		{
-			$this->files = Filesystem::ls(PATH_COMMENTS, $id.'.*.*.*.*.*.*.*.*.*', 'xml', false, false, false);
+			$this->files = Filesystem::ls(PATH_COMMENTS, $id.'.*.*.*.*.*.*.*.*.*', 'xml', false, false, true);
 			$this->files_count = count( $this->files );
 		}
 
@@ -302,7 +302,7 @@ class DB_COMMENTS {
 		// File name: IDComment.IDPost.IDUser.IDOther.YYYY.MM.DD.HH.mm.ss.xml
 		private function set_files_by_post($id_post, $type='NULL')
 		{
-			$this->files = Filesystem::ls(PATH_COMMENTS, '*.'.$id_post.'.*.'.$type.'.*.*.*.*.*.*', 'xml', false, true, false);
+			$this->files = Filesystem::ls(PATH_COMMENTS, '*.'.$id_post.'.*.'.$type.'.*.*.*.*.*.*', 'xml', false, true, true);
 			$this->files_count = count( $this->files );
 		}
 
