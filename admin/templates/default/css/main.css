@@ -355,6 +355,15 @@ div.notification	div.info {
     border-left: 4px solid #00B2C2;
 }
 
+.img_notification_version {
+	background: url("img/notification_comment.png") no-repeat scroll 16px center #F9F9F9;
+    border-left: 4px solid #D31E6E;
+}
+
+#js_notification_version {
+	display: none;
+}
+
 /*====================================================================*/
 /* FORMS
 /*====================================================================*/

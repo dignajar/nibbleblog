@@ -178,7 +178,6 @@ $_LANG['YOU_CAN_USE_HTML_OR_MARKDOWN_SYNTAX'] = 'You can use HTML or Markdown sy
 $_LANG['DRAFT'] = 'Draft';
 $_LANG['YOU_HAVE_A_NEW_COMMENT'] = 'You have a new comment';
 $_LANG['LOGIN_FAILED_ATTEMPT'] = 'Login failed attempt';
-$_LANG['NEW_VERSION_AVAILABLE'] = 'New version available';
 $_LANG['NOTIFICATIONS'] = 'Notifications';
 $_LANG['PREVIEW'] = 'Preview';
 $_LANG['PLEASE_COMPLETE_ALL_FIELDS'] = 'Please complete all fields';
@@ -247,5 +246,9 @@ $_LANG['ALLOW_COMMENTS_ON_THIS_POST'] = 'Allow comments on this post.';
 $_LANG['MULTIPLE_DIRECTIVES_MAY_BE_COMBINED_IN'] = 'Multiple directives may be combined in a comma-separated. Example: nofollow, noindex, noarchive.';
 $_LANG['DRAFT_POSTS'] = 'Draft posts';
 $_LANG['POSITION'] = 'Position';
+
+$_LANG['THERE_IS_A_NEW_VERSION'] = 'There is a new version of Nibbleblog available';
+$_LANG['VERSION'] = 'Version';
+$_LANG['RELEASE_DATE'] = 'Release date';
 
 ?>

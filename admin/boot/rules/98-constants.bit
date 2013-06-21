@@ -16,11 +16,12 @@
 	define('NIBBLEBLOG_VERSION',		'3.6');
 	define('NIBBLEBLOG_NAME',			'Echo');
 	define('NIBBLEBLOG_RELEASE_DATE',	'xx/06/2013');
+	define('NIBBLEBLOG_BUILD',			'36');
 
 // =====================================================================
 //	DEBUG
 // =====================================================================
-	define('DEBUG_MODE',	FALSE);
+	define('DEBUG_MODE',	TRUE);
 
 	error_reporting(0);
 

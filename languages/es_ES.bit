@@ -3,7 +3,7 @@
 $_LANG_CONFIG['DATA'] = array(
 	'native'=>'Español - Español',
 	'english'=>'Spanish',
-	'last_update'=>'13/06/2013',
+	'last_update'=>'20/06/2013',
 	'author'=>'Diego Najar',
 	'email'=>'dignajar@gmail.com',
 	'url'=>'http://diego.nibbleblog.com'
@@ -178,7 +178,6 @@ $_LANG['YOU_CAN_USE_HTML_OR_MARKDOWN_SYNTAX'] = 'Puede usar codigo HTML o Markdo
 $_LANG['DRAFT'] = 'Borrador';
 $_LANG['YOU_HAVE_A_NEW_COMMENT'] = 'Hay un nuevo comentario';
 $_LANG['LOGIN_FAILED_ATTEMPT'] = 'Intento fallido al ingresar';
-$_LANG['NEW_VERSION_AVAILABLE'] = 'Nueva versión disponible';
 $_LANG['NOTIFICATIONS'] = 'Notificaciones';
 $_LANG['PREVIEW'] = 'Vista previa';
 $_LANG['PLEASE_COMPLETE_ALL_FIELDS'] = 'Por favor complete todos los campos';
@@ -247,5 +246,8 @@ $_LANG['ALLOW_COMMENTS_ON_THIS_POST'] = 'Permitir comentarios para este post.';
 $_LANG['MULTIPLE_DIRECTIVES_MAY_BE_COMBINED_IN'] = 'Ingrese las directivas separadas por comas. Ejemplo: nofollow, noindex, noarchive.';
 $_LANG['DRAFT_POSTS'] = 'Borradores';
 $_LANG['POSITION'] = 'Posición';
+$_LANG['THERE_IS_A_NEW_VERSION'] = 'Hay una nueva versión de Nibbleblog disponible';
+$_LANG['VERSION'] = 'Versión';
+$_LANG['RELEASE_DATE'] = 'Fecha';
 
 ?>
