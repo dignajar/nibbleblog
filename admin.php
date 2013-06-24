@@ -56,9 +56,10 @@ $layout = array(
 	'controller'=>'user/login.bit',
 	'view'=>'user/login.bit',
 	'template'=>'login/index.bit',
-	'title'=>$_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA'],
-	'type'=>'admin'
+	'title'=>$_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA']
 );
+
+$where_am_i = 'dashboard';
 
 if(isset($controllers[$url['controller']][$url['action']]))
 {

@@ -21,6 +21,9 @@
 	// Categories
 	$categories = $_DB_CATEGORIES->get_all();
 
+	// Where am I ?
+	$where_am_i = null;
+
 	// Variables for ajax boot
 	$error = false;
 	$safe = array();
@@ -48,6 +51,7 @@
 	);
 
 	define('BLOG_URL',			$settings['url'].$settings['path']);
+
 // =====================================================================
 //	HTML
 // =====================================================================
