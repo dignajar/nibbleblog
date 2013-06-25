@@ -1,0 +1,9 @@
+<?php
+	$value = isset($post_edit['mode']) ? $post_edit['mode'] : true;
+
+	echo Html::div_open( array('class'=>'form_block') );
+		echo Html::checkbox( array('id'=>'js_page', 'name'=>'page', 'class'=>'float'), $value );
+		echo Html::label( array('class'=>'for_checkbox', 'content'=>'Page', 'for'=>'js_page') );
+		echo Html::div( array('class'=>'input_tip', 'content'=>'Post 2 Page') );
+	echo Html::div_close();
+?>

@@ -106,14 +106,15 @@ class DB_POSTS {
 			// Last insert ID
 			$new_id = $this->last_insert_id = $this->get_autoinc();
 
-			// Mode, draft, published
-			if(isset($args['mode']) && ($args['mode']=='draft'))
+			// Page, draft, publish
+			$mode = 'NULL';
+
+			if(isset($args['mode']))
 			{
-				$mode = 'draft';
-			}
-			else
-			{
-				$mode = 'NULL';
+				if($args['mode']=='draft')
+					$mode = 'draft';
+				elseif($args['mode']=='page')
+					$mode = 'page';
 			}
 
 			// Filename for new post
@@ -165,14 +166,15 @@ class DB_POSTS {
 			// Category
 			$file[2] = $args['id_cat'];
 
-			// Draft / Published
-			if(isset($args['mode']) && ($args['mode']=='draft'))
+			// Page, draft, publish
+			$file[4] = 'NULL';
+
+			if(isset($args['mode']))
 			{
-				$file[4] = 'draft';
-			}
-			else
-			{
-				$file[4] = 'NULL';
+				if($args['mode']=='draft')
+					$file[4] = 'draft';
+				elseif($args['mode']=='page')
+					$file[4] = 'page';
 			}
 
 			// Publish date
@@ -368,6 +370,13 @@ class DB_POSTS {
 		private function set_files_by_draft()
 		{
 			$this->files = Filesystem::ls(PATH_POSTS, '*.*.*.*.draft.*', 'xml', false, false, true);
+			$this->files_count = count( $this->files );
+		}
+
+		// Set files by pages
+		private function set_files_by_page()
+		{
+			$this->files = Filesystem::ls(PATH_POSTS, '*.*.*.*.page.*', 'xml', false, false, true);
 			$this->files_count = count( $this->files );
 		}
 

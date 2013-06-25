@@ -13,20 +13,13 @@ $_PLUGIN_CONFIG['DATA'] = array(
 // =====================================================================
 class PLUGIN_OPEN_GRAPH extends Plugin
 {
-	function __construct()
-	{
-		parent::__construct();
-
-		$this->fields = array('code'=>'<p>Hello world!</p>');
-	}
-
 	public function blog_head()
 	{
 		global $post;
 		global $where_am_i;
 		global $settings;
 
-		if( ($where_am_i=='post') && !empty($post) )
+		if( ($where_am_i[1]=='post') && !empty($post) )
 		{
 			$html  = '<meta property="og:url" content="'.BLOG_URL.$post['permalink'].'">';
 			$html .= '<meta property="og:title" content="'.$post['title'].'"/>';
@@ -42,7 +35,6 @@ class PLUGIN_OPEN_GRAPH extends Plugin
 
 		return $html;
 	}
-
 }
 
 ?>

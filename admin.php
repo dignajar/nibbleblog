@@ -59,7 +59,7 @@ $layout = array(
 	'title'=>$_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA']
 );
 
-$where_am_i = 'dashboard';
+$where_am_i[0] = 'admin';
 
 if(isset($controllers[$url['controller']][$url['action']]))
 {

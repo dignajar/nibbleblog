@@ -41,25 +41,32 @@ $layout = array(
 	'feed'=>HTML_PATH_ROOT.'feed.php'
 );
 
-$where_am_i = 'blog';
+$where_am_i[0] = 'blog';
 
 if( ($url['controller']!=null) && ($url['action']!=null) )
 {
 	$layout['controller']	= $url['controller'].'/'.$url['action'].'.bit';
 	$layout['view']			= $url['controller'].'/'.$url['action'].'.bit';
 
-	if( ($url['controller']=='post') && ($url['action']=='view') )
-		$where_am_i = 'post';
+	// Particular post
+	if( ($url['id_post']!==null) && !empty($post) )
+	{
+		$layout['title'] = $post['title'];
+		$layout['description'] = $post['description'];
+		$layout['keywords'] = implode(',',$post['tags']);
 
-	// 404 ?
+		$where_am_i[1] = 'post';
+	}
+
+	// Page 404
 	if( !file_exists(THEME_CONTROLLERS.$layout['controller']) || !file_exists(THEME_VIEWS.$layout['view']) || $page_not_found )
 	{
 		$layout['controller']	= 'page/404.bit';
 		$layout['view']			= 'page/404.bit';
+		$layout['title'] 		= $layout['title'].' - Error 404';
 
-		$where_am_i = '404';
+		$where_am_i[1] = '404';
 	}
-
 }
 
 if(isset($theme['template'][$url['controller']]))

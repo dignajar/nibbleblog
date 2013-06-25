@@ -22,9 +22,9 @@ class PLUGIN_MAINTENANCE_MODE extends Plugin
 
 	public function boot()
 	{
-		global $layout;
+		global $where_am_i;
 
-		if($layout['type']=='blog')
+		if($where_am_i[0]=='blog')
 			exit($this->get_field_db('message'));
 	}
 

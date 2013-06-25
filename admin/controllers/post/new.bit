@@ -27,6 +27,14 @@
 		{
 			$safe['mode'] = 'draft';
 		}
+		else
+		{
+			// Page
+			if( isset($_POST['page']) && $_POST['page']=='1' )
+			{
+				$safe['mode'] = 'page';
+			}
+		}
 
 		// Type
 		if( isset($_POST['video']) )
