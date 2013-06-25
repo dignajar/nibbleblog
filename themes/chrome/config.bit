@@ -6,8 +6,8 @@
 		'description'=>'HTML5 Responsive Theme',
 		'author'=>'Paulo Nunes',
 		'version'=>'2.0',
-		'last_update'=>'01/03/2013', // dd/mm/yyyy
-		'url'=>'https://github.com/syndicatefx/chrome-Nibbleblog theme',
+		'last_update'=>'25/07/2013', // dd/mm/yyyy
+		'url'=>'http://syndicatefx.com',
 		'video_width'=>'',
 		'video_height'=>''
 	);

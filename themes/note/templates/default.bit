@@ -7,10 +7,40 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<title><?php echo $layout['title'] ?></title>
-	<meta name="description" content="<?php echo $layout['description'] ?>">
+	<!-- DESCRIPTION -->
+	<?php if(!empty($layout['description'])) echo '<meta name="description" content="'.$layout['description'].'">'; ?>
+
+	<!-- GENERATOR -->
+	<?php if(!empty($layout['generator'])) echo '<meta name="generator" content="'.$layout['generator'].'">'; ?>
+
+	<!-- KEYWORDS -->
+	<?php if(!empty($layout['keywords'])) echo '<meta name="keywords" content="'.$layout['keywords'].'">'; ?>
+
+	<!-- AUTHOR -->
+	<?php if(!empty($layout['author'])) echo '<meta name="author" content="'.$layout['author'].'">'; ?>
+
+	<!-- ROBOTS -->
+	<?php if(!empty($layout['robots'])) echo '<meta name="robots" content="'.$layout['robots'].'">'; ?>
+
+	<!-- GOOGLE WEBMASTER TOOLS -->
+	<?php if(!empty($seo['google_code'])) echo '<meta name="google-site-verification" content="'.$seo['google_code'].'">'; ?>
+
+	<!-- BING WEBMASTER TOOLS -->
+	<?php if(!empty($seo['bing_code'])) echo '<meta name="msvalidate.01" content="'.$seo['bing_code'].'">'; ?>
+
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'main.css?v='.$theme['version'] ?>" />
 	<link rel="shortcut icon" href="<?php echo HTML_THEME_CSS.'img/favicon.ico' ?>" type="image/x-icon" />
 	<script src="<?php echo JS_JQUERY ?>"></script>
+	<!-- ATOM Feed 2.0 -->
+	<link rel="alternate" type="application/atom+xml" title="ATOM Feed" href="<?php echo $layout['feed'] ?>" />
+	<?php
+		foreach($plugins as $plugin)
+		{
+			if($plugin->blog_head()) {
+				echo $plugin->blog_head();
+			}
+		}
+	?>
 </head>
 <body>
 	<div id="top">
@@ -30,7 +60,7 @@
 		</div>
 
 		<footer id="foot">
-			<p><a href="<?php echo $layout['feed'] ?>">Atom</a> | <?php echo $settings['footer'] ?> | <a href="http://syndicatefx.com" target="_blank">Note theme</a></p>
+			<p><a href="<?php echo $layout['feed'] ?>">Atom</a> | <?php echo $settings['footer'] ?> | <a href="https://github.com/dignajar/nibbleblog/tree/master/themes/note" target="_blank">Note theme</a></p>
 		</footer>
 
 <script src="<?php echo HTML_THEME_JS.'jquery.fitvids.js' ?>"></script>
