@@ -5,7 +5,7 @@
 */
 
 window._skel_config = {
-	prefix: 'themes/stripedv2/css/style',
+	prefix: 'themes/striped/css/style',
 	resetCSS: true,
 	useOrientation: true,
 	breakpoints: {

@@ -49,7 +49,7 @@ $controllers['plugins']['install']		= array('security'=>true, 'title'=>$_LANG['P
 $controllers['plugins']['uninstall']	= array('security'=>true, 'title'=>$_LANG['PLUGINS'], 'controller'=>'uninstall', 'view'=>'list', 'template'=>'default');
 $controllers['plugins']['config']		= array('security'=>true, 'title'=>$_LANG['PLUGINS'], 'controller'=>'config', 'view'=>'config', 'template'=>'default');
 
-$controllers['user']['logout']			= array('security'=>false, 'title'=>$_LANG['LOGOUT'], 'controller'=>'logout', 'view'=>'logout', 'template'=>'login');
+$controllers['user']['logout']			= array('security'=>true, 'title'=>$_LANG['LOGOUT'], 'controller'=>'logout', 'view'=>'logout', 'template'=>'login');
 $controllers['user']['login']			= array('security'=>false, 'title'=>$_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA'], 'controller'=>'login', 'view'=>'login', 'template'=>'login');
 
 $layout = array(

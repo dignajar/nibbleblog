@@ -2,13 +2,18 @@
 
 echo '<footer class="post">';
 
+	// Date
+	echo '<span class="date">'.$post['pub_date'].'</span>';
+
+	echo ' · ';
+
 	// Read more or Permalink
 	$text = ($post['read_more'])?$_LANG['READ_MORE']:$_LANG['PERMALINK'];
-
 	echo '<span><a href="'.$post['permalink'].'">'.$text.'</a></span>';
 
 	echo ' · ';
 
+	// Share
 	echo '<span><a target="_blank" href="https://twitter.com/share?url='.(urlencode($settings['url'].$post['permalink'])).'">Tweet</a></span>';
 
 	// Comments
