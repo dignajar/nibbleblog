@@ -83,7 +83,7 @@ echo Html::div_close();
 $(document).ready(function() {
 
 	$.ajax({
-		url: "http://www.nibbleblog.com/version.php?url=<?php echo BLOG_URL ?>",
+		url: "http://www.nibbleblog.com/version.php",
 		type: "GET",
 		dataType: "jsonp",
 		success: function(json)

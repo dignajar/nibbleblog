@@ -12,7 +12,7 @@
 		include('includes/allow_comments.bit');
 
 		// PAGE
-		include('includes/page.bit');
+		//include('includes/page.bit');
 
 		// CATEGORIES
 		include('includes/categories.bit');
