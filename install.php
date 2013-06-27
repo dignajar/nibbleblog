@@ -213,7 +213,7 @@ Date::set_timezone('UTC');
 		$xml .= '<post autoinc="1">';
 		$xml .= '</post>';
 		$obj = new NBXML($xml, 0, FALSE, '', FALSE);
-		$node = $obj->addChild('sticky', '');
+
 		$obj->asXml( FILE_XML_POST );
 
 		// notifications.xml

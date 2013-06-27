@@ -59,19 +59,20 @@
 
 	}
 	// ---- PARTICULAR POST
-	elseif($url['id_post']!==null)
+	elseif( ($url['id_post']!==null) || ($url['post']!==null) )
 	{
-		// Get post
-		$tmp = $_DB_POST->get( array('id'=>$url['id_post']) );
-
-		if( $tmp!==false )
-		{
-			$posts[0] = $tmp;
-		}
+		if($url['id_post']!==null)
+			$args = array('id'=>$url['id_post']);
 		else
-		{
+			$args = array('slug'=>$url['post']);
+
+		// Get post
+		$tmp = $_DB_POST->get($args);
+
+		if($tmp===false)
 			$page_not_found = true;
-		}
+		else
+			$posts[0] = $tmp;
 	}
 	// ---- POSTS FILTER BY BLOG
 	else

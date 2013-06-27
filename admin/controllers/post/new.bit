@@ -19,9 +19,6 @@
 		// Category ID
 		$safe['id_cat'] = $_POST['id_cat'];
 
-		// Slug URL
-		$safe['slug'] = $_POST['slug'];
-
 		// Mode
 		if( isset($_POST['button_draft']) )
 		{
@@ -52,6 +49,21 @@
 		if( isset($_POST['title']) )
 		{
 			$safe['title'] = Validation::sanitize_html( $_POST['title'] );
+		}
+
+		// Slug URL
+		if(!empty($safe['slug']))
+		{
+			$safe['slug'] = $_POST['slug'];
+		}
+		elseif(!empty($_POST['title']))
+		{
+			$safe['slug'] = Validation::sanitize_html($_POST['title']);
+			$safe['slug'] = Text::clean_url($safe['slug'], '-', $translit_enable);
+		}
+		else
+		{
+			$safe['slug'] = $safe['type'];
 		}
 
 		// Content

@@ -63,7 +63,13 @@ class DB_POSTS {
 			return( $this->last_insert_id );
 		}
 
-		// Return the POST ID
+		/*
+		 * function: add()
+		 *
+		 * parameters:
+		 *  $args = array(id, slug)
+		 *
+		 */
 		public function add($args)
 		{
 			// Template
@@ -86,11 +92,19 @@ class DB_POSTS {
 			$new_obj->addChild('content',			$args['content']);
 			$new_obj->addChild('description',		$args['description']);
 			$new_obj->addChild('allow_comments',	$args['allow_comments']);
-			$new_obj->addChild('slug',				$args['slug']);
 
 			$new_obj->addChild('pub_date',			$time_unix);
 			$new_obj->addChild('mod_date',			'0');
 			$new_obj->addChild('visits',			'0');
+
+			// Slug
+			while($this->slug_exists(array('slug'=>$args['slug'])))
+			{
+				$args['slug'] = $args['slug'].'-0';
+				$args['slug']++;
+			}
+
+			$new_obj->addChild('slug', $args['slug']);
 
 			// Video post
 			if(isset($args['video']))
@@ -106,15 +120,13 @@ class DB_POSTS {
 			// Last insert ID
 			$new_id = $this->last_insert_id = $this->get_autoinc();
 
-			// Page, draft, publish
+			// Draft, publish
 			$mode = 'NULL';
 
 			if(isset($args['mode']))
 			{
 				if($args['mode']=='draft')
 					$mode = 'draft';
-				elseif($args['mode']=='page')
-					$mode = 'page';
 			}
 
 			// Filename for new post
@@ -166,15 +178,13 @@ class DB_POSTS {
 			// Category
 			$file[2] = $args['id_cat'];
 
-			// Page, draft, publish
+			// Draft, publish
 			$file[4] = 'NULL';
 
 			if(isset($args['mode']))
 			{
 				if($args['mode']=='draft')
 					$file[4] = 'draft';
-				elseif($args['mode']=='page')
-					$file[4] = 'page';
 			}
 
 			// Publish date
@@ -219,17 +229,64 @@ class DB_POSTS {
 			return(false);
 		}
 
+		public function slug_exists($args)
+		{
+			if(!isset($args['slug']))
+				return true;
+
+			$where = '@slug="'.utf8_encode($args['slug']).'"';
+			$node = $this->obj_xml->xpath('/post/friendly/url['.$where.']');
+
+			if($node==array())
+				return false;
+
+			return true;
+		}
+
+		public function slug_add($args)
+		{
+			$node = $this->xml->list->addGodChild('tag', array('id'=>$id, 'name'=>$args['name']));
+
+			return $id;
+		}
+
+
+		/*
+		 * function: get()
+		 *
+		 * parameters:
+		 *  $args = array(id, slug)
+		 *
+		 */
 		public function get($args)
 		{
-			$this->set_file($args['id']);
-
-			if($this->files_count > 0)
+			if(isset($args['slug']))
 			{
-				return( $this->get_items( $this->files[0] ) );
+				$where = '@slug="'.utf8_encode($args['slug']).'"';
+				$node = $this->obj_xml->xpath('/post/friendly/url['.$where.']');
+
+				if($node==array())
+					return false;
+
+				$id = $node[0]->getAttribute('id');
+			}
+			elseif(isset($args['id']))
+			{
+				$id = $args['id'];
+			}
+			else
+			{
+				return false;
 			}
 
-			return(false);
+			$this->set_file($id);
+
+			if($this->files_count > 0)
+				return $this->get_items($this->files[0]);
+
+			return false;
 		}
+
 
 		public function get_list_by_page($args)
 		{

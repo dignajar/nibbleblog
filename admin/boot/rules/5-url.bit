@@ -22,7 +22,8 @@
 				'plugin'=>null,
 				'category'=>null,
 				'tag'=>null,
-				'other'=>null
+				'other'=>null,
+				'post'=>null
 	);
 
 	if( isset($_GET['controller']) ){ $url['controller'] = Validation::sanitize_html($_GET['controller']); }
@@ -42,5 +43,7 @@
 	if( isset($_GET['tag']) ) { $url['tag'] = Validation::sanitize_html($_GET['tag']); }
 
 	if( isset($_GET['other']) ) { $url['other'] = Validation::sanitize_html($_GET['other']); }
+
+	if( isset($_GET['post']) ) { $url['post'] = Validation::sanitize_html($_GET['post']); }
 
 ?>
