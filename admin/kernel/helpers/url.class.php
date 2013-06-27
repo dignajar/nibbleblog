@@ -11,9 +11,9 @@
 
 class Url {
 
-	public static function category($slug, $permalink=false)
+	public static function category($slug, $friendly=false)
 	{
-		if($permalink)
+		if($friendly)
 		{
 			return HTML_PATH_ROOT.'category/'.$slug.'/';
 		}
@@ -23,9 +23,9 @@ class Url {
 		}
 	}
 
-	public static function tag($slug, $permalink=false)
+	public static function tag($slug, $friendly=false)
 	{
-		if($permalink)
+		if($friendly)
 		{
 			return HTML_PATH_ROOT.'tag/'.$slug.'/';
 		}
@@ -35,18 +35,11 @@ class Url {
 		}
 	}
 
-	public static function post($post, $translit=false, $permalink=false)
+	public static function post($post, $translit=false, $friendly=false)
 	{
-		if($permalink)
+		if($friendly)
 		{
-			if(  Text::not_empty($post['slug']) )
-				$slug = $post['slug'];
-			elseif( Text::not_empty($post['title']) )
-				$slug = Text::clean_url($post['title'], '-', $translit);
-			else
-				$slug = $post['type'];
-
-			return HTML_PATH_ROOT.'post-'.$post['id'].'/'.$slug;
+			return HTML_PATH_ROOT.'post/'.$post['slug'].'/';
 		}
 		else
 		{

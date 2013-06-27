@@ -22,7 +22,19 @@
 		$safe['id_cat']	= $_POST['id_cat'];
 
 		// Slug URL
-		$safe['slug'] = $_POST['slug'];
+		if(!empty($safe['slug']))
+		{
+			$safe['slug'] = $_POST['slug'];
+		}
+		elseif(!empty($_POST['title']))
+		{
+			$safe['slug'] = Validation::sanitize_html($_POST['title']);
+			$safe['slug'] = Text::clean_url($safe['slug'], '-', $translit_enable);
+		}
+		else
+		{
+			$safe['slug'] = $safe['type'];
+		}
 
 		// Mode
 		if( isset($_POST['button_draft']) )

@@ -55,7 +55,7 @@ class DB_POSTS {
 */
 		public function savetofile()
 		{
-			return( $this->obj_xml->asXML($this->file_xml) );
+			return $this->obj_xml->asXML($this->file_xml);
 		}
 
 		public function get_last_insert_id()
@@ -67,7 +67,7 @@ class DB_POSTS {
 		 * function: add()
 		 *
 		 * parameters:
-		 *  $args = array(id, slug)
+		 *  $args = array()
 		 *
 		 */
 		public function add($args)
@@ -97,15 +97,6 @@ class DB_POSTS {
 			$new_obj->addChild('mod_date',			'0');
 			$new_obj->addChild('visits',			'0');
 
-			// Slug
-			while($this->slug_exists(array('slug'=>$args['slug'])))
-			{
-				$args['slug'] = $args['slug'].'-0';
-				$args['slug']++;
-			}
-
-			$new_obj->addChild('slug', $args['slug']);
-
 			// Video post
 			if(isset($args['video']))
 			{
@@ -119,6 +110,10 @@ class DB_POSTS {
 
 			// Last insert ID
 			$new_id = $this->last_insert_id = $this->get_autoinc();
+
+			// Slug
+			$slug = $this->slug_generator($args['slug']);
+			$this->slug_add($new_id, $slug);
 
 			// Draft, publish
 			$mode = 'NULL';
@@ -143,18 +138,23 @@ class DB_POSTS {
 			}
 			else
 			{
-				return(false);
+				return false;
 			}
 
-			return($new_id);
+			return $new_id;
 		}
 
+		/*
+		 * function: set()
+		 *
+		 * parameters:
+		 *  $args = array()
+		 *
+		 */
 		public function set($args)
 		{
 			if(!$this->set_file($args['id']))
-			{
-				return(false);
-			}
+				return false;
 
 			$new_obj = new NBXML(PATH_POSTS.$this->files[0], 0, TRUE, '', FALSE);
 
@@ -162,9 +162,9 @@ class DB_POSTS {
 			$new_obj->setChild('content', 			$args['content']);
 			$new_obj->setChild('description', 		$args['description']);
 			$new_obj->setChild('allow_comments', 	$args['allow_comments']);
-			$new_obj->setChild('slug',				$args['slug']);
 			$new_obj->setChild('mod_date', 			Date::unixstamp());
 
+			// Quote
 			if(isset($args['quote']))
 			{
 				$new_obj->setChild('quote', $args['quote']);
@@ -206,50 +206,21 @@ class DB_POSTS {
 			$filename = implode('.', $file);
 
 			// Delete the old post
-			$this->remove( array('id'=>$args['id']) );
-
-			// Save the new post
-			return($new_obj->asXml(PATH_POSTS.$filename));
-		}
-
-		public function change_category($args)
-		{
-			return( $this->rename_by_position($args['id'], 1, $args['id_cat']) );
-		}
-
-		public function remove($args)
-		{
-			$this->set_file($args['id']);
-
-			if($this->files_count > 0)
+			if($this->remove( array('id'=>$args['id']) ))
 			{
-				return(unlink( PATH_POSTS . $this->files[0] ));
+				// Slug
+				$slug = $this->slug_generator($args['slug']);
+				$this->slug_add($args['id'], $slug);
+
+				// Save config file post.xml
+				$this->savetofile();
+
+				// Save the new post
+				return $new_obj->asXml(PATH_POSTS.$filename);
 			}
 
-			return(false);
+			return false;
 		}
-
-		public function slug_exists($args)
-		{
-			if(!isset($args['slug']))
-				return true;
-
-			$where = '@slug="'.utf8_encode($args['slug']).'"';
-			$node = $this->obj_xml->xpath('/post/friendly/url['.$where.']');
-
-			if($node==array())
-				return false;
-
-			return true;
-		}
-
-		public function slug_add($args)
-		{
-			$node = $this->xml->list->addGodChild('tag', array('id'=>$id, 'name'=>$args['name']));
-
-			return $id;
-		}
-
 
 		/*
 		 * function: get()
@@ -287,6 +258,31 @@ class DB_POSTS {
 			return false;
 		}
 
+		/*
+		 * function: remove()
+		 *
+		 * parameters:
+		 *  $args = array(id)
+		 *
+		 */
+		public function remove($args)
+		{
+			$this->set_file($args['id']);
+
+			if($this->files_count > 0)
+			{
+				// Delete the slug
+				$this->slug_delete($args['id']);
+
+				// Save config file post.xml
+				$this->savetofile();
+
+				// Delete the post
+				return unlink(PATH_POSTS.$this->files[0]);
+			}
+
+			return false;
+		}
 
 		public function get_list_by_page($args)
 		{
@@ -355,6 +351,96 @@ class DB_POSTS {
 	PRIVATE METHODS
 ======================================================================================
 */
+		/*
+		 * Get slug by post id
+		 *
+		 * parameters:
+		 *  (int) $id = Post id
+		 *
+		 */
+		private function slug_get($id)
+		{
+			$where = '@id="'.utf8_encode($id).'"';
+			$node = $this->obj_xml->xpath('/post/friendly/url['.$where.']');
+
+			if($node==array())
+				return false;
+
+			return $node[0]->getAttribute('slug');
+		}
+
+		/*
+		 * Generate a new slug, unique
+		 *
+		 * parameters:
+		 *  (string) $slug
+		 *
+		 */
+		private function slug_generator($slug)
+		{
+			if(!$this->slug_exists($slug))
+				return $slug;
+
+			$slug = $slug.'-0';
+
+			while($this->slug_exists($slug))
+				$slug++;
+
+			return $slug;
+		}
+
+		/*
+		 * Check if exists an slug
+		 *
+		 * parameters:
+		 *  (string) $slug
+		 *
+		 */
+		private function slug_exists($slug)
+		{
+			$where = '@slug="'.utf8_encode($slug).'"';
+			$node = $this->obj_xml->xpath('/post/friendly/url['.$where.']');
+
+			if($node==array())
+				return false;
+
+			return true;
+		}
+
+		/*
+		 * Add slug of a post
+		 *
+		 * parameters:
+		 *  (int) $id = Post id
+		 *  (string) $slug
+		 *
+		 */
+		private function slug_add($id, $slug)
+		{
+			return $this->obj_xml->friendly->addGodChild('url', array('id'=>$id, 'slug'=>$slug));
+		}
+
+		/*
+		 * Delete slug of a post
+		 *
+		 * parameters:
+		 *  (int) $id = Post id
+		 *
+		 */
+		private function slug_delete($id)
+		{
+			$where = '@id="'.utf8_encode($id).'"';
+			$nodes = $this->obj_xml->xpath('/post/friendly/url['.$where.']');
+
+			foreach($nodes as $node)
+			{
+				$dom = dom_import_simplexml($node);
+				$dom->parentNode->removeChild($dom);
+			}
+
+			return true;
+		}
+
 		private function rename($id, $rename)
 		{
 			$this->set_file($id);
@@ -470,12 +556,14 @@ class DB_POSTS {
 			$tmp_array['type']				= (string) $obj_xml->getChild('type');
 			$tmp_array['title']				= (string) $obj_xml->getChild('title');
 			$tmp_array['description']		= (string) $obj_xml->getChild('description');
-			$tmp_array['slug']				= (string) $obj_xml->getChild('slug');
 
 			$tmp_array['pub_date_unix']		= (string) $obj_xml->getChild('pub_date');
 			$tmp_array['mod_date_unix']		= (string) $obj_xml->getChild('mod_date');
 
 			$tmp_array['allow_comments']	= (bool) ((int)$obj_xml->getChild('allow_comments'))==1;
+
+			// Slug
+			$tmp_array['slug'] = $this->slug_get($tmp_array['id']);
 
 			// CONTENT
 			$tmp_array['content'][0] = $content;
