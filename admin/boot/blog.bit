@@ -18,6 +18,7 @@
 	require('rules/98-comments.bit');
 	require('rules/98-plugins.bit');
 	require('rules/98-constants.bit');
+	require('rules/98-blog.bit');
 
 	require('rules/99-misc.bit');
 ?>

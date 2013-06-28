@@ -9,12 +9,12 @@
  * See COPYRIGHT.txt and LICENSE.txt.
 */
 
-class DB_POSTS {
+class DB_PAGES {
 
 /*
-======================================================================================
+========================================================================
 	VARIABLES
-======================================================================================
+========================================================================
 */
 		public $file; 			// Contains the link to XML file
 		public $xml; 			// Contains the object
@@ -29,7 +29,7 @@ class DB_POSTS {
 	CONSTRUCTORS
 ========================================================================
 */
-		function DB_POSTS($file)
+		function DB_PAGES($file)
 		{
 			if(file_exists($file))
 			{
@@ -49,30 +49,13 @@ class DB_POSTS {
 		}
 
 /*
-======================================================================================
+========================================================================
 	PUBLIC METHODS
-======================================================================================
+========================================================================
 */
-		/*
-		 * Save the config file
-		 *
-		 */
-		public function savetofile()
-		{
-			return $this->xml->asXML($this->file);
-		}
 
 		/*
-		 * Return the last post id
-		 *
-		 */
-		public function get_last_insert_id()
-		{
-			return( $this->last_insert_id );
-		}
-
-		/*
-		 * Add a new post
+		 * Add a new page
 		 *
 		 * parameters:
 		 *  $args = array()
@@ -82,8 +65,8 @@ class DB_POSTS {
 		{
 			// Template
 			$template  = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
-			$template .= '<post>';
-			$template .= '</post>';
+			$template .= '<page>';
+			$template .= '</page>';
 
 			// New object
 			$new_obj = new NBXML($template, 0, FALSE, '', FALSE);
@@ -92,25 +75,13 @@ class DB_POSTS {
 			$time_unix = Date::unixstamp();
 
 			// Default elements
-			$new_obj->addChild('type',				$args['type']);
 			$new_obj->addChild('title',				$args['title']);
 			$new_obj->addChild('content',			$args['content']);
 			$new_obj->addChild('description',		$args['description']);
-			$new_obj->addChild('allow_comments',	$args['allow_comments']);
+			$new_obj->addChild('keywords',			$args['keywords']);
 			$new_obj->addChild('pub_date',			$time_unix);
 			$new_obj->addChild('mod_date',			'0');
 			$new_obj->addChild('visits',			'0');
-
-			// Video post
-			if(isset($args['video']))
-			{
-				$new_obj->addChild('video', $args['video']);
-			}
-			// Quote post
-			elseif(isset($args['quote']))
-			{
-				$new_obj->addChild('quote', $args['quote']);
-			}
 
 			// Get the last post id
 			$new_id = $this->last_insert_id = $this->get_autoinc();
@@ -132,10 +103,10 @@ class DB_POSTS {
 			$time_filename = Date::format_gmt($time_unix, 'Y.m.d.H.i.s');
 
 			// Filename for the new post
-			$filename = $time_unix.'.'.$new_id.'.'.$args['id_cat'].'.'.$args['id_user'].'.'.$mode.'.'.$time_filename.'.xml';
+			$filename = $new_id.'.NULL.NULL.'.$mode.'.'.$time_filename.'.xml';
 
 			// Save to file
-			if($new_obj->asXml(PATH_POSTS.$filename))
+			if($new_obj->asXml(PATH_PAGES.$filename))
 			{
 				// Set the next post id
 				$this->set_autoinc(1);
@@ -150,7 +121,7 @@ class DB_POSTS {
 		}
 
 		/*
-		 * Modify a post
+		 * Modify a page
 		 *
 		 * parameters:
 		 *  $args = array()
@@ -161,58 +132,47 @@ class DB_POSTS {
 			if(!$this->set_file($args['id']))
 				return false;
 
-			$new_obj = new NBXML(PATH_POSTS.$this->files[0], 0, TRUE, '', FALSE);
+			$new_obj = new NBXML(PATH_PAGES.$this->files[0], 0, TRUE, '', FALSE);
 
 			$new_obj->setChild('title', 			$args['title']);
 			$new_obj->setChild('content', 			$args['content']);
 			$new_obj->setChild('description', 		$args['description']);
+			$new_obj->setChild('keywords', 			$args['keywords']);
 			$new_obj->setChild('allow_comments', 	$args['allow_comments']);
 			$new_obj->setChild('mod_date', 			Date::unixstamp());
-
-			// Quote
-			if(isset($args['quote']))
-			{
-				$new_obj->setChild('quote', $args['quote']);
-			}
 
 			// ---------------------------------------------------------
 			// Filename
 			// ---------------------------------------------------------
 			$file = explode('.', $this->files[0]);
 
-			// Category
-			if(isset($args['id_cat']))
-				$file[2] = $args['id_cat'];
-
 			// Draft, publish
-			$file[4] = 'NULL';
+			$file[3] = 'NULL';
 
 			if(isset($args['mode']))
 			{
 				if($args['mode']=='draft')
-					$file[4] = 'draft';
+					$file[3] = 'draft';
 			}
 
 			// Publish date
 			if(isset($args['unixstamp']))
 			{
-				$file[0] = $args['unixstamp'];
-
 				$new_obj->setChild('pub_date', $args['unixstamp']);
 
-				$file[5] = Date::format_gmt($args['unixstamp'], 'Y');
-				$file[6] = Date::format_gmt($args['unixstamp'], 'm');
-				$file[7] = Date::format_gmt($args['unixstamp'], 'd');
-				$file[8] = Date::format_gmt($args['unixstamp'], 'H');
-				$file[9] = Date::format_gmt($args['unixstamp'], 'i');
-				$file[10] = Date::format_gmt($args['unixstamp'], 's');
+				$file[4] = Date::format_gmt($args['unixstamp'], 'Y');
+				$file[5] = Date::format_gmt($args['unixstamp'], 'm');
+				$file[6] = Date::format_gmt($args['unixstamp'], 'd');
+				$file[7] = Date::format_gmt($args['unixstamp'], 'H');
+				$file[8] = Date::format_gmt($args['unixstamp'], 'i');
+				$file[9] = Date::format_gmt($args['unixstamp'], 's');
 			}
 
 			// Implode the filename
 			$filename = implode('.', $file);
 
 			// Delete the old post
-			if($this->remove( array('id'=>$args['id']) ))
+			if($this->delete( array('id'=>$args['id']) ))
 			{
 				// Slug
 				$slug = $this->slug_generator($args['slug']);
@@ -222,14 +182,14 @@ class DB_POSTS {
 				$this->savetofile();
 
 				// Save the new post
-				return $new_obj->asXml(PATH_POSTS.$filename);
+				return $new_obj->asXml(PATH_PAGES.$filename);
 			}
 
 			return false;
 		}
 
 		/*
-		 * Get a post by id or slug
+		 * Get a page by id or slug
 		 *
 		 * parameters:
 		 *  $args = array(id, slug)
@@ -240,7 +200,7 @@ class DB_POSTS {
 			if(isset($args['slug']))
 			{
 				$where = '@slug="'.utf8_encode($args['slug']).'"';
-				$node = $this->xml->xpath('/post/friendly/url['.$where.']');
+				$node = $this->xml->xpath('/page/friendly/url['.$where.']');
 
 				if($node==array())
 					return false;
@@ -265,13 +225,13 @@ class DB_POSTS {
 		}
 
 		/*
-		 * Delete a post and this slug link
+		 * Delete a page and the slug link
 		 *
 		 * parameters:
 		 *  $args = array(id)
 		 *
 		 */
-		public function remove($args)
+		public function delete($args)
 		{
 			$this->set_file($args['id']);
 
@@ -284,26 +244,44 @@ class DB_POSTS {
 				$this->savetofile();
 
 				// Delete the post
-				return unlink(PATH_POSTS.$this->files[0]);
+				return unlink(PATH_PAGES.$this->files[0]);
 			}
 
 			return false;
 		}
 
 		/*
-		 * Return an array with published posts filter by page and amount
+		 * Save the config file
+		 *
+		 */
+		public function savetofile()
+		{
+			return $this->xml->asXML($this->file);
+		}
+
+		/*
+		 * Return the last post id
+		 *
+		 */
+		public function get_last_insert_id()
+		{
+			return( $this->last_insert_id );
+		}
+
+		/*
+		 * Return an array with published pages
 		 *
 		 * parameters:
 		 *  $args = array(page, amount)
 		 *
 		 */
-		public function get_list_by_page($args)
+		public function get_all()
 		{
-			// Set only published post
+			// Set only published pages
 			$this->set_files_by_published();
 
 			if($this->files_count > 0)
-				return $this->get_list_by($args['page'], $args['amount']);
+				return $this->get_list_by();
 
 			return array();
 		}
@@ -345,24 +323,6 @@ class DB_POSTS {
 		}
 
 		/*
-		 * Return an array with published post filter by category, page and amount
-		 *
-		 * parameters:
-		 *  $args = array(id_cat, page, amount)
-		 *
-		 */
-		public function get_list_by_category($args)
-		{
-			// Set posts by category
-			$this->set_files_by_category($args['id_cat']);
-
-			if($this->files_count > 0)
-				return $this->get_list_by($args['page'], $args['amount']);
-
-			return array();
-		}
-
-		/*
 		 * Return the amount of posts
 		 *
 		 */
@@ -381,9 +341,9 @@ class DB_POSTS {
 		}
 
 /*
-======================================================================================
+========================================================================
 	PRIVATE METHODS
-======================================================================================
+========================================================================
 */
 		/*
 		 * Get slug by post id
@@ -475,162 +435,100 @@ class DB_POSTS {
 			return true;
 		}
 
-		private function rename($id, $rename)
-		{
-			$this->set_file($id);
-
-			// File not found
-			if($this->files_count == 0)
-			{
-				return(false);
-			}
-
-			$filename = $this->files[0];
-
-			return( rename(PATH_POSTS.$filename, PATH_POSTS.$rename) );
-		}
-
-		private function rename_by_position($id, $position, $string)
-		{
-			$this->set_file($id);
-
-			// File not found
-			if($this->files_count == 0)
-			{
-				return(false);
-			}
-
-			$filename = $this->files[0];
-
-			$explode = explode('.', $filename);
-			$explode[$position] = $string;
-			$implode = implode('.', $explode);
-
-			return( rename(PATH_POSTS.$filename, PATH_POSTS.$implode) );
-		}
-
 		private function set_autoinc($value = 0)
 		{
 			$this->xml['autoinc'] = $value + $this->get_autoinc();
 		}
 
-		// Set the post
+		/*
+		 * Set one page by page id
+		 *
+		 * parameters:
+		 *  (int) $id = Page id
+		 *
+		 */
 		private function set_file($id)
 		{
-			$this->files = Filesystem::ls(PATH_POSTS, '*.'.$id.'.*.*.*.*.*.*.*.*.*', 'xml', false, false, true);
+			$this->files = Filesystem::ls(PATH_PAGES, $id.'.*.*.*.*.*.*.*.*.*', 'xml', false, false, true);
 			$this->files_count = count( $this->files );
 
-			// Post not found
+			// Page not found
 			if($this->files_count == 0)
 				return false;
 
 			return true;
 		}
 
-		// Get all files, drafts and published
+		/*
+		 * Set all pages
+		 *
+		 */
 		private function set_files()
 		{
-			$this->files = Filesystem::ls(PATH_POSTS, '*', 'xml', false, false, true);
+			$this->files = Filesystem::ls(PATH_PAGES, '*', 'xml', false, false, true);
 			$this->files_count = count( $this->files );
 		}
 
-		// Get all files, only published
+		/*
+		 * Set only published pages
+		 *
+		 */
 		private function set_files_by_published()
 		{
-			$this->files = Filesystem::ls(PATH_POSTS, '*.*.*.*.NULL.*', 'xml', false, false, true);
+			$this->files = Filesystem::ls(PATH_PAGES, '*.*.*.NULL.*', 'xml', false, false, true);
 			$this->files_count = count( $this->files );
 		}
 
-		// Get all files, only drafts
+		/*
+		 * Set only drafts pages
+		 *
+		 */
 		private function set_files_by_draft()
 		{
-			$this->files = Filesystem::ls(PATH_POSTS, '*.*.*.*.draft.*', 'xml', false, false, true);
+			$this->files = Filesystem::ls(PATH_PAGES, '*.*.*.draft.*', 'xml', false, false, true);
 			$this->files_count = count( $this->files );
 		}
 
-		// Get all files, by category
-		private function set_files_by_category($id_cat)
-		{
-			$this->files = Filesystem::ls(PATH_POSTS, '*.*.'.$id_cat.'.*.NULL.*.*.*.*.*.*', 'xml', false, false, true);
-			$this->files_count = count( $this->files );
-		}
-
-		// Devuelve los items de un post
-		// File name: UNIXSTAMP.ID_POST.ID_CATEGORY.ID_USER.NULL.YYYY.MM.DD.HH.mm.ss.xml
+		/*
+		 * Return all items from a file
+		 *
+		 * parameters:
+		 *  (string) $file = Filename (ID_PAGE.NULL.NULL.NULL.YYYY.MM.DD.HH.mm.ss.xml)
+		 *
+		 */
 		private function get_items($file)
 		{
-			$xml = new NBXML(PATH_POSTS . $file, 0, TRUE, '', FALSE);
+			$xml = new NBXML(PATH_PAGES.$file, 0, TRUE, '', FALSE);
 
 			$file_info = explode('.', $file);
 
-			$content = (string) $xml->getChild('content');
-			$tmp_content = explode("<!-- pagebreak -->", $content);
-
-			$tmp_array = array('read_more'=>false);
+			$tmp_array['content'] = (string) $xml->getChild('content');
 
 			$tmp_array['filename']			= (string) $file;
 
 			$tmp_array['id']				= (int) $file_info[1];
-			$tmp_array['id_cat']			= (int) $file_info[2];
-			$tmp_array['id_user']			= (int) $file_info[3];
-			$tmp_array['mode']				= (string) $file_info[4];
-			$tmp_array['draft']				= (bool) ($file_info[5]=='draft');
+			$tmp_array['draft']				= (bool) ($file_info[4]=='draft');
 			$tmp_array['visits']			= (int) $xml->getChild('visits');
-
-			$tmp_array['type']				= (string) $xml->getChild('type');
 			$tmp_array['title']				= (string) $xml->getChild('title');
 			$tmp_array['description']		= (string) $xml->getChild('description');
 
 			$tmp_array['pub_date_unix']		= (string) $xml->getChild('pub_date');
 			$tmp_array['mod_date_unix']		= (string) $xml->getChild('mod_date');
 
-			$tmp_array['allow_comments']	= (bool) ((int)$xml->getChild('allow_comments'))==1;
-
 			// Slug
 			$tmp_array['slug'] = $this->slug_get($tmp_array['id']);
 
-			// CONTENT
-			$tmp_array['content'][0] = $content;
-
-			$tmp_array['content'][1] = $tmp_content[0];
-
-			if( isset($tmp_content[1]) )
-			{
-				$tmp_array['content'][2] = $tmp_content[1];
-				$tmp_array['read_more'] = true;
-			}
-
-			// POST TYPE
-			if($tmp_array['type']=='video')
-			{
-				$tmp_array['video']			= (string) $xml->getChild('video');
-			}
-			elseif($tmp_array['type']=='quote')
-			{
-				$tmp_array['quote']			= (string) $xml->getChild('quote');
-			}
-
-			return( $tmp_array );
+			return $tmp_array;
 		}
 
-		private function get_list_by($page_number, $post_per_page)
+		private function get_list_by()
 		{
-			$init = (int) $post_per_page * $page_number;
-			$end  = (int) min( ($init + $post_per_page - 1), $this->files_count - 1 );
-
-			$outrange = $init<0 ? true : $init > $end;
-
 			$tmp_array = array();
 
-			if( !$outrange )
-			{
-				for($init; $init <= $end; $init++)
-				{
-					array_push( $tmp_array, $this->get_items( $this->files[$init] ) );
-				}
-			}
+			foreach($this->files as $file)
+				array_push($tmp_array, $this->get_items($file));
 
-			return( $tmp_array );
+			return $tmp_array;
 		}
 
 } // END Class

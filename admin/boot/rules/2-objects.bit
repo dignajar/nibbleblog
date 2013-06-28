@@ -70,12 +70,12 @@
 	$Resize = new Resize();
 
 	// DB
-	if(defined('FILE_XML_POST') && defined('FILE_XML_CATEGORIES') && defined('FILE_XML_CONFIG') && defined('FILE_XML_NOTIFICATIONS'))
+	if(defined('FILE_XML_POSTS') && defined('FILE_XML_CATEGORIES') && defined('FILE_XML_CONFIG') && defined('FILE_XML_NOTIFICATIONS'))
 	{
 		// Level 1
 		$_DB_SETTINGS		= new DB_SETTINGS( FILE_XML_CONFIG );
 		$_DB_CATEGORIES		= new DB_CATEGORIES( FILE_XML_CATEGORIES );
-		$_DB_POST			= new DB_POSTS( FILE_XML_POST );
+		$_DB_POST			= new DB_POSTS( FILE_XML_POSTS );
 		$_DB_USERS			= new DB_USERS( FILE_XML_USERS );
 		$_DB_TAGS			= new DB_TAGS( FILE_XML_TAGS );
 

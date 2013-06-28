@@ -30,7 +30,7 @@ require(PATH_HELPERS . 'filesystem.class.php');
 // DB
 // =====================================================================
 $_DB_SETTINGS	= new DB_SETTINGS( FILE_XML_CONFIG );
-$_DB_POST		= new DB_POSTS( FILE_XML_POST );
+$_DB_POST		= new DB_POSTS( FILE_XML_POSTS );
 
 // =====================================================================
 // Variables

@@ -58,6 +58,7 @@
 	define('PATH_PRIVATE',			PATH_CONTENT.'private/');
 	define('PATH_TMP',				PATH_CONTENT.'tmp/');
 
+	define('PATH_PAGES',			PATH_PUBLIC.'pages/');
 	define('PATH_POSTS',			PATH_PUBLIC.'posts/');
 	define('PATH_COMMENTS',			PATH_PUBLIC.'comments/');
 	define('PATH_UPLOAD',			PATH_PUBLIC.'upload/');
@@ -67,7 +68,8 @@
 //	FILES
 // =====================================================================
 	// Private
-	define('FILE_XML_POST',			PATH_PRIVATE . 'post.xml');
+	define('FILE_XML_POSTS',		PATH_PRIVATE . 'posts.xml');
+	define('FILE_XML_PAGES',		PATH_PRIVATE . 'pages.xml');
 	define('FILE_XML_TAGS',			PATH_PRIVATE . 'tags.xml');
 	define('FILE_XML_CATEGORIES',	PATH_PRIVATE . 'categories.xml');
 	define('FILE_XML_CONFIG',		PATH_PRIVATE . 'config.xml');

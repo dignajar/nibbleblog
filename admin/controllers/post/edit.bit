@@ -1,129 +1,109 @@
 <?php
 
-// ============================================================================
+// =====================================================================
 //	POST
-// ============================================================================
-	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
+// =====================================================================
+if( $_SERVER['REQUEST_METHOD'] == 'POST' )
+{
+	$safe = array(
+		'mode'=>'publish',
+		'type'=>'simple',
+		'title'=>'',
+		'content'=>'',
+		'description'=>'',
+		'allow_comments'=>0,
+		'slug'=>''
+	);
+
+	// Post ID
+	$safe['id']	= $url['id_post'];
+
+	// Category ID
+	$safe['id_cat']	= $_POST['id_cat'];
+
+	// Title
+	if(isset($_POST['title']))
+		$safe['title'] = Validation::sanitize_html($_POST['title']);
+
+	// Content
+	if(isset($_POST['content']))
+		$safe['content'] = $_POST['content'];
+
+	// Description for SEO
+	if( isset($_POST['description']) )
+		$safe['description'] = Validation::sanitize_html( $_POST['description'] );
+
+	// Mode
+	if( isset($_POST['button_draft']) )
+		$safe['mode'] = 'draft';
+
+	// Slug
+	if(!empty($_POST['slug']))
+		$safe['slug'] = $_POST['slug'];
+	elseif(!empty($safe['title']))
+		$safe['slug'] = Text::clean_url($safe['title'], '-', $translit_enable);
+	else
+		$safe['slug'] = $safe['type'];
+
+	// Quote
+	if(isset($_POST['quote']))
 	{
-		$safe = array(
-						'mode'=>'publish',
-						'type'=>'simple',
-						'title'=>'',
-						'content'=>'',
-						'description'=>'',
-						'allow_comments'=>0,
-						'slug'=>''
-		);
-
-		// Post ID
-		$safe['id']	= $url['id_post'];
-
-		// Category ID
-		$safe['id_cat']	= $_POST['id_cat'];
-
-		// Slug URL
-		if(!empty($safe['slug']))
-		{
-			$safe['slug'] = $_POST['slug'];
-		}
-		elseif(!empty($_POST['title']))
-		{
-			$safe['slug'] = Validation::sanitize_html($_POST['title']);
-			$safe['slug'] = Text::clean_url($safe['slug'], '-', $translit_enable);
-		}
-		else
-		{
-			$safe['slug'] = $safe['type'];
-		}
-
-		// Mode
-		if( isset($_POST['button_draft']) )
-		{
-			$safe['mode']='draft';
-		}
-
-		if( isset($_POST['quote']) )
-		{
-			$safe['quote'] = $_POST['quote'];
-		}
-
-		// Title
-		if( isset($_POST['title']) )
-		{
-			$safe['title'] = Validation::sanitize_html( $_POST['title'] );
-		}
-
-		// Content
-		if( isset($_POST['content']) )
-		{
-			$safe['content'] = $_POST['content'];
-		}
-
-		// Description for SEO
-		if( isset($_POST['description']) )
-		{
-			$safe['description'] = Validation::sanitize_html( $_POST['description'] );
-		}
-
-		// Allow comments
-		if( isset($_POST['allow_comments']) && $_POST['allow_comments']=='1' )
-		{
-			$safe['allow_comments'] = 1;
-		}
-
-		// Publish date
-		if( isset($_POST['date_hours']) )
-		{
-			$safe['unixstamp'] = mktime($_POST['date_hours'],$_POST['date_minutes'],$_POST['date_seconds'],$_POST['date_month'],$_POST['date_day'],$_POST['date_year']);
-		}
-
-		// Set post
-		if( $_DB_POST->set($safe) )
-		{
-			// Tags
-			if( isset($_POST['tags']) )
-			{
-				$safe['tags'] = Validation::sanitize_html($_POST['tags']);
-				$_DB_TAGS->delete_links(array('id_post'=>$safe['id']));
-				$_DB_TAGS->add_tags(array('tags'=>$safe['tags'], 'id_post'=>$safe['id']));
-				$_DB_TAGS->savetofile();
-			}
-
-			Session::set_alert($_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY']);
-
-			Redirect::controller('admin', 'post', 'list');
-		}
+		$safe['type'] = 'quote';
+		$safe['quote'] = $_POST['quote'];
 	}
+
+	// Allow comments
+	if( isset($_POST['allow_comments']) && $_POST['allow_comments']=='1' )
+		$safe['allow_comments'] = 1;
+
+	// Publish date
+	if( isset($_POST['date_hours']) )
+		$safe['unixstamp'] = mktime($_POST['date_hours'],$_POST['date_minutes'],$_POST['date_seconds'],$_POST['date_month'],$_POST['date_day'],$_POST['date_year']);
+
+	// Set post
+	if( $_DB_POST->set($safe) )
+	{
+		// Tags
+		if( isset($_POST['tags']) )
+		{
+			$safe['tags'] = Validation::sanitize_html($_POST['tags']);
+			$_DB_TAGS->delete_links(array('id_post'=>$safe['id']));
+			$_DB_TAGS->add_tags(array('tags'=>$safe['tags'], 'id_post'=>$safe['id']));
+			$_DB_TAGS->savetofile();
+		}
+
+		Session::set_alert($_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY']);
+
+		Redirect::controller('admin', 'post', 'list');
+	}
+}
 
 // ============================================================================
 //	VARIABLES
 // ============================================================================
+$post_edit = $_DB_POST->get( array('id'=>$url['id_post']) );
 
-	$post_edit = $_DB_POST->get( array('id'=>$url['id_post']) );
+if($post_edit == array() )
+	Redirect::controller('admin', 'post', 'list');
 
-	if($post_edit == array() )
-	{
-		Redirect::controller('admin', 'post', 'list');
-	}
+// Tags
+$post_edit['tags'] = $_DB_TAGS->get_by_idpost( array('id_post'=>$post_edit['id']) );
 
-	// Tags
-	$post_edit['tags'] = $_DB_TAGS->get_by_idpost( array('id_post'=>$post_edit['id']) );
+$categories_options = array();
+foreach($categories as $category)
+	$categories_options[$category['id']] = $category['name'];
 
-	$categories_options = array();
-	foreach($categories as $category)
-		$categories_options[$category['id']] = $category['name'];
+$years_options = array_combine(range(1970, date("Y")), range(1970, date("Y")));
+$months_options = array_combine(range(1, 12), range(1, 12));
+$days_options = array_combine(range(1, 31), range(1, 31));
+$hours_options = range(0, 23);
+$seconds_options = $minutes_options = range(0, 59);
 
-	$years_options = array_combine(range(1970, date("Y")), range(1970, date("Y")));
-	$months_options = array_combine(range(1, 12), range(1, 12));
-	$days_options = array_combine(range(1, 31), range(1, 31));
-	$hours_options = range(0, 23);
-	$seconds_options = $minutes_options = range(0, 59);
-
-	$year = Date::format($post_edit['pub_date_unix'], '%Y');
-	$month = Date::format($post_edit['pub_date_unix'], '%m');
-	$day = Date::format($post_edit['pub_date_unix'], '%d');
-	$hours = Date::format($post_edit['pub_date_unix'], '%H');
-	$minutes = Date::format($post_edit['pub_date_unix'], '%M');
-	$seconds = Date::format($post_edit['pub_date_unix'], '%S');
+$year = Date::format($post_edit['pub_date_unix'], '%Y');
+$month = Date::format($post_edit['pub_date_unix'], '%m');
+$day = Date::format($post_edit['pub_date_unix'], '%d');
+$hours = Date::format($post_edit['pub_date_unix'], '%H');
+$minutes = Date::format($post_edit['pub_date_unix'], '%M');
+$seconds = Date::format($post_edit['pub_date_unix'], '%S');
 
 ?>

@@ -41,8 +41,6 @@ $layout = array(
 	'feed'=>HTML_PATH_ROOT.'feed.php'
 );
 
-$where_am_i[0] = 'blog';
-
 if( ($url['controller']!=null) && ($url['action']!=null) )
 {
 	$layout['controller']	= $url['controller'].'/'.$url['action'].'.bit';

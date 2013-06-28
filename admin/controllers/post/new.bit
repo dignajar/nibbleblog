@@ -1,115 +1,89 @@
 <?php
 
-// ============================================================================
+// =====================================================================
 //	POST
-// ============================================================================
-	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
+// =====================================================================
+if( $_SERVER['REQUEST_METHOD'] == 'POST' )
+{
+	$safe = array(
+		'id_user'=>0,
+		'mode'=>'publish',
+		'type'=>'simple',
+		'title'=>'',
+		'content'=>'',
+		'description'=>'',
+		'allow_comments'=>0,
+		'slug'=>''
+	);
+
+	// Category ID
+	$safe['id_cat'] = $_POST['id_cat'];
+
+	// Mode
+	if( isset($_POST['button_draft']) )
+		$safe['mode'] = 'draft';
+
+	// Type
+	if(isset($_POST['video']))
 	{
-		$safe = array(
-						'id_user'=>0,
-						'mode'=>'publish',
-						'type'=>'simple',
-						'title'=>'',
-						'content'=>'',
-						'description'=>'',
-						'allow_comments'=>0,
-						'slug'=>''
-		);
-
-		// Category ID
-		$safe['id_cat'] = $_POST['id_cat'];
-
-		// Mode
-		if( isset($_POST['button_draft']) )
-		{
-			$safe['mode'] = 'draft';
-		}
-		else
-		{
-			// Page
-			if( isset($_POST['page']) && $_POST['page']=='1' )
-			{
-				$safe['mode'] = 'page';
-			}
-		}
-
-		// Type
-		if( isset($_POST['video']) )
-		{
-			$safe['type'] = 'video';
-			$safe['video'] = $_POST['video'];
-		}
-		elseif( isset($_POST['quote']) )
-		{
-			$safe['type'] = 'quote';
-			$safe['quote'] = $_POST['quote'];
-		}
-
-		// Title
-		if( isset($_POST['title']) )
-		{
-			$safe['title'] = Validation::sanitize_html( $_POST['title'] );
-		}
-
-		// Slug URL
-		if(!empty($safe['slug']))
-		{
-			$safe['slug'] = $_POST['slug'];
-		}
-		elseif(!empty($_POST['title']))
-		{
-			$safe['slug'] = Validation::sanitize_html($_POST['title']);
-			$safe['slug'] = Text::clean_url($safe['slug'], '-', $translit_enable);
-		}
-		else
-		{
-			$safe['slug'] = $safe['type'];
-		}
-
-		// Content
-		if( isset($_POST['content']) )
-		{
-			$safe['content'] = $_POST['content'];
-		}
-
-		// Description for SEO
-		if( isset($_POST['description']) )
-		{
-			$safe['description'] = Validation::sanitize_html( $_POST['description'] );
-		}
-
-		// Allow comments
-		if( isset($_POST['allow_comments']) && $_POST['allow_comments']=='1' )
-		{
-			$safe['allow_comments'] = 1;
-		}
-
-		// Add new post
-		$id_post = $_DB_POST->add( $safe );
-
-		if($id_post !== false)
-		{
-			// Tags
-			if( isset($_POST['tags']) )
-			{
-				$safe['tags'] = Validation::sanitize_html($_POST['tags']);
-				$_DB_TAGS->add_tags(array('tags'=>$safe['tags'], 'id_post'=>$id_post));
-				$_DB_TAGS->savetofile();
-			}
-
-			$_SESSION['session_alert']['msg'] = $_LANG['POST_HAS_BEEN_PUBLISHED_SUCCESSFULLY'];
-			$_SESSION['session_alert']['active'] = true;
-
-			Redirect::controller('admin', 'post', 'list');
-		}
+		$safe['type'] = 'video';
+		$safe['video'] = $_POST['video'];
+	}
+	elseif(isset($_POST['quote']))
+	{
+		$safe['type'] = 'quote';
+		$safe['quote'] = $_POST['quote'];
 	}
 
-// ============================================================================
-//	VARIABLES
-// ============================================================================
+	// Title
+	if(isset($_POST['title']))
+		$safe['title'] = Validation::sanitize_html($_POST['title']);
 
-	$categories_options = array();
-	foreach($categories as $category)
-		$categories_options[$category['id']] = $category['name'];
+	// Content
+	if(isset($_POST['content']))
+		$safe['content'] = $_POST['content'];
+
+	// Description for SEO
+	if( isset($_POST['description']) )
+		$safe['description'] = Validation::sanitize_html( $_POST['description'] );
+
+	// Slug
+	if(!empty($_POST['slug']))
+		$safe['slug'] = $_POST['slug'];
+	elseif(!empty($safe['title']))
+		$safe['slug'] = Text::clean_url($safe['title'], '-', $translit_enable);
+	else
+		$safe['slug'] = $safe['type'];
+
+	// Allow comments
+	if( isset($_POST['allow_comments']) && $_POST['allow_comments']=='1' )
+		$safe['allow_comments'] = 1;
+
+	// Add new post
+	$id_post = $_DB_POST->add($safe);
+
+	if($id_post !== false)
+	{
+		// Tags
+		if( isset($_POST['tags']) )
+		{
+			$safe['tags'] = Validation::sanitize_html($_POST['tags']);
+			$_DB_TAGS->add_tags(array('tags'=>$safe['tags'], 'id_post'=>$id_post));
+			$_DB_TAGS->savetofile();
+		}
+
+		$_SESSION['session_alert']['msg'] = $_LANG['POST_HAS_BEEN_PUBLISHED_SUCCESSFULLY'];
+		$_SESSION['session_alert']['active'] = true;
+
+		Redirect::controller('admin', 'post', 'list');
+	}
+}
+
+// =====================================================================
+//	VARIABLES
+// =====================================================================
+$categories_options = array();
+foreach($categories as $category)
+	$categories_options[$category['id']] = $category['name'];
 
 ?>

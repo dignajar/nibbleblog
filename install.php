@@ -109,6 +109,7 @@ Date::set_timezone('UTC');
 		mkdir('content/public',			$permissions_dir, true);
 		mkdir('content/public/upload',	$permissions_dir, true);
 		mkdir('content/public/posts',	$permissions_dir, true);
+		mkdir('content/public/pages',	$permissions_dir, true);
 		mkdir('content/public/comments',$permissions_dir, true);
 
 		// Config.xml
@@ -208,13 +209,21 @@ Date::set_timezone('UTC');
 		$obj->addChild('monitor_auto_delete', 0);
 		$obj->asXml( FILE_XML_COMMENTS );
 
-		// post.xml
+		// posts.xml
 		$xml  = '<?xml version="1.0" encoding="utf-8" standalone="yes"?>';
 		$xml .= '<post autoinc="1">';
 		$xml .= '</post>';
 		$obj = new NBXML($xml, 0, FALSE, '', FALSE);
 
-		$obj->asXml( FILE_XML_POST );
+		$obj->asXml( FILE_XML_POSTS );
+
+		// pages.xml
+		$xml  = '<?xml version="1.0" encoding="utf-8" standalone="yes"?>';
+		$xml .= '<pages autoinc="1">';
+		$xml .= '</pages>';
+		$obj = new NBXML($xml, 0, FALSE, '', FALSE);
+
+		$obj->asXml( FILE_XML_PAGES );
 
 		// notifications.xml
 		$xml  = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';

@@ -1,0 +1,15 @@
+<?php
+/*
+ * Nibbleblog
+ * http://www.nibbleblog.com
+
+ * Require
+ *
+
+ * Return
+ *
+*/
+
+$where_am_i[0] = 'admin';
+
+?>
