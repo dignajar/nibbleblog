@@ -43,15 +43,14 @@ if( ($_SERVER['REQUEST_METHOD'] == 'POST') && isset($_POST['plugin']) )
 // ============================================================================
 //	VARIABLES
 // ============================================================================
+$ctrlv['plugin'] = $plugins_all['PLUGIN_'.strtoupper($url['plugin'])];
+$ctrlv['plugin']->init_db();
 
-	$ctrlv['plugin'] = $plugins_all['PLUGIN_'.strtoupper($url['plugin'])];
-	$ctrlv['plugin']->init_db();
+$ctrlv['html'] = $ctrlv['plugin']->dashboard_config();
 
-	$ctrlv['html'] = $ctrlv['plugin']->dashboard_config();
+if($ctrlv['html']===false)
+	$ctrlv['html'] = '';
 
-	if($ctrlv['html']===false)
-		$ctrlv['html'] = '';
-
-	$ctrlv['positions_html'] = array_combine(range(1, count($plugins)), range(1, count($plugins)));
+$ctrlv['positions_html'] = array_combine(range(1, count($plugins)), range(1, count($plugins)));
 
 ?>

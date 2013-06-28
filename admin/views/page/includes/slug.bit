@@ -1,0 +1,29 @@
+<?php
+
+$value = isset($ctrlv['page']['slug']) ? $ctrlv['page']['slug'] : '';
+
+echo Html::div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
+	echo Html::label( array('class'=>'blocked', 'content'=>$_LANG['PERMALINK']) );
+	echo Html::input( array('id'=>'js_slug', 'name'=>'slug', 'type'=>'text', 'value'=>$value, 'autocomplete'=>'off') );
+	echo Html::div( array('id'=>'js_slug_example', 'content'=>'', 'class'=>'input_tip') );
+echo Html::div_close();
+
+?>
+
+<script>
+
+$(document).ready(function() {
+
+	var slug_example = "<?php echo $settings['url'].$settings['path'].'post/'; ?>";
+	var slug_slug = "<?php echo $value; ?>";
+
+	$("#js_slug_example").html(slug_example+slug_slug+"/");
+
+	$("#js_slug").keyup(function() {
+		var slug_name = $(this).val();
+		$("#js_slug_example").html(slug_example+slug_name+"/");
+	});
+
+});
+
+</script>

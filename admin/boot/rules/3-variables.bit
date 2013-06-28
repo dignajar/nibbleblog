@@ -38,6 +38,7 @@
 	define('LAST_COMMENTS_AMOUNT',	8);
 	define('COMMENTS_AMOUNT',		8);
 	define('POSTS_AMOUNT',			8);
+	define('PAGES_AMOUNT',			8);
 
 	define('NOTIFICATION_DATE_FORMAT',	'%d %B - %H:%M:%S');
 	define('LAST_COMMENT_DATE_FORMAT',	'%d %B - %H:%M:%S');

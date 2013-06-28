@@ -10,6 +10,8 @@
 
 		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_quote', 'content'=>$_LANG['QUOTE_POST']) );
 
+		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=page&amp;action=new', 'content'=>$_LANG['PAGE']) );
+
 	echo Html::div_close();
 
 	echo Html::div_open( array('class'=>'menu_box') );

@@ -79,6 +79,7 @@ class DB_PAGES {
 			$new_obj->addChild('content',			$args['content']);
 			$new_obj->addChild('description',		$args['description']);
 			$new_obj->addChild('keywords',			$args['keywords']);
+			$new_obj->addChild('position',			$args['position']);
 			$new_obj->addChild('pub_date',			$time_unix);
 			$new_obj->addChild('mod_date',			'0');
 			$new_obj->addChild('visits',			'0');
@@ -138,6 +139,7 @@ class DB_PAGES {
 			$new_obj->setChild('content', 			$args['content']);
 			$new_obj->setChild('description', 		$args['description']);
 			$new_obj->setChild('keywords', 			$args['keywords']);
+			$new_obj->setChild('keywords', 			$args['position']);
 			$new_obj->setChild('allow_comments', 	$args['allow_comments']);
 			$new_obj->setChild('mod_date', 			Date::unixstamp());
 

@@ -19,6 +19,10 @@ require('admin/boot/admin.bit');
 // =====================================================================
 $controllers['dashboard']['view'] 		= array('security'=>true, 'title'=>$_LANG['DASHBOARD'], 'controller'=>'view', 'view'=>'view', 'template'=>'default');
 
+$controllers['page']['new']		 		= array('security'=>true, 'title'=>$_LANG['NEW_PAGE'], 'controller'=>'new', 'view'=>'new', 'template'=>'default');
+$controllers['page']['edit']	 		= array('security'=>true, 'title'=>$_LANG['NEW_PAGE'], 'controller'=>'edit', 'view'=>'new', 'template'=>'default');
+$controllers['page']['list']	 		= array('security'=>true, 'title'=>$_LANG['NEW_PAGE'], 'controller'=>'list', 'view'=>'list', 'template'=>'default');
+
 $controllers['post']['new_simple'] 		= array('security'=>true, 'title'=>$_LANG['NEW_SIMPLE_POST'], 'controller'=>'new', 'view'=>'new_simple', 'template'=>'default');
 $controllers['post']['new_video'] 		= array('security'=>true, 'title'=>$_LANG['NEW_VIDEO_POST'], 'controller'=>'new', 'view'=>'new_video', 'template'=>'default');
 $controllers['post']['new_quote'] 		= array('security'=>true, 'title'=>$_LANG['NEW_QUOTE_POST'], 'controller'=>'new', 'view'=>'new_quote', 'template'=>'default');

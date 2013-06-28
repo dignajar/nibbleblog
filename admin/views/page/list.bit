@@ -1,0 +1,95 @@
+<?php
+
+if(empty($post_list))
+{
+	echo Html::p( array('class'=>'empty', 'content'=>$_LANG['THERE_ARE_NO_POSTS']) );
+}
+else
+{
+	echo '
+	<table>
+		<thead>
+			<tr>
+				<th>'.$_LANG['TITLE'].'</th>
+				<th>'.$_LANG['TYPE'].'</th>
+				<th>'.$_LANG['CATEGORY'].'</th>
+				<th>'.$_LANG['COMMENTS'].'</th>
+				<th>'.$_LANG['PUBLISH_DATE'].'</th>
+			</tr>
+		</thead>
+		<tbody>
+	';
+
+	foreach( $post_list as $post )
+	{
+		$category = $_DB_CATEGORIES->get( array('id'=>$post['id_cat']) );
+		$comments = $_DB_COMMENTS->get_list_by_post( array('id_post'=>$post['id']) );
+
+		$title = '';
+		if($post['draft'])
+			$title .= '['.$_LANG['DRAFT'].'] ';
+
+		if(empty($post['title']))
+			$title .= '['.$_LANG['NO_TITLE'].']';
+
+		$title .= $post['title'];
+
+		echo '
+			<tr>
+				<td class="content">
+				'.$title.'
+				<div class="options">
+					<a href="'.HTML_PATH_ROOT.'index.php?controller=post&amp;action=view&amp;id_post='.$post['id'].'">'.($post['draft']?$_LANG['PREVIEW']:$_LANG['VIEW']).'</a>
+					<a href="'.HTML_PATH_ROOT.'admin.php?controller=post&amp;action=edit_'.$post['type'].'&amp;id_post='.$post['id'].'">'.$_LANG['EDIT'].'</a>
+					<a class="js_button_delete" data-flag="0" data-id="'.$post['id'].'" href="javascript:void(0)">'.$_LANG['DELETE'].'</a>
+				</div>
+				</td>
+				<td>'.$_LANG[strtoupper($post['type'])].'</td>
+				<td>'.$category['name'].'</td>
+				<td>'.(count($comments)).'</td>
+				<td>'.Date::format($post['pub_date_unix'], POST_DATE_FORMAT).'</td>
+			</tr>
+		';
+	}
+
+	echo '</tbody></table>';
+
+	// Pager
+	echo Html::div_open( array('class'=>'pager') );
+		for( $i=0; $i<$total_pages; $i++ )
+		{
+			echo Html::link( array('content'=>$i, 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=list&amp;page='.$i) );
+		}
+	echo Html::div_close();
+}
+
+?>
+
+<script>
+
+$(document).ready(function() {
+
+	$("a.js_button_delete").click( function() {
+		var self = $(this);
+		var box = self.parent();
+		var flag = self.attr("data-flag");
+		var id = self.attr("data-id");
+
+		if(flag=="1")
+		{
+			self.removeClass().html("<?php echo $_LANG['LOADING']; ?>");
+
+			if(set_ajax(id, "delete", "posts.php"))
+				box.fadeOut();
+		}
+		else
+		{
+			self.attr("data-flag", "1");
+			self.html("<?php echo $_LANG['ARE_YOU_SURE'] ?>");
+			self.css("color","red");
+		}
+	});
+
+}); // end document
+
+</script>

@@ -251,4 +251,7 @@ $_LANG['THERE_IS_A_NEW_VERSION'] = 'There is a new version of Nibbleblog availab
 $_LANG['VERSION'] = 'Version';
 $_LANG['RELEASE_DATE'] = 'Release date';
 
+$_LANG['NEW_PAGE'] = 'New page';
+$_LANG['PAGE'] = 'Page';
+$_LANG['PAGE_HAS_BEEN_PUBLISHED_SUCCESSFULLY'] = 'Page has been published successfully';
 ?>
