@@ -1,8 +1,8 @@
 <?php
 
-if(empty($post_list))
+if(empty($ctrlv['page_list']))
 {
-	echo Html::p( array('class'=>'empty', 'content'=>$_LANG['THERE_ARE_NO_POSTS']) );
+	echo Html::p( array('class'=>'empty', 'content'=>$_LANG['THERE_ARE_NO_PAGES']) );
 }
 else
 {
@@ -11,43 +11,36 @@ else
 		<thead>
 			<tr>
 				<th>'.$_LANG['TITLE'].'</th>
-				<th>'.$_LANG['TYPE'].'</th>
-				<th>'.$_LANG['CATEGORY'].'</th>
-				<th>'.$_LANG['COMMENTS'].'</th>
+				<th>'.$_LANG['SLUG'].'</th>
 				<th>'.$_LANG['PUBLISH_DATE'].'</th>
 			</tr>
 		</thead>
 		<tbody>
 	';
 
-	foreach( $post_list as $post )
+	foreach($ctrlv['page_list'] as $page)
 	{
-		$category = $_DB_CATEGORIES->get( array('id'=>$post['id_cat']) );
-		$comments = $_DB_COMMENTS->get_list_by_post( array('id_post'=>$post['id']) );
-
 		$title = '';
-		if($post['draft'])
+		if($page['draft'])
 			$title .= '['.$_LANG['DRAFT'].'] ';
 
-		if(empty($post['title']))
+		if(empty($page['title']))
 			$title .= '['.$_LANG['NO_TITLE'].']';
 
-		$title .= $post['title'];
+		$title .= $page['title'];
 
 		echo '
 			<tr>
 				<td class="content">
 				'.$title.'
 				<div class="options">
-					<a href="'.HTML_PATH_ROOT.'index.php?controller=post&amp;action=view&amp;id_post='.$post['id'].'">'.($post['draft']?$_LANG['PREVIEW']:$_LANG['VIEW']).'</a>
-					<a href="'.HTML_PATH_ROOT.'admin.php?controller=post&amp;action=edit_'.$post['type'].'&amp;id_post='.$post['id'].'">'.$_LANG['EDIT'].'</a>
-					<a class="js_button_delete" data-flag="0" data-id="'.$post['id'].'" href="javascript:void(0)">'.$_LANG['DELETE'].'</a>
+					<a href="'.HTML_PATH_ROOT.'index.php?controller=page&amp;action=view&amp;id_page='.$page['id'].'">'.($page['draft']?$_LANG['PREVIEW']:$_LANG['VIEW']).'</a>
+					<a href="'.HTML_PATH_ROOT.'admin.php?controller=page&amp;action=edit&amp;id_page='.$page['id'].'">'.$_LANG['EDIT'].'</a>
+					<a class="js_button_delete" data-flag="0" data-id="'.$page['id'].'" href="javascript:void(0)">'.$_LANG['DELETE'].'</a>
 				</div>
 				</td>
-				<td>'.$_LANG[strtoupper($post['type'])].'</td>
-				<td>'.$category['name'].'</td>
-				<td>'.(count($comments)).'</td>
-				<td>'.Date::format($post['pub_date_unix'], POST_DATE_FORMAT).'</td>
+				<td>'.$page['slug'].'</td>
+				<td>'.Date::format($page['pub_date_unix'], POST_DATE_FORMAT).'</td>
 			</tr>
 		';
 	}
@@ -56,9 +49,9 @@ else
 
 	// Pager
 	echo Html::div_open( array('class'=>'pager') );
-		for( $i=0; $i<$total_pages; $i++ )
+		for( $i=0; $i<$ctrlv['total_pages']; $i++ )
 		{
-			echo Html::link( array('content'=>$i, 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=list&amp;page='.$i) );
+			echo Html::link( array('content'=>$i, 'href'=>HTML_PATH_ROOT.'admin.php?controller=page&amp;action=list&amp;page='.$i) );
 		}
 	echo Html::div_close();
 }
@@ -79,7 +72,7 @@ $(document).ready(function() {
 		{
 			self.removeClass().html("<?php echo $_LANG['LOADING']; ?>");
 
-			if(set_ajax(id, "delete", "posts.php"))
+			if(set_ajax(id, "delete", "pages.php"))
 				box.fadeOut();
 		}
 		else

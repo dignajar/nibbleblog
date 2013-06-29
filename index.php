@@ -55,6 +55,14 @@ if( ($url['controller']!=null) && ($url['action']!=null) )
 
 		$where_am_i[1] = 'post';
 	}
+	elseif( ($url['id_page']!==null) && !empty($page) )
+	{
+		$layout['title'] = $page['title'];
+		$layout['description'] = $page['description'];
+		$layout['keywords'] = $page['keywords'];
+
+		$where_am_i[1] = 'page';
+	}
 
 	// Page 404
 	if( !file_exists(THEME_CONTROLLERS.$layout['controller']) || !file_exists(THEME_VIEWS.$layout['view']) || $page_not_found )

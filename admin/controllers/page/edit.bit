@@ -6,6 +6,7 @@
 if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 {
 	$safe = array(
+		'id'=>$url['id_page'],
 		'title'=>'',
 		'content'=>'',
 		'description'=>'',
@@ -26,6 +27,10 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	if(isset($_POST['content']))
 		$safe['content'] = $_POST['content'];
 
+	// Position
+	if(isset($_POST['position']))
+		$safe['position'] = $_POST['position'];
+
 	// Description for SEO
 	if( isset($_POST['description']) )
 		$safe['description'] = Validation::sanitize_html( $_POST['description'] );
@@ -37,7 +42,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 		$safe['slug'] = Text::clean_url($safe['title'], '-', $translit_enable);
 
 	// Add page
-	$id = $_DB_PAGES->add($safe);
+	$id = $_DB_PAGES->set($safe);
 
 	if($id!==false)
 	{
@@ -56,5 +61,8 @@ $ctrlv['page'] = $_DB_PAGES->get( array('id'=>$url['id_page']) );
 // Page does not exist
 if($ctrlv['page'] == array() )
 	Redirect::controller('admin', 'page', 'list');
+
+$count = count($_DB_PAGES->get_all());
+$ctrlv['positions_html'] = array_combine(range(1, $count), range(1, $count));
 
 ?>

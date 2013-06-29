@@ -47,6 +47,18 @@ class Url {
 		}
 	}
 
+	public static function page($page, $translit=false, $friendly=false)
+	{
+		if($friendly)
+		{
+			return HTML_PATH_ROOT.'page/'.$page['slug'].'/';
+		}
+		else
+		{
+			return HTML_PATH_ROOT.'index.php?controller=page&action=view&id_page='.$page['id'];
+		}
+	}
+
 }
 
 ?>

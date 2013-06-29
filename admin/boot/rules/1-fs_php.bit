@@ -12,76 +12,76 @@
 // =====================================================================
 //	SESSIONS
 // =====================================================================
-	// Set HTTPOnly
-	session_set_cookie_params(0, NULL, NULL, NULL, TRUE);
+// Set HTTPOnly
+session_set_cookie_params(0, NULL, NULL, NULL, TRUE);
 
-	// Session start
-	$session_started = session_start();
+// Session start
+$session_started = session_start();
 
-	// Regenerate the SESSION ID, this for prevent session hijacking "man-in-the-middle attack"
-	//session_regenerate_id(true);
+// Regenerate the SESSION ID, this for prevent session hijacking "man-in-the-middle attack"
+//session_regenerate_id(true);
 
 // =====================================================================
 //	PATHS
 // =====================================================================
-	$current_path = basename(getcwd());
-	if( ($current_path == 'ajax') || ($current_path == 'js') )
-	{
-		define('PATH_ROOT', '../../');
-		define('PATH_CONTENT', '../../content/');
-	}
-	else
-	{
-		define('PATH_ROOT', './');
-		define('PATH_CONTENT', './content/');
-	}
+$current_path = basename(getcwd());
+if( ($current_path == 'ajax') || ($current_path == 'js') )
+{
+	define('PATH_ROOT', '../../');
+	define('PATH_CONTENT', '../../content/');
+}
+else
+{
+	define('PATH_ROOT', './');
+	define('PATH_CONTENT', './content/');
+}
 
-	// PHP - ADMIN
-	define('PATH_ADMIN',			PATH_ROOT.'admin/');
-	define('PATH_KERNEL',			PATH_ADMIN.'kernel/');
-	define('PATH_HELPERS',			PATH_ADMIN.'kernel/helpers/');
-	define('PATH_DB',				PATH_ADMIN.'kernel/db/');
-	define('PATH_API',				PATH_ADMIN.'kernel/api/');
+// PHP - ADMIN
+define('PATH_ADMIN',			PATH_ROOT.'admin/');
+define('PATH_KERNEL',			PATH_ADMIN.'kernel/');
+define('PATH_HELPERS',			PATH_ADMIN.'kernel/helpers/');
+define('PATH_DB',				PATH_ADMIN.'kernel/db/');
+define('PATH_API',				PATH_ADMIN.'kernel/api/');
 
-	define('PATH_ADMIN_CONTROLLER',	PATH_ADMIN.'controllers/');
-	define('PATH_ADMIN_VIEW',		PATH_ADMIN.'views/');
-	define('PATH_ADMIN_TEMPLATES',	PATH_ADMIN.'templates/');
-	define('PATH_ADMIN_AJAX',		PATH_ADMIN.'ajax/');
-	define('PATH_ADMIN_JS',			PATH_ADMIN.'js/');
+define('PATH_ADMIN_CONTROLLER',	PATH_ADMIN.'controllers/');
+define('PATH_ADMIN_VIEW',		PATH_ADMIN.'views/');
+define('PATH_ADMIN_TEMPLATES',	PATH_ADMIN.'templates/');
+define('PATH_ADMIN_AJAX',		PATH_ADMIN.'ajax/');
+define('PATH_ADMIN_JS',			PATH_ADMIN.'js/');
 
-	// PHP - SYSTEM
-	define('PATH_LANGUAGES',		PATH_ROOT.'languages/');
-	define('PATH_PLUGINS',			PATH_ROOT.'plugins/');
-	define('PATH_THEMES',			PATH_ROOT.'themes/');
+// PHP - SYSTEM
+define('PATH_LANGUAGES',		PATH_ROOT.'languages/');
+define('PATH_PLUGINS',			PATH_ROOT.'plugins/');
+define('PATH_THEMES',			PATH_ROOT.'themes/');
 
-	define('PATH_PUBLIC',			PATH_CONTENT.'public/');
-	define('PATH_PRIVATE',			PATH_CONTENT.'private/');
-	define('PATH_TMP',				PATH_CONTENT.'tmp/');
+define('PATH_PUBLIC',			PATH_CONTENT.'public/');
+define('PATH_PRIVATE',			PATH_CONTENT.'private/');
+define('PATH_TMP',				PATH_CONTENT.'tmp/');
 
-	define('PATH_PAGES',			PATH_PUBLIC.'pages/');
-	define('PATH_POSTS',			PATH_PUBLIC.'posts/');
-	define('PATH_COMMENTS',			PATH_PUBLIC.'comments/');
-	define('PATH_UPLOAD',			PATH_PUBLIC.'upload/');
-	define('PATH_PLUGINS_DB',		PATH_PRIVATE.'plugins/');
+define('PATH_PAGES',			PATH_PUBLIC.'pages/');
+define('PATH_POSTS',			PATH_PUBLIC.'posts/');
+define('PATH_COMMENTS',			PATH_PUBLIC.'comments/');
+define('PATH_UPLOAD',			PATH_PUBLIC.'upload/');
+define('PATH_PLUGINS_DB',		PATH_PRIVATE.'plugins/');
 
 // =====================================================================
 //	FILES
 // =====================================================================
-	// Private
-	define('FILE_XML_POSTS',		PATH_PRIVATE . 'posts.xml');
-	define('FILE_XML_PAGES',		PATH_PRIVATE . 'pages.xml');
-	define('FILE_XML_TAGS',			PATH_PRIVATE . 'tags.xml');
-	define('FILE_XML_CATEGORIES',	PATH_PRIVATE . 'categories.xml');
-	define('FILE_XML_CONFIG',		PATH_PRIVATE . 'config.xml');
-	define('FILE_XML_NOTIFICATIONS',PATH_PRIVATE . 'notifications.xml');
-	define('FILE_XML_COMMENTS',		PATH_PRIVATE . 'comments.xml');
-	define('FILE_XML_USERS',		PATH_PRIVATE . 'users.xml');
-	define('FILE_SHADOW',			PATH_PRIVATE . 'shadow.php');
-	define('FILE_KEYS',				PATH_PRIVATE . 'keys.php');
+// Private
+define('FILE_XML_POSTS',		PATH_PRIVATE . 'posts.xml');
+define('FILE_XML_PAGES',		PATH_PRIVATE . 'pages.xml');
+define('FILE_XML_TAGS',			PATH_PRIVATE . 'tags.xml');
+define('FILE_XML_CATEGORIES',	PATH_PRIVATE . 'categories.xml');
+define('FILE_XML_CONFIG',		PATH_PRIVATE . 'config.xml');
+define('FILE_XML_NOTIFICATIONS',PATH_PRIVATE . 'notifications.xml');
+define('FILE_XML_COMMENTS',		PATH_PRIVATE . 'comments.xml');
+define('FILE_XML_USERS',		PATH_PRIVATE . 'users.xml');
+define('FILE_SHADOW',			PATH_PRIVATE . 'shadow.php');
+define('FILE_KEYS',				PATH_PRIVATE . 'keys.php');
 
 // =====================================================================
 //	CLEANING
 // =====================================================================
-	unset($current_path);
+unset($current_path);
 
 ?>

@@ -17,13 +17,15 @@
 				'controller'=>null,
 				'action'=>null,
 				'id_post'=>null,
+				'id_page'=>null,
 				'id_cat'=>null,
-				'page'=>0,
+				'number'=>0,
 				'plugin'=>null,
 				'category'=>null,
 				'tag'=>null,
 				'other'=>null,
-				'post'=>null
+				'post'=>null,
+				'page'=>null
 	);
 
 	if( isset($_GET['controller']) ){ $url['controller'] = Validation::sanitize_html($_GET['controller']); }
@@ -32,9 +34,11 @@
 
 	if( isset($_GET['id_post']) ) { $url['id_post'] = Validation::sanitize_int($_GET['id_post']); }
 
+	if( isset($_GET['id_page']) ) { $url['id_page'] = Validation::sanitize_int($_GET['id_page']); }
+
 	if( isset($_GET['id_cat']) ) { $url['id_cat'] = Validation::sanitize_int($_GET['id_cat']); }
 
-	if( isset($_GET['page']) ) { $url['page'] = Validation::sanitize_int($_GET['page']); }
+	if( isset($_GET['number']) ) { $url['page'] = Validation::sanitize_int($_GET['number']); }
 
 	if( isset($_GET['plugin']) ) { $url['plugin'] = Validation::sanitize_html($_GET['plugin']); }
 
@@ -45,5 +49,7 @@
 	if( isset($_GET['other']) ) { $url['other'] = Validation::sanitize_html($_GET['other']); }
 
 	if( isset($_GET['post']) ) { $url['post'] = Validation::sanitize_html($_GET['post']); }
+
+	if( isset($_GET['page']) ) { $url['page'] = Validation::sanitize_html($_GET['page']); }
 
 ?>

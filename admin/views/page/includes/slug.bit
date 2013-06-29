@@ -14,7 +14,7 @@ echo Html::div_close();
 
 $(document).ready(function() {
 
-	var slug_example = "<?php echo $settings['url'].$settings['path'].'post/'; ?>";
+	var slug_example = "<?php echo $settings['url'].$settings['path'].'page/'; ?>";
 	var slug_slug = "<?php echo $value; ?>";
 
 	$("#js_slug_example").html(slug_example+slug_slug+"/");

@@ -1,0 +1,16 @@
+<?php
+
+echo '<article class="page">';
+
+	echo '<header class="page">';
+
+		if( !empty($post['title']) )
+			echo '<h1 class="title">'.$post['title'].'</h1>';
+
+	echo '</header>';
+
+	echo $page['content'];
+
+echo '</article>';
+
+?>

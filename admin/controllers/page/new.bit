@@ -5,6 +5,7 @@
 // =====================================================================
 if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 {
+
 	$safe = array(
 		'title'=>'',
 		'content'=>'',
@@ -25,6 +26,10 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	// Content
 	if(isset($_POST['content']))
 		$safe['content'] = $_POST['content'];
+
+	// Position
+	if(isset($_POST['position']))
+		$safe['position'] = $_POST['position'];
 
 	// Description for SEO
 	if( isset($_POST['description']) )
@@ -51,5 +56,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 // =====================================================================
 //	VARIABLES
 // =====================================================================
+$count = count($_DB_PAGES->get_all()) + 1;
+$ctrlv['positions_html'] = array_combine(range(1, $count), range(1, $count));
 
 ?>

@@ -9,6 +9,6 @@
 // =====================================================================
 $ctrlv['page_list'] = $_DB_PAGES->get_all();
 
-$ctrlv['total_pages'] = ceil($_DB_PAGES->get_count() / PAGES_AMOUNT);
+$ctrlv['total_pages'] = ceil(count($ctrlv['page_list']) / PAGES_AMOUNT);
 
 ?>

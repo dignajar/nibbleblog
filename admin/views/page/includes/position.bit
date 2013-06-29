@@ -1,0 +1,10 @@
+<?php
+
+$value = isset($ctrlv['page']['position']) ? $ctrlv['page']['position'] : '0';
+
+echo Html::div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
+	echo Html::label( array('class'=>'blocked', 'content'=>$_LANG['POSITION']) );
+	echo Html::select( array('name'=>'position'), $ctrlv['positions_html'], $value);
+echo Html::div_close();
+
+?>

@@ -8,16 +8,19 @@ echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') )
 	// CONTENT
 	include('includes/content.bit');
 
+	// POSITION
+	include('includes/position.bit');
+
 	echo Html::separator( array('content'=>$_LANG['SEO_OPTIONS']), false, !$settings['advanced_post_options']);
+
+	// SLUG URL
+	include('includes/slug.bit');
 
 	// DESCRIPTION
 	include('includes/description.bit');
 
-	// TAGS
-	include('includes/tags.bit');
-
-	// SLUG URL
-	include('includes/slug.bit');
+	// KEYWORDS
+	include('includes/keywords.bit');
 
 	// BUTTONS
 	include('includes/buttons.bit');
