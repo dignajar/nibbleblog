@@ -6,7 +6,7 @@
 
 body {
 	font-family: 'Open Sans',arial,sans-serif;
-	background-color: #F8F8F8;
+	background-color: #EEEEEE;
 	margin: 0;
 	padding: 20px;
 	font-size: 62.5%;
@@ -19,7 +19,7 @@ body {
     min-width: 600px;
     overflow: auto;
     padding: 20px;
-	border: 1px solid #E4E4E4;
+	border: 1px solid #D9D9D9;
 	background-color: #FFFFFF;
 }
 
@@ -39,7 +39,6 @@ a:hover {
 #head {
 	overflow: auto;
 	margin: 10px 0 30px 0;
-	font-size: 3.6em;
 	font-weight: lighter;
 	border-bottom: 1px solid #F1F1F1;
 	padding-bottom: 20px;
@@ -48,10 +47,12 @@ a:hover {
 #head	a.name {
 	color: #333;
 	text-decoration: none;
+	font-size: 3.6em;
 }
 
 #head	span.slogan {
-	color: #006AC8;
+	color: #777777;
+	font-size: 3.6em;
 }
 
 /* ============================== */
@@ -113,6 +114,7 @@ div.page_404 {
 	padding: 0 5px;
 }
 
+
 /* ============================== */
 /* POST VIEW*/
 /* ============================== */
@@ -135,6 +137,7 @@ article.post	header.post		div.date {
 article.post	header.post		h1.title {
 	font-size: 2em;
 	margin: 0;
+	color: #333;
 }
 
 article.post	header.post		h1.title	a {
@@ -146,17 +149,7 @@ article.post	header.post		h1.title	a:hover {
 	text-decoration: none;
 }
 
-/* ========== POST CONTENT ==========
-article.post	pre {
-	background: url("img/bgcode.png");
-	border: 1px solid #E8E8E8;
-	line-height: 23px;
-	margin: 0;
-	padding: 0 5px 0 5px;
-	white-space: pre-wrap;
-	font-size: 0.9em;
-}*/
-
+/* ========== POST CONTENT ========== */
 article.post	.console {
     background: url("img/console.png") no-repeat 8px 8px #F1F1F1;
     display: block;
@@ -184,8 +177,7 @@ article.post	img.align_right {
 article.post 	blockquote {
 	font-size: 1.1em;
 	font-style: italic;
-	margin: 0;
-	padding: 0;
+
 }
 
 article.post	h1,

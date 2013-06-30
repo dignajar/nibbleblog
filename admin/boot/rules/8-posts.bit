@@ -19,8 +19,14 @@
 
 $posts = array();
 $post = array();
-$page_not_found = false;
+
+$pages = array();
 $page = array();
+
+$page_not_found = false;
+
+// ---- PAGES
+$pages = $Page->get_all();
 
 // ---- POSTS FILTER BY CATEGORY
 if($url['category']!==null)
@@ -96,6 +102,19 @@ else
 {
 	// Posts by page
 	$posts = $_DB_POST->get_list_by_page( array('page'=>$url['number'], 'amount'=>$settings['items_page']) );
+}
+
+
+// ---- PERMALINKS
+// ---- PUBLISH DATE
+foreach($pages as $key=>$value)
+{
+	// Publish date
+	$pages[$key]['pub_date'] = Date::format($pages[$key]['pub_date_unix'], $settings['timestamp_format']);
+	$pages[$key]['mod_date'] = Date::format($pages[$key]['mod_date_unix'], $settings['timestamp_format']);
+
+	// Permalink
+	$pages[$key]['permalink'] = Url::page($pages[$key], $translit_enable, $settings['friendly_urls']);
 }
 
 // ---- COMMENTS

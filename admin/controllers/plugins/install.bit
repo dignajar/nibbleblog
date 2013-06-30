@@ -3,16 +3,17 @@
 // ============================================================================
 //	VARIABLES
 // ============================================================================
+$plugin = $plugins_all['PLUGIN_'.strtoupper($url['plugin'])];
 
-	$plugin = $plugins_all['PLUGIN_'.strtoupper($url['plugin'])];
+// If the plugin is not installed, install it
+if ( !$plugin->is_installed() )
+{
+	$next_position = count($plugins_installed) + 1;
 
-	// If the plugin is not installed, install it
-	if ( !$plugin->is_installed() )
-	{
-		if($plugin->install())
-			Redirect::controller('admin','plugins','config',array('plugin'=>$url['plugin']));
-	}
+	if($plugin->install($next_position))
+		Redirect::controller('admin','plugins','config',array('plugin'=>$url['plugin']));
+}
 
-	Redirect::controller('admin','plugins','list');
+Redirect::controller('admin','plugins','list');
 
 ?>

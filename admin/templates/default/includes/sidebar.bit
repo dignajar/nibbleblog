@@ -10,7 +10,7 @@ echo Html::div_open( array('class'=>'menu_box') );
 
 	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_quote', 'content'=>$_LANG['QUOTE_POST']) );
 
-	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=page&amp;action=new', 'content'=>$_LANG['PAGE']) );
+	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=page&amp;action=new', 'content'=>$_LANG['NEW_PAGE']) );
 
 echo Html::div_close();
 
@@ -20,11 +20,11 @@ echo Html::div_open( array('class'=>'menu_box') );
 
 	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=list', 'content'=>$_LANG['POSTS']) );
 
+	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=page&amp;action=list', 'content'=>$_LANG['PAGES']) );
+
 	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list', 'content'=>$_LANG['COMMENTS']) );
 
 	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=categories&amp;action=list', 'content'=>$_LANG['CATEGORIES']) );
-
-	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=page&amp;action=list', 'content'=>$_LANG['PAGE']) );
 
 echo Html::div_close();
 

@@ -37,7 +37,7 @@ class Plugin {
 		$this->_LANG = array();
 	}
 
-	public function install()
+	public function install($position = 0)
 	{
 		if( !mkdir(PATH_PLUGINS_DB.$this->dir_name,0777, true) )
 			return(false);
@@ -57,7 +57,7 @@ class Plugin {
 		$new_obj->addAttribute('installed_at', Date::unixstamp());
 
 		// Default fields
-		$new_obj->addChild('position', 0);
+		$new_obj->addChild('position', $position);
 		$new_obj->addChild('title', $this->name);
 
 		foreach($this->fields as $field=>$value)

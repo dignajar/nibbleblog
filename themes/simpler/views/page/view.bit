@@ -1,11 +1,11 @@
 <?php
 
-echo '<article class="page">';
+echo '<article class="post">';
 
-	echo '<header class="page">';
+	echo '<header class="post">';
 
-		if( !empty($post['title']) )
-			echo '<h1 class="title">'.$post['title'].'</h1>';
+		if( !empty($page['title']) )
+			echo '<h1 class="title">'.$page['title'].'</h1>';
 
 	echo '</header>';
 

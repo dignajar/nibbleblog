@@ -514,6 +514,7 @@ PRIVATE METHODS
 		$tmp_array['title']				= $xml->getChild('title');
 		$tmp_array['description']		= $xml->getChild('description');
 		$tmp_array['position']			= $xml->getChild('position');
+		$tmp_array['keywords']			= $xml->getChild('keywords');
 
 		$tmp_array['pub_date_unix']		= $xml->getChild('pub_date');
 		$tmp_array['mod_date_unix']		= $xml->getChild('mod_date');

@@ -15,31 +15,22 @@ class PLUGIN_PAGES extends Plugin
 {
 	public function blog_body()
 	{
-		global $Page;
-		global $settings;
-		global $translit_enable;
-
-		$list = $Page->get_all();
+		global $pages;
 
 		$html = '<ul>';
 
-		foreach($list as $page)
+		// Home
+		$html .= '<li><a href="'.HTML_PATH_ROOT.'">'.$this->language('HOME').'</a></li>';
+
+		foreach($pages as $page)
 		{
-			// Permalink
-			$permalink = Url::page($page, $translit_enable, $settings['friendly_urls']);
-
-			// Title
-			$title = empty($page['title'])? ucfirst($page['type']) : $page['title'];
-
-			// Html
-			$html .= '<li><a href="'.$permalink.'">'.$title.'</a></li>';
+			$html .= '<li><a href="'.$page['permalink'].'">'.$page['title'].'</a></li>';
 		}
 
 		$html .= '</ul>';
 
 		return $html;
 	}
-
 }
 
 ?>
