@@ -62,34 +62,7 @@ div.separator {
 /* HEAD
 /*====================================================================*/
 #head {
-	margin-top:10px;
-}
-
-#head	div.buttons {
-	margin-left: 260px;
-	margin-right:50px;
-	height: 60px;
-	overflow: auto;
-}
-
-#head	div.buttons		a.button {
-	float: left;
-	display: block;
-	height: 60px;
-	width: 90px;
-	background-color: #e6e6e6;
-	background-position: center center;
-	background-repeat: no-repeat;
-	border-right: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-#head	div.buttons		a.button_r {
-	float: right;
-	display: block;
-	line-height: 60px;
-	margin-left: 20px;
-	font-size: 1.3em;
-	color: #333;
+	margin: 0;
 }
 
 #head	div.title {
@@ -97,37 +70,6 @@ div.separator {
 	background-color: #5FB1D9;
 	color: #FFFFFF;
 	padding: 22px 0 22px 260px;
-	box-shadow: 0 1px 3px #999999;
-	border-bottom: 1px solid #999999;
-}
-
-.img_button_mrnibbler {
-	background-image: url('img/button_mrnibbler.png');
-	background-color: #E9E9E9 !important;
-}
-
-.img_button_dashboard {
-	background-image: url('img/button_dashboard.png');
-	background-color: #3890B7 !important;
-}
-
-.img_button_post {
-	background-image: url('img/button_post.png');
-	background-color: #A9B3B7 !important;
-}
-
-.img_button_video {
-	background-image: url('img/button_video.png');
-	background-color: #A9B3B7 !important;
-}
-
-.img_button_quote {
-	background-image: url('img/button_quote.png');
-	background-color: #A9B3B7 !important;
-}
-
-.button_selected {
-	background-color: #5FB1D9 !important;
 }
 
 /*====================================================================*/
@@ -155,17 +97,12 @@ div.separator {
 }
 
 #main_left {
-    background-color: #FAFBFA;
-    border-bottom: 1px solid #DDDDDD;
-    border-right: 1px solid #DDDDDD;
-    border-top: 1px solid #DDDDDD;
-    border-radius: 2px;
+    background-color: #444;
     clear: left;
     float: left;
     margin-right: 30px;
-    margin-top: 30px;
-    margin-bottom: 30px;
     width: 240px;
+    padding-bottom: 40px;
 }
 
 #main_right {
@@ -178,30 +115,34 @@ div.separator {
 /* SIDEBAR
 /*====================================================================*/
 div.menu_box {
-	margin: 25px 0 25px 25px;
+	margin: 0;
 }
 
 div.menu_box div.title {
-	font-weight:normal;
-	color: #333333;
-	line-height: 22px;
-	padding: 0 0 0 26px;
-	font-size: 1.7em;
-	margin-bottom: 8px;
-	background-position: left center;
-	background-repeat: no-repeat;
+    background-position: left center;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    font-size: 1.7em;
+    font-weight: normal;
+    line-height: 22px;
+    margin-bottom: 8px;
+    margin-left: 25px;
+    margin-top: 25px;
+    padding: 0 0 0 26px;
 }
 
 div.menu_box a {
 	text-decoration: none;
 	display: block;
-	padding: 5px 0 5px 0;
+	padding: 5px 25px;
 	font-size: 1.3em;
-	color: #555555;
+	color: #CCCCCC;
+	border-left: 6px solid #444444;
 }
 
 div.menu_box a:hover {
-	background-color: #F5F5F5;
+	background-color: #666666;
+	border-left: 6px solid #ccc;
 }
 
 .img_side_posts {
