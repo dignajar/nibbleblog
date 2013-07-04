@@ -63,13 +63,25 @@ div.separator {
 /*====================================================================*/
 #head {
 	margin: 0;
+	background-color: #5FB1D9;
+	padding: 0 0 0 260px;
 }
 
-#head	div.title {
-	font-size: 2.3em;
-	background-color: #5FB1D9;
+#head	a.button {
+	display: inline-block;
+	padding-top: 40px;
+	padding-bottom: 10px;
+	font-size: 1.5em;
+	width: 90px;
+	background-position: center 12px;
+	background-repeat: no-repeat;
+	border-right: 1px solid rgba(255, 255, 255, 0.2);
+	text-align: center;
 	color: #FFFFFF;
-	padding: 22px 0 22px 260px;
+}
+
+.img_button_mrnibbler {
+	background-image: url('img/button_mrnibbler.png');
 }
 
 /*====================================================================*/
@@ -107,8 +119,15 @@ div.separator {
 
 #main_right {
     overflow: hidden;
-    margin: 30px 30px 30px 0;
+    margin: 0px 30px 30px 0;
     max-width: 1160px;
+}
+
+#main_right	h1.title {
+	margin: 30px 0;
+	padding: 0;
+	font-size: 3em;
+	font-weight: lighter;
 }
 
 /*====================================================================*/

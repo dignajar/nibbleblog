@@ -33,9 +33,9 @@
 		<!-- HEAD -->
 		<div id="head">
 
-			<div class="title">
-				<span><?php echo $layout['title'] ?></span>
-			</div>
+			<a class="button img_button_mrnibbler" href="">Dashboard</a>
+			<a class="button" href="">Dashboard</a>
+			<a class="button" href="">Dashboard</a>
 
 		</div>
 
@@ -47,6 +47,8 @@
 			</div>
 
 			<div id="main_right">
+				<h1 class="title"><?php echo $layout['title'] ?></h1>
+
 				<?php include(PATH_ADMIN_VIEW.$layout['view']); ?>
 			</div>
 
