@@ -1,0 +1,42 @@
+<?php
+
+// =====================================================================
+//	GET
+// =====================================================================
+sleep(5);
+
+if( ($url['id_user']===null) || ($url['other']===null) )
+	exit('Nibbleblog security error');
+
+require_once(FILE_SHADOW);
+
+if( !isset($_USER[$url['id_user']]) )
+	exit('Nibbleblog security error');
+
+require_once(FILE_KEYS);
+
+$hash = Crypt::get_hash($_USER[$url['id_user']]['salt'].$_KEYS[2]);
+
+if( $hash!==$url['other'] )
+	exit('Nibbleblog security error: Invalid hash');
+
+$Login->set_login( array('id_user'=>$url['id_user'], 'username'=>$_USER[$url['id_user']]['username']) );
+
+// =====================================================================
+//	POST
+// =====================================================================
+if( $_SERVER['REQUEST_METHOD'] == 'POST' )
+{
+	$new_salt = Text::random_text(11);
+	$new_hash = Crypt::get_hash($_POST['pw_new'],$new_salt);
+	$text = '<?php $_USER[0]["uid"] = "0"; $_USER[0]["username"] = "'.$_USER[0]['username'].'"; $_USER[0]["password"] = "'.$new_hash.'"; $_USER[0]["salt"] = "'.$new_salt.'"; $_USER[0]["email"] = "'.$_USER[0]['email'].'"; ?>';
+
+	$file = fopen( FILE_SHADOW, 'w');
+	fputs($file, $text);
+	fclose($file);
+
+	$_SESSION['session_alert']['msg'] = $_LANG['PASSWORD_HAS_BEEN_CHANGED_SUCCESSFULLY'];
+	$_SESSION['session_alert']['active'] = true;
+}
+
+?>

@@ -157,7 +157,7 @@ class DB_CATEGORIES {
 
 		public function get_post_count($id)
 		{
-			return count(Filesystem::ls(PATH_POSTS, '*.'.$id.'.*', 'xml', false, false, false));
+			return count(Filesystem::ls(PATH_POSTS, '*.*.'.$id.'.*', 'xml', false, false, false));
 		}
 
 /*

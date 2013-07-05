@@ -1,0 +1,19 @@
+<?php
+
+echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+
+	// NEW PASSWORD
+	echo Html::div_open( array('class'=>'form_block') );
+		echo Html::label( array('content'=>$_LANG['NEW_PASSWORD'], 'class'=>'blocked') );
+		echo Html::input( array('id'=>'js_pw_new', 'name'=>'pw_new', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
+		echo Html::div( array('content'=>$_LANG['DO_NOT_FORGET_THIS_PASSWORD'], 'class'=>'input_tip') );
+	echo Html::div_close();
+
+	// BUTTONS
+	echo Html::div_open( array('class'=>'form_block') );
+		echo Html::input( array('id'=>'js_button_submit', 'name'=>'button_submit', 'type'=>'submit', 'value'=>$_LANG['SAVE_CHANGES'], 'class'=>'save') );
+	echo Html::div_close();
+
+echo Html::form_close();
+
+?>

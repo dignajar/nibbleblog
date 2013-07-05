@@ -55,6 +55,7 @@ $controllers['plugins']['config']		= array('security'=>true, 'title'=>$_LANG['PL
 
 $controllers['user']['logout']			= array('security'=>true, 'title'=>$_LANG['LOGOUT'], 'controller'=>'logout', 'view'=>'logout', 'template'=>'login');
 $controllers['user']['login']			= array('security'=>false, 'title'=>$_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA'], 'controller'=>'login', 'view'=>'login', 'template'=>'login');
+$controllers['user']['forgot']			= array('security'=>false, 'title'=>$_LANG['CHANGE_PASSWORD'], 'controller'=>'forgot', 'view'=>'forgot', 'template'=>'default');
 
 $layout = array(
 	'controller'=>'user/login.bit',
@@ -62,7 +63,13 @@ $layout = array(
 	'template'=>'login/index.bit',
 	'title'=>$_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA']
 );
-
+/*
+require_once(FILE_SHADOW);
+require_once(FILE_KEYS);
+$hash = Crypt::get_hash($_USER[0]['salt'].$_KEYS[2]);
+var_dump($hash);
+exit;
+*/
 if(isset($controllers[$url['controller']][$url['action']]))
 {
 	$dirname = $url['controller'].'/';
@@ -73,14 +80,14 @@ if(isset($controllers[$url['controller']][$url['action']]))
 		if(!isset($Login))
 			exit('Nibbleblog security error');
 
-		if($Login->is_logued())
-		{
-			$layout['controller'] 	= $dirname.$parameters['controller'].'.bit';
-			$layout['view'] 		= $dirname.$parameters['view'].'.bit';
-			$layout['template'] 	= $parameters['template'].'/index.bit';
-			$layout['title'] 		= $parameters['title'];
-		}
+		if(!$Login->is_logued())
+			exit('Nibbleblog security error');
 	}
+
+	$layout['controller'] 	= $dirname.$parameters['controller'].'.bit';
+	$layout['view'] 		= $dirname.$parameters['view'].'.bit';
+	$layout['template'] 	= $parameters['template'].'/index.bit';
+	$layout['title'] 		= $parameters['title'];
 }
 
 // Plugins
