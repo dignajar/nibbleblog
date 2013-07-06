@@ -3,7 +3,7 @@
 $_LANG_CONFIG['DATA'] = array(
 	'native'=>'Tiếng Việt - Tiếng Việt',
 	'english'=>'Vietnamese',
-	'last_update'=>'23/06/2013',
+	'last_update'=>'05/07/2013',
 	'author'=>'babycntt',
 	'email'=>'quan0909@gmail.com',
 	'url'=>''
@@ -239,5 +239,15 @@ $_LANG['WEBMASTER_TOOLS'] = 'Công cụ quản trị web';
 $_LANG['GOOGLE_WEBMASTER_TOOLS'] = 'Công cụ quản trị web của Google - Mã xác thực';
 $_LANG['BING_WEBMASTER_TOOLS'] = 'Công cụ quản trị web của  Bing - Mã xác thực';
 $_LANG['SEO_OPTIONS'] = 'Tùy chọn tối ưu hóa công cụ tìm kiếm (SEO)';
+$_LANG['POSITION'] = 'Vị trí';
+$_LANG['TAGS_SEPARATED_BY_COMMA'] = 'Các tag cách nhau bằng dấu phẩy.';
+$_LANG['SHARE'] = 'Chia sẻ';
+$_LANG['DRAFT_POSTS'] = 'Nháp';
+$_LANG['ALLOW_COMMENTS_ON_THIS_POST'] = 'Cho phép bình luận trong bài viết này.';
+$_LANG['MULTIPLE_DIRECTIVES_MAY_BE_COMBINED_IN'] = 'Multiple directives may be combined in a comma-separated. Example: nofollow, noindex, noarchive.';
+$_LANG['THERE_ARE_NO_DRAFT_POSTS'] = 'Không có bài nháp nào.';
+$_LANG['THERE_IS_A_NEW_VERSION'] = 'Nibbleblog đã có phiên mới hơn';
+$_LANG['VERSION'] = 'Phiên bản';
+$_LANG['RELEASE_DATE'] = 'Ngày phát hành';
 
 ?>

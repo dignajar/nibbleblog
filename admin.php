@@ -63,13 +63,7 @@ $layout = array(
 	'template'=>'login/index.bit',
 	'title'=>$_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA']
 );
-/*
-require_once(FILE_SHADOW);
-require_once(FILE_KEYS);
-$hash = Crypt::get_hash($_USER[0]['salt'].$_KEYS[2]);
-var_dump($hash);
-exit;
-*/
+
 if(isset($controllers[$url['controller']][$url['action']]))
 {
 	$dirname = $url['controller'].'/';

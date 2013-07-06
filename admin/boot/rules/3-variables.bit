@@ -91,7 +91,7 @@
 	define('JS_JQUERY',				HTML_PATH_ADMIN_JS.'jquery/jquery.js');
 
 	// Uncomment if you want to use jQuery from Google's servers
-	//define('JS_JQUERY',				'//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js');
+	//define('JS_JQUERY',				'//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js');
 
 	// Uncomment if you want to use jQuery from jQuery's servers
 	//define('JS_JQUERY',				'http://code.jquery.com/jquery-latest.min.js');

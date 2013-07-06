@@ -3,7 +3,7 @@
 $_LANG_CONFIG['DATA'] = array(
 	'native'=>'Polski - Polski',
 	'english'=>'Polish',
-	'last_update'=>'23/06/2013',
+	'last_update'=>'05/07/2013',
 	'author'=>'kaaleth',
 	'email'=>'dawid.stawicki@windowslive.com',
 	'url'=>''
@@ -244,6 +244,7 @@ $_LANG['TAGS_SEPARATED_BY_COMMA'] = 'Tagi oddzielaj przecinkiem.';
 $_LANG['SHARE'] = 'Udostępnij';
 $_LANG['DRAFT_POSTS'] = 'Szkice';
 $_LANG['ALLOW_COMMENTS_ON_THIS_POST'] = 'Zezwól na komentarze we wpisie';
+$_LANG['MULTIPLE_DIRECTIVES_MAY_BE_COMBINED_IN'] = 'Dla wielu fraz oddzielaj przecinkiem. Na przykład: nofollow, noindex, noarchive.';
 $_LANG['THERE_ARE_NO_DRAFT_POSTS'] = 'Brak szkiców';
 $_LANG['THERE_IS_A_NEW_VERSION'] = 'Pojawiła się nowa wersja Nibbleblog';
 $_LANG['VERSION'] = 'Wersja';
