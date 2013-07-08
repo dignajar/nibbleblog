@@ -176,6 +176,27 @@ class DB_TAGS {
 		return $tmp;
 	}
 
+	// Get cloud
+	public function get_cloud()
+	{
+		$tags = $this->xml->xpath('/tags/list/tag');
+
+		$tmp = array();
+
+		foreach($tags as $tag)
+		{
+			$id = (int)$tag->getAttribute('id');
+			$name = (string)$tag->getAttribute('name');
+
+			$where = '@id_tag="'.$id.'"';
+			$nodes = $this->xml->xpath('/tags/links/link['.$where.']');
+
+			$tmp[$name] = count($nodes);
+		}
+
+		return $tmp;
+	}
+
 	// Save all changes
 	public function savetofile()
 	{

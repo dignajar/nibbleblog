@@ -537,14 +537,14 @@ class DB_POSTS {
 		// Get all files, only published
 		private function set_files_by_published()
 		{
-			$this->files = Filesystem::ls(PATH_POSTS, '*.*.*.*.NULL.*', 'xml', false, false, true);
+			$this->files = Filesystem::ls(PATH_POSTS, '*.*.*.*.NULL.*.*.*.*.*.*', 'xml', false, false, true);
 			$this->files_count = count( $this->files );
 		}
 
 		// Get all files, only drafts
 		private function set_files_by_draft()
 		{
-			$this->files = Filesystem::ls(PATH_POSTS, '*.*.*.*.draft.*', 'xml', false, false, true);
+			$this->files = Filesystem::ls(PATH_POSTS, '*.*.*.*.draft.*.*.*.*.*.*', 'xml', false, false, true);
 			$this->files_count = count( $this->files );
 		}
 
