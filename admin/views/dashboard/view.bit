@@ -16,7 +16,7 @@ echo Html::div_open( array('class'=>'dashboard_left') );
 	{
 		foreach($drafts as $post)
 		{
-			echo Html::link( array('class'=>'draft', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&action=edit_simple&id_post='.$post['id'], 'content'=>empty($post['title'])?'['.$_LANG['NO_TITLE'].']':$post['title']) );
+			echo Html::link( array('class'=>'draft', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&action=edit_'.$post['type'].'&id_post='.$post['id'], 'content'=>empty($post['title'])?'['.$_LANG['NO_TITLE'].']':$post['title']) );
 		}
 	}
 
