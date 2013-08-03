@@ -1,0 +1,22 @@
+<?php
+
+if($post['allow_comments'])
+{
+	if( !empty($theme['disqus_account']) )
+	{
+		// Disqus comments
+		include('comments_disqus.bit');
+	}
+	elseif( !empty($theme['facebook_appId']) )
+	{
+		// Facebook comments
+		include('comments_facebook.bit');
+	}
+	else
+	{
+		// Nibbleblog comments
+		include('comments_nibbleblog.bit');
+	}
+}
+
+?>

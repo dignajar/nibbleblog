@@ -1,0 +1,12 @@
+<?php
+
+	// print title if this is not empty
+	if( !empty($post['title']) ){
+		echo '<h2 class="post-title">'.$post['title'].'</h2>';
+	}
+	$month = Date::format($post['pub_date_unix'], '%b');
+	$day = Date::format($post['pub_date_unix'], '%d');
+	$year = Date::format($post['pub_date_unix'], '%Y');
+	echo '<span class="publish-date"><span class="month">'.$month.'</span> <span class="day">'.$day.'</span><span class="year">'.$year.'</span></span>';
+
+?>

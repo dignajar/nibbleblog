@@ -1,0 +1,17 @@
+<?php
+
+$theme = array
+(
+	'name'=>'Echo',
+	'description'=>'Commemorating NB 3.6 codename - echo',
+	'author'=>'Paulo Nunes',
+	'version'=>'3.6',
+	'last_update'=>'20/07/2013', // dd/mm/yyyy
+	'url'=>'http://www.syndicatefx.com', // http://xxxxxxxxxxxxx
+	'video_width'=>'',
+	'video_height'=>'',
+	'disqus_account'=>'',
+	'facebook_appId'=>''
+);
+
+?>

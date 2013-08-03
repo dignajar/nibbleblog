@@ -1,0 +1,43 @@
+<?php
+
+// Comment list
+if(!empty($post['comments']))
+{
+		echo '<h2>'.$_LANG['COMMENTS'].'</h2>';
+
+		foreach($post['comments'] as $comment)
+		{
+			echo '<div class="comment">';
+				echo '<img class="avatar" src="'.Image::get_gravatar($comment['author_email'],48).'">';
+				echo '<span class="author_name">'.$comment['author_name'].'</span>';
+				echo '<span class="date">'.$comment['pub_date'].'</span>';
+				echo '<span class="comment-body">'.$comment['content'].'</span>';
+			echo '</div>';
+		}
+}
+
+// Comment form
+
+	echo '<h2 id="comment_form">'.$_LANG['NEW_COMMENT'].'</h2>';
+
+	if(Session::get_error())
+	echo '<h4 class="alert">'.Session::get_alert().'</h3>';
+
+	echo '
+		<form method="post" name="form" action="#comment_form">
+
+		<input type="hidden" name="hash" value="'.$Comment->get_hash().'">
+
+		<input type="text" name="author_name" value="'.$_POST['author_name'].'" placeholder="'.$_LANG['NAME'].'">
+
+		<input type="email" name="author_email" value="'.$_POST['author_email'].'" placeholder="'.$_LANG['EMAIL'].'">
+
+		<textarea name="content" placeholder="'.$_LANG['TYPE_THE_COMMENT_HERE'].'">'.$_POST['content'].'</textarea>
+
+		<input type="submit" value="'.$_LANG['PUBLISH'].'">
+
+		</form>
+	';
+
+
+?>

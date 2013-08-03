@@ -1,0 +1,34 @@
+<?php
+
+echo '<ul class="info">';
+
+	// Read more or Permalink
+	$text = ($post['read_more'])?$_LANG['READ_MORE']:$_LANG['PERMALINK'];
+
+	echo '<li><a href="'.$post['permalink'].'">'.$text.'</a></li>';
+
+	echo '<li><a target="_blank" href="https://twitter.com/share?url='.(urlencode($settings['url'].$post['permalink'])).'">Tweet</a></li>';
+
+	// Comments
+	if($post['allow_comments'])
+	{
+		if( !empty($theme['disqus_account']) )
+		{
+			// Disqus comments
+			echo '<li><a href="'.$post['permalink'].'#disqus_thread"></a></li>';
+		}
+		elseif( !empty($theme['facebook_appId']) )
+		{
+			// Facebook comments
+			echo '<li><a href="'.$post['permalink'].'#comment_form">'.$_LANG['COMMENTS'].' (<fb:comments-count href="'.BLOG_URL.$post['permalink'].'"></fb:comments-count>)</a></li>';
+		}
+		else
+		{
+			// Nibbleblog comments
+			echo '<li><a href="'.$post['permalink'].'#comment_form">'.$_LANG['COMMENTS'].' ('.count($post['comments']).')</a></li>';
+		}
+	}
+
+echo '</ul>';
+
+?>

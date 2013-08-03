@@ -1,0 +1,40 @@
+<?php
+
+// Quote post
+if($post['type']=='quote')
+{
+	echo '<blockquote>'.$post['quote'].'</blockquote>';
+}
+else
+{
+	// Video post
+	if($post['type']=='video')
+	{
+		$video_info = Video::video_get_info($post['video'], $theme['video_width'], $theme['video_height']);
+
+		echo '<div class="fitvid">'.$video_info['embed'].'</div>';
+	}
+
+	// Video and Simple post
+	echo $post['content'][1];
+}
+
+// Show tags
+if(!empty($post['tags']))
+{
+	$tags = $post['tags'];
+
+	foreach($tags as $key=>$tag)
+		$tags[$key] = '<a class="tag" href="'.Url::tag($tag, $settings['friendly_urls']).'">'.$tag.'</a>';
+
+	$tags = implode(', ',$tags);
+
+	echo '<ul class="tags">';
+		echo '<li><b>Tags</b>:&nbsp;</li>';
+		echo '<li>';
+		echo $tags;
+		echo '</li>';
+	echo '</ul>';
+}
+
+?>

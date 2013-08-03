@@ -1,0 +1,11 @@
+<?php
+
+echo '<article>';
+
+	include('includes/post_head.bit');
+	include('includes/post_body.bit');
+	include('includes/post_foot.bit');
+
+echo '</article>';
+
+?>

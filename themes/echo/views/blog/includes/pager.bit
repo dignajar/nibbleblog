@@ -1,0 +1,17 @@
+<?php
+
+echo '<div class="pager">';
+
+	if($pager['show_newer'])
+	{
+		echo '<a class="newer" href="'.$pager['href_newer'].'">'.$_LANG['NEWER_POSTS'].' →</a>';
+	}
+
+	if($pager['show_older'])
+	{
+		echo '<a class="older" href="'.$pager['href_older'].'">← '.$_LANG['OLDER_POSTS'].'</a>';
+	}
+
+echo '</div>';
+
+?>
