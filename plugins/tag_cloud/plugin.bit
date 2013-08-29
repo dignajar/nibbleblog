@@ -23,12 +23,12 @@ class PLUGIN_TAG_CLOUD extends Plugin
 
 		foreach($cloud as $tag=>$amount)
 		{
-			if($amount > 40)
-				$html .= '<h1>'.$tag.'</h1>';
-			elseif($amount > 10)
-				$html .= '<h2>'.$tag.'</h2>';
+			if($amount > 2)
+				$html .= '<h1 style="margin:5px; padding:0; display:inline;">'.$tag.'</h1>';
+			elseif($amount > 1)
+				$html .= '<h2 style="margin:5px; padding:0; display:inline;">'.$tag.'</h2>';
 			else
-				$html .= '<h3>'.$tag.'</h3>';
+				$html .= '<h3 style="margin:5px; padding:0; display:inline;">'.$tag.'</h3>';
 		}
 
 		return $html;
