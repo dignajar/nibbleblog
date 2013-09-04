@@ -8,6 +8,7 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/normalize.css' ?>" />
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/main.css' ?>" />
+	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/icons/style.css' ?>" />
 
 	<!-- Javascript -->
 	<script charset="utf-8" src="<?php echo JS_JQUERY ?>"></script>
@@ -30,13 +31,11 @@
 
 		<div id="alert">Mr Nibbler is Cool!</div>
 
-		<!-- HEAD -->
 		<div id="head">
-
-			<a class="button img_button_mrnibbler" href="">Dashboard</a>
-			<a class="button" href="">Dashboard</a>
-			<a class="button" href="">Dashboard</a>
-
+			<span class="mrnibbler">Nibbleblog</span>
+			<span class="other"><a href="<?php echo HTML_PATH_ROOT.'admin.php?controller=user&amp;action=logout' ?>">Log out</a></span>
+			<span class="other"><a href="<?php echo HTML_PATH_ROOT ?>">View Blog</a></span>
+			<span class="other"><a href="<?php echo HTML_PATH_ROOT.'admin.php?controller=dashboard&action=view' ?>">Dashboard</a></span>
 		</div>
 
 		<!-- MAIN -->
@@ -47,7 +46,7 @@
 			</div>
 
 			<div id="main_right">
-				<h1 class="title"><?php echo $layout['title'] ?></h1>
+				<h1 class="title"><?php echo '<span class="icon '.$layout['icon'].'"></span>'.$layout['title'] ?></h1>
 
 				<?php include(PATH_ADMIN_VIEW.$layout['view']); ?>
 			</div>

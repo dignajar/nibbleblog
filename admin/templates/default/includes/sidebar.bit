@@ -2,7 +2,7 @@
 
 echo Html::div_open( array('class'=>'menu_box') );
 
-	echo Html::div( array('content'=>$_LANG['POSTS'], 'class'=>'title img_side_posts') );
+	echo Html::div( array('content'=>'<span class="icon-publish icon"></span>'.$_LANG['POSTS'], 'class'=>'title') );
 
 	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_simple', 'content'=>$_LANG['SIMPLE_POST']) );
 
@@ -16,7 +16,7 @@ echo Html::div_close();
 
 echo Html::div_open( array('class'=>'menu_box') );
 
-	echo Html::div( array('content'=>$_LANG['MANAGE'], 'class'=>'title img_side_manager') );
+	echo Html::div( array('content'=>'<span class="icon-folder icon"></span>'.$_LANG['MANAGE'], 'class'=>'title img_side_manager') );
 
 	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=list', 'content'=>$_LANG['POSTS']) );
 
@@ -30,7 +30,7 @@ echo Html::div_close();
 
 echo Html::div_open( array('class'=>'menu_box') );
 
-	echo Html::div( array('content'=>$_LANG['SETTINGS'], 'class'=>'title img_side_settings') );
+	echo Html::div( array('content'=>'<span class="icon-cog icon"></span>'.$_LANG['SETTINGS'], 'class'=>'title img_side_settings') );
 
 	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=general', 'content'=>$_LANG['GENERAL_SETTINGS']) );
 
@@ -53,7 +53,7 @@ echo Html::div_close();
 // PLUGINS
 echo Html::div_open( array('class'=>'menu_box') );
 
-	echo Html::div( array('content'=>$_LANG['PLUGINS'], 'class'=>'title img_side_plugins') );
+	echo Html::div( array('content'=>'<span class="icon-power-cord icon"></span>'.$_LANG['PLUGINS'], 'class'=>'title img_side_plugins') );
 
 	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=list', 'content'=>$_LANG['MANAGE_PLUGINS']) );
 
