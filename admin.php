@@ -17,7 +17,7 @@ require('admin/boot/admin.bit');
 // =====================================================================
 //	CONTROLLER, VIEW and TEMPLATE
 // =====================================================================
-$controllers['dashboard']['view'] 		= array('security'=>true, 'icon'=>'icon-power-cord', 'title'=>$_LANG['DASHBOARD'], 'controller'=>'view', 'view'=>'view', 'template'=>'default');
+$controllers['dashboard']['view'] 		= array('security'=>true, 'icon'=>'icon-gauge', 'title'=>$_LANG['DASHBOARD'], 'controller'=>'view', 'view'=>'view', 'template'=>'default');
 
 $controllers['page']['new']		 		= array('security'=>true, 'icon'=>'icon-publish', 'title'=>$_LANG['NEW_PAGE'], 'controller'=>'new', 'view'=>'new', 'template'=>'default');
 $controllers['page']['edit']	 		= array('security'=>true, 'icon'=>'icon-publish', 'title'=>$_LANG['NEW_PAGE'], 'controller'=>'edit', 'view'=>'new', 'template'=>'default');

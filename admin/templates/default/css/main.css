@@ -64,6 +64,7 @@ div.separator {
 #head {
 	background-color: #f1f1f1;
 	margin-bottom: 30px;
+	border-bottom: 2px solid #999;
 }
 
 #head span.mrnibbler {
@@ -109,16 +110,15 @@ div.separator {
 #main_left {
     clear: left;
     float: left;
-    margin-left: 50px;
-    margin-right: 30px;
-    width: 240px;
-    margin-bottom: 50px;
+    margin: 20px 30px 50px;
+    width: 180px;
 }
 
 #main_right {
     overflow: hidden;
     margin: 0px 30px 30px 0;
     max-width: 1160px;
+    padding: 0 2px;
 }
 
 #main_right	h1.title {
@@ -129,8 +129,9 @@ div.separator {
 	font-weight: lighter;
 }
 
-#main_right	h1.title	span.icon {
+span.icon {
 	margin-right: 15px;
+	vertical-align: -10%;
 }
 
 /*====================================================================*/
@@ -147,6 +148,11 @@ div.menu_box div.title {
     margin-bottom: 8px;
     margin-top: 25px;
     color: #006AC8;
+    cursor: pointer;
+}
+
+div.menu_box div.items_h {
+	display: none;
 }
 
 div.menu_box span.icon {
@@ -159,6 +165,9 @@ div.menu_box a {
 	font-size: 1.4em;
 	color: #333333;
 	padding: 5px 0 5px 28px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 div.menu_box a:hover {
@@ -194,23 +203,7 @@ div.dashboard_box {
 div.dashboard_title {
 	font-size: 1.8em;
 	margin-bottom: 20px;
-	padding-left: 32px;
-	background-position: left center;
-	background-repeat: no-repeat;
-	line-height: 22px;
 	color: #555;
-}
-
-.img_dashboard_comments {
-	background-image: url('img/dashboard_comments.png');
-}
-
-.img_dashboard_notifications {
-	background-image: url('img/dashboard_notifications.png');
-}
-
-.img_dashboard_drafts {
-	background-image: url('img/dashboard_drafts.png');
 }
 
 p.empty {

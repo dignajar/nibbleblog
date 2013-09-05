@@ -13,7 +13,8 @@ window.onload = function() {
 			'icon-coffee' : '&#xf0f4;',
 			'icon-chat' : '&#xe005;',
 			'icon-bell' : '&#xf0a2;',
-			'icon-image' : '&#xe006;'
+			'icon-image' : '&#xe006;',
+			'icon-gauge' : '&#xe000;'
 		},
 		els = document.getElementsByTagName('*'),
 		i, attr, c, el;

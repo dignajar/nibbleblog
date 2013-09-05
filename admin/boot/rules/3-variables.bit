@@ -65,7 +65,8 @@
 
 	define('HTML_PATH_THEMES',			HTML_PATH_ROOT.'themes/');
 	define('HTML_PATH_PLUGINS',			HTML_PATH_ROOT.'plugins/');
-	define('HTML_PATH_UPLOAD_IMAGES',	HTML_PATH_ROOT.'upload/images/');
+	define('HTML_PATH_PLUGINS_DB',		HTML_PATH_ROOT.'content/private/plugins/');
+	define('HTML_PATH_UPLOAD',			HTML_PATH_ROOT.'content/public/upload/');
 
 // =====================================================================
 //	THEME

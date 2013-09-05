@@ -2,15 +2,16 @@
 
 echo Html::div_open( array('class'=>'menu_box') );
 
-	echo Html::div( array('content'=>'<span class="icon-publish icon"></span>'.$_LANG['POSTS'], 'class'=>'title') );
+	echo Html::div( array('content'=>'<span class="icon-publish icon"></span>'.$_LANG['PUBLISH'], 'class'=>'title') );
 
-	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_simple', 'content'=>$_LANG['SIMPLE_POST']) );
+	echo Html::div_open( array('class'=>'items') );
 
-	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_video', 'content'=>$_LANG['VIDEO_POST']) );
+		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_simple', 'content'=>$_LANG['SIMPLE_POST']) );
+		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_video', 'content'=>$_LANG['VIDEO_POST']) );
+		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_quote', 'content'=>$_LANG['QUOTE_POST']) );
+		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=page&amp;action=new', 'content'=>$_LANG['NEW_PAGE']) );
 
-	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_quote', 'content'=>$_LANG['QUOTE_POST']) );
-
-	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=page&amp;action=new', 'content'=>$_LANG['NEW_PAGE']) );
+	echo Html::div_close();
 
 echo Html::div_close();
 
@@ -18,13 +19,14 @@ echo Html::div_open( array('class'=>'menu_box') );
 
 	echo Html::div( array('content'=>'<span class="icon-folder icon"></span>'.$_LANG['MANAGE'], 'class'=>'title img_side_manager') );
 
-	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=list', 'content'=>$_LANG['POSTS']) );
+	echo Html::div_open( array('class'=>'items_h') );
 
-	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=page&amp;action=list', 'content'=>$_LANG['PAGES']) );
+		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=list', 'content'=>$_LANG['POSTS']) );
+		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=page&amp;action=list', 'content'=>$_LANG['PAGES']) );
+		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list', 'content'=>$_LANG['COMMENTS']) );
+		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=categories&amp;action=list', 'content'=>$_LANG['CATEGORIES']) );
 
-	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list', 'content'=>$_LANG['COMMENTS']) );
-
-	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=categories&amp;action=list', 'content'=>$_LANG['CATEGORIES']) );
+	echo Html::div_close();
 
 echo Html::div_close();
 
@@ -32,21 +34,18 @@ echo Html::div_open( array('class'=>'menu_box') );
 
 	echo Html::div( array('content'=>'<span class="icon-cog icon"></span>'.$_LANG['SETTINGS'], 'class'=>'title img_side_settings') );
 
-	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=general', 'content'=>$_LANG['GENERAL_SETTINGS']) );
+	echo Html::div_open( array('class'=>'items_h') );
 
-	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=regional', 'content'=>$_LANG['REGIONAL_SETTINGS']) );
+		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=general', 'content'=>$_LANG['GENERAL_SETTINGS']) );
+		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=regional', 'content'=>$_LANG['REGIONAL_SETTINGS']) );
+		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=settings', 'content'=>$_LANG['COMMENTS']) );
+		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=image', 'content'=>$_LANG['IMAGE_SETTINGS']) );
+		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=themes', 'content'=>$_LANG['CHANGE_THEME']) );
+		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=notifications', 'content'=>$_LANG['NOTIFICATIONS']) );
+		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=username', 'content'=>$_LANG['USERNAME_AND_PASSWORD']) );
+		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=seo', 'content'=>$_LANG['SEO_OPTIONS']) );
 
-	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=settings', 'content'=>$_LANG['COMMENTS']) );
-
-	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=image', 'content'=>$_LANG['IMAGE_SETTINGS']) );
-
-	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=themes', 'content'=>$_LANG['CHANGE_THEME']) );
-
-	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=notifications', 'content'=>$_LANG['NOTIFICATIONS']) );
-
-	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=username', 'content'=>$_LANG['USERNAME_AND_PASSWORD']) );
-
-	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=seo', 'content'=>$_LANG['SEO_OPTIONS']) );
+	echo Html::div_close();
 
 echo Html::div_close();
 
@@ -55,13 +54,28 @@ echo Html::div_open( array('class'=>'menu_box') );
 
 	echo Html::div( array('content'=>'<span class="icon-power-cord icon"></span>'.$_LANG['PLUGINS'], 'class'=>'title img_side_plugins') );
 
-	echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=list', 'content'=>$_LANG['MANAGE_PLUGINS']) );
+	echo Html::div_open( array('class'=>'items_h') );
 
-	foreach($plugins_installed as $obj)
-	{
-		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=config&amp;plugin='.$obj->get_dir_name(), 'content'=>'Plugin :: '.$obj->get_name()) );
-	}
+		echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=list', 'content'=>$_LANG['MANAGE_PLUGINS']) );
+
+		foreach($plugins_installed as $obj)
+		{
+			echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=config&amp;plugin='.$obj->get_dir_name(), 'content'=>'Plugin :: '.$obj->get_name()) );
+		}
+
+	echo Html::div_close();
 
 echo Html::div_close();
 
 ?>
+
+<!-- Show/Hide menus -->
+<script>
+$(document).ready(function(){
+
+	$("div.title").click(function() {
+		$(this).siblings().slideToggle()
+	});
+
+});
+</script>

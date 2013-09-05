@@ -6,7 +6,7 @@ echo Html::div_open( array('class'=>'dashboard_left') );
 	// Drafts
 	echo Html::div_open( array('class'=>'dashboard_box') );
 
-	echo Html::div( array('class'=>'dashboard_title img_dashboard_drafts', 'content'=>$_LANG['DRAFT_POSTS']) );
+	echo Html::div( array('class'=>'dashboard_title', 'content'=>'<span class="icon icon-coffee"></span>'.$_LANG['DRAFT_POSTS']) );
 
 	if(empty($drafts))
 	{
@@ -25,7 +25,7 @@ echo Html::div_open( array('class'=>'dashboard_left') );
 	// Last comments
 	echo Html::div_open( array('class'=>'dashboard_box') );
 
-	echo Html::div( array('class'=>'dashboard_title img_dashboard_comments', 'content'=>$_LANG['LAST_COMMENTS']) );
+	echo Html::div( array('class'=>'dashboard_title', 'content'=>'<span class="icon icon-chat"></span>'.$_LANG['LAST_COMMENTS']) );
 
 	if(empty($last_comments))
 	{
@@ -55,7 +55,7 @@ echo Html::div_open( array('class'=>'dashboard_right') );
 	// Notifications
 	echo Html::div_open( array('class'=>'dashboard_box') );
 
-	echo Html::div( array('class'=>'dashboard_title img_dashboard_notifications', 'content'=>$_LANG['NOTIFICATIONS']) );
+	echo Html::div( array('class'=>'dashboard_title', 'content'=>'<span class="icon icon-bell"></span>'.$_LANG['NOTIFICATIONS']) );
 
 		echo Html::div_open( array('id'=>'js_notification_version', 'class'=>'notification img_notification_version') );
 			echo Html::div( array('class'=>'type', 'content'=>$_LANG['THERE_IS_A_NEW_VERSION']) );
