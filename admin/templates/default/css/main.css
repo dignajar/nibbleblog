@@ -62,17 +62,18 @@ div.separator {
 /* HEAD
 /*====================================================================*/
 #head {
-	background-color: #f1f1f1;
-	margin-bottom: 30px;
-	border-bottom: 2px solid #999;
+    background-color: #FCFCFC;
+    border-bottom: 1px solid #E7E7E7;
+    margin-bottom: 30px;
+    padding: 10px 0;
 }
 
 #head span.mrnibbler {
 	background: url("img/mrnibbler.png") no-repeat 15px center;
 	padding-left: 40px;
 	display: inline-block;
-	line-height: 32px;
-	font-size: 13px;
+	font-size: 2.6em;
+	color: #CACACA;
 }
 
 #head span.other {
@@ -127,6 +128,7 @@ div.separator {
 	padding: 0;
 	font-size: 3em;
 	font-weight: lighter;
+	color: #727476;
 }
 
 span.icon {
@@ -464,18 +466,20 @@ table {
     text-align: center;
     width: 100%;
     font-size: 1.3em;
+    border: 1px solid #E7E7E7;
 }
 
 table thead {
-	background: #3890B7;
-	color: #FFFFFF;
+	background: #FCFCFC;
+	color: #666;
+	border: 1px solid #E7E7E7;
 }
 
 table thead	th {
 	line-height: 23px;
 	padding: 6px 10px 8px;
 	vertical-align: top;
-	border-right: 1px solid #FFFFFF;
+	border-right: 1px solid #E7E7E7;
 }
 
 table tr td {
@@ -483,6 +487,7 @@ table tr td {
 	line-height: 23px;
 	padding: 6px 10px 8px;
 	vertical-align: top;
+	border-right: 1px solid #E7E7E7;
 }
 
 table td.content {
@@ -509,8 +514,14 @@ div.pager	a {
 	display: inline-block;
 	padding: 4px 8px;
 	border: 1px solid #ccc;
-	background: #F9F9F9;
-	margin: 0 5px;
+	background: #FCFCFC;
+	margin-right: 5px;
+	opacity: 0.5;
+}
+
+div.pager	a:hover {
+	text-decoration: none;
+	opacity: 1;
 }
 
 
