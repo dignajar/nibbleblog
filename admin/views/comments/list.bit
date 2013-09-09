@@ -67,7 +67,7 @@ else
 	echo Html::div_open( array('class'=>'pager') );
 		for( $i=0; $i<$total_pages; $i++ )
 		{
-			echo Html::link( array('content'=>$i, 'href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list&amp;page='.$i) );
+			echo Html::link( array('content'=>$i, 'href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list&amp;number='.$i) );
 		}
 	echo Html::div_close();
 }

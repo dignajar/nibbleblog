@@ -41,7 +41,7 @@ if( isset($_GET['id_cat']) ) { $url['id_cat'] = Validation::sanitize_int($_GET['
 
 if( isset($_GET['id_user']) ) { $url['id_user'] = Validation::sanitize_int($_GET['id_user']); }
 
-if( isset($_GET['number']) ) { $url['page'] = Validation::sanitize_int($_GET['number']); }
+if( isset($_GET['number']) ) { $url['number'] = Validation::sanitize_int($_GET['number']); }
 
 if( isset($_GET['plugin']) ) { $url['plugin'] = Validation::sanitize_html($_GET['plugin']); }
 

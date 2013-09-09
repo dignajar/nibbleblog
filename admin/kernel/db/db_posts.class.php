@@ -574,7 +574,7 @@ class DB_POSTS {
 			$tmp_array['id_cat']			= (int) $file_info[2];
 			$tmp_array['id_user']			= (int) $file_info[3];
 			$tmp_array['mode']				= (string) $file_info[4];
-			$tmp_array['draft']				= (bool) ($file_info[5]=='draft');
+			$tmp_array['draft']				= (bool) ($file_info[4]=='draft');
 			$tmp_array['visits']			= (int) $xml->getChild('visits');
 
 			$tmp_array['type']				= (string) $xml->getChild('type');

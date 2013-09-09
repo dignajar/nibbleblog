@@ -69,11 +69,15 @@ div.separator {
 }
 
 #head span.mrnibbler {
-	background: url("img/mrnibbler.png") no-repeat 15px center;
-	padding-left: 40px;
+	background: url("img/mrnibbler.png") no-repeat 0 center;
 	display: inline-block;
 	font-size: 2.6em;
 	color: #CACACA;
+	height: 32px;
+	width: 32px;
+	margin-left: 22px;
+	padding-left: 40px;
+	line-height: 32px;
 }
 
 #head span.other {

@@ -17,7 +17,7 @@ echo Html::div_close();
 
 echo Html::div_open( array('class'=>'menu_box') );
 
-	echo Html::div( array('content'=>'<span class="icon-folder icon"></span>'.$_LANG['MANAGE'], 'class'=>'title img_side_manager') );
+	echo Html::div( array('content'=>'<span class="icon-folder icon"></span>'.$_LANG['MANAGE'], 'class'=>'title') );
 
 	echo Html::div_open( array('class'=>'items_h') );
 
@@ -32,7 +32,7 @@ echo Html::div_close();
 
 echo Html::div_open( array('class'=>'menu_box') );
 
-	echo Html::div( array('content'=>'<span class="icon-cog icon"></span>'.$_LANG['SETTINGS'], 'class'=>'title img_side_settings') );
+	echo Html::div( array('content'=>'<span class="icon-cog icon"></span>'.$_LANG['SETTINGS'], 'class'=>'title') );
 
 	echo Html::div_open( array('class'=>'items_h') );
 
@@ -52,7 +52,7 @@ echo Html::div_close();
 // PLUGINS
 echo Html::div_open( array('class'=>'menu_box') );
 
-	echo Html::div( array('content'=>'<span class="icon-power-cord icon"></span>'.$_LANG['PLUGINS'], 'class'=>'title img_side_plugins') );
+	echo Html::div( array('content'=>'<span class="icon-power-cord icon"></span>'.$_LANG['PLUGINS'], 'class'=>'title') );
 
 	echo Html::div_open( array('class'=>'items_h') );
 
@@ -75,14 +75,6 @@ $(document).ready(function(){
 
 	$("div.title").click(function() {
 		$(this).siblings().slideToggle();
-
-		if(typeof(Storage)!=="undefined")
-		{
-			localStorage.prueba = "asd";
-		}
-
-		console.log(localStorage.prueba);
-
 	});
 
 });

@@ -30,9 +30,9 @@ $(document).ready(function() {
 		plugins: [
 			"autolink link image lists hr anchor pagebreak",
 			"searchreplace code fullscreen  media nonbreaking",
-			"table directionality paste textcolor paste"
+			"table directionality paste textcolor paste fullscreen pagebreak"
 		],
-		toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor",
+		toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link media image | forecolor backcolor | pagebreak fullscreen",
 		style_formats: [
 			{title: 'Bold text', inline: 'b'},
 			{title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
@@ -44,7 +44,7 @@ $(document).ready(function() {
 		],
 		statusbar: false,
 		menubar:false,
-
+		browser_spellcheck: true,
 		paste_as_text: true,
 		paste_text_sticky : true,
 		entity_encoding : "raw",
