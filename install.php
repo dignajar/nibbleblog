@@ -20,6 +20,8 @@ require('admin/boot/rules/98-constants.bit');
 require(PATH_DB . 'nbxml.class.php');
 require(PATH_DB . 'db_posts.class.php');
 
+require(PATH_KERNEL . 'plugin.class.php');
+
 // HELPERS
 require(PATH_HELPERS . 'crypt.class.php');
 require(PATH_HELPERS . 'date.class.php');
@@ -270,9 +272,38 @@ Date::set_timezone('UTC');
 		$_DB_POST = new DB_POSTS(FILE_XML_POSTS);
 		$_DB_POST->add( array('id_user'=>0, 'id_cat'=>0, 'type'=>'simple', 'description'=>$_LANG['WELCOME_POST_TITLE'], 'title'=>$_LANG['WELCOME_POST_TITLE'], 'content'=>$content, 'allow_comments'=>'1', 'sticky'=>'0', 'slug'=>'welcome-post') );
 
+		// Plugins
+		$plugins = array('categories', 'pages');
+		foreach($plugins as $plugin)
+		{
+			include_once(PATH_PLUGINS.$plugin.'/plugin.bit');
+			$class = 'PLUGIN_'.strtoupper($plugin);
+			$obj = new $class;
+
+			if( @!include(PATH_PLUGINS.$plugin.'/languages/'.$_GET['language'].'.bit') )
+				include(PATH_PLUGINS.$plugin.'/languages/en_US.bit');
+
+			$merge = array_merge($_LANG, $_PLUGIN_CONFIG['LANG']);
+
+			$obj->set_lang($merge);
+
+			$obj->set_attributes(
+			array(
+				'name'=>$_PLUGIN_CONFIG['LANG']['NAME'],
+				'description'=>$_PLUGIN_CONFIG['LANG']['DESCRIPTION'],
+				'author'=>$_PLUGIN_CONFIG['DATA']['author'],
+				'version'=>$_PLUGIN_CONFIG['DATA']['version'],
+				'url'=>$_PLUGIN_CONFIG['DATA']['url'],
+				'display'=>isset($_PLUGIN_CONFIG['DATA']['display'])?false:true
+			));
+
+			include(PATH_PLUGINS.$plugin.'/languages/en_US.bit');
+			$obj->set_slug_name($_PLUGIN_CONFIG['LANG']['NAME']);
+
+			$obj->install(0);
+		}
+
 		$installation_complete = true;
-
-
 	}
 ?>
 

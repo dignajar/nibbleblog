@@ -13,9 +13,9 @@
 // =====================================================================
 //	SYSTEM INFORMATION
 // =====================================================================
-	define('NIBBLEBLOG_VERSION',		'3.7b1');
-	define('NIBBLEBLOG_NAME',			'');
-	define('NIBBLEBLOG_RELEASE_DATE',	'xx/08/2013');
+	define('NIBBLEBLOG_VERSION',		'3.7 alpha1');
+	define('NIBBLEBLOG_NAME',			'Heisenberg');
+	define('NIBBLEBLOG_RELEASE_DATE',	'xx/09/2013');
 	define('NIBBLEBLOG_BUILD',			time());
 
 // =====================================================================
