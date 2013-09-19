@@ -33,9 +33,9 @@
 
 		<div id="head">
 			<span class="mrnibbler">Nibbleblog</span>
-			<span class="other"><a href="<?php echo HTML_PATH_ROOT.'admin.php?controller=user&amp;action=logout' ?>">Log out</a></span>
-			<span class="other"><a href="<?php echo HTML_PATH_ROOT ?>">View Blog</a></span>
-			<span class="other"><a href="<?php echo HTML_PATH_ROOT.'admin.php?controller=dashboard&action=view' ?>">Dashboard</a></span>
+			<span class="other"><a href="<?php echo HTML_PATH_ROOT.'admin.php?controller=user&amp;action=logout' ?>"><span class="icon icon-gauge"></span>Log out</a></span>
+			<span class="other"><a href="<?php echo HTML_PATH_ROOT ?>"><span class="icon icon-home"></span>View Blog</a></span>
+			<span class="other"><a href="<?php echo HTML_PATH_ROOT.'admin.php?controller=dashboard&action=view' ?>"><span class="icon icon-signout"></span>Dashboard</a></span>
 		</div>
 
 		<!-- MAIN -->

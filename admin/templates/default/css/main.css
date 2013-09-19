@@ -80,12 +80,22 @@ div.separator {
 	line-height: 32px;
 }
 
-#head span.other {
+#head a {
 	float: right;
 	display: inline-block;
 	line-height: 32px;
-	font-size: 13px;
-	margin: 0 10px;
+	font-size: 1.3em;
+	margin: 0 25px 0 0;
+	color: #333333;
+}
+
+#head a:hover {
+	color: #006AC8;
+	text-decoration: none;
+}
+
+#head span.icon {
+	margin-right: 4px;
 }
 
 /*====================================================================*/
@@ -221,7 +231,6 @@ p.empty {
 div.dashboard_box	a.draft {
 	padding: 15px 15px;
 	margin-bottom: 10px;
-    border-radius: 2px 2px 2px 2px;
     display: block;
     background: #F9F9F9;
 	font-size: 1.5em;
@@ -229,6 +238,7 @@ div.dashboard_box	a.draft {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+	border-left: 4px solid #FE5454;
 }
 
 div.dashboard_box	a.draft:hover {
@@ -240,13 +250,11 @@ div.dashboard_box	a.draft:hover {
 div.dashboard_box	a.last_comments {
 	padding: 15px;
 	margin-bottom: 10px;
-    border-radius: 2px 2px 2px 2px;
     display: block;
     background: #F9F9F9;
     color: #333;
 	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+	border-left: 4px solid #80C740;
 }
 
 div.dashboard_box	a.last_comments:hover {
@@ -257,6 +265,9 @@ div.dashboard_box	a.last_comments:hover {
 div.dashboard_box	a.last_comments	div.content {
 	margin-bottom: 5px;
 	font-size: 1.2em;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 div.dashboard_box	a.last_comments	div.info {
@@ -269,7 +280,6 @@ div.dashboard_box	a.last_comments	div.info {
 div.notification {
 	padding: 10px 0 10px 56px;
 	margin-bottom: 10px;
-    border-radius: 2px 2px 2px 2px;
     display: block;
 }
 
@@ -291,7 +301,7 @@ div.notification	div.info {
 
 .img_notification_session_fail {
 	background: url("img/notification_session_fail.png") no-repeat scroll 16px center #F9F9F9;
-    border-left: 4px solid #ED4545;
+    border-left: 4px solid #FE5454;
 }
 
 .img_notification_comment {
@@ -314,6 +324,7 @@ div.notification	div.info {
 div.form_block {
 	margin-bottom: 22px;
 	font-size: 1.3em;
+	clear: both;
 }
 
 div.form_block	input[type="text"],
@@ -432,15 +443,19 @@ div.form_block		input[type="submit"].draft:hover {
 }
 
 div.form_block		.uploader_button {
-    background: url("img/picture.png") no-repeat scroll 14px 6px #F0F0EE;
-    border-bottom: 1px solid #CCCCCC;
-    border-left: 1px solid #CCCCCC;
-    border-right: 1px solid #CCCCCC;
+    background: #F1F1F1;
+    border-bottom: 2px solid #CCCCCC;
+    border-left: 2px solid #CCCCCC;
+    border-right: 2px solid #CCCCCC;
     cursor: pointer;
     display: inline-block;
-    font-size: 12px;
-    padding: 8px 16px 8px 45px;
-    float:right;
+    float: right;
+    margin-right: -2px;
+    padding: 8px 30px;
+}
+
+div.form_block span.icon {
+	margin-right: 10px;
 }
 
 div.form_block		.toggle_button {

@@ -1,33 +1,33 @@
 <?php
 
-	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
-		// TITLE
-		include('includes/title.bit');
+	// TITLE
+	include('includes/title.bit');
 
-		// CONTENT
-		include('includes/content.bit');
+	// CONTENT
+	include('includes/content.bit');
 
-		// ALLOW COMMENTS
-		include('includes/allow_comments.bit');
+	// ALLOW COMMENTS
+	include('includes/allow_comments.bit');
 
-		// CATEGORIES
-		include('includes/categories.bit');
+	// CATEGORIES
+	include('includes/categories.bit');
 
-		echo Html::separator( array('content'=>$_LANG['SEO_OPTIONS']), false, !$settings['advanced_post_options']);
+	echo Html::separator( array('content'=>$_LANG['SEO_OPTIONS']), false, !$settings['advanced_post_options']);
 
-		// DESCRIPTION
-		include('includes/description.bit');
+	// DESCRIPTION
+	include('includes/description.bit');
 
-		// TAGS
-		include('includes/tags.bit');
+	// TAGS
+	include('includes/tags.bit');
 
-		// SLUG URL
-		include('includes/slug.bit');
+	// SLUG URL
+	include('includes/slug.bit');
 
-		// BUTTONS
-		include('includes/buttons.bit');
+	// BUTTONS
+	include('includes/buttons.bit');
 
-	echo Html::form_close();
+echo Html::form_close();
 
 ?>

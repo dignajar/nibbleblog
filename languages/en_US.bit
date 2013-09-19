@@ -236,6 +236,7 @@ $_LANG['SITE'] = 'Site';
 $_LANG['SITE_TITLE'] = 'Site title';
 $_LANG['SITE_DESCRIPTION'] = 'Site description';
 $_LANG['TAGS_SEPARATED_BY_COMMA'] = 'Tags separated by comma.';
+$_LANG['KEYWORDS_SEPARATED_BY_COMMA'] = 'Keywords separated by comma.';
 $_LANG['ROBOTS'] = 'Robots';
 $_LANG['WEBMASTER_TOOLS'] = 'Webmaster tools';
 $_LANG['GOOGLE_WEBMASTER_TOOLS'] = 'Google Webmaster tools - Verification code';

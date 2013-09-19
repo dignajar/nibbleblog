@@ -13,14 +13,14 @@ echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') )
 
 	echo Html::separator( array('content'=>$_LANG['SEO_OPTIONS']), false, !$settings['advanced_post_options']);
 
-	// SLUG URL
-	include('includes/slug.bit');
-
 	// DESCRIPTION
 	include('includes/description.bit');
 
 	// KEYWORDS
 	include('includes/keywords.bit');
+
+	// SLUG URL
+	include('includes/slug.bit');
 
 	// BUTTONS
 	include('includes/buttons.bit');
