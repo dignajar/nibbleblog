@@ -259,4 +259,27 @@ $_LANG['PAGE_HAS_BEEN_PUBLISHED_SUCCESSFULLY'] = 'Page has been published succes
 $_LANG['THERE_ARE_NO_PAGES'] = 'There are no pages';
 $_LANG['HOME'] = 'Home';
 
+$_LANG['NOTIFICATION'] = 'Notification';
+
+$_LANG['EMAIL_NOTIFICATION_FAIL_LOGIN'] = '
+<p>This is a notification from your blog.</p>
+<p>Alguien quiso acceder a tu blog con el usuario {{USERNAME}} y password {{PASSWORD}}.</p>
+<p>La direccion ip {{IP}} con la que se quisieron conectar.</p>
+<p>De todas formas Nibbleblog cuenta con un sistema de seguridad muy alto y no debe de que preocuparse.</p>
+';
+
+$_LANG['EMAIL_NOTIFICATION_SESSION_STARTED'] = '
+<p>This is a notification from your blog.</p>
+<p>Ingresaron satisfactoriamente al blog con el usuario {{USERNAME}}.</p>
+<p>La direccion ip {{IP}} con la que ingresaron.</p>
+';
+
+$_LANG['EMAIL_NOTIFICATION_NEW_COMMENT'] = '
+<p>Tienes un nuevo comentario en tu blog.</p>
+<p><i>{{COMMENT}}</i></p>
+<p>Autor {{AUTHOR_NAME}}</p>
+<p>Email {{AUTHOR_EMAIL}}</p>
+<p>IP {{IP}}</p>
+';
+
 ?>

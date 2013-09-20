@@ -45,12 +45,6 @@
 	define('COMMENT_DATE_FORMAT',		'%I:%M:%S %p - %m/%d/%y');
 	define('POST_DATE_FORMAT',			'%I:%M:%S %p - %m/%d/%y');
 
-	define('EMAIL_NOTIFICATIONS',
-		'Nibbleblog Notifications'."\r\n"."\r\n".
-		'Blog: '.$settings['url'].$settings['path']."\r\n".
-		'IP: '.Net::get_user_ip()."\r\n"
-	);
-
 	define('BLOG_URL',			$settings['url'].$settings['path']);
 
 // =====================================================================

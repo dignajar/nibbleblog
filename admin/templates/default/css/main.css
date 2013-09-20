@@ -190,7 +190,6 @@ div.menu_box a:hover {
 	color: #006AC8;
 }
 
-
 /*====================================================================*/
 /* DASHBOARD
 /*====================================================================*/
@@ -278,40 +277,36 @@ div.dashboard_box	a.last_comments	div.info {
 
 /* Notifications */
 div.notification {
-	padding: 10px 0 10px 56px;
+	padding: 10px;
 	margin-bottom: 10px;
     display: block;
+    background: #F9F9F9;
+    border-left: 4px solid #009AD7;
+}
+
+div.notification	div.icon {
+    float: left;
+    font-size: 18px;
+    line-height: 35px;
+    margin-left: 3px;
 }
 
 div.notification	div.type {
 	margin-bottom: 5px;
-	font-size: 1.2em;
+	font-size: 1.3em;
+	margin-left: 30px;
 }
 
 div.notification	div.info {
 	margin-bottom: 5px;
 	font-size: 1.1em;
 	color: #AAAAAA;
-}
-
-.img_notification_session_start {
-	background: url("img/notification_session_start.png") no-repeat scroll 16px center #F9F9F9;
-    border-left: 4px solid #009AD7;
-}
-
-.img_notification_session_fail {
-	background: url("img/notification_session_fail.png") no-repeat scroll 16px center #F9F9F9;
-    border-left: 4px solid #FE5454;
-}
-
-.img_notification_comment {
-	background: url("img/notification_comment.png") no-repeat scroll 16px center #F9F9F9;
-    border-left: 4px solid #00B2C2;
+	margin-left: 30px;
 }
 
 .img_notification_version {
-	background: url("img/notification_version.png") no-repeat scroll 16px center #F9F9F9;
-    border-left: 4px solid #D31E6E;
+	background: url("img/notification_version.png") no-repeat scroll 16px center #F9F9F9 !important;
+    border-left: 4px solid #D31E6E !important;
 }
 
 #js_notification_version {

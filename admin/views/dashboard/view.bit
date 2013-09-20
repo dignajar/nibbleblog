@@ -66,8 +66,25 @@ echo Html::div_open( array('class'=>'dashboard_right') );
 		{
 			$date = Date::format($notification['date'], NOTIFICATION_DATE_FORMAT);
 
-			echo Html::div_open( array('class'=>'notification img_notification_'.$notification['category']) );
-				echo Html::div( array('class'=>'type', 'content'=>$_LANG[$notification['message_key']]) );
+			if($notification['category']=='session_fail')
+			{
+				$icon = 'icon-sad';
+				$text = $_LANG['LOGIN_FAILED_ATTEMPT'];
+			}
+			elseif($notification['category']=='session_start')
+			{
+				$icon = 'icon-unlock-alt';
+				$text = $_LANG['NEW_SESSION_STARTED'];
+			}
+			elseif($notification['category']=='comment')
+			{
+				$icon = 'icon-comment-alt';
+				$text = $_LANG['YOU_HAVE_A_NEW_COMMENT'];
+			}
+
+			echo Html::div_open( array('class'=>'notification') );
+				echo Html::div( array('class'=>'icon '.$icon, 'content'=>'&nbsp;') );
+				echo Html::div( array('class'=>'type', 'content'=>$text) );
 				echo Html::div( array('class'=>'info', 'content'=>$date.' · IP: '.$notification['ip']) );
 			echo Html::div_close();
 		}
@@ -92,7 +109,7 @@ $(document).ready(function() {
 			{
 				$("#js_version").html(json.version);
 				$("#js_release").html(json.release);
-				$("#js_notification_version").slideDown();
+				$("#js_notification_version").show();
 			}
 		}
 	});

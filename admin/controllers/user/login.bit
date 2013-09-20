@@ -26,14 +26,14 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 			$Login->set_remember_me();
 
 		// Notification - Session started
-		$_DB_NOTIFICATIONS->add('session_start', $settings['notification_session_start'], 'NEW_SESSION_STARTED');
+		$_DB_NOTIFICATIONS->add('session_start', $settings['notification_session_start']);
 
 		// Redirect to Dashboard
 		Redirect::controller('admin','dashboard','view');
 	}
 
 	// Notification - Session failed
-	$_DB_NOTIFICATIONS->add('session_fail', $settings['notification_session_fail'], 'LOGIN_FAILED_ATTEMPT');
+	$_DB_NOTIFICATIONS->add('session_fail', $settings['notification_session_fail'], array('username'=>$safe['username'], 'password'=>$safe['password']));
 
 	$_SESSION['session_alert']['msg'] = $_LANG['INCORRECT_USERNAME_OR_PASSWORD'];
 	$_SESSION['session_alert']['active'] = true;

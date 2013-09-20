@@ -28,7 +28,7 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
-.icon-publish, .icon-cog, .icon-power-cord, .icon-folder, .icon-coffee, .icon-chat, .icon-bell, .icon-image, .icon-gauge, .icon-signout, .icon-home {
+.icon-publish, .icon-cog, .icon-power-cord, .icon-folder, .icon-coffee, .icon-comment-alt, .icon-bell, .icon-picture, .icon-gauge, .icon-signout, .icon-house, .icon-unlock-alt, .icon-sad {
 	font-family: 'icomoon';
 	speak: none;
 	font-style: normal;
@@ -39,35 +39,41 @@ you can use the generic selector below, but it's slower:
 	-webkit-font-smoothing: antialiased;
 }
 .icon-publish:before {
-	content: "\e002";
+	content: "\e000";
 }
 .icon-cog:before {
-	content: "\e003";
+	content: "\e001";
 }
 .icon-power-cord:before {
-	content: "\e004";
+	content: "\e002";
 }
 .icon-folder:before {
-	content: "\e001";
+	content: "\e003";
 }
 .icon-coffee:before {
 	content: "\f0f4";
 }
-.icon-chat:before {
-	content: "\e005";
+.icon-comment-alt:before {
+	content: "\f0e5";
 }
 .icon-bell:before {
-	content: "\f0a2";
+	content: "\e004";
 }
-.icon-image:before {
-	content: "\e006";
+.icon-picture:before {
+	content: "\f03e";
 }
 .icon-gauge:before {
-	content: "\e000";
+	content: "\e005";
 }
 .icon-signout:before {
 	content: "\f08b";
 }
-.icon-home:before {
-	content: "\f015";
+.icon-house:before {
+	content: "\e006";
+}
+.icon-unlock-alt:before {
+	content: "\f13e";
+}
+.icon-sad:before {
+	content: "\e007";
 }

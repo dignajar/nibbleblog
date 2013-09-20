@@ -51,7 +51,7 @@ PUBLIC METHODS
 		return( $this->xml->asXML($this->file) );
 	}
 
-	public function add($category, $send_email, $message_key, $email_message = '')
+	public function add($category, $send_email, $args=array())
 	{
 		global $_LANG;
 
@@ -61,12 +61,54 @@ PUBLIC METHODS
 		// Email
 		if($send_email)
 		{
+			if($category=='session_fail')
+			{
+				// Subject
+				$subject = $_LANG['LOGIN_FAILED_ATTEMPT'];
+				// Message
+				$message = Text::replace_assoc(
+						array(
+							'{{USERNAME}}'=>$args['username'],
+							'{{PASSWORD}}'=>$args['password'],
+							'{{IP}}'=>Net::get_user_ip()
+						),
+						$_LANG['EMAIL_NOTIFICATION_FAIL_LOGIN']
+				);
+			}
+			elseif($category=='session_start')
+			{
+				// Subject
+				$subject = $_LANG['NEW_SESSION_STARTED'];
+				// Message
+				$message = Text::replace_assoc(
+						array(
+							'{{USERNAME}}'=>$args['username'],
+							'{{IP}}'=>Net::get_user_ip()
+						),
+						$_LANG['EMAIL_NOTIFICATION_SESSION_STARTED']
+				);
+			}
+			elseif($category=='comment')
+			{
+				// Subject
+				$subject = $_LANG['YOU_HAVE_A_NEW_COMMENT'];
+				// Message
+				$message = Text::replace_assoc(
+						array(
+							'{{COMMENT}}'=>$args['comment'],
+							'{{AUTHOR_NAME}}'=>$args['author_name'],
+							'{{AUTHOR_EMAIL}}'=>$args['author_email'],
+							'{{IP}}'=>$args['ip']
+						),
+						$_LANG['EMAIL_NOTIFICATION_NEW_COMMENT']
+				);
+			}
+
 			$sent = Email::send(array(
-						'from_name'=>$this->settings['notification_email_from'],
-						'from_mail'=>$this->settings['notification_email_from'],
+						'from'=>$this->settings['notification_email_from'],
 						'to'=>$this->settings['notification_email_to'],
-						'subject'=>$_LANG[$message_key],
-						'message'=>EMAIL_NOTIFICATIONS.$email_message
+						'subject'=>$subject,
+						'message'=>$message
 			));
 		}
 		else
@@ -82,7 +124,6 @@ PUBLIC METHODS
 		$node = $this->xml->addChild('notification');
 		$node->addAttribute('category',		$category);
 		$node->addAttribute('mail',			$sent);
-		$node->addAttribute('message_key',	$message_key);
 		$node->addAttribute('ip',			$user_ip);
 		$node->addAttribute('date',			Date::unixstamp());
 

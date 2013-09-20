@@ -151,6 +151,11 @@ class Text {
 		 return $text;
 	}
 
+	public static function replace_assoc(array $replace, $text)
+	{
+		return str_replace(array_keys($replace), array_values($replace), $text);
+	}
+
 }
 
 ?>
