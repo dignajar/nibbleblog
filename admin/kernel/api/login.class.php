@@ -209,10 +209,13 @@ class Login {
 		$user = $this->db_users->get(array('username'=>$username));
 		$random = rand(3, 8);
 
-		// if the user doesn't exist, sleep 5
+		// if the user doesn't exist, sleep 3 to 8 seconds
 		if($user==false)
 		{
-			sleep($random);
+			$sleep_time = $random;
+
+			error_log('Nibbleblog: Brute force protection for '.$sleep_time.' seconds');
+			sleep($sleep_time);
 			return true;
 		}
 
@@ -223,7 +226,10 @@ class Login {
 		// if session failed count > 2 then sleep a lot :P
 		if($user['session_fail_count']>2)
 		{
-			sleep($user['session_fail_count']*$random);
+			$sleep_time = $user['session_fail_count']*$random;
+
+			error_log('Nibbleblog: Brute force protection for '.$sleep_time.' seconds');
+			sleep($sleep_time);
 			return true;
 		}
 
