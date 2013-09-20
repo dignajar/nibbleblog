@@ -26,7 +26,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 			$Login->set_remember_me();
 
 		// Notification - Session started
-		$_DB_NOTIFICATIONS->add('session_start', $settings['notification_session_start']);
+		$_DB_NOTIFICATIONS->add('session_start', $settings['notification_session_start'], array('username'=>$safe['username']));
 
 		// Redirect to Dashboard
 		Redirect::controller('admin','dashboard','view');
