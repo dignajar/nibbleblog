@@ -259,27 +259,26 @@ $_LANG['PAGE_HAS_BEEN_PUBLISHED_SUCCESSFULLY'] = 'Page has been published succes
 $_LANG['THERE_ARE_NO_PAGES'] = 'There are no pages';
 $_LANG['HOME'] = 'Home';
 
-$_LANG['NOTIFICATION'] = 'Notification';
-
 $_LANG['EMAIL_NOTIFICATION_FAIL_LOGIN'] = '
-<p>This is a notification from your blog.</p>
-<p>Alguien quiso acceder a tu blog con el usuario {{USERNAME}} y password {{PASSWORD}}.</p>
-<p>La direccion ip {{IP}} con la que se quisieron conectar.</p>
-<p>De todas formas Nibbleblog cuenta con un sistema de seguridad muy alto y no debe de que preocuparse.</p>
+<p>This is a notification from your blog {{BLOG_NAME}}</p>
+<p>Someone wanted to access your blog with the user: {{USERNAME}} and Password: {{PASSWORD}}</p>
+<p>The IP address {{IP}} which they wanted to connect.</p>
 ';
 
 $_LANG['EMAIL_NOTIFICATION_SESSION_STARTED'] = '
-<p>This is a notification from your blog.</p>
-<p>Ingresaron satisfactoriamente al blog con el usuario {{USERNAME}}.</p>
-<p>La direccion ip {{IP}} con la que ingresaron.</p>
+<p>This is a notification from your blog {{BLOG_NAME}}</p>
+<p>Successfully joined to admin area with username: {{USERNAME}}</p>
+<p>The IP address {{IP}} which they wanted to connect.</p>
 ';
 
 $_LANG['EMAIL_NOTIFICATION_NEW_COMMENT'] = '
-<p>Tienes un nuevo comentario en tu blog.</p>
-<p><i>{{COMMENT}}</i></p>
-<p>Autor {{AUTHOR_NAME}}</p>
-<p>Email {{AUTHOR_EMAIL}}</p>
-<p>IP {{IP}}</p>
+<p>This is a notification from your blog {{BLOG_NAME}}</p>
+<p>You have a new comment on your blog.</p>
+<p>{{COMMENT}}</p>
+<p>Autor: {{AUTHOR_NAME}}</p>
+<p>Email: {{AUTHOR_EMAIL}}</p>
+<p>IP: {{IP}}</p>
+<p>Post: {{POST_URL}}</p>
 ';
 
 ?>

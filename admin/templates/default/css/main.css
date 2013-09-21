@@ -146,8 +146,7 @@ div.separator {
 }
 
 span.icon {
-	margin-right: 15px;
-	vertical-align: -10%;
+	margin-right: 10px;
 }
 
 /*====================================================================*/
@@ -335,14 +334,15 @@ div.form_block	textarea {
 	padding: 10px 8px;
 	outline:none; /* not focus border on chrome */
 	resize: none;
+
 }
 
 div.form_block	input[type="text"]:hover,
 div.form_block	input[type="text"]:focus,
 div.form_block	textarea:hover,
 div.form_block	textarea:focus {
-	border-color: #4EAFE3;
-	box-shadow: 0px 1px 1px #4EAFE3;
+	border-color: #ccc;
+	box-shadow: 1px 1px 1px #ccc
 }
 
 div.form_block	input[type="text"].little {

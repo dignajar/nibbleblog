@@ -25,7 +25,7 @@ echo Html::div_open( array('class'=>'dashboard_left') );
 	// Last comments
 	echo Html::div_open( array('class'=>'dashboard_box') );
 
-	echo Html::div( array('class'=>'dashboard_title', 'content'=>'<span class="icon icon-chat"></span>'.$_LANG['LAST_COMMENTS']) );
+	echo Html::div( array('class'=>'dashboard_title', 'content'=>'<span class="icon icon-comment-alt"></span>'.$_LANG['LAST_COMMENTS']) );
 
 	if(empty($last_comments))
 	{
