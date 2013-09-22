@@ -1,0 +1,19 @@
+<?php
+
+echo '<article>';
+
+	// print title if this is not empty
+	if( !empty($page['title']) ){
+		echo '<h2 class="post-title">'.$page['title'].'</h2>';
+	}
+	$month = Date::format($page['pub_date_unix'], '%b');
+	$day = Date::format($page['pub_date_unix'], '%d');
+	$year = Date::format($page['pub_date_unix'], '%Y');
+	echo '<span class="publish-date"><span class="month">'.$month.'</span> <span class="day">'.$day.'</span><span class="year">'.$year.'</span></span>';
+
+	echo $page['content'];
+
+echo '</article>';
+
+?>
+
