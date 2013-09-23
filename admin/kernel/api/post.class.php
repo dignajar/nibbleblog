@@ -47,7 +47,7 @@ class Post {
 	// Returns an empty array if there are not posts on the system
 	public function get_by_page($page, $amount)
 	{
-		$posts = $this->db->get_list_by_page( array('page_number'=>$page, 'amount'=>$amount) );
+		$posts = $this->db->get_list_by_page( array('page'=>$page, 'amount'=>$amount) );
 
 		return($posts);
 	}
