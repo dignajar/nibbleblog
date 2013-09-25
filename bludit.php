@@ -1,4 +1,6 @@
 <?php
+header('content-type: application/json; charset=utf-8');
+header("access-control-allow-origin: *");
 
 /*
  * Nibbleblog -
@@ -21,7 +23,7 @@ if(!isset($_KEYS[0]))
 
 $mark = Crypt::get_hash($_KEYS[0]);
 
-if($_GET['other']=='status')
+if($url['other']=='status')
 {
 	$posts = $Post->get_by_page(0,10);
 
@@ -44,6 +46,16 @@ if($_GET['other']=='status')
 
 	echo json_encode($tmp);
 }
+elseif($url['other']=='post')
+{
+	$post = $Post->get($url['id_post']);
 
+	//$content = Text::replace('src="', 'src="'.BLOG_URL, $post['content'][0]);
+	//$post['content'] = $content;
+
+	$post['content'] = $post['content'][0];
+
+	echo json_encode($post);
+}
 
 ?>
