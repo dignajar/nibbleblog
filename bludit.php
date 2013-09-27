@@ -27,6 +27,8 @@ if($url['other']=='status')
 {
 	$posts = $Post->get_by_page(0,10);
 
+	$posts = array_reverse($posts);
+
 	$tmp = array(
 		'posts'=>array(),
 		'mark'=>$mark
@@ -48,13 +50,29 @@ if($url['other']=='status')
 }
 elseif($url['other']=='post')
 {
+	// Get the post
 	$post = $Post->get($url['id_post']);
 
+	// Get tags
+	$post['tags'] = $_DB_TAGS->get_by_idpost( array('id_post'=>$post['id']) );
+
+	// Src images relatives to absoluts
 	//$content = Text::replace('src="', 'src="'.BLOG_URL, $post['content'][0]);
 	//$post['content'] = $content;
 
 	$post['content'] = $post['content'][0];
 
+	// Unset
+	unset($post['read_more']);
+	unset($post['filename']);
+	unset($post['id_cat']);
+	unset($post['id_user']);
+	unset($post['mode']);
+	unset($post['draft']);
+	unset($post['visits']);
+	unset($post['allow_comments']);
+
+	// JSON
 	echo json_encode($post);
 }
 
