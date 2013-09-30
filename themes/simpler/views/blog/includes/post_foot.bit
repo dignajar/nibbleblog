@@ -6,7 +6,6 @@ echo '<footer class="post">';
 	if(!empty($post['tags']))
 	{
 		echo '<div class="tags">';
-			echo '<span>Tags:</span>';
 			echo '<span>';
 				foreach($post['tags'] as $tag)
 					echo '<a class="tag" href="'.Url::tag($tag, $settings['friendly_urls']).'">'.$tag.'</a>';

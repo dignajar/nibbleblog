@@ -65,6 +65,8 @@ if(!empty($page))
 // =====================================================================
 $post = array();
 $posts = array();
+$category = array();
+$tag = array();
 
 // ---- POSTS FILTER BY CATEGORY
 if($url['category']!==null)
@@ -90,6 +92,8 @@ elseif($url['tag']!==null)
 
 	if($id_posts!==false)
 	{
+		$tag = $url['tag'];
+
 		arsort($id_posts);
 
 		foreach($id_posts as $id)
@@ -162,6 +166,5 @@ if(isset($posts[0]))
 unset($id_cat);
 unset($tmp);
 unset($slug);
-unset($category);
 
 ?>

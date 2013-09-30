@@ -125,8 +125,8 @@ article.post {
 
 /* ========== POST HEADER ========== */
 article.post	header.post		div.date {
-    background-color: #EEEEEE;
-    color: #666666;
+    background-color: #33B0E0;
+    color: #FFFFFF;
     display: inline-block;
     font-size: 0.9em;
     letter-spacing: 2px;
@@ -219,15 +219,22 @@ article.post	footer.post		a {
 }
 
 article.post	footer.post		div.tags {
-	margin-bottom: 3px;
+	max-width: 60%;
+	float: right;
 }
 
 article.post	footer.post		a.tag {
-	background: #F1F1F1;
+	background: #33B0E0;
 	padding: 0 6px;
 	margin-right: 5px;
 	border-radius: 2px;
-	color: #333;
+	color: #FFFFFF;
+}
+
+
+article.post	footer.post		a.tag:hover {
+	opacity: 0.8;
+	text-decoration: none;
 }
 
 /* ============================== */

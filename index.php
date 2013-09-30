@@ -63,6 +63,18 @@ if( ($url['controller']!=null) && ($url['action']!=null) )
 
 		$where_am_i[1] = 'page';
 	}
+	elseif( ($url['category']!==null) && !empty($category) )
+	{
+		$layout['title'] = $seo['site_title'].' - '.$category['name'];
+
+		$where_am_i[1] = 'category';
+	}
+	elseif( ($url['tag']!==null) && !empty($tag) )
+	{
+		$layout['title'] = $seo['site_title'].' - '.$url['tag'];
+
+		$where_am_i[1] = 'tag';
+	}
 
 	// Page 404
 	if( !file_exists(THEME_CONTROLLERS.$layout['controller']) || !file_exists(THEME_VIEWS.$layout['view']) || $page_not_found )
