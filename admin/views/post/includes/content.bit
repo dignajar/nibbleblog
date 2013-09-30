@@ -1,14 +1,19 @@
 <?php
-	$value = isset($post_edit['content'][0]) ? htmlspecialchars($post_edit['content'][0]) : '';
+$value = isset($post_edit['content'][0]) ? htmlspecialchars($post_edit['content'][0]) : '';
 
-	echo Html::div_open( array('class'=>'form_block') );
-		echo Html::textarea( array('id'=>'js_content', 'name'=>'content', 'content'=>$value, 'class'=>'wysiwyg') );
-//		echo Html::link( array('content'=>'HTML', 'class'=>'toggle_button', 'href'=>'javascript:;', 'onclick'=>'toggle_wysiwyg()', 'hidden'=>( !$settings['advanced_post_options'] )) );
-		echo Html::span( array('id'=>'js_uploader_button', 'class'=>'uploader_button', 'content'=>'<span class="icon icon-picture"></span>'.$_LANG['INSERT_PICTURE']) );
-		echo Html::span( array('id'=>'js_uploader_loading', 'class'=>'uploader_button', 'content'=>$_LANG['UPLOADING'].'...', 'style'=>'display: none') );
+echo Html::div_open( array('class'=>'form_block') );
+
+	echo Html::textarea( array('id'=>'js_content', 'name'=>'content', 'content'=>$value, 'class'=>'wysiwyg') );
+
+	echo Html::div_open( array('class'=>'content_tools') );
+		echo Html::span( array('id'=>'js_uploader_button', 'class'=>'button', 'content'=>'<span class="icon icon-picture"></span>'.$_LANG['INSERT_PICTURE']) );
+		echo Html::span( array('id'=>'js_uploader_loading', 'class'=>'button', 'content'=>$_LANG['UPLOADING'].'...', 'style'=>'display: none') );
+echo Html::link( array('content'=>'<span class="icon icon-code"></span>'.'HTML', 'class'=>'button', 'href'=>'javascript:;', 'onclick'=>'toggle_html()', 'hidden'=>( !$settings['advanced_post_options'] )) );
 	echo Html::div_close();
 
-	echo Html::input( array('type'=>'file', 'id'=>'js_uploader_input_file', 'class'=>'hidden', 'hidden'=>'hidden', 'size'=>'1', 'accept'=>'image/*') );
+echo Html::div_close();
+
+echo Html::input( array('type'=>'file', 'id'=>'js_uploader_input_file', 'class'=>'hidden', 'hidden'=>'hidden', 'size'=>'1', 'accept'=>'image/*') );
 ?>
 
 <script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'tinymce/jquery.tinymce.min.js' ?>"></script>
@@ -20,7 +25,43 @@
 // WYSIWYG
 // =====================================================================
 
+function toggle_html()
+{
+	if(tinymce.editors.length>0)
+	{
+		tinymce.execCommand("mceRemoveEditor", true, "js_content");
+		console.log("removed");
+	}
+	else
+	{
+		tinymce.execCommand("mceAddEditor", true, "js_content");
+		console.log("added");
+	}
+}
+
 $(document).ready(function() {
+
+	// Add Tab keydown
+	// Thanks http://stackoverflow.com/questions/6140632/how-to-handle-tab-in-textarea
+	$("#js_content").keydown(function(e) {
+
+		if(tinymce.editors.length>0)
+			return false;
+
+		if(e.keyCode === 9)
+		{
+			var start = this.selectionStart;
+			var end = this.selectionEnd;
+			var $this = $(this);
+			var value = $this.val();
+
+			$this.val(value.substring(0, start) + "\t" + value.substring(end));
+
+			this.selectionStart = this.selectionEnd = start + 1;
+
+			e.preventDefault();
+		}
+	});
 
 	tinymce.init({
 		selector : "textarea#js_content",
@@ -108,9 +149,17 @@ $(document).ready(function() {
 			uploader_button.show();
 
 			var src = $(xml).find("file").text();
-			var img = '<img data-mce-src="'+src+'" src="'+src+'" alt="">';
+			var img = '<img src="'+src+'" alt="">';
 
-			tinymce.execCommand("mceInsertContent", false, img);
+			if(tinymce.editors.length>0)
+			{
+				tinymce.execCommand("mceInsertContent", false, img);
+			}
+			else
+			{
+				text = $("#js_content");
+				text.val( text.val() + img );
+			}
 		}
 	}
 

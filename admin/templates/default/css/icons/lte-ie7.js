@@ -18,7 +18,8 @@ window.onload = function() {
 			'icon-signout' : '&#xf08b;',
 			'icon-house' : '&#xe006;',
 			'icon-unlock-alt' : '&#xf13e;',
-			'icon-sad' : '&#xe007;'
+			'icon-sad' : '&#xe007;',
+			'icon-code' : '&#xe008;'
 		},
 		els = document.getElementsByTagName('*'),
 		i, attr, c, el;

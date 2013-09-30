@@ -28,7 +28,7 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
-.icon-publish, .icon-cog, .icon-power-cord, .icon-folder, .icon-coffee, .icon-comment-alt, .icon-bell, .icon-picture, .icon-gauge, .icon-signout, .icon-house, .icon-unlock-alt, .icon-sad {
+.icon-publish, .icon-cog, .icon-power-cord, .icon-folder, .icon-coffee, .icon-comment-alt, .icon-bell, .icon-picture, .icon-gauge, .icon-signout, .icon-house, .icon-unlock-alt, .icon-sad, .icon-code {
 	font-family: 'icomoon';
 	speak: none;
 	font-style: normal;
@@ -76,4 +76,7 @@ you can use the generic selector below, but it's slower:
 }
 .icon-sad:before {
 	content: "\e007";
+}
+.icon-code:before {
+	content: "\e008";
 }
