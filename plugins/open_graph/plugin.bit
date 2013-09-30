@@ -4,7 +4,7 @@
 // =====================================================================
 $_PLUGIN_CONFIG['DATA'] = array(
 	'author'=>'Diego Najar',
-	'version'=>'3.6',
+	'version'=>'3.7 alpha 3',
 	'url'=>'http://www.nibbleblog.com'
 );
 
@@ -21,30 +21,38 @@ class PLUGIN_OPEN_GRAPH extends Plugin
 		global $settings;
 
 		$og = array(
+			'locale'=>'de_DE',
+			'type'=>'website',
+			'title'=>$settings['name'],
+			'description'=>$settings['slogan'],
 			'url'=>BLOG_URL,
-			'title'=>$settings['name'].' '.$settings['slogan'],
-			'site_name'=>$settings['name'],
-			'content'=>'blog'
+			'site_name'=>$settings['name']
 		);
-
+		
 		if( ($where_am_i[1]=='post') && !empty($post) )
 		{
-			$og['url'] = $settings['url'].$post['permalink'];
+			$og['type'] = article;
 			$og['title'] = $post['title'];
+			$og['description'] = $post['description'];
+			$og['url'] = $settings['url'].$post['permalink'];
 		}
 		elseif( ($where_am_i[1]=='page') && !empty($page) )
 		{
-			$og['url'] = $settings['url'].$page['permalink'];
+			$og['type'] = article;
 			$og['title'] = $page['title'];
+			$og['description'] = $page['description'];
+			$og['url'] = $settings['url'].$page['permalink'];
 		}
 
-		$html  = '<meta property="og:url" content="'.$og['url'].'">';
+		$html  = '<meta property="og:locale" content="'.$og['locale'].'"/>';
+		$html .= '<meta property="og:type" content="'.$og['type'].'"/>';
 		$html .= '<meta property="og:title" content="'.$og['title'].'"/>';
-		$html .= '<meta property="og:site_name" content='.$og['site_name'].'/>';
-		$html .= '<meta property="og:type" content="'.$og['content'].'"/>';
+		$html .= '<meta property="og:description" content="'.$og['description'].'"/>';
+		$html .= '<meta property="og:url" content="'.$og['url'].'"/>';
+		$html .= '<meta property="og:site_name" content="'.$og['site_name'].'"/>';
+		$html .= '<link rel="canonical" href="'.$og['url'].'"/>';
 
 		return $html;
 	}
 }
-
 ?>
