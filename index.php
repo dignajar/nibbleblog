@@ -47,7 +47,7 @@ if( ($url['controller']!=null) && ($url['action']!=null) )
 	$layout['view']			= $url['controller'].'/'.$url['action'].'.bit';
 
 	// Particular post
-	if( ($url['id_post']!==null) && !empty($post) )
+	if( (($url['id_post']!==null) || ($url['post']!==null)) && !empty($post) )
 	{
 		$layout['title'] = $post['title'];
 		$layout['description'] = $post['description'];
@@ -55,7 +55,7 @@ if( ($url['controller']!=null) && ($url['action']!=null) )
 
 		$where_am_i[1] = 'post';
 	}
-	elseif( ($url['id_page']!==null) && !empty($page) )
+	elseif( (($url['id_page']!==null) || ($url['page']!==null)) && !empty($page) )
 	{
 		$layout['title'] = $page['title'];
 		$layout['description'] = $page['description'];

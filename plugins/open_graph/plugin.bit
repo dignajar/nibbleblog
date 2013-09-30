@@ -16,22 +16,32 @@ class PLUGIN_OPEN_GRAPH extends Plugin
 	public function blog_head()
 	{
 		global $post;
+		global $page;
 		global $where_am_i;
 		global $settings;
 
+		$og = array(
+			'url'=>BLOG_URL,
+			'title'=>$settings['name'].' '.$settings['slogan'],
+			'site_name'=>$settings['name'],
+			'content'=>'blog'
+		);
+
 		if( ($where_am_i[1]=='post') && !empty($post) )
 		{
-			$html  = '<meta property="og:url" content="'.BLOG_URL.$post['permalink'].'">';
-			$html .= '<meta property="og:title" content="'.$post['title'].'"/>';
+			$og['url'] = $settings['url'].$post['permalink'];
+			$og['title'] = $post['title'];
 		}
-		else
+		elseif( ($where_am_i[1]=='page') && !empty($page) )
 		{
-			$html  = '<meta property="og:url" content="'.BLOG_URL.'">';
-			$html .= '<meta property="og:title" content="'.$settings['name'].' '.$settings['slogan'].'"/>';
+			$og['url'] = $settings['url'].$page['permalink'];
+			$og['title'] = $page['title'];
 		}
 
-		$html .= '<meta property="og:site_name" content='.$settings['name'].'/>';
-		$html .= '<meta property="og:type" content="blog"/>';
+		$html  = '<meta property="og:url" content="'.$og['url'].'">';
+		$html .= '<meta property="og:title" content="'.$og['title'].'"/>';
+		$html .= '<meta property="og:site_name" content='.$og['site_name'].'/>';
+		$html .= '<meta property="og:type" content="'.$og['content'].'"/>';
 
 		return $html;
 	}

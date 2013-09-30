@@ -22,7 +22,8 @@
 	$categories = $_DB_CATEGORIES->get_all();
 
 	// Where am I ?
-	$where_am_i[0] = 'blog';
+	$where_am_i[0] = null;
+	$where_am_i[1] = null;
 
 	// Variables for ajax boot
 	$error = false;

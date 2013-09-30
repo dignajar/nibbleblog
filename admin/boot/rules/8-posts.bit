@@ -17,16 +17,54 @@
  * (boolean) $page_not_found
 */
 
-$posts = array();
-$post = array();
-
-$pages = array();
-$page = array();
-
 $page_not_found = false;
 
-// ---- PAGES
+// =====================================================================
+// PAGES
+// =====================================================================
+$page = array();
 $pages = $Page->get_all();
+
+// Filter by page
+if( ($url['id_page']!==null) || ($url['page']!==null) )
+{
+	if($url['id_page']!==null)
+		$args = array('id'=>$url['id_page']);
+	else
+		$args = array('slug'=>$url['page']);
+
+	// Get post
+	$tmp = $_DB_PAGES->get($args);
+
+	if($tmp===false)
+		$page_not_found = true;
+	else
+		$page = $tmp;
+}
+
+if(!empty($page))
+	array_push($pages, $page);
+
+// ---- PERMALINKS
+// ---- PUBLISH DATE
+foreach($pages as $key=>$value)
+{
+	// Publish date
+	$pages[$key]['pub_date'] = Date::format($pages[$key]['pub_date_unix'], $settings['timestamp_format']);
+	$pages[$key]['mod_date'] = Date::format($pages[$key]['mod_date_unix'], $settings['timestamp_format']);
+
+	// Permalink
+	$pages[$key]['permalink'] = Url::page($pages[$key], $translit_enable, $settings['friendly_urls']);
+}
+
+if(!empty($page))
+	$page = array_pop($pages);
+
+// =====================================================================
+// POSTS
+// =====================================================================
+$post = array();
+$posts = array();
 
 // ---- POSTS FILTER BY CATEGORY
 if($url['category']!==null)
@@ -81,40 +119,11 @@ elseif( ($url['id_post']!==null) || ($url['post']!==null) )
 	else
 		$posts[0] = $tmp;
 }
-// ---- PAGE
-elseif( ($url['id_page']!==null) || ($url['page']!==null) )
-{
-	if($url['id_page']!==null)
-		$args = array('id'=>$url['id_page']);
-	else
-		$args = array('slug'=>$url['page']);
-
-	// Get post
-	$tmp = $_DB_PAGES->get($args);
-
-	if($tmp===false)
-		$page_not_found = true;
-	else
-		$page = $tmp;
-}
 // ---- POSTS FILTER BY BLOG
 else
 {
 	// Posts by page
 	$posts = $_DB_POST->get_list_by_page( array('page'=>$url['number'], 'amount'=>$settings['items_page']) );
-}
-
-
-// ---- PERMALINKS
-// ---- PUBLISH DATE
-foreach($pages as $key=>$value)
-{
-	// Publish date
-	$pages[$key]['pub_date'] = Date::format($pages[$key]['pub_date_unix'], $settings['timestamp_format']);
-	$pages[$key]['mod_date'] = Date::format($pages[$key]['mod_date_unix'], $settings['timestamp_format']);
-
-	// Permalink
-	$pages[$key]['permalink'] = Url::page($pages[$key], $translit_enable, $settings['friendly_urls']);
 }
 
 // ---- COMMENTS
