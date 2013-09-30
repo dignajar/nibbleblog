@@ -21,7 +21,7 @@ class PLUGIN_OPEN_GRAPH extends Plugin
 		global $settings;
 
 		$og = array(
-			'locale'=>'de_DE',
+			'locale'=>$settings['locale'],
 			'type'=>'website',
 			'title'=>$settings['name'],
 			'description'=>$settings['slogan'],
