@@ -19,6 +19,7 @@ class PLUGIN_OPEN_GRAPH extends Plugin
 		global $page;
 		global $where_am_i;
 		global $settings;
+		global $category;
 
 		$og = array(
 			'locale'=>$settings['locale'],
@@ -28,20 +29,28 @@ class PLUGIN_OPEN_GRAPH extends Plugin
 			'url'=>BLOG_URL,
 			'site_name'=>$settings['name']
 		);
-		
+
 		if( ($where_am_i[1]=='post') && !empty($post) )
 		{
-			$og['type'] = article;
-			$og['title'] = $post['title'];
+			$og['type'] = 'article';
+			$og['title'] = $settings['name'].' - '.$post['title'];
 			$og['description'] = $post['description'];
 			$og['url'] = $settings['url'].$post['permalink'];
 		}
 		elseif( ($where_am_i[1]=='page') && !empty($page) )
 		{
-			$og['type'] = article;
-			$og['title'] = $page['title'];
+			$og['type'] = 'article';
+			$og['title'] = $settings['name'].' - '.$page['title'];
 			$og['description'] = $page['description'];
 			$og['url'] = $settings['url'].$page['permalink'];
+		}
+		elseif( ($where_am_i[1]=='category') && !empty($category) )
+		{
+			$permalink = Url::category($category['slug'], $settings['friendly_urls']);
+
+			$og['type'] = 'article';
+			$og['title'] = $settings['name'].' - '.$category['name'];
+			$og['url'] = $settings['url'].$permalink;
 		}
 
 		$html  = '<meta property="og:locale" content="'.$og['locale'].'"/>';
