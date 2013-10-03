@@ -67,7 +67,7 @@ if( $filename )
 		$Resize->setImage(PATH_UPLOAD.$filename.'_'.$number.'_o.'.$ext, '110', '110', 'crop');
 		$Resize->saveImage(PATH_UPLOAD.$filename.'_'.$number.'_nbmedia.jpg', 98, true);
 
-		exit( Text::ajax_header('<success><![CDATA[1]]></success><file><![CDATA['.HTML_PATH_UPLOAD.$filename.'_'.$number.'_o.'.$ext.']]></file>') );
+		exit( Text::ajax_header('<success><![CDATA[1]]></success><original><![CDATA['.HTML_PATH_UPLOAD.$filename.'_'.$number.'_o.'.$ext.']]></original><nbmedia><![CDATA['.HTML_PATH_UPLOAD.$filename.'_'.$number.'_nbmedia.jpg]]></nbmedia>') );
 	}
 }
 
