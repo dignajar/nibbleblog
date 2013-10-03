@@ -8,12 +8,14 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/normalize.css' ?>" />
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/main.css' ?>" />
+	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/media.css' ?>" />
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/icons/style.css' ?>" />
 
 	<!-- Javascript -->
 	<script charset="utf-8" src="<?php echo JS_JQUERY ?>"></script>
 	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'system.php' ?>"></script>
 	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'functions.js' ?>"></script>
+	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'reveal/jquery.reveal.js' ?>"></script>
 
 	<!-- Plugin -->
 	<?php

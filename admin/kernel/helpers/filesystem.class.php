@@ -11,6 +11,11 @@
 
 class Filesystem {
 
+	public static function get_images($regex)
+	{
+		return self::ls(PATH_UPLOAD, $regex, '*', false, false, false);
+	}
+
 	// Devuelve un arreglo con el listado de archivos
 	// $path con una barra al final, ej: /home/
 	// $file_expression : *.0.*.*.*.*.*.*.*.*

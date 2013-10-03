@@ -365,7 +365,7 @@ div.form_block		select.little {
 
 /* WYSIWYG Editor */
 div.form_block	textarea.wysiwyg {
-	height: 320px;
+	height: 337px;
 	resize: vertical;
 }
 
@@ -378,16 +378,17 @@ div.content_tools {
 }
 
 div.content_tools 	.button {
-	border-right: 2px solid #ccc;
+	border-right: 2px solid #478FBF;
 	padding: 8px;
 	display: inline-block;
-	color: #333;
+	color: #FFFFFF;
 	cursor: pointer;
+	background-color: #4D98CF;
 }
 
 div.content_tools	.button:hover {
 	text-decoration: none;
-	background: #E9E9E9;
+	background-color: #478FBF;
 }
 
 div.form_block		input[type="checkbox"].float {

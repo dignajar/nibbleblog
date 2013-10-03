@@ -1,19 +1,20 @@
 <?php
-$value = isset($ctrlv['page']['content']) ? htmlspecialchars($ctrlv['page']['content']) : '';
+$value = isset($post_edit['content'][0]) ? htmlspecialchars($post_edit['content'][0]) : '';
 
 echo Html::div_open( array('class'=>'form_block') );
 
 	echo Html::textarea( array('id'=>'js_content', 'name'=>'content', 'content'=>$value, 'class'=>'wysiwyg') );
 
-	echo Html::div_open( array('class'=>'content_tools') );
-		echo Html::span( array('id'=>'js_uploader_button', 'class'=>'button', 'content'=>'<span class="icon icon-picture"></span>'.$_LANG['INSERT_PICTURE']) );
-		echo Html::span( array('id'=>'js_uploader_loading', 'class'=>'button', 'content'=>$_LANG['UPLOADING'].'...', 'style'=>'display: none') );
-echo Html::link( array('content'=>'<span class="icon icon-code"></span>'.'HTML', 'class'=>'button', 'href'=>'javascript:;', 'onclick'=>'toggle_html()', 'hidden'=>( !$settings['advanced_post_options'] )) );
+	echo Html::div_open( array('id'=>'js_content_tools', 'class'=>'content_tools') );
+		echo Html::link( array('class'=>'button', 'content'=>'<span class="icon icon-picture"></span>'.$_LANG['INSERT_PICTURE'], 'href'=>'javascript:;', 'data-reveal-id'=>'media_modal') );
+		echo Html::link( array('class'=>'button', 'content'=>'<span class="icon icon-code"></span>'.'HTML', 'href'=>'javascript:;', 'onclick'=>'toggle_html()', 'hidden'=>(!$settings['advanced_post_options'])) );
 	echo Html::div_close();
 
 echo Html::div_close();
 
-echo Html::input( array('type'=>'file', 'id'=>'js_uploader_input_file', 'class'=>'hidden', 'hidden'=>'hidden', 'size'=>'1', 'accept'=>'image/*') );
+// Media
+include('media.bit');
+
 ?>
 
 <script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'tinymce/jquery.tinymce.min.js' ?>"></script>
@@ -98,70 +99,4 @@ $(document).ready(function() {
 
 });
 
-// =====================================================================
-// UPLOADER
-// =====================================================================
-$(document).ready(function() {
-
-	var uploader_button;
-	var uploader_loading = $("#js_uploader_loading");
-	var uploader_input_file = $("#js_uploader_input_file");
-
-	$("#js_uploader_button").click(
-	function() {
-		uploader_button = $(this);
-		uploader_input_file.trigger("click");
-	});
-
-	uploader_input_file.change(
-	function() {
-
-		var file = this.files[0];
-
-		uploader_button.hide();
-		uploader_loading.css("display", "inline-block");
-
-		// New XMLHttpRequest
-		var xhr = new XMLHttpRequest();
-
-		// Events
-		xhr.addEventListener("load", complete, false);
-
-		// Open new connection async
-		xhr.open('POST', HTML_PATH_ADMIN_AJAX + 'uploader.php', true);
-
-		// Parameters headers
-		xhr.setRequestHeader("Cache-Control", "no-cache");
-		xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-		xhr.setRequestHeader("X-FILE-NAME", file.name);
-
-		// Send file
-		xhr.send(file);
-	});
-
-	function complete(e)
-	{
-		var xml = $.parseXML(e.target.responseText);
-
-		if( $(xml).find("success").text() == "1" )
-		{
-			uploader_loading.hide();
-			uploader_button.show();
-
-			var src = $(xml).find("file").text();
-			var img = '<img src="'+src+'" alt="">';
-
-			if(tinymce.editors.length>0)
-			{
-				tinymce.execCommand("mceInsertContent", false, img);
-			}
-			else
-			{
-				text = $("#js_content");
-				text.val( text.val() + img );
-			}
-		}
-	}
-
-});
 </script>

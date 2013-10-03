@@ -56,12 +56,16 @@ if( $filename )
 			$Resize->saveImage(PATH_UPLOAD.$filename.'_'.$number.'_o.'.$ext, 100);
 		}
 
-		// Generate Thumbnail
+		// Generate thumbnail
 		if($settings['img_thumbnail'])
 		{
 			$Resize->setImage(PATH_UPLOAD.$filename.'_'.$number.'_o.'.$ext, $settings['img_thumbnail_width'], $settings['img_thumbnail_height'], $settings['img_thumbnail_option']);
 			$Resize->saveImage(PATH_UPLOAD.$filename.'_'.$number.'_thumb.'.$ext, 100);
 		}
+
+		// Generate thumbnail for Nibbleblog media
+		$Resize->setImage(PATH_UPLOAD.$filename.'_'.$number.'_o.'.$ext, '110', '110', 'crop');
+		$Resize->saveImage(PATH_UPLOAD.$filename.'_'.$number.'_nbmedia.jpg', 98, true);
 
 		exit( Text::ajax_header('<success><![CDATA[1]]></success><file><![CDATA['.HTML_PATH_UPLOAD.$filename.'_'.$number.'_o.'.$ext.']]></file>') );
 	}

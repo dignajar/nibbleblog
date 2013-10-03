@@ -1,0 +1,127 @@
+<?php
+
+$file_list = Filesystem::get_images('*_nbmedia*');
+
+?>
+
+<input id="media_input_file" type="file" class="hidden" size="1" accept="image/*" />
+
+<div id="media_modal" class="reveal-modal">
+
+	<div id="media_box">
+
+		<h2 id="media_upload_button" class="title"><span style="margin-right:8px;" class="icon-picture"></span>Upload and insert a new picture</h2>
+
+		<?php
+			if(!empty($file_list))
+			{
+				echo '<h2 class="title" style="color: #999;">OR</h2>';
+				echo '<h2 class="title">Select a picture from your bag</h2>';
+				echo '<div id="mm_files">';
+				foreach($file_list as $file)
+				{
+					$original = Text::replace('nbmedia','o',$file);
+					echo '<img data-original="'.HTML_PATH_UPLOAD.$original.'" src="'.HTML_PATH_UPLOAD.$file.'" />';
+				}
+				echo '</div>';
+			}
+		?>
+
+	</div>
+
+	<div id="media_loading">
+		<h2 class="title"><span class="icon-publish"></span>Loading...</h2>
+	</div>
+
+	<a class="close-reveal-modal">&#215;</a>
+</div>
+
+<script>
+
+// Insert content on Tinymce or textarea
+function insert_content(content)
+{
+	if(tinymce.editors.length>0)
+	{
+		tinymce.execCommand("mceInsertContent", false, content);
+	}
+	else
+	{
+		text = $("#js_content");
+		text.val( text.val() + content );
+	}
+}
+
+</script>
+
+<script>
+$(document).ready(function() {
+
+	$("#mm_files > img").click(
+	function() {
+		var src = $(this).attr("data-original");
+		var img = '<img src="'+src+'" />';
+		insert_content(img);
+		$('#media_modal').trigger('reveal:close');
+	});
+
+//======================================================================
+// Uploader
+//======================================================================
+
+	var media_box = $("#media_box");
+	var media_loading = $("#media_loading");
+	var media_input_file = $("#media_input_file");
+
+	$("#media_upload_button").click(
+	function() {
+		media_input_file.trigger("click");
+	});
+
+	media_input_file.change(
+	function() {
+
+		var file = this.files[0];
+
+		media_box.hide();
+		media_loading.show();
+
+		// New XMLHttpRequest
+		var xhr = new XMLHttpRequest();
+
+		// Events
+		xhr.addEventListener("load", complete, false);
+
+		// Open new connection async
+		xhr.open('POST', HTML_PATH_ADMIN_AJAX+"uploader.php", true);
+
+		// Parameters headers
+		xhr.setRequestHeader("Cache-Control", "no-cache");
+		xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+		xhr.setRequestHeader("X-FILE-NAME", file.name);
+
+		// Send file
+		xhr.send(file);
+	});
+
+	function complete(e)
+	{
+		var xml = $.parseXML(e.target.responseText);
+
+		if( $(xml).find("success").text() == "1" )
+		{
+			media_loading.hide();
+			media_box.show();
+
+			$('#media_modal').trigger('reveal:close');
+
+			var file = $(xml).find("file").text();
+			var img = '<img src="'+file+'" alt="">';
+
+			insert_content(img);
+		}
+	}
+
+});
+
+</script>
