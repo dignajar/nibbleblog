@@ -57,7 +57,7 @@ function insert_content(content)
 <script>
 $(document).ready(function() {
 
-	$("#mm_files > img").click(
+	$("#mm_files").on("click", "img",
 	function() {
 		var src = $(this).attr("data-original");
 		var img = '<img src="'+src+'" />';
@@ -115,10 +115,16 @@ $(document).ready(function() {
 
 			$('#media_modal').trigger('reveal:close');
 
-			var file = $(xml).find("file").text();
-			var img = '<img src="'+file+'" alt="">';
+			var original = $(xml).find("original").text();
+			var nbmedia = $(xml).find("nbmedia").text();
 
+			// Insert on textarea
+			var img = '<img src="'+original+'" alt="">';
 			insert_content(img);
+
+			// Insert on preview files
+			img = '<img data-original="'+original+'" src="'+nbmedia+'" alt="" />';
+			$("#mm_files").prepend(img);
 		}
 	}
 

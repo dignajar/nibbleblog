@@ -3,7 +3,7 @@
 $value = isset($ctrlv['page']['title']) ? $ctrlv['page']['title'] : '';
 
 echo Html::div_open( array('class'=>'form_block') );
-	echo Html::input( array('id'=>'js_title', 'name'=>'title', 'type'=>'text', 'value'=>$value , 'placeholder'=>$_LANG['ENTER_TITLE_HERE']) );
+	echo Html::input( array('id'=>'js_title', 'name'=>'title', 'class'=>'title', 'type'=>'text', 'value'=>$value , 'placeholder'=>$_LANG['ENTER_TITLE_HERE']) );
 echo Html::div_close();
 
 ?>

@@ -311,6 +311,7 @@ Date::set_timezone('UTC');
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name='robots' content='noindex,nofollow' />
 	<title>Nibbleblog Installer</title>
 
 	<script src="./admin/js/jquery/jquery.js"></script>

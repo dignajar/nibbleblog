@@ -62,17 +62,17 @@ div.separator {
 /* HEAD
 /*====================================================================*/
 #head {
-    background-color: #FCFCFC;
-    border-bottom: 1px solid #E7E7E7;
-    margin-bottom: 30px;
-    padding: 10px 0;
+	background-color: #F1F1F1;
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+	margin-bottom: 30px;
+	padding: 10px 0;
 }
 
 #head span.mrnibbler {
 	background: url("img/mrnibbler.png") no-repeat 0 center;
 	display: inline-block;
-	font-size: 2.6em;
-	color: #CACACA;
+	font-size: 2.2em;
+	color: #999;
 	height: 32px;
 	width: 32px;
 	margin-left: 22px;
@@ -140,9 +140,9 @@ div.separator {
 	margin-bottom: 30px;
 	margin-top: 0;
 	padding: 0;
-	font-size: 3em;
+	font-size: 2.7em;
 	font-weight: lighter;
-	color: #727476;
+	color: #006AC8;
 }
 
 span.icon {
@@ -352,6 +352,10 @@ div.form_block	input[type="text"].little {
 	padding: 5px;
 }
 
+div.form_block	input[type="text"].title {
+	font-size: 1.3em;
+}
+
 div.form_block		select {
 	width: 100%;
 	padding: 6px;
@@ -371,9 +375,8 @@ div.form_block	textarea.wysiwyg {
 
 div.content_tools {
 	background: #f1f1f1;
-	border-left: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
-	border-right: 1px solid #ccc;
+	border-left: 1px solid #f1f1f1;
+	border-right: 1px solid #f1f1f1;
 	width: 100%;
 }
 
@@ -383,12 +386,12 @@ div.content_tools 	.button {
 	display: inline-block;
 	color: #FFFFFF;
 	cursor: pointer;
-	background-color: #4D98CF;
+	background-color: #3B84BF;
 }
 
 div.content_tools	.button:hover {
 	text-decoration: none;
-	background-color: #478FBF;
+	background-color: #4183AF;
 }
 
 div.form_block		input[type="checkbox"].float {
@@ -428,17 +431,16 @@ div.form_block		input[type="button"].disabled {
     display: inline-block;
     font-size: 1em;
     padding: 7px 33px;
-
-	background: #F1F1F1;
-	background: -moz-linear-gradient(center top, #F5F5F5, #F1F1F1);
-	background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#F1F1F1));
+	background: #EFEFEF;
+	background: -moz-linear-gradient(center top, #EFEFEF, #DFDFDF);
+	background: -webkit-gradient(linear, left top, left bottom, from(#EFEFEF), to(#DFDFDF));
 }
 
 div.form_block		input[type="submit"].save:hover,
 div.form_block		input[type="button"].save:hover {
-	background: #E1E1E1;
-	background: -moz-linear-gradient(center top, #EFEFEF, #E1E1E1);
-	background: -webkit-gradient(linear, left top, left bottom, from(#EFEFEF), to(#E1E1E1));
+	background: #DFDFDF;
+	background: -moz-linear-gradient(center top, #DFDFDF, #CFCFCF);
+	background: -webkit-gradient(linear, left top, left bottom, from(#DFDFDF), to(#CFCFCF));
 }
 
 div.form_block		input[type="button"].disabled {
@@ -448,16 +450,15 @@ div.form_block		input[type="button"].disabled {
 div.form_block		input[type="submit"].draft {
 	margin-left:10px;
 	color: #FFFFFF;
-
-	background: #54A1E6;
-	background: -moz-linear-gradient(center top , #54A1E6, #498AC6);
-	background: -webkit-gradient(linear, left top, left bottom, from(#54A1E6), to(#498AC6));
+	background: #3B84BF;
+	background: -moz-linear-gradient(center top , #3B84BF, #4183AF);
+	background: -webkit-gradient(linear, left top, left bottom, from(#3B84BF), to(#4183AF));
 }
 
 div.form_block		input[type="submit"].draft:hover {
 	background: #3EACBA;
-	background: -moz-linear-gradient(center top, #498AC6, #3D74A7);
-	background: -webkit-gradient(linear, left top, left bottom, from(#498AC6), to(#3D74A7));
+	background: -moz-linear-gradient(center top, #3B779F, #356B8F);
+	background: -webkit-gradient(linear, left top, left bottom, from(#3B779F), to(#356B8F));
 }
 
 div.form_block span.icon {

@@ -53,4 +53,6 @@ if($ctrlv['html']===false)
 
 $ctrlv['positions_html'] = array_combine(range(1, count($plugins)), range(1, count($plugins)));
 
+$layout['title'] .= ' :: '.$ctrlv['plugin']->get_name();
+
 ?>
