@@ -46,7 +46,7 @@ div.separator {
 }
 
 #alert {
-    background-color: #0DA4D4;
+    background-color: #3B84BF;
     color: #FFFFFF;
     display: block;
     font-size: 1.3em;
@@ -65,25 +65,24 @@ div.separator {
 	background-color: #F1F1F1;
 	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 	margin-bottom: 30px;
-	padding: 10px 0;
+	padding: 5px 0;
 }
 
 #head span.mrnibbler {
 	background: url("img/mrnibbler.png") no-repeat 0 center;
 	display: inline-block;
-	font-size: 2.2em;
-	color: #999;
-	height: 32px;
+	font-size: 2em;
+	color: #777;
 	width: 32px;
 	margin-left: 22px;
-	padding-left: 40px;
-	line-height: 32px;
+	padding-left: 30px;
+	line-height: 26px;
 }
 
 #head a {
 	float: right;
 	display: inline-block;
-	line-height: 32px;
+	line-height: 26px;
 	font-size: 1.3em;
 	margin: 0 25px 0 0;
 	color: #333333;
@@ -142,7 +141,7 @@ div.separator {
 	padding: 0;
 	font-size: 2.7em;
 	font-weight: lighter;
-	color: #006AC8;
+	color: #2986D2;
 }
 
 span.icon {
@@ -334,7 +333,6 @@ div.form_block	textarea {
 	padding: 10px 8px;
 	outline:none; /* not focus border on chrome */
 	resize: none;
-
 }
 
 div.form_block	input[type="text"]:hover,
@@ -342,7 +340,7 @@ div.form_block	input[type="text"]:focus,
 div.form_block	textarea:hover,
 div.form_block	textarea:focus {
 	border-color: #ccc;
-	box-shadow: 1px 1px 1px #ccc
+	box-shadow: 1px 1px 1px #ccc;
 }
 
 div.form_block	input[type="text"].little {
@@ -609,8 +607,8 @@ form.plugins	input[type="password"]:hover,
 form.plugins	input[type="password"]:focus,
 form.plugins	textarea:hover,
 form.plugins	textarea:focus {
-	border-color: #4EAFE3;
-	box-shadow: 0px 1px 1px #4EAFE3;
+	border-color: #ccc;
+	box-shadow: 1px 1px 1px #ccc;
 }
 
 form.plugins	input[type="file"] {
