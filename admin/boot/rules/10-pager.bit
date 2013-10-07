@@ -32,13 +32,13 @@ else
 {
 	if($url['category']!=null)
 	{
-		$href_older = HTML_PATH_ROOT.'index.php?controller=blog&action=view&category='.$url['category'].'&page='.$pager_next;
-		$href_newer = HTML_PATH_ROOT.'index.php?controller=blog&action=view&category='.$url['category'].'&page='.$pager_prev;
+		$href_older = HTML_PATH_ROOT.'index.php?controller=blog&action=view&category='.$url['category'].'&number='.$pager_next;
+		$href_newer = HTML_PATH_ROOT.'index.php?controller=blog&action=view&category='.$url['category'].'&number='.$pager_prev;
 	}
 	else
 	{
-		$href_older = HTML_PATH_ROOT.'index.php?controller=blog&action=view&page='.$pager_next;
-		$href_newer = HTML_PATH_ROOT.'index.php?controller=blog&action=view&page='.$pager_prev;
+		$href_older = HTML_PATH_ROOT.'index.php?controller=blog&action=view&number='.$pager_next;
+		$href_newer = HTML_PATH_ROOT.'index.php?controller=blog&action=view&number='.$pager_prev;
 	}
 }
 
