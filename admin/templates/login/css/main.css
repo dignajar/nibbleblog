@@ -116,7 +116,7 @@ input[type="submit"].forgot {
     font-size: 1.3em;
     padding: 15px 33px;
 	width: 100%;
-
+	text-transform:uppercase;
 	background: #F1F1F1;
 	background: -moz-linear-gradient(center top , #F5F5F5, #F1F1F1);
 	background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#F1F1F1));

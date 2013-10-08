@@ -93,7 +93,7 @@ class Comment {
 			if($data['type']!='spam')
 			{
 				// Add notification
-				$this->db_notification->add('comment', $this->settings['notification_comments'], array('ip'=>$data['author_ip'],'comment'=>$data['content']));
+				$this->db_notification->add('comment', $this->settings['notification_comments'], array('ip'=>$data['author_ip'], 'author_name'=>$data['author_name'], 'author_email'=>$data['author_email'], 'comment'=>$data['content']));
 			}
 
 			$this->set_last_time();

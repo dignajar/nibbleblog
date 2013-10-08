@@ -10,6 +10,8 @@
 // =====================================================================
 if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 {
+	sleep(5);
+
 	require_once(FILE_SHADOW);
 	require_once(FILE_KEYS);
 
@@ -36,15 +38,9 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	));
 
 	if($sent)
-	{
-		error_log('Email sent');
-		Session::set_alert('Check your email');
-	}
+		Session::set_alert($_LANG['WE_ARE_SENT_YOU_AN_EMAIL']);
 	else
-	{
-		error_log('FAIL emailing');
-		Session::set_alert('Some problem when try to send the email');
-	}
+		Session::set_alert($_LANG['AN_ERROR_OCURRED_WHILE']);
 }
 
 ?>

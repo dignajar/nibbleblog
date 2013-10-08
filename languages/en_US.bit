@@ -258,6 +258,10 @@ $_LANG['PAGES'] = 'Pages';
 $_LANG['PAGE_HAS_BEEN_PUBLISHED_SUCCESSFULLY'] = 'Page has been published successfully';
 $_LANG['THERE_ARE_NO_PAGES'] = 'There are no pages';
 $_LANG['HOME'] = 'Home';
+$_LANG['REQUEST_NEW_PASSWORD'] = 'Request new password';
+
+$_LANG['WE_ARE_SENT_YOU_AN_EMAIL'] = 'We\'ve sent you an email, please check your spam mail just in case.';
+$_LANG['AN_ERROR_OCURRED_WHILE'] = 'An error occurred while sending mail.';
 
 $_LANG['EMAIL_NOTIFICATION_FAIL_LOGIN'] = '
 <p>This is a notification from your blog {{BLOG_NAME}}</p>
@@ -278,7 +282,6 @@ $_LANG['EMAIL_NOTIFICATION_NEW_COMMENT'] = '
 <p>Autor: {{AUTHOR_NAME}}</p>
 <p>Email: {{AUTHOR_EMAIL}}</p>
 <p>IP: {{IP}}</p>
-<p>Post: {{POST_URL}}</p>
 ';
 
 $_LANG['EMAIL_NOTIFICATION_FORGOT_PASSWORD'] = '

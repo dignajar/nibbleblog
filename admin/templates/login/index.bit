@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name='robots' content='noindex,nofollow' />
 
-	<title>Nibbleblog - Login</title>
+	<title>Nibbleblog</title>
 
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/normalize.css' ?>" />
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'login/css/main.css' ?>" />
@@ -12,6 +12,9 @@
 	<!-- Javascript -->
 	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'system.php' ?>"></script>
 	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'functions.js' ?>"></script>
+
+	<!-- FAVICON -->
+	<link rel="shortcut icon" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/img/favicon.ico' ?>" type="image/x-icon" />
 </head>
 <body>
 

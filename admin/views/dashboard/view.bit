@@ -73,7 +73,7 @@ echo Html::div_open( array('class'=>'dashboard_right') );
 			}
 			elseif($notification['category']=='session_start')
 			{
-				$icon = 'icon-unlock-alt';
+				$icon = 'icon-user';
 				$text = $_LANG['NEW_SESSION_STARTED'];
 			}
 			elseif($notification['category']=='comment')

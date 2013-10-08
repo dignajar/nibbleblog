@@ -6,20 +6,20 @@ window.onload = function() {
 		el.innerHTML = '<span style="font-family: \'icomoon\'">' + entity + '</span>' + html;
 	}
 	var icons = {
-			'icon-publish' : '&#xe000;',
-			'icon-cog' : '&#xe001;',
-			'icon-power-cord' : '&#xe002;',
-			'icon-folder' : '&#xe003;',
+			'icon-publish' : '&#xe002;',
+			'icon-cog' : '&#xe003;',
+			'icon-power-cord' : '&#xe004;',
+			'icon-folder' : '&#xe001;',
 			'icon-coffee' : '&#xf0f4;',
-			'icon-comment-alt' : '&#xf0e5;',
-			'icon-bell' : '&#xe004;',
-			'icon-picture' : '&#xf03e;',
-			'icon-gauge' : '&#xe005;',
+			'icon-image' : '&#xe006;',
+			'icon-gauge' : '&#xe000;',
 			'icon-signout' : '&#xf08b;',
-			'icon-house' : '&#xe006;',
-			'icon-unlock-alt' : '&#xf13e;',
-			'icon-sad' : '&#xe007;',
-			'icon-code' : '&#xe008;'
+			'icon-comment-alt' : '&#xf0e5;',
+			'icon-user' : '&#xe005;',
+			'icon-bell' : '&#xe007;',
+			'icon-sad' : '&#xe008;',
+			'icon-code' : '&#xe009;',
+			'icon-house' : '&#xe00a;'
 		},
 		els = document.getElementsByTagName('*'),
 		i, attr, c, el;

@@ -62,7 +62,7 @@ div.separator {
 /* HEAD
 /*====================================================================*/
 #head {
-	background-color: #F1F1F1;
+	background-color: #FAFAFA;
 	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 	margin-bottom: 30px;
 	padding: 5px 0;
@@ -229,13 +229,14 @@ div.dashboard_box	a.draft {
 	padding: 15px 15px;
 	margin-bottom: 10px;
     display: block;
-    background: #F9F9F9;
+    background: #FAFAFA;
 	font-size: 1.5em;
 	color: #333;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	border-left: 4px solid #FE5454;
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
 div.dashboard_box	a.draft:hover {
@@ -248,10 +249,11 @@ div.dashboard_box	a.last_comments {
 	padding: 15px;
 	margin-bottom: 10px;
     display: block;
-    background: #F9F9F9;
+    background: #FAFAFA;
     color: #333;
 	overflow: hidden;
 	border-left: 4px solid #80C740;
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
 div.dashboard_box	a.last_comments:hover {
@@ -278,8 +280,9 @@ div.notification {
 	padding: 10px;
 	margin-bottom: 10px;
     display: block;
-    background: #F9F9F9;
+    background: #FAFAFA;
     border-left: 4px solid #009AD7;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
 div.notification	div.icon {
@@ -553,8 +556,8 @@ div.pager	a:hover {
 /* PLUGINS
 /*====================================================================*/
 div.plugin {
-    background-color: #FAFBFA;
-    border: 1px solid #DDDDDD;
+    background-color: #FAFAFA;
+    border: 1px solid #CCC;
     border-radius: 2px 2px 2px 2px;
     font-size: 13px;
     margin-bottom: 15px;
