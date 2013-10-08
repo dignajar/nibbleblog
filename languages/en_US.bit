@@ -281,4 +281,10 @@ $_LANG['EMAIL_NOTIFICATION_NEW_COMMENT'] = '
 <p>Post: {{POST_URL}}</p>
 ';
 
+$_LANG['EMAIL_NOTIFICATION_FORGOT_PASSWORD'] = '
+<p>This is a notification from your blog {{BLOG_NAME}}</p>
+<p>Forgot your password? no problem!</p>
+<p>Follow the next link: {{FORGOT_LINK}}</p>
+';
+
 ?>

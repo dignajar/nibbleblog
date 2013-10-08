@@ -56,6 +56,7 @@ $controllers['plugins']['config']		= array('security'=>true, 'icon'=>'icon-power
 $controllers['user']['logout']			= array('security'=>true, 'icon'=>'icon-power-cord', 'title'=>$_LANG['LOGOUT'], 'controller'=>'logout', 'view'=>'logout', 'template'=>'login');
 $controllers['user']['login']			= array('security'=>false, 'icon'=>'icon-power-cord', 'title'=>$_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA'], 'controller'=>'login', 'view'=>'login', 'template'=>'login');
 $controllers['user']['forgot']			= array('security'=>false, 'icon'=>'icon-power-cord', 'title'=>$_LANG['CHANGE_PASSWORD'], 'controller'=>'forgot', 'view'=>'forgot', 'template'=>'default');
+$controllers['user']['send_forgot']		= array('security'=>false, 'icon'=>'icon-power-cord', 'title'=>$_LANG['CHANGE_PASSWORD'], 'controller'=>'send_forgot', 'view'=>'send_forgot', 'template'=>'login');
 
 $layout = array(
 	'controller'=>'user/login.bit',

@@ -18,8 +18,6 @@ echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') )
 		echo Html::input( array('type'=>'submit', 'class'=>'save', 'value'=>$_LANG['LOGIN']) );
 	echo Html::div_close();
 
-	//echo Html::link( array('href'=>HTML_PATH_ROOT.'admin.php?controller=user&action=forgot', 'content'=>'Forgot password') );
-
 echo Html::form_close();
 
 ?>

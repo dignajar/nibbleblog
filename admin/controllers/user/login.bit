@@ -35,8 +35,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	// Notification - Session failed
 	$_DB_NOTIFICATIONS->add('session_fail', $settings['notification_session_fail'], array('username'=>$safe['username'], 'password'=>$safe['password']));
 
-	$_SESSION['session_alert']['msg'] = $_LANG['INCORRECT_USERNAME_OR_PASSWORD'];
-	$_SESSION['session_alert']['active'] = true;
+	Session::set_alert($_LANG['INCORRECT_USERNAME_OR_PASSWORD'].'. <a href="'.HTML_PATH_ROOT.'admin.php?controller=user&action=send_forgot">'.$_LANG['FORGOT_PASSWORD'].'</a>');
 }
 
 ?>

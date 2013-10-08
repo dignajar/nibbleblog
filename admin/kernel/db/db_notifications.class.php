@@ -68,6 +68,7 @@ PUBLIC METHODS
 				// Message
 				$message = Text::replace_assoc(
 						array(
+							'{{BLOG_NAME}}'=>$settings['name'],
 							'{{USERNAME}}'=>$args['username'],
 							'{{PASSWORD}}'=>$args['password'],
 							'{{IP}}'=>Net::get_user_ip()
@@ -82,6 +83,7 @@ PUBLIC METHODS
 				// Message
 				$message = Text::replace_assoc(
 						array(
+							'{{BLOG_NAME}}'=>$settings['name'],
 							'{{USERNAME}}'=>$args['username'],
 							'{{IP}}'=>Net::get_user_ip()
 						),
@@ -95,6 +97,7 @@ PUBLIC METHODS
 				// Message
 				$message = Text::replace_assoc(
 						array(
+							'{{BLOG_NAME}}'=>$settings['name'],
 							'{{COMMENT}}'=>$args['comment'],
 							'{{AUTHOR_NAME}}'=>$args['author_name'],
 							'{{AUTHOR_EMAIL}}'=>$args['author_email'],

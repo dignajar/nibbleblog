@@ -1,0 +1,50 @@
+<?php
+
+// =====================================================================
+//	GET
+// =====================================================================
+
+
+// =====================================================================
+//	POST
+// =====================================================================
+if( $_SERVER['REQUEST_METHOD'] == 'POST' )
+{
+	require_once(FILE_SHADOW);
+	require_once(FILE_KEYS);
+
+	$hash = Crypt::get_hash($_USER[0]['salt'].$_KEYS[2]);
+	$link = BLOG_URL.'admin.php?controller=user&action=forgot&id_user=0&other='.$hash;
+
+	// Subject
+	$subject = $_LANG['FORGOT_PASSWORD'];
+
+	// Message
+	$message = Text::replace_assoc(
+			array(
+				'{{BLOG_NAME}}'=>$settings['name'],
+				'{{FORGOT_LINK}}'=>'<a href="'.$link.'">'.$link.'</a>'
+			),
+			$_LANG['EMAIL_NOTIFICATION_FORGOT_PASSWORD']
+	);
+
+	$sent = Email::send(array(
+				'from'=>$settings['notification_email_from'],
+				'to'=>$settings['notification_email_to'],
+				'subject'=>$subject,
+				'message'=>$message
+	));
+
+	if($sent)
+	{
+		error_log('Email sent');
+		Session::set_alert('Check your email');
+	}
+	else
+	{
+		error_log('FAIL emailing');
+		Session::set_alert('Some problem when try to send the email');
+	}
+}
+
+?>

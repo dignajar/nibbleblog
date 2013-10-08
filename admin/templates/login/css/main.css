@@ -5,42 +5,35 @@ body {
 	font-family: helvetica,arial,sans-serif;
 	margin: 0;
 	padding: 0;
-	font-size:12px;
-	color: #333333;
-	background-color: #FEFEFE;
 	font-size: 62.5%;
+	color: #333333;
+	background-color: #FAFAFA;
 }
 
 #container {
-	background: none repeat scroll 0 0 #F9F9F9;
-	border: 1px solid #EEEEEE;
+	background: #FFFFFF;
+	border: 1px solid #CCC;
 	border-radius: 3px 3px 3px 3px;
-	margin: 130px auto 0;
-	padding: 50px;
-	max-width: 400px;
-	box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.08);
-}
-
-footer {
-	font-size: 14px;
-	text-align: center;
-	border-top: 1px dotted #ccc;
+	margin: 120px auto 0;
+	padding: 40px;
+	max-width: 480px;
+	box-shadow: 1px 0px 2px rgba(0, 0, 0, 0.08);
 }
 
 #alert {
     color: #BE1C54;
-    font-size: 14px;
+    font-size: 1.4em;
     margin-bottom: 20px;
 }
 
 div.title {
-	color: #666;
-	font-size: 22px;
+	color: #2986D2;
+	font-size: 2.2em;
 	margin-bottom: 20px;
 }
 
 a {
-	color: #3C6EB4;
+	color: #006AC8;
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -48,11 +41,6 @@ a {
 a:hover {
 	text-decoration: underline;
 }
-
-a.forgot_password {
-	margin-left: 15px;
-}
-
 
 /* ============================== */
 /* FORMS */
@@ -70,24 +58,13 @@ textarea {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	width: 100%;
-    border-bottom: 1px solid #ccc;
-    border-top:0;
-    border-right:0;
-    border-left:0;
+    border: 1px solid #F1F1F1;
 	border-radius: 2px;
 	color: #858585;
-	padding: 10px 8px 10px 35px;
+	padding: 10px 8px 10px 8px;
 	outline:none; /* not focus border on chrome */
 	resize: none;
 	font-size: 1.5em;
-}
-
-input[type="text"].username {
-	background: url('img/user.png') no-repeat 8px center;
-}
-
-input[type="password"].password {
-	background: url('img/password.png') no-repeat 8px center;
 }
 
 input[type="checkbox"].float {
@@ -129,7 +106,24 @@ input[type="submit"].save {
 	background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#F1F1F1));
 }
 
-input[type="submit"].save:hover {
+input[type="submit"].forgot {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+    color: #444444;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.3em;
+    padding: 15px 33px;
+	width: 100%;
+
+	background: #F1F1F1;
+	background: -moz-linear-gradient(center top , #F5F5F5, #F1F1F1);
+	background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#F1F1F1));
+}
+
+input[type="submit"].save:hover,
+input[type="submit"].forgot:hover {
 	background: #E1E1E1;
 	background: -moz-linear-gradient(center top , #EFEFEF, #E1E1E1);
 	background: -webkit-gradient(linear, left top, left bottom, from(#EFEFEF), to(#E1E1E1));

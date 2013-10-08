@@ -1,51 +1,51 @@
 <?php
 
-	echo Html::separator( array('style'=>'margin-top: 0;', 'content'=>$_LANG['CHANGE_USERNAME']), true);
+echo Html::separator( array('style'=>'margin-top: 0;', 'content'=>$_LANG['CHANGE_USERNAME']), true);
 
-	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
-		// USERNAME
-		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::label( array('content'=>$_LANG['USERNAME'], 'class'=>'blocked') );
-			echo Html::input( array('id'=>'js_username', 'name'=>'username', 'type'=>'text', 'value'=>$_USER[0]["username"], 'autocomplete'=>'off', 'maxlength'=>'254') );
-			echo Html::div( array('content'=>$_LANG['ADMINISTRATORS_USERNAME'], 'class'=>'input_tip') );
-		echo Html::div_close();
+	// USERNAME
+	echo Html::div_open( array('class'=>'form_block') );
+		echo Html::label( array('content'=>$_LANG['USERNAME'], 'class'=>'blocked') );
+		echo Html::input( array('id'=>'js_username', 'name'=>'username', 'type'=>'text', 'value'=>$_USER[0]["username"], 'autocomplete'=>'off', 'maxlength'=>'254') );
+		echo Html::div( array('content'=>$_LANG['ADMINISTRATORS_USERNAME'], 'class'=>'input_tip') );
+	echo Html::div_close();
 
-		// CURRENT PASSWORD
-		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::label( array('content'=>$_LANG['CURRENT_PASSWORD'], 'class'=>'blocked') );
-			echo Html::input( array('id'=>'js_pw_current', 'name'=>'pw_current', 'type'=>'password', 'autocomplete'=>'off', 'maxlength'=>'254') );
-		echo Html::div_close();
+	// CURRENT PASSWORD
+	echo Html::div_open( array('class'=>'form_block') );
+		echo Html::label( array('content'=>$_LANG['CURRENT_PASSWORD'], 'class'=>'blocked') );
+		echo Html::input( array('id'=>'js_pw_current', 'name'=>'pw_current', 'type'=>'password', 'autocomplete'=>'off', 'maxlength'=>'254') );
+	echo Html::div_close();
 
-		// BUTTONS
-		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::input( array('id'=>'js_button_submit', 'name'=>'button_submit', 'type'=>'submit', 'value'=>$_LANG['SAVE_CHANGES'], 'class'=>'save') );
-		echo Html::div_close();
+	// BUTTONS
+	echo Html::div_open( array('class'=>'form_block') );
+		echo Html::input( array('id'=>'js_button_submit', 'name'=>'button_submit', 'type'=>'submit', 'value'=>$_LANG['SAVE_CHANGES'], 'class'=>'save') );
+	echo Html::div_close();
 
-	echo Html::form_close();
+echo Html::form_close();
 
-	echo Html::separator( array('content'=>$_LANG['CHANGE_PASSWORD']) );
+echo Html::separator( array('content'=>$_LANG['CHANGE_PASSWORD']) );
 
-	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
 
-		// NEW PASSWORD
-		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::label( array('content'=>$_LANG['NEW_PASSWORD'], 'class'=>'blocked') );
-			echo Html::input( array('id'=>'js_pw_new', 'name'=>'pw_new', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
-			echo Html::div( array('content'=>$_LANG['DO_NOT_FORGET_THIS_PASSWORD'], 'class'=>'input_tip') );
-		echo Html::div_close();
+	// NEW PASSWORD
+	echo Html::div_open( array('class'=>'form_block') );
+		echo Html::label( array('content'=>$_LANG['NEW_PASSWORD'], 'class'=>'blocked') );
+		echo Html::input( array('id'=>'js_pw_new', 'name'=>'pw_new', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254') );
+		echo Html::div( array('content'=>$_LANG['DO_NOT_FORGET_THIS_PASSWORD'], 'class'=>'input_tip') );
+	echo Html::div_close();
 
-		// CURRENT PASSWORD
-		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::label( array('content'=>$_LANG['CURRENT_PASSWORD'], 'class'=>'blocked') );
-			echo Html::input( array('id'=>'js_pw_current', 'name'=>'pw_current', 'type'=>'password', 'autocomplete'=>'off', 'maxlength'=>'254') );
-		echo Html::div_close();
+	// CURRENT PASSWORD
+	echo Html::div_open( array('class'=>'form_block') );
+		echo Html::label( array('content'=>$_LANG['CURRENT_PASSWORD'], 'class'=>'blocked') );
+		echo Html::input( array('id'=>'js_pw_current', 'name'=>'pw_current', 'type'=>'password', 'autocomplete'=>'off', 'maxlength'=>'254') );
+	echo Html::div_close();
 
-		// BUTTONS
-		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::input( array('id'=>'js_button_submit', 'name'=>'button_submit', 'type'=>'submit', 'value'=>$_LANG['SAVE_CHANGES'], 'class'=>'save') );
-		echo Html::div_close();
+	// BUTTONS
+	echo Html::div_open( array('class'=>'form_block') );
+		echo Html::input( array('id'=>'js_button_submit', 'name'=>'button_submit', 'type'=>'submit', 'value'=>$_LANG['SAVE_CHANGES'], 'class'=>'save') );
+	echo Html::div_close();
 
-	echo Html::form_close();
+echo Html::form_close();
 
 ?>

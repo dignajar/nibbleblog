@@ -22,11 +22,8 @@
 			echo '<div class="title">'.$layout['title'].'</div>';
 
 			// ALERT
-			if( (isset($_SESSION['session_alert'])) && ($_SESSION['session_alert']['active']) )
-			{
-				echo '<div id="alert">'.$_SESSION['session_alert']['msg'].'</div>';
-				$_SESSION['session_alert']['active'] = false;
-			}
+			if(Session::get_error())
+				echo '<div id="alert">'.Session::get_alert().'</div>';
 
 			// LAYOUT_VIEW defined on controller
 			include(PATH_ADMIN_VIEW.$layout['view']);
