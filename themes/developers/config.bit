@@ -1,15 +1,16 @@
 <?php
 
-	$theme = array
-	(
-		'name'=>'Developers',
-		'description'=>'Simple theme for developers',
-		'author'=>'Diego Najar',
-		'version'=>'1.1',
-		'last_update'=>'02/03/2013',
-		'url'=>'http://www.nibbleblog.com',
-		'video_width'=>'640',
-		'video_height'=>'360',
-	);
+// Theme information
+$theme = array
+(
+	'name'=>'Developers',
+	'description'=>'Simple theme for developers',
+	'author'=>'Diego Najar',
+	'version'=>'3.7',
+	'last_update'=>'09/10/2013',
+	'url'=>'http://www.nibbleblog.com',
+	'video_width'=>'640',
+	'video_height'=>'360'
+);
 
 ?>

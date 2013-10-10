@@ -7,8 +7,7 @@ echo Html::div_open( array('class'=>'form_block') );
 
 	echo Html::div_open( array('id'=>'js_content_tools', 'class'=>'content_tools') );
 		echo Html::link( array('class'=>'button', 'content'=>'<span class="icon icon-picture"></span>'.$_LANG['INSERT_PICTURE'], 'href'=>'javascript:;', 'data-reveal-id'=>'media_modal') );
-		echo Html::link( array('class'=>'button', 'content'=>'<span class="icon icon-code"></span>'.'HTML', 'href'=>'javascript:;', 'onclick'=>'toggle_html()', 'hidden'=>(!$settings['advanced_post_options'])) );
-	echo Html::div_close();
+		echo Html::link( array('class'=>'button', 'content'=>'<span class="icon icon-code"></span>'.'HTML', 'href'=>'javascript:;', 'onclick'=>'toggle_html()'));	echo Html::div_close();
 
 echo Html::div_close();
 
