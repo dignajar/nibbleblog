@@ -146,14 +146,17 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 				{
 					$explode = explode('.', $file_old);
 
+					$post = new NBXML(PATH_POSTS.$file_old, 0, TRUE, '', FALSE);
+
+					// Generate the slug url
+					$id_post = (int) $explode[1];
+					$slug = Text::clean_url((string)$post->getChild('title'), '-', $translit_enable); ;
+					$_DB_POST->slug($id_post, $slug);
+					$_DB_POST->savetofile();
+
 					if(count($explode)==11)
 					{
-						$post = new NBXML(PATH_POSTS.$file_old, 0, TRUE, '', FALSE);
-
 						$unixstamp = (int)$post->getChild('pub_date');
-						//$mod = (int)$post->getChild('mod_date');
-						//if( ($mod!=0) && (!empty($mod)) )
-							//$time_unix_2038 = 2147483647 - $mod;
 
 						array_unshift($explode, $unixstamp);
 
@@ -215,6 +218,20 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 					echo Html::p( array('class'=>'pass', 'content'=>'File created: '.FILE_XML_TAGS) );
 				}
 
+				// pages.xml
+				if(!file_exists(FILE_XML_PAGES))
+				{
+					$xml  = '<?xml version="1.0" encoding="utf-8" standalone="yes"?>';
+					$xml .= '<pages autoinc="1">';
+					$xml .= '<friendly></friendly>';
+					$xml .= '</pages>';
+					$obj = new NBXML($xml, 0, FALSE, '', FALSE);
+
+					echo Html::p( array('class'=>'pass', 'content'=>'File created: '.FILE_XML_PAGES) );
+
+					$obj->asXml( FILE_XML_PAGES );
+				}
+
 				// config.xml
 				$obj = new NBXML(FILE_XML_CONFIG, 0, TRUE, '', FALSE);
 				add_if_not($obj,'notification_comments',0);
@@ -236,6 +253,15 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 					echo Html::p( array('class'=>'pass', 'content'=>'DB updated: '.FILE_XML_CONFIG) );
 				else
 					echo Html::p( array('class'=>'pass', 'content'=>'FAIL - DB updated: '.FILE_XML_CONFIG) );
+
+				// posts.xml
+				$obj = new NBXML(FILE_XML_POSTS, 0, TRUE, '', FALSE);
+				add_if_not($obj,'friendly','');
+
+				if($obj->asXml( FILE_XML_POSTS ))
+					echo Html::p( array('class'=>'pass', 'content'=>'DB updated: '.FILE_XML_POSTS) );
+				else
+					echo Html::p( array('class'=>'pass', 'content'=>'FAIL - DB updated: '.FILE_XML_POSTS) );
 
 				// comments.xml
 				$obj = new NBXML(FILE_XML_COMMENTS, 0, TRUE, '', FALSE);

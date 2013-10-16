@@ -116,8 +116,8 @@ class DB_POSTS {
 			$new_id = $this->last_insert_id = $this->get_autoinc();
 
 			// Slug
-			$slug = $this->slug_generator($args['slug']);
-			$this->slug_add($new_id, $slug);
+			$this->slug($new_id, $args['slug']);
+
 
 			// Draft, publish
 			$mode = 'NULL';
@@ -215,8 +215,7 @@ class DB_POSTS {
 			if($this->remove( array('id'=>$args['id']) ))
 			{
 				// Slug
-				$slug = $this->slug_generator($args['slug']);
-				$this->slug_add($args['id'], $slug);
+				$this->slug($args['id'], $args['slug']);
 
 				// Save config
 				$this->savetofile();
@@ -378,6 +377,12 @@ class DB_POSTS {
 		public function get_autoinc()
 		{
 			return (int) $this->xml['autoinc'];
+		}
+
+		public function slug($id_post, $slug)
+		{
+			$slug = $this->slug_generator($slug);
+			$this->slug_add($id_post, $slug);
 		}
 
 /*
