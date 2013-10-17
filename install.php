@@ -213,9 +213,9 @@ Date::set_timezone('UTC');
 
 		// posts.xml
 		$xml  = '<?xml version="1.0" encoding="utf-8" standalone="yes"?>';
-		$xml .= '<posts autoinc="1">';
+		$xml .= '<post autoinc="1">';
 		$xml .= '<friendly></friendly>';
-		$xml .= '</posts>';
+		$xml .= '</post>';
 		$obj = new NBXML($xml, 0, FALSE, '', FALSE);
 
 		$obj->asXml( FILE_XML_POSTS );

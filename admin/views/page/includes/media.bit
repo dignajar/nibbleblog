@@ -10,13 +10,13 @@ $file_list = Filesystem::get_images('*_nbmedia*');
 
 	<div id="media_box">
 
-		<h2 id="media_upload_button" class="title"><span style="margin-right:8px;" class="icon-picture"></span>Upload and insert a new picture</h2>
+		<h2 id="media_upload_button" class="title"><span style="margin-right:8px;" class="icon-picture"></span><?php echo $_LANG['UPLOAD_A_NEW_IMAGE'] ?></h2>
 
 		<?php
 			if(!empty($file_list))
 			{
-				echo '<h2 class="title" style="color: #999;">OR</h2>';
-				echo '<h2 class="title">Select a picture from your bag</h2>';
+				echo '<h2 class="title" style="color: #999;">'.$_LANG['OR'].'</h2>';
+				echo '<h2 class="title">'.$_LANG['SELECT_AN_IMAGE_FROM_YOUR_BAG'].'</h2>';
 				echo '<div id="mm_files">';
 				foreach($file_list as $file)
 				{
@@ -30,7 +30,7 @@ $file_list = Filesystem::get_images('*_nbmedia*');
 	</div>
 
 	<div id="media_loading">
-		<h2 class="title"><span class="icon-publish"></span>Loading...</h2>
+		<h2 class="title"><span class="icon-publish"></span><?php echo $_LANG['LOADING'] ?></h2>
 	</div>
 
 	<a class="close-reveal-modal">&#215;</a>

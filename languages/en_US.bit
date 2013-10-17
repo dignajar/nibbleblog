@@ -248,6 +248,10 @@ $_LANG['MULTIPLE_DIRECTIVES_MAY_BE_COMBINED_IN'] = 'Multiple directives may be c
 $_LANG['DRAFT_POSTS'] = 'Draft posts';
 $_LANG['POSITION'] = 'Position';
 
+$_LANG['UPLOAD_A_NEW_IMAGE'] = 'Upload a new image';
+$_LANG['OR'] = 'OR';
+$_LANG['SELECT_AN_IMAGE_FROM_YOUR_BAG'] = 'Select an image from your bag';
+
 $_LANG['THERE_IS_A_NEW_VERSION'] = 'There is a new version of Nibbleblog available';
 $_LANG['VERSION'] = 'Version';
 $_LANG['RELEASE_DATE'] = 'Release date';

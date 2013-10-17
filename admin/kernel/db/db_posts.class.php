@@ -239,7 +239,7 @@ class DB_POSTS {
 			if(isset($args['slug']))
 			{
 				$where = '@slug="'.utf8_encode($args['slug']).'"';
-				$node = $this->xml->xpath('/posts/friendly/url['.$where.']');
+				$node = $this->xml->xpath('/post/friendly/url['.$where.']');
 
 				if($node==array())
 					return false;
@@ -381,6 +381,7 @@ class DB_POSTS {
 
 		public function slug($id_post, $slug)
 		{
+			$this->slug_delete($id_post);
 			$slug = $this->slug_generator($slug);
 			$this->slug_add($id_post, $slug);
 		}
@@ -400,7 +401,7 @@ class DB_POSTS {
 		private function slug_get($id)
 		{
 			$where = '@id="'.utf8_encode($id).'"';
-			$node = $this->xml->xpath('/posts/friendly/url['.$where.']');
+			$node = $this->xml->xpath('/post/friendly/url['.$where.']');
 
 			if($node==array())
 				return false;
@@ -438,7 +439,7 @@ class DB_POSTS {
 		private function slug_exists($slug)
 		{
 			$where = '@slug="'.utf8_encode($slug).'"';
-			$node = $this->xml->xpath('/posts/friendly/url['.$where.']');
+			$node = $this->xml->xpath('/post/friendly/url['.$where.']');
 
 			if($node==array())
 				return false;
@@ -469,7 +470,7 @@ class DB_POSTS {
 		private function slug_delete($id)
 		{
 			$where = '@id="'.utf8_encode($id).'"';
-			$nodes = $this->xml->xpath('/posts/friendly/url['.$where.']');
+			$nodes = $this->xml->xpath('/post/friendly/url['.$where.']');
 
 			foreach($nodes as $node)
 			{

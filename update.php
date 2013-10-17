@@ -30,7 +30,6 @@ require(PATH_HELPERS . 'filesystem.class.php');
 // DB
 // =====================================================================
 $_DB_SETTINGS	= new DB_SETTINGS( FILE_XML_CONFIG );
-$_DB_POST		= new DB_POSTS( FILE_XML_POSTS );
 
 // =====================================================================
 // Variables
@@ -140,7 +139,32 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 					}
 				}
 
+
+				// =====================================================
+				// posts.xml
+				// =====================================================
+				$filenamepost = Text::replace('posts.xml', 'post.xml', FILE_XML_POSTS);
+
+				if(file_exists($filenamepost))
+				{
+					$obj = new NBXML($filenamepost, 0, TRUE, '', FALSE);
+					add_if_not($obj,'friendly','');
+
+					if($obj->asXml( FILE_XML_POSTS ))
+					{
+						echo Html::p( array('class'=>'pass', 'content'=>'DB updated: '.FILE_XML_POSTS) );
+						@unlink($filenamepost);
+					}
+					else
+						echo Html::p( array('class'=>'pass', 'content'=>'FAIL - DB updated: '.FILE_XML_POSTS) );
+				}
+
+				// =====================================================
+				// Posts
+				// =====================================================
 				$posts_files = Filesystem::ls(PATH_POSTS, '*', 'xml', false, false, false);
+
+				$_DB_POST = new DB_POSTS( FILE_XML_POSTS );
 
 				foreach($posts_files as $file_old)
 				{
@@ -173,7 +197,9 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 					}
 				}
 
+				// =====================================================
 				// notifications.xml
+				// =====================================================
 				if(!file_exists(FILE_XML_NOTIFICATIONS))
 				{
 					$xml  = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
@@ -185,7 +211,9 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 					echo Html::p( array('class'=>'pass', 'content'=>'File created: '.FILE_XML_NOTIFICATIONS) );
 				}
 
+				// =====================================================
 				// users.xml
+				// =====================================================
 				if(!file_exists(FILE_XML_USERS))
 				{
 					require(FILE_SHADOW);
@@ -204,7 +232,9 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 					echo Html::p( array('class'=>'pass', 'content'=>'File created: '.FILE_XML_USERS) );
 				}
 
+				// =====================================================
 				// tags.xml
+				// =====================================================
 				if(!file_exists(FILE_XML_TAGS))
 				{
 					$xml  = '<?xml version="1.0" encoding="utf-8" standalone="yes"?>';
@@ -218,7 +248,9 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 					echo Html::p( array('class'=>'pass', 'content'=>'File created: '.FILE_XML_TAGS) );
 				}
 
+				// =====================================================
 				// pages.xml
+				// =====================================================
 				if(!file_exists(FILE_XML_PAGES))
 				{
 					$xml  = '<?xml version="1.0" encoding="utf-8" standalone="yes"?>';
@@ -232,7 +264,9 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 					$obj->asXml( FILE_XML_PAGES );
 				}
 
+				// =====================================================
 				// config.xml
+				// =====================================================
 				$obj = new NBXML(FILE_XML_CONFIG, 0, TRUE, '', FALSE);
 				add_if_not($obj,'notification_comments',0);
 				add_if_not($obj,'notification_session_fail',0);
@@ -254,16 +288,9 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 				else
 					echo Html::p( array('class'=>'pass', 'content'=>'FAIL - DB updated: '.FILE_XML_CONFIG) );
 
-				// posts.xml
-				$obj = new NBXML(FILE_XML_POSTS, 0, TRUE, '', FALSE);
-				add_if_not($obj,'friendly','');
-
-				if($obj->asXml( FILE_XML_POSTS ))
-					echo Html::p( array('class'=>'pass', 'content'=>'DB updated: '.FILE_XML_POSTS) );
-				else
-					echo Html::p( array('class'=>'pass', 'content'=>'FAIL - DB updated: '.FILE_XML_POSTS) );
-
+				// =====================================================
 				// comments.xml
+				// =====================================================
 				$obj = new NBXML(FILE_XML_COMMENTS, 0, TRUE, '', FALSE);
 				add_if_not($obj,'moderate',1);
 				add_if_not($obj,'sanitize',1);
@@ -274,7 +301,9 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 				$obj->asXml( FILE_XML_COMMENTS );
 				echo Html::p( array('class'=>'pass', 'content'=>'DB updated: '.FILE_XML_COMMENTS) );
 
+				// =====================================================
 				// Categories
+				// =====================================================
 				$obj = new NBXML(FILE_XML_CATEGORIES, 0, TRUE, '', FALSE);
 
 				foreach( $obj->children() as $children )
