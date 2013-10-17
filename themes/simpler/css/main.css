@@ -125,7 +125,7 @@ article.post {
 
 /* ========== POST HEADER ========== */
 article.post	header.post		div.date {
-    background-color: #33B0E0;
+    background-color: #82C0D9;
     color: #FFFFFF;
     display: inline-block;
     font-size: 0.9em;
@@ -137,11 +137,11 @@ article.post	header.post		div.date {
 article.post	header.post		h1.title {
 	font-size: 2em;
 	margin: 0;
-	color: #333;
+	color: #2986D2;
 }
 
 article.post	header.post		h1.title	a {
-	color: #333;
+	color: #2986D2;
 }
 
 article.post	header.post		h1.title	a:hover {
