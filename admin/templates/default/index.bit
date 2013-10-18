@@ -6,16 +6,16 @@
 
 	<title>Nibbleblog</title>
 
-	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/normalize.css' ?>" />
-	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/main.css' ?>" />
-	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/media.css' ?>" />
-	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/icons/style.css' ?>" />
+	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/normalize.css?v='.NIBBLEBLOG_BUILD ?>" />
+	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/main.css?v='.NIBBLEBLOG_BUILD ?>" />
+	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/media.css?v='.NIBBLEBLOG_BUILD ?>" />
+	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/icons/style.css?v='.NIBBLEBLOG_BUILD ?>" />
 
 	<!-- Javascript -->
-	<script charset="utf-8" src="<?php echo JS_JQUERY ?>"></script>
-	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'system.php' ?>"></script>
-	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'functions.js' ?>"></script>
-	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'reveal/jquery.reveal.js' ?>"></script>
+	<script charset="utf-8" src="<?php echo JS_JQUERY.'?v='.NIBBLEBLOG_BUILD ?>"></script>
+	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'system.php?v='.NIBBLEBLOG_BUILD ?>"></script>
+	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'functions.js?v='.NIBBLEBLOG_BUILD ?>"></script>
+	<script charset="utf-8" src="<?php echo HTML_PATH_ADMIN_JS.'reveal/jquery.reveal.js?v='.NIBBLEBLOG_BUILD ?>"></script>
 
 	<!-- FAVICON -->
 	<link rel="shortcut icon" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/img/favicon.ico' ?>" type="image/x-icon" />
