@@ -1,8 +1,0 @@
-<?php
-
-$_PLUGIN_CONFIG['LANG'] = array(
-	'NAME'=>'Paginas',
-	'DESCRIPTION'=>'Muestra todas las paginas que hay en el blog.'
-);
-
-?>

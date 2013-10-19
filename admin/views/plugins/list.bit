@@ -1,20 +1,20 @@
 <?php
 
-	foreach($plugins_all as $obj)
-	{
-		echo Html::div_open( array('class'=>'plugin') );
-			echo Html::h3( array('class'=>'name', 'content'=>$obj->get_name()) );
-			echo Html::h4( array('class'=>'description', 'content'=>$obj->get_description()) );
-			if(!$obj->is_installed())
-			{
-				echo Html::link( array('class'=>'button', 'href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=install&amp;plugin='.$obj->get_dir_name(), 'content'=>$_LANG['INSTALL']) );
-			}
-			else
-			{
-				echo Html::link( array('class'=>'button', 'href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=config&amp;plugin='.$obj->get_dir_name(), 'content'=>$_LANG['CONFIGURE']) );
-				echo Html::link( array('class'=>'button', 'href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=uninstall&amp;plugin='.$obj->get_dir_name(), 'content'=>$_LANG['UNINSTALL']) );
-			}
-		echo Html::div_close();
-	}
+foreach($plugins as $dirname=>$plugin)
+{
+	echo Html::div_open( array('class'=>'plugin') );
+		echo Html::h3( array('class'=>'name', 'content'=>$plugin['name']) );
+		echo Html::h4( array('class'=>'description', 'content'=>$plugin['description']) );
+		if($plugin['installed'])
+		{
+			echo Html::link( array('class'=>'button', 'href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=config&amp;plugin='.$plugin['dirname'], 'content'=>$_LANG['CONFIGURE']) );
+			echo Html::link( array('class'=>'button', 'href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=uninstall&amp;plugin='.$plugin['dirname'], 'content'=>$_LANG['UNINSTALL']) );
+		}
+		else
+		{
+			echo Html::link( array('class'=>'button', 'href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=install&amp;plugin='.$plugin['dirname'], 'content'=>$_LANG['INSTALL']) );
+		}
+	echo Html::div_close();
+}
 
 ?>

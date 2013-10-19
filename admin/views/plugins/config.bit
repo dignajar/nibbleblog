@@ -5,12 +5,13 @@ echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post', '
 	echo Html::input( array('name'=>'plugin', 'type'=>'hidden', 'value'=>$url['plugin']) );
 
 	echo Html::label( array('content'=>$_LANG['TITLE']) );
-	echo Html::input( array('name'=>'title', 'type'=>'text', 'value'=>$ctrlv['plugin']->get_field_db('title')) );
+	echo Html::input( array('name'=>'title', 'type'=>'text', 'value'=>'') );
 
 	echo Html::label( array('content'=>$_LANG['POSITION']) );
-	echo Html::select( array('name'=>'position'), $ctrlv['positions_html'], $ctrlv['plugin']->get_field_db('position'));
+	echo Html::select( array('name'=>'position'), $ctrlv['positions_html'], 0);
 
-	echo $ctrlv['html'];
+	if(file_exists(PATH_PLUGINS.$plugin['dirname'].'/config.bit'))
+		require_once(PATH_PLUGINS.$plugin['dirname'].'/config.bit');
 
 	echo Html::input( array('class'=>'save', 'type'=>'submit', 'value'=>$_LANG['SAVE_CHANGES']) );
 

@@ -1,0 +1,2 @@
+<label><?php echo $Language->get('html code') ?></label>
+<textarea type="text" name="code"><?php echo $plugin['database']['code'] ?></textarea>

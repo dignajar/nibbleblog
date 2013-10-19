@@ -1,40 +1,12 @@
 <?php
-// =====================================================================
-// PLUGIN INFO
-// =====================================================================
+
 $_PLUGIN_CONFIG['DATA'] = array(
 	'author'=>'Diego Najar',
 	'version'=>'3.6',
-	'url'=>'http://www.nibbleblog.com'
+	'url'=>'http://www.nibbleblog.com',
+	'database'=>array(
+		'code'=>''
+	)
 );
-
-// =====================================================================
-// PLUGIN CLASS
-// =====================================================================
-class PLUGIN_HTML_CODE extends Plugin
-{
-	function __construct()
-	{
-		parent::__construct();
-
-		$this->fields = array('code'=>'<p>Hello world!</p>');
-	}
-
-	public function dashboard_config()
-	{
-		$html  = Html::label( array('content'=>$this->language('HTML_CODE')) );
-		$html .= Html::textarea( array('name'=>'code', 'type'=>'text', 'content'=>$this->get_field_db('code')) );
-
-		return $html;
-	}
-
-	public function blog_body()
-	{
-		$html = $this->get_field_db('code');
-
-		return $html;
-	}
-
-}
 
 ?>

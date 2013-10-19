@@ -1,9 +1,0 @@
-<?php
-
-$_PLUGIN_CONFIG['LANG'] = array(
-	'NAME'=>'Maintenance Mode',
-	'DESCRIPTION'=>'Put your blog into maintenance mode.',
-	'MESSAGE'=>'Message'
-);
-
-?>

@@ -23,7 +23,6 @@
 // =====================================================================
 //	CLASS
 // =====================================================================
-require(PATH_KERNEL . 'plugin.class.php');
 require(PATH_KERNEL . 'defensio/Defensio.php');
 
 // Helpers
@@ -46,6 +45,7 @@ require(PATH_HELPERS . 'social.class.php');
 require(PATH_HELPERS . 'text.class.php');
 require(PATH_HELPERS . 'validation.class.php');
 require(PATH_HELPERS . 'video.class.php');
+require(PATH_HELPERS . 'language.class.php');
 
 // Database
 require(PATH_DB . 'nbxml.class.php');
@@ -69,6 +69,7 @@ require(PATH_API . 'page.class.php');
 // =====================================================================
 // Helpers
 $Resize = new Resize();
+$Language = new Language();
 
 // DB
 if(defined('FILE_XML_POSTS') && defined('FILE_XML_CATEGORIES') && defined('FILE_XML_CONFIG') && defined('FILE_XML_NOTIFICATIONS'))
