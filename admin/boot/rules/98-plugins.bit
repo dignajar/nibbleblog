@@ -1,55 +1,83 @@
 <?php
+/*
+ * Nibbleblog
+ * http://www.nibbleblog.com
 
-$plugins_all = Filesystem::ls(PATH_PLUGINS, '*', 'bit', true, false, false);
+ * Require
+ * $settings
+ * $_DB_SETTINGS
 
+ * Return
+ * (array) $plugins
+ * (array) $plugins_all
+ * (array) $plugins_installed
+ * (array) $plugins_by_name
+*/
+
+$plugins_on_system = $_DB_SETTINGS->get_plugins_on_system();
+
+// Plugins installed order by position
 $plugins = array();
 
-foreach($plugins_all as $dirname)
-{
-	$plugins[$dirname] = array(
-		'installed'=>false,
-		'database'=>array(),
-		'dirname'=>$dirname,
-		'position'=>0
-	);
+// Plugins installed order by position
+$plugins_installed = array();
 
-	require_once(PATH_PLUGINS.$dirname.'/plugin.bit');
+// All plugins, installed and not
+$plugins_all = array();
+
+foreach($plugins_on_system as $dir_name)
+{
+	include_once(PATH_PLUGINS.$dir_name.'/plugin.bit');
+	$class = 'PLUGIN_'.strtoupper($dir_name);
+	$plugins_all[$class] = new $class;
 
 	// Language
-	if( @!include(PATH_PLUGINS.$dirname.'/languages/'.$settings['language'].'.bit') )
-		include(PATH_PLUGINS.$dirname.'/languages/en_US.bit');
+	if( @!include(PATH_PLUGINS.$dir_name.'/languages/'.$settings['language'].'.bit') )
+		include(PATH_PLUGINS.$dir_name.'/languages/en_US.bit');
 
-	// Database
-	if(file_exists(PATH_PLUGINS_DB.$dirname.'/db.xml'))
+	$merge = array_merge($_LANG, $_PLUGIN_CONFIG['LANG']);
+
+	$plugins_all[$class]->set_lang($merge);
+
+	$plugins_all[$class]->set_attributes(
+	array(
+		'name'=>$_PLUGIN_CONFIG['LANG']['NAME'],
+		'description'=>$_PLUGIN_CONFIG['LANG']['DESCRIPTION'],
+		'author'=>$_PLUGIN_CONFIG['DATA']['author'],
+		'version'=>$_PLUGIN_CONFIG['DATA']['version'],
+		'url'=>$_PLUGIN_CONFIG['DATA']['url'],
+		'display'=>isset($_PLUGIN_CONFIG['DATA']['display'])?false:true
+	));
+
+	// Set slug name
+	include(PATH_PLUGINS.$dir_name.'/languages/en_US.bit');
+	$plugins_all[$class]->set_slug_name($_PLUGIN_CONFIG['LANG']['NAME']);
+
+	// If the plugin is installed
+	if($plugins_all[$class]->init_db())
 	{
-		$db = new NBXML(PATH_PLUGINS_DB.$dirname.'/db.xml', 0, true, '', false);
+		$position = $plugins_all[$class]->get_field_db('position');
 
-		if(isset($_PLUGIN_CONFIG['DATA']['database']))
-		{
-			foreach($_PLUGIN_CONFIG['DATA']['database'] as $key=>$value)
-			{
-				$plugins[$dirname]['database'][$key] = $db->getChild($key);
-			}
-		}
+		while( isset($plugins_installed[$position]) )
+			$position += 100;
 
-		$plugins[$dirname]['installed'] = true;
+		$plugins_installed[$position] = $plugins_all[$class];
+		$plugins_by_name[$dir_name] = $plugins_all[$class];
 	}
-	else
-	{
-		if(isset($_PLUGIN_CONFIG['DATA']['database']))
-			$plugins[$dirname]['database'] = $_PLUGIN_CONFIG['DATA']['database'];
-	}
-
-	$plugins[$dirname]['name']			= $_PLUGIN_CONFIG['LANG']['NAME'];
-	$plugins[$dirname]['description']	= $_PLUGIN_CONFIG['LANG']['DESCRIPTION'];
-	$plugins[$dirname]['author']		= $_PLUGIN_CONFIG['DATA']['author'];
-	$plugins[$dirname]['version']		= $_PLUGIN_CONFIG['DATA']['version'];
-	$plugins[$dirname]['url']			= $_PLUGIN_CONFIG['DATA']['url'];
-
-	// Add new vocabulary to the dictionary
-	unset($_PLUGIN_CONFIG['LANG']['NAME']);
-	unset($_PLUGIN_CONFIG['LANG']['DESCRIPTION']);
-	$Language->add($_PLUGIN_CONFIG['LANG']);
 }
+
+// Sort plugins
+ksort($plugins_installed);
+
+$plugins = $plugins_installed;
+
+// =====================================================================
+//	CLEANING
+// =====================================================================
+unset($plugins_on_system);
+unset($_PLUGIN_CONFIG);
+unset($class);
+unset($position);
+unset($merge);
 
 ?>

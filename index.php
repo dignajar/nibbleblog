@@ -97,6 +97,10 @@ if($settings['friendly_urls'])
 	$layout['feed'] = HTML_PATH_ROOT.'feed/';
 }
 
+// Plugins
+foreach($plugins as $plugin)
+	$plugin->boot();
+
 // Load the controller and template
 @require(THEME_CONTROLLERS.$layout['controller']);
 @require(THEME_TEMPLATES.$layout['template']);

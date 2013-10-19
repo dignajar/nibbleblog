@@ -1,0 +1,13 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'NAME'=>'Accesos rápidos',
+	'DESCRIPTION'=>'Accesos rápidos al panel de administración.',
+	'HOME'=>'Pagina de inico',
+	'DASHBOARD'=>'Panel de administración',
+	'NEW_SIMPLE_POST'=>'Crear post simple',
+	'NEW_VIDEO_POST'=>'Crear video post',
+	'NEW_QUOTE_POST'=>'Crear post tipo cita'
+);
+
+?>

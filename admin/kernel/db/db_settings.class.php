@@ -141,6 +141,24 @@ class DB_SETTINGS {
 			return($tmp_array);
 		}
 
+		public function get_plugins_on_system()
+		{
+			$tmp_array = array();
+
+			$files = Filesystem::ls(PATH_PLUGINS, '*', 'bit', true, false, false);
+
+			return($files);
+		}
+
+		public function get_plugins_installed()
+		{
+			$tmp_array = array();
+
+			$files = Filesystem::ls(PATH_PLUGINS_DB, '*', 'bit', true, false, false);
+
+			return($files);
+		}
+
 		public function get_themes()
 		{
 			$tmp_array = array();

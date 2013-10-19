@@ -3,17 +3,17 @@
 // ============================================================================
 //	POST
 // ============================================================================
-if( ($_SERVER['REQUEST_METHOD'] == 'POST') && !empty($_POST['plugin']) )
+if( ($_SERVER['REQUEST_METHOD'] == 'POST') && isset($_POST['plugin']) )
 {
-	$plugin = $plugins[$url['plugin']];
+	$plugin = $plugins_all['PLUGIN_'.strtoupper($_POST['plugin'])];
 
-	if($plugin['installed'])
+	if( $plugin->init_db() )
 	{
 		// upload files
 		foreach($_FILES as $field_name=>$file)
 		{
 			$extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
-			$destination = PATH_PLUGINS_DB.$plugin['dirname'];
+			$destination = PATH_PLUGINS_DB.$plugin->get_dir_name();
 			$complete = $destination.'/'.$field_name.'.'.$extension;
 
 			// Upload the new file and move
@@ -32,31 +32,27 @@ if( ($_SERVER['REQUEST_METHOD'] == 'POST') && !empty($_POST['plugin']) )
 			}
 		}
 
-		// Update fields
 		unset($_POST['plugin']);
 
-		$obj = new NBXML(PATH_PLUGINS_DB.$plugin['dirname'].'/db.xml', 0, TRUE, '', FALSE);
-
-		foreach($_POST as $field=>$value)
-			$obj->setChild($field, $value);
-
-		$obj->asXml(PATH_PLUGINS_DB.$plugin['dirname'].'/db.xml');
+		// update fields
+		$plugin->set_fields_db($_POST);
 
 		Session::set_alert($_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY']);
-
-		Redirect::controller('admin','plugins','config',array('plugin'=>$url['plugin']));
 	}
 }
-
 // ============================================================================
 //	VARIABLES
 // ============================================================================
-$plugin = $plugins[$url['plugin']];
+$ctrlv['plugin'] = $plugins_all['PLUGIN_'.strtoupper($url['plugin'])];
+$ctrlv['plugin']->init_db();
 
-// Layout title
-$layout['title'] .= ' :: '.$plugin['name'];
+$ctrlv['html'] = $ctrlv['plugin']->dashboard_config();
 
-// Position
+if($ctrlv['html']===false)
+	$ctrlv['html'] = '';
+
 $ctrlv['positions_html'] = array_combine(range(1, count($plugins)), range(1, count($plugins)));
+
+$layout['title'] .= ' :: '.$ctrlv['plugin']->get_name();
 
 ?>

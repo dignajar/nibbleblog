@@ -1,49 +1,16 @@
 <?php
 
-function install_plugin($plugin, $position)
-{
-	if( !mkdir(PATH_PLUGINS_DB.$plugin['dirname'],0777, true) )
-		return false;
-
-	// Template
-	$xml  = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
-	$xml .= '<plugin>';
-	$xml .= '</plugin>';
-
-	// Object
-	$obj = new NBXML($xml, 0, FALSE, '', FALSE);
-
-	// Default attributes
-	$obj->addAttribute('version', $plugin['version']);
-	$obj->addAttribute('installed_at', Date::unixstamp());
-
-	// Default fields
-	$obj->addChild('title', $plugin['name']);
-	$obj->addChild('position', $position);
-
-	// Fields by plugin
-	if(isset($plugin['database']))
-	{
-		foreach($plugin['database'] as $field=>$value)
-			$obj->addChild($field, $value);
-	}
-
-	if( !$obj->asXml(PATH_PLUGINS_DB.$plugin['dirname'].'/db.xml') )
-		return false;
-
-	return true;
-}
-
 // ============================================================================
 //	VARIABLES
 // ============================================================================
-$plugin = $plugins[$url['plugin']];
+$plugin = $plugins_all['PLUGIN_'.strtoupper($url['plugin'])];
 
 // If the plugin is not installed, install it
-if( !$plugin['installed'] )
+if ( !$plugin->is_installed() )
 {
-	$position = 0;
-	if(install_plugin($plugin, $position))
+	$next_position = count($plugins_installed) + 1;
+
+	if($plugin->install($next_position))
 		Redirect::controller('admin','plugins','config',array('plugin'=>$url['plugin']));
 }
 

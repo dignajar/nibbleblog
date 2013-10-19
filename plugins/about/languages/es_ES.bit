@@ -1,0 +1,12 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'NAME'=>'Acerca de',
+	'DESCRIPTION'=>'Escribe una breve reseña sobre ti o sobre tu blog.',
+	'FULL_NAME'=>'Nombre completo',
+	'ABOUT'=>'Acerca de ti o sobre tu blog',
+	'PICTURE'=>'Imagen',
+	'SUPPORT_JPG_AND_PNG_IMAGES'=>'Soporta imagenes JPG y PNG. La imagen sera redimensionada a 200x200px.'
+);
+
+?>

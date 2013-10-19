@@ -20,7 +20,15 @@
 	<!-- FAVICON -->
 	<link rel="shortcut icon" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'default/css/img/favicon.ico' ?>" type="image/x-icon" />
 
-
+	<!-- Plugin -->
+	<?php
+		foreach($plugins as $plugin)
+		{
+			if($plugin->dashboard_head()) {
+				echo $plugin->dashboard_head();
+			}
+		}
+	?>
 </head>
 <body>
 

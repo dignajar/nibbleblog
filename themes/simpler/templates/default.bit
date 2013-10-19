@@ -47,6 +47,15 @@
 	<!-- ATOM Feed 2.0 -->
 	<link rel="alternate" type="application/atom+xml" title="ATOM Feed" href="<?php echo $layout['feed'] ?>" />
 
+	<!-- Plugin -->
+	<?php
+		foreach($plugins as $plugin)
+		{
+			if($plugin->blog_head()) {
+				echo $plugin->blog_head();
+			}
+		}
+	?>
 </head>
 <body>
 
@@ -77,6 +86,26 @@
 
 		<!-- MAIN -->
 		<section id="main">
+
+			<?php
+				if(!empty($plugins))
+				{
+					echo '<section id="sidebar">';
+
+					foreach($plugins as $plugin)
+					{
+						if($plugin->blog_body())
+						{
+							echo '<div class="plugin_box '.$plugin->get_slug_name().'">';
+								echo '<h3 class="title">'.$plugin->get_field_db('title').'</h3>';
+								echo $plugin->blog_body();
+							echo '</div>';
+						}
+					}
+
+					echo '</section>';
+				}
+			?>
 
 			<section <?php if(!empty($plugins)) echo 'id=left' ?> >
 				<?php

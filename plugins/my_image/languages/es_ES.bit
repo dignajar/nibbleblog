@@ -1,0 +1,9 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'NAME'=>'Mi imagen',
+	'DESCRIPTION'=>'Muestra una imagen.',
+	'CAPTION'=>'Leyenda'
+);
+
+?>
