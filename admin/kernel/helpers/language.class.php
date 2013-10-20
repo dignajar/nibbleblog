@@ -27,7 +27,8 @@ class Language {
 
 	public function set($array)
 	{
-		$this->lang = $array;
+		// Set an array with all keys from array uppercased
+		$this->lang = array_change_key_case($array, CASE_UPPER);
 
 		return true;
 	}

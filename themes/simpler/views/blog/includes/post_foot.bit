@@ -40,6 +40,10 @@ echo '<footer class="post">';
 		}
 	}
 
+	echo ' · ';
+
+	echo '<span><a target="_blank" href="https://twitter.com/share?url='.(urlencode($settings['url'].$post['permalink'])).'">Tweet</a></span>';
+
 echo '</footer>';
 
 ?>

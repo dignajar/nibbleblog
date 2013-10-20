@@ -4,7 +4,7 @@
 // =====================================================================
 $_PLUGIN_CONFIG['DATA'] = array(
 	'author'=>'Diego Najar',
-	'version'=>'3.6',
+	'version'=>'3.7',
 	'url'=>'http://www.nibbleblog.com'
 );
 
@@ -16,13 +16,15 @@ class PLUGIN_QUICK_LINKS extends Plugin
 
 	public function blog_body()
 	{
+		global $Language;
+
 		$html  = '<ul>';
 
-		$html .= '<li><a class="quick_links_home" href="'.HTML_PATH_ROOT.'">'.$this->language('HOME').'</a></li>';
-		$html .= '<li><a class="quick_links_dashboard" href="'.HTML_PATH_ROOT.'admin.php">'.$this->language('DASHBOARD').'</a></li>';
-		$html .= '<li><a class="quick_links_simple" href="'.HTML_PATH_ROOT.'admin.php?controller=post&action=new_simple">'.$this->language('NEW_SIMPLE_POST').'</a></li>';
-		$html .= '<li><a class="quick_links_video" href="'.HTML_PATH_ROOT.'admin.php?controller=post&action=new_video">'.$this->language('NEW_VIDEO_POST').'</a></li>';
-		$html .= '<li><a class="quick_links_quote" href="'.HTML_PATH_ROOT.'admin.php?controller=post&action=new_quote">'.$this->language('NEW_QUOTE_POST').'</a></li>';
+		$html .= '<li><a class="quick_links_home" href="'.HTML_PATH_ROOT.'">'.$Language->get('HOME').'</a></li>';
+		$html .= '<li><a class="quick_links_dashboard" href="'.HTML_PATH_ROOT.'admin.php">'.$Language->get('DASHBOARD').'</a></li>';
+		$html .= '<li><a class="quick_links_simple" href="'.HTML_PATH_ROOT.'admin.php?controller=post&action=new_simple">'.$Language->get('NEW_SIMPLE_POST').'</a></li>';
+		$html .= '<li><a class="quick_links_video" href="'.HTML_PATH_ROOT.'admin.php?controller=post&action=new_video">'.$Language->get('NEW_VIDEO_POST').'</a></li>';
+		$html .= '<li><a class="quick_links_quote" href="'.HTML_PATH_ROOT.'admin.php?controller=post&action=new_quote">'.$Language->get('NEW_QUOTE_POST').'</a></li>';
 
 		$html .= '</ul>';
 

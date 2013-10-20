@@ -4,7 +4,7 @@
 // =====================================================================
 $_PLUGIN_CONFIG['DATA'] = array(
 	'author'=>'Diego Najar',
-	'version'=>'3.6',
+	'version'=>'3.7',
 	'url'=>'http://www.nibbleblog.com'
 );
 
@@ -22,7 +22,9 @@ class PLUGIN_ANALYTICS extends Plugin
 
 	public function dashboard_config()
 	{
-		$html  = Html::label( array('content'=>$this->language('GOOGLE_ANALYTICS_ID') ));
+		global $Language;
+
+		$html  = Html::label( array('content'=>$Language->get('GOOGLE_ANALYTICS_ID') ));
 		$html .= Html::input( array('name'=>'id', 'type'=>'text', 'value'=>$this->get_field_db('id')) );
 
 		return $html;

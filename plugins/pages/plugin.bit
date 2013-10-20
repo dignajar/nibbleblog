@@ -4,7 +4,7 @@
 // =====================================================================
 $_PLUGIN_CONFIG['DATA'] = array(
 	'author'=>'Diego Najar',
-	'version'=>'3.6',
+	'version'=>'3.7',
 	'url'=>'http://www.nibbleblog.com'
 );
 
@@ -16,11 +16,12 @@ class PLUGIN_PAGES extends Plugin
 	public function blog_body()
 	{
 		global $pages;
+		global $Language;
 
 		$html = '<ul>';
 
 		// Home
-		$html .= '<li><a href="'.HTML_PATH_ROOT.'">'.$this->language('HOME').'</a></li>';
+		$html .= '<li><a href="'.HTML_PATH_ROOT.'">'.$Language->get('home').'</a></li>';
 
 		foreach($pages as $page)
 		{

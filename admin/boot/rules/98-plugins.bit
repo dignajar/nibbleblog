@@ -5,7 +5,6 @@
 
  * Require
  * $settings
- * $_DB_SETTINGS
 
  * Return
  * (array) $plugins
@@ -14,7 +13,7 @@
  * (array) $plugins_by_name
 */
 
-$plugins_on_system = $_DB_SETTINGS->get_plugins_on_system();
+$plugins_on_system = Filesystem::ls(PATH_PLUGINS, '*', 'bit', true, false, false);
 
 // Plugins installed order by position
 $plugins = array();
@@ -25,6 +24,14 @@ $plugins_installed = array();
 // All plugins, installed and not
 $plugins_all = array();
 
+$plugins_blog_body = array();
+$plugins_blog_head = array();
+
+$plugins_dashboard_body = array();
+$plugins_dashboard_head = array();
+
+$plugins_boot = array();
+
 foreach($plugins_on_system as $dir_name)
 {
 	include_once(PATH_PLUGINS.$dir_name.'/plugin.bit');
@@ -32,12 +39,11 @@ foreach($plugins_on_system as $dir_name)
 	$plugins_all[$class] = new $class;
 
 	// Language
-	if( @!include(PATH_PLUGINS.$dir_name.'/languages/'.$settings['language'].'.bit') )
-		include(PATH_PLUGINS.$dir_name.'/languages/en_US.bit');
+	if( @!include_once(PATH_PLUGINS.$dir_name.'/languages/'.$settings['language'].'.bit') )
+		include_once(PATH_PLUGINS.$dir_name.'/languages/en_US.bit');
 
-	$merge = array_merge($_LANG, $_PLUGIN_CONFIG['LANG']);
-
-	$plugins_all[$class]->set_lang($merge);
+	// Add plugin dictionary to the general dictionary
+	$Language->add($_PLUGIN_CONFIG['LANG']);
 
 	$plugins_all[$class]->set_attributes(
 	array(
@@ -45,15 +51,14 @@ foreach($plugins_on_system as $dir_name)
 		'description'=>$_PLUGIN_CONFIG['LANG']['DESCRIPTION'],
 		'author'=>$_PLUGIN_CONFIG['DATA']['author'],
 		'version'=>$_PLUGIN_CONFIG['DATA']['version'],
-		'url'=>$_PLUGIN_CONFIG['DATA']['url'],
-		'display'=>isset($_PLUGIN_CONFIG['DATA']['display'])?false:true
+		'url'=>$_PLUGIN_CONFIG['DATA']['url']
 	));
 
 	// Set slug name
 	include(PATH_PLUGINS.$dir_name.'/languages/en_US.bit');
 	$plugins_all[$class]->set_slug_name($_PLUGIN_CONFIG['LANG']['NAME']);
 
-	// If the plugin is installed
+	// If plugin is installed, set the database and get the position
 	if($plugins_all[$class]->init_db())
 	{
 		$position = $plugins_all[$class]->get_field_db('position');
@@ -63,6 +68,23 @@ foreach($plugins_on_system as $dir_name)
 
 		$plugins_installed[$position] = $plugins_all[$class];
 		$plugins_by_name[$dir_name] = $plugins_all[$class];
+
+/*
+		if($plugins_all[$class]->boot())
+			$plugins_boot[$class] = $plugins_all[$class];
+
+		if($plugins_all[$class]->blog_head())
+			$plugins_blog_head[$class] = $plugins_all[$class];
+
+		if($plugins_all[$class]->blog_body())
+			$plugins_blog_body[$class] = $plugins_all[$class];
+
+		if($plugins_all[$class]->dashboard_head())
+			$plugins_dashboard_head[$class] = $plugins_all[$class];
+
+		if($plugins_all[$class]->dashboard_body())
+			$plugins_dashboard_body[$class] = $plugins_all[$class];
+*/
 	}
 }
 

@@ -125,7 +125,7 @@ article.post {
 
 /* ========== POST HEADER ========== */
 article.post	header.post		div.date {
-    background-color: #82C0D9;
+    background: #33B0E0;
     color: #FFFFFF;
     display: inline-block;
     font-size: 0.9em;

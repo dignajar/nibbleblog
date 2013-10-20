@@ -4,7 +4,7 @@
 // =====================================================================
 $_PLUGIN_CONFIG['DATA'] = array(
 	'author'=>'Diego Najar',
-	'version'=>'3.6',
+	'version'=>'3.7',
 	'url'=>'http://www.nibbleblog.com'
 );
 
@@ -22,19 +22,21 @@ class PLUGIN_ABOUT extends Plugin
 
 	public function dashboard_config()
 	{
-		$html  = Html::label( array('content'=>$this->language('FULL_NAME')) );
+		global $Language;
+
+		$html  = Html::label( array('content'=>$Language->get('FULL_NAME')) );
 		$html .= Html::input( array('name'=>'name', 'type'=>'text', 'value'=>$this->get_field_db('name')) );
 
-		$html .= Html::label( array('content'=>$this->language('ABOUT')) );
+		$html .= Html::label( array('content'=>$Language->get('ABOUT')) );
 		$html .= Html::textarea( array('name'=>'about', 'content'=>$this->get_field_db('about')) );
 
-		$html .= Html::label( array('content'=>$this->language('PICTURE')) );
+		$html .= Html::label( array('content'=>$Language->get('PICTURE')) );
 		$html .= Html::input( array('name'=>'profile_picture', 'type'=>'file') );
 		$html .= Html::input( array('name'=>'profile_picture_resize', 'type'=>'hidden', 'value'=>'1') );
 		$html .= Html::input( array('name'=>'profile_picture_width', 'type'=>'hidden', 'value'=>'200') );
 		$html .= Html::input( array('name'=>'profile_picture_height', 'type'=>'hidden', 'value'=>'200') );
 		$html .= Html::input( array('name'=>'profile_picture_option', 'type'=>'hidden', 'value'=>'auto') );
-		$html .= Html::div( array('class'=>'tip', 'content'=>$this->language('SUPPORT_JPG_AND_PNG_IMAGES')) );
+		$html .= Html::div( array('class'=>'tip', 'content'=>$Language->get('SUPPORT_JPG_AND_PNG_IMAGES')) );
 
 		return $html;
 	}

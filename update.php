@@ -9,7 +9,13 @@
  * See COPYRIGHT.txt and LICENSE.txt.
 */
 
-define('UPDATER_VERSION', '1.3');
+/*
+ * Versions support
+ * v3.5.x
+ * v3.6.x
+*/
+
+define('UPDATER_VERSION', '3.7');
 
 // =====================================================================
 // Require

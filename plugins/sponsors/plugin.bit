@@ -4,7 +4,7 @@
 // =====================================================================
 $_PLUGIN_CONFIG['DATA'] = array(
 	'author'=>'Diego Najar',
-	'version'=>'3.6',
+	'version'=>'3.7',
 	'url'=>'http://www.nibbleblog.com'
 );
 
@@ -22,7 +22,9 @@ class PLUGIN_SPONSORS extends Plugin
 
 	public function dashboard_config()
 	{
-		$html  = Html::label( array('content'=>$this->language('SPONSOR_CODE')) );
+		global $Language;
+
+		$html  = Html::label( array('content'=>$Language->get('SPONSOR_CODE')) );
 		$html .= Html::textarea( array('name'=>'code', 'type'=>'text', 'content'=>$this->get_field_db('code')) );
 
 		return $html;

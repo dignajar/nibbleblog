@@ -4,7 +4,7 @@
 // =====================================================================
 $_PLUGIN_CONFIG['DATA'] = array(
 	'author'=>'Diego Najar',
-	'version'=>'3.6',
+	'version'=>'3.7',
 	'url'=>'http://www.nibbleblog.com'
 );
 
@@ -22,7 +22,9 @@ class PLUGIN_LAST_POSTS extends Plugin
 
 	public function dashboard_config()
 	{
-		$html  = '<label>'.$this->language('AMOUNT').'</label>';
+		global $Language;
+
+		$html  = '<label>'.$Language->get('AMOUNT').'</label>';
 		$html .= '<input name="amount" type="text" value="'.$this->get_field_db('amount').'">';
 
 		return $html;

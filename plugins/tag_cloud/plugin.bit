@@ -4,7 +4,7 @@
 // =====================================================================
 $_PLUGIN_CONFIG['DATA'] = array(
 	'author'=>'Diego Najar',
-	'version'=>'3.6',
+	'version'=>'3.7',
 	'url'=>'http://www.nibbleblog.com'
 );
 
@@ -22,10 +22,12 @@ class PLUGIN_TAG_CLOUD extends Plugin
 
 	public function dashboard_config()
 	{
-		$html  = Html::label( array('content'=>$this->language('MIN_SIZE_IN_PX')) );
+		global $Language;
+
+		$html  = Html::label( array('content'=>$Language->get('MIN_SIZE_IN_PX')) );
 		$html .= Html::input( array('name'=>'min_size', 'type'=>'text', 'value'=>$this->get_field_db('min_size')) );
 
-		$html .= Html::label( array('content'=>$this->language('MAX_SIZE_IN_PX')) );
+		$html .= Html::label( array('content'=>$Language->get('MAX_SIZE_IN_PX')) );
 		$html .= Html::input( array('name'=>'max_size', 'type'=>'text', 'value'=>$this->get_field_db('max_size')) );
 
 		return $html;

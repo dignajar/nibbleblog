@@ -4,7 +4,7 @@
 // =====================================================================
 $_PLUGIN_CONFIG['DATA'] = array(
 	'author'=>'Diego Najar',
-	'version'=>'3.6',
+	'version'=>'3.7',
 	'url'=>'http://www.nibbleblog.com'
 );
 
@@ -22,8 +22,10 @@ class PLUGIN_MY_IMAGE extends Plugin
 
 	public function dashboard_config()
 	{
+		global $Language;
+
 		// Caption
-		$html  = '<label>'.$this->language('CAPTION').'</label>';
+		$html  = '<label>'.$Language->get('CAPTION').'</label>';
 		$html .= '<input name="caption" type="text" value="'.$this->get_field_db('caption').'">';
 
 		// Image
