@@ -151,9 +151,10 @@ header img{
 	padding:2em 2em 0;
 }
 aside,header{
-	max-width:17.5em;
+	width:20em;
 	float:left;
 	padding:2em 1em 0;
+	clear:left;
 }
 .pager{
 	position:relative;
@@ -318,7 +319,7 @@ li.about{
 	}
 	header{
 		float:none;
-		max-width:100%;
+		width:100%;
 		padding-top:1em;
 	}
 	header img{

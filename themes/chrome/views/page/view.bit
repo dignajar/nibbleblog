@@ -1,10 +1,10 @@
 <?php
 
-echo '<article>';
+echo '<article class="post cf">';
 
 	// print title if this is not empty
 	if( !empty($page['title']) ){
-		echo '<h2 class="post-title">'.$page['title'].'</h2>';
+		echo '<h2 class="title">'.$page['title'].'</h2>';
 	}
 
 	echo $page['content'];
