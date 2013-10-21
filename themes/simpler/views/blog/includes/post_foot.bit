@@ -31,7 +31,7 @@ echo '<footer class="post">';
 		elseif( !empty($theme['facebook_appId']) )
 		{
 			// Facebook comments
-			echo '<span><a href="'.$post['permalink'].'#comment_form">'.$_LANG['COMMENTS'].' (<fb:comments-count href="'.BLOG_URL.$post['permalink'].'"></fb:comments-count>)</a></span>';
+			echo '<span><a href="'.$post['permalink'].'#comment_form">'.$_LANG['COMMENTS'].' (<fb:comments-count href="'.$settings['url'].$post['permalink'].'"></fb:comments-count>)</a></span>';
 		}
 		else
 		{
