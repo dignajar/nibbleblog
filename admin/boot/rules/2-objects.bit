@@ -47,6 +47,7 @@ require(PATH_HELPERS . 'text.class.php');
 require(PATH_HELPERS . 'validation.class.php');
 require(PATH_HELPERS . 'video.class.php');
 require(PATH_HELPERS . 'language.class.php');
+require(PATH_HELPERS . 'theme.class.php');
 
 // Database
 require(PATH_DB . 'nbxml.class.php');

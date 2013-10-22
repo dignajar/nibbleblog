@@ -100,9 +100,15 @@ class Plugin {
 		return(false);
 	}
 
+	public function database($field)
+	{
+		return (string) $this->db->getChild($field);
+	}
+
+	// DEPRECATED
 	public function get_field_db($name)
 	{
-		return( (string) $this->db->getChild($name) );
+		return $this->database($name);
 	}
 
 	// EJ: array( 'first_name'=>'Diego', 'last_name'=>'Najar')
@@ -176,6 +182,7 @@ class Plugin {
 		$this->_LANG = $array;
 	}
 
+	// DEPRECATED
 	public function language($key)
 	{
 		if(isset($this->_LANG[$key]))
