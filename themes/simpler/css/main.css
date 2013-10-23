@@ -186,6 +186,7 @@ article.post	h3,
 article.post	h4,
 article.post	h5 {
 	font-weight: normal;
+	color: #333333;
 }
 
 article.post	h1 {

@@ -68,23 +68,25 @@ $(document).ready(function() {
 		theme: "modern",
 		height:"300px",
 		width:"100%",
+
+		autoresize_max_height: "800px",
+		content_css: HTML_PATH_ADMIN_TEMPLATES+"default/css/tinymce.css",
 		plugins: [
 			"autolink link image lists hr anchor pagebreak",
 			"searchreplace code fullscreen  media nonbreaking",
-			"table directionality paste textcolor paste fullscreen pagebreak"
+			"table directionality paste textcolor paste fullscreen pagebreak autoresize"
 		],
 		toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link media image | forecolor backcolor | pagebreak fullscreen",
 		style_formats: [
-			{title: 'Bold text', inline: 'b'},
-			{title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
-			{title: 'Red header', block: 'h1', styles: {color: '#ff0000'}},
-			{title: 'Example 1', inline: 'span', classes: 'example1'},
-			{title: 'Example 2', inline: 'span', classes: 'example2'},
-			{title: 'Table styles'},
-			{title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
+			{title : 'Heading 1', block : 'h1'},
+			{title : 'Heading 2', block : 'h2'},
+			{title : 'Heading 3', block : 'h3'},
+			{title : 'Preformatted', block : 'pre'},
+			{title : 'Console', block : 'pre', classes: 'console'}
 		],
 		statusbar: false,
 		menubar:false,
+		resize: false,
 		browser_spellcheck: true,
 		paste_as_text: true,
 		paste_text_sticky : true,

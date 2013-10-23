@@ -270,7 +270,7 @@ class DB_POSTS {
 		 *  $args = array(id)
 		 *
 		 */
-		public function remove($args)
+		public function delete($args)
 		{
 			$this->set_file($args['id']);
 

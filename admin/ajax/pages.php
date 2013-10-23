@@ -7,15 +7,8 @@ if( $_POST['action']=='delete' )
 {
 	$safe['id'] = $_POST['id'];
 
-	// Delete all comments from a post
-	$_DB_COMMENTS->delete_all_by_post( array('id_post'=>$safe['id']) );
-
-	// Delete links to tags
-	$_DB_TAGS->delete_links(array('id_post'=>$safe['id']));
-	$_DB_TAGS->savetofile();
-
 	// Delete the post
-	$error = !$_DB_POST->delete($safe);
+	$error = !$_DB_PAGES->delete($safe);
 }
 
 if($error)

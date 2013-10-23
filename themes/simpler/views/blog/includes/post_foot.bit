@@ -8,13 +8,13 @@ echo '<footer class="post">';
 		echo '<div class="tags">';
 			echo '<span>';
 				foreach($post['tags'] as $tag)
-					echo '<a class="tag" href="'.Url::tag($tag, $settings['friendly_urls']).'">'.$tag.'</a>';
+					echo '<a class="tag" href="'.Url::tag($tag).'">'.$tag.'</a>';
 			echo '</span>';
 		echo '</div>';
 	}
 
 	// Read more or Permalink
-	$text = ($post['read_more'])?$_LANG['READ_MORE']:$_LANG['PERMALINK'];
+	$text = ($post['read_more'])?$Language->get('READ_MORE'):$Language->get('PERMALINK');
 
 	echo '<span><a href="'.$post['permalink'].'">'.$text.'</a></span>';
 
@@ -31,12 +31,12 @@ echo '<footer class="post">';
 		elseif( !empty($theme['facebook_appId']) )
 		{
 			// Facebook comments
-			echo '<span><a href="'.$post['permalink'].'#comment_form">'.$_LANG['COMMENTS'].' (<fb:comments-count href="'.$settings['url'].$post['permalink'].'"></fb:comments-count>)</a></span>';
+			echo '<span><a href="'.$post['permalink'].'#comment_form">'.$Language->get('COMMENTS').' (<fb:comments-count href="'.$settings['url'].$post['permalink'].'"></fb:comments-count>)</a></span>';
 		}
 		else
 		{
 			// Nibbleblog comments
-			echo '<span><a href="'.$post['permalink'].'#comment_form">'.$_LANG['COMMENTS'].' ('.count($post['comments']).')</a></span>';
+			echo '<span><a href="'.$post['permalink'].'#comment_form">'.$Language->get('COMMENTS').' ('.count($post['comments']).')</a></span>';
 		}
 	}
 

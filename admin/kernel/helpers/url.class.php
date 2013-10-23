@@ -25,6 +25,8 @@ class Url {
 
 	public static function tag($slug, $friendly=false)
 	{
+		$friendly = $friendly || $settings['friendly_urls'];
+
 		if($friendly)
 		{
 			return HTML_PATH_ROOT.'tag/'.$slug.'/';
