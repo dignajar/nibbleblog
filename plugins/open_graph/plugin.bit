@@ -53,13 +53,13 @@ class PLUGIN_OPEN_GRAPH extends Plugin
 			$og['url'] = $settings['url'].$permalink;
 		}
 
-		$html  = '<meta property="og:locale" content="'.$og['locale'].'"/>';
-		$html .= '<meta property="og:type" content="'.$og['type'].'"/>';
-		$html .= '<meta property="og:title" content="'.$og['title'].'"/>';
-		$html .= '<meta property="og:description" content="'.$og['description'].'"/>';
-		$html .= '<meta property="og:url" content="'.$og['url'].'"/>';
-		$html .= '<meta property="og:site_name" content="'.$og['site_name'].'"/>';
-		$html .= '<link rel="canonical" href="'.$og['url'].'"/>';
+		$html  = '<meta property="og:locale" content="'.$og['locale'].'"/>'.PHP_EOL;
+		$html .= '<meta property="og:type" content="'.$og['type'].'"/>'.PHP_EOL;
+		$html .= '<meta property="og:title" content="'.$og['title'].'"/>'.PHP_EOL;
+		$html .= '<meta property="og:description" content="'.$og['description'].'"/>'.PHP_EOL;
+		$html .= '<meta property="og:url" content="'.$og['url'].'"/>'.PHP_EOL;
+		$html .= '<meta property="og:site_name" content="'.$og['site_name'].'"/>'.PHP_EOL;
+		$html .= '<link rel="canonical" href="'.$og['url'].'"/>'.PHP_EOL;
 
 		return $html;
 	}

@@ -6,7 +6,7 @@
 	Theme::meta_tags();
 
 	// Include CSS from theme
-	Theme::css(array('normalize.css', 'main.css', 'rainbow.css'));
+	Theme::css(array('normalize.css', 'main.css', 'plugins.css', 'rainbow.css'));
 
 	// Include Jquery
 	Theme::javascript(JS_JQUERY,'');

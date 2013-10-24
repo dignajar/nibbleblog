@@ -31,7 +31,7 @@ class Theme {
 
 		$tmp = '';
 		foreach($files as $file)
-			$tmp .= '<link rel="stylesheet" type="text/css" href="'.$path.$file.'" />';
+			$tmp .= '<link rel="stylesheet" type="text/css" href="'.$path.$file.'" />'.PHP_EOL;
 
 		echo $tmp;
 	}
@@ -43,7 +43,7 @@ class Theme {
 
 		$tmp = '';
 		foreach($files as $file)
-			$tmp .= '<script src="'.$path.$file.'"></script>';
+			$tmp .= '<script src="'.$path.$file.'"></script>'.PHP_EOL;
 
 		echo $tmp;
 	}
@@ -79,33 +79,33 @@ class Theme {
 		global $layout;
 		global $seo;
 
-		$meta = '<meta charset="utf-8">';
+		$meta = '<meta charset="utf-8">'.PHP_EOL;
 
 		if(!empty($layout['title']))
-			$meta .= '<title>'.$layout['title'].'</title>';
+			$meta .= '<title>'.$layout['title'].'</title>'.PHP_EOL;
 
 		if(!empty($layout['description']))
-			$meta .= '<meta name="description" content="'.$layout['description'].'">';
+			$meta .= '<meta name="description" content="'.$layout['description'].'">'.PHP_EOL;
 
 		if(!empty($layout['generator']))
-			$meta .= '<meta name="generator" content="'.$layout['generator'].'">';
+			$meta .= '<meta name="generator" content="'.$layout['generator'].'">'.PHP_EOL;
 
 		if(!empty($layout['keywords']))
-			$meta .= '<meta name="keywords" content="'.$layout['keywords'].'">';
+			$meta .= '<meta name="keywords" content="'.$layout['keywords'].'">'.PHP_EOL;
 
 		if(!empty($layout['author']))
-			$meta .= '<meta name="author" content="'.$layout['author'].'">';
+			$meta .= '<meta name="author" content="'.$layout['author'].'">'.PHP_EOL;
 
 		if(!empty($layout['robots']))
-			$meta .= '<meta name="robots" content="'.$layout['robots'].'">';
+			$meta .= '<meta name="robots" content="'.$layout['robots'].'">'.PHP_EOL;
 
 		if(!empty($seo['google_code']))
-			$meta .= '<meta name="google-site-verification" content="'.$seo['google_code'].'">';
+			$meta .= '<meta name="google-site-verification" content="'.$seo['google_code'].'">'.PHP_EOL;
 
 		if(!empty($seo['bing_code']))
-			$meta .= '<meta name="msvalidate.01" content="'.$seo['bing_code'].'">';
+			$meta .= '<meta name="msvalidate.01" content="'.$seo['bing_code'].'">'.PHP_EOL;
 
-		$meta .= '<link rel="alternate" type="application/atom+xml" title="ATOM Feed" href="'.$layout['feed'].'" />';
+		$meta .= '<link rel="alternate" type="application/atom+xml" title="ATOM Feed" href="'.$layout['feed'].'" />'.PHP_EOL;
 
 		echo $meta;
 	}
