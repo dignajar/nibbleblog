@@ -67,15 +67,13 @@ $(document).ready(function() {
 	tinymce.init({
 		selector : "textarea#js_content",
 		theme: "modern",
-		height:"300px",
+		height:"400px",
 		width:"100%",
-
-		autoresize_max_height: "800px",
 		content_css: HTML_PATH_ADMIN_TEMPLATES+"default/css/tinymce.css",
 		plugins: [
 			"autolink link image lists hr anchor pagebreak",
 			"searchreplace code fullscreen  media nonbreaking",
-			"table directionality paste textcolor paste fullscreen pagebreak autoresize"
+			"table directionality paste textcolor paste fullscreen pagebreak"
 		],
 		toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link media image | forecolor backcolor | pagebreak fullscreen",
 		style_formats: [
@@ -91,6 +89,7 @@ $(document).ready(function() {
 		browser_spellcheck: true,
 		paste_as_text: true,
 		paste_text_sticky : true,
+		relative_urls: false,
 		entity_encoding : "raw",
 		formats:{
 			alignleft:{selector:'img', attributes:{class:"align_left", style:"float: left;"} },

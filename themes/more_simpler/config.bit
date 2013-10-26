@@ -1,0 +1,17 @@
+<?php
+
+$theme = array
+(
+	'name'=>'More Simpler',
+	'description'=>'',
+	'author'=>'Diego Najar',
+	'version'=>'3.7',
+	'last_update'=>'10/06/2013', // dd/mm/yyyy
+	'url'=>'http://www.nibbleblog.com', // http://xxxxxxxxxxxxx
+	'video_width'=>'640',
+	'video_height'=>'360',
+	'disqus_account'=>'',
+	'facebook_appId'=>''
+);
+
+?>

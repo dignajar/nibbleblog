@@ -212,7 +212,7 @@ class DB_POSTS {
 			$filename = implode('.', $file);
 
 			// Delete the old post
-			if($this->remove( array('id'=>$args['id']) ))
+			if($this->delete( array('id'=>$args['id']) ))
 			{
 				// Slug
 				$this->slug($args['id'], $args['slug']);

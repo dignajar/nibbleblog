@@ -1,0 +1,18 @@
+<?php
+
+echo '<header class="post">';
+
+	// print title if this is not empty
+	if( !empty($post['title']) )
+	{
+		echo '<h1 class="title"><a href="'.$post['permalink'].'">'.$post['title'].'</a></h1>';
+		echo '<h2 class="description">'.$post['description'].'</h2>';
+	}
+	else
+	{
+		echo '<h1 class="title"><a href="'.$post['permalink'].'">'.$Language->get('no title').'</a></h1>';
+	}
+
+echo '</header>';
+
+?>

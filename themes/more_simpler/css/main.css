@@ -1,0 +1,356 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic&subset=latin,cyrillic);
+
+/* ============================== */
+/* BODY */
+/* ============================== */
+
+body {
+	font-family: 'Open Sans',arial,sans-serif;
+	background-color: #EEEEEE;
+	margin: 0;
+	padding: 20px;
+	font-size: 62.5%;
+	color: #616161;
+}
+
+#container {
+    margin: 0 auto;
+    max-width: 980px;
+    min-width: 600px;
+    overflow: auto;
+    padding: 20px;
+	border: 1px solid #D9D9D9;
+	background-color: #FFFFFF;
+}
+
+a {
+	color: #006AC8;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/* ============================== */
+/* HEADER */
+/* ============================== */
+#head {
+	overflow: auto;
+	margin: 10px 0 30px 0;
+	font-weight: lighter;
+	border-bottom: 1px solid #F1F1F1;
+	padding-bottom: 20px;
+}
+
+#head	a.name {
+	color: #333;
+	text-decoration: none;
+	font-size: 3.6em;
+}
+
+#head	span.slogan {
+	color: #777777;
+	font-size: 3.6em;
+}
+
+/* ============================== */
+/* MAIN */
+/* ============================== */
+#main {
+    margin: 0 auto;
+    overflow: auto;
+	font-size: 1.32em;
+}
+
+#left {
+    margin-right: 280px;
+}
+
+#sidebar {
+	float: right;
+	width: 230px;
+	margin-right: 10px;
+}
+
+/* ============================== */
+/* FOOTER */
+/* ============================== */
+#foot {
+	text-align: right;
+	font-size: 1.1em;
+}
+
+/* ============================== */
+/* PAGES - 404 */
+/* ============================== */
+div.page_404 {
+
+}
+
+/* ============================== */
+/* PAGER */
+/* ============================== */
+#pager {
+	overflow: auto;
+	text-align: center;
+}
+
+#pager	a.newer {
+	float: right;
+	background: #FFFFFF;
+	padding: 0 5px;
+}
+
+#pager	a.older {
+	float: left;
+	background: #FFFFFF;
+	padding: 0 5px;
+}
+
+#pager	a.home {
+	background: #FFFFFF;
+	padding: 0 5px;
+}
+
+
+/* ============================== */
+/* POST VIEW*/
+/* ============================== */
+article.post {
+	margin-bottom: 40px;
+	overflow: hidden;
+}
+
+/* ========== POST HEADER ========== */
+article.post	header.post		div.date {
+    background: #33B0E0;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 0.9em;
+    letter-spacing: 2px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+article.post	header.post		h1.title {
+	font-size: 2em;
+	margin: 0;
+	color: #2986D2;
+}
+
+article.post	header.post		h2.description {
+	font-size: 1.3em;
+	margin: 0;
+	color: #333;
+	font-weight: lighter;
+}
+
+article.post	header.post		a {
+	color: #2986D2;
+}
+
+article.post	header.post		a:hover {
+	color: #006AC8;
+	text-decoration: none;
+}
+
+/* ========== POST CONTENT ========== */
+article.post	.console {
+    background: url("img/console.png") no-repeat scroll 8px 8px #F1F1F1;
+    display: block;
+    line-height: 24px;
+    margin: 5px 0;
+    overflow: auto;
+    padding-left: 38px;
+    white-space: nowrap;
+}
+
+article.post	img:not(.captcha) {
+	max-width:100%;
+}
+
+article.post	img.align_left {
+	margin: 5px 10px 5px 0px;
+	float: left;
+}
+
+article.post	img.align_right {
+	margin: 5px 0px 5px 10px;
+	float: right;
+}
+
+article.post 	blockquote {
+	font-size: 1.1em;
+	font-style: italic;
+
+}
+
+article.post	h1,
+article.post	h2,
+article.post	h3,
+article.post	h4,
+article.post	h5 {
+	font-weight: normal;
+	color: #333333;
+}
+
+article.post	h1 {
+	font-size: 1.8em;
+}
+
+article.post	p {
+	line-height: 1.5em;
+}
+
+article.post	div.video_embed {
+	display: block;
+}
+
+/* ========== POST FOOTER ========== */
+article.post	footer.post {
+	border-bottom: 1px solid #F1F1F1;
+	border-top: 1px solid #F1F1F1;
+	clear: both;
+	font-size: 0.9em;
+	margin-top: 10px;
+	padding: 10px 0;
+}
+
+article.post	footer.post		span {
+	margin:0 3px;
+}
+
+article.post	footer.post		a {
+	font-weight: normal;
+}
+
+article.post	footer.post		div.tags {
+	max-width: 60%;
+	float: right;
+}
+
+article.post	footer.post		a.tag {
+	background: #33B0E0;
+	padding: 0 6px;
+	margin-right: 5px;
+	border-radius: 2px;
+	color: #FFFFFF;
+}
+
+
+article.post	footer.post		a.tag:hover {
+	opacity: 0.8;
+	text-decoration: none;
+}
+
+/* ============================== */
+/* SOCIAL */
+/* ============================== */
+div.share {
+	float: right;
+	overflow:auto;
+}
+
+div.share	a.twitter {
+    background: url("img/32twitter.png") no-repeat right center;
+    display: block;
+    line-height: 32px;
+    padding-right: 32px;
+    color: #333;
+    opacity: 0.5;
+}
+
+div.share	a.twitter:hover {
+	opacity: 1;
+}
+
+/* ============================== */
+/* COMMENT LIST */
+/* ============================== */
+#comment_list {
+	margin-top: 30px;
+}
+
+#comment_list	h2 {
+	font-weight: normal;
+	margin: 10px 0;
+}
+
+#comment_list	div.comment {
+	border-left: 2px solid #FFAC00;
+	margin: 0 0 10px;
+	padding: 10px;
+	overflow: auto;
+}
+
+#comment_list	span.author_name {
+	font-weight: bold;
+}
+
+#comment_list	span.date {
+	margin-left: 10px;
+	font-style: italic;
+}
+
+#comment_list	span.content {
+	display: block;
+}
+
+#comment_list	img.avatar {
+	float:left;
+	margin-right: 10px;
+}
+
+/* ============================== */
+/* COMMENT FORM */
+/* ============================== */
+#comment_form {
+	margin-top: 30px;
+	width: 70%;
+}
+
+#comment_form	h2 {
+	font-weight: normal;
+	margin: 10px 0;
+}
+
+#comment_form	h3.alert {
+	color: #BE1C54;
+	font-style: italic;
+	margin: 0 0 15px;
+}
+
+#comment_form	input[type="text"],
+#comment_form	textarea {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	border: 1px solid #C4C4C4;
+	border-radius: 2px;
+	color: #858585;
+	padding: 8px;
+	outline:none;
+	resize: none;
+	margin-bottom: 15px;
+	font-family: font-family: 'Open Sans', helvetica,arial,sans-serif;
+	font-size: 0.9em;
+}
+
+#comment_form	input[type="text"].captcha {
+	width: 50%;
+	float: left;
+}
+
+#comment_form	input[type="submit"] {
+	display: block;
+	clear: left;
+	padding: 3px 8px;
+}
+
+/* For Facebook comments */
+.fb-comments, .fb-comments span, .fb-comments.fb_iframe_widget span iframe {
+	width: 100% !important;
+}

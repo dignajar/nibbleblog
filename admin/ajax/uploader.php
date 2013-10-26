@@ -44,7 +44,7 @@ if( $filename )
 	$filename = strtolower(pathinfo($filename, PATHINFO_FILENAME));
 	$filename = Text::replace(' ', '', $filename);
 	$filename = Text::replace('_', '', $filename);
-	$filename = Text::cut_text($filename, 20);
+	//$filename = Text::cut_text($filename, 20);
 	$number = 0;
 
 	while(file_exists(PATH_UPLOAD.$filename.'_'.$number.'_o.'.$ext))

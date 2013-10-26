@@ -18,8 +18,9 @@ according to the terms of the GNU General Public License or a compatible
 license, including:
 
 - jQuery and jQuery UI - Copyright (c) Team JQuery - http://jquery.org/license
-- tinyMCE - Copyright (c) Moxiecode Systems AB. - http://www.tinymce.com
+- TinyMCE - Copyright (c) Moxiecode Systems AB. - http://www.tinymce.com
 - Helper resize.class.php - Author: Jarrod Oberto - http://net.tutsplus.com/tutorials/php/image-resizing-made-easy-with-php/
+- jQuery Reveal Plugin - Copyright 2010, ZURB - www.ZURB.com
 - Icons: Dave Gandy (Font Awesome)
 - Icons: Daniel Bruce (Entypo)
 - Icons: Keyamoon (IcoMoon - Free)

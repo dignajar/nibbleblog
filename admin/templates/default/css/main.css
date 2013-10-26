@@ -63,20 +63,22 @@ div.separator {
 /*====================================================================*/
 #head {
 	background-color: #FAFAFA;
-	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 	margin-bottom: 30px;
-	padding: 5px 0;
+	padding: 10px 0;
+	border-bottom: 1px solid #DFDFDF;
 }
 
 #head span.mrnibbler {
 	background: url("img/mrnibbler.png") no-repeat 0 center;
 	display: inline-block;
-	font-size: 2em;
+	font-size: 2.3em;
 	color: #777;
 	width: 32px;
 	margin-left: 22px;
 	padding-left: 30px;
-	line-height: 26px;
+	line-height: 24px;
+	font-family: sans-serif;
+	font-weight: lighter;
 }
 
 #head a {

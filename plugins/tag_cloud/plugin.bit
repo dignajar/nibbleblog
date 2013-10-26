@@ -48,6 +48,8 @@ class PLUGIN_TAG_CLOUD extends Plugin
 
 		foreach($cloud as $tag=>$amount)
 		{
+			$amount = $amount + $this->get_field_db('min_size');
+
 			// Max size 40px
 			$size = min($amount, $this->get_field_db('max_size'));
 

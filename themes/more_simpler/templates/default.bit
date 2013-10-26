@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<?php
+	// Charset, title, description, keywords, robots, etc
+	Theme::meta_tags();
+
+	// Include CSS from theme
+	Theme::css(array('normalize.css', 'main.css', 'plugins.css', 'rainbow.css'));
+
+	// Include Jquery
+	Theme::javascript(JS_JQUERY,'');
+
+	// Include Javascript from theme
+	Theme::javascript(array('jquery.fitvids.min.js', 'rainbow-custom.min.js'));
+
+	// Include Favicon, default path: theme/css/img/favicon.ico
+	Theme::favicon();
+
+	// Plugins for <head></head>
+	foreach($plugins as $plugin)
+	{
+		if($plugin->blog_head())
+			echo $plugin->blog_head();
+	}
+?>
+</head>
+<body>
+
+	<?php
+		if( !empty($theme['disqus_account']) )
+		{
+			// Disqus comments
+			include('includes/comments_disqus.bit');
+		}
+		elseif( !empty($theme['facebook_appId']) )
+		{
+			// Facebook comments
+			include('includes/comments_facebook.bit');
+		}
+	?>
+
+	<div id="container">
+
+		<!-- HEADER -->
+		<header id="head">
+			<a class="name" href="<?php Theme::url() ?>"><?php Theme::blog_name() ?></a>
+			<span class="slogan"><?php Theme::blog_slogan() ?></span>
+		</header>
+
+		<!-- MAIN -->
+		<section id="main">
+
+			<?php
+				if(!empty($plugins))
+				{
+					echo '<section id="sidebar">';
+
+					foreach($plugins as $plugin)
+					{
+						if($plugin->blog_body())
+						{
+							echo '<div class="plugin_box '.$plugin->get_slug_name().'">';
+								echo '<h3 class="title">'.$plugin->database('title').'</h3>';
+								echo $plugin->blog_body();
+							echo '</div>';
+						}
+					}
+
+					echo '</section>';
+				}
+			?>
+
+			<section <?php if(!empty($plugins)) echo 'id=left' ?> >
+				<?php include(THEME_VIEWS . $layout['view']); ?>
+			</section>
+
+		</section>
+
+		<!-- FOOTER -->
+		<footer id="foot">
+			<p>
+				<a href="<?php echo $layout['feed'] ?>">Atom</a> · <?php Theme::blog_footer() ?>
+			</p>
+		</footer>
+
+	</div>
+
+	<!-- FitVids -->
+	<script>
+	$(document).ready(function(){
+		$("p.fitvids").fitVids();
+	});
+	</script>
+
+</body>
+</html>
