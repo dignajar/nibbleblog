@@ -72,8 +72,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 			$_DB_TAGS->savetofile();
 		}
 
-		$_SESSION['session_alert']['msg'] = $_LANG['POST_HAS_BEEN_PUBLISHED_SUCCESSFULLY'];
-		$_SESSION['session_alert']['active'] = true;
+		Session::set_alert($_LANG['POST_HAS_BEEN_PUBLISHED_SUCCESSFULLY']);
 
 		Redirect::controller('admin', 'post', 'list');
 	}

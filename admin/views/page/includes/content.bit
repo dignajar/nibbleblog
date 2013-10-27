@@ -1,5 +1,5 @@
 <?php
-$value = isset($post_edit['content'][0]) ? htmlspecialchars($post_edit['content'][0]) : '';
+$value = isset($ctrlv['page']['content']) ? htmlspecialchars($ctrlv['page']['content']) : '';
 
 echo Html::div_open( array('class'=>'form_block') );
 
@@ -72,7 +72,7 @@ $(document).ready(function() {
 		plugins: [
 			"autolink link image lists hr anchor pagebreak",
 			"searchreplace code fullscreen  media nonbreaking",
-			"table directionality paste textcolor paste fullscreen pagebreak"
+			"table directionality paste textcolor"
 		],
 		toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link media image | forecolor backcolor | pagebreak fullscreen",
 		style_formats: [
@@ -82,6 +82,7 @@ $(document).ready(function() {
 			{title : 'Preformatted', block : 'pre'},
 			{title : 'Console', block : 'pre', classes: 'console'}
 		],
+		<?php if(file_exists(PATH_ADMIN_JS.'tinymce/langs/'.$settings['locale'].'.js')) echo 'language : "'.$settings['locale'].'",' ?>
 		statusbar: false,
 		menubar:false,
 		resize: false,

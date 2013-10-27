@@ -20,4 +20,6 @@ echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') )
 
 echo Html::form_close();
 
+echo Html::link( array('class'=>'back', 'href'=>HTML_PATH_ROOT, 'content'=>'&larr;'.$_LANG['BACK_TO_BLOG']) );
+
 ?>

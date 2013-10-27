@@ -2,7 +2,7 @@
 
 $_PLUGIN_CONFIG['LANG'] = array(
 	'NAME'=>'Tag Cloud',
-	'DESCRIPTION'=>'',
+	'DESCRIPTION'=>'This plugin generate a tag cloud, this way users can filter the posts by tags.',
 	'MIN_SIZE_IN_PX'=>'Smallest size for the tag less significant in px',
 	'MAX_SIZE_IN_PX'=>'Bigger size for the tag more significant in px '
 );

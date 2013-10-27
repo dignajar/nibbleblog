@@ -3,48 +3,45 @@
 // ============================================================================
 //	POST
 // ============================================================================
-	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
+if( $_SERVER['REQUEST_METHOD'] == 'POST' )
+{
+	include( FILE_SHADOW );
+
+	$current_hash = Crypt::get_hash($_POST['pw_current'], $_USER[0]['salt']);
+
+	if( Text::compare($current_hash, $_USER[0]['password']) )
 	{
-		include( FILE_SHADOW );
-
-		$current_hash = Crypt::get_hash($_POST['pw_current'], $_USER[0]['salt']);
-
-		if( Text::compare($current_hash, $_USER[0]['password']) )
+		// Change username
+		if(isset($_POST['username']))
 		{
-			// Change username
-			if(isset($_POST['username']))
-			{
-				$new_username = $_POST['username'];
-				$text = '<?php $_USER[0]["uid"] = "0"; $_USER[0]["username"] = "'.$new_username.'"; $_USER[0]["password"] = "'.$_USER[0]['password'].'"; $_USER[0]["salt"] = "'.$_USER[0]['salt'].'"; $_USER[0]["email"] = "'.$_USER[0]['email'].'"; ?>';
+			$new_username = $_POST['username'];
+			$text = '<?php $_USER[0]["uid"] = "0"; $_USER[0]["username"] = "'.$new_username.'"; $_USER[0]["password"] = "'.$_USER[0]['password'].'"; $_USER[0]["salt"] = "'.$_USER[0]['salt'].'"; $_USER[0]["email"] = "'.$_USER[0]['email'].'"; ?>';
 
-				$_SESSION['session_alert']['msg'] = $_LANG['USERNAME_HAS_BEEN_CHANGED_SUCCESSFULLY'];
-				$_SESSION['session_alert']['active'] = true;
-			}
-			// Change password
-			else
-			{
-				$new_salt = Text::random_text(11);
-				$new_hash = Crypt::get_hash($_POST['pw_new'],$new_salt);
-				$text = '<?php $_USER[0]["uid"] = "0"; $_USER[0]["username"] = "'.$_USER[0]['username'].'"; $_USER[0]["password"] = "'.$new_hash.'"; $_USER[0]["salt"] = "'.$new_salt.'"; $_USER[0]["email"] = "'.$_USER[0]['email'].'"; ?>';
-
-				$_SESSION['session_alert']['msg'] = $_LANG['PASSWORD_HAS_BEEN_CHANGED_SUCCESSFULLY'];
-				$_SESSION['session_alert']['active'] = true;
-			}
-
-			$file = fopen( FILE_SHADOW, 'w');
-			fputs($file, $text);
-			fclose($file);
+			Session::set_alert($_LANG['USERNAME_HAS_BEEN_CHANGED_SUCCESSFULLY']);
 		}
+		// Change password
 		else
 		{
-			$_SESSION['session_alert']['msg'] = $_LANG['CURRENT_PASSWORD_INCORRECT'];
-			$_SESSION['session_alert']['active'] = true;
+			$new_salt = Text::random_text(11);
+			$new_hash = Crypt::get_hash($_POST['pw_new'],$new_salt);
+			$text = '<?php $_USER[0]["uid"] = "0"; $_USER[0]["username"] = "'.$_USER[0]['username'].'"; $_USER[0]["password"] = "'.$new_hash.'"; $_USER[0]["salt"] = "'.$new_salt.'"; $_USER[0]["email"] = "'.$_USER[0]['email'].'"; ?>';
+
+			Session::set_alert($_LANG['PASSWORD_HAS_BEEN_CHANGED_SUCCESSFULLY']);
 		}
+
+		$file = fopen( FILE_SHADOW, 'w');
+		fputs($file, $text);
+		fclose($file);
 	}
+	else
+	{
+		Session::set_alert($_LANG['CURRENT_PASSWORD_INCORRECT']);
+	}
+}
 
 // ============================================================================
 //	VARIABLES
 // ============================================================================
-	include( FILE_SHADOW );
+include( FILE_SHADOW );
 
 ?>

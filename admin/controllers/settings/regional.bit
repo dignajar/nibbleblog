@@ -8,23 +8,23 @@
 //	VARIABLES
 // ============================================================================
 
-	$languages = $_DB_SETTINGS->get_languages();
+$languages = $_DB_SETTINGS->get_languages();
 
-	$languages_html = array();
-	foreach($languages as $raw=>$lang)
-		$languages_html[$raw] = $lang;
+$languages_html = array();
+foreach($languages as $raw=>$lang)
+	$languages_html[$raw] = $lang;
 
-	$timezone_html = Date::get_timezones();
+$timezone_html = Date::get_timezones();
 
-	$timestamp_format_html = array(
-								''=>$_LANG['CUSTOM'],
-								'%d/%m/%y'=>'31/12/12',
+$timestamp_format_html = array(
+							''=>$_LANG['CUSTOM'],
+							'%d/%m/%y'=>'31/12/14',
 
-								'%m/%d/%y'=>'12/31/12',
+							'%m/%d/%y'=>'12/31/14',
 
-								'%d %B, %Y'=>'31 December, 2012',
+							'%d %B, %Y'=>'31 December, 2013',
 
-								'%d %b, %Y'=>'31 Dec, 2012'
-	);
+							'%d %b, %Y'=>'31 Dec, 2014'
+);
 
 ?>

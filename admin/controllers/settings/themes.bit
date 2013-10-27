@@ -8,12 +8,12 @@
 //	VARIABLES
 // ============================================================================
 
-	$themes = $_DB_SETTINGS->get_themes();
+$themes = $_DB_SETTINGS->get_themes();
 
-	foreach($themes as $dir)
-	{
-		include(PATH_THEMES.$dir.'/config.bit');
-		$themes_html[$dir] = $theme['name'];
-	}
+foreach($themes as $dir)
+{
+	include(PATH_THEMES.$dir.'/config.bit');
+	$themes_html[$dir] = $theme['name'];
+}
 
 ?>

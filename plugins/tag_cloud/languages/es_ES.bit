@@ -1,8 +1,8 @@
 <?php
 
 $_PLUGIN_CONFIG['LANG'] = array(
-	'NAME'=>'Tag Cloud',
-	'DESCRIPTION'=>'',
+	'NAME'=>'Nube de palabras claves',
+	'DESCRIPTION'=>'Genera una nube de palabras claves, de esta forma los usuarios pueden filtrar los posts por palabras claves.',
 	'MIN_SIZE_IN_PX'=>'Tamaño mas chico del tag menos significante en px',
 	'MAX_SIZE_IN_PX'=>'Tamaño mas grande del tag mas significante en px'
 );

@@ -11,3 +11,13 @@ pre.console {
     border: 1px solid #CCCCCC;
     padding: 10px 2px 10px 40px;
 }
+
+img.align_left {
+	margin-right: 10px;
+	float: left;
+}
+
+img.align_right {
+	margin-left: 10px;
+	float: right;
+}
