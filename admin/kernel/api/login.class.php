@@ -113,8 +113,8 @@ class Login {
 		$this->session_started = false;
 
 		// Clean remember me
-		setcookie('nibbleblog_hash', '', time()-42000, '/');
-		setcookie('nibbleblog_id', '', time()-42000, '/');
+		setcookie('nibbleblog_hash', '', time()-42000);
+		setcookie('nibbleblog_id', '', time()-42000);
 	}
 
 	public function remember_me()
