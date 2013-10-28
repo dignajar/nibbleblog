@@ -101,7 +101,7 @@ PUBLIC METHODS
 							'{{COMMENT}}'=>$args['comment'],
 							'{{AUTHOR_NAME}}'=>$args['author_name'],
 							'{{AUTHOR_EMAIL}}'=>$args['author_email'],
-							'{{IP}}'=>$args['ip']
+							'{{IP}}'=>Net::get_user_ip()
 						),
 						$_LANG['EMAIL_NOTIFICATION_NEW_COMMENT']
 				);
