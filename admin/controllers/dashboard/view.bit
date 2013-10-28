@@ -8,10 +8,10 @@
 //	VARIABLES
 // ============================================================================
 
-	$last_comments = $_DB_COMMENTS->get_last(LAST_COMMENTS_AMOUNT);
+$last_comments = $_DB_COMMENTS->get_last(LAST_COMMENTS_AMOUNT);
 
-	$notifications = $_DB_NOTIFICATIONS->get_all();
+$notifications = $_DB_NOTIFICATIONS->get_all();
 
-	$drafts = $_DB_POST->get_drafts(array('page'=>0, 'amount'=>5));
+$drafts = $_DB_POST->get_drafts(array('page'=>0, 'amount'=>5));
 
 ?>

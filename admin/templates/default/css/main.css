@@ -277,6 +277,14 @@ div.dashboard_box	a.last_comments	div.info {
 	color: #AAAAAA;
 }
 
+div.dashboard_box	a.comment_spam {
+	border-left: 4px solid #D72020 !important;
+}
+
+div.dashboard_box	a.comment_unapprove {
+	border-left: 4px solid #F1CC19 !important;
+}
+
 /* Notifications */
 div.notification {
 	padding: 10px;

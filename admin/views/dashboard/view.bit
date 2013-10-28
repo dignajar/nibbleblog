@@ -37,7 +37,7 @@ echo Html::div_open( array('class'=>'dashboard_left') );
 		{
 			$date = Date::format($comment['pub_date_unix'], LAST_COMMENT_DATE_FORMAT);
 
-			echo Html::link( array('class'=>'last_comments', 'href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list',
+			echo Html::link( array('class'=>'last_comments comment_'.$comment['type'], 'href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list',
 				'content'=>
 				Html::div( array('class'=>'content', 'content'=>$comment['content']) ).
 				Html::div( array('class'=>'info', 'content'=>$date.' · '.$_LANG['AUTHOR'].': '.$comment['author_name']) )
