@@ -1,56 +1,76 @@
 <?php
 
-// ========== POST HEADER ==========
-	echo '<header class="post">';
+// Head
 
-		// print title if this is not empty
-		if( !empty($post['title']) )
-			echo '<h1 class="title">'.$post['title'].'</h1>';
+echo '<header class="post">';
 
-	echo '</header>';
+	// print title if this is not empty
+	if( !empty($post['title']) )
+		echo '<h1 class="title"><a href="'.$post['permalink'].'">'.$post['title'].'</a></h1>';
 
-// ========== POST CONTENT ==========
-	// Quote post
-	if($post['type']=='quote')
+	// print publish date
+	echo '<div class="date">'.$post['pub_date'].'</div>';
+
+echo '</header>';
+
+// Content
+
+// Quote post
+if($post['type']=='quote')
+{
+	echo '<blockquote>'.$post['quote'].'</blockquote>';
+}
+else
+{
+	// Video post
+	if($post['type']=='video')
 	{
-		echo '<blockquote>'.$post['quote'].'</blockquote>';
+		$video_info = Video::video_get_info($post['video'], $theme['video_width'], $theme['video_height']);
+
+		echo '<div class="video_embed">';
+		echo $video_info['embed'];
+		echo '</div>';
+	}
+
+	// Video and Simple post
+	echo $post['content'][1];
+}
+
+// Footer
+
+echo '<footer class="post">';
+
+	if($post['read_more'])
+	{
+		echo '<span><a href="'.$post['permalink'].'">'.$_LANG['READ_MORE'].'</a></span>';
 	}
 	else
 	{
-		// Video post
-		if($post['type']=='video')
-		{
-			$video_info = Video::video_get_info($post['video'], $theme['video_width'], $theme['video_height']);
-
-			echo '<div class="video_embed">';
-			echo '<p class="fitvids">'.$video_info['embed'].'</p>';
-			echo '</div>';
-		}
-
-		// Video and Simple post
-		echo $post['content'][1];
+		echo '<span><a href="'.$post['permalink'].'">'.$_LANG['PERMALINK'].'</a></span>';
 	}
 
-// ========== POST FOOTER ==========
-	echo '<footer class="post">';
-
-		echo '<span>'.$post['pub_date'].'</span>';
-
+	// Comments
+	if($post['allow_comments'])
+	{
 		echo ' · ';
 
-		if($post['read_more'])
+		if( !empty($theme['disqus_account']) )
 		{
-			echo '<span><a href="'.$post['permalink'].'">'.$_LANG['READ_MORE'].'</a></span>';
+			// Disqus comments
+			echo '<span><a href="'.$post['permalink'].'#disqus_thread"></a></span>';
+		}
+		elseif( !empty($theme['facebook_appId']) )
+		{
+			// Facebook comments
+			echo '<span><a href="'.$post['permalink'].'#comment_form">'.$Language->get('COMMENTS').' (<fb:comments-count href="'.$settings['url'].$post['permalink'].'"></fb:comments-count>)</a></span>';
 		}
 		else
 		{
-			echo '<span><a href="'.$post['permalink'].'">'.$_LANG['PERMALINK'].'</a></span>';
+			// Nibbleblog comments
+			echo '<span><a href="'.$post['permalink'].'#comment_form">'.$Language->get('COMMENTS').' ('.count($post['comments']).')</a></span>';
 		}
+	}
 
-		echo ' · ';
-
-		echo '<span><a href="'.$post['permalink'].'#comment_form">'.$_LANG['COMMENTS'].' ('.count($post['comments']).')</a></span>';
-
-	echo '</footer>';
+echo '</footer>';
 
 ?>

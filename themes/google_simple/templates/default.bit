@@ -1,75 +1,57 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<meta charset="utf-8">
+<?php
+	// Charset, title, description, keywords, robots, etc
+	Theme::meta_tags();
 
-	<!-- TITLE -->
-	<title><?php echo $layout['title'] ?></title>
+	// Include CSS from theme
+	Theme::css(array('normalize.css', 'main.css', 'post.css', 'plugins.css', 'rainbow.css'));
 
-	<!-- DESCRIPTION -->
-	<?php if(!empty($layout['description'])) echo '<meta name="description" content="'.$layout['description'].'">'; ?>
+	// Include Jquery
+	Theme::javascript(JS_JQUERY,'');
 
-	<!-- GENERATOR -->
-	<?php if(!empty($layout['generator'])) echo '<meta name="generator" content="'.$layout['generator'].'">'; ?>
+	// Include Javascript from theme
+	Theme::javascript('rainbow-custom.min.js');
 
-	<!-- KEYWORDS -->
-	<?php if(!empty($layout['keywords'])) echo '<meta name="keywords" content="'.$layout['keywords'].'">'; ?>
+	// Include Favicon, default path: theme/css/img/favicon.ico
+	Theme::favicon();
 
-	<!-- AUTHOR -->
-	<?php if(!empty($layout['author'])) echo '<meta name="author" content="'.$layout['author'].'">'; ?>
-
-	<!-- ROBOTS -->
-	<?php if(!empty($layout['robots'])) echo '<meta name="robots" content="'.$layout['robots'].'">'; ?>
-
-	<!-- GOOGLE WEBMASTER TOOLS -->
-	<?php if(!empty($seo['google_code'])) echo '<meta name="google-site-verification" content="'.$seo['google_code'].'">'; ?>
-
-	<!-- BING WEBMASTER TOOLS -->
-	<?php if(!empty($seo['bing_code'])) echo '<meta name="msvalidate.01" content="'.$seo['bing_code'].'">'; ?>
-
-	<!-- CSS3 -->
-	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'normalize.css?v='.$theme['version'] ?>" />
-	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'main.css?v='.$theme['version'] ?>" />
-	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'rainbow.css?v='.$theme['version'] ?>" />
-
-	<!-- FAVICON -->
-	<link rel="shortcut icon" href="<?php echo HTML_THEME_CSS.'img/favicon.ico' ?>" type="image/x-icon" />
-
-	<!-- JQUERY -->
-	<script src="<?php echo JS_JQUERY ?>"></script>
-
-	<!-- FitVids -->
-	<script src="<?php echo HTML_THEME_JS.'jquery.fitvids.min.js' ?>"></script>
-
-	<!-- Rainbow - Syntax highlighting library -->
-	<script src="<?php echo HTML_THEME_JS.'rainbow-custom.min.js' ?>"></script>
-
-	<!-- ATOM Feed 2.0 -->
-	<link rel="alternate" type="application/atom+xml" title="ATOM Feed" href="<?php echo $layout['feed'] ?>" />
-
-	<!-- Plugin -->
-	<?php
-		foreach($plugins as $plugin)
-		{
-			if($plugin->blog_head()) {
-				echo $plugin->blog_head();
-			}
-		}
-	?>
+	// Plugins for <head></head>
+	foreach($plugins as $plugin)
+	{
+		if($plugin->blog_head())
+			echo $plugin->blog_head();
+	}
+?>
 </head>
 <body>
 
-	<div id="container">
+<?php
+	//
+	// This lines are for Disqus and Facebook Comments
+	//
+	if( !empty($theme['disqus_account']) )
+	{
+		// Disqus comments
+		include('includes/comments_disqus.bit');
+	}
+	elseif( !empty($theme['facebook_appId']) )
+	{
+		// Facebook comments
+		include('includes/comments_facebook.bit');
+	}
+?>
 
-		<!-- HEADER -->
-		<header id="head">
-			<a class="name" href="<?php echo HTML_PATH_ROOT ?>">
-				<?php echo $settings['name'] ?>
-			</a>
-			<span class="slogan">
-				<?php echo $settings['slogan'] ?>
-			</span>
-		</header>
+	<!-- HEADER -->
+	<header id="head">
+		<div class="wrap">
+			<a class="name" href="<?php Theme::url() ?>"><?php Theme::blog_name() ?></a>
+			<span class="slogan"><?php Theme::blog_slogan() ?></span>
+		</div>
+	</header>
+
+	<div id="container">
 
 		<!-- MAIN -->
 		<section id="main">
@@ -107,13 +89,6 @@
 		</footer>
 
 	</div>
-
-	<!-- FitVids -->
-	<script>
-	$(document).ready(function(){
-		$("p.fitvids").fitVids();
-	});
-	</script>
 
 </body>
 </html>

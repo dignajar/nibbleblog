@@ -6,13 +6,13 @@
 	Theme::meta_tags();
 
 	// Include CSS from theme
-	Theme::css(array('normalize.css', 'main.css', 'plugins.css', 'rainbow.css'));
+	Theme::css(array('normalize.css', 'main.css', 'post.css', 'plugins.css', 'rainbow.css'));
 
 	// Include Jquery
 	Theme::javascript(JS_JQUERY,'');
 
 	// Include Javascript from theme
-	Theme::javascript(array('jquery.fitvids.min.js', 'rainbow-custom.min.js'));
+	Theme::javascript('rainbow-custom.min.js');
 
 	// Include Favicon, default path: theme/css/img/favicon.ico
 	Theme::favicon();
@@ -27,18 +27,21 @@
 </head>
 <body>
 
-	<?php
-		if( !empty($theme['disqus_account']) )
-		{
-			// Disqus comments
-			include('includes/comments_disqus.bit');
-		}
-		elseif( !empty($theme['facebook_appId']) )
-		{
-			// Facebook comments
-			include('includes/comments_facebook.bit');
-		}
-	?>
+<?php
+	//
+	// This lines are for Disqus and Facebook Comments
+	//
+	if( !empty($theme['disqus_account']) )
+	{
+		// Disqus comments
+		include('includes/comments_disqus.bit');
+	}
+	elseif( !empty($theme['facebook_appId']) )
+	{
+		// Facebook comments
+		include('includes/comments_facebook.bit');
+	}
+?>
 
 	<div id="container">
 
@@ -85,13 +88,6 @@
 		</footer>
 
 	</div>
-
-	<!-- FitVids -->
-	<script>
-	$(document).ready(function(){
-		$("p.fitvids").fitVids();
-	});
-	</script>
 
 </body>
 </html>

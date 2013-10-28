@@ -94,7 +94,12 @@ class Theme {
 			$meta .= '<meta name="keywords" content="'.$layout['keywords'].'">'.PHP_EOL;
 
 		if(!empty($layout['author']))
-			$meta .= '<meta name="author" content="'.$layout['author'].'">'.PHP_EOL;
+		{
+			if(filter_var($layout['author'], FILTER_VALIDATE_URL))
+				$meta .= '<link rel="author" href="'.$layout['author'].'" />'.PHP_EOL;
+			else
+				$meta .= '<meta name="author" content="'.$layout['author'].'">'.PHP_EOL;
+		}
 
 		if(!empty($layout['robots']))
 			$meta .= '<meta name="robots" content="'.$layout['robots'].'">'.PHP_EOL;
@@ -109,7 +114,6 @@ class Theme {
 
 		echo $meta;
 	}
-
 
 }
 
