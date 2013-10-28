@@ -509,7 +509,7 @@ PRIVATE METHODS
 		$tmp_array['filename']			= $file;
 
 		$tmp_array['id']				= $file_info[0];
-		$tmp_array['draft']				= ($file_info[4]=='draft');
+		$tmp_array['draft']				= ($file_info[3]=='draft');
 		$tmp_array['visits']			= $xml->getChild('visits');
 		$tmp_array['title']				= $xml->getChild('title');
 		$tmp_array['description']		= $xml->getChild('description');

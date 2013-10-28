@@ -7,7 +7,7 @@
 // =====================================================================
 //	VARIABLES
 // =====================================================================
-$ctrlv['page_list'] = $_DB_PAGES->get_all();
+$ctrlv['page_list'] = $_DB_PAGES->get_list_by_page_more_drafts();
 
 $ctrlv['total_pages'] = ceil(count($ctrlv['page_list']) / PAGES_AMOUNT);
 
