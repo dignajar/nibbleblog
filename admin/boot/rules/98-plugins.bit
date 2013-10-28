@@ -24,14 +24,6 @@ $plugins_installed = array();
 // All plugins, installed and not
 $plugins_all = array();
 
-$plugins_blog_body = array();
-$plugins_blog_head = array();
-
-$plugins_dashboard_body = array();
-$plugins_dashboard_head = array();
-
-$plugins_boot = array();
-
 foreach($plugins_on_system as $dir_name)
 {
 	include_once(PATH_PLUGINS.$dir_name.'/plugin.bit');
@@ -42,9 +34,6 @@ foreach($plugins_on_system as $dir_name)
 	if( @!include_once(PATH_PLUGINS.$dir_name.'/languages/'.$settings['language'].'.bit') )
 		include_once(PATH_PLUGINS.$dir_name.'/languages/en_US.bit');
 
-	// Add plugin dictionary to the general dictionary
-	$Language->add($_PLUGIN_CONFIG['LANG']);
-
 	$plugins_all[$class]->set_attributes(
 	array(
 		'name'=>$_PLUGIN_CONFIG['LANG']['NAME'],
@@ -53,6 +42,11 @@ foreach($plugins_on_system as $dir_name)
 		'version'=>$_PLUGIN_CONFIG['DATA']['version'],
 		'url'=>$_PLUGIN_CONFIG['DATA']['url']
 	));
+
+	// Add plugin dictionary to the general dictionary
+	unset($_PLUGIN_CONFIG['LANG']['NAME']);
+	unset($_PLUGIN_CONFIG['LANG']['DESCRIPTION']);
+	$Language->add($_PLUGIN_CONFIG['LANG']);
 
 	// Set slug name
 	include(PATH_PLUGINS.$dir_name.'/languages/en_US.bit');
@@ -68,23 +62,6 @@ foreach($plugins_on_system as $dir_name)
 
 		$plugins_installed[$position] = $plugins_all[$class];
 		$plugins_by_name[$dir_name] = $plugins_all[$class];
-
-/*
-		if($plugins_all[$class]->boot())
-			$plugins_boot[$class] = $plugins_all[$class];
-
-		if($plugins_all[$class]->blog_head())
-			$plugins_blog_head[$class] = $plugins_all[$class];
-
-		if($plugins_all[$class]->blog_body())
-			$plugins_blog_body[$class] = $plugins_all[$class];
-
-		if($plugins_all[$class]->dashboard_head())
-			$plugins_dashboard_head[$class] = $plugins_all[$class];
-
-		if($plugins_all[$class]->dashboard_body())
-			$plugins_dashboard_body[$class] = $plugins_all[$class];
-*/
 	}
 }
 
