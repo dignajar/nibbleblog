@@ -33,6 +33,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 					$safe['author_name']	= $_POST['author_name'];
 					$safe['author_email']	= $_POST['author_email'];
 					$safe['content']		= $_POST['content'];
+					$safe['author_ip']		= Net::get_user_ip();
 
 					// Check: Anti-spam / Approve / Sanitize
 					if($Comment->add($safe)===false)
