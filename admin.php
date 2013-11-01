@@ -93,7 +93,7 @@ foreach($plugins as $plugin)
 	$plugin->boot();
 
 // Load the controller and template
-@require(PATH_ADMIN_CONTROLLER.$layout['controller']);
-@require(PATH_ADMIN_TEMPLATES.$layout['template']);
+require(PATH_ADMIN_CONTROLLER.$layout['controller']);
+require(PATH_ADMIN_TEMPLATES.$layout['template']);
 
 ?>

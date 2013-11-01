@@ -75,5 +75,36 @@ elseif($url['other']=='post')
 	// JSON
 	echo json_encode($post);
 }
+elseif($url['other']=='latest')
+{
+	$list = $Post->get_by_page(0, 5);
+	$tmp = array();
+
+	foreach($list as $post)
+	{
+		// Permalink
+		$post['permalink'] = Url::post($post, $translit_enable, $settings['friendly_urls']);
+
+		// Get tags
+		$post['tags'] = $_DB_TAGS->get_by_idpost( array('id_post'=>$post['id']) );
+
+		// Content
+		$post['content'] = $post['content'][0];
+
+		// Unset
+		unset($post['read_more']);
+		unset($post['filename']);
+		unset($post['id_cat']);
+		unset($post['id_user']);
+		unset($post['mode']);
+		unset($post['draft']);
+		unset($post['visits']);
+		unset($post['allow_comments']);
+
+		array_push($tmp, $post);
+	}
+
+	echo json_encode($tmp);
+}
 
 ?>

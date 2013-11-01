@@ -135,9 +135,17 @@ class Text {
 		$text = str_replace(' ',$spaces,$text);
 
 		// Make a string lowercase
-		$text = mb_strtolower($text, 'UTF-8');
+		$text = self::str2lower($text);
 
 		return $text;
+	}
+
+	public static function str2lower($string)
+	{
+		if(function_exists('mb_strtolower'))
+			return mb_strtolower($string, 'UTF-8');
+
+		return strtolower($string);
 	}
 
 	public static function random_text($length)

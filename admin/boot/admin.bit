@@ -2,16 +2,18 @@
 // =====================================================================
 //	RULES
 // =====================================================================
-	require('rules/1-fs_php.bit');
-	require('rules/2-objects.bit');
-	require('rules/3-variables.bit');
-	require('rules/4-remove_magic.bit');
-	require('rules/5-regional.bit');
-	require('rules/5-url.bit');
 
-	require('rules/98-plugins.bit');
-	require('rules/98-constants.bit');
-	require('rules/98-admin.bit');
+require_once('rules/1-fs_php.bit');
+require_once('rules/2-objects.bit');
+require_once('rules/3-variables.bit');
+require_once('rules/4-remove_magic.bit');
+require_once('rules/5-regional.bit');
+require_once('rules/5-url.bit');
 
-	require('rules/99-misc.bit');
+require_once('rules/98-plugins.bit');
+require_once('rules/98-constants.bit');
+require_once('rules/98-admin.bit');
+
+require_once('rules/99-misc.bit');
+
 ?>

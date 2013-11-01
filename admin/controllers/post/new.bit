@@ -47,6 +47,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	if( isset($_POST['description']) )
 		$safe['description'] = Validation::sanitize_html( $_POST['description'] );
 
+
 	// Slug
 	if(!empty($_POST['slug']))
 		$safe['slug'] = $_POST['slug'];
