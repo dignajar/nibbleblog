@@ -21,3 +21,12 @@ img.align_right {
 	margin-left: 10px;
 	float: right;
 }
+
+pre {
+	background: #CCCCCC;
+	padding: 5px;
+}
+
+td, th {
+	font-size: 14px !important;
+}
