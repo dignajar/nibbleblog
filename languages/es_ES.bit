@@ -3,7 +3,7 @@
 $_LANG_CONFIG['DATA'] = array(
 	'native'=>'Español - Español',
 	'english'=>'Spanish',
-	'last_update'=>'27/10/2013',
+	'last_update'=>'01/11/2013',
 	'author'=>'Diego Najar',
 	'email'=>'dignajar@gmail.com',
 	'url'=>'http://diego.nibbleblog.com'
