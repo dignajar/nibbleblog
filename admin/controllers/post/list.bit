@@ -7,7 +7,7 @@
 // ============================================================================
 //	VARIABLES
 // ============================================================================
-	$post_list = $_DB_POST->get_list_by_page_more_drafts( array('page'=>$url['number'], 'amount'=>POSTS_AMOUNT) );
+	$post_list = $_DB_POST->get_list_by_page_more_drafts( array('page'=>$url['number'], 'amount'=>PAGES_AMOUNT) );
 
 	$total_pages = ceil($_DB_POST->get_count() / POSTS_AMOUNT);
 

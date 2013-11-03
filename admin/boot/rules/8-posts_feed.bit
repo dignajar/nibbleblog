@@ -25,7 +25,7 @@ foreach($posts as $key=>$value)
 	$posts[$key]['category'] = $category['name'];
 
 	// Permalink
-	$posts[$key]['permalink'] = Url::post($posts[$key], $translit_enable, $settings['friendly_urls']);
+	$posts[$key]['permalink'] = Url::post($posts[$key]);
 }
 
 ?>

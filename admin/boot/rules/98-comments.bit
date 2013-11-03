@@ -12,6 +12,9 @@
 
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
+	foreach($_POST as $key=>$value)
+		$Comment->set_form($key, $value);
+
 	// Check: fields are complete
 	if( Text::is_empty($_POST['author_email']) || Text::is_empty($_POST['content']) )
 	{
@@ -30,27 +33,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 				{
 					$safe					= array();
 					$safe['id_post'] 		= $posts[0]['id'];
-					$safe['author_name']	= $_POST['author_name'];
-					$safe['author_email']	= $_POST['author_email'];
-					$safe['content']		= $_POST['content'];
+					$safe['author_name']	= $Comment->form('author_name');
+					$safe['author_email']	= $Comment->form('author_email');
+					$safe['content']		= $Comment->form('content');
 					$safe['author_ip']		= Net::get_user_ip();
 
 					// Check: Anti-spam / Approve / Sanitize
 					if($Comment->add($safe)===false)
 						Session::set_alert($_LANG['YOUR_COMMENT_IS_UNDER_REVIEW_IT_WILL_BE']);
 
-					// Clean $_POST
-					unset($_POST);
-
-					// Renew comment hash
-//					$Comment->set_hash();
 				}
 			}
 		}
 	}
 }
 
-// Init comment hash
-$Comment->set_hash();
+// Set hash comment
+$Comment->set_form('hash', Crypt::get_hash(time(),time()) );
 
 ?>

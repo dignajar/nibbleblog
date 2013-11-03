@@ -74,7 +74,7 @@ class Theme {
 		echo $settings['footer'];
 	}
 
-	public static function meta_tags($name)
+	public static function meta_tags()
 	{
 		global $layout;
 		global $seo;

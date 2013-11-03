@@ -11,9 +11,13 @@
 
 class Url {
 
-	public static function category($slug, $friendly=false)
+	public static function category($slug, $absolute=false)
 	{
-		if($friendly)
+		global $settings;
+
+		$url = $absolute?BLOG_URL:HTML_PATH_ROOT;
+
+		if($settings['friendly_urls'])
 		{
 			return HTML_PATH_ROOT.'category/'.$slug.'/';
 		}
@@ -23,11 +27,13 @@ class Url {
 		}
 	}
 
-	public static function tag($slug, $friendly=false)
+	public static function tag($slug, $absolute=false)
 	{
-		$friendly = $friendly || $settings['friendly_urls'];
+		global $settings;
 
-		if($friendly)
+		$url = $absolute?BLOG_URL:HTML_PATH_ROOT;
+
+		if($settings['friendly_urls'])
 		{
 			return HTML_PATH_ROOT.'tag/'.$slug.'/';
 		}
@@ -37,21 +43,29 @@ class Url {
 		}
 	}
 
-	public static function post($post, $translit=false, $friendly=false)
+	public static function post($post, $absolute=false)
 	{
-		if($friendly)
+		global $settings;
+
+		$url = $absolute?BLOG_URL:HTML_PATH_ROOT;
+
+		if($settings['friendly_urls'])
 		{
-			return HTML_PATH_ROOT.'post/'.$post['slug'].'/';
+			return $url.'post/'.$post['slug'].'/';
 		}
 		else
 		{
-			return HTML_PATH_ROOT.'index.php?controller=post&action=view&id_post='.$post['id'];
+			return $url.'index.php?controller=post&action=view&id_post='.$post['id'];
 		}
 	}
 
-	public static function page($page, $translit=false, $friendly=false)
+	public static function page($page, $absolute=false)
 	{
-		if($friendly)
+		global $settings;
+
+		$url = $absolute?BLOG_URL:HTML_PATH_ROOT;
+
+		if($settings['friendly_urls'])
 		{
 			return HTML_PATH_ROOT.'page/'.$page['slug'].'/';
 		}

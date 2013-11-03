@@ -83,7 +83,7 @@ elseif($url['other']=='latest')
 	foreach($list as $post)
 	{
 		// Permalink
-		$post['permalink'] = Url::post($post, $translit_enable, $settings['friendly_urls']);
+		$post['permalink'] = Url::post($post, true);
 
 		// Get tags
 		$post['tags'] = $_DB_TAGS->get_by_idpost( array('id_post'=>$post['id']) );

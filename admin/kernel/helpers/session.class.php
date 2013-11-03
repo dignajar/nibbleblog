@@ -75,6 +75,19 @@ class Session {
 		return false;
 	}
 
+	public static function get_comment($field)
+	{
+		if(isset($_SESSION['nibbleblog']['comment'][$field]))
+			return $_SESSION['nibbleblog']['comment'][$field];
+
+		return false;
+	}
+
+	public static function set_comment($field, $data)
+	{
+		$_SESSION['nibbleblog']['comment'][$field] = $data;
+	}
+
 	public static function get_alert()
 	{
 		self::set_error(false);

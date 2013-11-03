@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<?php
+	// Charset, title, description, keywords, robots, etc
+	Theme::meta_tags();
+
+	// Include CSS from theme
+	Theme::css(array('normalize.css', 'main.css', 'post.css', 'plugins.css', 'rainbow.css'));
+
+	// Include Jquery
+	Theme::javascript(JS_JQUERY,'');
+
+	// Include Javascript from theme
+	Theme::javascript('rainbow-custom.min.js');
+
+	// Include Favicon, default path: theme/css/img/favicon.ico
+	Theme::favicon();
+
+	// Plugins for <head></head>
+	foreach($plugins as $plugin)
+	{
+		if($plugin->blog_head())
+			echo $plugin->blog_head();
+	}
+?>
+</head>
+<body>
+
+<?php
+	//
+	// This lines are for Disqus and Facebook Comments
+	//
+	if( !empty($theme['disqus_account']) )
+	{
+		// Disqus comments
+		include('includes/comments_disqus.bit');
+	}
+	elseif( !empty($theme['facebook_appId']) )
+	{
+		// Facebook comments
+		include('includes/comments_facebook.bit');
+	}
+?>
+
+	<div id="container">
+
+		<!-- HEADER -->
+		<header id="head">
+			<a class="name" href="<?php Theme::url() ?>">
+			<?php
+				Theme::blog_name();
+				echo ' :: ';
+				Theme::blog_slogan();
+				echo '<br>';
+				if($url['controller']=='page')
+					echo $page['title'];
+				else
+					echo $post['title'];
+			?>
+			</a>
+		</header>
+
+		<!-- MAIN -->
+		<section id="main">
+		<?php
+			include(THEME_VIEWS . $layout['view']);
+		?>
+		</section>
+
+		<!-- FOOTER -->
+		<footer id="foot">
+			<p><a href="<?php echo $layout['feed'] ?>">Atom</a> · <?php Theme::blog_footer() ?></p>
+		</footer>
+
+	</div>
+
+</body>
+</html>

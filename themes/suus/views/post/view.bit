@@ -61,30 +61,30 @@
 		// Comment form
 		// --------------------------------
 		echo '<div id="comment_form">';
-		echo '<h3>'.$_LANG['NEW_COMMENT'].'</h3>';
 
-			if(Session::get_error())
-			{
-				echo '<h4 class="alert">'.Session::get_alert().'</h4>';
-			}
+		echo '<h3>'.$Language->get('NEW_COMMENT').'</h3>';
 
-			echo '
-				<form method="post" name="form" action="#comment_form">
+		if(Session::get_error())
+		echo '<h4 class="alert">'.Session::get_alert().'</h4>';
 
-				<input type="hidden" name="hash" value="'.$Comment->get_hash().'">
+		echo '
+			<form method="post" name="form" action="#comment_form">
 
-				<input type="text" name="author_name" value="'.$_POST['author_name'].'" placeholder="'.$_LANG['NAME'].'">
+			<input type="hidden" name="hash" value="'.$Comment->form('hash').'">
 
-				<input type="text" name="author_email" value="'.$_POST['author_email'].'" placeholder="'.$_LANG['EMAIL'].'">
+			<input type="text" name="author_name" value="'.$Comment->form('author_name').'" placeholder="'.$Language->get('NAME').'">
 
-				<textarea name="content" placeholder="'.$_LANG['TYPE_THE_COMMENT_HERE'].'">'.$_POST['content'].'</textarea>
+			<input type="text" name="author_email" value="'.$Comment->form('author_email').'" placeholder="'.$Language->get('EMAIL').'">
 
-				<input type="submit" value="'.$_LANG['PUBLISH'].'">
+			<textarea name="content" placeholder="'.$Language->get('TYPE_THE_COMMENT_HERE').'">'.$Comment->form('content').'</textarea>
 
-				</form>
-			';
+			<input type="submit" value="'.$Language->get('PUBLISH').'">
+
+			</form>
+		';
 
 		echo '</div>';
 	}
+
 
 ?>

@@ -20,46 +20,62 @@ class PLUGIN_OPEN_GRAPH extends Plugin
 		global $where_am_i;
 		global $settings;
 		global $category;
+		global $seo;
 
 		$og = array(
 			'locale'=>$settings['locale'],
 			'type'=>'website',
-			'title'=>$settings['name'],
-			'description'=>$settings['slogan'],
+			'title'=>$seo['site_title'],
+			'description'=>$seo['site_description'],
+			'image'=>$settings['url'].HTML_PATH_ADMIN_TEMPLATES.'default/css/img/mrnibbler128.png',
 			'url'=>BLOG_URL,
-			'site_name'=>$settings['name']
+			'site_name'=>$seo['site_title']
 		);
+
+		// The theme has og:image ?
+		if(file_exists(THEME_IMG.'image.png'))
+			$og['image'] = $settings['url'].HTML_THEME_IMG.'image.png';
 
 		if( ($where_am_i[1]=='post') && !empty($post) )
 		{
-			$og['type'] = 'article';
-			$og['title'] = $settings['name'].' - '.$post['title'];
-			$og['description'] = $post['description'];
-			$og['url'] = $settings['url'].$post['permalink'];
+			$og['type']			= 'article';
+			$og['title']		.= ' - '.$post['title'];
+			$og['description']	= $post['description'];
+			$og['url']			= $settings['url'].$post['permalink'];
 		}
 		elseif( ($where_am_i[1]=='page') && !empty($page) )
 		{
-			$og['type'] = 'article';
-			$og['title'] = $settings['name'].' - '.$page['title'];
-			$og['description'] = $page['description'];
-			$og['url'] = $settings['url'].$page['permalink'];
+			$og['type'] 		= 'article';
+			$og['title'] 		.= ' - '.$page['title'];
+			$og['description']	= $page['description'];
+			$og['url']			= $settings['url'].$page['permalink'];
 		}
 		elseif( ($where_am_i[1]=='category') && !empty($category) )
 		{
-			$permalink = Url::category($category['slug'], $settings['friendly_urls']);
+			$permalink = Url::category($category['slug']);
 
-			$og['type'] = 'article';
-			$og['title'] = $settings['name'].' - '.$category['name'];
-			$og['url'] = $settings['url'].$permalink;
+			$og['type']			= 'article';
+			$og['title']		.= ' - '.$category['name'];
+			$og['url']			= $settings['url'].$permalink;
+		}
+		elseif( ($where_am_i[1]=='tag') && !empty($tag) )
+		{
+			$permalink = Url::tag($tag['slug']);
+
+			$og['type']			= 'article';
+			$og['title']		.= ' - '.$tag;
+			$og['url']			= $settings['url'].$permalink;
 		}
 
-		$html  = '<meta property="og:locale" content="'.$og['locale'].'"/>'.PHP_EOL;
-		$html .= '<meta property="og:type" content="'.$og['type'].'"/>'.PHP_EOL;
-		$html .= '<meta property="og:title" content="'.$og['title'].'"/>'.PHP_EOL;
-		$html .= '<meta property="og:description" content="'.$og['description'].'"/>'.PHP_EOL;
-		$html .= '<meta property="og:url" content="'.$og['url'].'"/>'.PHP_EOL;
-		$html .= '<meta property="og:site_name" content="'.$og['site_name'].'"/>'.PHP_EOL;
-		$html .= '<link rel="canonical" href="'.$og['url'].'"/>'.PHP_EOL;
+		$html  = PHP_EOL.'<!-- Open Graph -->'.PHP_EOL;
+		$html .= '<meta property="og:locale" content="'.$og['locale'].'">'.PHP_EOL;
+		$html .= '<meta property="og:type" content="'.$og['type'].'">'.PHP_EOL;
+		$html .= '<meta property="og:title" content="'.$og['title'].'">'.PHP_EOL;
+		$html .= '<meta property="og:description" content="'.$og['description'].'">'.PHP_EOL;
+		$html .= '<meta property="og:image" content="'.$og['image'].'">'.PHP_EOL;
+		$html .= '<meta property="og:url" content="'.$og['url'].'">'.PHP_EOL;
+		$html .= '<meta property="og:site_name" content="'.$og['site_name'].'">'.PHP_EOL;
+		$html .= '<link rel="canonical" href="'.$og['url'].'">'.PHP_EOL;
 
 		return $html;
 	}

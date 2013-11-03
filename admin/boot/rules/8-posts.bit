@@ -54,7 +54,7 @@ foreach($pages as $key=>$value)
 	$pages[$key]['mod_date'] = Date::format($pages[$key]['mod_date_unix'], $settings['timestamp_format']);
 
 	// Permalink
-	$pages[$key]['permalink'] = Url::page($pages[$key], $translit_enable, $settings['friendly_urls']);
+	$pages[$key]['permalink'] = Url::page($pages[$key]);
 }
 
 if(!empty($page))
@@ -152,7 +152,7 @@ foreach($posts as $key=>$value)
 	$posts[$key]['mod_date'] = Date::format($posts[$key]['mod_date_unix'], $settings['timestamp_format']);
 
 	// Permalink
-	$posts[$key]['permalink'] = Url::post($posts[$key], $translit_enable, $settings['friendly_urls']);
+	$posts[$key]['permalink'] = Url::post($posts[$key]);
 }
 
 if(isset($posts[0]))

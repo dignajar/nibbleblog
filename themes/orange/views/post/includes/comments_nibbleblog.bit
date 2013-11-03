@@ -5,7 +5,7 @@ if(!empty($post['comments']))
 {
 	echo '<footer id="comment_list">';
 
-		echo '<h2>'.$_LANG['COMMENTS'].'</h2>';
+		echo '<h2>'.$Language->get('COMMENTS').'</h2>';
 
 		foreach($post['comments'] as $comment)
 		{
@@ -23,7 +23,7 @@ if(!empty($post['comments']))
 // Comment form
 echo '<footer id="comment_form">';
 
-	echo '<h2>'.$_LANG['NEW_COMMENT'].'</h2>';
+	echo '<h2>'.$Language->get('NEW_COMMENT').'</h2>';
 
 	if(Session::get_error())
 	echo '<h3 class="alert">'.Session::get_alert().'</h3>';
@@ -31,15 +31,15 @@ echo '<footer id="comment_form">';
 	echo '
 		<form method="post" name="form" action="#comment_form">
 
-		<input type="hidden" name="hash" value="'.$Comment->get_hash().'">
+		<input type="hidden" name="hash" value="'.$Comment->form('hash').'">
 
-		<input type="text" name="author_name" value="'.$_POST['author_name'].'" placeholder="'.$_LANG['NAME'].'">
+		<input type="text" name="author_name" value="'.$Comment->form('author_name').'" placeholder="'.$Language->get('NAME').'">
 
-		<input type="text" name="author_email" value="'.$_POST['author_email'].'" placeholder="'.$_LANG['EMAIL'].'">
+		<input type="text" name="author_email" value="'.$Comment->form('author_email').'" placeholder="'.$Language->get('EMAIL').'">
 
-		<textarea name="content" placeholder="'.$_LANG['TYPE_THE_COMMENT_HERE'].'">'.$_POST['content'].'</textarea>
+		<textarea name="content" placeholder="'.$Language->get('TYPE_THE_COMMENT_HERE').'">'.$Comment->form('content').'</textarea>
 
-		<input type="submit" value="'.$_LANG['PUBLISH'].'">
+		<input type="submit" value="'.$Language->get('PUBLISH').'">
 
 		</form>
 	';

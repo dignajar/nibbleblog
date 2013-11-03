@@ -1,0 +1,18 @@
+<?php
+
+$theme = array
+(
+    'name'=>'Ao',
+    'description'=>'Clear thame based on Simpler by Diego Najar',
+    'author'=>'Rafael Medina (RMed)',
+    'version'=>'0.1',
+    'last_update'=>'21/10/2013', // dd/mm/yyyy
+    'url'=>'http://www.rmedgar.com', // http://xxxxxxxxxxxxx
+    'video_width'=>'640',
+    'video_height'=>'360',
+    'disqus_account'=>'',
+    'facebook_appId'=>'',
+    'content_license'=>''
+);
+
+?>

@@ -1,0 +1,15 @@
+<?php
+
+echo '<header class="post">';
+
+	// print publish date
+	echo '<div class="date">'.$post['pub_date'].'</div>';
+
+	echo ' · ';
+
+	// print category
+	echo '<div class="category">'.$post['category'].'</div>';
+
+echo '</header>';
+
+?>

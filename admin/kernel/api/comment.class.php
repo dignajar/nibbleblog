@@ -53,9 +53,6 @@ class Comment {
 			return -1;
 		}
 
-		// Sleep
-		sleep(2);
-
 		// Anti-spam
 		$spam_level = $this->get_spam_level($data['content']);
 
@@ -144,11 +141,13 @@ class Comment {
 		return($this->db->get_settings());
 	}
 
+	// DEPRACTED
 	public function get_hash()
 	{
-		return Session::get('hash');
+		return Session::get_comment('hash');
 	}
 
+	// DEPRACTED
 	public function set_hash()
 	{
 		$hash = Crypt::get_hash(time(),time());
@@ -163,6 +162,25 @@ class Comment {
 	public function set_last_time()
 	{
 		Session::set_last_comment_at(time());
+	}
+
+	/*
+	 * Set comment field
+	 */
+	public function set_form($field, $text)
+	{
+		Session::set_comment($field, $text);
+	}
+
+	/*
+	 * Get comment field
+	 */
+	public function form($field)
+	{
+		$data = Session::get_comment($field);
+		Session::set_comment($field, '');
+
+		return $data;
 	}
 
 /*

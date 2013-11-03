@@ -36,7 +36,6 @@ class PLUGIN_TAG_CLOUD extends Plugin
 	public function blog_body()
 	{
 		global $_DB_TAGS;
-		global $settings;
 
 		// Get all tags
 		$cloud = $_DB_TAGS->get_cloud();
@@ -58,7 +57,7 @@ class PLUGIN_TAG_CLOUD extends Plugin
 
 			$style = 'font-size:'.$size.'px; margin-right: 5px; display: inline-block;';
 
-			$html .= '<a class="level_'.$size.'" style="'.$style.'" href="'.Url::tag($tag, $settings['friendly_urls']).'">'.$tag.'</a>';
+			$html .= '<a class="level_'.$size.'" style="'.$style.'" href="'.Url::tag($tag).'">'.$tag.'</a>';
 		}
 
 		return $html;

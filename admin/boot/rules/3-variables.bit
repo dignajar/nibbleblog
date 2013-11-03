@@ -36,9 +36,9 @@ define('COMMENT_INTERVAL',		30);
 
 define('NOTIFICATIONS_AMOUNT',	8);
 define('LAST_COMMENTS_AMOUNT',	8);
-define('COMMENTS_AMOUNT',		8);
-define('POSTS_AMOUNT',			8);
-define('PAGES_AMOUNT',			8);
+define('COMMENTS_AMOUNT',		10);
+define('POSTS_AMOUNT',			10);
+define('PAGES_AMOUNT',			15);
 
 define('NOTIFICATION_DATE_FORMAT',	'%d %B - %H:%M:%S');
 define('LAST_COMMENT_DATE_FORMAT',	'%d %B - %H:%M:%S');
@@ -71,11 +71,13 @@ define('THEME_CONTROLLERS',		THEME_ROOT.'controllers/');
 define('THEME_VIEWS',			THEME_ROOT.'views/');
 define('THEME_TEMPLATES',		THEME_ROOT.'templates/');
 define('THEME_CSS',				THEME_ROOT.'css/');
+define('THEME_IMG',				THEME_ROOT.'css/img/');
 define('THEME_LANGUAGE',		THEME_ROOT.'language/');
 
 // HTML
 define('HTML_THEME_ROOT',		HTML_PATH_THEMES . $settings['theme'] . '/');
 define('HTML_THEME_CSS',		HTML_THEME_ROOT.'css/');
+define('HTML_THEME_IMG',		HTML_THEME_ROOT.'css/img/');
 define('HTML_THEME_JS',			HTML_THEME_ROOT.'js/');
 
 // =====================================================================

@@ -49,29 +49,29 @@ if( ($url['controller']!=null) && ($url['action']!=null) )
 	// Particular post
 	if( (($url['id_post']!==null) || ($url['post']!==null)) && !empty($post) )
 	{
-		$layout['title'] = $post['title'];
-		$layout['description'] = $post['description'];
-		$layout['keywords'] = implode(',',$post['tags']);
+		$layout['title'] 		.= ' - '.$post['title'];
+		$layout['description']	= $post['description'];
+		$layout['keywords']		= implode(',',$post['tags']);
 
 		$where_am_i[1] = 'post';
 	}
 	elseif( (($url['id_page']!==null) || ($url['page']!==null)) && !empty($page) )
 	{
-		$layout['title'] = $page['title'];
-		$layout['description'] = $page['description'];
-		$layout['keywords'] = $page['keywords'];
+		$layout['title'] 		.= ' - '.$page['title'];
+		$layout['description']	= $page['description'];
+		$layout['keywords']		= $page['keywords'];
 
 		$where_am_i[1] = 'page';
 	}
 	elseif( ($url['category']!==null) && !empty($category) )
 	{
-		$layout['title'] = $seo['site_title'].' - '.$category['name'];
+		$layout['title'] .= ' - '.$category['name'];
 
 		$where_am_i[1] = 'category';
 	}
 	elseif( ($url['tag']!==null) && !empty($tag) )
 	{
-		$layout['title'] = $seo['site_title'].' - '.$url['tag'];
+		$layout['title'] .= ' - '.$url['tag'];
 
 		$where_am_i[1] = 'tag';
 	}
@@ -81,7 +81,7 @@ if( ($url['controller']!=null) && ($url['action']!=null) )
 	{
 		$layout['controller']	= 'page/404.bit';
 		$layout['view']			= 'page/404.bit';
-		$layout['title'] 		= $layout['title'].' - Error 404';
+		$layout['title'] 		.= ' - Error 404';
 
 		$where_am_i[1] = '404';
 	}
@@ -102,7 +102,7 @@ foreach($plugins as $plugin)
 	$plugin->boot();
 
 // Load the controller and template
-@require(THEME_CONTROLLERS.$layout['controller']);
-@require(THEME_TEMPLATES.$layout['template']);
+require(THEME_CONTROLLERS.$layout['controller']);
+require(THEME_TEMPLATES.$layout['template']);
 
 ?>

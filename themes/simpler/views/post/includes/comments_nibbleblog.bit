@@ -31,13 +31,13 @@ echo '<footer id="comment_form">';
 	echo '
 		<form method="post" name="form" action="#comment_form">
 
-		<input type="hidden" name="hash" value="'.$Comment->get_hash().'">
+		<input type="hidden" name="hash" value="'.$Comment->form('hash').'">
 
-		<input type="text" name="author_name" value="'.$_POST['author_name'].'" placeholder="'.$Language->get('NAME').'">
+		<input type="text" name="author_name" value="'.$Comment->form('author_name').'" placeholder="'.$Language->get('NAME').'">
 
-		<input type="text" name="author_email" value="'.$_POST['author_email'].'" placeholder="'.$Language->get('EMAIL').'">
+		<input type="text" name="author_email" value="'.$Comment->form('author_email').'" placeholder="'.$Language->get('EMAIL').'">
 
-		<textarea name="content" placeholder="'.$Language->get('TYPE_THE_COMMENT_HERE').'">'.$_POST['content'].'</textarea>
+		<textarea name="content" placeholder="'.$Language->get('TYPE_THE_COMMENT_HERE').'">'.$Comment->form('content').'</textarea>
 
 		<input type="submit" value="'.$Language->get('PUBLISH').'">
 

@@ -33,8 +33,6 @@ class PLUGIN_LAST_POSTS extends Plugin
 	public function blog_body()
 	{
 		global $Post;
-		global $settings;
-		global $translit_enable;
 
 		$list = $Post->get_by_page(0, $this->get_field_db('amount') );
 
@@ -43,7 +41,7 @@ class PLUGIN_LAST_POSTS extends Plugin
 		foreach($list as $post)
 		{
 			// Permalink
-			$post['permalink'] = Url::post($post, $translit_enable, $settings['friendly_urls']);
+			$post['permalink'] = Url::post($post);
 
 			// Title
 			$title = empty($post['title'])? ucfirst($post['type']) : $post['title'];
