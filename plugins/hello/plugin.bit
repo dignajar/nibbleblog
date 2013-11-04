@@ -1,0 +1,36 @@
+<?php
+// =====================================================================
+// PLUGIN INFO
+// =====================================================================
+$_PLUGIN_CONFIG['DATA'] = array(
+	'author'=>'Diego Najar',
+	'version'=>'3.6',
+	'url'=>'http://www.nibbleblog.com'
+);
+
+// =====================================================================
+// PLUGIN CLASS
+// =====================================================================
+class PLUGIN_CATEGORIES extends Plugin
+{
+	public function blog_body()
+	{
+		global $categories;
+
+		$html = '<ul>';
+
+		foreach($categories as $category)
+		{
+			// URL generator
+			$href = Url::category($category['slug']);
+
+			$html .= '<li class="category"><a href="'.$href.'">'.$category['name'].'</a></li>';
+		}
+
+		$html .= '</ul>';
+
+		return $html;
+	}
+}
+
+?>
