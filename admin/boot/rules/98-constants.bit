@@ -16,7 +16,7 @@
 define('NIBBLEBLOG_VERSION',		'3.7.1');
 define('NIBBLEBLOG_NAME',			'Heisenberg');
 define('NIBBLEBLOG_RELEASE_DATE',	'04/11/2013');
-define('NIBBLEBLOG_BUILD',			1383521451);
+define('NIBBLEBLOG_BUILD',			time());
 
 // =====================================================================
 //	DEBUG
