@@ -3,9 +3,10 @@
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=<?php echo $theme['facebook_appId'] ?>";
+  js.src = "//connect.facebook.net/<?php echo $settings['locale'] ?>/all.js#xfbml=1&appId=<?php echo $theme['facebook_appId'] ?>";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<h2><?php echo $_LANG['COMMENTS'] ?></h2>
-<div class="fb-comments" data-href="<?php echo BLOG_URL.$post['permalink'] ?>" data-num-posts="10"></div>
+<h2><?php echo $Language->get('COMMENTS') ?></h2>
+<div class="fb-comments" data-href="<?php echo $settings['url'].$post['permalink'] ?>" data-num-posts="10"></div>
+

@@ -1,4 +1,4 @@
-<h2><?php echo $_LANG['COMMENTS'] ?></h2>
+<h2><?php echo $Language->get('COMMENTS') ?></h2>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = "<?php echo $theme['disqus_account'] ?>";

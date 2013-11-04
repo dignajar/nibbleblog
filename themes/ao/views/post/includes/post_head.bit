@@ -18,13 +18,13 @@ echo '<header class="post">';
         echo '<li><a class="twitter" target="_blank" title="Share in Twitter" href="https://twitter.com/share?url='.(urlencode($settings['url'].$post['permalink'])).'"></a></li>';
 
         // email
-        echo '<li><a class="email" href="mailto:?subject='.$settings['name'].'&amp;body=Check%20out%20'.(urlencode($settings['url'].$post['permalink'])).'"></a></li>';
+        echo '<li><a class="email" title="Share by email" href="mailto:?subject='.$settings['name'].'&amp;body=Check%20out%20'.(urlencode($settings['url'].$post['permalink'])).'"></a></li>';
 
 	echo '</ul>';
 
 	// print title if this is not empty
 	if( !empty($post['title']) )
-		echo '<h1 class="title">'.$post['title'].'</h1>';
+        echo '<h1 class="title">'.$post['title'].'</h1>';
 
 echo '</header>';
 

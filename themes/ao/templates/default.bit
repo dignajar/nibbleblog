@@ -1,97 +1,57 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<meta charset="utf-8">
+<?php
+    
+    // Charset, title, description, keywords, robots, etc
+    Theme::meta_tags();
 
-	<!-- TITLE -->
-	<title><?php echo $layout['title'] ?></title>
+    // Include CSS
+    Theme::css(array('normalize.css', 'main.css', 'plugins.css', 'post.css', 'rainbow_github.css'));
 
-	<!-- DESCRIPTION -->
-	<?php if(!empty($layout['description'])) echo '<meta name="description" content="'.$layout['description'].'">'; ?>
+    // Include Jquery
+    Theme::javascript(JS_JQUERY,'');
 
-	<!-- GENERATOR -->
-	<?php if(!empty($layout['generator'])) echo '<meta name="generator" content="'.$layout['generator'].'">'; ?>
+    // Include Javascript from theme
+    // Fitvids, syntax highlighting, browser update notice
+    Theme::javascript('jquery.fitvids.min.js', 'rainbow-custom.min.js', 'browser-update.js');
 
-	<!-- KEYWORDS -->
-	<?php if(!empty($layout['keywords'])) echo '<meta name="keywords" content="'.$layout['keywords'].'">'; ?>
+    // Include Favicon, default path: theme/css/img/favicon.ico
+    Theme::favicon();
 
-	<!-- AUTHOR -->
-	<?php if(!empty($layout['author'])) echo '<meta name="author" content="'.$layout['author'].'">'; ?>
-
-	<!-- ROBOTS -->
-	<?php if(!empty($layout['robots'])) echo '<meta name="robots" content="'.$layout['robots'].'">'; ?>
-
-	<!-- GOOGLE WEBMASTER TOOLS -->
-	<?php if(!empty($seo['google_code'])) echo '<meta name="google-site-verification" content="'.$seo['google_code'].'">'; ?>
-
-	<!-- BING WEBMASTER TOOLS -->
-	<?php if(!empty($seo['bing_code'])) echo '<meta name="msvalidate.01" content="'.$seo['bing_code'].'">'; ?>
-
-	<!-- CSS3 -->
-	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'normalize.css?v='.$theme['version'] ?>" />
-	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'main.css?v='.$theme['version'] ?>" />
-	<link rel="stylesheet" type="text/css" href="<?php echo HTML_THEME_CSS.'rainbow_github.css?v='.$theme['version'] ?>" />
-
-	<!-- FAVICON -->
-	<link rel="shortcut icon" href="<?php echo HTML_THEME_CSS.'img/favicon.ico' ?>" type="image/x-icon" />
-
-	<!-- JQUERY -->
-	<script src="<?php echo JS_JQUERY ?>"></script>
-
-	<!-- FitVids -->
-	<script src="<?php echo HTML_THEME_JS.'jquery.fitvids.min.js' ?>"></script>
-
-	<!-- Rainbow - Syntax highlighting library -->
-	<script src="<?php echo HTML_THEME_JS.'rainbow-custom.min.js' ?>"></script>
-
-    <!-- Browser Update Notice -->
-    <script src="<?php echo HTML_THEME_JS.'browser-update.js' ?>"></script>
-
-	<!-- ATOM Feed 2.0 -->
-	<link rel="alternate" type="application/atom+xml" title="ATOM Feed" href="<?php echo $layout['feed'] ?>" />
-
-	<!-- Plugin -->
-	<?php
-		foreach($plugins as $plugin)
-		{
-			if($plugin->blog_head()) {
-				echo $plugin->blog_head();
-			}
-		}
-	?>
+    // Plugins for <head></head>
+    foreach($plugins as $plugin)
+    {
+        if($plugin->blog_head())
+            echo $plugin->blog_head();
+    }
+?>
 </head>
 <body>
 
-	<?php
-		if( !empty($theme['disqus_account']) )
-		{
-			// Disqus comments
-			include('includes/comments_disqus.bit');
-		}
-		elseif( !empty($theme['facebook_appId']) )
-		{
-			// Facebook comments
-			include('includes/comments_facebook.bit');
-		}
-	?>
+<?php
+
+	if( !empty($theme['disqus_account']) )
+	{
+		// Disqus comments
+		include('includes/comments_disqus.bit');
+	}
+	elseif( !empty($theme['facebook_appId']) )
+	{
+		// Facebook comments
+		include('includes/comments_facebook.bit');
+	}
+?>
 
 	<!-- HEADER -->
 	<header id="head">
-		<a class="name" href="<?php echo HTML_PATH_ROOT ?>">
-			<?php echo $settings['name'] ?>
-		</a>
-		<div class="slogan">
-			<?php echo $settings['slogan'] ?>
-		</div>
+		<a class="name" href="<?php Theme::url() ?>"><?php Theme::blog_name() ?></a>
+		<div class="slogan"><?php Theme::blog_slogan() ?></div>
 	</header>
 
 	<div id="container">
 
-        <!-- NAVIGATION -->
-        <nav id="navbar">
-            <!-- <div class="navbutton"><a href="Destination">Link text</a></div> -->
-            <div class="navbutton"><a href="<?php echo HTML_PATH_ROOT ?>"><?php echo $_LANG['HOME'] ?></a></div>
-        </nav>
+        <?php include ('includes/navbar.bit'); ?>
 
 		<!-- MAIN -->
 		<section id="main">
@@ -106,7 +66,7 @@
 						if($plugin->blog_body())
 						{
 							echo '<div class="plugin_box '.$plugin->get_slug_name().'">';
-								echo '<h3 class="title">'.$plugin->get_field_db('title').'</h3>';
+								echo '<h3 class="title">'.$plugin->database('title').'</h3>';
 								echo $plugin->blog_body();
 							echo '</div>';
 						}
@@ -117,9 +77,7 @@
 			?>
 
 			<section <?php if(!empty($plugins)) echo 'id=left' ?> >
-				<?php
-					include(THEME_VIEWS . $layout['view']);
-				?>
+				<?php include(THEME_VIEWS . $layout['view']); ?>
 			</section>
 
 		</section>
@@ -130,7 +88,7 @@
                 <?php echo $theme['content_license'] ?>
             </div>
             <div class="atom">
-				<a href="<?php echo $layout['feed'] ?>">Atom</a> · <?php echo $settings['footer'] ?></br>
+				<a href="<?php echo $layout['feed'] ?>">Atom</a> · <?php Theme::blog_footer() ?></br>
                 <a target="_blank" href="https://github.com/RMed/ao_theme">Ao theme</a>
 			</div>
 		</footer>
