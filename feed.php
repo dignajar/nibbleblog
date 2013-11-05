@@ -3,7 +3,7 @@ header("Content-type: text/xml; charset=utf-8");
 
 require('admin/boot/feed.bit');
 
-$fee_link = BLOG_URL.'feed';
+$feed_link = BLOG_URL.'feed';
 
 if(!$settings['friendly_urls'])
 	$feed_link .= '.php';
