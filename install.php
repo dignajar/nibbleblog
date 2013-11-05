@@ -394,6 +394,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 			padding: 10px;
 			overflow: auto;
 			margin-bottom: 5px;
+			font-size: 1.3em;
 		}
 
 		div.status_pass {
@@ -524,6 +525,21 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 					echo Html::link( array('class'=>'description', 'content'=>$_LANG['PHP_MODULE'].' - DOM', 'href'=>'http://www.php.net/manual/en/book.dom.php', 'target'=>'_blank') );
 
 					if( in_array('dom', $php_modules) )
+					{
+						echo Html::div( array('class'=>'status_pass', 'content'=>$_LANG['PASS']) );
+					}
+					else
+					{
+						$dependencies = false;
+						echo Html::div( array('class'=>'status_fail', 'content'=>$_LANG['FAIL']) );
+					}
+
+				echo Html::div_close();
+
+				echo Html::div_open( array('class'=>'dependency') );
+					echo Html::link( array('class'=>'description', 'content'=>$_LANG['PHP_MODULE'].' - GD', 'href'=>'http://www.php.net/manual/en/book.image.php', 'target'=>'_blank') );
+
+					if( in_array('gd', $php_modules) )
 					{
 						echo Html::div( array('class'=>'status_pass', 'content'=>$_LANG['PASS']) );
 					}

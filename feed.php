@@ -3,14 +3,10 @@ header("Content-type: text/xml; charset=utf-8");
 
 require('admin/boot/feed.bit');
 
-if($settings['friendly_urls'])
-{
-	$feed_link = $settings['url'].$settings['path'].'feed';
-}
-else
-{
-	$feed_link = $settings['url'].$settings['path'].'feed.php';
-}
+$fee_link = BLOG_URL.'feed';
+
+if(!$settings['friendly_urls'])
+	$feed_link .= '.php';
 
 $last_post = $posts[0];
 $updated = Date::atom($last_post['pub_date_unix']);
@@ -50,7 +46,11 @@ foreach($posts as $post)
 			$title = htmlspecialchars($post['type'], ENT_QUOTES, 'UTF-8');
 		}
 
-		$content = htmlspecialchars($post['content'][1], ENT_QUOTES, 'UTF-8');
+		// Absolute URL for images
+		$domain = $settings['url'];
+		$content = preg_replace("/(src)\=\"([^(http)])(\/)?/", "$1=\"$domain$2", $post['content'][1]);
+
+		$content = htmlspecialchars($content, ENT_QUOTES, 'UTF-8');
 
 		if(isset($post['content'][2]))
 		{

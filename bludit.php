@@ -57,10 +57,8 @@ elseif($url['other']=='post')
 	$post['tags'] = $_DB_TAGS->get_by_idpost( array('id_post'=>$post['id']) );
 
 	// Src images relatives to absoluts
-	//$content = Text::replace('src="', 'src="'.BLOG_URL, $post['content'][0]);
-	//$post['content'] = $content;
-
-	$post['content'] = $post['content'][0];
+	$domain = $settings['url'];
+	$post['content'] = preg_replace("/(src)\=\"([^(http)])(\/)?/", "$1=\"$domain$2", $post['content'][0]);
 
 	// Unset
 	unset($post['read_more']);
@@ -89,7 +87,9 @@ elseif($url['other']=='latest')
 		$post['tags'] = $_DB_TAGS->get_by_idpost( array('id_post'=>$post['id']) );
 
 		// Content
-		$post['content'] = $post['content'][0];
+		// Src images relatives to absoluts
+		$domain = $settings['url'];
+		$post['content'] = preg_replace("/(src)\=\"([^(http)])(\/)?/", "$1=\"$domain$2", $post['content'][0]);
 
 		// Unset
 		unset($post['read_more']);
