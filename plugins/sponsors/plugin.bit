@@ -25,14 +25,14 @@ class PLUGIN_SPONSORS extends Plugin
 		global $Language;
 
 		$html  = Html::label( array('content'=>$Language->get('SPONSOR_CODE')) );
-		$html .= Html::textarea( array('name'=>'code', 'type'=>'text', 'content'=>$this->get_field_db('code')) );
+		$html .= Html::textarea( array('name'=>'code', 'type'=>'text', 'content'=>$this->database('code')) );
 
 		return $html;
 	}
 
 	public function blog_body()
 	{
-		$html = $this->get_field_db('code');
+		$html = $this->database('code');
 
 		return $html;
 	}

@@ -1,7 +1,7 @@
 <?php
 
 $_PLUGIN_CONFIG['LANG'] = array(
-	'NAME'=>'Open graph meta tags',
+	'NAME'=>'Open Graph',
 	'DESCRIPTION'=>'Open graph meta tags.'
 );
 

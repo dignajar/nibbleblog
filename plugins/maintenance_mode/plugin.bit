@@ -25,7 +25,7 @@ class PLUGIN_MAINTENANCE_MODE extends Plugin
 		global $where_am_i;
 
 		if($where_am_i[0]=='blog')
-			exit($this->get_field_db('message'));
+			exit($this->database('message'));
 	}
 
 	public function dashboard_config()
@@ -33,7 +33,7 @@ class PLUGIN_MAINTENANCE_MODE extends Plugin
 		global $Language;
 
 		$html  = Html::label( array('content'=>$Language->get('MESSAGE')) );
-		$html .= Html::input( array('name'=>'message', 'type'=>'text', 'value'=>$this->get_field_db('message')) );
+		$html .= Html::input( array('name'=>'message', 'type'=>'text', 'value'=>$this->database('message')) );
 
 		return $html;
 	}

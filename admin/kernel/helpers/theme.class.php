@@ -96,10 +96,13 @@ class Theme {
 		if(!empty($layout['author']))
 		{
 			if(filter_var($layout['author'], FILTER_VALIDATE_URL))
-				$meta .= '<link rel="author" href="'.$layout['author'].'" />'.PHP_EOL;
+				$meta .= '<link rel="author" href="'.$layout['author'].'">'.PHP_EOL;
 			else
 				$meta .= '<meta name="author" content="'.$layout['author'].'">'.PHP_EOL;
 		}
+
+		if(!empty($layout['canonical']))
+			$meta .= '<link rel="canonical" href="'.$layout['canonical'].'">'.PHP_EOL;
 
 		if(!empty($layout['robots']))
 			$meta .= '<meta name="robots" content="'.$layout['robots'].'">'.PHP_EOL;
@@ -110,7 +113,7 @@ class Theme {
 		if(!empty($seo['bing_code']))
 			$meta .= '<meta name="msvalidate.01" content="'.$seo['bing_code'].'">'.PHP_EOL;
 
-		$meta .= '<link rel="alternate" type="application/atom+xml" title="ATOM Feed" href="'.$layout['feed'].'" />'.PHP_EOL;
+		$meta .= '<link rel="alternate" type="application/atom+xml" title="ATOM Feed" href="'.$layout['feed'].'">'.PHP_EOL;
 
 		echo $meta;
 	}

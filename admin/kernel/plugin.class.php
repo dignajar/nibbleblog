@@ -102,7 +102,7 @@ class Plugin {
 
 	public function database($field)
 	{
-		return (string) $this->db->getChild($field);
+		return $this->db->getChild($field);
 	}
 
 	// DEPRECATED

@@ -3,7 +3,7 @@
 // PLUGIN INFO
 // =====================================================================
 $_PLUGIN_CONFIG['DATA'] = array(
-	'author'=>'Da Elsta + Diego Najar',
+	'author'=>'Diego Najar',
 	'version'=>'3.7',
 	'url'=>'http://www.nibbleblog.com'
 );
@@ -11,8 +11,27 @@ $_PLUGIN_CONFIG['DATA'] = array(
 // =====================================================================
 // PLUGIN CLASS
 // =====================================================================
-class PLUGIN_OPEN_GRAPH extends Plugin
+class PLUGIN_TWITTER_CARDS extends Plugin
 {
+	function __construct()
+	{
+		parent::__construct();
+
+		$this->fields = array('creator'=>'', 'site'=>'');
+	}
+
+	public function dashboard_config()
+	{
+		global $Language;
+
+		$html  = Html::label( array('content'=>'twitter:creator') );
+		$html .= Html::input( array('name'=>'creator', 'type'=>'text', 'value'=>$this->database('creator')) );
+		$html .= Html::label( array('content'=>'twitter:site') );
+		$html .= Html::input( array('name'=>'site', 'type'=>'text', 'value'=>$this->database('site')) );
+
+		return $html;
+	}
+
 	public function blog_head()
 	{
 		global $post;
@@ -24,14 +43,11 @@ class PLUGIN_OPEN_GRAPH extends Plugin
 		global $tag;
 
 		$og = array(
-			'locale'=>$settings['locale'],
-			'type'=>'website',
+			'card'=>'summary',
 			'title'=>$seo['site_title'],
 			'description'=>$seo['site_description'],
 			'image'=>$settings['url'].HTML_PATH_ADMIN_TEMPLATES.'default/css/img/mrnibbler128.png',
-			'url'=>BLOG_URL,
-			'site_name'=>$seo['site_title'],
-			'tags'=>''
+			'url'=>BLOG_URL
 		);
 
 		// The theme has og:image ?
@@ -40,45 +56,42 @@ class PLUGIN_OPEN_GRAPH extends Plugin
 
 		if( ($where_am_i[1]=='post') && !empty($post) )
 		{
-			$og['type']			= 'article';
 			$og['title']		.= ' - '.$post['title'];
 			$og['description']	= $post['description'];
 			$og['url']			= Url::post($post, true);
-
-			// tags
-			$og['tags'] .= '<meta property="article:tag" content="'.$post['category'].'">'.PHP_EOL;
-			foreach($post['tags'] as $tag)
-				$og['tags'] .= '<meta property="article:tag" content="'.$tag.'">'.PHP_EOL;
 		}
 		elseif( ($where_am_i[1]=='page') && !empty($page) )
 		{
-			$og['type'] 		= 'article';
 			$og['title'] 		.= ' - '.$page['title'];
 			$og['description']	= $page['description'];
 			$og['url']			= Url::page($page, true);
 		}
 		elseif( ($where_am_i[1]=='category') && !empty($category) )
 		{
-			$og['type']			= 'article';
 			$og['title']		.= ' - '.$category['name'];
 			$og['url']			= Url::category($category['slug'], true);
 		}
 		elseif( ($where_am_i[1]=='tag') && !empty($tag) )
 		{
-			$og['type']			= 'article';
 			$og['title']		.= ' - '.$tag;
 			$og['url']			= Url::tag($tag, true);
 		}
 
-		$html  = PHP_EOL.'<!-- Open Graph -->'.PHP_EOL;
-		$html .= '<meta property="og:locale" content="'.$og['locale'].'">'.PHP_EOL;
-		$html .= '<meta property="og:type" content="'.$og['type'].'">'.PHP_EOL;
-		$html .= '<meta property="og:title" content="'.$og['title'].'">'.PHP_EOL;
-		$html .= '<meta property="og:description" content="'.$og['description'].'">'.PHP_EOL;
-		$html .= '<meta property="og:image" content="'.$og['image'].'">'.PHP_EOL;
-		$html .= '<meta property="og:url" content="'.$og['url'].'">'.PHP_EOL;
-		$html .= '<meta property="og:site_name" content="'.$og['site_name'].'">'.PHP_EOL;
-		$html .= $og['tags'];
+		$html  = PHP_EOL.'<!-- Twitter Card -->'.PHP_EOL;
+		$html .= '<meta name="twitter:card" content="'.$og['card'].'">'.PHP_EOL;
+		$html .= '<meta name="twitter:title" content="'.$og['title'].'">'.PHP_EOL;
+		$html .= '<meta name="twitter:url" content="'.$og['url'].'">'.PHP_EOL;
+		$html .= '<meta name="twitter:image" content="'.$og['image'].'">'.PHP_EOL;
+		$html .= '<meta name="twitter:description" content="'.$og['description'].'">'.PHP_EOL;
+
+		$site = $this->database('site');
+		$creator = $this->database('creator');
+
+		if(!empty($site))
+			$html .= '<meta name="twitter:site" content="'.$this->database('site').'">'.PHP_EOL;
+
+		if(!empty($creator))
+			$html .= '<meta name="twitter:creator" content="'.$this->database('creator').'">'.PHP_EOL;
 
 		return $html;
 	}

@@ -1,0 +1,8 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'NAME'=>'Twitter cards',
+	'DESCRIPTION'=>'Twitter cards make it possible for you to attach media experiences to Tweets that link to your content.'
+);
+
+?>

@@ -38,7 +38,8 @@ $layout = array(
 	'robots'=>$seo['robots'],
 	'keywords'=>$seo['keywords'],
 	'generator'=>$seo['generator'],
-	'feed'=>HTML_PATH_ROOT.'feed.php'
+	'feed'=>HTML_PATH_ROOT.'feed.php',
+	'canonical'=>BLOG_URL
 );
 
 if( ($url['controller']!=null) && ($url['action']!=null) )
@@ -52,6 +53,7 @@ if( ($url['controller']!=null) && ($url['action']!=null) )
 		$layout['title'] 		.= ' - '.$post['title'];
 		$layout['description']	= $post['description'];
 		$layout['keywords']		= implode(',',$post['tags']);
+		$layout['canonical'] 	= Url::post($post, true);
 
 		$where_am_i[1] = 'post';
 	}
@@ -60,18 +62,21 @@ if( ($url['controller']!=null) && ($url['action']!=null) )
 		$layout['title'] 		.= ' - '.$page['title'];
 		$layout['description']	= $page['description'];
 		$layout['keywords']		= $page['keywords'];
+		$layout['canonical'] 	= Url::page($page, true);
 
 		$where_am_i[1] = 'page';
 	}
 	elseif( ($url['category']!==null) && !empty($category) )
 	{
-		$layout['title'] .= ' - '.$category['name'];
+		$layout['title'] 		.= ' - '.$category['name'];
+		$layout['canonical']	= Url::category($category['slug'], true);
 
 		$where_am_i[1] = 'category';
 	}
 	elseif( ($url['tag']!==null) && !empty($tag) )
 	{
-		$layout['title'] .= ' - '.$url['tag'];
+		$layout['title'] 		.= ' - '.$url['tag'];
+		$layout['canonical']	= Url::tag($tag, true);
 
 		$where_am_i[1] = 'tag';
 	}

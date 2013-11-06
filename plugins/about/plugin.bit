@@ -25,10 +25,10 @@ class PLUGIN_ABOUT extends Plugin
 		global $Language;
 
 		$html  = Html::label( array('content'=>$Language->get('FULL_NAME')) );
-		$html .= Html::input( array('name'=>'name', 'type'=>'text', 'value'=>$this->get_field_db('name')) );
+		$html .= Html::input( array('name'=>'name', 'type'=>'text', 'value'=>$this->database('name')) );
 
 		$html .= Html::label( array('content'=>$Language->get('ABOUT')) );
-		$html .= Html::textarea( array('name'=>'about', 'content'=>$this->get_field_db('about')) );
+		$html .= Html::textarea( array('name'=>'about', 'content'=>$this->database('about')) );
 
 		$html .= Html::label( array('content'=>$Language->get('PICTURE')) );
 		$html .= Html::input( array('name'=>'profile_picture', 'type'=>'file') );
@@ -48,9 +48,9 @@ class PLUGIN_ABOUT extends Plugin
 			$src = HTML_PATH_PLUGINS_DB.'about/profile_picture.jpg';
 
 		$html  = '<ul>';
-		if(isset($src)) $html .= '<li class="image"><img class="plugin_about" alt="'.$this->get_field_db('name').'" src="'.$src.'" /></li>';
-		$html .= '<li class="name">'.$this->get_field_db('name').'</li>';
-		$html .= '<li class="about">'.$this->get_field_db('about').'</li>';
+		if(isset($src)) $html .= '<li class="image"><img class="plugin_about" alt="'.$this->database('name').'" src="'.$src.'" /></li>';
+		$html .= '<li class="name">'.$this->database('name').'</li>';
+		$html .= '<li class="about">'.$this->database('about').'</li>';
 		$html .= '</ul>';
 
 		return $html;

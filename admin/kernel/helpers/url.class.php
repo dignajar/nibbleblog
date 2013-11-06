@@ -19,11 +19,11 @@ class Url {
 
 		if($settings['friendly_urls'])
 		{
-			return HTML_PATH_ROOT.'category/'.$slug.'/';
+			return $url.'category/'.$slug.'/';
 		}
 		else
 		{
-			return HTML_PATH_ROOT.'index.php?controller=blog&action=view&category='.$slug;
+			return $url.'index.php?controller=blog&amp;action=view&amp;category='.$slug;
 		}
 	}
 
@@ -35,11 +35,11 @@ class Url {
 
 		if($settings['friendly_urls'])
 		{
-			return HTML_PATH_ROOT.'tag/'.$slug.'/';
+			return $url.'tag/'.$slug.'/';
 		}
 		else
 		{
-			return HTML_PATH_ROOT.'index.php?controller=blog&action=view&tag='.$slug;
+			return $url.'index.php?controller=blog&amp;action=view&amp;tag='.$slug;
 		}
 	}
 
@@ -55,7 +55,7 @@ class Url {
 		}
 		else
 		{
-			return $url.'index.php?controller=post&action=view&id_post='.$post['id'];
+			return $url.'index.php?controller=post&amp;action=view&amp;id_post='.$post['id'];
 		}
 	}
 
@@ -71,7 +71,7 @@ class Url {
 		}
 		else
 		{
-			return HTML_PATH_ROOT.'index.php?controller=page&action=view&id_page='.$page['id'];
+			return HTML_PATH_ROOT.'index.php?controller=page&amp;action=view&amp;id_page='.$page['id'];
 		}
 	}
 

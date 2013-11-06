@@ -25,7 +25,7 @@ class PLUGIN_LAST_POSTS extends Plugin
 		global $Language;
 
 		$html  = '<label>'.$Language->get('AMOUNT').'</label>';
-		$html .= '<input name="amount" type="text" value="'.$this->get_field_db('amount').'">';
+		$html .= '<input name="amount" type="text" value="'.$this->database('amount').'">';
 
 		return $html;
 	}
@@ -34,7 +34,7 @@ class PLUGIN_LAST_POSTS extends Plugin
 	{
 		global $Post;
 
-		$list = $Post->get_by_page(0, $this->get_field_db('amount') );
+		$list = $Post->get_by_page(0, $this->database('amount') );
 
 		$html = '<ul>';
 

@@ -25,10 +25,10 @@ class PLUGIN_TAG_CLOUD extends Plugin
 		global $Language;
 
 		$html  = Html::label( array('content'=>$Language->get('MIN_SIZE_IN_PX')) );
-		$html .= Html::input( array('name'=>'min_size', 'type'=>'text', 'value'=>$this->get_field_db('min_size')) );
+		$html .= Html::input( array('name'=>'min_size', 'type'=>'text', 'value'=>$this->database('min_size')) );
 
 		$html .= Html::label( array('content'=>$Language->get('MAX_SIZE_IN_PX')) );
-		$html .= Html::input( array('name'=>'max_size', 'type'=>'text', 'value'=>$this->get_field_db('max_size')) );
+		$html .= Html::input( array('name'=>'max_size', 'type'=>'text', 'value'=>$this->database('max_size')) );
 
 		return $html;
 	}
@@ -47,13 +47,13 @@ class PLUGIN_TAG_CLOUD extends Plugin
 
 		foreach($cloud as $tag=>$amount)
 		{
-			$amount = $amount + $this->get_field_db('min_size');
+			$amount = $amount + $this->database('min_size');
 
 			// Max size 40px
-			$size = min($amount, $this->get_field_db('max_size'));
+			$size = min($amount, $this->database('max_size'));
 
 			// Min size 12px
-			$size = max($size, $this->get_field_db('min_size'));
+			$size = max($size, $this->database('min_size'));
 
 			$style = 'font-size:'.$size.'px; margin-right: 5px; display: inline-block;';
 

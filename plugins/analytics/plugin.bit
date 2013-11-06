@@ -25,7 +25,7 @@ class PLUGIN_ANALYTICS extends Plugin
 		global $Language;
 
 		$html  = Html::label( array('content'=>$Language->get('GOOGLE_ANALYTICS_ID') ));
-		$html .= Html::input( array('name'=>'id', 'type'=>'text', 'value'=>$this->get_field_db('id')) );
+		$html .= Html::input( array('name'=>'id', 'type'=>'text', 'value'=>$this->database('id')) );
 
 		return $html;
 	}
@@ -36,7 +36,7 @@ class PLUGIN_ANALYTICS extends Plugin
 		<script type="text/javascript">
 
 			  var _gaq = _gaq || [];
-			  _gaq.push([\'_setAccount\', \''.$this->get_field_db('id').'\']);
+			  _gaq.push([\'_setAccount\', \''.$this->database('id').'\']);
 			  _gaq.push([\'_trackPageview\']);
 
 			  (function() {

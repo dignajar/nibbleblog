@@ -26,7 +26,7 @@ class PLUGIN_MY_IMAGE extends Plugin
 
 		// Caption
 		$html  = '<label>'.$Language->get('CAPTION').'</label>';
-		$html .= '<input name="caption" type="text" value="'.$this->get_field_db('caption').'">';
+		$html .= '<input name="caption" type="text" value="'.$this->database('caption').'">';
 
 		// Image
 		$html .= '<input name="image" type="file">';
@@ -41,7 +41,7 @@ class PLUGIN_MY_IMAGE extends Plugin
 	public function blog_body()
 	{
 		$html  = '<ul>';
-		$html .= '<li><img alt="'.$this->get_field_db('caption').'" src="'.HTML_PATH_PLUGINS_DB.'my_image/image.jpg" /></li>';
+		$html .= '<li><img alt="'.$this->database('caption').'" src="'.HTML_PATH_PLUGINS_DB.'my_image/image.jpg" /></li>';
 		$html .= '</ul>';
 
 		return $html;
