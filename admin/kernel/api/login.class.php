@@ -207,14 +207,13 @@ class Login {
 	private function brute_force_protection($username)
 	{
 		$user = $this->db_users->get(array('username'=>$username));
-		$random = rand(3, 8);
 
-		// if the user doesn't exist, sleep 3 to 8 seconds
+		$ip = Net::get_user_ip();
+
+		// if the user doesn't exist
 		if($user==false)
 		{
-			$sleep_time = $random;
-
-			error_log('Nibbleblog: Brute force protection for '.$sleep_time.' seconds');
+			error_log('Nibbleblog: Brute force protection IP: '.$ip);
 			sleep($sleep_time);
 			return true;
 		}
