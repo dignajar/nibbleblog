@@ -47,8 +47,10 @@
 
 		<!-- HEADER -->
 		<header id="head">
-			<a class="name" href="<?php Theme::url() ?>"><?php Theme::blog_name() ?></a>
-			<span class="slogan"><?php Theme::blog_slogan() ?></span>
+			<a class="name" href="<?php Theme::url() ?>">
+				<?php Theme::blog_name() ?>
+				<span class="slogan"><?php Theme::blog_slogan() ?></span>
+			</a>
 		</header>
 
 		<!-- MAIN -->

@@ -43,11 +43,33 @@ class DB_USERS {
 	PUBLIC METHODS
 ========================================================================
 */
-
-	// Return true if the IP is blocked
-	// Return false if the IP is not blocked
-	// The IP expires at BRUTEFORCE_TIME + Current time
 	public function bruteforce()
+	{
+		$ip = Net::get_user_ip();
+		$current_time = time();
+
+		$node = $this->xml->xpath('/users/bruteforce[@ip="'.utf8_encode($ip).'"]');
+
+		// IP dosen't exist
+		if(empty($node))
+			return false;
+
+		$date = $node[0]->getChild('date');
+		$fail_count = $node[0]->getChild('fail_count');
+
+		// The IP expired, then is not blocked
+		if($current_time > $date + (BRUTEFORCE_TIME*60))
+			return false;
+
+		// The IP has more fails than BRUTEFORCE_LOCKING_AMOUNT, then the IP is blocked
+		if($fail_count >= BRUTEFORCE_LOCKING_AMOUNT)
+			return true;
+
+		// Other ways the IP is not blocked
+		return false;
+	}
+
+	public function set_bruteforce()
 	{
 		$ip = Net::get_user_ip();
 		$current_time = time();
@@ -70,32 +92,32 @@ class DB_USERS {
 			$node->addChild('date', $current_time);
 			$node->addChild('fail_count', 1);
 
-			// Save the database
-			$this->savetofile();
-
-			// The IP is new and there is not brute force
-			return false;
+			error_log('Nibbleblog: Brute force protection - New IP added - '.$ip);
 		}
 		else
 		{
 			$date = $node[0]->getChild('date');
 			$fail_count = $node[0]->getChild('fail_count');
 
-			// The IP expired, so the renewed
-			if($current_time > $date + BRUTEFORCE_TIME)
+			// The IP expired, so renewed
+			if($current_time > $date + (BRUTEFORCE_TIME*60))
 			{
 				$node[0]->setChild('date', $current_time);
 				$node[0]->setChild('fail_count', 1);
 
-				return false;
+				error_log('Nibbleblog: Brute force protection - IP renewed because is expired - '.$ip);
 			}
-
-			if($fail_count > BRUTEFORCE_LOCKING_AMOUNT)
+			else
 			{
-				return true;
+				$fail_count += 1;
+				$node[0]->setChild('fail_count', $fail_count);
+
+				error_log('Nibbleblog: Brute force protection - IP fail count('.$fail_count.') - '.$ip);
 			}
 		}
 
+		// Save the database
+		return $this->savetofile();
 	}
 
 

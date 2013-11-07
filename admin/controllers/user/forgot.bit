@@ -3,22 +3,29 @@
 // =====================================================================
 //	GET
 // =====================================================================
-sleep(5);
-
 if( ($url['id_user']===null) || ($url['other']===null) )
+{
+	$_DB_USERS->set_bruteforce();
 	exit('Nibbleblog security error');
+}
 
 require_once(FILE_SHADOW);
 
 if( !isset($_USER[$url['id_user']]) )
+{
+	$_DB_USERS->set_bruteforce();
 	exit('Nibbleblog security error');
+}
 
 require_once(FILE_KEYS);
 
 $hash = Crypt::get_hash($_USER[$url['id_user']]['salt'].$_KEYS[2]);
 
 if( $hash!==$url['other'] )
-	exit('Nibbleblog security error: Invalid hash');
+{
+	$_DB_USERS->set_bruteforce();
+	exit('Nibbleblog security error - Invalid hash');
+}
 
 $Login->set_login( array('id_user'=>$url['id_user'], 'username'=>$_USER[$url['id_user']]['username']) );
 

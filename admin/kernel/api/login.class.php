@@ -69,9 +69,6 @@ class Login {
 
 		require(FILE_SHADOW);
 
-		// Brute force protection
-		$this->brute_force_protection($args['username']);
-
 		// Check username
 		if(Text::compare($args['username'], $_USER[0]['username']))
 		{
@@ -88,6 +85,9 @@ class Login {
 				return true;
 			}
 		}
+
+		// Set brute force
+		$this->db_users->set_bruteforce();
 
 		// Increment the failed count and last failed session date
 		$user = $this->db_users->get(array('username'=>$args['username']));
@@ -141,14 +141,32 @@ class Login {
 
 		// Check user id
 		if(!isset($_USER[$cookie_id]))
+		{
+			// Set brute force
+			$this->db_users->set_bruteforce();
+
+			// Clean cookies
+			setcookie('nibbleblog_hash', '', time()-42000);
+			setcookie('nibbleblog_id', '', time()-42000);
+
 			return false;
+		}
 
 		// Generate tmp hash
 		$tmp_hash = Crypt::get_hash($_USER[$cookie_id]['username'].$this->get_key(), $_KEYS[2]);
 
 		// Check hash
 		if($tmp_hash!=$cookie_hash)
+		{
+			// Set brute force
+			$this->db_users->set_bruteforce();
+
+			// Clean cookies
+			setcookie('nibbleblog_hash', '', time()-42000);
+			setcookie('nibbleblog_id', '', time()-42000);
+
 			return false;
+		}
 
 		$this->set_login( array('id_user'=>$cookie_id, 'username'=>$_USER[$cookie_id]['username']) );
 
@@ -204,43 +222,12 @@ class Login {
 	PRIVATE METHODS
 ========================================================================
 */
-	private function brute_force_protection($username)
-	{
-		$user = $this->db_users->get(array('username'=>$username));
-
-		$ip = Net::get_user_ip();
-
-		// if the user doesn't exist
-		if($user==false)
-		{
-			error_log('Nibbleblog: Brute force protection IP: '.$ip);
-			sleep($sleep_time);
-			return true;
-		}
-
-		// if last session date are older than 45 seconds then don't sleep
-		if($user['session_date']+45<time())
-			return true;
-
-		// if session failed count > 2 then sleep a lot :P
-		if($user['session_fail_count']>2)
-		{
-			$sleep_time = $user['session_fail_count']*$random;
-
-			error_log('Nibbleblog: Brute force protection for '.$sleep_time.' seconds');
-			sleep($sleep_time);
-			return true;
-		}
-
-		return true;
-	}
-
 	/*
 	 * Return a key, with user agent and user IP
 	*/
 	private function get_key()
 	{
-		return( Crypt::get_hash( Net::get_user_agent() . Net::get_user_ip() ) );
+		return Crypt::get_hash( Net::get_user_agent() . Net::get_user_ip() );
 	}
 
 } // END class LOGIN

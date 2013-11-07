@@ -132,7 +132,7 @@ PUBLIC METHODS
 
 		$this->savetofile();
 
-		return(true);
+		return true;
 	}
 
 	public function get_all()
@@ -146,7 +146,7 @@ PUBLIC METHODS
 			$user_ip = Crypt::decrypt((string) $notification->getAttribute('ip'), $_KEYS[0]);
 
 			$row = array();
-			$row['category']			= (string) $notification->getAttribute('category');
+			$row['category']		= (string) $notification->getAttribute('category');
 			$row['mail']			= (bool) $notification->getAttribute('mail');
 			$row['message_key']		= (string) $notification->getAttribute('message_key');
 			$row['date']			= (string) $notification->getAttribute('date');

@@ -46,8 +46,12 @@
 	<!-- HEADER -->
 	<header id="head">
 		<div class="wrap">
-			<a class="name" href="<?php Theme::url() ?>"><?php Theme::blog_name() ?></a>
-			<span class="slogan"><?php Theme::blog_slogan() ?></span>
+			<a class="name" href="<?php Theme::url() ?>">
+				<?php Theme::blog_name() ?>
+				<span class="slogan">
+					<?php Theme::blog_slogan() ?>
+				</span>
+			</a>
 		</div>
 	</header>
 
