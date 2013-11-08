@@ -12,6 +12,12 @@
 // =====================================================================
 //	BOOT
 // =====================================================================
+if( !file_exists('content/private') )
+{
+	header('Location:install.php');
+	exit('<a href="./install.php">click to install Nibbleblog</a>');
+}
+
 require('admin/boot/admin.bit');
 
 // =====================================================================
