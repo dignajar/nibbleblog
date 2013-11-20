@@ -42,16 +42,22 @@ else
 	}
 }
 
-$show_older = ((int)ceil($_DB_POST->get_count() / $settings['items_page']) - 1) > $url['number'];
+$num_posts = $_DB_POST->get_count();
+$num_pages = (int) ceil($num_posts / $settings['items_page']) - 1;
+
+$show_older = $num_pages > $url['number'];
 $show_newer = $url['number'] > 0;
 
 $pager = array(
-					'next'=>$pager_next,
-					'prev'=>$pager_prev,
-					'href_older'=>$href_older,
-					'href_newer'=>$href_newer,
-					'show_older'=>$show_older,
-					'show_newer'=>$show_newer
+	'next'=>$pager_next,		// (int) Next integer page
+	'prev'=>$pager_prev,		// (int) Previus integer page
+	'current'=>$url['number'],	// (int) Current integer page
+	'href_older'=>$href_older,	// (string) Link to older posts
+	'href_newer'=>$href_newer,	// (string) Link to newers posts
+	'show_older'=>$show_older,	// (Boolean) If there more older posts to show
+	'show_newer'=>$show_newer,	// (Boolean) If there more newers posts to show
+	'num_posts'=>$num_posts,	// (int) Number of posts
+	'num_pages'=>$num_pages		// (int) Number of pages
 );
 
 // =====================================================================
@@ -63,5 +69,7 @@ unset($href_older);
 unset($href_newer);
 unset($show_older);
 unset($show_newer);
+unset($num_posts);
+unset($num_pages);
 
 ?>

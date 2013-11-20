@@ -32,9 +32,9 @@ class PLUGIN_LAST_POSTS extends Plugin
 
 	public function blog_body()
 	{
-		global $Post;
+		global $_DB_POST;
 
-		$list = $Post->get_by_page(0, $this->database('amount') );
+		$list = $_DB_POST->get_list_by_page( array('page'=>0, 'amount'=>$this->database('amount')) );
 
 		$html = '<ul>';
 

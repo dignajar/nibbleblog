@@ -1,20 +1,26 @@
 <?php
 
-// If there are no posts
+// Disqus and Facebook comments
+if( !empty($theme['disqus_account']) )
+{
+	include('includes/comments_disqus.bit');
+}
+elseif( !empty($theme['facebook_appId']) )
+{
+	include('includes/comments_facebook.bit');
+}
+
+// There are no posts
 if(empty($posts))
 {
-	echo '<p>'.$_LANG['THERE_ARE_NO_POSTS'].'</p>';
+	echo '<p>'.$Language->get('there are no posts').'</p>';
 }
 else
 {
-	// Show posts
+	// Print each post
 	foreach($posts as $post)
 	{
-		echo '<article class="post">';
-
-			include('includes/post_view.bit');
-
-		echo '</article>';
+		include('includes/post.bit');
 	}
 }
 

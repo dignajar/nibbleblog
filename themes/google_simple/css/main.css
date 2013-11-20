@@ -121,19 +121,19 @@ BLOG :: Pager
 	background: url('img/pager.png') repeat;
 }
 
-#pager	a.newer {
+#pager	a.next-page {
 	float: right;
 	background: #FFFFFF;
 	padding: 0 5px;
 }
 
-#pager	a.older {
+#pager	a.prev-page {
 	float: left;
 	background: #FFFFFF;
 	padding: 0 5px;
 }
 
-#pager	a.home {
+#pager	a.home-page {
 	background: #FFFFFF;
 	padding: 0 5px;
 }

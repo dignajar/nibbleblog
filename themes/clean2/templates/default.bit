@@ -1,27 +1,26 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="<?php echo Blog::language() ?>">
 <head>
 <?php
 	// Charset, title, description, keywords, robots, etc
-	Theme::meta_tags();
+	echo Blog::meta_tags();
 
 	// Include CSS from theme
-	Theme::css(array('normalize.css', 'main.css', 'post.css', 'plugins.css', 'rainbow.css'));
+	echo Blog::css(array('normalize.css', 'main.css', 'post.css', 'page.css', 'plugins.css', 'rainbow.css'));
 
 	// Include Jquery
-	Theme::javascript(JS_JQUERY,'');
+	echo Blog::jquery();
 
 	// Include Javascript from theme
-	Theme::javascript('rainbow-custom.min.js');
+	echo Blog::javascript('rainbow-custom.min.js');
 
 	// Include Favicon, default path: theme/css/img/favicon.ico
-	Theme::favicon();
+	echo Blog::favicon();
 
 	// Plugins for <head></head>
 	foreach($plugins as $plugin)
 	{
-		if($plugin->blog_head())
-			echo $plugin->blog_head();
+		echo $plugin->blog_head();
 	}
 ?>
 </head>
@@ -47,11 +46,11 @@
 
 		<!-- HEADER -->
 		<header id="head">
-			<a class="name" href="<?php Theme::url() ?>">
+			<a class="name" href="<?php echo Blog::url() ?>">
 			<?php
-				Theme::blog_name();
+				echo Blog::name();
 				echo ' :: ';
-				Theme::blog_slogan();
+				echo Blog::slogan();
 			?>
 			</a>
 		</header>
@@ -84,7 +83,7 @@
 
 		<!-- FOOTER -->
 		<footer id="foot">
-			<p><a href="<?php echo $layout['feed'] ?>">Atom</a> · <?php Theme::blog_footer() ?></p>
+			<p><a href="<?php echo $layout['feed'] ?>">Atom</a> · <?php echo Blog::footer() ?></p>
 		</footer>
 
 	</div>

@@ -1,0 +1,12 @@
+<article class="post">
+
+	<header class="post">
+		<h1 class="title"><a href="<?php echo Post::permalink() ?>"><?php echo Post::title() ?></a></h1>
+		<div class="date"><?php echo Post::published() ?></div>
+	</header>
+
+	<div class="post-content">
+		<?php echo Post::content(true) ?>
+	</div>
+
+</article>

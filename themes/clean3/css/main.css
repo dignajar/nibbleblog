@@ -1,0 +1,112 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic&subset=latin,cyrillic);
+
+/*
+========================================================================
+BLOG :: Body
+========================================================================
+*/
+
+body {
+	font-family: 'Open Sans',arial,sans-serif;
+	margin: 0;
+	padding: 20px;
+	font-size: 62.5%;
+	color: #555;
+}
+
+#container {
+    margin: 0 auto;
+    max-width: 980px;
+    min-width: 600px;
+    overflow: auto;
+}
+
+a {
+	color: #BC360A;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/*
+========================================================================
+BLOG :: Head
+========================================================================
+*/
+
+#head {
+	overflow: auto;
+	font-weight: lighter;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+#head	a.name {
+	color: #7D7B6D;
+	text-decoration: none;
+	font-size: 4.8em;
+}
+
+/*
+========================================================================
+BLOG :: Main
+========================================================================
+*/
+
+#main {
+    margin: 0 auto;
+    overflow: auto;
+	font-size: 1.32em;
+}
+
+/*
+========================================================================
+BLOG :: Footer
+========================================================================
+*/
+
+#foot {
+	text-align: right;
+	font-size: 1.1em;
+}
+
+/*
+========================================================================
+BLOG :: Page 404
+========================================================================
+*/
+
+div.page_404 {
+
+}
+
+/*
+========================================================================
+BLOG :: Pager
+========================================================================
+*/
+
+#pager {
+	overflow: auto;
+	text-align: center;
+}
+
+#pager	a.next-page {
+	float: right;
+	background: #FFFFFF;
+	padding: 0 5px;
+}
+
+#pager	a.prev-page {
+	float: left;
+	background: #FFFFFF;
+	padding: 0 5px;
+}
+
+#pager	a.home-page {
+	background: #FFFFFF;
+	padding: 0 5px;
+}

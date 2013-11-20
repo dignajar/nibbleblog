@@ -23,7 +23,7 @@ $page_not_found = false;
 // PAGES
 // =====================================================================
 $page = array();
-$pages = $Page->get_all();
+$pages = $_DB_PAGES->get_all();
 
 // Filter by page
 if( ($url['id_page']!==null) || ($url['page']!==null) )

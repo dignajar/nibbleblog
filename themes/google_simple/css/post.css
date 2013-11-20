@@ -91,7 +91,7 @@ article.post	h1 {
 	font-size: 1.8em;
 }
 
-article.post	.video_embed {
+article.post	.video-embed {
 	position: relative;
 	padding-bottom: 56.25%;
 	padding-top: 30px;
@@ -100,9 +100,9 @@ article.post	.video_embed {
 	margin: 13px 0;
 }
 
-article.post	.video_embed iframe,
-article.post	.video_embed object,
-article.post	.video_embed embed {
+article.post	.video-embed iframe,
+article.post	.video-embed object,
+article.post	.video-embed embed {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -140,13 +140,16 @@ POST :: Comments
 ========================================================================
 */
 
+#comments {
+	margin-top: -40px;
+}
+
 #comment_list {
 	margin-top: 30px;
 	width: 90%;
 }
 
 #comment_list	h2 {
-	font-style: italic;
 	font-weight: normal;
 	margin: 10px 0;
 }
@@ -189,15 +192,13 @@ POST :: Comments form
 }
 
 #comment_form	h2 {
-	font-style: italic;
 	font-weight: normal;
 	margin: 10px 0;
 }
 
 #comment_form	h3.alert {
-	color: #BE1C54;
-	font-style: italic;
-	margin: 0 0 15px;
+    color: #33AAFF;
+    margin: 0 0 15px;
 }
 
 #comment_form	input[type="text"],
@@ -217,18 +218,13 @@ POST :: Comments form
 	font-size: 0.9em;
 }
 
-#comment_form	input[type="text"].captcha {
-	width: 50%;
-	float: left;
-}
-
 #comment_form	input[type="submit"] {
 	display: block;
 	clear: left;
 	padding: 3px 8px;
 }
 
-/* For Facebook comments */
+/* For Facebook comments hack for responsive */
 .fb-comments, .fb-comments span, .fb-comments.fb_iframe_widget span iframe {
 	width: 100% !important;
 }

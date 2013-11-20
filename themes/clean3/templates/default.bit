@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html lang="<?php echo Blog::language() ?>">
+<head>
+<?php
+	// Charset, title, description, keywords, robots, etc
+	echo Blog::meta_tags();
+
+	// Include CSS from theme
+	echo Blog::css(array('normalize.css', 'main.css', 'post.css', 'page.css', 'plugins.css', 'rainbow.css'));
+
+	// Include Jquery
+	echo Blog::jquery();
+
+	// Include Javascript from theme
+	echo Blog::javascript('rainbow-custom.min.js');
+
+	// Include Favicon, default path: theme/css/img/favicon.ico
+	echo Blog::favicon();
+
+	// Plugins for <head></head>
+	foreach($plugins as $plugin)
+	{
+		echo $plugin->blog_head();
+	}
+?>
+</head>
+<body>
+
+<div id="container">
+
+	<!-- HEADER -->
+	<header id="head">
+		<a class="name" href="<?php echo Blog::url() ?>">
+		<?php
+			echo Blog::name();
+			echo !empty(Blog::slogan())?' :: '.Blog::slogan():false;
+		?>
+		</a>
+	</header>
+
+	<?php
+		if(isset($plugins_by_name['pages']))
+		{
+			echo '<div id="plugin_page">';
+				echo $plugins_by_name['pages']->blog_body();
+			echo '</div>';
+		}
+	?>
+
+	<!-- MAIN -->
+	<section id="main">
+	<?php
+		include(THEME_VIEWS . $layout['view']);
+	?>
+	</section>
+
+	<!-- FOOTER -->
+	<footer id="foot">
+		<p><a href="<?php echo $layout['feed'] ?>">Atom</a> · <?php echo Blog::footer() ?></p>
+	</footer>
+
+</div>
+
+</body>
+</html>

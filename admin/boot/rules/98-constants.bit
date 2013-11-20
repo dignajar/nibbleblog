@@ -21,7 +21,7 @@ define('NIBBLEBLOG_BUILD',			time());
 // =====================================================================
 //	DEBUG
 // =====================================================================
-define('DEBUG_MODE',	FALSE);
+define('DEBUG_MODE',	TRUE);
 
 error_reporting(0);
 

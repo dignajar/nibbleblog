@@ -1,0 +1,16 @@
+<?php
+
+if( !empty($theme['disqus_account']) )
+{
+	include('disqus_comments.bit');
+}
+elseif( !empty($theme['facebook_appId']) )
+{
+	include('facebook_comments.bit');
+}
+else
+{
+	include('nibbleblog_comments.bit');
+}
+
+?>

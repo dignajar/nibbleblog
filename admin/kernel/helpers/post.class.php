@@ -1,0 +1,157 @@
+<?php
+
+/*
+ * Nibbleblog -
+ * http://www.nibbleblog.com
+ * Author Diego Najar
+
+ * All Nibbleblog code is released under the GNU General Public License.
+ * See COPYRIGHT.txt and LICENSE.txt.
+*/
+
+class Post {
+
+	public static function title()
+	{
+		global $post;
+
+		return $post['title'];
+	}
+
+	public static function description()
+	{
+		global $post;
+
+		return $post['description'];
+	}
+
+	public static function comments()
+	{
+		global $post;
+
+		return $post['comments'];
+	}
+
+	public static function num_comments()
+	{
+		global $post;
+
+		return count($post['comments']);
+	}
+
+	public static function read_more()
+	{
+		global $post;
+
+		return $post['read_more'];
+	}
+
+	public static function allow_comments()
+	{
+		global $post;
+
+		return $post['allow_comments'];
+	}
+
+	public static function permalink($absolute=false)
+	{
+		global $post;
+
+		if($absolute)
+			return Url::post($post,true);
+
+		return $post['permalink'];
+	}
+
+	public static function tags($return2array=false)
+	{
+		global $post;
+
+		if($return2array)
+			return $post['tags'];
+
+		$html = '<ul>';
+		foreach($post['tags'] as $tag)
+			$html .= '<li><a class="tag" href="'.Url::tag($tag).'">'.$tag.'</a></li>';
+		$html .= '</ul>';
+
+		return $html;
+	}
+
+	public static function comment_count_link()
+	{
+		global $post;
+		global $theme;
+		global $Language;
+
+		if(!$post['allow_comments'])
+			return false;
+
+		if( !empty($theme['disqus_account']) )
+		{
+			$url = Url::post($post, true);
+			return '<a href="'.$url.'#disqus_thread"></a>';
+		}
+		elseif( !empty($theme['facebook_appId']) )
+		{
+			$url = Url::post($post, true);
+			return '<a href="'.$post['permalink'].'#comment_form">'.$Language->get('COMMENTS').' (<fb:comments-count href="'.$url.'"></fb:comments-count>)</a>';
+		}
+		else
+		{
+			return '<a href="'.$post['permalink'].'#comment_form">'.$Language->get('COMMENTS').' ('.count($post['comments']).')</a>';
+		}
+	}
+
+	public static function tweet_link()
+	{
+		global $post;
+
+		$url = Url::post($post, true);
+		return 'https://twitter.com/share?url='.urlencode($url);
+	}
+
+	public static function published($format=false)
+	{
+		global $post;
+		global $settings;
+
+		$format = $format===false?$settings['timestamp_format']:$format;
+
+		return Date::format($post['pub_date_unix'], $format);
+	}
+
+	public static function content($full=false)
+	{
+		global $post;
+		global $theme;
+
+		if($post['type']=='quote')
+		{
+			$html = '<blockquote>'.$post['quote'].'</blockquote>';
+		}
+		elseif($post['type']=='video')
+		{
+			$video_width = !isset($theme['video_width'])?640:$theme['video_width'];
+			$video_height = !isset($theme['video_height'])?320:$theme['video_height'];
+
+			$video_info = Video::video_get_info($post['video'], $video_width, $video_height);
+
+			$html  = '<div class="video-embed">';
+			$html .= $video_info['embed'];
+			$html .= '</div>';
+		}
+		else
+		{
+			if($full)
+				$html = $post['content'][0];
+			else
+				$html = $post['content'][1];
+		}
+
+		return $html;
+	}
+
+}
+
+?>

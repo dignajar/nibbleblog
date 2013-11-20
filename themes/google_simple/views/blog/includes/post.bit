@@ -1,0 +1,24 @@
+<article class="post">
+
+	<header class="post">
+		<h1 class="title"><a href="<?php echo Post::permalink() ?>"><?php echo Post::title() ?></a></h1>
+		<div class="date"><?php echo Post::published() ?></div>
+	</header>
+
+	<div class="post-content">
+		<?php echo Post::content() ?>
+	</div>
+
+	<footer class="post">
+
+		<span>
+			<a href="<?php echo Post::permalink() ?>"><?php echo Post::read_more()?$Language->get('read more'):$Language->get('permalink'); ?></a>
+		</span>
+
+		<span class="comment-count">
+			<?php echo Post::comment_count_link() ?>
+		</span>
+
+	</footer>
+
+</article>

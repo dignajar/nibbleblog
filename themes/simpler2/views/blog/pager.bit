@@ -1,0 +1,7 @@
+<section id="pager">
+	<?php echo Pager::next_link() ?>
+
+	<?php echo Pager::home_link() ?>
+
+	<?php echo Pager::prev_link() ?>
+</section>

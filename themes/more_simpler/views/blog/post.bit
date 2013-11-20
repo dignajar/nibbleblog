@@ -1,0 +1,27 @@
+<article class="post">
+
+	<header>
+		<h1 class="post-title">
+			<a href="<?php echo Post::permalink() ?>"><?php echo Post::title() ?></a>
+		</h1>
+		<h2 class="post-description">
+			<?php echo Post::description() ?>
+		</h2>
+	</header>
+
+	<footer>
+		<div class="post-tags">
+			<?php echo Post::tags() ?>
+		</div>
+		<span class="permalink">
+			<a href="<?php echo Post::permalink() ?>"><?php echo $Language->get('permalink') ?></a>
+		</span>
+		<span class="comment-count">
+			<?php echo Post::comment_count_link() ?>
+		</span>
+		<span class="share">
+			<a target="_blank" href="<?php echo Post::tweet_link() ?>">Tweet</a>
+		</span>
+	</footer>
+
+</article>

@@ -67,7 +67,12 @@ PUBLIC METHODS
 		return( $this->last_insert_id );
 	}
 
-	// Return the COMMENT ID
+	/*
+	 * Return the COMMENT ID
+	 *
+	 * $args = array('author_ip', 'author_email', 'author_name', 'content', 'id_post', 'type')
+	 *
+	 */
 	public function add($args)
 	{
 		global $Login;
@@ -88,7 +93,7 @@ PUBLIC METHODS
 
 		// Encrypt the user IP and Email
 		include(FILE_KEYS);
-		$user_ip = Crypt::encrypt(Net::get_user_ip(), $_KEYS[1]);
+		$user_ip = Crypt::encrypt($args['author_ip'], $_KEYS[1]);
 		$user_email = Crypt::encrypt($args['author_email'], $_KEYS[1]);
 
 		$new_obj->addChild('author_name',	$args['author_name']);

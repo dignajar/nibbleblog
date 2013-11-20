@@ -5,11 +5,9 @@ $theme = array
 	'name'=>'GoogleSimple',
 	'description'=>'Designed by Josh Peterson (www.noaesthetic.com)',
 	'author'=>'Diego Najar',
-	'version'=>'3.7',
+	'version'=>'3.8',
 	'last_update'=>'27/10/2013', // dd/mm/yyyy
 	'url'=>'http://www.nibbleblog.com', // http://xxxxxxxxxxxxx
-	'video_width'=>'640',
-	'video_height'=>'360',
 	'disqus_account'=>'',
 	'facebook_appId'=>''
 );

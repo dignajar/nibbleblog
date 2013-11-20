@@ -15,29 +15,26 @@ POST :: Head
 ========================================================================
 */
 
-article.post	header.post		div.date {
-    background: #33B0E0;
-    color: #FFFFFF;
-    display: inline-block;
-    font-size: 0.9em;
-    letter-spacing: 2px;
-    padding: 5px;
-    margin-bottom: 10px;
-}
-
-article.post	header.post		h1.title {
+article.post	header	h1.post-title {
 	font-size: 2em;
 	margin: 0;
 	color: #2986D2;
+	font-weight: normal;
 }
 
-article.post	header.post		h1.title	a {
+article.post	header	h1.post-title	a {
 	color: #2986D2;
 }
 
-article.post	header.post		h1.title	a:hover {
+article.post	header	h1.post-title	a:hover {
 	color: #CCC;
 	text-decoration: none;
+}
+
+article.post	header	div.post-published {
+    color: #666;
+    display: inline-block;
+    font-size: 0.9em;
 }
 
 /*
@@ -46,7 +43,7 @@ POST :: Content
 ========================================================================
 */
 
-article.post	.console {
+article.post	div.post-content	.console {
     background: url("img/console.png") no-repeat scroll 8px 8px #F1F1F1;
     display: block;
     line-height: 24px;
@@ -56,46 +53,46 @@ article.post	.console {
     white-space: nowrap;
 }
 
-article.post	img:not(.captcha) {
+article.post	div.post-content	img:not(.captcha) {
 	max-width:100%;
 }
 
-article.post	img.align_left {
+article.post	div.post-content	img.align_left {
 	margin: 5px 10px 5px 0px;
 	float: left;
 }
 
-article.post	img.align_right {
+article.post	div.post-content	img.align_right {
 	margin: 5px 0px 5px 10px;
 	float: right;
 }
 
-article.post 	blockquote {
+article.post	div.post-content	blockquote {
 	font-size: 1.1em;
 	font-style: italic;
 
 }
 
-article.post	h1,
-article.post	h2,
-article.post	h3,
-article.post	h4,
-article.post	h5 {
+article.post	div.post-content	h1,
+article.post	div.post-content	h2,
+article.post	div.post-content	h3,
+article.post	div.post-content	h4,
+article.post	div.post-content	h5 {
 	font-weight: normal;
 	color: #333333;
 	margin: 22px 0 13px 0;
 	padding: 0;
 }
 
-article.post	h1 {
+article.post	div.post-content	h1 {
 	font-size: 1.8em;
 }
 
-article.post	p {
+article.post	div.post-content	p {
 	line-height: 1.5em;
 }
 
-article.post	.video_embed {
+article.post	div.post-content	.video_embed {
 	position: relative;
 	padding-bottom: 56.25%;
 	padding-top: 30px;
@@ -104,9 +101,9 @@ article.post	.video_embed {
 	margin: 13px 0;
 }
 
-article.post	.video_embed iframe,
-article.post	.video_embed object,
-article.post	.video_embed embed {
+article.post	div.post-content	.video_embed iframe,
+article.post	div.post-content	.video_embed object,
+article.post	div.post-content	.video_embed embed {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -120,7 +117,7 @@ POST :: Footer
 ========================================================================
 */
 
-article.post	footer.post {
+article.post	footer {
 	border-bottom: 1px solid #F1F1F1;
 	border-top: 1px solid #F1F1F1;
 	clear: both;
@@ -129,20 +126,30 @@ article.post	footer.post {
 	padding: 10px 0;
 }
 
-article.post	footer.post		span {
+article.post	footer	span {
 	margin:0 3px;
 }
 
-article.post	footer.post		a {
+article.post	footer	a {
 	font-weight: normal;
 }
 
-article.post	footer.post		div.tags {
+article.post	footer	div.post-tags {
 	max-width: 60%;
 	float: right;
 }
 
-article.post	footer.post		a.tag {
+article.post	footer	div.post-tags	ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+article.post	footer	div.post-tags	li {
+	display: inline-block;
+}
+
+article.post	footer	div.post-tags	a.tag {
 	background: #33B0E0;
 	padding: 0 6px;
 	margin-right: 5px;
@@ -150,8 +157,7 @@ article.post	footer.post		a.tag {
 	color: #FFFFFF;
 }
 
-
-article.post	footer.post		a.tag:hover {
+article.post	footer	div.post-tags	a.tag:hover {
 	opacity: 0.8;
 	text-decoration: none;
 }

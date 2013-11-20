@@ -1,11 +1,12 @@
 <?php
 
-echo '<article class="post">';
+// Post template
+include('includes/post.bit');
 
-	include('includes/post_head.bit');
-	include('includes/post_body.bit');
-	include('includes/post_foot.bit');
-
-echo '</article>';
+// Comments list / Comments form
+if(Post::allow_comments())
+{
+	include('includes/comments.bit');
+}
 
 ?>

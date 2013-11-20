@@ -48,7 +48,10 @@ require(PATH_HELPERS . 'text.class.php');
 require(PATH_HELPERS . 'validation.class.php');
 require(PATH_HELPERS . 'video.class.php');
 require(PATH_HELPERS . 'language.class.php');
-require(PATH_HELPERS . 'theme.class.php');
+require(PATH_HELPERS . 'blog.class.php');
+require(PATH_HELPERS . 'post.class.php');
+require(PATH_HELPERS . 'page.class.php');
+require(PATH_HELPERS . 'pager.class.php');
 
 // Database
 require(PATH_DB . 'nbxml.class.php');
@@ -64,8 +67,6 @@ require(PATH_DB . 'db_users.class.php');
 // Api
 require(PATH_API . 'login.class.php');
 require(PATH_API . 'comment.class.php');
-require(PATH_API . 'post.class.php');
-require(PATH_API . 'page.class.php');
 
 // =====================================================================
 //	OBJECTS
@@ -92,9 +93,7 @@ if(defined('FILE_XML_POSTS') && defined('FILE_XML_CATEGORIES') && defined('FILE_
 	// Level 3
 	// API for humans
 	$Comment	= new Comment($_DB_COMMENTS, $_DB_NOTIFICATIONS, $_DB_SETTINGS->get());
-	$Post		= new Post($_DB_POST);
 	$Login		= new Login($session_started, $_DB_USERS);
-	$Page		= new Page($_DB_PAGES);
 }
 
 ?>

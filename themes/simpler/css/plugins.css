@@ -4,24 +4,24 @@ PLUGINS
 ========================================================================
 */
 
-div.plugin_box {
+div.plugin-box {
     margin-bottom: 20px;
     overflow: auto;
 }
 
-div.plugin_box ul {
+div.plugin-box ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-div.plugin_box	li {
+div.plugin-box	li {
 	display: block;
 	word-wrap: break-word;
 	padding: 2px 0;
 }
 
-div.plugin_box	h3.title {
+div.plugin-box	h3.plugin-title {
 	border-bottom: 1px solid #F1F1F1;
 	border-top: 1px solid #F1F1F1;
 	color: #333333;
