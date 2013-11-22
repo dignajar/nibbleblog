@@ -1,0 +1,45 @@
+<section id="comments">
+
+	<div id="comment_list">
+
+		<h2><?php echo Post::num_comments()>0?$Language->get('Comments'):$Language->get('There are no published comments') ?></h2>
+
+		<?php
+			$comments = Post::comments();
+
+			foreach($comments as $comment)
+			{
+				echo '<div class="comment">';
+					echo '<img class="avatar" src="'.Image::get_gravatar($comment['author_email'],64).'">';
+					echo '<span class="author_name">'.$comment['author_name'].'</span>';
+					echo '<span class="date">'.$comment['pub_date'].'</span>';
+					echo '<span class="content">'.$comment['content'].'</span>';
+				echo '</div>';
+			}
+		?>
+
+	</div>
+
+	<div id="comment_form">
+
+		<h2><?php echo$Language->get('New comment') ?></h2>
+
+		<h3 class="alert"><?php echo Session::get_error()?Session::get_alert():false ?></h3>
+
+		<form method="post" name="form" action="#comment_form">
+
+			<input type="hidden" name="hash" value="<?php echo $Comment->form('hash') ?>">
+
+			<input type="text" name="author_name" value="<?php echo $Comment->form('author_name') ?>" placeholder="<?php echo $Language->get('Name') ?>">
+
+			<input type="text" name="author_email" value="<?php echo $Comment->form('author_email') ?>" placeholder="<?php echo $Language->get('Email') ?>">
+
+			<textarea name="content" placeholder="<?php echo $Language->get('Type the comment here') ?>"><?php echo $Comment->form('content') ?></textarea>
+
+			<input type="submit" value="<?php echo $Language->get('Publish') ?>">
+
+		</form>
+
+	</div>
+
+</section>

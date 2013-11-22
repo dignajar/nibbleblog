@@ -28,8 +28,11 @@ class Post {
 	public static function comments()
 	{
 		global $post;
+		global $_DB_COMMENTS;
 
-		return $post['comments'];
+		$comments = $_DB_COMMENTS->get_list_by_post( array('id_post'=>$post['id']) );
+
+		return $comments;
 	}
 
 	public static function num_comments()
@@ -37,6 +40,22 @@ class Post {
 		global $post;
 
 		return count($post['comments']);
+	}
+
+	public static function category($field=false)
+	{
+		global $post;
+		global $_DB_CATEGORIES;
+
+		$category = $_DB_CATEGORIES->get( array('id'=>$post['id_cat']) );
+
+		if($field=='id')
+			return $category['id'];
+
+		if($field=='slug')
+			return $category['slug'];
+
+		return $category['name'];
 	}
 
 	public static function read_more()
@@ -57,21 +76,21 @@ class Post {
 	{
 		global $post;
 
-		if($absolute)
-			return Url::post($post,true);
-
-		return $post['permalink'];
+		return Url::post($post,$absolute);
 	}
 
 	public static function tags($return2array=false)
 	{
 		global $post;
+		global $_DB_TAGS;
+
+		$tags = $_DB_TAGS->get_by_idpost( array('id_post'=>$post['id']) );
 
 		if($return2array)
-			return $post['tags'];
+			return $tags;
 
 		$html = '<ul>';
-		foreach($post['tags'] as $tag)
+		foreach($tags as $tag)
 			$html .= '<li><a class="tag" href="'.Url::tag($tag).'">'.$tag.'</a></li>';
 		$html .= '</ul>';
 
@@ -119,6 +138,16 @@ class Post {
 		$format = $format===false?$settings['timestamp_format']:$format;
 
 		return Date::format($post['pub_date_unix'], $format);
+	}
+
+	public static function modified($format=false)
+	{
+		global $post;
+		global $settings;
+
+		$format = $format===false?$settings['timestamp_format']:$format;
+
+		return Date::format($post['mod_date_unix'], $format);
 	}
 
 	public static function content($full=false)

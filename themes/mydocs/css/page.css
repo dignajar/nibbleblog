@@ -1,0 +1,102 @@
+/*
+========================================================================
+PAGE
+========================================================================
+*/
+
+article.page {
+	margin-bottom: 60px;
+	overflow: hidden;
+}
+
+/*
+========================================================================
+PAGE :: Head
+========================================================================
+*/
+
+article.page	header {
+    padding: 0;
+    margin: 0;
+}
+
+article.page	header	h1.page-title {
+	font-size: 2em;
+	margin: 0;
+	color: #2986D2;
+	font-weight: normal;
+}
+
+/*
+========================================================================
+PAGE :: Content
+========================================================================
+*/
+
+article.page	div.page-content	.console {
+    background: url("img/console.png") no-repeat scroll 8px 8px #F1F1F1;
+    display: block;
+    line-height: 24px;
+    margin: 5px 0;
+    overflow: auto;
+    padding-left: 38px;
+    white-space: nowrap;
+}
+
+article.page	div.page-content	img:not(.captcha) {
+	max-width:100%;
+}
+
+article.page	div.page-content	img.align_left {
+	margin: 5px 10px 5px 0px;
+	float: left;
+}
+
+article.page	div.page-content	img.align_right {
+	margin: 5px 0px 5px 10px;
+	float: right;
+}
+
+article.page	div.page-content	blockquote {
+	font-size: 1.1em;
+	font-style: italic;
+
+}
+
+article.page	div.page-content	h1,
+article.page	div.page-content	h2,
+article.page	div.page-content	h3,
+article.page	div.page-content	h4,
+article.page	div.page-content	h5 {
+	font-weight: normal;
+	color: #333333;
+	margin: 22px 0 13px 0;
+	padding: 0;
+}
+
+article.page	div.page-content	h1 {
+	font-size: 1.8em;
+}
+
+article.page	div.page-content	p {
+	line-height: 1.5em;
+}
+
+article.page	div.page-content	.video_embed {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+	margin: 13px 0;
+}
+
+article.page	div.page-content	.video_embed iframe,
+article.page	div.page-content	.video_embed object,
+article.page	div.page-content	.video_embed embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}

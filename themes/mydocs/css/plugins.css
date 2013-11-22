@@ -1,0 +1,77 @@
+/*
+========================================================================
+PLUGINS
+========================================================================
+*/
+
+div.plugin-box {
+    margin-bottom: 20px;
+    overflow: auto;
+}
+
+div.plugin-box ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+div.plugin-box	li {
+	display: block;
+	word-wrap: break-word;
+	padding: 2px 0;
+}
+
+div.plugin-box	h3.plugin-title {
+	border-bottom: 1px solid #F1F1F1;
+	border-top: 1px solid #F1F1F1;
+	color: #333333;
+	font-weight: normal;
+	padding: 4px 0;
+	text-transform: uppercase;
+	margin: 0 0 10px 0;
+}
+
+/*
+========================================================================
+PLUGINS :: Last posts
+========================================================================
+*/
+
+div.plugin_last_posts {
+
+}
+
+div.plugin_last_posts	li {
+	border-bottom: 1px solid #F1F1F1;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+
+/*
+========================================================================
+PLUGINS :: About
+========================================================================
+*/
+
+div.plugin_about {
+
+}
+
+div.plugin_about	li.name {
+	font-weight: bold;
+	font-size: 0.9em;
+}
+
+div.plugin_about	li.about {
+	font-size: 0.9em;
+}
+
+div.plugin_about	li.image {
+	float: left;
+	overflow: auto;
+	width:70px;
+}
+
+div.plugin_about	img.plugin_about {
+    max-width:64px;
+}

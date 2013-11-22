@@ -52,6 +52,7 @@ require(PATH_HELPERS . 'blog.class.php');
 require(PATH_HELPERS . 'post.class.php');
 require(PATH_HELPERS . 'page.class.php');
 require(PATH_HELPERS . 'pager.class.php');
+require(PATH_HELPERS . 'category.class.php');
 
 // Database
 require(PATH_DB . 'nbxml.class.php');

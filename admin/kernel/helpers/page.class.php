@@ -18,11 +18,11 @@ class Page {
 		return $page['title'];
 	}
 
-	public static function permalink()
+	public static function permalink($absolute=false)
 	{
 		global $page;
 
-		return $page['permalink'];
+		return Url::post($page,$absolute);
 	}
 
 	public static function published($format=false)
@@ -33,6 +33,16 @@ class Page {
 		$format = $format===false?$settings['timestamp_format']:$format;
 
 		return Date::format($page['pub_date_unix'], $format);
+	}
+
+	public static function modified($format=false)
+	{
+		global $page;
+		global $settings;
+
+		$format = $format===false?$settings['timestamp_format']:$format;
+
+		return Date::format($page['mod_date_unix'], $format);
 	}
 
 	public static function content()

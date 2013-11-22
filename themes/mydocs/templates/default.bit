@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang="<?php echo Blog::language() ?>">
+<head>
+<?php
+	// Charset, title, description, keywords, robots, etc
+	echo Blog::meta_tags();
+
+	// Include CSS from theme
+	echo Blog::css(array('normalize.css', 'main.css', 'post.css', 'page.css', 'plugins.css', 'rainbow.css'));
+
+	// Include Jquery
+	echo Blog::jquery();
+
+	// Include Javascript from theme
+	echo Blog::javascript('rainbow-custom.min.js');
+
+	// Include Favicon, default path: theme/css/img/favicon.ico
+	echo Blog::favicon();
+
+	// Plugins for <head></head>
+	foreach($plugins as $plugin)
+	{
+		echo $plugin->blog_head();
+	}
+?>
+</head>
+<body>
+
+<div id="container">
+
+	<!-- HEADER -->
+	<header id="blog-head">
+		<a href="<?php echo Blog::url() ?>">
+			<span class="blog-name"><?php echo Blog::name() ?></span>
+			<span class="blog-slogan"><?php echo Blog::slogan() ?></span>
+		</a>
+		<div class="links">
+			<a href="<?php echo HTML_PATH_ROOT ?>">Home</a>
+			<a href="http://demo.nibbleblog.com">Demo</a>
+			<a href="http://forum.nibbleblog.com">Forum</a>
+		</div>
+	</header>
+
+	<!-- MAIN -->
+	<section id="main">
+
+		<section id="sidebar">
+			<?php
+				$post_tmp = $post;
+				foreach($categories as $category)
+				{
+					echo '<h2 class="category-name">'.Category::name().'</h2>';
+
+					$posts_by_category = $_DB_POST->get_list_by_category(array('id_cat'=>Category::id(), 'page'=>0, 'amount'=>20));
+
+					echo '<ul>';
+
+					foreach($posts_by_category as $post)
+					{
+						echo '<li><a class="post-title" href="'.Post::permalink().'">'.Post::title().'</a></li>';
+					}
+
+					echo '</ul>';
+				}
+				$post = $post_tmp;
+			?>
+		</section>
+
+		<!-- VIEW -->
+		<section id="left">
+			<?php include(THEME_VIEWS.$layout['view']); ?>
+		</section>
+
+	</section>
+
+	<!-- FOOTER -->
+	<footer id="blog-foot">
+		<span class="blog-atom"><a href="<?php echo $layout['feed'] ?>">Atom</a></span>
+		<span class="blog-footer"> · <?php echo Blog::footer() ?></span>
+	</footer>
+
+</div>
+
+</body>
+</html>

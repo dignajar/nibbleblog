@@ -1,0 +1,191 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic&subset=latin,cyrillic);
+
+/*
+========================================================================
+BLOG :: Body
+========================================================================
+*/
+
+body {
+	font-family: 'Open Sans',arial,sans-serif;
+	margin: 0;
+	padding: 20px;
+	font-size: 62.5%;
+	color: #555;
+}
+
+#container {
+    margin: 0 auto;
+    max-width: 980px;
+    min-width: 600px;
+    overflow: auto;
+    padding: 20px;
+}
+
+a {
+	color: #006AC8;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+h1.latest {
+    font-size: 2.2em;
+    font-weight: lighter;
+    margin: 0 0 20px;
+}
+
+/*
+========================================================================
+BLOG :: Head
+========================================================================
+*/
+
+#blog-head {
+	overflow: auto;
+	margin: 10px 0 30px 0;
+	padding-bottom: 20px;
+}
+
+#blog-head	a {
+	color: #333;
+	text-decoration: none;
+
+}
+
+#blog-head	span.blog-name {
+	color: #777777;
+	font-size: 3.6em;
+	font-weight: lighter;
+}
+
+#blog-head	span.blog-slogan {
+	color: #777777;
+	font-size: 3.6em;
+	font-weight: lighter;
+}
+
+#blog-head	div.links {
+	font-size: 1.4em;
+	margin-top: 10px;
+}
+
+#blog-head	div.links	a {
+	margin-right: 20px;
+}
+
+#blog-head	div.links	a:hover {
+	color: #ccc;
+}
+
+/*
+========================================================================
+BLOG :: Main
+========================================================================
+*/
+
+#main {
+    margin: 0 auto;
+    overflow: auto;
+	font-size: 1.32em;
+}
+
+#left {
+    margin-right: 280px;
+}
+
+#sidebar {
+	float: right;
+	width: 230px;
+	margin-right: 10px;
+}
+
+/*
+========================================================================
+BLOG :: Footer
+========================================================================
+*/
+
+#blog-foot {
+	text-align: right;
+	font-size: 1.1em;
+}
+
+
+
+/*
+========================================================================
+BLOG :: Page 404
+========================================================================
+*/
+
+div.page_404 {
+
+}
+
+/*
+========================================================================
+BLOG :: Categories
+========================================================================
+*/
+
+#sidebar	h2.category-name {
+	font-weight: normal;
+	font-size: 1.4em;
+}
+
+#sidebar	ul {
+	border-top: 1px solid #EDEFF2;
+	margin: 0;
+	padding: 0;
+}
+
+
+#sidebar	li {
+	display: block;
+	border-bottom: 1px solid #EDEFF2;
+	display: block;
+	font-size: 13px;
+	line-height: 18px;
+	padding: 8px 15px;
+}
+
+#sidebar	li:hover {
+	background-color: #EDEFF2;
+}
+
+#sidebar	a.post-title {
+	color: #7A818D;
+	text-decoration: none;
+}
+
+/*
+========================================================================
+BLOG :: Pager
+========================================================================
+*/
+
+#pager {
+	overflow: auto;
+	text-align: center;
+}
+
+#pager	a.next-page {
+	float: right;
+	background: #FFFFFF;
+	padding: 0 5px;
+}
+
+#pager	a.prev-page {
+	float: left;
+	background: #FFFFFF;
+	padding: 0 5px;
+}
+
+#pager	a.home-page {
+	background: #FFFFFF;
+	padding: 0 5px;
+}

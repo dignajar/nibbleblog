@@ -7,7 +7,7 @@ if( !empty($theme['disqus_account']) )
 }
 elseif( !empty($theme['facebook_appId']) )
 {
-	include('includes/facebook_comments.bit');
+	include('facebook_comments.bit');
 }
 
 // There are no posts
@@ -17,6 +17,8 @@ if(empty($posts))
 }
 else
 {
+	echo '<h1 class="latest">Latest docs</h1>';
+
 	// Print each post
 	foreach($posts as $post)
 	{

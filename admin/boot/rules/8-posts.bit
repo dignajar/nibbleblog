@@ -49,10 +49,12 @@ if(!empty($page))
 // ---- PUBLISH DATE
 foreach($pages as $key=>$value)
 {
+	// DEPRECATED -> Moved to post helper
 	// Publish date
 	$pages[$key]['pub_date'] = Date::format($pages[$key]['pub_date_unix'], $settings['timestamp_format']);
 	$pages[$key]['mod_date'] = Date::format($pages[$key]['mod_date_unix'], $settings['timestamp_format']);
 
+	// DEPRECATED -> Moved to post helper
 	// Permalink
 	$pages[$key]['permalink'] = Url::page($pages[$key]);
 }
@@ -130,6 +132,7 @@ else
 	$posts = $_DB_POST->get_list_by_page( array('page'=>$url['number'], 'amount'=>$settings['items_page']) );
 }
 
+
 // ---- COMMENTS
 // ---- PERMALINKS
 // ---- CATEGORY
@@ -137,20 +140,25 @@ else
 // ---- TAGS
 foreach($posts as $key=>$value)
 {
+	// DEPRECATED -> Moved to post helper
 	// Tags
 	$posts[$key]['tags'] = $_DB_TAGS->get_by_idpost( array('id_post'=>$value['id']) );
 
+	// DEPRECATED -> Moved to post helper
 	// Comments
 	$posts[$key]['comments'] = $_DB_COMMENTS->get_list_by_post( array('id_post'=>$value['id']) );
 
+	// DEPRECATED -> Moved to post helper
 	// Category
 	$category = $_DB_CATEGORIES->get( array('id'=>$posts[$key]['id_cat']) );
 	$posts[$key]['category'] = $category['name'];
 
+	// DEPRECATED -> Moved to post helper
 	// Publish date
 	$posts[$key]['pub_date'] = Date::format($posts[$key]['pub_date_unix'], $settings['timestamp_format']);
 	$posts[$key]['mod_date'] = Date::format($posts[$key]['mod_date_unix'], $settings['timestamp_format']);
 
+	// DEPRECATED -> Moved to post helper
 	// Permalink
 	$posts[$key]['permalink'] = Url::post($posts[$key]);
 }

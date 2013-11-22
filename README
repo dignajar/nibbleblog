@@ -30,3 +30,11 @@ Documentation: http://docs.nibbleblog.com
 Name: Diego Najar
 E-mail: dignajar@gmail.com
 Linkedin: http://www.linkedin.com/in/dignajar
+
+===== Changelog Nibbleblog Nightly Builds =====
+* CSS -> class img.align_left renamed to .nb-align-left
+* CSS -> class img.align_right renamed to .nb-align-right
+* CSS -> class pre.console renamed to .nb-console
+* New Helpers for developers
+* Changes on themes with this news Helpers
+*

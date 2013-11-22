@@ -144,8 +144,11 @@ class DB_CATEGORIES {
 				$row['name']	= (string) utf8_decode($children->attributes()->name);
 				$row['slug']	= (string) utf8_decode($children->attributes()->slug);
 
-				array_push($tmp_array, $row);
+				$tmp_array[$row['slug']] = $row;
 			}
+
+			// Alphabetical order
+			ksort($tmp_array);
 
 			return $tmp_array;
 		}

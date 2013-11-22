@@ -80,7 +80,7 @@ $(document).ready(function() {
 			{title : 'Heading 2', block : 'h2'},
 			{title : 'Heading 3', block : 'h3'},
 			{title : 'Preformatted', block : 'pre'},
-			{title : 'Console', block : 'pre', classes: 'console'}
+			{title : 'Console', block : 'pre', classes: 'nb-console'}
 		],
 		<?php if(file_exists(PATH_ADMIN_JS.'tinymce/langs/'.$settings['locale'].'.js')) echo 'language : "'.$settings['locale'].'",' ?>
 		statusbar: false,
@@ -92,8 +92,8 @@ $(document).ready(function() {
 		relative_urls: false,
 		entity_encoding : "raw",
 		formats:{
-			alignleft:{selector:'img', attributes:{class:"align_left", style:"float: left;"} },
-			alignright:{selector:'img', attributes:{class:"align_right", style:"float: right;"} }
+			alignleft:{selector:'img', attributes:{class:"nb-align-left"} },
+			alignright:{selector:'img', attributes:{class:"nb-align-right"} }
 		}
 
 	});
