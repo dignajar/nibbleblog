@@ -41,11 +41,7 @@ class DB_POSTS {
 				$this->files_count = 0;
 
 				$this->xml = new NBXML($this->file, 0, TRUE, '', FALSE);
-
-				return true;
 			}
-
-			return false;
 		}
 
 /*

@@ -685,3 +685,36 @@ form.plugins		div.tip {
     margin-bottom: 15px;
     margin-top: -13px;
 }
+
+/*====================================================================*/
+/* THEMES
+/*====================================================================*/
+div.theme {
+    border-bottom: 1px solid #CCCCCC;
+    clear: both;
+    margin-bottom: 30px;
+    overflow: auto;
+    padding-bottom: 30px;
+}
+
+div.theme-img {
+	float: left;
+}
+
+div.theme-img	img {
+	width: 260px;
+}
+
+div.theme-data {
+	margin-left: 280px;
+}
+
+div.theme-data	h2.name {
+	font-size: 2em;
+	font-weight: normal;
+	margin: 0;
+}
+
+div.theme-data	p.description {
+	font-size: 1.3em;
+}

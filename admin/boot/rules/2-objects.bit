@@ -73,28 +73,24 @@ require(PATH_API . 'comment.class.php');
 //	OBJECTS
 // =====================================================================
 // Helpers
-$Resize = new Resize();
-$Language = new Language();
+$Resize				= new Resize();
+$Language			= new Language();
 
-// DB
-if(defined('FILE_XML_POSTS') && defined('FILE_XML_CATEGORIES') && defined('FILE_XML_CONFIG') && defined('FILE_XML_NOTIFICATIONS'))
-{
-	// Level 1
-	$_DB_SETTINGS		= new DB_SETTINGS( FILE_XML_CONFIG );
-	$_DB_CATEGORIES		= new DB_CATEGORIES( FILE_XML_CATEGORIES );
-	$_DB_POST			= new DB_POSTS( FILE_XML_POSTS );
-	$_DB_PAGES			= new DB_PAGES( FILE_XML_PAGES );
-	$_DB_USERS			= new DB_USERS( FILE_XML_USERS );
-	$_DB_TAGS			= new DB_TAGS( FILE_XML_TAGS );
+// Level 1
+$_DB_SETTINGS		= new DB_SETTINGS( FILE_XML_CONFIG ); 				if(!isset($_DB_SETTINGS->xml))exit('Nibbleblog security error - $_DB_SETTINGS load fail');
+$_DB_CATEGORIES		= new DB_CATEGORIES( FILE_XML_CATEGORIES );			if(!isset($_DB_CATEGORIES->xml))exit('Nibbleblog security error - $_DB_CATEGORIES load fail');
+$_DB_POST			= new DB_POSTS( FILE_XML_POSTS );					if(!isset($_DB_POST->xml))exit('Nibbleblog security error - $_DB_POST load fail');
+$_DB_PAGES			= new DB_PAGES( FILE_XML_PAGES );					if(!isset($_DB_PAGES->xml))exit('Nibbleblog security error - $_DB_PAGES load fail');
+$_DB_USERS			= new DB_USERS( FILE_XML_USERS );					if(!isset($_DB_USERS->xml))exit('Nibbleblog security error - $_DB_USERS load fail');
+$_DB_TAGS			= new DB_TAGS( FILE_XML_TAGS );						if(!isset($_DB_TAGS->xml))exit('Nibbleblog security error - $_DB_TAGS load fail');
 
-	// Level 2
-	$_DB_COMMENTS		= new DB_COMMENTS( FILE_XML_COMMENTS, $_DB_SETTINGS->get() );
-	$_DB_NOTIFICATIONS 	= new DB_NOTIFICATIONS( FILE_XML_NOTIFICATIONS, $_DB_SETTINGS->get() );
+// Level 2
+$_DB_COMMENTS		= new DB_COMMENTS( FILE_XML_COMMENTS, $_DB_SETTINGS->get() );			if(!isset($_DB_COMMENTS->xml))exit('Nibbleblog security error - $_DB_COMMENTS load fail');
+$_DB_NOTIFICATIONS 	= new DB_NOTIFICATIONS( FILE_XML_NOTIFICATIONS, $_DB_SETTINGS->get() );	if(!isset($_DB_NOTIFICATIONS->xml))exit('Nibbleblog security error - $_DB_NOTIFICATIONS load fail');
 
-	// Level 3
-	// API for humans
-	$Comment	= new Comment($_DB_COMMENTS, $_DB_NOTIFICATIONS, $_DB_SETTINGS->get());
-	$Login		= new Login($session_started, $_DB_USERS);
-}
+// Level 3
+// API for humans
+$Comment			= new Comment($_DB_COMMENTS, $_DB_NOTIFICATIONS, $_DB_SETTINGS->get());
+$Login				= new Login($session_started, $_DB_USERS);
 
 ?>

@@ -31,11 +31,7 @@ CONSTRUCTORS
 			$this->file = $file;
 
 			$this->xml = new NBXML($this->file, 0, TRUE, '', FALSE);
-
-			return true;
 		}
-
-		return false;
 	}
 
 /*
@@ -147,7 +143,7 @@ PUBLIC METHODS
 
 		$files = Filesystem::ls(PATH_THEMES, '*', 'bit', true, false, false);
 
-		return($files);
+		return $files;
 	}
 
 /*

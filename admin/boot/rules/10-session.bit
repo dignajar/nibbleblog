@@ -15,7 +15,4 @@ if( !isset($_SESSION['nibbleblog']) )
 	Session::init();
 }
 
-if($_DB_USERS->bruteforce())
-	exit('Nibbleblog security error - Brute force protection');
-
 ?>

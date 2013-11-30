@@ -34,11 +34,7 @@ class DB_NOTIFICATIONS {
 			$this->settings = $settings;
 
 			$this->xml = new NBXML($this->file, 0, TRUE, '', FALSE);
-
-			return true;
 		}
-
-		return false;
 	}
 
 /*

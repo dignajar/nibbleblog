@@ -13,170 +13,163 @@ class DB_CATEGORIES {
 
 /*
 ======================================================================================
-	VARIABLES
+VARIABLES
 ======================================================================================
 */
-		public $file;	// File db
-		public $xml;	// Simplexml Obj
+	public $file;	// File db
+	public $xml;	// Simplexml Obj
 
 /*
 ======================================================================================
-	CONSTRUCTORS
+CONSTRUCTORS
 ======================================================================================
 */
-		function DB_CATEGORIES($file)
+	function DB_CATEGORIES($file)
+	{
+		if(file_exists($file))
 		{
-			if(file_exists($file))
-			{
-				$this->file = $file;
+			$this->file = $file;
 
-				$this->xml = new NBXML($this->file, 0, TRUE, '', FALSE);
-
-				return true;
-			}
-
-			return false;
+			$this->xml = new NBXML($this->file, 0, TRUE, '', FALSE);
 		}
+	}
 
 /*
 ======================================================================================
-	PUBLIC METHODS
+PUBLIC METHODS
 ======================================================================================
 */
-		public function savetofile()
+	public function savetofile()
+	{
+		return $this->xml->asXML($this->file);
+	}
+
+	public function add($args)
+	{
+		$tmp_node = $this->xml->xpath('/categories/category[@name="'.utf8_encode($args['name']).'"]');
+
+		if( $tmp_node == array() )
 		{
-			return $this->xml->asXML($this->file);
-		}
-
-		public function add($args)
-		{
-			$tmp_node = $this->xml->xpath('/categories/category[@name="'.utf8_encode($args['name']).'"]');
-
-			if( $tmp_node == array() )
-			{
-				$new_node = $this->xml->addChild('category','');
-				$new_node->addAttribute('id', $this->get_autoinc());
-				$new_node->addAttribute('name', $args['name'] );
-				$new_node->addAttribute('slug', $args['slug'] );
-				$this->set_autoinc(1);
-
-				return $this->savetofile();
-			}
-
-			return false;
-		}
-
-		public function set($args)
-		{
-			$tmp_node = $this->xml->xpath('/categories/category[@id="'.$args['id'].'"]');
-
-			// Category not found
-			if( $tmp_node == array() )
-				return false;
-
-			$tmp_node[0]->attributes()->name = utf8_encode($args['name']);
-			$tmp_node[0]->attributes()->slug = utf8_encode($args['slug']);
+			$new_node = $this->xml->addChild('category','');
+			$new_node->addAttribute('id', $this->get_autoinc());
+			$new_node->addAttribute('name', $args['name'] );
+			$new_node->addAttribute('slug', $args['slug'] );
+			$this->set_autoinc(1);
 
 			return $this->savetofile();
 		}
 
-		public function delete($args)
+		return false;
+	}
+
+	public function set($args)
+	{
+		$node = $this->xml->xpath('/categories/category[@id="'.$args['id'].'"]');
+
+		// Category not found
+		if( $node == array() )
+			return false;
+
+		$node[0]->attributes()->name = utf8_encode($args['name']);
+		$node[0]->attributes()->slug = utf8_encode($args['slug']);
+
+		return $this->savetofile();
+	}
+
+	public function delete($args)
+	{
+		$tmp_node = $this->xml->xpath('/categories/category[@id="'.$args['id'].'"]');
+
+		// Category not found
+		if( $tmp_node == array() )
+			return false;
+
+		// Need at least 1 category
+		if( $this->get_count() == 1 )
+			return false;
+
+		// Check if the category have some post assoc
+		if( $this->get_post_count($args['id']) > 0)
+			return false;
+
+		$dom = dom_import_simplexml($tmp_node[0]);
+		$dom->parentNode->removeChild($dom);
+
+		return $this->savetofile();
+	}
+
+	public function get($args)
+	{
+		$node = $this->xml->xpath('/categories/category[@id="'.$args['id'].'"]');
+
+		// Category not found
+		if( $node == array() )
+			return false;
+
+		return $this->get_items($node[0]);
+	}
+
+	public function get_by_slug($args)
+	{
+		$node = $this->xml->xpath('/categories/category[@slug="'.utf8_encode($args['slug']).'"]');
+
+		// Category not found
+		if( $node == array() )
+			return false;
+
+		return $this->get_items($node[0]);
+	}
+
+	public function get_all()
+	{
+		$tmp_array = array();
+		foreach( $this->xml->children() as $children )
 		{
-			$tmp_node = $this->xml->xpath('/categories/category[@id="'.$args['id'].'"]');
+			$row = $this->get_items($children);
 
-			// Category not found
-			if( $tmp_node == array() )
-				return false;
-
-			// Need at least 1 category
-			if( $this->get_count() == 1 )
-				return false;
-
-			// Check if the category have some post assoc
-			if( $this->get_post_count($args['id']) > 0)
-				return false;
-
-			$dom = dom_import_simplexml($tmp_node[0]);
-			$dom->parentNode->removeChild($dom);
-
-			return $this->savetofile();
+			$tmp_array[$row['slug']] = $row;
 		}
 
-		public function get($args)
-		{
-			$tmp_node = $this->xml->xpath('/categories/category[@id="'.$args['id'].'"]');
+		// Alphabetical order
+		ksort($tmp_array);
 
-			// Category not found
-			if( $tmp_node == array() )
-				return false;
+		return $tmp_array;
+	}
 
-			$tmp_array			= array();
-			$tmp_array['id']	= (int) $tmp_node[0]->attributes()->id;
-			$tmp_array['name']	= (string) utf8_decode($tmp_node[0]->attributes()->name);
-			$tmp_array['slug']	= (string) utf8_decode($tmp_node[0]->attributes()->slug);
+	public function get_count()
+	{
+		return count($this->xml);
+	}
 
-			return $tmp_array;
-		}
-
-		public function get_by_slug($args)
-		{
-			$tmp_node = $this->xml->xpath('/categories/category[@slug="'.utf8_encode($args['slug']).'"]');
-
-			// Category not found
-			if( $tmp_node == array() )
-				return false;
-
-			$tmp_array			= array();
-			$tmp_array['id']	= (int) $tmp_node[0]->attributes()->id;
-			$tmp_array['name']	= (string) $tmp_node[0]->attributes()->name;
-			$tmp_array['slug']	= (string) $tmp_node[0]->attributes()->slug;
-
-			return $tmp_array;
-		}
-
-		public function get_all()
-		{
-			$tmp_array = array();
-			foreach( $this->xml->children() as $children )
-			{
-				$row			= array();
-				$row['id']		= (int) $children->attributes()->id;
-				$row['name']	= (string) utf8_decode($children->attributes()->name);
-				$row['slug']	= (string) utf8_decode($children->attributes()->slug);
-
-				$tmp_array[$row['slug']] = $row;
-			}
-
-			// Alphabetical order
-			ksort($tmp_array);
-
-			return $tmp_array;
-		}
-
-		public function get_count()
-		{
-			return count($this->xml);
-		}
-
-		public function get_post_count($id)
-		{
-			return count(Filesystem::ls(PATH_POSTS, '*.*.'.$id.'.*.*.*.*.*.*.*.*', 'xml', false, false, false));
-		}
+	public function get_post_count($id)
+	{
+		return count(Filesystem::ls(PATH_POSTS, '*.*.'.$id.'.*.*.*.*.*.*.*.*', 'xml', false, false, false));
+	}
 
 /*
 ======================================================================================
-	PRIVATE METHODS
+PRIVATE METHODS
 ======================================================================================
 */
-		private function get_autoinc()
-		{
-			return (int)$this->xml['autoinc'];
-		}
+	private function get_autoinc()
+	{
+		return (int)$this->xml['autoinc'];
+	}
 
-		private function set_autoinc($value = 0)
-		{
-			$this->xml['autoinc'] = $value + $this->get_autoinc();
-		}
+	private function set_autoinc($value = 0)
+	{
+		$this->xml['autoinc'] = $value + $this->get_autoinc();
+	}
+
+	private function get_items($node)
+	{
+		$tmp_array			= array();
+		$tmp_array['id']	= (int) $node->getAttribute('id');
+		$tmp_array['name']	= $node->getAttribute('name');
+		$tmp_array['slug']	= $node->getAttribute('slug');
+
+		return $tmp_array;
+	}
 
 } // END Class
 

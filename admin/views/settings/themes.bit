@@ -1,26 +1,17 @@
 <?php
 
-	echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') );
+foreach($theme_list as $theme)
+{
+	echo '<div class="theme">';
+		echo '<div class="theme-img"><img src="'.HTML_PATH_THEMES.$theme['dir'].'/screenshot.jpg"/></div>';
+		echo '<div class="theme-data">';
+			echo '<h2 class="name">'.$theme['name'].'</h2>';
+			echo '<p class="description">'.$theme['description'].'</p>';
+			echo '<p class="author">'.$theme['description'].'</p>';
+			echo '<div class="buttons"><a href="">Install</a></div>';
+		echo '</div>';
+	echo '</div>';
 
-		// THEMES
-		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::label( array('content'=>$_LANG['SELECT_THEME'], 'class'=>'blocked') );
-			echo Html::select( array('name'=>'theme'), $themes_html, $settings['theme']);
-		echo Html::div_close();
+}
 
-		// BUTTONS
-		echo Html::div_open( array('class'=>'form_block') );
-			echo Html::input( array('id'=>'js_button_save', 'type'=>'button', 'class'=>'disabled', 'value'=>$_LANG['SAVE_CHANGES']) );
-		echo Html::div_close();
-
-	echo Html::form_close();
-
-?>
-
-<?php
-//======================================================================
-// AUTO-SAVE FORM
-//======================================================================
-	$javascript = array('url'=>HTML_PATH_ADMIN_AJAX.'settings.php');
-	include(PATH_ADMIN_JS.'ajax_form.bit');
 ?>

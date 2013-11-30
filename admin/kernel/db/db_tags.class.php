@@ -31,11 +31,7 @@ class DB_TAGS {
 			$this->file = $file;
 
 			$this->xml = new NBXML($this->file, 0, TRUE, '', FALSE);
-
-			return true;
 		}
-
-		return false;
 	}
 
 /*
