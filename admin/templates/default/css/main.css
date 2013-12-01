@@ -699,10 +699,13 @@ div.theme {
 
 div.theme-img {
 	float: left;
+	height: 180px;
+	background: #ddd;
+	width: 240px;
 }
 
 div.theme-img	img {
-	width: 260px;
+	width: 240px;
 }
 
 div.theme-data {
@@ -717,4 +720,16 @@ div.theme-data	h2.name {
 
 div.theme-data	p.description {
 	font-size: 1.3em;
+}
+
+div.theme-data	p.author {
+	font-size: 1.3em;
+}
+
+div.theme-data	div.buttons {
+	font-size: 1.3em;
+}
+
+div.theme-installed {
+	background: #f1f1f1;
 }

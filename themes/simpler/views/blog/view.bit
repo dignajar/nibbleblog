@@ -1,5 +1,15 @@
 <?php
 
+// Disqus and Facebook comments
+if( !empty($theme['disqus_account']) )
+{
+	include('disqus_comments.bit');
+}
+elseif( !empty($theme['facebook_appId']) )
+{
+	include('includes/facebook_comments.bit');
+}
+
 // There are no posts
 if(empty($posts))
 {
@@ -10,11 +20,11 @@ else
 	// Print each post
 	foreach($posts as $post)
 	{
-		include('includes/post.bit');
+		include('post.bit');
 	}
 }
 
 // Pager
-include('includes/pager.bit');
+include('pager.bit');
 
 ?>

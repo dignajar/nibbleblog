@@ -1,21 +1,21 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="<?php echo Blog::language() ?>">
 <head>
 <?php
 	// Charset, title, description, keywords, robots, etc
-	echo Theme::meta_tags();
+	echo Blog::meta_tags();
 
 	// Include CSS from theme
-	echo Theme::css(array('normalize.css', 'main.css', 'post.css', 'page.css', 'plugins.css', 'rainbow.css'));
+	echo Blog::css(array('normalize.css', 'main.css', 'post.css', 'page.css', 'plugins.css', 'rainbow.css'));
 
 	// Include Jquery
-	echo Theme::javascript(JS_JQUERY,'');
+	echo Blog::jquery();
 
 	// Include Javascript from theme
-	echo Theme::javascript('rainbow-custom.min.js');
+	echo Blog::javascript('rainbow-custom.min.js');
 
 	// Include Favicon, default path: theme/css/img/favicon.ico
-	echo Theme::favicon();
+	echo Blog::favicon();
 
 	// Plugins for <head></head>
 	foreach($plugins as $plugin)
@@ -25,28 +25,14 @@
 ?>
 </head>
 <body>
-<?php
-	//
-	// This lines are for Disqus and Facebook Comments
-	//
-	if( !empty($theme['disqus_account']) )
-	{
-		// Disqus comments
-		include('includes/comments_disqus.bit');
-	}
-	elseif( !empty($theme['facebook_appId']) )
-	{
-		// Facebook comments
-		include('includes/comments_facebook.bit');
-	}
-?>
+
 <div id="container">
 
 	<!-- HEADER -->
 	<header id="blog-head">
-		<a href="<?php echo Theme::url() ?>">
-			<span class="blog-name"><?php echo Theme::blog_name() ?></span>
-			<span class="blog-slogan"><?php echo Theme::blog_slogan() ?></span>
+		<a href="<?php echo Blog::url() ?>">
+			<span class="blog-name"><?php echo Blog::name() ?></span>
+			<span class="blog-slogan"><?php echo Blog::slogan() ?></span>
 		</a>
 	</header>
 
@@ -71,7 +57,7 @@
 			}
 		?>
 
-		<!-- POSTS / PAGES -->
+		<!-- VIEW -->
 		<section <?php if(!empty($plugins)) echo 'id=left' ?> >
 			<?php include(THEME_VIEWS.$layout['view']); ?>
 		</section>
@@ -81,7 +67,7 @@
 	<!-- FOOTER -->
 	<footer id="blog-foot">
 		<span class="blog-atom"><a href="<?php echo $layout['feed'] ?>">Atom</a></span>
-		<span class="blog-footer"> · <?php echo Theme::blog_footer() ?></span>
+		<span class="blog-footer"> · <?php echo Blog::footer() ?></span>
 	</footer>
 
 </div>

@@ -92,7 +92,7 @@ article.post	div.post-content	p {
 	line-height: 1.5em;
 }
 
-article.post	div.post-content	.video_embed {
+article.post	div.post-content	.video-embed {
 	position: relative;
 	padding-bottom: 56.25%;
 	padding-top: 30px;
@@ -101,9 +101,9 @@ article.post	div.post-content	.video_embed {
 	margin: 13px 0;
 }
 
-article.post	div.post-content	.video_embed iframe,
-article.post	div.post-content	.video_embed object,
-article.post	div.post-content	.video_embed embed {
+article.post	div.post-content	.video-embed iframe,
+article.post	div.post-content	.video-embed object,
+article.post	div.post-content	.video-embed embed {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -167,6 +167,11 @@ article.post	footer	div.post-tags	a.tag:hover {
 POST :: Comments
 ========================================================================
 */
+
+
+#comments {
+	margin-top: -40px;
+}
 
 #comment_list {
 	margin-top: 30px;
