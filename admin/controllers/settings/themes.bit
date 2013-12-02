@@ -12,6 +12,8 @@ if( $_SERVER['REQUEST_METHOD'] == 'GET' )
 		$_DB_SETTINGS->savetofile();
 
 		Session::set_alert($_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY']);
+
+		Redirect::controller('admin', 'settings', 'themes');
 	}
 }
 

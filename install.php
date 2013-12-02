@@ -160,10 +160,12 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	$obj->addChild('img_resize',			1);
 	$obj->addChild('img_resize_width',		1000);
 	$obj->addChild('img_resize_height',		600);
+	$obj->addChild('img_resize_quality',	100);
 	$obj->addChild('img_resize_option',		'auto');
 	$obj->addChild('img_thumbnail',			1);
 	$obj->addChild('img_thumbnail_width',	190);
 	$obj->addChild('img_thumbnail_height',	190);
+	$obj->addChild('img_thumbnail_quality',	100);
 	$obj->addChild('img_thumbnail_option',	'landscape');
 
 	// Theme
@@ -227,6 +229,8 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	$obj->addChild('monitor_api_key', '');
 	$obj->addChild('monitor_spam_control', '0.75');
 	$obj->addChild('monitor_auto_delete', 0);
+	$obj->addChild('disqus_account', '');
+	$obj->addChild('facebook_appid', '');
 	$obj->asXml( FILE_XML_COMMENTS );
 
 	// posts.xml

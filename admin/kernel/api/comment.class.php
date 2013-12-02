@@ -141,6 +141,26 @@ class Comment {
 		return($this->db->get_settings());
 	}
 
+	public function disqus_shortname()
+	{
+		return $this->comment_settings['disqus_shortname'];
+	}
+
+	public function facebook_appid()
+	{
+		return $this->comment_settings['facebook_appid'];
+	}
+
+	public function disqus_enabled()
+	{
+		return !empty($this->comment_settings['disqus_shortname']);
+	}
+
+	public function facebook_enabled()
+	{
+		return !empty($this->comment_settings['facebook_appid']);
+	}
+
 	// DEPRACTED
 	public function get_hash()
 	{

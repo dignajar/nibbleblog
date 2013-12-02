@@ -1,11 +1,11 @@
 <?php
 
 // Disqus and Facebook comments
-if( !empty($theme['disqus_account']) )
+if( $Comment->disqus_enabled() )
 {
 	include('disqus_comments.bit');
 }
-elseif( !empty($theme['facebook_appId']) )
+elseif( $Comment->facebook_enabled() )
 {
 	include('includes/facebook_comments.bit');
 }

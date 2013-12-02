@@ -222,6 +222,8 @@ PUBLIC METHODS
 		$tmp_array['monitor_auto_delete'] 	= (float) $this->xml->getChild('monitor_auto_delete');
 		$tmp_array['sanitize'] 				= (int) $this->xml->getChild('sanitize');
 		$tmp_array['moderate'] 				= (int) $this->xml->getChild('moderate');
+		$tmp_array['disqus_shortname']		= $this->xml->getChild('disqus_shortname');
+		$tmp_array['facebook_appid']		= $this->xml->getChild('facebook_appid');
 
 		return($tmp_array);
 	}

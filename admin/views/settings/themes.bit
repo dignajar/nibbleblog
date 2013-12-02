@@ -12,8 +12,14 @@ foreach($theme_list as $theme)
 		echo '<div class="theme-data">';
 			echo '<h2 class="name">'.$theme['name'].'</h2>';
 			echo '<p class="description">'.$theme['description'].'</p>';
-			echo '<p class="author"><b>'.$Language->get('author').':</b> '.$theme['author'].'</p>';
-			echo '<div class="buttons"><a href="'.HTML_PATH_ROOT.'admin.php?controller=settings&action=themes&other='.$theme['dir'].'">Install</a> - <a href="'.$theme['url'].'">Website</a></div>';
+
+			if(!empty($theme['author']))
+				echo '<p class="author"><b>'.$Language->get('author').':</b> '.$theme['author'].'</p>';
+
+			if(!empty($theme['notes']))
+				echo '<p class="notes"><b>'.$Language->get('notes').':</b> '.$theme['notes'].'</p>';
+
+			echo '<div class="buttons"><a href="'.HTML_PATH_ROOT.'admin.php?controller=settings&action=themes&other='.$theme['dir'].'">'.$Language->get('Install').'</a><a href="'.$theme['url'].'">'.$Language->get('Website').'</a></div>';
 		echo '</div>';
 	echo '</div>';
 

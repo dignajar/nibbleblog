@@ -13,9 +13,10 @@ echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') )
 		echo Html::div_close();
 
 		echo Html::div_open( array('class'=>'form_block'));
-			echo Html::label( array('content'=>$_LANG['WIDTH'].' x '.$_LANG['HEIGHT'], 'class'=>'blocked') );
+			echo Html::label( array('content'=>$_LANG['WIDTH'].' x '.$_LANG['HEIGHT'].' - '.$_LANG['QUALITY'], 'class'=>'blocked') );
 			echo Html::input( array('id'=>'js_img_resize_width', 'class'=>'little', 'name'=>'img_resize_width', 'type'=>'text', 'value'=>$settings['img_resize_width']) );
 			echo Html::input( array('id'=>'js_img_resize_height', 'class'=>'little', 'name'=>'img_resize_height', 'type'=>'text', 'value'=>$settings['img_resize_height']) );
+			echo Html::input( array('id'=>'js_img_resize_quality', 'class'=>'little', 'name'=>'img_resize_quality', 'type'=>'text', 'value'=>$settings['img_resize_quality']) );
 		echo Html::div_close();
 
 		echo Html::div_open( array('class'=>'form_block'));
@@ -34,9 +35,10 @@ echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') )
 		echo Html::div_close();
 
 		echo Html::div_open( array('class'=>'form_block'));
-			echo Html::label( array('content'=>$_LANG['WIDTH'].' x '.$_LANG['HEIGHT'], 'class'=>'blocked') );
+			echo Html::label( array('content'=>$_LANG['WIDTH'].' x '.$_LANG['HEIGHT'].' - '.$_LANG['QUALITY'], 'class'=>'blocked') );
 			echo Html::input( array('id'=>'js_img_thumbnail_width', 'class'=>'little', 'name'=>'img_thumbnail_width', 'type'=>'text', 'value'=>$settings['img_thumbnail_width']) );
 			echo Html::input( array('id'=>'js_img_thumbnail_height', 'class'=>'little', 'name'=>'img_thumbnail_height', 'type'=>'text', 'value'=>$settings['img_thumbnail_height']) );
+			echo Html::input( array('id'=>'js_img_thumbnail_quality', 'class'=>'little', 'name'=>'img_thumbnail_quality', 'type'=>'text', 'value'=>$settings['img_thumbnail_quality']) );
 		echo Html::div_close();
 
 		echo Html::div_open( array('class'=>'form_block'));

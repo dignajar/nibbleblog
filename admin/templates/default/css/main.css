@@ -692,9 +692,8 @@ form.plugins		div.tip {
 div.theme {
     border-bottom: 1px solid #CCCCCC;
     clear: both;
-    margin-bottom: 30px;
     overflow: auto;
-    padding-bottom: 30px;
+    padding: 30px;
 }
 
 div.theme-img {
@@ -710,26 +709,19 @@ div.theme-img	img {
 
 div.theme-data {
 	margin-left: 280px;
+	font-size: 1.3em;
 }
 
 div.theme-data	h2.name {
-	font-size: 2em;
+	font-size: 1.6em;
 	font-weight: normal;
 	margin: 0;
 }
 
-div.theme-data	p.description {
-	font-size: 1.3em;
-}
-
-div.theme-data	p.author {
-	font-size: 1.3em;
-}
-
-div.theme-data	div.buttons {
-	font-size: 1.3em;
+div.theme-data	div.buttons a {
+	margin-right: 15px;
 }
 
 div.theme-installed {
-	background: #f1f1f1;
+    background: #F1F1F1;
 }

@@ -18,6 +18,20 @@ echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') )
 			echo Html::div( array('content'=>$_LANG['ENABLE_THIS_FEATURE_TO_MODERATE_COMMENTS'], 'class'=>'input_tip') );
 		echo Html::div_close();
 
+		// DISQUS SHORTNAME
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>'Disqus shortname', 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_disqus_shortname', 'name'=>'disqus_shortname', 'type'=>'text', 'value'=>$comment_settings['disqus_shortname']) );
+			echo Html::div( array('content'=>$_LANG['COMPLETE_THIS_FIELD_IF_YOU_WANT_USE_DISQUS'].' <a target="_blank" href="http://docs.nibbleblog.com/post/spam-monitor/">'.$_LANG['LINK'].'</a>', 'class'=>'input_tip') );
+		echo Html::div_close();
+
+		// FACEBOOK APPID
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>'Facebook App ID', 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_facebook_appid', 'name'=>'facebook_appid', 'type'=>'text', 'value'=>$comment_settings['facebook_appid']) );
+			echo Html::div( array('content'=>$_LANG['COMPLETE_THIS_FIELD_IF_YOU_WANT_USE_FACEBOOK_COMMENTS'].' <a target="_blank" href="http://docs.nibbleblog.com/post/spam-monitor/">'.$_LANG['LINK'].'</a>', 'class'=>'input_tip') );
+		echo Html::div_close();
+
 	// SPAM MONITOR
 	echo Html::separator( array('content'=>$_LANG['SPAM_MONITOR']) );
 
@@ -39,7 +53,7 @@ echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') )
 		echo Html::div_open( array('class'=>'form_block') );
 			echo Html::label( array('content'=>$_LANG['API_KEY'], 'class'=>'blocked') );
 			echo Html::input( array('id'=>'js_monitor_api_key', 'name'=>'monitor_api_key', 'type'=>'text', 'value'=>$comment_settings['monitor_api_key']) );
-			echo Html::div( array('content'=>$_LANG['INSERT_THE_API_KEY_HERE'], 'class'=>'input_tip') );
+			echo Html::div( array('content'=>$_LANG['INSERT_THE_API_KEY_HERE'].' <a target="_blank" href="http://docs.nibbleblog.com/post/spam-monitor/">'.$_LANG['LINK'].'</a>', 'class'=>'input_tip') );
 		echo Html::div_close();
 
 		// SPAM LEVEL

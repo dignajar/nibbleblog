@@ -71,10 +71,13 @@ PUBLIC METHODS
 		$tmp_array['img_resize']				= (int) $this->xml->getChild('img_resize') == 1;
 		$tmp_array['img_resize_width']			= (int) $this->xml->getChild('img_resize_width');
 		$tmp_array['img_resize_height']			= (int) $this->xml->getChild('img_resize_height');
+		$tmp_array['img_resize_quality']		= $this->xml->getChild('img_resize_quality');
 		$tmp_array['img_resize_option']			= (string) $this->xml->getChild('img_resize_option');
+
 		$tmp_array['img_thumbnail']				= (int) $this->xml->getChild('img_thumbnail') == 1;
 		$tmp_array['img_thumbnail_width']		= (int) $this->xml->getChild('img_thumbnail_width');
 		$tmp_array['img_thumbnail_height']		= (int) $this->xml->getChild('img_thumbnail_height');
+		$tmp_array['img_thumbnail_quality']		= $this->xml->getChild('img_thumbnail_quality');
 		$tmp_array['img_thumbnail_option']		= (string) $this->xml->getChild('img_thumbnail_option');
 
 		// Theme

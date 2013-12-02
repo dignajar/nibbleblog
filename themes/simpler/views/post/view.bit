@@ -6,11 +6,11 @@ include('post.bit');
 // If post allow comments
 if(Post::allow_comments())
 {
-	if( !empty($theme['disqus_account']) )
+	if( $Comment->disqus_enabled() )
 	{
 		include('disqus_comments.bit');
 	}
-	elseif( !empty($theme['facebook_appId']) )
+	elseif( $Comment->facebook_enabled() )
 	{
 		include('facebook_comments.bit');
 	}

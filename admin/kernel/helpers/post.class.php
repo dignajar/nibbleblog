@@ -102,16 +102,17 @@ class Post {
 		global $post;
 		global $theme;
 		global $Language;
+		global $Comment;
 
 		if(!$post['allow_comments'])
 			return false;
 
-		if( !empty($theme['disqus_account']) )
+		if( $Comment->disqus_enabled() )
 		{
 			$url = Url::post($post, true);
 			return '<a href="'.$url.'#disqus_thread"></a>';
 		}
-		elseif( !empty($theme['facebook_appId']) )
+		elseif( $Comment->facebook_enabled() )
 		{
 			$url = Url::post($post, true);
 			return '<a href="'.$post['permalink'].'#comment_form">'.$Language->get('COMMENTS').' (<fb:comments-count href="'.$url.'"></fb:comments-count>)</a>';
