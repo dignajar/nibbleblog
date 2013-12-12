@@ -27,6 +27,10 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	if(isset($_POST['content']))
 		$safe['content'] = $_POST['content'];
 
+	// Content
+	if(isset($_POST['keywords']))
+		$safe['keywords'] = $_POST['keywords'];
+
 	// Position
 	if(isset($_POST['position']))
 		$safe['position'] = $_POST['position'];
