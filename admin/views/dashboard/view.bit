@@ -3,49 +3,14 @@
 // LEFT SIDE
 echo Html::div_open( array('class'=>'dashboard_left') );
 
+	// Quick start
+	include('quick_start.bit');
+
 	// Drafts
-	echo Html::div_open( array('class'=>'dashboard_box') );
-
-	echo Html::div( array('class'=>'dashboard_title', 'content'=>'<span class="icon icon-coffee"></span>'.$_LANG['DRAFT_POSTS']) );
-
-	if(empty($drafts))
-	{
-		echo Html::p( array('class'=>'empty', 'content'=>$_LANG['THERE_ARE_NO_DRAFT_POSTS']) );
-	}
-	else
-	{
-		foreach($drafts as $post)
-		{
-			echo Html::link( array('class'=>'draft', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&action=edit_'.$post['type'].'&id_post='.$post['id'], 'content'=>empty($post['title'])?'['.$_LANG['NO_TITLE'].']':$post['title']) );
-		}
-	}
-
-	echo Html::div_close();
+	include('drafts.bit');
 
 	// Last comments
-	echo Html::div_open( array('class'=>'dashboard_box') );
-
-	echo Html::div( array('class'=>'dashboard_title', 'content'=>'<span class="icon icon-comment-alt"></span>'.$_LANG['LAST_COMMENTS']) );
-
-	if(empty($last_comments))
-	{
-		echo Html::p( array('class'=>'empty', 'content'=>$_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS']) );
-	}
-	else
-	{
-		foreach($last_comments as $comment)
-		{
-			$date = Date::format($comment['pub_date_unix'], LAST_COMMENT_DATE_FORMAT);
-
-			echo Html::link( array('class'=>'last_comments comment_'.$comment['type'], 'href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list',
-				'content'=>
-				Html::div( array('class'=>'content', 'content'=>$comment['content']) ).
-				Html::div( array('class'=>'info', 'content'=>$date.' · '.$_LANG['AUTHOR'].': '.$comment['author_name']) )
-			) );
-		}
-	}
-
-	echo Html::div_close();
+	include('last_comments.bit');
 
 echo Html::div_close();
 
@@ -53,67 +18,8 @@ echo Html::div_close();
 echo Html::div_open( array('class'=>'dashboard_right') );
 
 	// Notifications
-	echo Html::div_open( array('class'=>'dashboard_box') );
-
-	echo Html::div( array('class'=>'dashboard_title', 'content'=>'<span class="icon icon-bell"></span>'.$_LANG['NOTIFICATIONS']) );
-
-		echo Html::div_open( array('id'=>'js_notification_version', 'class'=>'notification img_notification_version') );
-			echo Html::div( array('class'=>'type', 'content'=>$_LANG['THERE_IS_A_NEW_VERSION']) );
-			echo Html::div( array('class'=>'info', 'content'=>$_LANG['VERSION'].': <span id="js_version"></span> - '.$_LANG['RELEASE_DATE'].': <span id="js_release"></span> - <a target="_blank" href="http://www.nibbleblog.com">Nibbleblog.com</a>') );
-		echo Html::div_close();
-
-		foreach($notifications as $notification)
-		{
-			$date = Date::format($notification['date'], NOTIFICATION_DATE_FORMAT);
-
-			if($notification['category']=='session_fail')
-			{
-				$icon = 'icon-sad';
-				$text = $_LANG['LOGIN_FAILED_ATTEMPT'];
-			}
-			elseif($notification['category']=='session_start')
-			{
-				$icon = 'icon-user';
-				$text = $_LANG['NEW_SESSION_STARTED'];
-			}
-			elseif($notification['category']=='comment')
-			{
-				$icon = 'icon-comment-alt';
-				$text = $_LANG['YOU_HAVE_A_NEW_COMMENT'];
-			}
-
-			echo Html::div_open( array('class'=>'notification') );
-				echo Html::div( array('class'=>'icon '.$icon, 'content'=>'&nbsp;') );
-				echo Html::div( array('class'=>'type', 'content'=>$text) );
-				echo Html::div( array('class'=>'info', 'content'=>$date.' · IP: '.$notification['ip']) );
-			echo Html::div_close();
-		}
-
-	echo Html::div_close();
+	include('notifications.bit');
 
 echo Html::div_close();
 
 ?>
-
-<script>
-
-$(document).ready(function() {
-
-	$.ajax({
-		url: "http://www.nibbleblog.com/version.php",
-		type: "GET",
-		dataType: "jsonp",
-		success: function(json)
-		{
-			if(json.build > <?php echo NIBBLEBLOG_BUILD ?>)
-			{
-				$("#js_version").html(json.version);
-				$("#js_release").html(json.release);
-				$("#js_notification_version").show();
-			}
-		}
-	});
-
-});
-
-</script>

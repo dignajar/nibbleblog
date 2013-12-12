@@ -1,0 +1,64 @@
+<?php
+
+echo Html::div_open( array('class'=>'dashboard_box') );
+
+echo Html::div( array('class'=>'dashboard_title', 'content'=>$_LANG['NOTIFICATIONS']) );
+
+	echo Html::div_open( array('id'=>'js_notification_version', 'class'=>'notification img_notification_version') );
+		echo Html::div( array('class'=>'type', 'content'=>$_LANG['THERE_IS_A_NEW_VERSION']) );
+		echo Html::div( array('class'=>'info', 'content'=>$_LANG['VERSION'].': <span id="js_version"></span> - '.$_LANG['RELEASE_DATE'].': <span id="js_release"></span> - <a target="_blank" href="http://www.nibbleblog.com">Nibbleblog.com</a>') );
+	echo Html::div_close();
+
+	foreach($notifications as $notification)
+	{
+		$date = Date::format($notification['date'], NOTIFICATION_DATE_FORMAT);
+
+		if($notification['category']=='session_fail')
+		{
+			$icon = 'icon-sad';
+			$text = $_LANG['LOGIN_FAILED_ATTEMPT'];
+		}
+		elseif($notification['category']=='session_start')
+		{
+			$icon = 'icon-user';
+			$text = $_LANG['NEW_SESSION_STARTED'];
+		}
+		elseif($notification['category']=='comment')
+		{
+			$icon = 'icon-comment-alt';
+			$text = $_LANG['YOU_HAVE_A_NEW_COMMENT'];
+		}
+
+		echo Html::div_open( array('class'=>'notification') );
+			echo Html::div( array('class'=>'icon '.$icon, 'content'=>'&nbsp;') );
+			echo Html::div( array('class'=>'type', 'content'=>$text) );
+			echo Html::div( array('class'=>'info', 'content'=>$date.' · IP: '.$notification['ip']) );
+		echo Html::div_close();
+	}
+
+echo Html::div_close();
+
+?>
+
+<script>
+
+$(document).ready(function() {
+
+	$.ajax({
+		url: "http://www.nibbleblog.com/version.php",
+		type: "GET",
+		dataType: "jsonp",
+		success: function(json)
+		{
+			if(json.build > <?php echo NIBBLEBLOG_BUILD ?>)
+			{
+				$("#js_version").html(json.version);
+				$("#js_release").html(json.release);
+				$("#js_notification_version").show();
+			}
+		}
+	});
+
+});
+
+</script>

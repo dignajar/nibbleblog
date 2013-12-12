@@ -265,6 +265,8 @@ $_LANG['THERE_ARE_NO_PAGES'] = 'There are no pages';
 $_LANG['HOME'] = 'Home';
 $_LANG['REQUEST_NEW_PASSWORD'] = 'Request new password';
 
+$_LANG['NEW_POST'] = 'New post';
+$_LANG['QUICK_START'] = 'Quick start';
 $_LANG['QUALITY'] = 'Quality';
 $_LANG['NOTES'] = 'Notes';
 $_LANG['WEBSITE'] = 'Website';

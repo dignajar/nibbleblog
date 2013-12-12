@@ -1,0 +1,27 @@
+<?php
+
+echo Html::div_open( array('class'=>'dashboard_box') );
+
+echo Html::div( array('class'=>'dashboard_title', 'content'=>$_LANG['LAST_COMMENTS']) );
+
+if(empty($last_comments))
+{
+	echo Html::p( array('class'=>'empty', 'content'=>$_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS']) );
+}
+else
+{
+	foreach($last_comments as $comment)
+	{
+		$date = Date::format($comment['pub_date_unix'], LAST_COMMENT_DATE_FORMAT);
+
+		echo Html::link( array('class'=>'last_comments comment_'.$comment['type'], 'href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list',
+			'content'=>
+			Html::div( array('class'=>'content', 'content'=>$comment['content']) ).
+			Html::div( array('class'=>'info', 'content'=>$date.' · '.$_LANG['AUTHOR'].': '.$comment['author_name']) )
+		) );
+	}
+}
+
+echo Html::div_close();
+
+?>

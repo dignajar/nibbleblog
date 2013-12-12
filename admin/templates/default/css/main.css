@@ -16,7 +16,7 @@ body {
 }
 
 a {
-	color: #006AC8;
+	color: #1F85BE;
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -62,17 +62,17 @@ div.separator {
 /* HEAD
 /*====================================================================*/
 #head {
-	background-color: #FAFAFA;
-	margin-bottom: 30px;
-	padding: 10px 0;
-	border-bottom: 1px solid #DFDFDF;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #F1F1F1;
+    margin-bottom: 30px;
+    padding: 20px 10px;
 }
 
 #head span.mrnibbler {
 	background: url("img/mrnibbler.png") no-repeat 0 center;
 	display: inline-block;
 	font-size: 2.3em;
-	color: #777;
+	color: #333;
 	width: 32px;
 	margin-left: 22px;
 	padding-left: 30px;
@@ -87,7 +87,7 @@ div.separator {
 	line-height: 26px;
 	font-size: 1.3em;
 	margin: 0 25px 0 0;
-	color: #333333;
+	color: #333;
 }
 
 #head a:hover {
@@ -143,7 +143,7 @@ div.separator {
 	padding: 0;
 	font-size: 2.7em;
 	font-weight: lighter;
-	color: #2986D2;
+	color: #333;
 }
 
 span.icon {
@@ -187,14 +187,13 @@ div.menu_box a {
 }
 
 div.menu_box a:hover {
-	color: #006AC8;
+	color: #1F85BE;
 }
 
 /*====================================================================*/
 /* DASHBOARD
 /*====================================================================*/
 div.dashboard_left {
-    border-right: 1px solid #DDDDDD;
     float: left;
     margin-right: 30px;
     max-width: 550px;
@@ -210,9 +209,10 @@ div.dashboard_right {
 }
 
 div.dashboard_box {
-    background: #FFFFFF;
+    background: #FDFDFD;
     margin-bottom: 20px;
-    padding-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #F4F4F4;
 }
 
 div.dashboard_title {
@@ -226,6 +226,22 @@ p.empty {
 	font-style: italic;
 }
 
+/* Quick links */
+div.wrap_quick {
+	margin-bottom: 5px;
+	padding: 15px 15px;
+	border-left: 4px solid #1F85BE;
+}
+
+div.dashboard_box	a.quick {
+	font-size: 1.5em;
+	margin-right: 15px;
+}
+
+div.dashboard_box	a.quick:hover {
+
+}
+
 /* Drafts */
 div.dashboard_box	a.draft {
 	padding: 15px 15px;
@@ -237,8 +253,6 @@ div.dashboard_box	a.draft {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	border-left: 4px solid #FE5454;
-	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
 div.dashboard_box	a.draft:hover {
@@ -287,12 +301,9 @@ div.dashboard_box	a.comment_unapproved {
 
 /* Notifications */
 div.notification {
-	padding: 10px;
-	margin-bottom: 10px;
+    border-bottom: 1px solid #DDDDDD;
     display: block;
-    background: #FAFAFA;
-    border-left: 4px solid #009AD7;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+    padding: 20px 10px;
 }
 
 div.notification	div.icon {

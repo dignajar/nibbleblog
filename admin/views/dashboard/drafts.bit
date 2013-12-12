@@ -1,0 +1,21 @@
+<?php
+
+echo Html::div_open( array('class'=>'dashboard_box') );
+
+echo Html::div( array('class'=>'dashboard_title', 'content'=>$_LANG['DRAFT_POSTS']) );
+
+if(empty($drafts))
+{
+	echo Html::p( array('class'=>'empty', 'content'=>$_LANG['THERE_ARE_NO_DRAFT_POSTS']) );
+}
+else
+{
+	foreach($drafts as $post)
+	{
+		echo Html::link( array('class'=>'draft', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&action=edit_'.$post['type'].'&id_post='.$post['id'], 'content'=>empty($post['title'])?'<span class="icon-coffee icon"></span>['.$_LANG['NO_TITLE'].']':'<span class="icon-coffee icon"></span>'.$post['title']) );
+	}
+}
+
+echo Html::div_close();
+
+?>
