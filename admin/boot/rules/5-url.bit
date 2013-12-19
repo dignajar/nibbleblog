@@ -26,6 +26,7 @@ $url = array(
 			'tag'=>null,
 			'other'=>null,
 			'post'=>null,
+			'sync'=>null,
 			'page'=>null
 );
 
@@ -52,6 +53,8 @@ if( isset($_GET['tag']) ) { $url['tag'] = Validation::sanitize_html($_GET['tag']
 if( isset($_GET['other']) ) { $url['other'] = Validation::sanitize_html($_GET['other']); }
 
 if( isset($_GET['post']) ) { $url['post'] = Validation::sanitize_html($_GET['post']); }
+
+if( isset($_GET['sync']) ) { $url['sync'] = Validation::sanitize_html($_GET['sync']); }
 
 if( isset($_GET['page']) ) { $url['page'] = Validation::sanitize_html($_GET['page']); }
 

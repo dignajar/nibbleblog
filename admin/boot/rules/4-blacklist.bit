@@ -1,0 +1,16 @@
+<?php
+/*
+ * Nibbleblog
+ * http://www.nibbleblog.com
+
+ * Require
+ *
+
+ * Return
+ *
+*/
+
+if($_DB_USERS->blacklist())
+	exit('Nibbleblog security error - Blacklist protection');
+
+?>

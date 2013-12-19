@@ -87,7 +87,7 @@ class Login {
 		}
 
 		// Set brute force
-		$this->db_users->set_bruteforce();
+		$this->db_users->set_blacklist();
 
 		// Increment the failed count and last failed session date
 		$user = $this->db_users->get(array('username'=>$args['username']));
@@ -143,7 +143,7 @@ class Login {
 		if(!isset($_USER[$cookie_id]))
 		{
 			// Set brute force
-			$this->db_users->set_bruteforce();
+			$this->db_users->set_blacklist();
 
 			// Clean cookies
 			setcookie('nibbleblog_hash', '', time()-42000);
@@ -159,7 +159,7 @@ class Login {
 		if($tmp_hash!=$cookie_hash)
 		{
 			// Set brute force
-			$this->db_users->set_bruteforce();
+			$this->db_users->set_blacklist();
 
 			// Clean cookies
 			setcookie('nibbleblog_hash', '', time()-42000);

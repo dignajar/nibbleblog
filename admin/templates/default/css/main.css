@@ -247,9 +247,9 @@ div.dashboard_box	a.draft {
 	padding: 15px 15px;
 	margin-bottom: 10px;
     display: block;
-    background: #FAFAFA;
+    background: #3497A9;
 	font-size: 1.5em;
-	color: #333;
+	color: #FFFFFF;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -257,7 +257,7 @@ div.dashboard_box	a.draft {
 
 div.dashboard_box	a.draft:hover {
 	text-decoration: none;
-	background: #F4F4F4;
+	background: #256D7A;
 }
 
 /* Last comments */

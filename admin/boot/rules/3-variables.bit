@@ -40,9 +40,9 @@ define('COMMENTS_AMOUNT',		10);
 define('POSTS_AMOUNT',			10);
 define('PAGES_AMOUNT',			15);
 
-define('BRUTEFORCE_SAVED_REQUESTS',	15);
-define('BRUTEFORCE_LOCKING_AMOUNT',	5);		// Number of failures before being locked
-define('BRUTEFORCE_TIME',			5);		// Time in minutes the ip will be blocked
+define('BLACKLIST_SAVED_REQUESTS',	15);
+define('BLACKLIST_LOCKING_AMOUNT',	5);		// Number of failures before being locked
+define('BLACKLIST_TIME',			5);		// Time in minutes the ip will be blocked
 
 define('NOTIFICATION_DATE_FORMAT',	'%d %B - %H:%M:%S');
 define('LAST_COMMENT_DATE_FORMAT',	'%d %B - %H:%M:%S');

@@ -39,12 +39,13 @@ class DB_USERS {
 	PUBLIC METHODS
 ========================================================================
 */
-	public function bruteforce()
+
+	public function blacklist()
 	{
 		$ip = Net::get_user_ip();
 		$current_time = time();
 
-		$node = $this->xml->xpath('/users/bruteforce[@ip="'.utf8_encode($ip).'"]');
+		$node = $this->xml->xpath('/users/blacklist[@ip="'.utf8_encode($ip).'"]');
 
 		// IP dosen't exist
 		if(empty($node))
@@ -54,32 +55,32 @@ class DB_USERS {
 		$fail_count = $node[0]->getChild('fail_count');
 
 		// The IP expired, then is not blocked
-		if($current_time > $date + (BRUTEFORCE_TIME*60))
+		if($current_time > $date + (BLACKLIST_TIME*60))
 			return false;
 
-		// The IP has more fails than BRUTEFORCE_LOCKING_AMOUNT, then the IP is blocked
-		if($fail_count >= BRUTEFORCE_LOCKING_AMOUNT)
+		// The IP has more fails than BLACKLIST_LOCKING_AMOUNT, then the IP is blocked
+		if($fail_count >= BLACKLIST_LOCKING_AMOUNT)
 			return true;
 
 		// Other ways the IP is not blocked
 		return false;
 	}
 
-	public function set_bruteforce()
+	public function set_blacklist()
 	{
 		$ip = Net::get_user_ip();
 		$current_time = time();
 
-		$node = $this->xml->xpath('/users/bruteforce[@ip="'.utf8_encode($ip).'"]');
+		$node = $this->xml->xpath('/users/blacklist[@ip="'.utf8_encode($ip).'"]');
 
 		// IP dosen't exist
 		if(empty($node))
 		{
-			if( count( $this->xml->users->bruteforce ) >= BRUTEFORCE_SAVED_REQUESTS )
-				unset( $this->xml->users->bruteforce[0] );
+			if( count( $this->xml->users->blacklist ) >= BLACKLIST_SAVED_REQUESTS )
+				unset( $this->xml->users->blacklist[0] );
 
 			// Add the table
-			$node = $this->xml->addChild('bruteforce','');
+			$node = $this->xml->addChild('blacklist','');
 
 			// Add the key
 			$node->addAttribute('ip', $ip);
@@ -88,7 +89,7 @@ class DB_USERS {
 			$node->addChild('date', $current_time);
 			$node->addChild('fail_count', 1);
 
-			error_log('Nibbleblog: Brute force protection - New IP added - '.$ip);
+			error_log('Nibbleblog: Blacklist - New IP added - '.$ip);
 		}
 		else
 		{
@@ -96,19 +97,19 @@ class DB_USERS {
 			$fail_count = $node[0]->getChild('fail_count');
 
 			// The IP expired, so renewed
-			if($current_time > $date + (BRUTEFORCE_TIME*60))
+			if($current_time > $date + (BLACKLIST_TIME*60))
 			{
 				$node[0]->setChild('date', $current_time);
 				$node[0]->setChild('fail_count', 1);
 
-				error_log('Nibbleblog: Brute force protection - IP renewed because is expired - '.$ip);
+				error_log('Nibbleblog: Blacklist - IP renewed because is expired - '.$ip);
 			}
 			else
 			{
 				$fail_count += 1;
 				$node[0]->setChild('fail_count', $fail_count);
 
-				error_log('Nibbleblog: Brute force protection - IP fail count('.$fail_count.') - '.$ip);
+				error_log('Nibbleblog: Blacklist - IP fail count('.$fail_count.') - '.$ip);
 			}
 		}
 

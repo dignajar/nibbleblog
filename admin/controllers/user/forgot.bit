@@ -5,7 +5,7 @@
 // =====================================================================
 if( ($url['id_user']===null) || ($url['other']===null) )
 {
-	$_DB_USERS->set_bruteforce();
+	$_DB_USERS->set_blacklist();
 	exit('Nibbleblog security error');
 }
 
@@ -13,7 +13,7 @@ require_once(FILE_SHADOW);
 
 if( !isset($_USER[$url['id_user']]) )
 {
-	$_DB_USERS->set_bruteforce();
+	$_DB_USERS->set_blacklist();
 	exit('Nibbleblog security error');
 }
 
@@ -23,7 +23,7 @@ $hash = Crypt::get_hash($_USER[$url['id_user']]['salt'].$_KEYS[2]);
 
 if( $hash!==$url['other'] )
 {
-	$_DB_USERS->set_bruteforce();
+	$_DB_USERS->set_blacklist();
 	exit('Nibbleblog security error - Invalid hash');
 }
 
