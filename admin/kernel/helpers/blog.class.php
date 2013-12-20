@@ -97,7 +97,7 @@ class Blog {
 		global $layout;
 		global $seo;
 
-		$meta = '<meta charset="utf-8">'.PHP_EOL;
+		$meta = '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'.PHP_EOL;
 
 		if(!empty($layout['title']))
 			$meta .= '<title>'.$layout['title'].'</title>'.PHP_EOL;

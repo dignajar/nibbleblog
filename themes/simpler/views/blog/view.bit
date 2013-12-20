@@ -1,10 +1,11 @@
 <?php
 
-// Disqus and Facebook comments
+// Disqus comments
 if( $Comment->disqus_enabled() )
 {
 	include('disqus_comments.bit');
 }
+// Facebook comments
 elseif( $Comment->facebook_enabled() )
 {
 	include('includes/facebook_comments.bit');
@@ -20,11 +21,12 @@ else
 	// Print each post
 	foreach($posts as $post)
 	{
+		// Include the post template for each post
 		include('post.bit');
 	}
 }
 
-// Pager
+// Blog pager
 include('pager.bit');
 
 ?>

@@ -1,0 +1,13 @@
+<?php
+
+// Print each post
+foreach($posts as $post)
+{
+	// Post template for each post
+	include('post.bit');
+}
+
+// Pager
+include('pager.bit');
+
+?>

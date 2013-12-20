@@ -1,0 +1,16 @@
+<article>
+
+	<header>
+		<h2>
+			<a href="<?php echo Post::permalink() ?>"><?php echo Post::title() ?></a>
+		</h2>
+		<p><?php echo Post::published() ?></p>
+	</header>
+
+	<?php echo Post::content() ?>
+
+	<footer>
+		<?php echo Post::comment_count_link() ?>
+	</footer>
+
+</article>

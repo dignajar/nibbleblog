@@ -1,0 +1,137 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic&subset=latin,cyrillic);
+
+/*
+========================================================================
+BLOG :: Body
+========================================================================
+*/
+
+body {
+	font-family: 'Open Sans',arial,sans-serif;
+	background-color: #EEEEEE;
+	margin: 0;
+	padding: 20px;
+	font-size: 62.5%;
+	color: #555;
+}
+
+#container {
+    margin: 0 auto;
+    max-width: 980px;
+    min-width: 600px;
+    overflow: auto;
+    padding: 20px;
+	border: 1px solid #D9D9D9;
+	background-color: #FFFFFF;
+}
+
+a {
+	color: #006AC8;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/*
+========================================================================
+BLOG :: Head
+========================================================================
+*/
+
+#blog-head {
+	overflow: auto;
+	margin: 10px 0 30px 0;
+	font-weight: lighter;
+	border-bottom: 1px solid #F1F1F1;
+	padding-bottom: 20px;
+}
+
+#blog-head	a {
+	color: #333;
+	text-decoration: none;
+	font-size: 3.6em;
+}
+
+#blog-head	span.blog-title {
+	color: #777777;
+}
+
+#blog-head	span.blog-slogan {
+	color: #777777;
+}
+
+/*
+========================================================================
+BLOG :: Main
+========================================================================
+*/
+
+#main {
+    margin: 0 auto;
+    overflow: auto;
+	font-size: 1.32em;
+}
+
+#left {
+    margin-right: 280px;
+}
+
+#sidebar {
+	float: right;
+	width: 230px;
+	margin-right: 10px;
+}
+
+/*
+========================================================================
+BLOG :: Footer
+========================================================================
+*/
+
+#blog-foot {
+	text-align: right;
+	font-size: 1.1em;
+}
+
+
+
+/*
+========================================================================
+BLOG :: Page 404
+========================================================================
+*/
+
+div.page_404 {
+
+}
+
+/*
+========================================================================
+BLOG :: Pager
+========================================================================
+*/
+
+#pager {
+	overflow: auto;
+	text-align: center;
+}
+
+#pager	a.next-page {
+	float: right;
+	background: #FFFFFF;
+	padding: 0 5px;
+}
+
+#pager	a.prev-page {
+	float: left;
+	background: #FFFFFF;
+	padding: 0 5px;
+}
+
+#pager	a.home-page {
+	background: #FFFFFF;
+	padding: 0 5px;
+}

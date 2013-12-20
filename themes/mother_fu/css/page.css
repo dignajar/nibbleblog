@@ -7,7 +7,6 @@ PAGE
 article.page {
 	margin-bottom: 60px;
 	overflow: hidden;
-	font-size: 1.1em;
 }
 
 /*
@@ -24,7 +23,7 @@ article.page	header {
 article.page	header	h1.page-title {
 	font-size: 2em;
 	margin: 0;
-	color: #7D7B6D;
+	color: #2986D2;
 	font-weight: normal;
 }
 

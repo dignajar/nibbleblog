@@ -55,7 +55,7 @@ if( ($url['controller']!=null) && ($url['action']!=null) )
 		$layout['description']	= $page['description'];
 		$layout['keywords']		= $page['keywords'];
 		$layout['canonical'] 	= Url::page($page, true);
-var_dump($page);exit;
+
 		$where_am_i[1] = 'page';
 	}
 	elseif( ($url['category']!==null) && !empty($category) )

@@ -1,0 +1,10 @@
+<?php
+
+// Post template
+include('post.bit');
+
+// If post allow comments
+if(Post::allow_comments())
+	include('comments.bit');
+
+?>
