@@ -173,6 +173,10 @@ POST :: Comments
 ========================================================================
 */
 
+#comments {
+	margin-top: -40px;
+}
+
 #comment_list {
 	margin-top: 30px;
 }

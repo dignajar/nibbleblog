@@ -708,9 +708,10 @@ div.theme {
 }
 
 div.theme-img {
+	border: 2px solid #EEEEEE;
 	float: left;
 	height: 180px;
-	background: #ddd;
+	padding: 5px;
 	width: 240px;
 }
 
