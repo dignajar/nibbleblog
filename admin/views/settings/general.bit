@@ -59,6 +59,21 @@ echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') )
 			echo Html::div( array('content'=>$_LANG['ABSOLUT_ADDRESS_THAT_CONTAINS_THE_BLOGS_FILE_SYSTEM'], 'class'=>'input_tip') );
 		echo Html::div_close();
 
+	echo Html::separator( array('content'=>'Bludit Sync') );
+
+		// NIBBLEBLOG URL FOR SYNC
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>'Nibbleblog URL for Sync', 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_nb_url', 'name'=>'nb_url', 'type'=>'text', 'value'=>BLOG_URL) );
+		echo Html::div_close();
+		
+		// NIBBLEBLOG KEY FOR SYNC
+		require(FILE_KEYS);
+		echo Html::div_open( array('class'=>'form_block') );
+			echo Html::label( array('content'=>'Nibbleblog Key for Sync', 'class'=>'blocked') );
+			echo Html::input( array('id'=>'js_nb_key_sync', 'name'=>'nb_key_sync', 'type'=>'text', 'value'=>Crypt::get_hash($_KEYS[1])) );
+		echo Html::div_close();
+
 		// BUTTONS
 		echo Html::div_open( array('class'=>'form_block') );
 			echo Html::input( array('id'=>'js_button_save', 'type'=>'button', 'class'=>'disabled', 'value'=>$_LANG['SAVE_CHANGES']) );
