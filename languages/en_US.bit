@@ -292,7 +292,7 @@ $_LANG['EMAIL_NOTIFICATION_NEW_COMMENT'] = '
 <p>This is a notification from your blog {{BLOG_NAME}}</p>
 <p>You have a new comment on your blog.</p>
 <p>{{COMMENT}}</p>
-<p>Autor: {{AUTHOR_NAME}}</p>
+<p>Author: {{AUTHOR_NAME}}</p>
 <p>Email: {{AUTHOR_EMAIL}}</p>
 <p>IP: {{IP}}</p>
 ';

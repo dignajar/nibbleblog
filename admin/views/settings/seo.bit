@@ -62,8 +62,6 @@ echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') )
 			echo Html::div( array('content'=>$_LANG['COPY_THIS_CONTENT_ON_THE_FILE'], 'class'=>'input_tip') );
 
 			echo Html::textarea( array('style'=>'height:130px; margin-top: 8px;', 'content'=>'
-AddDefaultCharset UTF-8
-
 # Disable directory browsing
 Options -Indexes
 
