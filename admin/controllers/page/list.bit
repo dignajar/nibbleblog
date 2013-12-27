@@ -1,8 +1,19 @@
 <?php
 
 // =====================================================================
-//	POST
+//	GET
 // =====================================================================
+if( $_SERVER['REQUEST_METHOD'] == 'GET' )
+{
+	if(!empty($url['other']))
+	{
+		$_DB_SETTINGS->set(array('default_homepage'=>$url['id_page']));
+
+		$_DB_SETTINGS->savetofile();
+
+		$settings['default_homepage'] = $url['id_page'];
+	}
+}
 
 // =====================================================================
 //	VARIABLES

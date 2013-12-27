@@ -150,6 +150,15 @@ span.icon {
 	margin-right: 10px;
 }
 
+a.default_homepage {
+	padding: 20px;
+	background: #FCECAD;
+	margin: 20px 0;
+	display: block;
+	text-decoration: none;
+	font-size: 1.3em;
+}
+
 /*====================================================================*/
 /* SIDEBAR
 /*====================================================================*/

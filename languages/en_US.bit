@@ -258,6 +258,7 @@ $_LANG['VERSION'] = 'Version';
 $_LANG['RELEASE_DATE'] = 'Release date';
 
 $_LANG['NEW_PAGE'] = 'New page';
+$_LANG['MANAGE_PAGES'] = 'Manage pages';
 $_LANG['PAGE'] = 'Page';
 $_LANG['PAGES'] = 'Pages';
 $_LANG['PAGE_HAS_BEEN_PUBLISHED_SUCCESSFULLY'] = 'Page has been published successfully';

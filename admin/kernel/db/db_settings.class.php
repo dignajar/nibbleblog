@@ -100,6 +100,9 @@ PUBLIC METHODS
 		$tmp_array['seo_author']				= (string) $this->xml->getChild('seo_author');
 		$tmp_array['friendly_urls']				= (int) $this->xml->getChild('friendly_urls') == 1;
 
+		// Default homepage
+		$tmp_array['default_homepage']			= $this->xml->getChild('default_homepage');
+
 		return($tmp_array);
 	}
 

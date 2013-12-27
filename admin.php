@@ -36,11 +36,11 @@ $controllers['post']['edit_video'] 		= array('security'=>true, 'icon'=>'icon-pub
 $controllers['post']['edit_quote'] 		= array('security'=>true, 'icon'=>'icon-publish', 'title'=>$_LANG['EDIT_POST'], 'controller'=>'edit', 'view'=>'new_quote', 'template'=>'default', 'sidebar'=>2);
 $controllers['categories']['edit']		= array('security'=>true, 'icon'=>'icon-folder', 'title'=>$_LANG['MANAGE_CATEGORIES'], 'controller'=>'edit', 'view'=>'edit', 'template'=>'default', 'sidebar'=>2);
 
-$controllers['page']['list']	 		= array('security'=>true, 'icon'=>'icon-folder', 'title'=>$_LANG['NEW_PAGE'], 'controller'=>'list', 'view'=>'list', 'template'=>'default', 'sidebar'=>2);
-$controllers['post']['list'] 			= array('security'=>true, 'icon'=>'icon-folder', 'title'=>$_LANG['POSTS'], 'controller'=>'list', 'view'=>'list', 'template'=>'default', 'sidebar'=>2);
+$controllers['page']['list']	 		= array('security'=>true, 'icon'=>'icon-folder', 'title'=>$_LANG['MANAGE_PAGES'], 'controller'=>'list', 'view'=>'list', 'template'=>'default', 'sidebar'=>2);
+$controllers['post']['list'] 			= array('security'=>true, 'icon'=>'icon-folder', 'title'=>$_LANG['MANAGE_POSTS'], 'controller'=>'list', 'view'=>'list', 'template'=>'default', 'sidebar'=>2);
 $controllers['categories']['list']		= array('security'=>true, 'icon'=>'icon-folder', 'title'=>$_LANG['MANAGE_CATEGORIES'], 'controller'=>'list', 'view'=>'list', 'template'=>'default', 'sidebar'=>2);
 
-$controllers['comments']['list']		= array('security'=>true, 'icon'=>'icon-chat', 'title'=>$_LANG['COMMENTS'], 'controller'=>'list', 'view'=>'list', 'template'=>'default', 'sidebar'=>2);
+$controllers['comments']['list']		= array('security'=>true, 'icon'=>'icon-chat', 'title'=>$_LANG['MANAGE_COMMENTS'], 'controller'=>'list', 'view'=>'list', 'template'=>'default', 'sidebar'=>2);
 $controllers['comments']['settings']	= array('security'=>true, 'icon'=>'icon-cog', 'title'=>$_LANG['COMMENT_SETTINGS'], 'controller'=>'settings', 'view'=>'settings', 'template'=>'default', 'sidebar'=>3);
 
 $controllers['settings']['general']		= array('security'=>true, 'icon'=>'icon-cog', 'title'=>$_LANG['GENERAL_SETTINGS'], 'controller'=>'general', 'view'=>'general', 'template'=>'default', 'sidebar'=>3);

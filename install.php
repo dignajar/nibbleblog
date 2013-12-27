@@ -188,6 +188,9 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	$obj->addChild('seo_author',			'');
 	$obj->addChild('friendly_urls',			0);
 
+	// Default Homepage
+	$obj->addChild('default_homepage',		0);
+
 	$obj->asXml( FILE_XML_CONFIG );
 
 	// categories.xml

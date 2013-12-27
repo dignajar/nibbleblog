@@ -39,7 +39,7 @@ if( ($url['controller']!=null) && ($url['action']!=null) )
 	$layout['controller']	= $url['controller'].'/'.$url['action'].'.bit';
 	$layout['view']			= $url['controller'].'/'.$url['action'].'.bit';
 
-	// Particular post
+	// Filter by Post
 	if( (($url['id_post']!==null) || ($url['post']!==null)) && !empty($post) )
 	{
 		$layout['title'] 		.= ' - '.$post['title'];
@@ -49,6 +49,7 @@ if( ($url['controller']!=null) && ($url['action']!=null) )
 
 		$where_am_i[1] = 'post';
 	}
+	// Filter by Page
 	elseif( (($url['id_page']!==null) || ($url['page']!==null)) && !empty($page) )
 	{
 		$layout['title'] 		.= ' - '.$page['title'];
@@ -58,6 +59,7 @@ if( ($url['controller']!=null) && ($url['action']!=null) )
 
 		$where_am_i[1] = 'page';
 	}
+	// Filter by Category
 	elseif( ($url['category']!==null) && !empty($category) )
 	{
 		$layout['title'] 		.= ' - '.$category['name'];
@@ -65,6 +67,7 @@ if( ($url['controller']!=null) && ($url['action']!=null) )
 
 		$where_am_i[1] = 'category';
 	}
+	// Filter by Tag
 	elseif( ($url['tag']!==null) && !empty($tag) )
 	{
 		$layout['title'] 		.= ' - '.$url['tag'];
@@ -90,6 +93,17 @@ if( ($url['controller']!=null) && ($url['action']!=null) )
 			$layout['title'] 		.= ' - Error 404';
 		}
 
+	}
+}
+// Check default homepage
+else
+{
+	if($settings['default_homepage']!=0)
+	{
+		$page = $_DB_PAGES->get(array('id'=>$settings['default_homepage']));
+
+		$layout['controller']	= 'page/view.bit';
+		$layout['view']			= 'page/view.bit';
 	}
 }
 

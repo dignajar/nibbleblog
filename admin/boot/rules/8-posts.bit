@@ -42,6 +42,7 @@ if( ($url['id_page']!==null) || ($url['page']!==null) )
 		$page = $tmp;
 }
 
+// DEPRECATED
 if(!empty($page))
 	array_push($pages, $page);
 
@@ -49,16 +50,17 @@ if(!empty($page))
 // ---- PUBLISH DATE
 foreach($pages as $key=>$value)
 {
-	// DEPRECATED -> Moved to post helper
+	// DEPRECATED -> Moved to page helper
 	// Publish date
 	$pages[$key]['pub_date'] = Date::format($pages[$key]['pub_date_unix'], $settings['timestamp_format']);
 	$pages[$key]['mod_date'] = Date::format($pages[$key]['mod_date_unix'], $settings['timestamp_format']);
 
-	// DEPRECATED -> Moved to post helper
+	// DEPRECATED -> Moved to page helper
 	// Permalink
 	$pages[$key]['permalink'] = Url::page($pages[$key]);
 }
 
+// DEPRECATED
 if(!empty($page))
 	$page = array_pop($pages);
 
