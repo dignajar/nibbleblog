@@ -24,6 +24,9 @@ $plugins_installed = array();
 // All plugins, installed and not
 $plugins_all = array();
 
+// Plugins installed, order by position and only has enable the method blog_body()
+$plugins_sidebar = array();
+
 foreach($plugins_on_system as $dir_name)
 {
 	include_once(PATH_PLUGINS.$dir_name.'/plugin.bit');
@@ -62,11 +65,17 @@ foreach($plugins_on_system as $dir_name)
 
 		$plugins_installed[$position] = $plugins_all[$class];
 		$plugins_by_name[$dir_name] = $plugins_all[$class];
+
+		if($plugins_all[$class]->blog_body())
+		{
+			$plugins_sidebar[$position] = $plugins_all[$class];
+		}
 	}
 }
 
 // Sort plugins
 ksort($plugins_installed);
+ksort($plugins_sidebar);
 
 $plugins = $plugins_installed;
 

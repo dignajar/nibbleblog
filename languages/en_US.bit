@@ -258,6 +258,8 @@ $_LANG['VERSION'] = 'Version';
 $_LANG['RELEASE_DATE'] = 'Release date';
 
 $_LANG['NEW_PAGE'] = 'New page';
+$_LANG['SET_AS_HOMEPAGE'] = 'Set as homepage';
+$_LANG['THERE_IS_A_PAGE_AS_HOMEPAGE'] = 'There is a page as homepage, click here to remove this page.';
 $_LANG['MANAGE_PAGES'] = 'Manage pages';
 $_LANG['PAGE'] = 'Page';
 $_LANG['PAGES'] = 'Pages';

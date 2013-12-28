@@ -151,12 +151,20 @@ span.icon {
 }
 
 a.default_homepage {
-	padding: 20px;
-	background: #FCECAD;
-	margin: 20px 0;
-	display: block;
-	text-decoration: none;
-	font-size: 1.3em;
+    background: #F8FCFF;
+    border-bottom: 1px solid #29A6FF;
+    border-top: 1px solid #29A6FF;
+    color: #333333;
+    display: block;
+    font-size: 1.3em;
+    margin: 20px 0;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+}
+
+a.default_homepage:hover {
+	background: #E4F4FF;
 }
 
 /*====================================================================*/

@@ -9,6 +9,13 @@ if( $_POST['action']=='delete' )
 
 	// Delete the post
 	$error = !$_DB_PAGES->delete($safe);
+
+	// Remove homepage
+	if($settings['default_homepage']==$safe['id'])
+	{
+		$_DB_SETTINGS->set(array('default_homepage'=>0));
+		$_DB_SETTINGS->savetofile();
+	}
 }
 
 if($error)

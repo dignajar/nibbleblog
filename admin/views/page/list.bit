@@ -10,7 +10,7 @@ else
 	{
 		$page = $_DB_PAGES->get(array('id'=>$settings['default_homepage']));
 
-		echo '<a class="default_homepage" href="'.HTML_PATH_ROOT.'admin.php?controller=page&amp;action=list&amp;other=homepage&amp;id_page=0">There is a page as homepage, click here to delete this setting.</a>';
+		echo '<a class="default_homepage" href="'.HTML_PATH_ROOT.'admin.php?controller=page&amp;action=list&amp;other=homepage&amp;id_page=0">'.$_LANG['THERE_IS_A_PAGE_AS_HOMEPAGE'].'</a>';
 	}
 
 	echo '
@@ -43,8 +43,8 @@ else
 				<div class="options">
 					<a href="'.HTML_PATH_ROOT.'index.php?controller=page&amp;action=view&amp;id_page='.$page['id'].'">'.($page['draft']?$_LANG['PREVIEW']:$_LANG['VIEW']).'</a>
 					<a href="'.HTML_PATH_ROOT.'admin.php?controller=page&amp;action=edit&amp;id_page='.$page['id'].'">'.$_LANG['EDIT'].'</a>
+					<a href="'.HTML_PATH_ROOT.'admin.php?controller=page&amp;action=list&amp;other=homepage&amp;id_page='.$page['id'].'">'.$_LANG['SET_AS_HOMEPAGE'].'</a>
 					<a class="js_button_delete" data-flag="0" data-id="'.$page['id'].'" href="javascript:void(0)">'.$_LANG['DELETE'].'</a>
-					<a href="'.HTML_PATH_ROOT.'admin.php?controller=page&amp;action=list&amp;other=homepage&amp;id_page='.$page['id'].'">Set as default homepage</a>
 				</div>
 				</td>
 				<td>'.$page['slug'].'</td>

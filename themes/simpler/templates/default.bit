@@ -45,7 +45,7 @@
 			{
 				echo '<section id="sidebar">';
 
-				foreach($plugins as $plugin)
+				foreach($plugins_sidebar as $plugin)
 				{
 					echo '<div class="plugin-box '.$plugin->get_slug_name().'">';
 						echo '<h3 class="plugin-title">'.$plugin->database('title').'</h3>';

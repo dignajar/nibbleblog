@@ -102,8 +102,11 @@ else
 	{
 		$page = $_DB_PAGES->get(array('id'=>$settings['default_homepage']));
 
-		$layout['controller']	= 'page/view.bit';
-		$layout['view']			= 'page/view.bit';
+		if($page!==false)
+		{
+			$layout['controller']	= 'page/view.bit';
+			$layout['view']			= 'page/view.bit';
+		}
 	}
 }
 
