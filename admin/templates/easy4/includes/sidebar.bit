@@ -1,0 +1,47 @@
+<?php
+
+$sidebar_links = array(
+	array(
+		'value'=>$_LANG['PUBLISH'],
+		'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_simple',
+		'icon'=>'icon-publish',
+		'class'=>''
+	),
+	array(
+		'value'=>$_LANG['MANAGE'],
+		'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=list',
+		'icon'=>'icon-folder',
+		'class'=>''
+	),
+	array(
+		'value'=>$_LANG['COMMENTS'],
+		'href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list',
+		'icon'=>'icon-comment-alt',
+		'class'=>''
+	),
+	array(
+		'value'=>$_LANG['SETTINGS'],
+		'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=general',
+		'icon'=>'icon-cog',
+		'class'=>''
+	),
+	array(
+		'value'=>$_LANG['THEMES'],
+		'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=themes',
+		'icon'=>'icon-image',
+		'class'=>''
+	),
+	array(
+		'value'=>$_LANG['PLUGINS'],
+		'href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=list',
+		'icon'=>'icon-folder',
+		'class'=>''
+	)
+);
+
+foreach($sidebar_links as $link)
+{
+	echo '<a href="'.$link['href'].'" class="sidelink'.$link['class'].'"><span class="icon '.$link['icon'].'"></span>'.$link['value'].'</a>';
+}
+
+?>

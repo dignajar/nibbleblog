@@ -306,4 +306,6 @@ $_LANG['EMAIL_NOTIFICATION_FORGOT_PASSWORD'] = '
 <p>Follow the next link: {{FORGOT_LINK}}</p>
 ';
 
+$_LANG['REGIONAL'] = 'Regional';
+
 ?>
