@@ -1,8 +1,0 @@
-<?php
-
-$_PLUGIN_CONFIG['LANG'] = array(
-	'NAME'=>'PORTRAIT_PANEL',
-	'DESCRIPTION'=>'PORTRAIT_PANEL'
-);
-
-?>
