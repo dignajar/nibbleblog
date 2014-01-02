@@ -307,5 +307,10 @@ $_LANG['EMAIL_NOTIFICATION_FORGOT_PASSWORD'] = '
 ';
 
 $_LANG['REGIONAL'] = 'Regional';
+$_LANG['INSERT_IMAGE_FROM_URL'] = 'Insert image from URL';
+
+$_LANG['BLUDIT_SYNC'] = 'Bludit Sync';
+$_LANG['NIBBLEBLOG_SYNC_URL'] = 'Nibbleblog Sync URL';
+$_LANG['NIBBLEBLOG_SYNC_KEY'] = 'Nibbleblog Sync Key';
 
 ?>

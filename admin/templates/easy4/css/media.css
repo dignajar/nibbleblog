@@ -7,14 +7,20 @@
 }
 
 #mm_files {
-	height: 135px;
+	height: 155px;
 	overflow: scroll;
 	width: 100%;
 }
 
 #mm_files img {
 	display: inline-block;
-	margin: 0 7px 7px;
+	margin: 0 5px 6px;
+	border: 3px solid #fff;
+}
+
+#mm_files img:hover {
+	cursor: pointer;
+	border: 3px solid #3474A7;
 }
 
 #media_upload_button {
@@ -23,23 +29,66 @@
     border-radius: 2px 2px 2px 2px;
     padding: 12px;
     color: #FFF !important;
+    font-size: 1.8em;
+    text-align: center;
 }
 
 #media_upload_button:hover {
 	cursor: pointer;
-	background: #478FBF;
+	background: #3474A7;
 }
 
+#media_url_button {
+	background: #3B84BF;
+	border: 1px solid #478FBF;
+	border-radius: 2px;
+	color: #FFFFFF !important;
+	cursor: pointer;
+	float: right;
+	font-size: 1.6em;
+	margin-top: 5px;
+	padding: 5px 40px;
+	text-align: right;
+}
+
+#media_url_button:hover {
+	cursor: pointer;
+	background: #3474A7;
+}
+
+#media_url_input {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	border: 1px solid #C4C4C4;
+	border-radius: 2px;
+	color: #858585;
+	padding: 10px 8px;
+	outline:none; /* not focus border on chrome */
+	resize: none;
+	font-size: 1.4em;
+}
+
+
+
 #media_modal h2.title {
-	font-size: 2em;
+	background: #F1F1F1;
+	border-bottom: 2px solid #CCCCCC;
+	color: #333333;
+	font-size: 1.6em;
 	font-weight: normal;
-	color: #333;
-	text-align: center;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-top: 10px;
+	margin-top: 30px;
 }
 
 #media_loading {
 	display: none;
 }
+
+
 
 /*====================================================================*/
 /* REVEAL MODAL

@@ -10,12 +10,14 @@ $file_list = Filesystem::get_images('*_nbmedia*');
 
 	<div id="media_box">
 
-		<h2 id="media_upload_button" class="title"><span style="margin-right:8px;" class="icon-picture"></span><?php echo $_LANG['UPLOAD_A_NEW_IMAGE'] ?></h2>
+		<div id="media_upload_button">
+			<span style="margin-right:8px;" class="icon-image"></span><?php echo $_LANG['UPLOAD_A_NEW_IMAGE'] ?>
+		</div>
+
 
 		<?php
 			if(!empty($file_list))
 			{
-				echo '<h2 class="title" style="color: #999;">'.$_LANG['OR'].'</h2>';
 				echo '<h2 class="title">'.$_LANG['SELECT_AN_IMAGE_FROM_YOUR_BAG'].'</h2>';
 				echo '<div id="mm_files">';
 				foreach($file_list as $file)
@@ -38,6 +40,10 @@ $file_list = Filesystem::get_images('*_nbmedia*');
 				echo '</div>';
 			}
 		?>
+
+		<h2 class="title"><?php echo $_LANG['INSERT_IMAGE_FROM_URL'] ?></h2>
+		<input type="text" id="media_url_input" value="http://">
+		<div id="media_url_button"><?php echo $_LANG['INSERT_PICTURE'] ?></div>
 
 	</div>
 
@@ -69,10 +75,27 @@ function insert_content(content)
 <script>
 $(document).ready(function() {
 
+//======================================================================
+// From URL
+//======================================================================
+
+	$("#media_url_button").click(
+	function() {
+		var url = $("#media_url_input").val();
+		var img = '<img src="'+url+'" alt="">';
+		insert_content(img);
+		$("#media_url_input").val('http://');
+		$('#media_modal').trigger('reveal:close');
+	});
+
+//======================================================================
+// BAG
+//======================================================================
+
 	$("#mm_files").on("click", "img",
 	function() {
 		var src = $(this).attr("data-original");
-		var img = '<img src="'+src+'" />';
+		var img = '<img src="'+src+'" alt="">';
 		insert_content(img);
 		$('#media_modal').trigger('reveal:close');
 	});

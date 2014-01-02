@@ -32,9 +32,9 @@
 </head>
 <body>
 
-	<div id="container">
+	<div id="alert">Mr Nibbler is Cool!</div>
 
-		<div id="alert">Mr Nibbler is Cool!</div>
+	<div id="container">
 
 		<!-- MAIN -->
 		<div id="main">
