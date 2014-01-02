@@ -4,7 +4,7 @@ $file_list = Filesystem::get_images('*_nbmedia*');
 
 ?>
 
-<input id="media_input_file" type="file" class="hidden" size="1" accept="image/*" />
+<input id="media_input_file" type="file" class="hidden" size="1" accept="image/*">
 
 <div id="media_modal" class="reveal-modal">
 
@@ -20,8 +20,20 @@ $file_list = Filesystem::get_images('*_nbmedia*');
 				echo '<div id="mm_files">';
 				foreach($file_list as $file)
 				{
-					$original = Text::replace('nbmedia','o',$file);
-					echo '<img data-original="'.HTML_PATH_UPLOAD.$original.'" src="'.HTML_PATH_UPLOAD.$file.'" />';
+					// Get the original file
+					$file_nbmedia = Text::replace('nbmedia','o',$file);
+					$info = pathinfo(PATH_UPLOAD.$file_nbmedia);
+					$original = false;
+
+					if(file_exists(PATH_UPLOAD.$info['filename'].'.jpg'))
+						$original = $info['filename'].'.jpg';
+					elseif(file_exists(PATH_UPLOAD.$info['filename'].'.png'))
+						$original = $info['filename'].'.png';
+					elseif(file_exists(PATH_UPLOAD.$info['filename'].'.gif'))
+						$original = $info['filename'].'.gif';
+
+					if($original)
+						echo '<img data-original="'.HTML_PATH_UPLOAD.$original.'" src="'.HTML_PATH_UPLOAD.$file.'">';
 				}
 				echo '</div>';
 			}

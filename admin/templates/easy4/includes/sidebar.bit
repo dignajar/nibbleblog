@@ -5,43 +5,45 @@ $sidebar_links = array(
 		'value'=>$_LANG['PUBLISH'],
 		'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_simple',
 		'icon'=>'icon-publish',
-		'class'=>''
-	),
-	array(
-		'value'=>$_LANG['MANAGE'],
-		'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=list',
-		'icon'=>'icon-folder',
-		'class'=>''
+		'ids_sidebar'=>array(2,3,4,5)
 	),
 	array(
 		'value'=>$_LANG['COMMENTS'],
 		'href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=list',
 		'icon'=>'icon-comment-alt',
-		'class'=>''
+		'ids_sidebar'=>array(14)
+	),
+	array(
+		'value'=>$_LANG['MANAGE'],
+		'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=list',
+		'icon'=>'icon-folder',
+		'ids_sidebar'=>array(11,12,13)
 	),
 	array(
 		'value'=>$_LANG['SETTINGS'],
 		'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=general',
 		'icon'=>'icon-cog',
-		'class'=>''
+		'ids_sidebar'=>array(15,16,17,18,19,21,22,23)
 	),
 	array(
 		'value'=>$_LANG['THEMES'],
 		'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=themes',
 		'icon'=>'icon-image',
-		'class'=>''
+		'ids_sidebar'=>array(20)
 	),
 	array(
 		'value'=>$_LANG['PLUGINS'],
 		'href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=list',
 		'icon'=>'icon-folder',
-		'class'=>''
+		'ids_sidebar'=>array(24,25,26,27)
 	)
 );
 
 foreach($sidebar_links as $link)
 {
-	echo '<a href="'.$link['href'].'" class="sidelink'.$link['class'].'"><span class="icon '.$link['icon'].'"></span>'.$link['value'].'</a>';
+	$selected = in_array($layout['id_sidebar'], $link['ids_sidebar'])?' selected':'';
+
+	echo '<a href="'.$link['href'].'" class="sidelink'.$selected.'"><span class="icon '.$link['icon'].'"></span>'.$link['value'].'</a>';
 }
 
 ?>

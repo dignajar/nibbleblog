@@ -2,122 +2,88 @@
 
 $toolbar_links = array();
 
-if( in_array($url['controller'], array('post','page')) &&
-	in_array($url['action'], array('new_simple','new_video', 'new_quote', 'new'))
-)
+if(in_array($layout['id_sidebar'],array(2,3,4,5)))
 {
 	$toolbar_links = array(
 		array(
 			'value'=>$_LANG['SIMPLE_POST'],
 			'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_simple',
-			'icon'=>'',
-			'class'=>'',
-			'selected'=>(($url['controller']=='post')&&($url['action']=='new_simple'))
+			'id_sidebar'=>3
 		),
 		array(
 			'value'=>$_LANG['VIDEO_POST'],
 			'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_video',
-			'icon'=>'',
-			'class'=>'',
-			'selected'=>(($url['controller']=='post')&&($url['action']=='new_video'))
+			'id_sidebar'=>4
 		),
 		array(
 			'value'=>$_LANG['QUOTE_POST'],
 			'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=new_quote',
-			'icon'=>'',
-			'class'=>'',
-			'selected'=>(($url['controller']=='post')&&($url['action']=='new_quote'))
+			'id_sidebar'=>5
 		),
 		array(
 			'value'=>$_LANG['NEW_PAGE'],
 			'href'=>HTML_PATH_ROOT.'admin.php?controller=page&amp;action=new',
-			'icon'=>'',
-			'class'=>'',
-			'selected'=>(($url['controller']=='page')&&($url['action']=='new'))
+			'id_sidebar'=>2
 		)
 	);
 }
-elseif( in_array($url['controller'], array('post','page', 'categories')) &&
-	in_array($url['action'], array('list'))
-)
+elseif(in_array($layout['id_sidebar'],array(11,12,13)))
 {
 	$toolbar_links = array(
 		array(
 			'value'=>$_LANG['MANAGE_POSTS'],
 			'href'=>HTML_PATH_ROOT.'admin.php?controller=post&amp;action=list',
-			'icon'=>'',
-			'class'=>'',
-			'selected'=>(($url['controller']=='page')&&($url['action']=='new'))
+			'id_sidebar'=>12
 		),
 		array(
 			'value'=>$_LANG['MANAGE_PAGES'],
 			'href'=>HTML_PATH_ROOT.'admin.php?controller=page&amp;action=list',
-			'icon'=>'',
-			'class'=>'',
-			'selected'=>(($url['controller']=='page')&&($url['action']=='new'))
+			'id_sidebar'=>11
 		),
 		array(
 			'value'=>$_LANG['MANAGE_CATEGORIES'],
 			'href'=>HTML_PATH_ROOT.'admin.php?controller=categories&amp;action=list',
-			'icon'=>'',
-			'class'=>'',
-			'selected'=>(($url['controller']=='page')&&($url['action']=='new'))
+			'id_sidebar'=>13
 		)
 	);
 }
-elseif( in_array($url['controller'], array('settings', 'comments')) &&
-	in_array($url['action'], array('general','regional','settings','image','notifications','username','seo'))
-)
+elseif(in_array($layout['id_sidebar'],array(15,16,17,18,19,21,22,23)))
 {
 	$toolbar_links = array(
 		array(
 			'value'=>$_LANG['SETTINGS'],
 			'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=general',
-			'icon'=>'',
-			'class'=>'',
-			'selected'=>(($url['controller']=='settings')&&($url['action']=='general'))
+			'id_sidebar'=>16
 		),
 		array(
 			'value'=>$_LANG['REGIONAL'],
 			'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=regional',
-			'icon'=>'',
-			'class'=>'',
-			'selected'=>(($url['controller']=='settings')&&($url['action']=='regional'))
+			'id_sidebar'=>18
 		),
 		array(
 			'value'=>$_LANG['COMMENTS'],
 			'href'=>HTML_PATH_ROOT.'admin.php?controller=comments&amp;action=settings',
-			'icon'=>'',
-			'class'=>'',
-			'selected'=>(($url['controller']=='comments')&&($url['action']=='settings'))
+			'id_sidebar'=>15
 		),
 		array(
 			'value'=>$_LANG['IMAGE_SETTINGS'],
 			'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=image',
-			'icon'=>'',
-			'class'=>'',
-			'selected'=>(($url['controller']=='settings')&&($url['action']=='image'))
+			'id_sidebar'=>19
 		),
 		array(
 			'value'=>$_LANG['NOTIFICATIONS'],
 			'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=notifications',
-			'icon'=>'',
-			'class'=>'',
-			'selected'=>(($url['controller']=='settings')&&($url['action']=='notifications'))
+			'id_sidebar'=>22
 		),
 		array(
 			'value'=>$_LANG['USERNAME_AND_PASSWORD'],
 			'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=username',
-			'icon'=>'',
-			'class'=>'',
-			'selected'=>(($url['controller']=='settings')&&($url['action']=='username'))
+			'id_sidebar'=>21
 		),
 		array(
 			'value'=>$_LANG['SEO_OPTIONS'],
 			'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&amp;action=seo',
-			'icon'=>'',
-			'class'=>'',
-			'selected'=>(($url['controller']=='settings')&&($url['action']=='seo'))
+			'id_sidebar'=>23
 		),
 	);
 }
@@ -126,9 +92,9 @@ echo '<div class="top_toolbar">';
 
 foreach($toolbar_links as $link)
 {
-	$selected = $link['selected']?' selected':false;
+	$selected = $layout['id_sidebar']==$link['id_sidebar']?' selected':'';
 
-	echo '<a href="'.$link['href'].'" class="tool_button'.$selected.'"><span class="icon '.$link['icon'].'"></span>'.$link['value'].'</a>';
+	echo '<a href="'.$link['href'].'" class="tool_button'.$selected.'">'.$link['value'].'</a>';
 }
 
 echo '</div>';
