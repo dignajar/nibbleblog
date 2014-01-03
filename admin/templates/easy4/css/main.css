@@ -219,16 +219,13 @@ a.default_homepage:hover {
 div.dashboard_left {
     float: left;
     margin-right: 30px;
-    max-width: 550px;
     padding-right: 30px;
     width: 45%;
 }
 
 div.dashboard_right {
     float: left;
-    margin-right: 30px;
-    width: 45%;
-    max-width: 550px;
+    width: 47%;
 }
 
 div.dashboard_box {
@@ -270,29 +267,29 @@ div.dashboard_box	a.draft {
 	padding: 15px 15px;
 	margin-bottom: 10px;
     display: block;
-    background: #3497A9;
+    background: #FAFAFA;
 	font-size: 1.5em;
-	color: #FFFFFF;
+	color: #333;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+	border-left: 4px solid #6D7B81;
 }
 
 div.dashboard_box	a.draft:hover {
 	text-decoration: none;
-	background: #256D7A;
+	background: #F4F4F4;
 }
 
 /* Last comments */
 div.dashboard_box	a.last_comments {
-	padding: 15px;
+	padding: 10px;
 	margin-bottom: 10px;
     display: block;
     background: #FAFAFA;
     color: #333;
 	overflow: hidden;
 	border-left: 4px solid #80C740;
-	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
 div.dashboard_box	a.last_comments:hover {
@@ -302,15 +299,14 @@ div.dashboard_box	a.last_comments:hover {
 
 div.dashboard_box	a.last_comments	div.content {
 	margin-bottom: 5px;
-	font-size: 1.2em;
+	font-size: 1.3em;
 	overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 div.dashboard_box	a.last_comments	div.info {
-	margin-bottom: 5px;
-	font-size: 1.1em;
+	font-size: 1.2em;
 	color: #AAAAAA;
 }
 
@@ -324,9 +320,9 @@ div.dashboard_box	a.comment_unapproved {
 
 /* Notifications */
 div.notification {
-    border-bottom: 1px solid #DDDDDD;
     display: block;
-    padding: 20px 10px;
+    padding: 0px 10px;
+    margin-bottom: 25px;
 }
 
 div.notification	div.icon {
@@ -344,7 +340,7 @@ div.notification	div.type {
 
 div.notification	div.info {
 	margin-bottom: 5px;
-	font-size: 1.1em;
+	font-size: 1.2em;
 	color: #AAAAAA;
 	margin-left: 30px;
 }
