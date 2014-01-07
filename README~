@@ -47,10 +47,3 @@ Linkedin: http://www.linkedin.com/in/dignajar
 * Username for Disqus and Facebook commments now on settings
 *
 
-===== Deprecated features for version 4.1 =====
-File: /admin/kernel/api/comment.class.php
-$Comment->get_hash() replaced for $Comment->form('hash')
-$Comment->set_hash() replaced for $Comment->set_form('hash', 'value')
-
-File: /admin/boot/rules/8-posts.bit
-
