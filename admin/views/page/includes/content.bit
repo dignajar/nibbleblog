@@ -5,10 +5,6 @@ echo Html::div_open( array('class'=>'form_block') );
 
 	echo Html::textarea( array('id'=>'js_content', 'name'=>'content', 'content'=>$value, 'class'=>'wysiwyg') );
 
-	echo Html::div_open( array('id'=>'js_content_tools', 'class'=>'content_tools') );
-		echo Html::link( array('class'=>'button', 'content'=>'<span class="icon icon-code"></span>'.'HTML', 'href'=>'javascript:;', 'onclick'=>'toggle_html()'));
-	echo Html::div_close();
-
 echo Html::div_close();
 
 // Nibbleblog media
@@ -72,9 +68,9 @@ $(document).ready(function() {
 		plugins: [
 			"autolink link image lists hr anchor pagebreak",
 			"searchreplace code fullscreen  media nonbreaking",
-			"table directionality paste textcolor"
+			"table directionality paste textcolor code"
 		],
-		toolbar: "undo redo | styleselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link media nb-image | forecolor backcolor table | pagebreak fullscreen",
+		toolbar: "undo redo | styleselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link media nb-image | forecolor backcolor table | pagebreak fullscreen code",
 		style_formats: [
 			{title : 'Heading 1', block : 'h1'},
 			{title : 'Heading 2', block : 'h2'},

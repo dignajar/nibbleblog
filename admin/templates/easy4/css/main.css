@@ -173,9 +173,9 @@ span.icon {
 }
 
 a.default_homepage {
-    background: #F8FCFF;
-    border-bottom: 1px solid #29A6FF;
-    border-top: 1px solid #29A6FF;
+    background: #F9FCFF;
+    border-bottom: 1px solid #428BCA;
+    border-top: 1px solid #428BCA;
     color: #333333;
     display: block;
     font-size: 1.3em;
@@ -414,26 +414,6 @@ div.form_block	textarea.wysiwyg {
 	resize: vertical;
 }
 
-div.content_tools {
-	background: #f1f1f1;
-	border-left: 1px solid #f1f1f1;
-	border-right: 1px solid #f1f1f1;
-	width: 100%;
-}
-
-div.content_tools 	.button {
-	border-right: 2px solid #478FBF;
-	padding: 8px;
-	display: inline-block;
-	color: #FFFFFF;
-	cursor: pointer;
-	background-color: #3B84BF;
-}
-
-div.content_tools	.button:hover {
-	text-decoration: none;
-	background-color: #4183AF;
-}
 
 div.form_block		input[type="checkbox"].float {
 	vertical-align: middle;
