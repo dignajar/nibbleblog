@@ -11,10 +11,10 @@ require_once('rules/5-regional.bit');
 require_once('rules/5-url.bit');
 
 require_once('rules/10-session.bit');
+require_once('rules/11-admin.bit');
 
 require_once('rules/98-plugins.bit');
 require_once('rules/98-constants.bit');
-require_once('rules/98-admin.bit');
 
 require_once('rules/99-misc.bit');
 

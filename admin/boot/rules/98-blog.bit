@@ -18,7 +18,6 @@ require(THEME_ROOT.'config.bit');
 // =====================================================================
 //	CONTROLLER & ACTION
 // =====================================================================
-$where_am_i[0] = 'blog';
 
 $layout = array(
 	'controller'=>'blog/view.bit',

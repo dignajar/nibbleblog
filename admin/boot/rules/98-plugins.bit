@@ -66,9 +66,12 @@ foreach($plugins_on_system as $dir_name)
 		$plugins_installed[$position] = $plugins_all[$class];
 		$plugins_by_name[$dir_name] = $plugins_all[$class];
 
-		if($plugins_all[$class]->blog_body())
+		if($where_am_i[0]=='blog')
 		{
-			$plugins_sidebar[$position] = $plugins_all[$class];
+			if($plugins_all[$class]->blog_body())
+			{
+				$plugins_sidebar[$position] = $plugins_all[$class];
+			}
 		}
 	}
 }
