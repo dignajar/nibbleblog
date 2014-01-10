@@ -232,7 +232,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	$obj->addChild('monitor_api_key', '');
 	$obj->addChild('monitor_spam_control', '0.75');
 	$obj->addChild('monitor_auto_delete', 0);
-	$obj->addChild('disqus_account', '');
+	$obj->addChild('disqus_shortname', '');
 	$obj->addChild('facebook_appid', '');
 	$obj->asXml( FILE_XML_COMMENTS );
 

@@ -289,6 +289,13 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 				add_if_not($obj,'seo_bing_code','');
 				add_if_not($obj,'seo_author','');
 
+				// Images
+				add_if_not($obj,'img_resize_quality',100);
+				add_if_not($obj,'img_thumbnail_quality',100);
+
+				// Default page
+				add_if_not($obj,'default_homepage',0);
+
 				if($obj->asXml( FILE_XML_CONFIG ))
 					echo Html::p( array('class'=>'pass', 'content'=>'DB updated: '.FILE_XML_CONFIG) );
 				else
@@ -304,6 +311,8 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 				add_if_not($obj,'monitor_api_key','');
 				add_if_not($obj,'monitor_spam_control','0.75');
 				add_if_not($obj,'monitor_auto_delete',0);
+				add_if_not($obj,'disqus_shortname','');
+				add_if_not($obj,'facebook_appid','');
 				$obj->asXml( FILE_XML_COMMENTS );
 				echo Html::p( array('class'=>'pass', 'content'=>'DB updated: '.FILE_XML_COMMENTS) );
 
