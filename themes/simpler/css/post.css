@@ -43,7 +43,8 @@ POST :: Content
 ========================================================================
 */
 
-article.post	div.post-content	.console {
+article.post	div.post-content	.console,
+article.post	div.post-content	.nb-console {
     background: url("img/console.png") no-repeat scroll 8px 8px #F1F1F1;
     display: block;
     line-height: 24px;
