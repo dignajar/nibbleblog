@@ -9,6 +9,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	$safe = array();
 	$safe['name'] = Validation::sanitize_html( $_POST['name'] );
 	$safe['slug'] = Text::clean_url($safe['name'], '-', $translit_enable);
+	$safe['position'] = count($categories)+1;
 
 	if(Text::not_empty($safe['name']))
 	{

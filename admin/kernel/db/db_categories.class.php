@@ -54,6 +54,7 @@ PUBLIC METHODS
 			$new_node->addAttribute('id', $this->get_autoinc());
 			$new_node->addAttribute('name', $args['name'] );
 			$new_node->addAttribute('slug', $args['slug'] );
+			$new_node->addAttribute('position', $args['position'] );
 			$this->set_autoinc(1);
 
 			return $this->savetofile();
@@ -72,6 +73,7 @@ PUBLIC METHODS
 
 		$node[0]->attributes()->name = utf8_encode($args['name']);
 		$node[0]->attributes()->slug = utf8_encode($args['slug']);
+		$node[0]->attributes()->position = utf8_encode($args['position']);
 
 		return $this->savetofile();
 	}
@@ -127,7 +129,12 @@ PUBLIC METHODS
 		{
 			$row = $this->get_items($children);
 
-			$tmp_array[$row['slug']] = $row;
+			$position = $row['position'];
+
+			while(isset($tmp_array[$position]))
+				$position++;
+
+			$tmp_array[$position] = $row;
 		}
 
 		// Alphabetical order
@@ -167,6 +174,7 @@ PRIVATE METHODS
 		$tmp_array['id']	= (int) $node->getAttribute('id');
 		$tmp_array['name']	= $node->getAttribute('name');
 		$tmp_array['slug']	= $node->getAttribute('slug');
+		$tmp_array['position']	= $node->getAttribute('position');
 
 		return $tmp_array;
 	}

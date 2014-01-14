@@ -131,8 +131,11 @@ class Text {
 			$text = str_replace(array_keys($translit),array_values($translit),$text);
 		}
 
-		// Reemplace spaces by $spaces
+		// Replace spaces by $spaces
 		$text = str_replace(' ',$spaces,$text);
+
+		// Replace double -- by -
+		$text = str_replace(array('---','--'),'-',$text);
 
 		// Make a string lowercase
 		$text = self::str2lower($text);

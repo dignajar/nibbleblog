@@ -202,14 +202,17 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	$node->addAttribute('id',0);
 	$node->addAttribute('name', $_LANG['UNCATEGORIZED']);
 	$node->addAttribute('slug', 'uncategorized');
+	$node->addAttribute('position', 1);
 	$node = $obj->addChild('category', '');
 	$node->addAttribute('id',1);
 	$node->addAttribute('name', $_LANG['MUSIC']);
 	$node->addAttribute('slug', 'music');
+	$node->addAttribute('position', 2);
 	$node = $obj->addChild('category', '');
 	$node->addAttribute('id',2);
 	$node->addAttribute('name', $_LANG['VIDEOS']);
 	$node->addAttribute('slug', 'videos');
+	$node->addAttribute('position', 3);
 	$obj->asXml( FILE_XML_CATEGORIES );
 
 	// tags.xml

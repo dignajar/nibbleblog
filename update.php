@@ -320,16 +320,20 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 				// Categories
 				// =====================================================
 				$obj = new NBXML(FILE_XML_CATEGORIES, 0, TRUE, '', FALSE);
+				$position = 0;
 
 				foreach( $obj->children() as $children )
 				{
+					// Slug
 					$name = utf8_decode((string)$children->attributes()->name);
-
 					$slug = Text::clean_url($name, '-', $translit_enable);
-
 					@$children->addAttribute('slug','');
-
 					$children->attributes()->slug = utf8_encode($slug);
+
+					// Position
+					@$children->addAttribute('position','');
+					$children->attributes()->position = utf8_encode($position);
+					$position++;
 				}
 
 				$obj->asXml( FILE_XML_CATEGORIES );

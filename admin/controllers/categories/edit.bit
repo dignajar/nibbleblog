@@ -8,6 +8,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	$safe['id']	= $url['id_cat'];
 	$safe['name'] = Validation::sanitize_html( $_POST['name'] );
 	$safe['slug'] = Validation::sanitize_html( $_POST['slug'] );
+	$safe['position'] = $_POST['position'];
 
 	if( $_DB_CATEGORIES->set($safe) )
 	{
@@ -26,5 +27,7 @@ if($category === false )
 {
 	Redirect::controller('admin', 'categories', 'list');
 }
+
+$ctrlv['positions_html'] = array_combine(range(1, count($categories)), range(1, count($categories)));
 
 ?>

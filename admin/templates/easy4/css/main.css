@@ -157,6 +157,7 @@ div.top_toolbar a.selected {
     overflow: hidden;
     max-width: 1160px;
     padding: 0 2px;
+    margin-bottom: 20px;
 }
 
 #main_right	h1.title {
