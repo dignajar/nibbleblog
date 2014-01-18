@@ -6,7 +6,7 @@ echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') )
 
 		// SANITIZE
 		echo Html::div_open( array('class'=>'form_block'));
-			echo Html::checkbox( array('id'=>'js_sanitize', 'name'=>'sanitize', 'class'=>'float'), $comment_settings['sanitize'] );
+			echo Html::checkbox( array('id'=>'js_sanitize', 'name'=>'sanitize', 'class'=>'float'), $comment_settings['sanitize']);
 			echo Html::label( array('content'=>$_LANG['SANITIZE_HTML_CODE'], 'class'=>'for_checkbox', 'for'=>'js_sanitize') );
 			echo Html::div( array('content'=>$_LANG['ENABLE_THIS_FEATURE_TO_PROTECT_AGAINST_XSS'], 'class'=>'input_tip') );
 		echo Html::div_close();

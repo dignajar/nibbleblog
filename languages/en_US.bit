@@ -313,4 +313,7 @@ $_LANG['BLUDIT_SYNC'] = 'Bludit Sync';
 $_LANG['NIBBLEBLOG_SYNC_URL'] = 'Nibbleblog Sync URL';
 $_LANG['NIBBLEBLOG_SYNC_KEY'] = 'Nibbleblog Sync Key';
 
+$_LANG['CATEGORY_NAME'] = 'Category name';
+$_LANG['CATEGORY_SLUG'] = 'Category slug';
+
 ?>

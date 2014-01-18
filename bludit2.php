@@ -14,7 +14,7 @@ header("access-control-allow-origin: *");
 // =====================================================================
 // VARIABLES
 // =====================================================================
-$STATUS_POSTS_AMOUNT = 10;
+$POSTS_TO_SYNC = 10;
 
 // =====================================================================
 // FUNCTIONS
@@ -39,9 +39,9 @@ function post_to_json($post, $tojson=true)
 	array_push($post['tags'], $category['name']);
 
 	// Content
-	// Src images relatives to absoluts
+	// Src images relatives to absolute
 	$domain = $settings['url'];
-	$post['content'] = preg_replace("/(src)\=\"([^(http)])(\/)?/", "$1=\"$domain$2", $post['content'][0]);
+	$post['content'] = preg_replace("/(src)\=\"([^(http|data:image)])(\/)?/", "$1=\"$domain$2", $post['content'][0]);
 
 	// Unset
 	unset($post['read_more']);
@@ -70,10 +70,10 @@ require('admin/boot/blog.bit');
 require(FILE_KEYS);
 
 if(!isset($_KEYS[0]))
-	exit('Nibbleblog: Error key 0');
+	exit(json_encode(array('error'=>'Nibbleblog: Error key 0')));
 
 if(!isset($_KEYS[1]))
-	exit('Nibbleblog: Error key 1');
+	exit(json_encode(array('error'=>'Nibbleblog: Error key 1')));
 
 // This hash represent your blog on Bludit
 $mark = Crypt::get_hash($_KEYS[0]);
@@ -82,14 +82,14 @@ $mark = Crypt::get_hash($_KEYS[0]);
 $key_for_sync = Crypt::get_hash($_KEYS[1]);
 
 if($url['sync']!=$key_for_sync)
-	exit('Nibbleblog: Error key for sync');
+	exit(json_encode(array('error'=>'Nibbleblog: Error key for sync')));
 
 // Prevent flood requests
 // $_DB_USERS->set_blacklist();
 
 if($url['other']=='status')
 {
-	$posts = $_DB_POST->get_list_by_page(array('page'=>0, 'amount'=>$STATUS_POSTS_AMOUNT));
+	$posts = $_DB_POST->get_list_by_page(array('page'=>0, 'amount'=>$POSTS_TO_SYNC));
 
 	$posts = array_reverse($posts);
 
