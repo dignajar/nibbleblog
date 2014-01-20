@@ -76,8 +76,8 @@ $_LANG['VIEW'] = 'View';
 $_LANG['EDIT'] = 'Edit';
 $_LANG['TIMESTAMP_FORMAT'] = 'Time stamp format';
 $_LANG['SELECT_A_TIMEZONE_FOR_A_CORRECT_DATE_VISUALIZATION'] = 'Select a timezone for a correct date visualization.';
-$_LANG['ABSOLUT_URL_ADDRESS_OF_YOUR_BLOG'] = 'Absolute URL address of your blog. Example http://www.domain.com/blog';
-$_LANG['ABSOLUT_ADDRESS_THAT_CONTAINS_THE_BLOGS_FILE_SYSTEM'] = 'Absolute address that contains the blog\'s file system, if you upload the content of Nibbleblog to your root you should only put a "/", and if you upload it into another directory then it should be "/directory".';
+$_LANG['ABSOLUTE_URL_ADDRESS_OF_YOUR_BLOG'] = 'Absolute URL address of your blog. Example http://www.domain.com/blog';
+$_LANG['ABSOLUTE_ADDRESS_THAT_CONTAINS_THE_BLOGS_FILE_SYSTEM'] = 'Absolute address that contains the blog\'s file system, if you upload the content of Nibbleblog to your root you should only put a "/", and if you upload it into another directory then it should be "/directory".';
 $_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_PER_PAGE'] = 'Amount of posts that you wish to see per page.';
 $_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_ON_RSS'] = 'Amount of posts that you wish to see on RSS.';
 $_LANG['ADVANCED_OPTIONS_WHEN_PUBLISHING_CONTENT'] = 'Advanced options when publishing content.';
@@ -131,10 +131,11 @@ $_LANG['INSTALLATION_LINE3'] = 'To manage your blog go to the following address'
 $_LANG['INSTALLATION_LINE4'] = 'or visit your new blog';
 $_LANG['INSTALLATION_LINE5'] = 'If you need support please visit the forum';
 $_LANG['WELCOME_POST_TITLE'] = 'Welcome to Nibbleblog';
+
 $_LANG['WELCOME_POST_LINE1'] = 'Congratulations, you have your blog installed and working.';
-$_LANG['WELCOME_POST_LINE2'] = 'To modify any settings you should go into the administrator\'s control panel ';
-$_LANG['WELCOME_POST_LINE3'] = 'If you need any help you can enter the support forum ';
-$_LANG['WELCOME_POST_LINE4'] = 'Please visit Nibbleblog on Facebook and give us a LIKE';
+$_LANG['WELCOME_POST_LINE2'] = 'Start publishing from your dashboard {{DASHBOARD_LINK}}';
+$_LANG['WELCOME_POST_LINE3'] = 'Follow us on social networks {{FACEBOOK_LINK}}, {{TWITTER_LINK}} and {{GOOGLEPLUS_LINK}}.';
+
 $_LANG['ENABLE_FRIENDLY_URLS'] = 'Enable friendly URLs';
 $_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = 'Copy this content in the file ".htaccess". The file must be in the root of your domain. The server must have the modules loaded and configured correctly to use this option.';
 $_LANG['INSERT_PICTURE'] = 'Insert picture';
@@ -264,7 +265,7 @@ $_LANG['MANAGE_PAGES'] = 'Manage pages';
 $_LANG['PAGE'] = 'Page';
 $_LANG['PAGES'] = 'Pages';
 $_LANG['PAGE_HAS_BEEN_PUBLISHED_SUCCESSFULLY'] = 'Page has been published successfully';
-$_LANG['THERE_ARE_NO_PAGES'] = 'There are no pages';
+$_LANG['THERE_ARE_NO_PAGES'] = 'There are no pages.';
 $_LANG['HOME'] = 'Home';
 $_LANG['REQUEST_NEW_PASSWORD'] = 'Request new password';
 
@@ -310,8 +311,8 @@ $_LANG['REGIONAL'] = 'Regional';
 $_LANG['INSERT_IMAGE_FROM_URL'] = 'Insert image from URL';
 
 $_LANG['BLUDIT_SYNC'] = 'Bludit Sync';
-$_LANG['NIBBLEBLOG_SYNC_URL'] = 'Nibbleblog Sync URL';
-$_LANG['NIBBLEBLOG_SYNC_KEY'] = 'Nibbleblog Sync Key';
+$_LANG['NIBBLEBLOG_URL_SYNC'] = 'Nibbleblog URL Sync';
+$_LANG['NIBBLEBLOG_KEY_SYNC'] = 'Nibbleblog Key Sync';
 
 $_LANG['CATEGORY_NAME'] = 'Category name';
 $_LANG['CATEGORY_SLUG'] = 'Category slug';

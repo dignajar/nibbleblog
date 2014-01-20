@@ -223,11 +223,25 @@ class Login {
 ========================================================================
 */
 	/*
-	 * Return a key, with user agent and user IP
+	 * Return a hash, with user agent and user IP
 	*/
 	private function get_key()
 	{
-		return Crypt::get_hash( Net::get_user_agent() . Net::get_user_ip() );
+		// User agent
+		$agent = getenv('HTTP_USER_AGENT');
+		if(empty($agent))
+			$agent = 'Nibbleblog/4.0 (Mr Nibbler Protocol)';
+
+		// User IP
+		if(getenv('HTTP_X_FORWARDED_FOR'))
+			$ip = getenv('HTTP_X_FORWARDED_FOR');
+		elseif(getenv('HTTP_CLIENT_IP'))
+			$ip = getenv('HTTP_CLIENT_IP');
+		else
+			$ip = getenv('REMOTE_ADDR');
+
+		// Hash
+		return sha1($agent.$ip);
 	}
 
 } // END class LOGIN
