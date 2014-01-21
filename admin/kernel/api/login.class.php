@@ -30,8 +30,8 @@ class Login {
 	public function set_login($args)
 	{
 		$_SESSION = array();
-		$_SESSION['session_user']['id']			= $args['id_user'];
-		$_SESSION['session_user']['username']	= $args['username'];
+		$_SESSION['session_login']['id']		= $args['id_user'];
+		$_SESSION['session_login']['username']	= $args['username'];
 		$_SESSION['session_login']['key']		= $this->get_key();
 	}
 
@@ -42,9 +42,9 @@ class Login {
 	{
 		if($this->session_started)
 		{
-			if(isset($_SESSION['session_user']['id']) && isset($_SESSION['session_login']['key']))
+			if(isset($_SESSION['session_login']['id']) && isset($_SESSION['session_login']['key']))
 			{
-				if(Text::compare($_SESSION['session_login']['key'], $this->get_key()))
+				if($_SESSION['session_login']['key']==$this->get_key())
 				{
 					return true;
 				}
@@ -69,20 +69,24 @@ class Login {
 
 		require(FILE_SHADOW);
 
-		// Check username
-		if(Text::compare($args['username'], $_USER[0]['username']))
+		// Check empty username and password
+		if(!empty($args['username'])&&!empty($args['password']))
 		{
-			// Generate the password hash
-			$hash = Crypt::get_hash($args['password'], $_USER[0]['salt']);
-
-			// Check password
-			if(Text::compare($hash, $_USER[0]['password']))
+			// Check username
+			if($args['username']==$_USER[0]['username'])
 			{
-				$this->db_users->set(array('username'=>$args['username'], 'session_fail_count'=>0, 'session_date'=>time()));
+				// Generate the password hash
+				$hash = sha1($args['password'].$_USER[0]['salt']);
 
-				$this->set_login( array('id_user'=>0, 'username'=>$args['username']) );
+				// Check password
+				if($hash==$_USER[0]['password'])
+				{
+					$this->db_users->set(array('username'=>$args['username'], 'session_fail_count'=>0, 'session_date'=>time()));
 
-				return true;
+					$this->set_login(array('id_user'=>0, 'username'=>$args['username']));
+
+					return true;
+				}
 			}
 		}
 
@@ -97,6 +101,10 @@ class Login {
 		return false;
 	}
 
+	/*
+	 * Logout
+	 *
+	*/
 	public function logout()
 	{
 		// Unset all of the session variables.
@@ -117,6 +125,10 @@ class Login {
 		setcookie('nibbleblog_id', '', time()-42000);
 	}
 
+	/*
+	 * Check remember me
+	 *
+	*/
 	public function remember_me()
 	{
 		// Check the file FILE_SHADOW=shadow.php
@@ -153,7 +165,7 @@ class Login {
 		}
 
 		// Generate tmp hash
-		$tmp_hash = Crypt::get_hash($_USER[$cookie_id]['username'].$this->get_key(), $_KEYS[2]);
+		$tmp_hash = sha1($_USER[$cookie_id]['username'].$this->get_key().$_KEYS[2]);
 
 		// Check hash
 		if($tmp_hash!=$cookie_hash)
@@ -168,11 +180,15 @@ class Login {
 			return false;
 		}
 
-		$this->set_login( array('id_user'=>$cookie_id, 'username'=>$_USER[$cookie_id]['username']) );
+		$this->set_login(array('id_user'=>$cookie_id, 'username'=>$_USER[$cookie_id]['username']));
 
 		return true;
 	}
 
+	/*
+	 * Set remember me
+	 *
+	*/
 	public function set_remember_me()
 	{
 		if(!$this->is_logued())
@@ -181,7 +197,7 @@ class Login {
 		require(FILE_KEYS);
 
 		// Generate tmp hash
-		$tmp_hash = Crypt::get_hash($this->get_username().$this->get_key(), $_KEYS[2]);
+		$tmp_hash = sha1($this->get_username().$this->get_key().$_KEYS[2]);
 
 		// Set cookies
 		setcookie('nibbleblog_hash', $tmp_hash, time()+(3600*24*15));
@@ -195,25 +211,25 @@ class Login {
 // =================================================================
 	public function get_user_id()
 	{
-		if( isset($_SESSION['session_user']['id']) )
+		if( isset($_SESSION['session_login']['id']) )
 		{
-			return($_SESSION['session_user']['id']);
+			return($_SESSION['session_login']['id']);
 		}
 		else
 		{
-			return(false);
+			return false;
 		}
 	}
 
 	public function get_username()
 	{
-		if( isset($_SESSION['session_user']['username']) )
+		if( isset($_SESSION['session_login']['username']) )
 		{
-			return($_SESSION['session_user']['username']);
+			return($_SESSION['session_login']['username']);
 		}
 		else
 		{
-			return(false);
+			return false;
 		}
 	}
 

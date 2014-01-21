@@ -64,7 +64,7 @@ $(document).ready(function() {
 		theme: "modern",
 		height:"400px",
 		width:"100%",
-		content_css: HTML_PATH_ADMIN_TEMPLATES+"default/css/tinymce.css",
+		content_css: HTML_PATH_ADMIN_TEMPLATES+"easy4/css/tinymce.css",
 		plugins: [
 			"autolink link image lists hr anchor pagebreak",
 			"searchreplace code fullscreen  media nonbreaking",

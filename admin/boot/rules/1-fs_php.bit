@@ -13,14 +13,15 @@
 // =====================================================================
 //	SESSIONS
 // =====================================================================
-// Set HTTPOnly
-// session_set_cookie_params(0, NULL, NULL, NULL, TRUE);
+// HttpOnly, this prevent read the session cookie (only from HTTP)
+//$cookie_params = session_get_cookie_params();
+//session_set_cookie_params($cookie_params['lifetime'], $cookie_params['path'], $cookie_params['domain'], $cookie_params['secure'], true);
 
 // Session start
 $session_started = session_start();
 
 // Regenerate the SESSION ID, this for prevent session hijacking "man-in-the-middle attack"
-// session_regenerate_id(true);
+//session_regenerate_id();
 
 // =====================================================================
 //	PATHS

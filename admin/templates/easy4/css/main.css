@@ -336,14 +336,14 @@ div.notification	div.icon {
 div.notification	div.type {
 	margin-bottom: 5px;
 	font-size: 1.3em;
-	margin-left: 30px;
+	margin-left: 40px;
+	color: #428BCA;
 }
 
 div.notification	div.info {
 	margin-bottom: 5px;
 	font-size: 1.2em;
-	color: #AAAAAA;
-	margin-left: 30px;
+	margin-left: 40px;
 }
 
 .img_notification_version {
