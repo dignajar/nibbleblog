@@ -55,24 +55,6 @@ $file_list = Filesystem::get_images('*_nbmedia*');
 </div>
 
 <script>
-
-// Insert content on Tinymce or textarea
-function insert_content(content)
-{
-	if(tinymce.editors.length>0)
-	{
-		tinymce.execCommand("mceInsertContent", false, content);
-	}
-	else
-	{
-		text = $("#js_content");
-		text.val( text.val() + content );
-	}
-}
-
-</script>
-
-<script>
 $(document).ready(function() {
 
 //======================================================================
@@ -83,7 +65,7 @@ $(document).ready(function() {
 	function() {
 		var url = $("#media_url_input").val();
 		var img = '<img src="'+url+'" alt="">';
-		insert_content(img);
+		tinymce.execCommand("mceInsertContent", false, img);
 		$("#media_url_input").val('http://');
 		$('#media_modal').trigger('reveal:close');
 	});
@@ -96,7 +78,7 @@ $(document).ready(function() {
 	function() {
 		var src = $(this).attr("data-original");
 		var img = '<img src="'+src+'" alt="">';
-		insert_content(img);
+		tinymce.execCommand("mceInsertContent", false, img);
 		$('#media_modal').trigger('reveal:close');
 	});
 
@@ -155,7 +137,7 @@ $(document).ready(function() {
 
 			// Insert on textarea
 			var img = '<img src="'+original+'" alt="">';
-			insert_content(img);
+			tinymce.execCommand("mceInsertContent", false, img);
 
 			// Insert on preview files
 			img = '<img data-original="'+original+'" src="'+nbmedia+'" alt="" />';

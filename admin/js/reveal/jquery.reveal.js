@@ -72,7 +72,7 @@
 						modal.css({'top': $(document).scrollTop()-topOffset, 'opacity' : 0, 'visibility' : 'visible'});
 						modalBG.fadeIn(options.animationspeed/2);
 						modal.delay(options.animationspeed/2).animate({
-							"top": $(document).scrollTop()+topMeasure + 'px',
+							"top": $(document).scrollTop()+topMeasure-20 + 'px',
 							"opacity" : 1
 						}, options.animationspeed,unlockModal());
 					}

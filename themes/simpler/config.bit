@@ -6,12 +6,11 @@ $theme = array
 	'description'=>'Official Nibbleblog theme',
 	'notes'=>'Disqus and Facebook commments supported',
 	'author'=>'Diego Najar',
-	'version'=>'3.8',
-	'last_update'=>'10/06/2013', // dd/mm/yyyy
+	'version'=>'4.0',
+	'last_update'=>'21/01/2014', // dd/mm/yyyy
 	'url'=>'http://www.nibbleblog.com', // http://xxxxxxxxxxxxx
-	'templates'=>array('blog'=>'default.bit', 'post'=>'default.bit', 'page'=>'default.bit'),
-	'video_width'=>'640',
-	'video_height'=>'360'
+	'template'=>array('blog'=>'default.bit', 'post'=>'default.bit', 'page'=>'default.bit'),
+	'version_supported'=>array('4.0') // Nibbleblog version supported
 );
 
 ?>

@@ -1,0 +1,57 @@
+/*====================================================================*/
+/* NIBBLEBLOG CODE
+/*====================================================================*/
+
+#nb_code_modal {
+
+}
+
+#nb_code_button {
+	background: #3B84BF;
+	border: 1px solid #478FBF;
+	border-radius: 2px;
+	color: #FFFFFF !important;
+	cursor: pointer;
+	float: right;
+	font-size: 1.6em;
+	margin-top: 10px;
+	padding: 5px 40px;
+	text-align: right;
+}
+
+#nb_code_button:hover {
+	cursor: pointer;
+	background: #3474A7;
+}
+
+#nb_code_modal	textarea {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	border: 1px solid #C4C4C4;
+	border-radius: 2px;
+	color: #858585;
+	padding: 10px 8px;
+	outline:none; /* not focus border on chrome */
+	resize: none;
+	height: 300px;
+}
+
+#nb_code_options {
+	margin: 10px 0;
+	padding: 5px;
+	font-size: 1.3em;
+}
+
+#nb_code_modal h2.title {
+	background: #F1F1F1;
+	border-bottom: 2px solid #CCCCCC;
+	color: #333333;
+	font-size: 1.6em;
+	font-weight: normal;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-top: 10px;
+	margin: 0;
+}

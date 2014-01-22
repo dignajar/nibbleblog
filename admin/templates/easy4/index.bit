@@ -8,7 +8,8 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'easy4/css/normalize.css?v='.NIBBLEBLOG_BUILD ?>" >
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'easy4/css/main.css?v='.NIBBLEBLOG_BUILD ?>" >
-	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'easy4/css/media.css?v='.NIBBLEBLOG_BUILD ?>" >
+	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'easy4/css/nb_media.css?v='.NIBBLEBLOG_BUILD ?>" >
+	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'easy4/css/nb_code.css?v='.NIBBLEBLOG_BUILD ?>" >
 	<link rel="stylesheet" type="text/css" href="<?php echo HTML_PATH_ADMIN_TEMPLATES.'easy4/css/icons/style.css?v='.NIBBLEBLOG_BUILD ?>" >
 
 	<!-- Javascript -->
@@ -46,7 +47,7 @@
 			<div id="main_right">
 
 				<div id="head">
-					<span class="mrnibbler">nibbleblog :: <?php echo $layout['title'] ?></span>
+					<span class="mrnibbler">nibbleblog - <?php echo $layout['title'] ?></span>
 					<span class="other"><a href="<?php echo HTML_PATH_ROOT.'admin.php?controller=user&amp;action=logout' ?>"><span class="icon icon-signout"></span>Log out</a></span>
 					<span class="other"><a target="_blank" href="<?php echo HTML_PATH_ROOT ?>"><span class="icon icon-house"></span>View Blog</a></span>
 					<span class="other"><a href="<?php echo HTML_PATH_ROOT.'admin.php?controller=dashboard&action=view' ?>"><span class="icon icon-gauge"></span>Dashboard</a></span>

@@ -16,7 +16,7 @@
 require(THEME_ROOT.'config.bit');
 
 // =====================================================================
-//	CONTROLLER & ACTION
+//	VARIABLES
 // =====================================================================
 
 $layout = array(
@@ -33,6 +33,10 @@ $layout = array(
 	'canonical'=>BLOG_URL
 );
 
+// =====================================================================
+//	CONTROLLER, VIEW and TEMPLATE
+// =====================================================================
+
 if( ($url['controller']!=null) && ($url['action']!=null) )
 {
 	$layout['controller']	= $url['controller'].'/'.$url['action'].'.bit';
@@ -41,7 +45,7 @@ if( ($url['controller']!=null) && ($url['action']!=null) )
 	// Filter by Post
 	if( (($url['id_post']!==null) || ($url['post']!==null)) && !empty($post) )
 	{
-		$layout['title'] 		.= ' - '.$post['title'];
+		$layout['title'] 		.= !empty($post['title'])?' - '.$post['title']:'';
 		$layout['description']	= $post['description'];
 		$layout['keywords']		= implode(',',$post['tags']);
 		$layout['canonical'] 	= Url::post($post, true);
@@ -51,7 +55,7 @@ if( ($url['controller']!=null) && ($url['action']!=null) )
 	// Filter by Page
 	elseif( (($url['id_page']!==null) || ($url['page']!==null)) && !empty($page) )
 	{
-		$layout['title'] 		.= ' - '.$page['title'];
+		$layout['title'] 		.= !empty($page['title'])?' - '.$page['title']:'';
 		$layout['description']	= $page['description'];
 		$layout['keywords']		= $page['keywords'];
 		$layout['canonical'] 	= Url::page($page, true);
@@ -91,7 +95,6 @@ if( ($url['controller']!=null) && ($url['action']!=null) )
 			$layout['view']			= 'page/404.bit';
 			$layout['title'] 		.= ' - Error 404';
 		}
-
 	}
 }
 // Check default homepage

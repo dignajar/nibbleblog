@@ -1,5 +1,5 @@
 <?php
-$value = isset($post_edit['content'][0]) ? htmlspecialchars($post_edit['content'][0]) : '';
+$value = isset($ctrlv['page']['content']) ? htmlspecialchars($ctrlv['page']['content']) : '';
 
 echo Html::div_open( array('class'=>'form_block') );
 
@@ -8,7 +8,10 @@ echo Html::div_open( array('class'=>'form_block') );
 echo Html::div_close();
 
 // Nibbleblog media
-include('media.bit');
+include('nb_media.bit');
+
+// Nibbleblog code
+include('nb_code.bit');
 
 ?>
 
@@ -21,56 +24,20 @@ include('media.bit');
 // WYSIWYG
 // =====================================================================
 
-function toggle_html()
-{
-	if(tinymce.editors.length>0)
-	{
-		tinymce.execCommand("mceRemoveEditor", true, "js_content");
-		console.log("removed");
-	}
-	else
-	{
-		tinymce.execCommand("mceAddEditor", true, "js_content");
-		console.log("added");
-	}
-}
-
 $(document).ready(function() {
-
-	// Add Tab keydown
-	// Thanks http://stackoverflow.com/questions/6140632/how-to-handle-tab-in-textarea
-	$("#js_content").keydown(function(e) {
-
-		if(tinymce.editors.length>0)
-			return false;
-
-		if(e.keyCode === 9)
-		{
-			var start = this.selectionStart;
-			var end = this.selectionEnd;
-			var $this = $(this);
-			var value = $this.val();
-
-			$this.val(value.substring(0, start) + "\t" + value.substring(end));
-
-			this.selectionStart = this.selectionEnd = start + 1;
-
-			e.preventDefault();
-		}
-	});
 
 	tinymce.init({
 		selector : "textarea#js_content",
 		theme: "modern",
 		height:"400px",
 		width:"100%",
-		content_css: HTML_PATH_ADMIN_TEMPLATES+"default/css/tinymce.css",
+		content_css: HTML_PATH_ADMIN_TEMPLATES+"easy4/css/tinymce.css",
 		plugins: [
 			"autolink link image lists hr anchor pagebreak",
 			"searchreplace code fullscreen  media nonbreaking",
 			"table directionality paste textcolor code"
 		],
-		toolbar: "undo redo | styleselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link media nb-image | forecolor backcolor table | pagebreak fullscreen code",
+		toolbar: "undo redo | styleselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link media nb-image nb-code | forecolor backcolor table | pagebreak fullscreen code",
 		style_formats: [
 			{title : 'Heading 1', block : 'h1'},
 			{title : 'Heading 2', block : 'h2'},
@@ -99,6 +66,16 @@ $(document).ready(function() {
 				onclick: function()
 				{
 					$('#media_modal').reveal();
+				}
+			});
+
+			ed.addButton('nb-code', {
+				title: 'Nibbleblog code',
+				label: 'Nb code',
+				icon: 'template',
+				onclick: function()
+				{
+					$('#nb_code_modal').reveal();
 				}
 			});
 		}

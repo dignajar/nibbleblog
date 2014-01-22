@@ -25,9 +25,10 @@ if( ($_SERVER['REQUEST_METHOD'] == 'POST') && isset($_POST['plugin']) )
 					$width = isset($_POST[$field_name.'_width'])?$_POST[$field_name.'_width']:200;
 					$height = isset($_POST[$field_name.'_height'])?$_POST[$field_name.'_height']:200;
 					$option = isset($_POST[$field_name.'_option'])?$_POST[$field_name.'_option']:'auto';
+					$quality = isset($_POST[$field_name.'_quality'])?$_POST[$field_name.'_quality']:100;
 
 					$Resize->setImage($complete, $width, $height, $option);
-					$Resize->saveImage($complete, 100, true);
+					$Resize->saveImage($complete, $quality, true);
 				}
 			}
 		}

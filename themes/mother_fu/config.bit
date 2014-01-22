@@ -8,9 +8,7 @@ $theme = array
 	'version'=>'3.8',
 	'last_update'=>'19/12/2013', // dd/mm/yyyy
 	'url'=>'http://www.nibbleblog.com', // http://xxxxxxxxxxxxx
-	'templates'=>array('blog'=>'default.bit', 'post'=>'default.bit', 'page'=>'default.bit'),
-	'video_width'=>'640',
-	'video_height'=>'360'
+	'template'=>array('blog'=>'default.bit', 'post'=>'default.bit', 'page'=>'default.bit')
 );
 
 ?>

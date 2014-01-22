@@ -18,7 +18,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'GET' )
 // =====================================================================
 //	VARIABLES
 // =====================================================================
-$ctrlv['page_list'] = $_DB_PAGES->get_list_by_page_more_drafts( array('page'=>$url['number'], 'amount'=>POSTS_AMOUNT) );
+$ctrlv['page_list'] = $_DB_PAGES->get_list_by_page_more_drafts( array('page'=>$url['number'], 'amount'=>PAGES_AMOUNT) );
 
 $ctrlv['total_pages'] = ceil(count($ctrlv['page_list']) / PAGES_AMOUNT);
 

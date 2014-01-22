@@ -14,7 +14,7 @@
 	// Include Javascript from theme
 	echo Blog::javascript('rainbow-custom.min.js');
 
-	// Include Favicon, default path: theme/css/img/favicon.ico
+	// Include Favicon, default path: themes/css/img/favicon.ico
 	echo Blog::favicon();
 
 	// Plugins for <head></head>

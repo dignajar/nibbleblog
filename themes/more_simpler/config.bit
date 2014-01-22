@@ -9,11 +9,9 @@ $theme = array
 	'version'=>'3.6',
 	'last_update'=>'10/06/2013', // dd/mm/yyyy
 	'url'=>'http://www.nibbleblog.com', // http://xxxxxxxxxxxxx
-	'templates'=>array('blog'=>'default.bit', 'post'=>'default.bit', 'page'=>'default.bit'),
+	'template'=>array('blog'=>'default.bit', 'post'=>'default.bit', 'page'=>'default.bit'),
 	'video_width'=>'640',
-	'video_height'=>'360',
-	'disqus_account'=>'',
-	'facebook_appId'=>''
+	'video_height'=>'360'
 );
 
 ?>

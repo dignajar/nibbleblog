@@ -1,0 +1,54 @@
+<div id="nb_code_modal" class="reveal-modal">
+
+	<h2 class="title">Nibbleblog Code</h2>
+	<?php
+		$lang_code = array('generic'=>'Generic', 'php'=>'PHP', 'ruby'=>'Ruby', 'go'=>'GO', 'haskell'=>'haskell', 'html'=>'HTML', 'javascript'=>'Javascript', 'python'=>'Python', 'shell'=>'Shell', 'c'=>'C', 'csharp'=>'C#', 'java'=>'Java', 'coffeescript'=>'Coffeescript', 'smalltalk'=>'Smalltalk', 'css'=>'CSS');
+		echo Html::select(array('id'=>'nb_code_options'), $lang_code, 'generic');
+	?>
+	<textarea id="nb_code_textarea"></textarea>
+	<div id="nb_code_button">Insert code</div>
+
+	<a class="close-reveal-modal">&#215;</a>
+</div>
+
+<script>
+
+function html_entities(str) {
+	return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+$(document).ready(function() {
+
+	// Click event insert code
+	$("#nb_code_button").click(
+	function() {
+		var text = $("#nb_code_textarea").val();
+		var lang = $("#nb_code_options").val();
+		text = html_entities(text);
+		text = '<pre><code data-language="'+lang+'">'+text+'</code></pre>';
+		tinymce.execCommand("mceInsertContent", false, text);
+		$("#nb_code_textarea").val('');
+		$('#nb_code_modal').trigger('reveal:close');
+	});
+
+	// Tab Keydown event
+	// Thanks http://stackoverflow.com/questions/6140632/how-to-handle-tab-in-textarea
+	$("#nb_code_textarea").keydown(function(e) {
+		if(e.keyCode === 9)
+		{
+			var start = this.selectionStart;
+			var end = this.selectionEnd;
+			var $this = $(this);
+			var value = $this.val();
+
+			$this.val(value.substring(0, start) + "\t" + value.substring(end));
+
+			this.selectionStart = this.selectionEnd = start + 1;
+
+			e.preventDefault();
+		}
+	});
+
+});
+
+</script>
