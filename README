@@ -36,7 +36,7 @@ Linkedin: http://www.linkedin.com/in/dignajar
 * CSS -> class img.align_right renamed to .nb-align-right
 * CSS -> class pre.console renamed to .nb-console
 * New Helpers for developers
-* New Helpers for themes, and themes updated
+* New Helpers for themes
 * Dashboard->Themes List changes
 * Image quality - http://forum.nibbleblog.com/viewtopic.php?pid=2390
 * Blacklist system
@@ -47,6 +47,7 @@ Linkedin: http://www.linkedin.com/in/dignajar
 * Username for Disqus and Facebook commments now on settings
 * Fix for Safari browser
 * Plugin last post renamed to latest post
+* Nibbleblog Code for TinyMCE
 
 ===== Deprecated features for version 4.1 =====
 File: /admin/kernel/api/comment.class.php

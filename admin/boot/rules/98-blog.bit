@@ -87,14 +87,6 @@ if( ($url['controller']!=null) && ($url['action']!=null) )
 		$layout['title'] 		.= ' - Error 404';
 
 		$where_am_i[1] = '404';
-
-		// DEPREACTED
-		if(!file_exists(THEME_CONTROLLERS.$layout['view']))
-		{
-			$layout['controller']	= 'page/404.bit';
-			$layout['view']			= 'page/404.bit';
-			$layout['title'] 		.= ' - Error 404';
-		}
 	}
 }
 // Check default homepage

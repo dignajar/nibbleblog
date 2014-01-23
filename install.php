@@ -30,12 +30,19 @@
 //	VARIABLES
 // =====================================================================
 $permissions_dir = 0755;
+
 $php_modules = array();
-$dependencies = true;
-$blog_domain = getenv('HTTP_HOST');
-$blog_base_path = '/';
-$blog_address = 'http://'.$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI];
+
 $installation_complete = false;
+
+$dependencies = true;
+
+$domain = getenv('HTTP_HOST');
+
+$base_path = dirname(getenv('SCRIPT_NAME')).'/';
+
+$blog_address = 'http://'.$domain.$base_path;
+
 $languages = array(
 	'ar_MA'=>'العربية',
 	'cs_CZ'=>'čeština',
@@ -102,12 +109,6 @@ if(!file_exists('content'))
 @chmod('content', $permissions_dir);
 @rmdir('content/tmp');
 $writing_test = @mkdir('content/tmp');
-
-// BLOG BASE PATH
-if( dirname(getenv('REQUEST_URI')) != '/' )
-{
-	$blog_base_path = dirname(getenv('REQUEST_URI')).'/';
-}
 
 // REGIONAL
 if( !@include( 'languages/'. $_GET['language'] . '.bit' ) )
@@ -176,7 +177,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	$obj->addChild('notification_session_fail',		0);
 	$obj->addChild('notification_session_start',	0);
 	$obj->addChild('notification_email_to',			$_POST['email']);
-	$obj->addChild('notification_email_from',		'noreply@'.$blog_domain);
+	$obj->addChild('notification_email_from',		'noreply@'.$domain);
 
 	// SEO
 	$obj->addChild('seo_site_title',		$_POST['name'].' - '.$_POST['slogan']);
@@ -299,7 +300,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 
 	$content = Text::replace_assoc(
 			array(
-				'{{DASHBOARD_LINK}}'=>'<a href="./admin.php">'.$blog_address.$blog_base_path.'admin.php</a>',
+				'{{DASHBOARD_LINK}}'=>'<a href="./admin.php">'.$blog_address.'admin.php</a>',
 				'{{FACEBOOK_LINK}}'=>'<a target="_blank" href="https://www.facebook.com/nibbleblog">Facebook</a>',
 				'{{TWITTER_LINK}}'=>'<a target="_blank" href="https://twitter.com/nibbleblog">Twitter</a>',
 				'{{GOOGLEPLUS_LINK}}'=>'<a target="_blank" href="https://plus.google.com/+Nibbleblog">Google+</a>'
@@ -514,8 +515,8 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 				echo Html::h2( array('content'=>$_LANG['INSTALLATION_COMPLETE']) );
 				echo Html::p( array('content'=>$_LANG['INSTALLATION_LINE1']) );
 				echo Html::p( array('content'=>$_LANG['INSTALLATION_LINE2']) );
-				echo Html::p( array('content'=>$_LANG['INSTALLATION_LINE3'].' <a href="./admin.php">'.$blog_address.$blog_base_path.'admin.php</a>') );
-				echo Html::p( array('content'=>$_LANG['INSTALLATION_LINE4'].' <a href="./">'.$blog_address.$blog_base_path.'</a>') );
+				echo Html::p( array('content'=>$_LANG['INSTALLATION_LINE3'].' <a href="./admin.php">'.$blog_address.'admin.php</a>') );
+				echo Html::p( array('content'=>$_LANG['INSTALLATION_LINE4'].' <a href="./">'.$blog_address.'</a>') );
 				echo Html::p( array('content'=>$_LANG['INSTALLATION_LINE5'].' <a href="http://forum.nibbleblog.com">http://forum.nibbleblog.com</a>') );
 			?>
 		</section>
@@ -631,7 +632,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 						echo Html::input( array('name'=>'url', 'type'=>'text', 'value'=>$blog_address, 'autocomplete'=>'off') );
 
 						echo Html::label( array('content'=>$_LANG['BLOG_BASE_PATH']) );
-						echo Html::input( array('name'=>'path', 'type'=>'text', 'value'=>$blog_base_path, 'autocomplete'=>'off') );
+						echo Html::input( array('name'=>'path', 'type'=>'text', 'value'=>$base_path, 'autocomplete'=>'off') );
 
 					echo Html::div_close();
 
@@ -642,7 +643,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 		</section>
 
 		<footer>
-			<p><a href="http://nibbleblog.com">Nibbleblog <?php echo NIBBLEBLOG_VERSION ?> "<?php echo NIBBLEBLOG_NAME ?>"</a> ©2010 - 2014 | Developed by Diego Najar | <?php echo Html::link( array('content'=>$_LANG['EXPERT_MODE'], 'href'=>'./install.php?expert=true&language='.$_GET['language']) ) ?></p>
+			<p><a href="http://nibbleblog.com">Nibbleblog <?php echo NIBBLEBLOG_VERSION ?> "<?php echo NIBBLEBLOG_NAME ?>"</a> ©2009 - 2014 | Developed by Diego Najar | <?php echo Html::link( array('content'=>$_LANG['EXPERT_MODE'], 'href'=>'./install.php?expert=true&language='.$_GET['language']) ) ?></p>
 		</footer>
 
 	</div>

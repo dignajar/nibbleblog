@@ -13,9 +13,10 @@
  * Versions support
  * v3.5.x
  * v3.6.x
+ * v3.7.x
 */
 
-define('UPDATER_VERSION', '3.7');
+define('UPDATER_VERSION', '4.0');
 
 // =====================================================================
 // Require
@@ -40,7 +41,13 @@ $_DB_SETTINGS	= new DB_SETTINGS( FILE_XML_CONFIG );
 // =====================================================================
 // Variables
 // =====================================================================
-$blog_domain = getenv('HTTP_HOST');
+$domain = getenv('HTTP_HOST');
+
+$base_path = dirname(getenv('SCRIPT_NAME'));
+if($base_path!='/')
+	$base_path .='/';
+
+$blog_address = 'http://'.$domain.$base_path;
 
 $settings = $_DB_SETTINGS->get();
 
@@ -278,7 +285,7 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 				add_if_not($obj,'notification_session_fail',0);
 				add_if_not($obj,'notification_session_start',0);
 				add_if_not($obj,'notification_email_to','');
-				add_if_not($obj,'notification_email_from','noreply@'.$blog_domain);
+				add_if_not($obj,'notification_email_from','noreply@'.$domain);
 
 				// SEO Options
 				add_if_not($obj,'seo_site_title','');
@@ -295,6 +302,10 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 
 				// Default page
 				add_if_not($obj,'default_homepage',0);
+
+				// Default path
+				$obj->setChild('url', $blog_address);
+				$obj->setChild('path', $base_path);
 
 				if($obj->asXml( FILE_XML_CONFIG ))
 					echo Html::p( array('class'=>'pass', 'content'=>'DB updated: '.FILE_XML_CONFIG) );

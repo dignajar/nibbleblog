@@ -76,8 +76,6 @@ $_LANG['VIEW'] = 'View';
 $_LANG['EDIT'] = 'Edit';
 $_LANG['TIMESTAMP_FORMAT'] = 'Time stamp format';
 $_LANG['SELECT_A_TIMEZONE_FOR_A_CORRECT_DATE_VISUALIZATION'] = 'Select a timezone for a correct date visualization.';
-$_LANG['ABSOLUTE_URL_ADDRESS_OF_YOUR_BLOG'] = 'Absolute URL address of your blog. Example http://www.domain.com/blog';
-$_LANG['ABSOLUTE_ADDRESS_THAT_CONTAINS_THE_BLOGS_FILE_SYSTEM'] = 'Absolute address that contains the blog\'s file system, if you upload the content of Nibbleblog to your root you should only put a "/", and if you upload it into another directory then it should be "/directory".';
 $_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_PER_PAGE'] = 'Amount of posts that you wish to see per page.';
 $_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_ON_RSS'] = 'Amount of posts that you wish to see on RSS.';
 $_LANG['ADVANCED_OPTIONS_WHEN_PUBLISHING_CONTENT'] = 'Advanced options when publishing content.';
@@ -319,5 +317,9 @@ $_LANG['CATEGORY_SLUG'] = 'Category slug';
 
 $_LANG['INSTALLED_PLUGINS'] = 'Installed plugins';
 $_LANG['PLUGINS_AVAILABLE_FOR_INSTALL'] = 'Plugins available for install';
+
+$_LANG['ABSOLUTE_URL_ADDRESS_OF_YOUR_BLOG'] = 'Absolute URL address of your blog. Example http://www.domain.com/directory/';
+$_LANG['ABSOLUTE_ADDRESS_THAT_CONTAINS_THE_BLOGS_FILE_SYSTEM'] = 'Absolute address that contains the blog\'s file system, if you upload the content of Nibbleblog to your root you should only put a "/", and if you upload it into another directory then it should be "/directory/".';
+
 
 ?>

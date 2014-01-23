@@ -2,7 +2,7 @@
 
 echo Html::div_open( array('class'=>'dashboard_box') );
 
-echo Html::div( array('class'=>'dashboard_title', 'content'=>'Quick start') );
+echo Html::div( array('class'=>'dashboard_title', 'content'=>$_LANG['QUICK_START']) );
 
 echo Html::div_open( array('class'=>'wrap_quick') );
 	echo Html::link( array('class'=>'quick', 'href'=>HTML_PATH_ROOT.'admin.php?controller=post&action=new_simple', 'content'=>$Language->get('New post')) );
@@ -12,7 +12,7 @@ echo Html::div_close();
 
 echo Html::div_open( array('class'=>'wrap_quick') );
 	echo Html::link( array('class'=>'quick', 'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&action=general', 'content'=>$Language->get('General settings')) );
-	echo Html::link( array('class'=>'quick', 'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&action=regional', 'content'=>$Language->get('Regional settings')) );
+	echo Html::link( array('class'=>'quick', 'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&action=regional', 'content'=>$Language->get('Regional')) );
 	echo Html::link( array('class'=>'quick', 'href'=>HTML_PATH_ROOT.'admin.php?controller=settings&action=themes', 'content'=>$Language->get('Change theme')) );
 echo Html::div_close();
 

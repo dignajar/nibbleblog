@@ -49,7 +49,7 @@ define('LAST_COMMENT_DATE_FORMAT',	'%d %B - %H:%M:%S');
 define('COMMENT_DATE_FORMAT',		'%I:%M:%S %p - %m/%d/%y');
 define('POST_DATE_FORMAT',			'%I:%M:%S %p - %m/%d/%y');
 
-define('BLOG_URL',			$settings['url'].$settings['path']);
+define('BLOG_URL',			$settings['url']);
 
 // =====================================================================
 //	HTML
