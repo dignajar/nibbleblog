@@ -48,7 +48,7 @@ echo Html::form_open( array('id'=>'js_form', 'name'=>'form', 'method'=>'post') )
 		// BLOG URL ADDRESS
 		echo Html::div_open( array('class'=>'form_block') );
 			echo Html::label( array('content'=>$_LANG['BLOG_ADDRESS'], 'class'=>'blocked') );
-			echo Html::input( array('id'=>'js_url', 'name'=>'url', 'type'=>'text', 'value'=>$settings['url']) );
+			echo Html::input( array('id'=>'js_url', 'name'=>'url', 'type'=>'text', 'value'=>BLOG_URL) );
 			echo Html::div( array('content'=>$_LANG['ABSOLUTE_URL_ADDRESS_OF_YOUR_BLOG'], 'class'=>'input_tip') );
 		echo Html::div_close();
 

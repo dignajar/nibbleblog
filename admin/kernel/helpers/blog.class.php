@@ -16,7 +16,7 @@ class Blog {
 		if($relative)
 			return HTML_PATH_ROOT;
 		else
-			return $settings['url'].HTML_PATH_ROOT;
+			return BLOG_URL;
 	}
 
 	public static function css($files, $path=HTML_THEME_CSS)
