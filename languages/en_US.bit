@@ -317,4 +317,7 @@ $_LANG['NIBBLEBLOG_KEY_SYNC'] = 'Nibbleblog Key Sync';
 $_LANG['CATEGORY_NAME'] = 'Category name';
 $_LANG['CATEGORY_SLUG'] = 'Category slug';
 
+$_LANG['INSTALLED_PLUGINS'] = 'Installed plugins';
+$_LANG['PLUGINS_AVAILABLE_FOR_INSTALL'] = 'Plugins available for install';
+
 ?>

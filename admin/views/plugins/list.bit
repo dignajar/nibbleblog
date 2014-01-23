@@ -1,20 +1,26 @@
 <?php
 
-	foreach($plugins_all as $obj)
-	{
-		echo Html::div_open( array('class'=>'plugin') );
-			echo Html::h3( array('class'=>'name', 'content'=>$obj->get_name()) );
-			echo Html::h4( array('class'=>'description', 'content'=>$obj->get_description()) );
-			if(!$obj->is_installed())
-			{
-				echo Html::link( array('class'=>'button', 'href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=install&amp;plugin='.$obj->get_dir_name(), 'content'=>$_LANG['INSTALL']) );
-			}
-			else
-			{
-				echo Html::link( array('class'=>'button', 'href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=config&amp;plugin='.$obj->get_dir_name(), 'content'=>$_LANG['CONFIGURE']) );
-				echo Html::link( array('class'=>'button', 'href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=uninstall&amp;plugin='.$obj->get_dir_name(), 'content'=>$_LANG['UNINSTALL']) );
-			}
-		echo Html::div_close();
-	}
+echo Html::separator( array('content'=>$_LANG['INSTALLED_PLUGINS']), true);
+
+foreach($plugins_installed as $obj)
+{
+	echo Html::div_open( array('class'=>'plugin') );
+		echo Html::h3( array('class'=>'name', 'content'=>$obj->get_name()) );
+		echo Html::h4( array('class'=>'description', 'content'=>$obj->get_description()) );
+		echo Html::link( array('class'=>'button', 'href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=config&amp;plugin='.$obj->get_dir_name(), 'content'=>$_LANG['CONFIGURE']) );
+		echo Html::link( array('class'=>'button', 'href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=uninstall&amp;plugin='.$obj->get_dir_name(), 'content'=>$_LANG['UNINSTALL']) );
+	echo Html::div_close();
+}
+
+echo Html::separator( array('content'=>$_LANG['PLUGINS_AVAILABLE_FOR_INSTALL']));
+
+foreach($plugins_not_installed as $obj)
+{
+	echo Html::div_open( array('class'=>'plugin') );
+		echo Html::h3( array('class'=>'name', 'content'=>$obj->get_name()) );
+		echo Html::h4( array('class'=>'description', 'content'=>$obj->get_description()) );
+		echo Html::link( array('class'=>'button', 'href'=>HTML_PATH_ROOT.'admin.php?controller=plugins&amp;action=install&amp;plugin='.$obj->get_dir_name(), 'content'=>$_LANG['INSTALL']) );
+	echo Html::div_close();
+}
 
 ?>

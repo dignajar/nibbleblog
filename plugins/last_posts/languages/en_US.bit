@@ -1,0 +1,9 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'NAME'=>'Last posts',
+	'DESCRIPTION'=>'Displays the last published posts, sorted by date.',
+	'AMOUNT'=>'Amount'
+);
+
+?>

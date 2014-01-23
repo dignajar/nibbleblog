@@ -340,6 +340,27 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 
 				echo Html::p( array('class'=>'pass', 'content'=>'Categories updated...') );
 
+				// =====================================================
+				// Uninstall plugins
+				// =====================================================
+				$plugins = array('last_posts');
+				foreach($plugins as $plugin)
+				{
+					$path = PATH_PLUGINS_DB.$plugin;
+
+					if(file_exists($path.'/db.xml'))
+					{
+						$files = Filesystem::ls($path.'/', '*', '*');
+
+						foreach($files as $file)
+							unlink($path.'/'.$file);
+
+						rmdir($path);
+
+						echo Html::p( array('class'=>'pass', 'content'=>'Plugin '.$plugin.' uninstalled, plugin deprecated.') );
+					}
+				}
+
 			?>
 		</section>
 

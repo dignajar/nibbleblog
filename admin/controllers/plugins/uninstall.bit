@@ -4,13 +4,13 @@
 //	VARIABLES
 // ============================================================================
 
-	$plugin = $plugins_all['PLUGIN_'.strtoupper($url['plugin'])];
+$plugin = $plugins_all['PLUGIN_'.strtoupper($url['plugin'])];
 
-	if ( $plugin->is_installed() )
-	{
-		$plugin->uninstall();
-	}
+if ( $plugin->is_installed() )
+{
+	$plugin->uninstall();
+}
 
-	Redirect::controller('admin','plugins','list');
+Redirect::controller('admin','plugins','list');
 
 ?>
