@@ -39,7 +39,9 @@ $dependencies = true;
 
 $domain = getenv('HTTP_HOST');
 
-$base_path = dirname(getenv('SCRIPT_NAME')).'/';
+$base_path = dirname(getenv('SCRIPT_NAME'));
+if($base_path!='/')
+	$base_path .='/';
 
 $blog_address = 'http://'.$domain.$base_path;
 
