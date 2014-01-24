@@ -4,7 +4,7 @@
 // =====================================================================
 $_PLUGIN_CONFIG['DATA'] = array(
 	'author'=>'Diego Najar',
-	'version'=>'3.7',
+	'version'=>'4.0',
 	'url'=>'http://www.nibbleblog.com'
 );
 
@@ -17,6 +17,7 @@ class PLUGIN_PAGES extends Plugin
 	{
 		global $pages;
 		global $Language;
+		global $settings;
 
 		$html = '<ul>';
 
@@ -25,7 +26,8 @@ class PLUGIN_PAGES extends Plugin
 
 		foreach($pages as $page)
 		{
-			$html .= '<li><a href="'.$page['permalink'].'">'.$page['title'].'</a></li>';
+			if($settings['default_homepage']!=$page['id'])
+				$html .= '<li><a href="'.$page['permalink'].'">'.$page['title'].'</a></li>';
 		}
 
 		$html .= '</ul>';

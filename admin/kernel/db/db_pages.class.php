@@ -75,7 +75,7 @@ class DB_PAGES {
 		$new_obj->addChild('content',			$args['content']);
 		$new_obj->addChild('description',		$args['description']);
 		$new_obj->addChild('keywords',			$args['keywords']);
-		$new_obj->addChild('position',			$args['position']);
+		$new_obj->addChild('position',			(int)$args['position']);
 		$new_obj->addChild('pub_date',			$time_unix);
 		$new_obj->addChild('mod_date',			'0');
 		$new_obj->addChild('visits',			'0');
@@ -135,7 +135,7 @@ class DB_PAGES {
 		$new_obj->setChild('content', 			$args['content']);
 		$new_obj->setChild('description', 		$args['description']);
 		$new_obj->setChild('keywords', 			$args['keywords']);
-		$new_obj->setChild('position', 			$args['position']);
+		$new_obj->setChild('position', 			(int)$args['position']);
 		$new_obj->setChild('allow_comments', 	$args['allow_comments']);
 		$new_obj->setChild('mod_date', 			Date::unixstamp());
 
@@ -504,7 +504,7 @@ PRIVATE METHODS
 
 		$tmp_array['filename']			= $file;
 
-		$tmp_array['id']				= $file_info[0];
+		$tmp_array['id']				= (int)$file_info[0];
 		$tmp_array['draft']				= ($file_info[3]=='draft');
 		$tmp_array['visits']			= $xml->getChild('visits');
 		$tmp_array['title']				= $xml->getChild('title');
@@ -526,7 +526,19 @@ PRIVATE METHODS
 		$tmp_array = array();
 
 		foreach($this->files as $file)
-			array_push($tmp_array, $this->get_items($file));
+		{
+			$page = $this->get_items($file);
+
+			$position = $page['position'];
+
+			while(isset($tmp_array[$position]))
+				$position++;
+
+			$tmp_array[$position] = $page;
+		}
+
+		// Sort low to high
+		ksort($tmp_array);
 
 		return $tmp_array;
 	}
