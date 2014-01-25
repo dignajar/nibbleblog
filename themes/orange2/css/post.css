@@ -7,6 +7,8 @@ POST
 article.post {
 	margin-bottom: 60px;
 	overflow: hidden;
+	font-size: 1.8em;
+	font-family: Georgia,"Times New Roman",serif;
 }
 
 /*
@@ -16,23 +18,19 @@ POST :: Head
 */
 
 article.post	header	h1.post-title {
-	font-size: 2em;
-	margin: 0;
-	color: #2986D2;
+	font-size: 2.1em;
+	margin: 20px 0 10px 0;
+	color: #333;
 	font-weight: normal;
+	font-weight: 500;
 }
 
 article.post	header	h1.post-title	a {
-	color: #2986D2;
-}
-
-article.post	header	h1.post-title	a:hover {
-	color: #CCC;
-	text-decoration: none;
+	color: #333;
 }
 
 article.post	header	div.post-published {
-    color: #666;
+    color: #888;
     display: inline-block;
     font-size: 0.9em;
 }

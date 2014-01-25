@@ -1,0 +1,112 @@
+/*
+========================================================================
+BLOG :: Body
+========================================================================
+*/
+
+body {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	margin: 0;
+	padding: 20px;
+	font-size: 62.5%;
+	color: #333;
+}
+
+#container {
+    margin: 0 auto;
+    max-width: 820px;
+    min-width: 600px;
+    overflow: auto;
+    padding: 20px;
+}
+
+a {
+	color: #333333;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#main {
+    margin: 0 auto;
+    overflow: auto;
+}
+
+#left {
+    margin-left: 300px;
+}
+
+#sidebar {
+	float: left;
+	width: 230px;
+	border-right: 1px solid #F1F1F1;
+	padding-right: 40px;
+	text-align: right;
+}
+
+#logo {
+	margin-bottom: 60px;
+}
+
+#logo	a {
+	color: #E67D33;
+}
+
+#logo	a:hover {
+	text-decoration: none;
+}
+
+#logo span.blog-name {
+    display: block;
+    font-size: 2.5em;
+    font-weight: 700;
+    line-height: 45px;
+}
+
+#logo span.blog-slogan {
+	display: block;
+	padding-left: 60px;
+	font-size: 2em;
+}
+
+/*
+========================================================================
+BLOG :: Page 404
+========================================================================
+*/
+
+div.page_404 {
+
+}
+
+/*
+========================================================================
+BLOG :: Pager
+========================================================================
+*/
+
+#pager {
+	overflow: auto;
+	text-align: center;
+	font-size: 1.4em;
+}
+
+#pager	a.next-page {
+	float: right;
+	background: #FFFFFF;
+	padding: 0 5px;
+}
+
+#pager	a.prev-page {
+	float: left;
+	background: #FFFFFF;
+	padding: 0 5px;
+}
+
+#pager	a.home-page {
+	background: #FFFFFF;
+	padding: 0 5px;
+}

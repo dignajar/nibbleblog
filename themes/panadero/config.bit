@@ -1,16 +1,15 @@
 <?php
 
-	$theme = array
-	(
-		'name'=>'Panadero',
-		'description'=>'',
-		'author'=>'Diego Najar',
-		'version'=>'3.5',
-		'last_update'=>'22/03/2013', // dd/mm/yyyy
-		'url'=>'http://www.nibbleblog.com', // http://xxxxxxxxxxxxx
-		'video_width'=>'640',
-		'video_height'=>'360',
-		'disqus_account'=>''
-	);
+$theme = array
+(
+	'name'=>'Panadero',
+	'description'=>'Another theme for Nibbleblog very Cool!',
+	'notes'=>'',
+	'author'=>'Diego Najar',
+	'version'=>'4.0',
+	'last_update'=>'21/01/2014', // dd/mm/yyyy
+	'url'=>'http://www.nibbleblog.com', // http://xxxxxxxxxxxxx
+	'version_supported'=>array('4.0') // Nibbleblog version supported
+);
 
 ?>

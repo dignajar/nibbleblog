@@ -74,27 +74,30 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 	<style type="text/css">
 		body {
 			font-family: arial,sans-serif;
-			background-color: #FFF;
 			margin: 0;
 			padding: 0;
-			font-size: 0.875em;
+			font-size: 62.5%;
 			color: #555;
+			background: url("admin/templates/easy4/css/img/grey.png") repeat rgba(0, 0, 0, 0);
 		}
 
 		#container {
-			background: none repeat scroll 0 0 #F9F9F9;
-			border: 1px solid #EBEBEB;
-			border-radius: 3px 3px 3px 3px;
 			margin: 50px auto;
 			max-width: 700px;
 			padding: 20px 30px;
 			width: 60%;
-			box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+			box-shadow: 1px 0px 2px rgba(0, 0, 0, 0.08);
+
+			background: rgba(255, 255, 255, 0.6);
+			border: 1px solid #CCC;
+			border-radius: 3px 3px 3px 3px;
+			font-size: 1.3em;
 		}
 
 		h1 {
 			margin: 0 0 20px 0;
 			text-align: center;
+			font-weight: normal;
 		}
 
 		h2 {
@@ -376,7 +379,7 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 		</section>
 
 		<footer>
-			<p><a href="http://nibbleblog.com">Nibbleblog <?php echo NIBBLEBLOG_VERSION ?> "<?php echo NIBBLEBLOG_NAME ?>"</a> | Copyright (2009 - 2013) + GPL v3 | Developed by Diego Najar </p>
+			<p><a href="http://nibbleblog.com">Nibbleblog <?php echo NIBBLEBLOG_VERSION ?> "<?php echo NIBBLEBLOG_NAME ?>"</a> ©2009 - 2014 | Developed by Diego Najar</p>
 		</footer>
 
 	</div>

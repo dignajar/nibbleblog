@@ -365,6 +365,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 			padding: 0;
 			font-size: 62.5%;
 			color: #555;
+			background: url("admin/templates/easy4/css/img/grey.png") repeat rgba(0, 0, 0, 0);
 		}
 
 		#container {
@@ -374,7 +375,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 			width: 60%;
 			box-shadow: 1px 0px 2px rgba(0, 0, 0, 0.08);
 
-			background: #FFFFFF;
+			background: rgba(255, 255, 255, 0.6);
 			border: 1px solid #CCC;
 			border-radius: 3px 3px 3px 3px;
 		}
@@ -382,7 +383,6 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 		h1 {
 			margin: 0 0 20px 0;
 			text-align: center;
-			color: #2986D2;
 			font-size: 2.6em;
 			font-weight: normal;
 		}
