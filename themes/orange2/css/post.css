@@ -7,7 +7,7 @@ POST
 article.post {
 	margin-bottom: 60px;
 	overflow: hidden;
-	font-size: 1.8em;
+	font-size: 1.3em;
 	font-family: Georgia,"Times New Roman",serif;
 }
 
@@ -18,8 +18,8 @@ POST :: Head
 */
 
 article.post	header	h1.post-title {
-	font-size: 2.1em;
-	margin: 20px 0 10px 0;
+	font-size: 2em;
+	margin: 0 0 10px 0;
 	color: #333;
 	font-weight: normal;
 	font-weight: 500;
@@ -31,8 +31,9 @@ article.post	header	h1.post-title	a {
 
 article.post	header	div.post-published {
     color: #888;
-    display: inline-block;
-    font-size: 0.9em;
+    display: block;
+    font-size: 0.8em;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 /*
@@ -43,6 +44,10 @@ POST :: Content
 
 article.post	div.post-content	pre {
 	border: 1px dashed #ccc;
+}
+
+article.post	div.post-content	.nb-code {
+	border-style: solid !important;
 }
 
 article.post	div.post-content	.console,
@@ -171,8 +176,6 @@ article.post	footer	div.post-tags	a.tag:hover {
 POST :: Comments
 ========================================================================
 */
-
-
 #comments {
 	margin-top: -40px;
 }
@@ -219,7 +222,6 @@ POST :: Comments form
 
 #comment_form {
 	margin-top: 30px;
-	width: 70%;
 }
 
 #comment_form	h2 {
@@ -248,8 +250,7 @@ POST :: Comments form
 	outline:none;
 	resize: none;
 	margin-bottom: 15px;
-	font-family: font-family: 'Open Sans', helvetica,arial,sans-serif;
-	font-size: 0.9em;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 #comment_form	input[type="text"].captcha {
@@ -260,7 +261,7 @@ POST :: Comments form
 #comment_form	input[type="submit"] {
 	display: block;
 	clear: left;
-	padding: 3px 8px;
+	padding: 3px 22px;
 }
 
 /* For Facebook comments */

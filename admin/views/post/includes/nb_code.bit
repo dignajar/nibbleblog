@@ -25,7 +25,7 @@ $(document).ready(function() {
 		var text = $("#nb_code_textarea").val();
 		var lang = $("#nb_code_options").val();
 		text = html_entities(text);
-		text = '<pre><code data-language="'+lang+'">'+text+'</code></pre>';
+		text = '<pre class="nb-code"><code data-language="'+lang+'">'+text+'</code></pre>';
 		tinymce.execCommand("mceInsertContent", false, text);
 		$("#nb_code_textarea").val('');
 		$('#nb_code_modal').trigger('reveal:close');

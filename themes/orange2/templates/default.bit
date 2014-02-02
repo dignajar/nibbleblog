@@ -55,7 +55,7 @@
 		</section>
 
 		<!-- VIEW -->
-		<section <?php if(!empty($plugins)) echo 'id=left' ?> >
+		<section id="view" >
 			<?php include(THEME_VIEWS.$layout['view']); ?>
 		</section>
 

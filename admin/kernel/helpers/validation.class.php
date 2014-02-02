@@ -11,9 +11,14 @@
 
 class Validation {
 
+	public static function ip($ip)
+	{
+		return filter_var($ip, FILTER_VALIDATE_IP);
+	}
+
 	public static function mail($mail)
 	{
-		return ( filter_var($mail, FILTER_VALIDATE_EMAIL) );
+		return filter_var($mail, FILTER_VALIDATE_EMAIL);
 	}
 
 	public static function int($int)

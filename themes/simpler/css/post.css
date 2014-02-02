@@ -36,7 +36,6 @@ article.post	header	div.post-published {
     display: inline-block;
     font-size: 0.9em;
 }
-
 /*
 ========================================================================
 POST :: Content
@@ -45,6 +44,10 @@ POST :: Content
 
 article.post	div.post-content	pre {
 	border: 1px dashed #ccc;
+}
+
+article.post	div.post-content	.nb-code {
+	border-style: solid !important;
 }
 
 article.post	div.post-content	.console,
@@ -116,6 +119,7 @@ article.post	div.post-content	.video-embed embed {
 	width: 100%;
 	height: 100%;
 }
+
 
 /*
 ========================================================================

@@ -3,27 +3,10 @@
 $_LANG_CONFIG['DATA'] = array(
 	'native'=>'Pyccĸий - Pyccĸий',
 	'english'=>'Russian',
-	'last_update'=>'01/11/2013',
+	'last_update'=>'02/02/2014',
 	'author'=>'Сергей Ворон',
-	'email'=>'voron.s.a@gmail.com',
-	'url'=>'http://voronsa.ru'
-);
-
-$_LANG['TRANSLIT'] = array (
-  'А'=>'a','Б'=>'b','В'=>'v',
-    'Г'=>'g','Д'=>'d','Е'=>'e','Ё'=>'yo','Ж'=>'zh',
-    'З'=>'z','И'=>'i','Й'=>'j','К'=>'k','Л'=>'l',
-    'М'=>'m','Н'=>'n','О'=>'o','П'=>'p','Р'=>'r',
-    'С'=>'s','Т'=>'t','У'=>'u','Ф'=>'f','Х'=>'h',
-    'Ц'=>'c','Ч'=>'ch','Ш'=>'sh','Щ'=>'shh','Ъ'=>'',
-    'Ы'=>'y','Ь'=>'','Э'=>'e','Ю'=>'yu','Я'=>'ya',
-    'а'=>'a','б'=>'b','в'=>'v','г'=>'g','д'=>'d',
-    'е'=>'e','ё'=>'yo','ж'=>'zh','з'=>'z','и'=>'i',
-    'й'=>'j','к'=>'k','л'=>'l','м'=>'m','н'=>'n',
-    'о'=>'o','п'=>'p','р'=>'r','с'=>'s','т'=>'t',
-    'у'=>'u','ф'=>'f','х'=>'h','ц'=>'c','ч'=>'ch',
-    'ш'=>'sh','щ'=>'shh','ъ'=>'','ы'=>'y','ь'=>'',
-    'э'=>'e','ю'=>'yu','я'=>'ya',' '=>'-','-'=>'-','»'=>''
+	'email'=>'sergey@voron.pw',
+	'url'=>'http://voron.pw'
 );
 
 $_LANG['LAST_COMMENTS'] = 'Последние комментарии';
@@ -93,11 +76,13 @@ $_LANG['VIEW'] = 'Просмотр';
 $_LANG['EDIT'] = 'Редактировать';
 $_LANG['TIMESTAMP_FORMAT'] = 'Формат времени';
 $_LANG['SELECT_A_TIMEZONE_FOR_A_CORRECT_DATE_VISUALIZATION'] = 'Выберите часовой пояс для правильного отображения даты.';
-$_LANG['ABSOLUT_URL_ADDRESS_OF_YOUR_BLOG'] = 'Абсолютный адрес (URL) вашего блога. например http://www.domain.com/blog';
-$_LANG['ABSOLUT_ADDRESS_THAT_CONTAINS_THE_BLOGS_FILE_SYSTEM'] = 'Абсолютный адрес, который содержит файлы блога, если вы загрузили содержимое Nibbleblog в корневой каталог укажите "/", если вы загрузили в другой каталог, то укажите "/каталог"';
+$_LANG['NIBBLEBLOG_URL_SYNC'] = 'URL синхронизации Nibbleblog';
+$_LANG['NIBBLEBLOG_KEY_SYNC'] = 'Ключ синхронизации Nibbleblog';
 $_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_PER_PAGE'] = 'Количество записей, которые вы хотите видеть на странице.';
 $_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_ON_RSS'] = 'Количество записей, которые вы хотите видеть в RSS.';
-$_LANG['ADVANCED_OPTIONS_WHEN_PUBLISHING_CONTENT'] = 'Дополнительные возможности при публикации записей. Например: возможность разрешить или запретить публикацию комментариев, выбор категории, и т.д..';
+$_LANG['INSTALLED_PLUGINS'] = 'Установленные плагины';
+$_LANG['ABSOLUTE_ADDRESS_THAT_CONTAINS_THE_BLOGS_FILE_SYSTEM'] = 'Абсолютный адрес, который содержит файловую систему блога, если вы загрузили содержимое Nibbleblog в корень вы должны поставить только "/", или если вы загрузили файлы в другой каталог, то он должен быть "/каталог/".';
+$_LANG['THERE_ARE_NO_PAGES'] = 'Нет страниц.';
 $_LANG['ADMINISTRATORS_USERNAME'] = 'Логин администратора.';
 $_LANG['DO_NOT_FORGET_THIS_PASSWORD'] = 'Не забывайте этот пароль.';
 $_LANG['NEW_SESSION_STARTED'] = 'Новая сессия началась';
@@ -149,9 +134,6 @@ $_LANG['INSTALLATION_LINE4'] = 'или посетите ваш новый бло
 $_LANG['INSTALLATION_LINE5'] = 'Если вам нужна помощь, посетите форум';
 $_LANG['WELCOME_POST_TITLE'] = 'Добро пожаловать в Nibbleblog';
 $_LANG['WELCOME_POST_LINE1'] = 'Поздравляем, ваш блог установлен и работает.';
-$_LANG['WELCOME_POST_LINE2'] = 'Чтобы изменить любые настройки вы должны войти в панель управления администратора ';
-$_LANG['WELCOME_POST_LINE3'] = 'Если вам нужна помощь, вы можете посетить форум поддержки ';
-$_LANG['WELCOME_POST_LINE4'] = 'Посетите Nibbleblog на Facebook, и если вам нравится нажмите на LIKE';
 $_LANG['ENABLE_FRIENDLY_URLS'] = 'Включить дружественные адреса URL';
 $_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = 'Скопируйте содержимое в файл ". htaccess". Этот файл должен находиться в корневом каталоге вашего домена.Сервер должен иметь модули, правильно настроенные для использования этой опции.';
 $_LANG['INSERT_PICTURE'] = 'Вставить картинку';
@@ -184,7 +166,7 @@ $_LANG['THUMBNAILS'] = 'Миниатюры';
 $_LANG['OPTION'] = 'Опция';
 $_LANG['THIS_OPTION_AUTOMATICALLY_CHANGES_THE_IMAGE'] = 'Эта функция автоматически изменяет размер изображения после загрузки';
 $_LANG['ENABLE_THIS_OPTION_IF_YOU_WANT_TO_GENERATE'] = 'Включите эту опцию, если вы хотите создавать миниатюры при загрузке изображений';
-$_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS'] = 'Нет опубликованных комментариев';
+$_LANG['NOTIFY_WHEN_A_USER_SUCCESSES_LOGIN'] = 'Сообщить, когда пользователь успешно входит в систему.';
 $_LANG['AUTOMATIC'] = 'Автоматический';
 $_LANG['EXACT'] = 'Точный';
 $_LANG['PORTRAIT'] = 'Портрет';
@@ -216,7 +198,7 @@ $_LANG['ENABLE_THIS_FEATURE_TO_DELETE_SPAM_AUTO'] = 'Включение этой
 $_LANG['COMMENTS_DETECTED_AS_SPAM_WILL_BE_FILTERED'] = 'Комментарии распознаные как спам будут фильтроваться.';
 $_LANG['NOTIFY_WHEN_A_USER_MAKES_A_COMMENT'] = 'Уведомлять, когда пользователь оставляет комментарий.';
 $_LANG['NOTIFY_WHEN_A_USER_FAILS_TO_LOGIN'] = 'Уведомлять, когда пользователь не может войти в систему.';
-$_LANG['NOTIFY_WHEN_A_USER_SUCCESSES_LOGIN'] = 'Уведомлять, когда пользователь успешно входит в систему';
+$_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS'] = 'Нет опубликованных комментариев.';
 $_LANG['NOTIFICATIONS_WILL_BE_SENT_TO_THIS_EMAIL'] = 'Уведомления будут отправляться на этот адрес.';
 $_LANG['NOTIFICATIONS_WILL_BE_SENT_FROM_THIS_EMAIL'] = 'Уведомления будут отправляться с этого адреса.';
 $_LANG['EMAIL_ACCOUNTS_SETTINGS'] = 'Настройки аккаунта электронной почты';
@@ -272,7 +254,6 @@ $_LANG['NEW_PAGE'] = 'Добавить страницу';
 $_LANG['PAGE'] = 'Страница';
 $_LANG['PAGES'] = 'Страницы';
 $_LANG['PAGE_HAS_BEEN_PUBLISHED_SUCCESSFULLY'] = 'Страница успешно опубликована';
-$_LANG['THERE_ARE_NO_PAGES'] = 'Нет ни одной страницы';
 $_LANG['REQUEST_NEW_PASSWORD'] = 'Запросить новый пароль';
 $_LANG['WE_ARE_SENT_YOU_AN_EMAIL'] = 'Мы отправили Вам по электронной почте, пожалуйста, проверьте папку спам на всякий случай.';
 $_LANG['AN_ERROR_OCURRED_WHILE'] = 'Произошла ошибка при отправке почты.';
@@ -280,5 +261,28 @@ $_LANG['EMAIL_NOTIFICATION_FAIL_LOGIN'] = '<p>Это уведомление от
 $_LANG['EMAIL_NOTIFICATION_SESSION_STARTED'] = '<p>Это уведомление от вашего блога {{BLOG_NAME}}</p> <p>Удачный вход в панель управления с именем пользователя: {{USERNAME}}</p> <p>IP адрес {{IP}} с которого подключились.</p>';
 $_LANG['EMAIL_NOTIFICATION_NEW_COMMENT'] = '<p>Это уведомление от вашего блога {{BLOG_NAME}}</p> <p>У вас новый комментарий в блоге.</p> <p>{{COMMENT}}</p> <p>Автор: {{AUTHOR_NAME}}</p> <p>Email: {{AUTHOR_EMAIL}}</p> <p>IP: {{IP}}</p>';
 $_LANG['EMAIL_NOTIFICATION_FORGOT_PASSWORD'] = '<p>Это уведомление от вашего блога {{BLOG_NAME}}</p> <p>Забыли пароль? нет проблем!</p> <p>Следуйте по следующей ссылке: {{FORGOT_LINK}}</p>';
+$_LANG['LINK'] = 'Ссылка';
+$_LANG['UPLOAD_A_NEW_IMAGE'] = 'Добавить изображение';
+$_LANG['SELECT_AN_IMAGE_FROM_YOUR_BAG'] = 'Выберите изображение из коллекции';
+$_LANG['SET_AS_HOMEPAGE'] = 'Сделать главной страницей';
+$_LANG['THERE_IS_A_PAGE_AS_HOMEPAGE'] = 'Эта страница  назначена в качестве домашней страницы, нажмите здесь, чтобы удалить эту страницу.';
+$_LANG['MANAGE_PAGES'] = 'Управление страницами';
+$_LANG['NEW_POST'] = 'Новая запись';
+$_LANG['QUICK_START'] = 'Быстрый старт';
+$_LANG['WELCOME_POST_LINE3'] = 'Следуйте за нами в социальных сетях {{FACEBOOK_LINK}}, {{TWITTER_LINK}} и {{GOOGLEPLUS_LINK}}.';
+$_LANG['QUALITY'] = 'Качество';
+$_LANG['NOTES'] = 'Примечания';
+$_LANG['WEBSITE'] = 'Веб-сайт';
+$_LANG['COMPLETE_THIS_FIELD_IF_YOU_WANT_USE_DISQUS'] = 'Заполните это поле, если вы хотите использовать Disqus комментарии в вашем блоге. Эта функция зависит от темы. Если вам нужно больше информации об этом, пожалуйста, пройдите по следующей ссылке.';
+$_LANG['COMPLETE_THIS_FIELD_IF_YOU_WANT_USE_FACEBOOK_COMMENTS'] = 'Заполните это поле, если вы хотите использовать Facebook комментарии в вашем блоге. Эта функция зависит от темы. Если вам нужно больше информации об этом, пожалуйста, пройдите по следующей ссылке.';
+$_LANG['REGIONAL'] = 'Региональный';
+$_LANG['INSERT_IMAGE_FROM_URL'] = 'Вставить изображение из URL';
+$_LANG['BLUDIT_SYNC'] = 'Bludit синхронизации';
+$_LANG['CATEGORY_NAME'] = 'Название категории';
+$_LANG['WELCOME_POST_LINE2'] = 'Начните публикации из панели {{DASHBOARD_LINK}} ';
+$_LANG['CATEGORY_SLUG'] = 'Описание категории';
+$_LANG['ADVANCED_OPTIONS_WHEN_PUBLISHING_CONTENT'] = 'Дополнительные параметры при публикации контента.';
+$_LANG['ABSOLUTE_URL_ADDRESS_OF_YOUR_BLOG'] = 'Абсолютный URL-адрес вашего блога. Пример http://www.domain.com/directory/';
+$_LANG['PLUGINS_AVAILABLE_FOR_INSTALL'] = 'Плагины, доступные для установки';
 
 ?>

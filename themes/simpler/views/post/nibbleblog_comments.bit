@@ -32,7 +32,10 @@ if( !$Comment->disqus_enabled() && !$Comment->facebook_enabled() )
 
 		<h2><?php echo$Language->get('New comment') ?></h2>
 
-		<h3 class="alert"><?php echo Session::get_error()?Session::get_alert():false ?></h3>
+		<?php
+			if(Session::get_error())
+				echo '<h3 class="alert">'.Session::get_alert().'</h3>';
+		?>
 
 		<form method="post" name="form" action="#comment_form">
 

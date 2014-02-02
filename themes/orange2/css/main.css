@@ -35,8 +35,10 @@ a:hover {
     overflow: auto;
 }
 
-#left {
+#view {
     margin-left: 300px;
+    font-size: 1.4em;
+    margin-top: 20px;
 }
 
 #sidebar {
@@ -49,6 +51,7 @@ a:hover {
 
 #logo {
 	margin-bottom: 60px;
+	margin-top: 20px;
 }
 
 #logo	a {
@@ -91,7 +94,6 @@ BLOG :: Pager
 #pager {
 	overflow: auto;
 	text-align: center;
-	font-size: 1.4em;
 }
 
 #pager	a.next-page {

@@ -6,18 +6,11 @@ include('post.bit');
 // If post allow comments
 if(Post::allow_comments())
 {
-	if( !empty($theme['disqus_account']) )
-	{
-		include('disqus_comments.bit');
-	}
-	elseif( !empty($theme['facebook_appId']) )
-	{
-		include('facebook_comments.bit');
-	}
-	else
-	{
-		include('nibbleblog_comments.bit');
-	}
+	include('disqus_comments.bit');
+
+	include('facebook_comments.bit');
+
+	include('nibbleblog_comments.bit');
 }
 
 ?>
