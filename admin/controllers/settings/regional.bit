@@ -22,7 +22,7 @@ $timestamp_format_html = array(
 
 							'%m/%d/%y'=>'12/31/14',
 
-							'%d %B, %Y'=>'31 December, 2013',
+							'%d %B, %Y'=>'31 December, 2014',
 
 							'%d %b, %Y'=>'31 Dec, 2014'
 );

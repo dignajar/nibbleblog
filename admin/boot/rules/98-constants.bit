@@ -13,15 +13,15 @@
 // =====================================================================
 //	SYSTEM INFORMATION
 // =====================================================================
-define('NIBBLEBLOG_VERSION',		'4.0 beta1');
-define('NIBBLEBLOG_NAME',			'');
-define('NIBBLEBLOG_RELEASE_DATE',	'19/01/2014');
-define('NIBBLEBLOG_BUILD',			time());
+define('NIBBLEBLOG_VERSION',		'4.0');
+define('NIBBLEBLOG_NAME',			'Coffee');
+define('NIBBLEBLOG_RELEASE_DATE',	'02/02/2014');
+define('NIBBLEBLOG_BUILD',			1391376286);
 
 // =====================================================================
 //	DEBUG
 // =====================================================================
-define('DEBUG_MODE',	TRUE);
+define('DEBUG_MODE',	FALSE);
 
 error_reporting(0);
 
