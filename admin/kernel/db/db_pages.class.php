@@ -136,7 +136,6 @@ class DB_PAGES {
 		$new_obj->setChild('description', 		$args['description']);
 		$new_obj->setChild('keywords', 			$args['keywords']);
 		$new_obj->setChild('position', 			(int)$args['position']);
-		$new_obj->setChild('allow_comments', 	$args['allow_comments']);
 		$new_obj->setChild('mod_date', 			Date::unixstamp());
 
 		// ---------------------------------------------------------
