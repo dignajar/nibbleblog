@@ -2,3 +2,5 @@
 content/tmp/*
 content/public/*
 content/private/*
+plugins/admin/*
+test.php
