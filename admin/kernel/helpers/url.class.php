@@ -75,6 +75,20 @@ class Url {
 		}
 	}
 
+	public static function atom()
+	{
+		global $settings;
+
+		if($settings['friendly_urls'])
+		{
+			return BLOG_URL.'feed';
+		}
+		else
+		{
+			return BLOG_URL.'feed.php';
+		}
+	}
+
 }
 
 ?>

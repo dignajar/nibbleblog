@@ -3,69 +3,56 @@ header("Content-type: text/xml; charset=utf-8");
 
 require('admin/boot/feed.bit');
 
-$feed_link = BLOG_URL.'feed';
+// Get all posts, limit items_rss
+$posts = $_DB_POST->get_list_by_page( array('page'=>0, 'amount'=>$settings['items_rss']) );
 
-if(!$settings['friendly_urls'])
-	$feed_link .= '.php';
-
+// Get the last update (the date of the last published post)
 $last_post = $posts[0];
 $updated = Date::atom($last_post['pub_date_unix']);
 
-// ============================================================================
+// Get the domain name
+$domain = parse_url($settings['url']);
+$domain = 'http://'.$domain['host'];
+
+// =====================================================================
 // ATOM Feed
-// ============================================================================
+// =====================================================================
 $rss = '<?xml version="1.0" encoding="utf-8"?>' . PHP_EOL;
 $rss.= '<feed xmlns="http://www.w3.org/2005/Atom">' . PHP_EOL;
 $rss.= '<title>'.$settings['name'].'</title>' . PHP_EOL;
 $rss.= '<subtitle>'.$settings['slogan'].'</subtitle>' . PHP_EOL;
-$rss.= '<link href="'.$feed_link.'" rel="self" />' . PHP_EOL;
-$rss.= '<id>'.$feed_link.'</id>'. PHP_EOL;
+$rss.= '<link href="'.Url::atom().'" rel="self" />' . PHP_EOL;
+$rss.= '<id>'.Url::atom().'</id>'. PHP_EOL;
 $rss.= '<updated>'.$updated.'</updated>' . PHP_EOL;
 
 foreach($posts as $post)
 {
-	$full_link = htmlspecialchars($settings['url'].$post['permalink']);
+	// Post, absolute permalink
+	$permalink = Post::permalink(true);
 
+	// Post, publish date on atom format
 	$date = Date::atom($post['pub_date_unix']);
 
-	$category = htmlspecialchars($post['category'], ENT_QUOTES, 'UTF-8');
+	// Post, category name
+	$category = Post::category();
 
-	if($post['type']=='quote')
-	{
-		$title = 'quote';
-		$content = htmlspecialchars($post['quote'], ENT_QUOTES, 'UTF-8');
-	}
-	else
-	{
-		if(Text::not_empty($post['title']))
-		{
-			$title = htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8');
-		}
-		else
-		{
-			$title = htmlspecialchars($post['type'], ENT_QUOTES, 'UTF-8');
-		}
+	// Post, full content
+	$content = Post::content(true);
 
-		// Absolute URL for images
-		$domain = $settings['url'];
-		$content = preg_replace("/(src)\=\"([^(http)])(\/)?/", "$1=\"$domain$2", $post['content'][1]);
+	// Absolute images src
+	$content = preg_replace("/(src)\=\"([^(http|data:image)])(\/)?/", "$1=\"$domain$2", $content);
 
-		$content = htmlspecialchars($content, ENT_QUOTES, 'UTF-8');
-
-		if(isset($post['content'][2]))
-		{
-			$content .= htmlspecialchars('<a href="'.$full_link.'">'.$_LANG['READ_MORE'].'</a>', ENT_QUOTES, 'UTF-8');
-		}
-	}
+	// Post, title
+	$title = Post::title();
 
 	// Entry
 	$rss.= '<entry>' . PHP_EOL;
-		$rss.= '<title type="html">'.$title.'</title>' . PHP_EOL;
-		$rss.= '<content type="html">'.$content.'</content>' . PHP_EOL;
-		$rss.= '<link href="'.$full_link.'" />' . PHP_EOL;
-		$rss.= '<id>'.$full_link.'</id>' . PHP_EOL;
-		$rss.= '<updated>'.$date.'</updated>' . PHP_EOL;
-		$rss.= '<category term="'.$category.'"/>' . PHP_EOL;
+		$rss.= '<title type="html">'.htmlspecialchars($title, ENT_QUOTES, 'UTF-8').'</title>' . PHP_EOL;
+		$rss.= '<content type="html">'.htmlspecialchars($content, ENT_QUOTES, 'UTF-8').'</content>' . PHP_EOL;
+		$rss.= '<link href="'.htmlspecialchars($permalink, ENT_QUOTES, 'UTF-8').'" />' . PHP_EOL;
+		$rss.= '<id>'.htmlspecialchars($permalink, ENT_QUOTES, 'UTF-8').'</id>' . PHP_EOL;
+		$rss.= '<updated>'.htmlspecialchars($date, ENT_QUOTES, 'UTF-8').'</updated>' . PHP_EOL;
+		$rss.= '<category term="'.htmlspecialchars($category, ENT_QUOTES, 'UTF-8').'"/>' . PHP_EOL;
 	$rss.= '</entry>' . PHP_EOL;
 }
 

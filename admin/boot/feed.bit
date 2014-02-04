@@ -8,7 +8,5 @@ require_once('rules/3-variables.bit');
 require_once('rules/4-blacklist.bit');
 require_once('rules/5-regional.bit');
 
-require_once('rules/8-posts_feed.bit');
-
 require_once('rules/99-misc.bit');
 ?>

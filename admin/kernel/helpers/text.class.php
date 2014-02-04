@@ -123,7 +123,7 @@ class Text {
 	public static function clean_url($text, $spaces='-', $translit=false)
 	{
 		// Delete characters
-		$text = str_replace(array("!", "*", "&#039;", "&quot;", "(", ")", ";", ":", "@", "&amp", "=", "+", "$", ",", "/", "?", "%", "#", "[", "]", "|"),'',$text);
+		$text = str_replace(array("“", "”", "!", "*", "&#039;", "&quot;", "(", ")", ";", ":", "@", "&amp", "=", "+", "$", ",", "/", "?", "%", "#", "[", "]", "|"),'',$text);
 
 		// Translit
 		if($translit!=false)
