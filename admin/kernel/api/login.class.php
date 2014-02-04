@@ -36,9 +36,9 @@ class Login {
 	}
 
 	/*
-	 * Check if the user is logued
+	 * Check if the user is logged
 	*/
-	public function is_logued()
+	public function is_logged()
 	{
 		if($this->session_started)
 		{
@@ -191,7 +191,7 @@ class Login {
 	*/
 	public function set_remember_me()
 	{
-		if(!$this->is_logued())
+		if(!$this->is_logged())
 			return false;
 
 		require(FILE_KEYS);
