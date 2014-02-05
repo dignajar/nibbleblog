@@ -7,12 +7,12 @@ echo '<ul class="info">';
 
 	echo '<li><a href="'.$post['permalink'].'">'.$text.'</a></li>';
 
-	echo '<li><a target="_blank" href="https://twitter.com/share?url='.(urlencode($settings['url'].$post['permalink'])).'">Tweet</a></li>';
+	echo '<li><a target="_blank" href="'.Post::tweet_link().'">Tweet</a></li>';
 
 	// Comments
 	if($post['allow_comments'])
 	{
-		if( !empty($theme['disqus_account']) )
+		if( !empty($theme['disqus_account']))
 		{
 			// Disqus comments
 			echo '<li><a href="'.$post['permalink'].'#disqus_thread"></a></li>';
