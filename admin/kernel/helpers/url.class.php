@@ -67,11 +67,11 @@ class Url {
 
 		if($settings['friendly_urls'])
 		{
-			return HTML_PATH_ROOT.'page/'.$page['slug'].'/';
+			return $url.'page/'.$page['slug'].'/';
 		}
 		else
 		{
-			return HTML_PATH_ROOT.'index.php?controller=page&amp;action=view&amp;id_page='.$page['id'];
+			return $url.'index.php?controller=page&amp;action=view&amp;id_page='.$page['id'];
 		}
 	}
 
