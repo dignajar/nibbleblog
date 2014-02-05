@@ -3,7 +3,7 @@
 	// print title if this is not empty
 	if( !empty($post['title']) )
 	{
-		echo '<h2 class="post-title"><a href="'.$post['permalink'].'">'.$post['title'].'</a></h2>';
+		echo '<h2 class="post-title"><a href="'.Post::permalink().'">'.Post::title().'</a></h2>';
 
 	}
 	$month = Date::format($post['pub_date_unix'], '%b');

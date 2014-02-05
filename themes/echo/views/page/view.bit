@@ -1,15 +1,10 @@
-<?php
+<article>
 
-echo '<article>';
+	<h2 class="post-title"><?php echo Page::title() ?></h2>';
 
-	// print title if this is not empty
-	if( !empty($page['title']) ){
-		echo '<h2 class="post-title">'.$page['title'].'</h2>';
-	}
+	<?php echo Page::content() ?>
 
-	echo $page['content'];
-
-echo '</article>';
+</article>
 
 ?>
 
