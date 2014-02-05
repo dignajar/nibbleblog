@@ -1,0 +1,13 @@
+<?php
+
+if($pager['show_older'] or $pager['show_newer'])
+{
+echo '<section id="pager">';
+
+    echo Pager::prev_link();
+
+    echo Pager::next_link();
+
+echo '</section>';
+}
+?>

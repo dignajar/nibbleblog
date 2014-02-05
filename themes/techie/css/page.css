@@ -1,0 +1,178 @@
+/* ------------- */
+/*     PAGES     */
+/* ------------- */
+article.page {
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px #333333;
+    margin-bottom: 2.5em;
+    overflow: hidden;
+    padding: 1.250em 1.875em;
+}
+
+/* ----------------- */
+/*    PAGE HEADER    */
+/* ----------------- */
+article.page  header  div.page_bar {
+    border-top: 2px solid #ff600a;
+    margin-bottom: 1.563em;
+    overflow: hidden;
+}
+
+article.page  header  h1.page_title {
+    color: #404040;
+    font-size: 2em;
+    font-weight: normal;
+    margin: 0 0 0 5px;
+}
+
+/* ---------------------- */
+/*     SOCIAL BUTTONS     */
+/* ---------------------- */
+article.page  header  div.social {
+    float: right;
+    margin-right: 0.625em;
+    overflow: hidden;
+}
+
+article.page  header  div.social  a {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 26px 26px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: inline-block;
+    height: 26px;
+    padding: 0.313em;
+    transition: all 200ms ease 0s;
+        -webkit-transition: all 200ms ease 0s;
+    vertical-align: top;
+    width: 26px;
+}
+
+article.page  header  div.social  a:hover {
+    background-color: #ff6d1e;
+}
+
+article.page  header  div.social  a.share_facebook {
+    background-image: url("img/social/facebook_b.png");
+}
+
+article.page  header  div.social  a.share_facebook:hover {
+    background-image: url("img/social/facebook_w.png");
+}
+
+article.page header  div.social  a.share_plus {
+    background-image: url("img/social/gplus_b.png");
+}
+
+article.page header  div.social  a.share_plus:hover {
+    background-image: url("img/social/gplus_w.png");
+}
+
+article.page header  div.social  a.share_twitter {
+    background-image: url("img/social/twitter_b.png");
+}
+
+article.page header  div.social  a.share_twitter:hover {
+    background-image: url("img/social/twitter_w.png");
+}
+
+article.page  header  div.social  a.share_email {
+    background-image: url("img/social/mail_b.png");
+}
+
+article.page  header  div.social  a.share_email:hover {
+    background-image: url("img/social/mail_w.png");
+}
+
+/* ------------------ */
+/*    PAGE CONTENT    */
+/* ------------------ */
+article.page  div.page_content  pre {
+    border: 1px dashed #ccc;
+}
+
+article.page  div.page_content  .nb-code {
+    border-style: solid !important;
+}
+
+article.page  div.page_content  .console,
+article.page  div.page_content  .nb-console {
+    background: url("img/console.png") no-repeat 8px 8px #F1F1F1;
+    border: 1px solid #ccc;
+    display: block;
+    line-height: 24px;
+    margin: 5px 0;
+    overflow: auto;
+    padding-left: 38px;
+    white-space: nowrap;
+}
+
+article.page  div.page_content  img:not(.captcha) {
+    height: auto;
+    max-width:100%;
+}
+
+article.page  div.page_content  img.align_left {
+    margin: 5px 10px 5px 0px;
+    float: left;
+}
+
+article.page  div.page_content  img.align_right {
+    margin: 5px 0px 5px 10px;
+    float: right;
+}
+
+article.page  div.page_content  blockquote {
+    font-size: 1.1em;
+    font-style: italic;
+}
+
+article.page  div.page_content  h1,
+article.page  div.page_content  h2,
+article.page  div.page_content  h3,
+article.page  div.page_content  h4,
+article.page  div.page_content  h5 {
+    font-weight: normal;
+}
+
+article.page  div.page_content  h1 {
+    font-size: 1.8em;
+}
+
+article.page  div.page_content  p {
+    line-height: 1.5em;
+}
+
+article.page  div.page_content  div.video_embed {
+    display: block;
+    height: 0;
+    margin: 13px 0;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    overflow: hidden;
+}
+
+article.page  div.page-content  .video-embed iframe,
+article.page  div.page-content  .video-embed object,
+article.page  div.page-content  .video-embed embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ---------------------- */
+/*     404 ERROR PAGE     */
+/* ---------------------- */
+article.page  div.page_404 {
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px #333333;
+    font-size: 1.5em;
+    margin-bottom: 2.5em;
+    overflow: hidden;
+    padding: 1.250em 1.875em;
+}
