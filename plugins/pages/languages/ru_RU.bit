@@ -1,0 +1,8 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+'NAME'=>'Страницы',
+'DESCRIPTION'=>'Показывает все страницы.'
+);
+
+?>

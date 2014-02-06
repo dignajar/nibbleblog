@@ -1,0 +1,13 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+'NAME'=>'Быстрые ссылки',
+'DESCRIPTION'=>'Быстрый доступ к панели упраления.',
+'HOME'=>'Главная',
+'DASHBOARD'=>'Панель управления',
+'NEW_SIMPLE_POST'=>'Добавить запись',
+'NEW_VIDEO_POST'=>'Добавить видео',
+'NEW_QUOTE_POST'=>'Добавить цитату'
+);
+
+?>

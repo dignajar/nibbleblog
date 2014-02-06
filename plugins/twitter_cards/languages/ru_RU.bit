@@ -1,0 +1,8 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+'NAME'=>'Twitter cards',
+'DESCRIPTION'=>'Twitter cards позволяет вам прикрепить изображение и описание к ссылкам, которые ссылаются на ваш контент.'
+);
+
+?>

@@ -1,0 +1,9 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+'NAME'=>'HTML код',
+'DESCRIPTION'=>'Этот плагин позволяет вставлять HTML код в ваш блог.',
+'HTML_CODE'=>'HTML код'
+);
+
+?>
