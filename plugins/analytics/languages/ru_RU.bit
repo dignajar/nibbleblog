@@ -1,0 +1,9 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+'NAME'=>'Google Analytics',
+'DESCRIPTION'=>'Добавьте Google Analytics в ваш блог, чтобы видеть, как посетители взаимодействуют с вашим сайтом. Для использования этого плагина Вам нужен аккаунт в Google Analytics.',
+'GOOGLE_ANALYTICS_ID'=>'Google Analytics ID'
+);
+
+?>
