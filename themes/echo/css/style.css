@@ -1,9 +1,9 @@
 /*-----------------------------------------------------------
 -------------------------------------------------------------
-*	ECHO THEME for NB 3.6+			                        *
+*	ECHO THEME for NB 4.0+			                        *
 *   AUTHOR: Paulo Nunes                                     *
 *   URL: http://syndicatefx.com/projects/nibbleblog-themes  *
-*	DATE: 21-7-2013                                         *
+*	DATE: 06-02-2014                                         *
 ------------------------------------------------------------*/
 
 /*--------------------------------------
@@ -308,6 +308,21 @@ li.name{
 li.about{
 	font-size:90%;
 	line-height:1.2;
+}
+/*----------------------------------------------
+	NIBBLEBLOG IMG ALIGN CLASSES USED IN EDITOR
+----------------------------------------------*/
+.nb-align-left{
+	float:left;
+	margin:0 1em 1em 0;
+}
+.nb-align-right{
+	float:right;
+	margin:0 0 1em 1em;
+}
+.nb-align-center{
+	display:block;
+	margin:0 auto 1em;
 }
 /*-------------------------------------
 	MEDIA QUERIES
