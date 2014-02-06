@@ -56,7 +56,8 @@ $(document).ready(function() {
 		entity_encoding : "raw",
 		formats:{
 			alignleft:{selector:'img', attributes:{class:"nb-align-left"} },
-			alignright:{selector:'img', attributes:{class:"nb-align-right"} }
+			alignright:{selector:'img', attributes:{class:"nb-align-right"} },
+			aligncenter:{selector:'img', attributes:{class:"nb-align-center"} }
 		},
 		setup: function(ed) {
 			ed.addButton('nb-image', {
