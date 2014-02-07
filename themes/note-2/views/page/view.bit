@@ -1,4 +1,0 @@
-<article>
-	<h2><?php echo Page::title() ?></h2>
-	<?php echo Page::content() ?>
-</article>

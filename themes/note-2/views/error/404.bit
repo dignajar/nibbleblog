@@ -1,3 +1,0 @@
-<article>
-	<?php echo $Language->get('404_PAGE_NOT_FOUND') ?>
-</article>
