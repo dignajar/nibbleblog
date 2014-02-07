@@ -65,7 +65,7 @@ $(document).ready(function() {
 	function() {
 		var url = $("#media_url_input").val();
 		var img = '<img src="'+url+'" alt="">';
-		tinymce.execCommand("mceInsertContent", false, img);
+		insert_content(img);
 		$("#media_url_input").val('http://');
 		$('#media_modal').trigger('reveal:close');
 	});
@@ -78,7 +78,7 @@ $(document).ready(function() {
 	function() {
 		var src = $(this).attr("data-original");
 		var img = '<img src="'+src+'" alt="">';
-		tinymce.execCommand("mceInsertContent", false, img);
+		insert_content(img);
 		$('#media_modal').trigger('reveal:close');
 	});
 
@@ -137,7 +137,7 @@ $(document).ready(function() {
 
 			// Insert on textarea
 			var img = '<img src="'+original+'" alt="">';
-			tinymce.execCommand("mceInsertContent", false, img);
+			insert_content(img);
 
 			// Insert on preview files
 			img = '<img data-original="'+original+'" src="'+nbmedia+'" alt="" />';

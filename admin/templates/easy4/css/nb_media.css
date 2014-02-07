@@ -38,6 +38,13 @@
 	background: #3474A7;
 }
 
+span.markdown {
+	display: inline-block;
+	margin-bottom: 5px;
+	margin-right: 15px;
+	cursor: pointer;
+}
+
 #media_url_button {
 	background: #3B84BF;
 	border: 1px solid #478FBF;

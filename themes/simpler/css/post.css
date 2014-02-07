@@ -62,16 +62,16 @@ article.post	div.post-content	.nb-console {
     border: 1px solid #ccc;
 }
 
-article.post	div.post-content	img:not(.captcha) {
+article.post	div.post-content	img {
 	max-width:100%;
 }
 
-article.post	div.post-content	img.align_left {
+article.post	div.post-content	.nb-align-left {
 	margin: 5px 10px 5px 0px;
 	float: left;
 }
 
-article.post	div.post-content	img.align_right {
+article.post	div.post-content	.nb-align-right {
 	margin: 5px 0px 5px 10px;
 	float: right;
 }
