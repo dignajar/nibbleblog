@@ -1,0 +1,53 @@
+<?php
+/*
+ * Nibbleblog
+ * http://www.nibbleblog.com
+
+ * Require
+ * $url
+ * $settings
+ * $_DB_CATEGORIES
+ * $_DB_POST
+ * $_DB_COMMENTS
+
+ * Return
+ * (array) $posts
+*/
+
+// Get all posts, limit items_rss
+$posts = $_DB_POST->get_list_by_page( array('page'=>0, 'amount'=>$settings['items_rss']) );
+
+// ---- COMMENTS
+// ---- PERMALINKS
+// ---- CATEGORY
+// ---- PUBLISH DATE
+// ---- TAGS
+foreach($posts as $key=>$value)
+{
+	$post = $posts[$key];
+
+	// Tags
+	$posts[$key]['tags'] = Post::tags(true); //$_DB_TAGS->get_by_idpost( array('id_post'=>$value['id']) );
+
+	// Comments
+	$posts[$key]['comments'] = Post::comments(); // $_DB_COMMENTS->get_list_by_post( array('id_post'=>$value['id']) );
+
+	// Category
+	$posts[$key]['category'] = Post::category(); //$category['name'];
+
+	// Publish date
+	$posts[$key]['pub_date'] = Post::published(); //Date::format($posts[$key]['pub_date_unix'], $settings['timestamp_format']);
+
+	// Modified date
+	$posts[$key]['mod_date'] = Post::modified(); //Date::format($posts[$key]['mod_date_unix'], $settings['timestamp_format']);
+
+	// Permalink
+	$posts[$key]['permalink'] = Post::permalink(); //Url::post($posts[$key]);
+}
+
+// =====================================================================
+// CLEANING
+// =====================================================================
+unset($post);
+
+?>

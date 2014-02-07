@@ -3,9 +3,6 @@ header("Content-type: text/xml; charset=utf-8");
 
 require('admin/boot/feed.bit');
 
-// Get all posts, limit items_rss
-$posts = $_DB_POST->get_list_by_page( array('page'=>0, 'amount'=>$settings['items_rss']) );
-
 // Get the last update (the date of the last published post)
 $last_post = $posts[0];
 $updated = Date::atom($last_post['pub_date_unix']);
