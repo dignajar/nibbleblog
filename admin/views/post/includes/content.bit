@@ -91,12 +91,15 @@ $(document).ready(function() {
 
 function insert_content(text)
 {
-	<?php if(NIBBLEBLOG_MARKDOWN) { ?>
-		var content = $("#js_content").val();
-		$("#js_content").val( content + text);
-	<?php } else { ?>
+	if(typeof tinymce != 'undefined')
+	{
 		tinymce.execCommand("mceInsertContent", false, text);
-	<?php } ?>
+	}
+	else
+	{
+		var content = $("#js_content").val();
+		$("#js_content").val(content + "\n" + text + "\n");
+	}
 }
 
 </script>
