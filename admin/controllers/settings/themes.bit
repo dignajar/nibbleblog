@@ -29,7 +29,7 @@ foreach($themes_dirs as $dir)
 {
 	include(PATH_THEMES.$dir.'/config.bit');
 
-	if(isset($theme))
+	if(isset($theme['version_supported']))
 	{
 		if(in_array(NIBBLEBLOG_VERSION, $theme['version_supported']))
 		{
