@@ -1,0 +1,74 @@
+/*
+========================================================================
+BLOG :: Body
+========================================================================
+*/
+
+body {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	background-color: #FFFFFF;
+	margin: 0;
+	padding: 0;
+	font-size: 62.5%;
+	color: #333;
+}
+
+a {
+	color: #006AC8;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/*
+========================================================================
+BLOG :: Footer
+========================================================================
+*/
+
+#blog-foot {
+	text-align: right;
+	font-size: 1.1em;
+}
+
+/*
+========================================================================
+BLOG :: Page 404
+========================================================================
+*/
+
+div.page_404 {
+
+}
+
+
+/*
+========================================================================
+BLOG :: Pager
+========================================================================
+*/
+
+#pager {
+    font-size: 1.4em;
+    margin: 30px auto;
+    overflow: auto;
+    text-align: center;
+    width: 900px;
+}
+
+#pager	a.next-page {
+	float: right;
+	background: #EEE;
+	padding: 10px;
+	border-radius: 2px;
+}
+
+#pager	a.prev-page {
+	float: left;
+	background: #EEE;
+	padding: 10px;
+	border-radius: 2px;
+}
