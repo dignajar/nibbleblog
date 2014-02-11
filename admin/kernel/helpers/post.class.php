@@ -55,6 +55,9 @@ class Post {
 		if($field=='slug')
 			return $category['slug'];
 
+		if($field=='permalink')
+			return Url::category($category['slug']);
+
 		return $category['name'];
 	}
 
