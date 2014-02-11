@@ -31,7 +31,8 @@ BLOG :: Footer
 
 #blog-foot {
 	text-align: right;
-	font-size: 1.1em;
+	font-size: 1.3em;
+	margin: 50px 30px 20px 0;
 }
 
 /*
@@ -53,7 +54,7 @@ BLOG :: Pager
 
 #pager {
     font-size: 1.4em;
-    margin: 30px auto;
+    margin: 0px auto;
     overflow: auto;
     text-align: center;
     width: 900px;

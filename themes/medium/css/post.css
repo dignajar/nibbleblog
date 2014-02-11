@@ -6,6 +6,7 @@ POST
 
 article.post {
 	font-size: 1.4em;
+	overflow: auto;
 }
 
 /*
