@@ -1,6 +1,6 @@
 <article class="post">
 
-	<header style="background: url('<?php echo $cover_image ?>') no-repeat scroll center center / cover  rgba(0, 0, 0, 0);">
+	<header style="<?php echo 'background: url(\''.$cover_image.'\') '.$background_property.';'?>">
 		<div class="header-wrap">
 			<h1 class="post-title"><?php echo Post::title() ?></h1>
 			<h2 class="post-description"><?php echo Post::description() ?></h2>

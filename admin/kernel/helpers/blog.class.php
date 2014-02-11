@@ -97,6 +97,9 @@ class Blog {
 		global $layout;
 		global $seo;
 
+		// The validator W3C doesn't support???
+		//$meta = '<meta charset="UTF-8">'.PHP_EOL;
+
 		$meta = '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'.PHP_EOL;
 
 		if(!empty($layout['title']))
