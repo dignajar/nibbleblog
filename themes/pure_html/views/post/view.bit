@@ -1,3 +1,18 @@
+<article>
+
+	<header>
+		<h2>
+			<a href="<?php echo Post::permalink() ?>"><?php echo Post::title() ?></a>
+		</h2>
+		<p><?php echo Post::published() ?></p>
+	</header>
+
+	<?php echo Post::content(true) ?>
+
+</article>
+
+<?php if(Post::allow_comments()) { ?>
+
 <section>
 
 	<h3><?php echo Post::num_comments()>0?$Language->get('Comments'):$Language->get('There are no published comments') ?></h3>
@@ -34,3 +49,5 @@
 	</form>
 
 </section>
+
+<?php } ?>

@@ -9,7 +9,7 @@ $theme = array
 	'version'=>'4.0',
 	'last_update'=>'05/02/2014', // dd/mm/yyyy
 	'url'=>'http://www.syndicatefx.com', // http://xxxxxxxxxxxxx
-	'version_supported'=>array('4.0') // Nibbleblog version supported
+	'version_supported'=>array('4.0', '4.0.1') // Nibbleblog version supported
 );
 
 ?>

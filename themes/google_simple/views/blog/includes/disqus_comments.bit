@@ -1,5 +1,10 @@
+<?php
+if( $Comment->disqus_enabled() )
+{
+?>
+
 <script type="text/javascript">
-var disqus_shortname = "<?php echo $theme['disqus_account'] ?>";
+var disqus_shortname = "<?php echo $Comment->disqus_shortname() ?>";
 
 (function () {
 	var s = document.createElement('script'); s.async = true;
@@ -8,3 +13,7 @@ var disqus_shortname = "<?php echo $theme['disqus_account'] ?>";
 	(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
 }());
 </script>
+
+<?php
+}
+?>

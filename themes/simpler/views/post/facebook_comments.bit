@@ -1,11 +1,3 @@
-<?php
-
-// If Facebook comments enabled, then add the follow script
-if( $Comment->facebook_enabled() )
-{
-
-?>
-
 <section id="comments">
 
 	<div id="fb-root"></div>
@@ -14,7 +6,7 @@ if( $Comment->facebook_enabled() )
 		  var js, fjs = d.getElementsByTagName(s)[0];
 		  if (d.getElementById(id)) return;
 		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/<?php echo Blog::locale() ?>/all.js#xfbml=1&appId=<?php echo $Comment->facebook_appid() ?>";
+		  js.src = "//connect.facebook.net/<?php echo Blog::locale() ?>/all.js#xfbml=1&appId=<?php echo $theme['facebook_appId'] ?>";
 		  fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
 	</script>
@@ -24,9 +16,3 @@ if( $Comment->facebook_enabled() )
 	<div class="fb-comments" data-href="<?php echo Post::permalink(true) ?>" data-num-posts="10"></div>
 
 </section>
-
-<?php
-
-}
-
-?>
