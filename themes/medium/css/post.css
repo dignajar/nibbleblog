@@ -266,13 +266,8 @@ POST :: Comments form
 	outline:none;
 	resize: none;
 	margin-bottom: 15px;
-	font-family: font-family: 'Open Sans', helvetica,arial,sans-serif;
-	font-size: 0.9em;
-}
-
-#comment_form	input[type="text"].captcha {
-	width: 50%;
-	float: left;
+	font-family: 'Open Sans', helvetica,arial,sans-serif;
+	font-size: 1em;
 }
 
 #comment_form	input[type="submit"] {
