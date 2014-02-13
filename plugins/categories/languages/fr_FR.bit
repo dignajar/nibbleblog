@@ -1,0 +1,8 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'NAME'=>'Catégories',
+	'DESCRIPTION'=>'Affiche toutes les catégories de votre blog et permet à l'utilisateur de filtrer les messages par catégorie.'
+);
+
+?>

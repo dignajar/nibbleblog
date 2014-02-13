@@ -1,0 +1,10 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'NAME'=>'Nuage de Tags',
+	'DESCRIPTION'=>'Ce plugin génère un nuage de tags, celui-ci permet aux utilisateurs de filtrer les messages par mots-clés.',
+	'MIN_SIZE_IN_PX'=>'Taille minimale en px pour le tag le moins significatif',
+	'MAX_SIZE_IN_PX'=>'Taille maximale en px pour le tag le plus significatif'
+);
+
+?>
