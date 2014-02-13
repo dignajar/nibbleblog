@@ -1,0 +1,8 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'NAME'=>'Slogan',
+	'DESCRIPTION'=>'Ce plugin est un exemple qui vous présente comment modifier certains aspects de bas niveau du blog. Comme par exemple ici, modifier le slogan par “Hello World“.'
+);
+
+?>

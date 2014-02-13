@@ -1,0 +1,9 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'NAME'=>'Derniers billets',
+	'DESCRIPTION'=>'Affiche les derniers billets publiés, triés par date.',
+	'AMOUNT'=>'Croissant'
+);
+
+?>

@@ -1,0 +1,8 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'NAME'=>'Cartes Twitter',
+	'DESCRIPTION'=>'Les Cartes Twitter vous permettent de lier du contenu multimédia aux Tweets pointant vers vos billets.'
+);
+
+?>
