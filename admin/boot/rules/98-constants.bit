@@ -15,8 +15,8 @@
 // =====================================================================
 define('NIBBLEBLOG_VERSION',		'4.0.1');
 define('NIBBLEBLOG_NAME',			'Coffee');
-define('NIBBLEBLOG_RELEASE_DATE',	'11/02/2014');
-define('NIBBLEBLOG_BUILD',			1391376286);
+define('NIBBLEBLOG_RELEASE_DATE',	'14/02/2014');
+define('NIBBLEBLOG_BUILD',			1392406951);
 
 // =====================================================================
 //	DEBUG

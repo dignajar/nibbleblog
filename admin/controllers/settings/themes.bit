@@ -29,14 +29,8 @@ foreach($themes_dirs as $dir)
 {
 	include(PATH_THEMES.$dir.'/config.bit');
 
-	if(isset($theme['version_supported']))
-	{
-		if(in_array(NIBBLEBLOG_VERSION, $theme['version_supported']))
-		{
-			$theme['dir'] = $dir;
-			array_push($themes_list, $theme);
-		}
-	}
+	$theme['dir'] = $dir;
+	array_push($themes_list, $theme);
 
 	$themes_html[$dir]=$theme['name'];
 }

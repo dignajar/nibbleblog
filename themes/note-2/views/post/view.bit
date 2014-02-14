@@ -1,0 +1,28 @@
+
+<article>
+	<h2 class="title"><?php echo Post::title() ?></h2>
+	<span class="meta"><?php echo Post::published() ?> | <a href="<?php echo Url::category(Post::category('slug')); ?>"><?php echo Post::category() ?></a></span>
+	<?php echo Post::content(true) ?>
+
+	<span class="tags"><?php echo Post::tags() ?></span>
+	<span class="share">
+	<a class="tweet" target="_blank" href="<?php echo Post::tweet_link() ?>" title="Tweet This"></a><a class="google" target="_blank" href="https://plus.google.com/share?url=<?php echo Post::permalink() ?>" title="Share on Google+"></a><a class="facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=<?php echo Post::permalink() ?>&t=<?php echo Post::title() ?>" title="Share on Facebook"></a>
+	</span>
+</article>
+
+<?php
+// About Plugin
+if(isset($plugins_by_name['about'])){
+	echo '<div class="about-box '.$plugins_by_name['about']->get_slug_name().'">';
+	echo $plugins_by_name['about']->blog_body();
+	echo '</div>';
+};
+
+
+// If post allow comments
+if(Post::allow_comments())
+{
+	// Disqus comments
+	include('disqus_comments.bit');
+}
+?>
