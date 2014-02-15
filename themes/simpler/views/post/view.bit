@@ -3,17 +3,13 @@
 // Post template
 include('post.bit');
 
-// If post allow comments
-if(Post::allow_comments())
-{
-	// Disqus comments
-	include('disqus_comments.bit');
+// Disqus comments
+include('disqus_comments.bit');
 
-	// Facebook comments
-	include('facebook_comments.bit');
+// Facebook comments
+include('facebook_comments.bit');
 
-	// Nibbleblog comments
-	include('nibbleblog_comments.bit');
-}
+// Nibbleblog comments
+include('nibbleblog_comments.bit');
 
 ?>

@@ -1,3 +1,11 @@
+<?php
+
+// If Facebook comments and Disqus are disabled then enabled Nibbleblog comments
+if( Post::allow_comments() && !$Comment->disqus_enabled() && !$Comment->facebook_enabled() )
+{
+
+?>
+
 <section id="comments">
 
 	<div id="comment_list">
@@ -24,7 +32,10 @@
 
 		<h2><?php echo$Language->get('New comment') ?></h2>
 
-		<h3 class="alert"><?php echo Session::get_error()?Session::get_alert():false ?></h3>
+		<?php
+			if(Session::get_error())
+				echo '<h3 class="alert">'.Session::get_alert().'</h3>';
+		?>
 
 		<form method="post" name="form" action="#comment_form">
 
@@ -43,3 +54,9 @@
 	</div>
 
 </section>
+
+<?php
+
+}
+
+?>
