@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 10]><html lang="<?php echo Blog::language() ?>" class="ie"><![endif]-->
+<html lang="<?php echo Blog::language() ?>">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" user-scalable="no">	
+<?php
+	// Charset, title, description, keywords, robots, etc
+	echo Blog::meta_tags();
+	// Include CSS from theme
+	echo Blog::css('styles.min.css');
+	// Include Favicon, default path: themes/css/img/favicon.ico
+	echo Blog::favicon();
+	// Plugins for <head></head>
+	foreach($plugins as $plugin)
+	{
+		echo $plugin->blog_head();
+	}
+?>
+</head>
+<body>
+<!-- HEADER -->
+<header>
+	<h1><a href="<?php echo Blog::url() ?>"><?php echo Blog::name() ?></a></h1>
+	<p><?php echo Blog::slogan() ?></p>
+	<?php if(!empty($plugins)){
+		echo '<button id="menu"></button>';
+	} ?>
+</header>
+
+	<!-- VIEW -->
+	<div class="content">
+		<?php include(THEME_VIEWS.$layout['view']); ?>
+	</div>
+
+	<!-- PLUGINS -->
+	<div class="sidebar">
+		<aside>
+		<?php
+			if(!empty($plugins))
+			{
+
+				if(isset($plugins_by_name['pages'])){
+					echo '<div class="plugin-box '.$plugins_by_name['pages']->get_slug_name().'">';
+					echo '<h3 class="plugin-title">'.$plugins_by_name['pages']->database('title').'</h3>';
+					echo $plugins_by_name['pages']->blog_body();
+					echo '</div>';
+				};
+				if(isset($plugins_by_name['categories'])){
+					echo '<div class="plugin-box '.$plugins_by_name['categories']->get_slug_name().'">';
+					echo '<h3 class="plugin-title">'.$plugins_by_name['categories']->database('title').'</h3>';
+					echo $plugins_by_name['categories']->blog_body();
+					echo '</div>';
+				}
+			}
+		?>
+		</aside>
+	</div>
+
+	<footer>
+		<a href="<?php echo $layout['feed'] ?>">Atom</a> &bull; <?php echo Blog::footer() ?>
+	</footer>
+
+<?php
+	// Include Jquery
+	echo Blog::jquery();
+	// Include Javascript from theme
+	echo Blog::javascript('scripts.js');
+?>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<?php
+
+$theme = array
+(
+	'name'=>'Note II',
+	'description'=>'A reload of Note theme minimalist concept',
+	'notes'=>'Fully responsive, Disqus commments supported only, or no comments at all. Only supports Pages, Categories and About plugins',
+	'author'=>'Paulo Nunes',
+	'version'=>'4.0',
+	'last_update'=>'12/02/2014', // dd/mm/yyyy
+	'url'=>'http://www.syndicatefx.com', // http://xxxxxxxxxxxxx
+	'template'=>array('blog'=>'default.bit', 'post'=>'default.bit', 'page'=>'default.bit'),
+	'version_supported'=>array('4.0') // Nibbleblog version supported
+);
+
+?>
