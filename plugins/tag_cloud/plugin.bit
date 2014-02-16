@@ -45,9 +45,9 @@ class PLUGIN_TAG_CLOUD extends Plugin
 
 		$html = '';
 
-		foreach($cloud as $tag=>$amount)
+		foreach($cloud as $tag=>$val)
 		{
-			$amount = $amount + $this->database('min_size');
+			$amount = $val['amount'] + $this->database('min_size');
 
 			// Max size 40px
 			$size = min($amount, $this->database('max_size'));
@@ -57,7 +57,7 @@ class PLUGIN_TAG_CLOUD extends Plugin
 
 			$style = 'font-size:'.$size.'px; margin-right: 5px; display: inline-block;';
 
-			$html .= '<a class="level_'.$size.'" style="'.$style.'" href="'.Url::tag($tag).'">'.$tag.'</a>';
+			$html .= '<a class="level_'.$size.'" style="'.$style.'" href="'.Url::tag($tag).'">'.$val['name_human'].'</a>';
 		}
 
 		return $html;

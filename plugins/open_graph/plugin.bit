@@ -48,7 +48,7 @@ class PLUGIN_OPEN_GRAPH extends Plugin
 			// tags
 			$og['tags'] .= '<meta property="article:tag" content="'.$post['category'].'">'.PHP_EOL;
 			foreach($post['tags'] as $tag)
-				$og['tags'] .= '<meta property="article:tag" content="'.$tag.'">'.PHP_EOL;
+				$og['tags'] .= '<meta property="article:tag" content="'.$tag['name_human'].'">'.PHP_EOL;
 		}
 		elseif( ($where_am_i[1]=='page') && !empty($page) )
 		{

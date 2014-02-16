@@ -4,7 +4,7 @@
 
 	if(!empty($post_edit['tags']))
 	{
-		$value = implode(', ',$post_edit['tags']);
+		$value = implode(', ', array_map('array_pop', $post_edit['tags']));
 	}
 
 	echo Html::div_open( array('class'=>'form_block', 'hidden'=>!$settings['advanced_post_options']) );
