@@ -37,6 +37,26 @@ function post_to_json($post, $tojson=true)
 	// Category
 	$category = $_DB_CATEGORIES->get( array('id'=>$post['id_cat']) );
 	array_push($post['tags'], $category['name']);
+	/*
+	The above array_push line may need to be rewritten.
+
+	$post['tags'] now has the following structure...
+	
+	Array
+	(
+	    [0] => Array
+	        (
+	            [name] => startrek
+	            [name_human] => star trek
+	        )
+	    [1] => Array
+	        (
+	            [name] => icecream
+	            [name_human] => ice cream
+	        )
+    )
+	
+	*/
 
 	// Content
 	// Src images relatives to absolute
