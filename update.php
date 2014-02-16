@@ -263,6 +263,26 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 
 					echo Html::p( array('class'=>'pass', 'content'=>'File created: '.FILE_XML_TAGS) );
 				}
+				else
+				{
+    				// upgrade tag names to support spaces
+    				$xml = file_get_contents( FILE_XML_TAGS );
+    				$obj = new NBXML($xml, 0, FALSE, '', FALSE);
+    				$count = 0;
+    				foreach ($obj->{'list'}->children() as $tag)
+    				{
+    				    if ($tag->getAttribute('name_human') === '')
+    				    {
+        				   $tag->addAttribute('name_human', $tag->getAttribute('name'));
+        				   $count = $count + 1;
+    				    }
+                    }
+    				$obj->asXml( FILE_XML_TAGS );
+    				if ($count > 0)
+    				{
+        				echo Html::p( array('class'=>'pass', 'content'=>'DB updated: '.FILE_XML_TAGS) );
+    				}
+				}
 
 				// =====================================================
 				// pages.xml
