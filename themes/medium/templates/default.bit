@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="<?php echo Blog::language() ?>">
+<head>
+<?php
+	// Charset, title, description, keywords, robots, etc
+	echo Blog::meta_tags();
+
+	// Include CSS from theme
+	echo Blog::css(array('normalize.css', 'main.css', 'post.css', 'page.css', 'plugins.css', 'rainbow.css'));
+
+	// Include Jquery
+	echo Blog::jquery();
+
+	// Include Javascript from theme
+	echo Blog::javascript('rainbow-custom.min.js');
+
+	// Include Favicon, default path: themes/css/img/favicon.ico
+	echo Blog::favicon();
+
+	// Plugins for <head></head>
+	foreach($plugins as $plugin)
+	{
+		echo $plugin->blog_head();
+	}
+?>
+</head>
+<body>
+
+	<!-- POST -->
+	<section id="main">
+		<?php include(THEME_VIEWS.$layout['view']); ?>
+	</section>
+
+	<!-- PAGER - NEXT / PREVIUS POST -->
+	<section id="pager">
+		<?php
+			if($pager['next']!=false)
+			{
+				$post = $pager['next'];
+
+				echo '<a class="next-page" href="'.Post::permalink().'">'.Post::title().' →</a>';
+			}
+
+			if($pager['prev']!=false)
+			{
+				$post = $pager['prev'];
+
+				echo '<a class="prev-page" href="'.Post::permalink().'">← '.Post::title().'</a>';
+			}
+		?>
+	</section>
+
+	<!-- FOOTER -->
+	<footer id="blog-foot">
+		<span class="blog-atom"><a href="<?php echo $layout['feed'] ?>">Atom</a></span>
+		<span class="blog-footer"> · <a class="top" href="#">Top</a></span>
+		<span class="blog-footer"> · <?php echo Blog::footer() ?></span>
+		<script>
+		$(".top").click(function(){
+			$("html, body").animate({ scrollTop: 0 }, 600);
+			return false;
+		});
+		</script>
+	</footer>
+
+</body>
+</html>

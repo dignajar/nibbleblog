@@ -71,7 +71,14 @@
 	<!-- FOOTER -->
 	<footer id="foot">
 		<span class="blog-atom"><a href="<?php echo $layout['feed'] ?>">Atom</a></span>
+		<span class="blog-footer"> · <a class="top" href="#">Top</a></span>
 		<span class="blog-footer"> · <?php echo Blog::footer() ?></span>
+		<script>
+		$(".top").click(function(){
+			$("html, body").animate({ scrollTop: 0 }, 600);
+			return false;
+		});
+		</script>
 	</footer>
 
 </div>

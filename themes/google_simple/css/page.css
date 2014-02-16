@@ -33,34 +33,13 @@ PAGE :: Content
 ========================================================================
 */
 
-article.page	div.page-content	.console {
-    background: url("img/console.png") no-repeat scroll 8px 8px #F1F1F1;
-    display: block;
-    line-height: 24px;
-    margin: 5px 0;
-    overflow: auto;
-    padding-left: 38px;
-    white-space: nowrap;
-}
-
-article.page	div.page-content	img:not(.captcha) {
+article.page	div.page-content	img {
 	max-width:100%;
-}
-
-article.page	div.page-content	img.align_left {
-	margin: 5px 10px 5px 0px;
-	float: left;
-}
-
-article.page	div.page-content	img.align_right {
-	margin: 5px 0px 5px 10px;
-	float: right;
 }
 
 article.page	div.page-content	blockquote {
 	font-size: 1.1em;
 	font-style: italic;
-
 }
 
 article.page	div.page-content	h1,

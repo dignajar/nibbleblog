@@ -1,0 +1,53 @@
+<article>
+
+	<header>
+		<h2>
+			<a href="<?php echo Post::permalink() ?>"><?php echo Post::title() ?></a>
+		</h2>
+		<p><?php echo Post::published() ?></p>
+	</header>
+
+	<?php echo Post::content(true) ?>
+
+</article>
+
+<?php if(Post::allow_comments()) { ?>
+
+<section>
+
+	<h3><?php echo Post::num_comments()>0?$Language->get('Comments'):$Language->get('There are no published comments') ?></h3>
+
+	<?php
+		$comments = Post::comments();
+
+		foreach($comments as $comment)
+		{
+			echo '<i>'.$comment['pub_date'].'</i>';
+			echo '<p>'.'<span style="color: blue;">'.$comment['author_name'].': </span>'.$comment['content'].'</p>';
+		}
+	?>
+
+	<h3><?php echo$Language->get('New comment') ?></h3>
+
+	<h4 style="color: red;"><?php echo Session::get_error()?Session::get_alert():false ?></h4>
+
+	<form method="post" name="form" action="#comment_form">
+
+		<input type="hidden" name="hash" value="<?php echo $Comment->form('hash') ?>">
+
+		<p><label><?php echo $Language->get('Name') ?></label></p>
+		<input style="width: 50%;" type="text" name="author_name" value="<?php echo $Comment->form('author_name') ?>">
+
+		<p><label><?php echo $Language->get('Email') ?></label></p>
+		<input style="width: 50%;" type="text" name="author_email" value="<?php echo $Comment->form('author_email') ?>">
+
+		<p><label><?php echo $Language->get('Comment') ?></label></p>
+		<textarea style="width: 50%; height:100px;" name="content"><?php echo $Comment->form('content') ?></textarea>
+
+		<p><input type="submit" value="<?php echo $Language->get('Publish') ?>"></p>
+
+	</form>
+
+</section>
+
+<?php } ?>

@@ -23,6 +23,10 @@ require('admin/boot/blog.bit');
 foreach($plugins as $plugin)
 	$plugin->boot();
 
+// Theme init.bit
+if(file_exists(THEME_ROOT.'init.bit'))
+	include(THEME_ROOT.'init.bit');
+
 // Load the controller if set
 if(file_exists(THEME_CONTROLLERS.$layout['controller']))
 	require(THEME_CONTROLLERS.$layout['controller']);

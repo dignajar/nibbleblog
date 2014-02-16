@@ -77,8 +77,8 @@ if(isset($controllers[$url['controller']][$url['action']]))
 		if(!isset($Login))
 			exit('Nibbleblog security error - Obj $Login not found');
 
-		if(!$Login->is_logued())
-			exit('Nibbleblog security error - User not logued');
+		if(!$Login->is_logged())
+			exit('Nibbleblog security error - User not logged');
 	}
 
 	$layout['controller'] 	= $dirname.$parameters['controller'].'.bit';

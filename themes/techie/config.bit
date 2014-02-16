@@ -1,0 +1,30 @@
+<?php
+
+$theme = array
+(
+    'name'=>'Techie',
+    'description'=>'A dark theme inspired by Gaia interface from Firefox OS',
+    'notes'=>'Disqus and Facebook comments support, custom navigation bar, social buttons and license placeholder configurable in config.bit',
+    'author'=>'Rafael Medina García',
+    'version'=>'0.2',
+    'last_update'=>'05/02/2014',
+    'url'=>'http://www.rmedgar.com',
+    'template'=>array(
+        'blog'=>'default.bit',
+        'post'=>'default.bit',
+        'page'=>'default.bit'),
+    'video_width'=>'640',
+    'video_height'=>'360',
+	'version_supported'=>array('4.0','4.0.1'), // Nibbleblog version supported
+
+    // --- Custom settings ---
+    'content_license'=>'', // This content appears on the bottom left part of the page
+    'share_buttons'=>True, // True: display buttons; False: hide buttons
+    'nav_links'=>array (
+        // Navigation links are configured here, the structure is as follows:
+        // '<a href="LINK">TEXT OF THE LINK</a>',
+        '<a href="'.HTML_PATH_ROOT.'">'.$Language->get('HOME').'</a>',
+    )
+);
+
+?>

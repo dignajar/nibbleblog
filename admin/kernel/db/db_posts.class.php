@@ -382,6 +382,37 @@ class DB_POSTS {
 			$this->slug_add($id_post, $slug);
 		}
 
+		public function prev_next_post($id_post)
+		{
+			// Set only published post
+			$this->set_files_by_published();
+
+			$filename['prev'] = false;
+			$filename['next'] = false;
+
+			$i = 0;
+
+			while($this->files_count>$i)
+			{
+				$explode = explode(".",$this->files[$i]);
+
+				$id = (int)$explode[1];
+
+				if($id==$id_post)
+				{
+					$filename['prev'] = isset($this->files[$i+1])?$this->files[$i+1]:false;
+					$filename['next'] = isset($this->files[$i-1])?$this->files[$i-1]:false;
+				}
+
+				$i = $i + 1;
+			}
+
+			$tmp['prev'] = $filename['prev']==false?false:$this->get_items($filename['prev']);
+			$tmp['next'] = $filename['next']==false?false:$this->get_items($filename['next']);
+
+			return $tmp;
+		}
+
 /*
 ========================================================================
 	PRIVATE METHODS

@@ -105,7 +105,7 @@ PUBLIC METHODS
 		$new_id = $this->last_insert_id = $this->get_autoinc();
 
 		// User ID
-		if($Login->is_logued())
+		if($Login->is_logged())
 		{
 			$id_user = $Login->get_user_id();
 		}

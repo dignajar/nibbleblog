@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html lang="<?php echo Blog::language() ?>">
+<head>
+<?php
+
+    // Charset, title, description, keywords, robots, etc
+    echo Blog::meta_tags();
+
+    // Include CSS
+    echo Blog::css(array('main.css', 'normalize.css', 'page.css', 'plugins.css', 'post.css', 'rainbow_github.css'));
+
+    // Include Jquery
+    echo Blog::jquery();
+
+    // Include Javascript
+    echo Blog::javascript(array('browser-update.js', 'rainbow-custom.min.js', 'sidebar.js', 'taglist.js'));
+
+    // Include Favicon
+    echo Blog::favicon();
+
+    // Plugins for <head></head>
+    foreach($plugins as $plugin)
+    {
+        echo $plugin->blog_head();
+    }
+?>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header id="head">  
+        <?php if(!empty($plugins))
+        {
+            echo '<a id="sidebutton" onclick="toggleSidebar()"></a>';
+            echo '<div id="name" style="margin-left: 2em">';
+        } else {
+            echo '<div id="name">';
+        }
+        ?>
+            <a href="<?php echo Blog::url() ?>"><?php echo Blog::name() ?></a>
+        </div>
+        <?php if( !empty($theme['nav_links']) )
+        {
+            echo '<nav id="navbar">';
+                foreach($theme['nav_links'] as $link)
+                    echo $link;
+            echo '</nav>';
+        }
+        ?>
+    </header>
+
+    <!-- SIDEBAR -->
+    <?php if(!empty($plugins))
+    {
+        echo '<section id="sidebar" class="closed">';          
+            foreach($plugins_sidebar as $plugin)
+            {
+                if($plugin->blog_body())
+                {
+                    echo '<h2>'.$plugin->database('title').'</h2>';
+                    echo $plugin->blog_body();
+                }
+            }
+        echo '</section>';
+    }
+    ?>
+
+    <!-- MAIN -->
+    <section id="main">
+        <?php include(THEME_VIEWS.$layout['view']); ?>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="foot">
+        <?php if (!empty($theme['content_license']))
+        {
+            echo '<div class="license">';
+            echo $theme['content_license'];
+            echo '</div>';
+        }
+        ?>
+        <div class="atom">
+            <a href="<?php echo $layout['feed'] ?>">Atom</a> · <?php echo Blog::footer() ?><br />
+            <a target="_blank" href="https://github.com/RMed/techie_theme">Techie theme</a>
+        </div>
+    </footer>
+
+</body>
+</html>

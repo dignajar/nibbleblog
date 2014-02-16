@@ -22,7 +22,7 @@ class Page {
 	{
 		global $page;
 
-		return Url::post($page,$absolute);
+		return Url::page($page,$absolute);
 	}
 
 	public static function published($format=false)

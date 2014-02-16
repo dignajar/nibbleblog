@@ -1,1 +1,0 @@
-<div class="page_404"><p><?php echo $Language->get('404_PAGE_NOT_FOUND') ?></p></div>

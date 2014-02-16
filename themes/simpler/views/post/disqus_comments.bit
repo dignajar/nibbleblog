@@ -1,7 +1,7 @@
 <?php
 
 // If Disqus comment enabled, then add the follow script
-if( $Comment->disqus_enabled() )
+if( Post::allow_comments() && $Comment->disqus_enabled() )
 {
 
 ?>

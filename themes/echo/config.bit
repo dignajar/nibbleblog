@@ -3,15 +3,13 @@
 $theme = array
 (
 	'name'=>'Echo',
-	'description'=>'Commemorating NB 3.6 codename - echo',
+	'description'=>'Original Echo theme updated for NB 4.0',
+	'notes'=>'Fully responsive, Disqus and Facebook commments supported, replace logo image with your own in themes/echo/css/img/logo.png',
 	'author'=>'Paulo Nunes',
-	'version'=>'3.6',
-	'last_update'=>'20/07/2013', // dd/mm/yyyy
+	'version'=>'4.0',
+	'last_update'=>'05/02/2014', // dd/mm/yyyy
 	'url'=>'http://www.syndicatefx.com', // http://xxxxxxxxxxxxx
-	'video_width'=>'',
-	'video_height'=>'',
-	'disqus_account'=>'',
-	'facebook_appId'=>''
+	'version_supported'=>array('4.0', '4.0.1') // Nibbleblog version supported
 );
 
 ?>

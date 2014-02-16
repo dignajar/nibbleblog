@@ -1,7 +1,7 @@
 <?php
 
 // If Facebook comments and Disqus are disabled then enabled Nibbleblog comments
-if( !$Comment->disqus_enabled() && !$Comment->facebook_enabled() )
+if( Post::allow_comments() && !$Comment->disqus_enabled() && !$Comment->facebook_enabled() )
 {
 
 ?>

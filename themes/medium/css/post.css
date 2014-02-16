@@ -1,0 +1,154 @@
+/*
+========================================================================
+POST
+========================================================================
+*/
+
+article.post {
+	font-size: 1.4em;
+	overflow: auto;
+}
+
+/*
+========================================================================
+POST :: HEADER
+========================================================================
+*/
+
+article.post	header {
+	height: 500px;
+}
+
+article.post	header div.header-wrap {
+	margin: 0 auto;
+	max-width: 900px;
+	padding: 200px 0 0 0;
+}
+
+article.post	header	h1.post-title {
+	margin: 0;
+	padding: 0;
+	font-size: 3em;
+	color: #FFF;
+	font-weight: normal;
+	text-shadow: 1px 2px 4px #595959;
+}
+
+article.post	header	h2.post-description {
+	margin: 0;
+	padding: 0;
+	font-size: 1.8em;
+	color: #F1F1F1;
+	font-weight: normal;
+	text-shadow: 1px 2px 4px #595959;
+}
+
+/*
+========================================================================
+POST :: Content
+========================================================================
+*/
+
+article.post	div.post-content {
+	margin: 50px auto;
+	max-width: 900px;
+	font-size: 1.2em;
+}
+
+article.post	div.post-content	pre {
+	border: 1px dashed #ccc;
+}
+
+article.post	div.post-content	blockquote {
+	font-size: 1.1em;
+	font-style: italic;
+}
+
+article.post	div.post-content	h1,
+article.post	div.post-content	h2,
+article.post	div.post-content	h3,
+article.post	div.post-content	h4,
+article.post	div.post-content	h5 {
+	font-weight: normal;
+	color: #333333;
+	margin: 22px 0 13px 0;
+	padding: 0;
+}
+
+article.post	div.post-content	h1 {
+	font-size: 1.8em;
+}
+
+article.post	div.post-content	p {
+	line-height: 1.5em;
+}
+
+article.post	div.post-content	.video-embed {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+	margin: 13px 0;
+}
+
+article.post	div.post-content	.video-embed iframe,
+article.post	div.post-content	.video-embed object,
+article.post	div.post-content	.video-embed embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/*
+========================================================================
+POST :: Footer
+========================================================================
+*/
+
+article.post	footer {
+	border-bottom: 1px solid #F1F1F1;
+	border-top: 1px solid #F1F1F1;
+	clear: both;
+	font-size: 0.9em;
+	margin-top: 20px;
+	padding: 10px 0;
+}
+
+article.post	footer	span {
+	margin:0 3px;
+}
+
+article.post	footer	a {
+	font-weight: normal;
+}
+
+article.post	footer	div.post-tags {
+	max-width: 60%;
+	float: right;
+}
+
+article.post	footer	div.post-tags	ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+article.post	footer	div.post-tags	li {
+	display: inline-block;
+}
+
+article.post	footer	div.post-tags	a.tag {
+	background: #33B0E0;
+	padding: 0 6px;
+	margin-right: 5px;
+	border-radius: 2px;
+	color: #FFFFFF;
+}
+
+article.post	footer	div.post-tags	a.tag:hover {
+	opacity: 0.8;
+	text-decoration: none;
+}

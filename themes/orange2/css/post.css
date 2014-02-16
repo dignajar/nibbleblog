@@ -42,16 +42,12 @@ POST :: Content
 ========================================================================
 */
 
-article.post	div.post-content	pre {
-	border: 1px dashed #ccc;
-}
-
-article.post	div.post-content	.nb-code {
+/* Nibbleblog Styles */
+.nb-code {
 	border-style: solid !important;
 }
 
-article.post	div.post-content	.console,
-article.post	div.post-content	.nb-console {
+.nb-console {
     background: url("img/console.png") no-repeat scroll 8px 8px #F1F1F1;
     display: block;
     line-height: 24px;
@@ -62,24 +58,33 @@ article.post	div.post-content	.nb-console {
     border: 1px solid #ccc;
 }
 
-article.post	div.post-content	img:not(.captcha) {
+.nb-align-left {
+	float:left;
+	margin:0 1em 1em 0;
+}
+
+.nb-align-right {
+	float:right;
+	margin:0 0 1em 1em;
+}
+
+.nb-align-center {
+	display:block;
+	margin:0 auto 1em;
+}
+
+/* HTML default */
+article.post	div.post-content	pre {
+	border: 1px dashed #ccc;
+}
+
+article.post	div.post-content	img {
 	max-width:100%;
-}
-
-article.post	div.post-content	img.align_left {
-	margin: 5px 10px 5px 0px;
-	float: left;
-}
-
-article.post	div.post-content	img.align_right {
-	margin: 5px 0px 5px 10px;
-	float: right;
 }
 
 article.post	div.post-content	blockquote {
 	font-size: 1.1em;
 	font-style: italic;
-
 }
 
 article.post	div.post-content	h1,
@@ -251,11 +256,6 @@ POST :: Comments form
 	resize: none;
 	margin-bottom: 15px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-}
-
-#comment_form	input[type="text"].captcha {
-	width: 50%;
-	float: left;
 }
 
 #comment_form	input[type="submit"] {

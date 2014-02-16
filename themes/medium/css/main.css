@@ -1,0 +1,110 @@
+/*
+========================================================================
+BLOG :: Body
+========================================================================
+*/
+
+body {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	background-color: #FFFFFF;
+	margin: 0;
+	padding: 0;
+	font-size: 62.5%;
+	color: #333;
+}
+
+a {
+	color: #006AC8;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/*
+========================================================================
+BLOG :: Footer
+========================================================================
+*/
+
+#blog-foot {
+	text-align: right;
+	font-size: 1.3em;
+	margin: 50px 30px 20px 0;
+}
+
+/*
+========================================================================
+BLOG :: Page 404
+========================================================================
+*/
+
+div.page_404 {
+
+}
+
+/*
+========================================================================
+BLOG :: Pager
+========================================================================
+*/
+
+#pager {
+    font-size: 1.4em;
+    margin: 0px auto;
+    overflow: auto;
+    text-align: center;
+    width: 900px;
+}
+
+#pager	a.next-page {
+	float: right;
+	background: #EEE;
+	padding: 10px;
+	border-radius: 2px;
+}
+
+#pager	a.prev-page {
+	float: left;
+	background: #EEE;
+	padding: 10px;
+	border-radius: 2px;
+}
+
+/*
+========================================================================
+Nibbleblog Styles
+========================================================================
+*/
+
+.nb-code {
+	border-style: solid !important;
+}
+
+.nb-console {
+    background: url("img/console.png") no-repeat scroll 8px 8px #F1F1F1;
+    display: block;
+    line-height: 24px;
+    margin: 5px 0;
+    overflow: auto;
+    padding-left: 38px;
+    white-space: nowrap;
+    border: 1px solid #ccc !important;
+}
+
+.nb-align-left {
+	float:left;
+	margin:0 1em 1em 0;
+}
+
+.nb-align-right {
+	float:right;
+	margin:0 0 1em 1em;
+}
+
+.nb-align-center {
+	display:block;
+	margin:0 auto 1em;
+}

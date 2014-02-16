@@ -1,0 +1,29 @@
+<?php
+
+$dom = new DOMDocument();
+
+// Force to load the content in UTF-8
+$dom->loadHTML('<meta http-equiv="content-type" content="text/html; charset=utf-8">'.$post['content'][0]);
+
+$finder = new DomXPath($dom);
+$classname = "nb-align-center";
+$images = $finder->query("//*[contains(@class, '$classname')]");
+
+if($images->length>0)
+{
+	$image = $images->item(0);
+	$cover_image = $image->getAttribute('src');
+
+	if($remove_image)
+	{
+		$image->parentNode->removeChild($image);
+		$post['content'][0] = $dom->saveHTML();
+	}
+}
+else
+{
+	// Default cover image if the post doesn't have
+	$cover_image = HTML_THEME_IMG.'cover.jpg';
+}
+
+?>

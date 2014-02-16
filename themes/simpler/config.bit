@@ -10,7 +10,7 @@ $theme = array
 	'last_update'=>'21/01/2014', // dd/mm/yyyy
 	'url'=>'http://www.nibbleblog.com', // http://xxxxxxxxxxxxx
 	'template'=>array('blog'=>'default.bit', 'post'=>'default.bit', 'page'=>'default.bit'),
-	'version_supported'=>array('4.0') // Nibbleblog version supported
+	'version_supported'=>array('4.0','4.0.1') // Nibbleblog version supported
 );
 
 ?>

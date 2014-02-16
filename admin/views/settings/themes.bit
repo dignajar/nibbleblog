@@ -1,6 +1,6 @@
 <?php
 
-foreach($theme_list as $theme)
+foreach($themes_list as $theme)
 {
 	$class = '';
 

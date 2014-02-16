@@ -2,12 +2,12 @@
 
 if($post['allow_comments'])
 {
-	if( !empty($theme['disqus_account']) )
+	if( $Comment->disqus_enabled() )
 	{
 		// Disqus comments
 		include('comments_disqus.bit');
 	}
-	elseif( !empty($theme['facebook_appId']) )
+	elseif( $Comment->facebook_enabled() )
 	{
 		// Facebook comments
 		include('comments_facebook.bit');

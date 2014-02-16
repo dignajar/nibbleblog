@@ -55,6 +55,9 @@ class Post {
 		if($field=='slug')
 			return $category['slug'];
 
+		if($field=='permalink')
+			return Url::category($category['slug']);
+
 		return $category['name'];
 	}
 
@@ -110,7 +113,7 @@ class Post {
 		if( $Comment->disqus_enabled() )
 		{
 			$url = Url::post($post, true);
-			return '<a href="'.$url.'#disqus_thread"></a>';
+			return '<a href="'.$url.'#disqus_thread">'.$Language->get('COMMENTS').'</a>';
 		}
 		elseif( $Comment->facebook_enabled() )
 		{

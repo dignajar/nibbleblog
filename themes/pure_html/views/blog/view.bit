@@ -1,0 +1,28 @@
+<?php foreach($posts as $post) { ?>
+<article>
+
+	<header>
+		<h2>
+			<a href="<?php echo Post::permalink() ?>"><?php echo Post::title() ?></a>
+		</h2>
+		<p><?php echo Post::published() ?></p>
+	</header>
+
+	<?php echo Post::content() ?>
+
+	<footer>
+		<?php echo Post::comment_count_link() ?>
+	</footer>
+
+</article>
+<?php } ?>
+
+<section>
+	<p>
+		<span><?php echo Pager::next_link() ?></span>
+
+		<span><?php echo Pager::home_link() ?></span>
+
+		<span><?php echo Pager::prev_link() ?></span>
+	</p>
+</section>

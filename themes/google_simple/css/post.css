@@ -45,28 +45,8 @@ POST :: Content
 ========================================================================
 */
 
-article.post	.console {
-    background: url("img/console.png") no-repeat 8px 8px #F1F1F1;
-    display: block;
-    line-height: 24px;
-    margin: 5px 0;
-    min-height: 30px;
-    padding-left: 38px;
-    padding-top: 5px;
-}
-
-article.post	img:not(.captcha) {
+article.post	img {
 	max-width:100%;
-}
-
-article.post	img.align_left {
-	margin: 5px 10px 5px 0px;
-	float: left;
-}
-
-article.post	img.align_right {
-	margin: 5px 0px 5px 10px;
-	float: right;
 }
 
 article.post 	blockquote {

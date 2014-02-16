@@ -1,0 +1,21 @@
+<?php
+
+// Change controller and view for jump the blog index
+$layout['controller']	= 'post/view.bit';
+$layout['view'] 		= 'post/view.bit';
+
+$layout['title'] 		= !empty($post['title'])?' - '.$post['title']:'';
+$layout['description']	= $post['description'];
+$layout['keywords']		= implode(',',$post['tags']);
+$layout['canonical'] 	= Url::post($post, true);
+
+$where_am_i[1] = 'post';
+
+// Get the first post if not set any post
+if(empty($post))
+	$post = $posts[0];
+
+// Change the pager
+$pager = $_DB_POST->prev_next_post($post['id']);
+
+?>

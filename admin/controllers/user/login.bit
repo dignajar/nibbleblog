@@ -4,7 +4,7 @@
 //	CONTROLLER
 // ============================================================================
 
-if( $Login->is_logued() || $Login->remember_me() )
+if( $Login->is_logged() || $Login->remember_me() )
 	Redirect::controller('admin','dashboard','view');
 
 // ============================================================================
@@ -19,7 +19,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 
 	$Login->verify_login( array('username'=>$safe['username'], 'password'=>$safe['password']) );
 
-	if( $Login->is_logued() )
+	if( $Login->is_logged() )
 	{
 		// Check remember me
 		if( isset($_POST['remember']) && $_POST['remember']=='1' )

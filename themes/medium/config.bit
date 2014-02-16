@@ -1,0 +1,22 @@
+<?php
+
+$theme = array
+(
+	'name'=>'Medium',
+	'description'=>'Insipire on Medium.com. Default cover by Philipp Reiner.',
+	'notes'=>'Disqus and Facebook commments supported',
+	'author'=>'Diego Najar',
+	'version'=>'4.0',
+	'last_update'=>'08/02/2014', // dd/mm/yyyy
+	'url'=>'http://www.nibbleblog.com', // http://xxxxxxxxxxxxx
+	'template'=>array('blog'=>'default.bit', 'post'=>'default.bit', 'page'=>'default.bit'),
+	'version_supported'=>array('4.0', '4.0.1') // Nibbleblog version supported
+);
+
+// Remove the image used for the cover from the post content
+$remove_image = true;
+
+// CSS, background property
+$background_property = 'no-repeat scroll center center / cover rgba(0, 0, 0, 0)';
+
+?>

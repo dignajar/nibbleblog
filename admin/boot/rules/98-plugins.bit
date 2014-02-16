@@ -30,6 +30,9 @@ $plugins_sidebar = array();
 // Plugins not installed
 $plugins_not_installed = array();
 
+// Plugins installed the keys of the array are the names
+$plugins_by_name = array();
+
 foreach($plugins_on_system as $dir_name)
 {
 	include_once(PATH_PLUGINS.$dir_name.'/plugin.bit');

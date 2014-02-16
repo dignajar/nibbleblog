@@ -1,0 +1,14 @@
+<article class="page">
+    <header>
+        <h1 class="page_title"><?php echo Page::title() ?></h1>
+
+        <div class="page_bar">
+            <!-- Share buttons -->
+            <?php include('social.bit'); ?>
+        </div>
+    </header>
+
+    <div class="page_content">
+        <?php echo Page::content() ?>
+    </div>
+</article>

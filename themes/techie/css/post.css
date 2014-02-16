@@ -1,0 +1,361 @@
+/* ----------------- */
+/*     POST VIEW     */
+/* ----------------- */
+article.post {
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px #333333;
+    margin-bottom: 2.5em;
+    overflow: hidden;
+    padding: 1.250em 1.875em;
+}
+
+/* ------------------- */
+/*     POST HEADER     */
+/* ------------------- */
+article.post  header  div.post_bar {
+    border-top: 2px solid #ff600a;
+    margin-bottom: 1.563em;
+    overflow: hidden;
+}
+
+article.post  header  h1.title {
+    color: #404040;
+    font-size: 2em;
+    font-weight: normal;
+    margin: 0 0 0 5px;
+}
+
+article.post  header  h1.title  a {
+    color: #404040;
+    display: inline-block;
+    text-decoration: none;
+    transition: all 400ms ease 0s;
+        -webkit-transition: all 400ms ease 0s;
+}
+
+article.post  header  h1.title  a:hover {
+    color: #ff600a;
+}
+
+article.post  header  div.date {
+    color: #404040;
+    display: inline-block;
+    font-size: 1em;
+    letter-spacing: 2px;
+    padding: 5px;
+}
+
+/* ---------------------- */
+/*     SOCIAL BUTTONS     */
+/* ---------------------- */
+article.post  header  div.social {
+    float: right;
+    margin-right: 0.625em;
+    overflow: hidden;
+}
+
+article.post  header  div.social  a {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 26px 26px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: inline-block;
+    height: 26px;
+    padding: 0.313em;
+    transition: all 200ms ease 0s;
+        -webkit-transition: all 200ms ease 0s;
+    vertical-align: top;
+    width: 26px;
+}
+
+article.post  header  div.social  a:hover {
+    background-color: #ff6d1e;
+}
+
+article.post  header  div.social  a.share_facebook {
+    background-image: url("img/social/facebook_b.png");
+}
+
+article.post  header  div.social  a.share_facebook:hover {
+    background-image: url("img/social/facebook_w.png");
+}
+
+article.post header  div.social  a.share_plus {
+    background-image: url("img/social/gplus_b.png");
+}
+
+article.post header  div.social  a.share_plus:hover {
+    background-image: url("img/social/gplus_w.png");
+}
+
+article.post header  div.social  a.share_twitter {
+    background-image: url("img/social/twitter_b.png");
+}
+
+article.post header  div.social  a.share_twitter:hover {
+    background-image: url("img/social/twitter_w.png");
+}
+
+article.post  header  div.social  a.share_email {
+    background-image: url("img/social/mail_b.png");
+}
+
+article.post  header  div.social  a.share_email:hover {
+    background-image: url("img/social/mail_w.png");
+}
+
+/* -------------------- */
+/*     POST CONTENT     */
+/* -------------------- */
+article.post  div.post_content  pre {
+    border: 1px dashed #ccc;
+}
+
+article.post  div.post_content  .nb-code {
+    border-style: solid !important;
+}
+
+article.post  div.post_content  .console,
+article.post  div.post_content  .nb-console {
+    background: url("img/console.png") no-repeat 8px 8px #F1F1F1;
+    border: 1px solid #ccc;
+    display: block;
+    line-height: 24px;
+    margin: 5px 0;
+    overflow: auto;
+    padding-left: 38px;
+    white-space: nowrap;
+}
+
+article.post  div.post_content  img:not(.captcha) {
+    height: auto;
+    max-width:100%;
+}
+
+article.post  div.post_content  img.align_left {
+    margin: 5px 10px 5px 0px;
+    float: left;
+}
+
+article.post  div.post_content  img.align_right {
+    margin: 5px 0px 5px 10px;
+    float: right;
+}
+
+article.post  div.post_content  blockquote {
+    font-size: 1.1em;
+    font-style: italic;
+}
+
+article.post  div.post_content  h1,
+article.post  div.post_content  h2,
+article.post  div.post_content  h3,
+article.post  div.post_content  h4,
+article.post  div.post_content  h5 {
+    font-weight: normal;
+}
+
+article.post  div.post_content  h1 {
+    font-size: 1.8em;
+}
+
+article.post  div.post_content  p {
+    line-height: 1.5em;
+}
+
+article.post  div.post_content  div.video_embed {
+    display: block;
+    height: 0;
+    margin: 13px 0;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    overflow: hidden;
+}
+
+article.post  div.page-content  .video-embed iframe,
+article.post  div.page-content  .video-embed object,
+article.post  div.page-content  .video-embed embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ------------------- */
+/*     POST FOOTER     */
+/* ------------------- */
+article.post  footer.post {
+    font-size: 0.9em;
+    margin-top: 20px;
+    padding: 10px 0;
+}
+
+article.post  footer.post  span {
+    margin:0 3px;
+}
+
+article.post  footer.post  a {
+    font-weight: normal;
+}
+
+article.post  #separator {
+    border-top: 1px solid #ff600a;
+    margin-top: 50px;
+}
+
+/* ---------------- */
+/*     TAG LIST     */
+/* ---------------- */
+article.post  footer.tag_container {
+    margin-bottom: -1.25em;
+    margin-left: -1.875em;
+    margin-right: -1.875em;
+}
+
+article.post  footer.tag_container  a.tag_button {
+    background-image: url("img/post/showtags.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 26px 26px;
+    display: block;
+    height: 26px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    transition: all 200ms ease 0s;
+        -webkit-transition: all 200ms ease 0s;
+    width: 100%;
+}
+
+article.post  footer.tag_container  a.tag_button:hover {
+    background-color: #ff6d1e;
+    background-image: url("img/post/showtags_hover.png");
+}
+
+article.post  footer.tag_container  a.tag_button_open {
+    background-image: url("img/post/hidetags.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 26px 26px;
+    display: block;
+    height: 26px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    transition: all 200ms ease 0s;
+        -webkit-transition: all 200ms ease 0s;
+    width: 100%;
+}
+
+article.post  footer.tag_container  a.tag_button_open:hover {
+    background-color: #ff6d1e;
+    background-image: url("img/post/hidetags_hover.png");
+}
+
+article.post  footer.tag_container  div.tag_list {
+    background: url("img/body_pattern.png") repeat scroll left top #E9E9E9;
+    border-top: 1px solid #404040;
+    height: 0;
+    overflow: hidden;
+    transition: all 400ms ease 0s;
+        -webkit-transition: all 400ms ease 0s;
+    width: 100%;
+}
+
+article.post  footer.tag_container  div.tag_list  a {
+    color: #404040;
+    display: inline-block;
+    margin: 1.5em;
+}
+
+/* -------------------- */
+/*     COMMENT LIST     */
+/* -------------------- */
+#comment_list {
+    margin-top: 30px;
+}
+
+#comment_list  h2 {
+    font-weight: normal;
+    margin: 10px 0;
+}
+
+#comment_list  div.comment {
+    border-left: 2px solid #FFAC00;
+    margin: 0 0 10px;
+    padding: 10px;
+    overflow: auto;
+}
+
+#comment_list  span.author_name {
+    font-weight: bold;
+}
+
+#comment_list  span.date {
+    margin-left: 10px;
+    font-style: italic;
+}
+
+#comment_list  span.content {
+    display: block;
+}
+
+#comment_list  img.avatar {
+    float:left;
+    margin-right: 10px;
+}
+
+/* -------------------- */
+/*     COMMENT FORM     */
+/* -------------------- */
+#comment_form {
+    margin-top: 30px;
+    width: 70%;
+}
+
+#comment_form  h2 {
+    font-weight: normal;
+    margin: 10px 0;
+}
+
+#comment_form  h3.alert {
+    color: #BE1C54;
+    font-style: italic;
+    margin: 0 0 15px;
+}
+
+#comment_form  input[type="text"],
+#comment_form  textarea {
+    box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #C4C4C4;
+    border-radius: 2px;
+    color: #858585;
+    padding: 8px;
+    outline:none;
+    resize: none;
+    margin-bottom: 15px;
+    font-family: font-family: 'Open Sans', helvetica,arial,sans-serif;
+    font-size: 0.9em;
+}
+
+#comment_form  input[type="text"].captcha {
+    width: 50%;
+    float: left;
+}
+
+#comment_form  input[type="submit"] {
+    display: block;
+    clear: left;
+    padding: 3px 8px;
+}
+
+/* ------------------------- */
+/*     FACEBOOK COMMENTS     */
+/* ------------------------- */
+.fb-comments, .fb-comments span, .fb-comments.fb_iframe_widget span iframe {
+    width: 100% !important;
+}
