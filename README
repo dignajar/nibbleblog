@@ -13,18 +13,24 @@ Documentation: http://docs.nibbleblog.com
 * Facebook: http://www.facebook.com/nibbleblog
 * Google+: http://google.com/+nibbleblog
 
-===== Intallation =====
-1. Unzip the downloaded file
-2. Upload all files on your hosting or local server via FTP, Shell, Cpanel, others.
-3. With your browser, go to the URL of your web. Example: www.domain.com
-4. Complete the form
-5. Done! you have installed Nibbleblog
-
 ===== System Requirements =====
 * PHP v5.2 or higher
 * PHP module - DOM
 * PHP module - SimpleXML
-* Directory "content" writable by PHP
+* PHP module - GD
+* Directory “content” writable by Apache/PHP
+
+Optionals requirements
+
+* PHP module - Mcrypt
+
+===== Installation guide =====
+1- Download the last version from http://nibbleblog.com
+2- Unzip the downloaded file
+3- Upload all files to your hosting or local server via FTP, Shell, Cpanel, others.
+4- With your browser, go to the URL of your web. Example: www.domain-name.com
+5- Complete the form
+6- Done! you have installed Nibbleblog
 
 ===== About the author =====
 Name: Diego Najar
@@ -55,4 +61,3 @@ Linkedin: http://www.linkedin.com/in/dignajar
 <p>An mutat docendi quo, nusquam apeirian constituam ius cu? Et mel eripuit noluisse scriptorem, habeo dissentiet te qui, at veniam impedit deterruisset eam. Ne mollis aliquam sea, te vis tation inimicus ullamcorper, cum illum invenire id? Nam causae euripidis necessitatibus ex. Case ferri graece at vix. Usu platonem mediocritatem id, ullum salutatus at sed.</p>
 <pre class="nb-console">sudo yum install git</pre>
 <p>An mutat docendi quo, nusquam apeirian constituam ius cu? Et mel eripuit noluisse scriptorem, habeo dissentiet te qui, at veniam impedit deterruisset eam. Ne mollis aliquam sea, te vis tation inimicus ullamcorper.</p>
-
