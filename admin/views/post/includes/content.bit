@@ -55,9 +55,18 @@ $(document).ready(function() {
 		relative_urls: false,
 		entity_encoding : "raw",
 		formats:{
-			alignleft:{selector:'img', attributes:{class:"nb-align-left"} },
-			alignright:{selector:'img', attributes:{class:"nb-align-right"} },
-			aligncenter:{selector:'img', attributes:{class:"nb-align-center"} }
+			alignleft : [
+				{selector : 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li', styles : {textAlign : 'left'}},
+				{selector : 'img', classes : 'nb-align-left'}
+			],
+			aligncenter : [
+				{selector : 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li', styles : {textAlign : 'center'}},
+				{selector : 'img', classes : 'nb-align-center'}
+			],
+			alignright : [
+				{selector : 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li', styles : {textAlign : 'right'}},
+				{selector : 'img', classes : 'nb-align-right'}
+			],
 		},
 		setup: function(ed) {
 			ed.addButton('nb-image', {

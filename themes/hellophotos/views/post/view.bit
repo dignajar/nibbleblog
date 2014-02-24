@@ -1,0 +1,14 @@
+<article class="post">
+
+	<header style="<?php echo 'background: url(\''.$cover_image.'\') '.$background_property.';'?>">
+		<div class="header-wrap">
+			<h1 class="post-title"><?php echo Post::title() ?></h1>
+			<h2 class="post-description"><?php echo Post::description() ?></h2>
+		</div>
+	</header>
+
+	<div class="post-content">
+		<?php echo Post::content(true) ?>
+	</div>
+
+</article>

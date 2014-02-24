@@ -1,0 +1,5 @@
+<article class="page">
+	<div class="page-content">
+		<?php echo $Language->get('404_PAGE_NOT_FOUND') ?>
+	</div>
+</article>
