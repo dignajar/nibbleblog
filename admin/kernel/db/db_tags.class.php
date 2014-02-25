@@ -53,7 +53,7 @@ class DB_TAGS {
 		$id = $this->get_autoinc();
 		$this->set_autoinc();
 
-		$node = $this->xml->list->addGodChild('tag', array('id'=>$id, 'name'=>$args['name']));
+		$node = $this->xml->list->addGodChild('tag', array('id'=>$id, 'name'=>$args['name'], 'name_human'=>$args['name_human']));
 
 		return $id;
 	}
@@ -89,6 +89,7 @@ class DB_TAGS {
 		$tmp = array();
 		$tmp['id'] = $node[0]->getAttribute('id');
 		$tmp['name'] = $node[0]->getAttribute('name');
+		$tmp['name_human'] = $node[0]->getAttribute('name_human');
 
 		return $tmp;
 	}
@@ -116,7 +117,7 @@ class DB_TAGS {
 			$id_tag = $node->getAttribute('id_tag');
 			$tag = $this->get(array('id'=>$id_tag));
 
-			array_push($tmp, $tag['name']);
+			array_push($tmp, array('name'=>$tag['name'], 'name_human'=>$tag['name_human']));
 		}
 
 		return $tmp;
@@ -127,9 +128,9 @@ class DB_TAGS {
 	{
 		$tmp = $this->recondition($args['tags']);
 
-		foreach($tmp as $tag_name)
+		foreach($tmp as $tag)
 		{
-			$id = $this->add(array('name'=>$tag_name));
+			$id = $this->add(array('name'=>$tag['name'], 'name_human'=>$tag['name_human']));
 
 			$this->link(array('id_tag'=>$id, 'id_post'=>$args['id_post']));
 		}
@@ -183,11 +184,12 @@ class DB_TAGS {
 		{
 			$id = (int)$tag->getAttribute('id');
 			$name = (string)$tag->getAttribute('name');
+			$name_human = (string)$tag->getAttribute('name_human');
 
 			$where = '@id_tag="'.$id.'"';
 			$nodes = $this->xml->xpath('/tags/links/link['.$where.']');
 
-			$tmp[$name] = count($nodes);
+			$tmp[$name] = array('amount'=>count($nodes), 'name_human'=>$name_human);
 		}
 
 		return $tmp;
@@ -217,16 +219,16 @@ class DB_TAGS {
 	// Recive an string $tags and convert this to an array
 	private function recondition($tags)
 	{
-		$tags = Text::strip_spaces($tags);
-
 		$explode = explode(',', $tags);
 
 		$tmp_array = array();
 		foreach( $explode as $tag )
 		{
+		    $tag = trim($tag);
 			if(!empty($tag))
-				array_push($tmp_array, $tag);
+				array_push($tmp_array, array('name'=>Text::strip_spaces($tag), 'name_human'=>$tag));
 		}
+
 		return( $tmp_array );
 	}
 

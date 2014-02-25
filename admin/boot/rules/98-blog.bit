@@ -47,7 +47,7 @@ if( ($url['controller']!=null) && ($url['action']!=null) )
 	{
 		$layout['title'] 		.= !empty($post['title'])?' - '.$post['title']:'';
 		$layout['description']	= $post['description'];
-		$layout['keywords']		= implode(',',$post['tags']);
+		$layout['keywords']		= implode(',', array_map('array_pop', $post['tags']));
 		$layout['canonical'] 	= Url::post($post, true);
 
 		$where_am_i[1] = 'post';

@@ -5,7 +5,7 @@ echo '<footer class="tag_container">';
     echo '<a title="'.$Language->get('TAGS').'" id="'.$post['slug'].'" class="tag_button"  onclick="toggleTags(this)"></a>';
     echo '<div class="tag_list">';
         foreach($post['tags'] as $tag)
-            echo '<a class="tag" href="'.Url::tag($tag).'">'.$tag.'</a>';
+            echo '<a class="tag" href="'.Url::tag($tag['name']).'">'.$tag['name_human'].'</a>';
     echo '</div>';
 echo '</footer>';
 }

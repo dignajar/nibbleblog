@@ -94,7 +94,7 @@ class Post {
 
 		$html = '<ul>';
 		foreach($tags as $tag)
-			$html .= '<li><a class="tag" href="'.Url::tag($tag).'">'.$tag.'</a></li>';
+			$html .= '<li><a class="tag" href="'.Url::tag($tag['name']).'">'.$tag['name_human'].'</a></li>';
 		$html .= '</ul>';
 
 		return $html;
