@@ -64,7 +64,7 @@ $(document).ready(function() {
 	$("#media_url_button").click(
 	function() {
 		var url = $("#media_url_input").val();
-		var img = '<img src="'+url+'" alt="">';
+		var img = '<img class="nb-align-left" src="'+url+'" alt="">';
 		insert_content(img);
 		$("#media_url_input").val('http://');
 		$('#media_modal').trigger('reveal:close');
@@ -77,7 +77,7 @@ $(document).ready(function() {
 	$("#mm_files").on("click", "img",
 	function() {
 		var src = $(this).attr("data-original");
-		var img = '<img src="'+src+'" alt="">';
+		var img = '<img class="nb-align-left" src="'+src+'" alt="">';
 		insert_content(img);
 		$('#media_modal').trigger('reveal:close');
 	});
@@ -136,7 +136,7 @@ $(document).ready(function() {
 			var nbmedia = $(xml).find("nbmedia").text();
 
 			// Insert on textarea
-			var img = '<img src="'+original+'" alt="">';
+			var img = '<img class="nb-align-left" src="'+original+'" alt="">';
 			insert_content(img);
 
 			// Insert on preview files

@@ -27,6 +27,11 @@ pre {
 	float: right;
 }
 
+.nb-align-center {
+	display:block;
+	margin:0 auto 1em;
+}
+
 td, th {
 	font-size: 14px !important;
 }
