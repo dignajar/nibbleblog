@@ -75,7 +75,7 @@ $(document).ready(function() {
 				icon: 'image',
 				onclick: function()
 				{
-					$('#media_modal').reveal();
+					$('#nb_media').reveal();
 				}
 			});
 

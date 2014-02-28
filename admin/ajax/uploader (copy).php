@@ -1,4 +1,4 @@
-<?php header('Content-Type: application/json');
+<?php header("Content-Type: text/xml");
 
 require('../boot/ajax.bit');
 require('security.bit');
@@ -23,8 +23,6 @@ else
 	}
 }
 
-$filename = $_GET['filename'];
-
 if( $filename )
 {
 	// Ext
@@ -32,7 +30,7 @@ if( $filename )
 
 	if( ($ext!='jpg') && ($ext!='jpeg') && ($ext!='gif') && ($ext!='png') )
 	{
-		exit(json_encode(array('status'=>0, 'msg'=>'Extension error')));
+		exit( Text::ajax_header('<error><![CDATA[1]]></error><alert><![CDATA[fail 2]]></alert>') );
 	}
 
 	// Stream
@@ -40,7 +38,7 @@ if( $filename )
 
 	if( $content == false )
 	{
-		exit(json_encode(array('status'=>0, 'msg'=>'Streaming error')));
+		exit( Text::ajax_header('<error><![CDATA[1]]></error><alert><![CDATA[fail 3]]></alert>') );
 	}
 
 	$filename = strtolower(pathinfo($filename, PATHINFO_FILENAME));
@@ -76,10 +74,10 @@ if( $filename )
 		$Resize->setImage(PATH_UPLOAD.$filename.'_'.$number.'_o.'.$ext, '110', '110', 'crop');
 		$Resize->saveImage(PATH_UPLOAD.$filename.'_'.$number.'_nbmedia.jpg', 98, true);
 
-		exit(json_encode(array('status'=>1, 'msg'=>'Upload complete', 'original'=>HTML_PATH_UPLOAD.$filename.'_'.$number.'_o.'.$ext, 'nbmedia'=>HTML_PATH_UPLOAD.$filename.'_'.$number.'_nbmedia.jpg')));
+		exit( Text::ajax_header('<success><![CDATA[1]]></success><original><![CDATA['.HTML_PATH_UPLOAD.$filename.'_'.$number.'_o.'.$ext.']]></original><nbmedia><![CDATA['.HTML_PATH_UPLOAD.$filename.'_'.$number.'_nbmedia.jpg]]></nbmedia>') );
 	}
 }
 
-exit(json_encode(array('status'=>0, 'msg'=>'Filename error')));
+exit( Text::ajax_header('<error><![CDATA[1]]></error><alert><![CDATA[fail 4]]></alert>') );
 
 ?>

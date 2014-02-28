@@ -2,8 +2,37 @@
 /* NIBBLEBLOG MODAL
 /*====================================================================*/
 
-#media_modal {
+#nb_media {
 
+}
+
+/* Nb Media Loading */
+#nb_media_load {
+	overflow: auto;
+	display: none;
+}
+
+#nb_media_percent {
+    background: #CCCCCC;
+    font-size: 1.6em;
+    line-height: 40px;
+    width: 0%;
+}
+
+/* Nb Media Wrap */
+#nb_media_wrap {
+	overflow: auto;
+}
+
+#nb_media_wrap h2.title {
+    background: #D7D7D7;
+    color: #333333;
+    font-size: 1.6em;
+    font-weight: normal;
+    margin-top: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
 }
 
 #mm_files {
@@ -46,16 +75,14 @@ span.markdown {
 }
 
 #media_url_button {
-	background: #3B84BF;
-	border: 1px solid #478FBF;
-	border-radius: 2px;
-	color: #FFFFFF !important;
-	cursor: pointer;
-	float: right;
-	font-size: 1.6em;
-	margin-top: 5px;
-	padding: 5px 40px;
-	text-align: right;
+    background: #3B84BF;
+    border: 1px solid #478FBF;
+    border-radius: 3px;
+    color: #FFFFFF !important;
+    cursor: pointer;
+    font-size: 1.6em;
+    margin-top: 5px;
+    padding: 7px 10px;
 }
 
 #media_url_button:hover {
@@ -63,7 +90,7 @@ span.markdown {
 	background: #3474A7;
 }
 
-#media_url_input {
+#nb_media_wrap	input[type="text"] {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -77,25 +104,22 @@ span.markdown {
 	font-size: 1.4em;
 }
 
-
-
-#media_modal h2.title {
-	background: #F1F1F1;
-	border-bottom: 2px solid #CCCCCC;
-	color: #333333;
-	font-size: 1.6em;
-	font-weight: normal;
-	padding-bottom: 10px;
-	padding-left: 10px;
-	padding-top: 10px;
-	margin-top: 30px;
+#nb_media_wrap	input[type="checkbox"] {
+	vertical-align: middle;
+	margin-left: 0px;
 }
 
-#media_loading {
-	display: none;
+#nb_media_wrap	label {
+	margin-left: 3px;
+	margin-bottom: 0;
+	font-size: 1.3em;
 }
 
-
+#nb_media_wrap	div.checkbox {
+	overflow: auto;
+	clear: both;
+	margin-top: 20px;
+}
 
 /*====================================================================*/
 /* REVEAL MODAL

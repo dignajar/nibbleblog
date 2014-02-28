@@ -6,13 +6,14 @@ $file_list = Filesystem::get_images('*_nbmedia*');
 
 <input id="media_input_file" type="file" class="hidden" size="1" accept="image/*">
 
-<div id="nb_media" class="reveal-modal">
+<div id="media_modal" class="reveal-modal">
 
-	<div id="nb_media_wrap">
+	<div id="media_box">
 
 		<div id="media_upload_button">
 			<span style="margin-right:8px;" class="icon-image"></span><?php echo $_LANG['UPLOAD_A_NEW_IMAGE'] ?>
 		</div>
+
 
 		<?php
 			if(!empty($file_list))
@@ -41,21 +42,13 @@ $file_list = Filesystem::get_images('*_nbmedia*');
 		?>
 
 		<h2 class="title"><?php echo $_LANG['INSERT_IMAGE_FROM_URL'] ?></h2>
-		<input type="text" id="media_url_input" value="" placeholder="http://">
+		<input type="text" id="media_url_input" value="http://">
 		<div id="media_url_button"><?php echo $_LANG['INSERT_PICTURE'] ?></div>
-
-		<h2 class="title"><?php echo $_LANG['IMAGE_SETTINGS'] ?></h2>
-		<input type="text" id="media_alt_attribute" value="" placeholder="alt attribute">
-
-		<div class="checkbox">
-			<input type="checkbox" id="media_alt_attribute" value="" placeholder="alt attribute">
-			<label>Cover attribute</label>
-		</div>
 
 	</div>
 
-	<div id="nb_media_load">
-		<p id="nb_media_percent">Loading...</p>
+	<div id="media_loading">
+		<h2 class="title"><span class="icon-publish"></span><?php echo $_LANG['LOADING'] ?></h2>
 	</div>
 
 	<a class="close-reveal-modal">&#215;</a>
@@ -74,7 +67,7 @@ $(document).ready(function() {
 		var img = '<img class="nb-align-left" src="'+url+'" alt="">';
 		insert_content(img);
 		$("#media_url_input").val('http://');
-		$('#nb_media').trigger('reveal:close');
+		$('#media_modal').trigger('reveal:close');
 	});
 
 //======================================================================
@@ -86,16 +79,15 @@ $(document).ready(function() {
 		var src = $(this).attr("data-original");
 		var img = '<img class="nb-align-left" src="'+src+'" alt="">';
 		insert_content(img);
-		$('#nb_media').trigger('reveal:close');
+		$('#media_modal').trigger('reveal:close');
 	});
 
 //======================================================================
 // Uploader
 //======================================================================
 
-	var nb_media_wrap = $("#nb_media_wrap");
-	var nb_media_load = $("#nb_media_load");
-	var nb_media_percent = $("#nb_media_percent");
+	var media_box = $("#media_box");
+	var media_loading = $("#media_loading");
 	var media_input_file = $("#media_input_file");
 
 	$("#media_upload_button").click(
@@ -108,44 +100,50 @@ $(document).ready(function() {
 
 		var file = this.files[0];
 
-		nb_media_wrap.hide();
-		nb_media_load.show();
+		media_box.hide();
+		media_loading.show();
 
-		$.ajax({
-			type: 'post',
-			url: HTML_PATH_ADMIN_AJAX+"uploader.php?filename="+file.name,
-			data: file,
-			processData: false,
-			contentType: file.type,
-			success: function(json)
-			{
-				$('#nb_media').trigger('reveal:close');
+		// New XMLHttpRequest
+		var xhr = new XMLHttpRequest();
 
-				// Insert on textarea
-				var img = '<img class="nb-align-left" src="'+json.original+'" alt="">';
-				insert_content(img);
+		// Events
+		xhr.addEventListener("load", complete, false);
 
-				// Insert on preview files
-				img = '<img data-original="'+json.original+'" src="'+json.nbmedia+'" alt="" />';
-				$("#mm_files").prepend(img);
+		// Open new connection async
+		xhr.open('POST', HTML_PATH_ADMIN_AJAX+"uploader.php", true);
 
-				nb_media_load.hide();
-				nb_media_wrap.show();
-			},
-			error: function(request,error)
-			{
-				nb_media_percent.html(error);
-			},
-			xhr: function()
-			{
-				var xhr = $.ajaxSettings.xhr();
-				xhr.upload.onprogress = function(evt){ var pct = evt.loaded/evt.total*100; nb_media_percent.width(pct+"%"); };
-				xhr.upload.onload = function(){ nb_media_percent.width("100%"); };
-				return xhr;
-			}
-		});
+		// Parameters headers
+		xhr.setRequestHeader("Cache-Control", "no-cache");
+		xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+		xhr.setRequestHeader("X-FILE-NAME", file.name);
 
+		// Send file
+		xhr.send(file);
 	});
+
+	function complete(e)
+	{
+		var xml = $.parseXML(e.target.responseText);
+
+		if( $(xml).find("success").text() == "1" )
+		{
+			media_loading.hide();
+			media_box.show();
+
+			$('#media_modal').trigger('reveal:close');
+
+			var original = $(xml).find("original").text();
+			var nbmedia = $(xml).find("nbmedia").text();
+
+			// Insert on textarea
+			var img = '<img class="nb-align-left" src="'+original+'" alt="">';
+			insert_content(img);
+
+			// Insert on preview files
+			img = '<img data-original="'+original+'" src="'+nbmedia+'" alt="" />';
+			$("#mm_files").prepend(img);
+		}
+	}
 
 });
 
