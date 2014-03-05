@@ -13,7 +13,7 @@
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 	foreach($_POST as $key=>$value)
-		$Comment->set_form($key, $value);
+		$Comment->set_form(Validation::sanitize_html($key), Validation::sanitize_html($value));
 
 	// Check: fields are complete
 	if( Text::is_empty($_POST['author_email']) || Text::is_empty($_POST['content']) )
@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		if(isset($_POST['hash']))
 		{
 			// XSS protection
-			if($Comment->get_hash()===$_POST['hash'])
+			if($Comment->get_hash()===Validation::sanitize_html($_POST['hash']))
 			{
 				// Post allows comments
 				if(isset($posts[0]['id']) && isset($posts[0]['allow_comments']))

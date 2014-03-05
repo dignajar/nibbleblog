@@ -48,8 +48,8 @@ $file_list = Filesystem::get_images('*_nbmedia*');
 		<input type="text" id="media_alt_attribute" value="" placeholder="alt attribute">
 
 		<div class="checkbox">
-			<input type="checkbox" id="media_alt_attribute" value="" placeholder="alt attribute">
-			<label>Cover attribute</label>
+			<input type="checkbox" id="media_cover_attribute" value="1">
+			<label for="media_cover_attribute"><?php echo $_LANG['COVER_ATTRIBUTE'] ?></label>
 		</div>
 
 	</div>
@@ -64,6 +64,12 @@ $file_list = Filesystem::get_images('*_nbmedia*');
 <script>
 $(document).ready(function() {
 
+	var nb_media_wrap = $("#nb_media_wrap");
+	var nb_media_load = $("#nb_media_load");
+	var nb_media_percent = $("#nb_media_percent");
+	var media_input_file = $("#media_input_file");
+	var nb_media_alt = $("#media_alt_attribute");
+
 //======================================================================
 // From URL
 //======================================================================
@@ -71,7 +77,7 @@ $(document).ready(function() {
 	$("#media_url_button").click(
 	function() {
 		var url = $("#media_url_input").val();
-		var img = '<img class="nb-align-left" src="'+url+'" alt="">';
+		var img = '<img class="nb-align-left" src="'+url+'" alt="'+nb_media_alt.val()+'">';
 		insert_content(img);
 		$("#media_url_input").val('http://');
 		$('#nb_media').trigger('reveal:close');
@@ -84,7 +90,7 @@ $(document).ready(function() {
 	$("#mm_files").on("click", "img",
 	function() {
 		var src = $(this).attr("data-original");
-		var img = '<img class="nb-align-left" src="'+src+'" alt="">';
+		var img = '<img class="nb-align-left" src="'+src+'" alt="'+nb_media_alt.val()+'">';
 		insert_content(img);
 		$('#nb_media').trigger('reveal:close');
 	});
@@ -92,11 +98,6 @@ $(document).ready(function() {
 //======================================================================
 // Uploader
 //======================================================================
-
-	var nb_media_wrap = $("#nb_media_wrap");
-	var nb_media_load = $("#nb_media_load");
-	var nb_media_percent = $("#nb_media_percent");
-	var media_input_file = $("#media_input_file");
 
 	$("#media_upload_button").click(
 	function() {
@@ -122,11 +123,11 @@ $(document).ready(function() {
 				$('#nb_media').trigger('reveal:close');
 
 				// Insert on textarea
-				var img = '<img class="nb-align-left" src="'+json.original+'" alt="">';
+				var img = '<img class="nb-align-left" src="'+json.original+'" alt="'+nb_media_alt.val()+'">';
 				insert_content(img);
 
 				// Insert on preview files
-				img = '<img data-original="'+json.original+'" src="'+json.nbmedia+'" alt="" />';
+				img = '<img data-original="'+json.original+'" src="'+json.nbmedia+'" alt="'+nb_media_alt.val()+'">';
 				$("#mm_files").prepend(img);
 
 				nb_media_load.hide();
@@ -134,7 +135,7 @@ $(document).ready(function() {
 			},
 			error: function(request,error)
 			{
-				nb_media_percent.html(error);
+				nb_media_percent.html("Error: "+error+". Refresh the page please.");
 			},
 			xhr: function()
 			{

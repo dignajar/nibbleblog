@@ -321,5 +321,6 @@ $_LANG['PLUGINS_AVAILABLE_FOR_INSTALL'] = 'Plugins available for install';
 $_LANG['ABSOLUTE_URL_ADDRESS_OF_YOUR_BLOG'] = 'Absolute URL address of your blog. Example http://www.domain.com/directory/';
 $_LANG['ABSOLUTE_ADDRESS_THAT_CONTAINS_THE_BLOGS_FILE_SYSTEM'] = 'Absolute address that contains the blog\'s file system, if you upload the content of Nibbleblog to your root you should only put a "/", and if you upload it into another directory then it should be "/directory/".';
 
+$_LANG['COVER_ATTRIBUTE'] = 'Cover attribute';
 
 ?>
