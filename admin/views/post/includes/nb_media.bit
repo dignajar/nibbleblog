@@ -43,7 +43,7 @@ $file_list = Filesystem::get_images('*_nbmedia*');
 		<h2 class="title"><?php echo $_LANG['INSERT_IMAGE_FROM_URL'] ?></h2>
 		<input type="text" id="media_url_input" value="" placeholder="http://">
 		<div id="media_url_button"><?php echo $_LANG['INSERT_PICTURE'] ?></div>
-
+<!--
 		<h2 class="title"><?php echo $_LANG['IMAGE_SETTINGS'] ?></h2>
 		<input type="text" id="media_alt_attribute" value="" placeholder="alt attribute">
 
@@ -51,7 +51,7 @@ $file_list = Filesystem::get_images('*_nbmedia*');
 			<input type="checkbox" id="media_cover_attribute" value="1">
 			<label for="media_cover_attribute"><?php echo $_LANG['COVER_ATTRIBUTE'] ?></label>
 		</div>
-
+-->
 	</div>
 
 	<div id="nb_media_load">

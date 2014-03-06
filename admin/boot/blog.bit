@@ -10,7 +10,7 @@ require_once('rules/4-remove_magic.bit');
 require_once('rules/5-regional.bit');
 require_once('rules/5-url.bit');
 
-require_once('rules/8-posts.bit');
+require_once('rules/8-posts_pages.bit');
 
 require_once('rules/10-seo.bit');
 require_once('rules/10-pager.bit');
