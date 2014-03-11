@@ -2,7 +2,7 @@
 
 $_PLUGIN_CONFIG['LANG'] = array(
 	'NAME'=>'Navigation rapide',
-	'DESCRIPTION'=>'Accès rapide au panneau d'administration.',
+	'DESCRIPTION'=>'Accès rapide au panneau d\'administration.',
 	'HOME'=>'Accueil',
 	'DASHBOARD'=>'tableau de bord',
 	'NEW_SIMPLE_POST'=>'Nouveau billet simple',

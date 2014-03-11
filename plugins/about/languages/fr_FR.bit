@@ -6,7 +6,7 @@ $_PLUGIN_CONFIG['LANG'] = array(
 	'FULL_NAME'=>'Nom complet',
 	'ABOUT'=>'À Propos',
 	'PICTURE'=>'Image',
-	'SUPPORT_JPG_AND_PNG_IMAGES'=>'Supporte les formats d'images JPG et PNG. L'image sera redimensionnée en 200x200px.'
+	'SUPPORT_JPG_AND_PNG_IMAGES'=>'Supporte les formats d\'images JPG et PNG. L\'image sera redimensionnée en 200x200px.'
 );
 
 ?>

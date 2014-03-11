@@ -36,12 +36,13 @@ function post_to_json($post, $tojson=true)
 
 	// Category
 	$category = $_DB_CATEGORIES->get( array('id'=>$post['id_cat']) );
-	array_push($post['tags'], $category['name']);
+	array_push($post['tags'], array('name'=>$category['name'], 'name_human'=>$category['name']));
+
 	/*
 	The above array_push line may need to be rewritten.
 
 	$post['tags'] now has the following structure...
-	
+
 	Array
 	(
 	    [0] => Array
@@ -55,7 +56,7 @@ function post_to_json($post, $tojson=true)
 	            [name_human] => ice cream
 	        )
     )
-	
+
 	*/
 
 	// Content
