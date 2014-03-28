@@ -77,7 +77,7 @@ $(document).ready(function() {
 	$("#media_url_button").click(
 	function() {
 		var url = $("#media_url_input").val();
-		var img = '<img class="nb-align-left" src="'+url+'" alt="'+nb_media_alt.val()+'">';
+		var img = '<img src="'+url+'" alt="'+nb_media_alt.val()+'">';
 		insert_content(img);
 		$("#media_url_input").val('http://');
 		$('#nb_media').trigger('reveal:close');
@@ -90,7 +90,7 @@ $(document).ready(function() {
 	$("#mm_files").on("click", "img",
 	function() {
 		var src = $(this).attr("data-original");
-		var img = '<img class="nb-align-left" src="'+src+'" alt="'+nb_media_alt.val()+'">';
+		var img = '<img src="'+src+'" alt="'+nb_media_alt.val()+'">';
 		insert_content(img);
 		$('#nb_media').trigger('reveal:close');
 	});
@@ -123,7 +123,7 @@ $(document).ready(function() {
 				$('#nb_media').trigger('reveal:close');
 
 				// Insert on textarea
-				var img = '<img class="nb-align-left" src="'+json.original+'" alt="'+nb_media_alt.val()+'">';
+				var img = '<img src="'+json.original+'" alt="'+nb_media_alt.val()+'">';
 				insert_content(img);
 
 				// Insert on preview files

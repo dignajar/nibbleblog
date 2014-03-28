@@ -11,7 +11,7 @@
 
 /*
  * For 1-Click Setup
- * What you need to install Nibbleblog without the default form.
+ * This are the POST variables to install Nibbleblog without the default form.
  * You can delete/replace this file, is independent from the blog, it only for install.
  *
  * $_POST = array('name', 'slogan', 'url', 'path', 'email', 'username', 'password')
@@ -25,47 +25,6 @@
  * $_POST['password'] = Admin's password in plain text
  *
 */
-
-// =====================================================================
-//	VARIABLES
-// =====================================================================
-$permissions_dir = 0755;
-
-$php_modules = array();
-
-$installation_complete = false;
-
-$dependencies = true;
-
-$domain = getenv('HTTP_HOST');
-
-$base_path = dirname(getenv('SCRIPT_NAME'));
-if($base_path!='/')
-	$base_path .='/';
-
-$blog_address = 'http://'.$domain.$base_path;
-
-$languages = array(
-	'ar_MA'=>'العربية',
-	'cs_CZ'=>'čeština',
-	'de_DE'=>'Deutsch',
-	'en_US'=>'English',
-	'es_ES'=>'Español',
-	'fr_FR'=>'Français',
-	'fr_IR'=>'فارسی-فارسی',
-	'hu_HU'=>'Magyar',
-	'it_IT'=>'Italiano',
-	'pl_PL'=>'Polski',
-	'pt_PT'=>'Português',
-	'ru_RU'=>'Pyccĸий',
-	'tr_TR'=>'Tϋrkçe',
-	'vi_VI'=>'Tiếng Việt',
-	'zh_TW'=>'繁體中文'
-);
-
-$languages_html = array();
-foreach($languages as $raw=>$lang)
-	$languages_html[$raw] = $lang;
 
 // =====================================================================
 //	FILES
@@ -91,6 +50,34 @@ require(PATH_HELPERS . 'number.class.php');
 require(PATH_HELPERS . 'redirect.class.php');
 require(PATH_HELPERS . 'text.class.php');
 require(PATH_HELPERS . 'validation.class.php');
+
+// =====================================================================
+//	VARIABLES
+// =====================================================================
+$permissions_dir = 0755;
+
+$php_modules = array();
+
+$installation_complete = false;
+
+$dependencies = true;
+
+$domain = getenv('HTTP_HOST');
+
+$base_path = dirname(getenv('SCRIPT_NAME'));
+if($base_path!='/')
+	$base_path .='/';
+
+$blog_address = 'http://'.$domain.$base_path;
+
+$languages = array();
+$files = Filesystem::ls(PATH_LANGUAGES, '*', 'bit', false, false, false);
+foreach($files as $file)
+{
+	include(PATH_LANGUAGES.$file);
+	$iso = basename($file, '.bit');
+	$languages[$iso] = $_LANG_CONFIG['DATA']['native'];
+}
 
 // ============================================================================
 //	SYSTEM
@@ -611,7 +598,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 
 					// LANGUAGE
 					echo Html::label( array('content'=>$_LANG['LANGUAGE'], 'class'=>'blocked') );
-					echo Html::select( array('id'=>'js_language', 'name'=>'language'), $languages_html, isset($_GET['language'])?$_GET['language']:'en_US');
+					echo Html::select( array('id'=>'js_language', 'name'=>'language'), $languages, isset($_GET['language'])?$_GET['language']:'en_US');
 
 					echo Html::label( array('content'=>$_LANG['BLOG_TITLE']) );
 					echo Html::input( array('id'=>'js_name', 'name'=>'name', 'type'=>'text', 'autocomplete'=>'off', 'maxlength'=>'254', 'value'=>'') );

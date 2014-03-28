@@ -4,8 +4,12 @@ header("Content-type: text/xml; charset=utf-8");
 require('admin/boot/feed.bit');
 
 // Get the last update (the date of the last published post)
-$last_post = $posts[0];
-$updated = Date::atom($last_post['pub_date_unix']);
+$updated = Date::atom(time());
+if(isset($posts[0]))
+{
+	$last_post = $posts[0];
+	$updated = Date::atom($last_post['pub_date_unix']);
+}
 
 // Get the domain name
 $domain = parse_url($settings['url']);
