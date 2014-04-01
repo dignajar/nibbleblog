@@ -38,7 +38,7 @@ article.post  header  h1.title  a:hover {
     color: #ff600a;
 }
 
-article.post  header  div.date {
+article.post  header  div.post_date {
     color: #404040;
     display: inline-block;
     font-size: 1em;
@@ -174,9 +174,9 @@ article.post  div.post_content  div.video_embed {
     overflow: hidden;
 }
 
-article.post  div.page-content  .video-embed iframe,
-article.post  div.page-content  .video-embed object,
-article.post  div.page-content  .video-embed embed {
+article.post  div.post_content  .video-embed iframe,
+article.post  div.post_content  .video-embed object,
+article.post  div.post_content  .video-embed embed {
     position: absolute;
     top: 0;
     left: 0;

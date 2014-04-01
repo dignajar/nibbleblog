@@ -177,6 +177,16 @@ class Post {
 		return 'https://plus.google.com/share?url='.urlencode($text.' '.$url);
 	}
 
+	public static function mailto($text=false)
+	{
+		global $post;
+
+		$text = $text===false?'':$text;
+
+		$url = Url::post($post, true);
+		return 'mailto:?subject='.rawurlencode(Blog::name().' - '.$text).'&amp;body='.urlencode($url);
+	}
+
 	public static function published($format=false)
 	{
 		global $post;

@@ -1,16 +1,13 @@
-<?php if( $theme['share_buttons'] )
-{
-$postlink = Url::post($post,true);
-echo '<div class="social">';
+<?php if( $theme['share_buttons'] ) { ?>
+<div class="social">
 
-    echo '<a class="share_facebook" title="Share on Facebook" href="https://www.facebook.com/sharer/sharer.php?'.$postlink.'" target="_blank"></a>';
+    <a class="share_facebook" target="_blank" href="<?php echo Post::facebook(Post::title()) ?>"></a>
 
-    echo '<a class="share_plus" title="Share on Google+" href="https://plus.google.com/share?url='.$postlink.'" target="_blank"></a>';
+    <a class="share_plus" target="_blank" href="<?php echo Post::googleplus(Post::title()) ?>"></a>
 
-    echo '<a class="share_twitter" title="Share on Twitter" href="https://twitter.com/share?url='.$postlink.'" target="_blank"></a>';
+    <a class="share_twitter" target="_blank" href="<?php echo Post::twitter(Post::title()) ?>"></a>
 
-    echo '<a class="share_email" title="Share by email" href="mailto:?subject='.rawurlencode(Blog::name()).'&amp;body='.$postlink.'"></a>';
+    <a class="share_email" target="_blank" href="<?php echo Post::mailto(Post::title()) ?>"></a>
 
-echo '</div>';
-}
-?>
+</div>
+<?php } ?>

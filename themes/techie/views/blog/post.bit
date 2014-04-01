@@ -6,7 +6,7 @@
         </h1>
 
         <div class="post_bar">
-            <div class="date"><?php echo Post::published() ?></div>
+            <div class="post_date"><?php echo Post::published() ?></div>
 
             <!-- Share buttons -->
             <?php include('social.bit'); ?>
