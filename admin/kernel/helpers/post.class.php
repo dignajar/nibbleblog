@@ -126,12 +126,55 @@ class Post {
 		}
 	}
 
+	// DEPRECATED
+	// Last version available 4.0.3
 	public static function tweet_link()
 	{
 		global $post;
 
 		$url = Url::post($post, true);
 		return 'https://twitter.com/share?url='.urlencode($url);
+	}
+
+	public static function twitter($text=false)
+	{
+		global $post;
+
+		$text = $text===false?'':$text;
+
+		$url = Url::post($post, true);
+		return 'http://twitter.com/home?status='.urlencode($text.' '.$url);
+	}
+
+	public static function facebook($text=false)
+	{
+		global $post;
+
+		$text = $text===false?'':$text;
+
+		$url = Url::post($post, true);
+		return 'https://www.facebook.com/sharer/sharer.php?u='.urlencode($text.' '.$url);
+	}
+
+	public static function linkedin($title=false, $text=false)
+	{
+		global $post;
+
+		$title = $title===false?'':$title;
+		$text = $text===false?'':$text;
+
+		$url = Url::post($post, true);
+		return 'http://www.linkedin.com/shareArticle?mini=true&url='.urlencode($url).'&title='.urlencode($title).'&summary='.urlencode($text);
+	}
+
+	public static function googleplus($text=false)
+	{
+		global $post;
+
+		$text = $text===false?'':$text;
+
+		$url = Url::post($post, true);
+		return 'https://plus.google.com/share?url='.urlencode($text.' '.$url);
 	}
 
 	public static function published($format=false)

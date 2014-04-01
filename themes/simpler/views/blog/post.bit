@@ -1,10 +1,27 @@
 <article class="post">
 
 	<header>
-		<div class="post-published"><?php echo Post::published() ?></div>
 		<h1 class="post-title">
 			<a href="<?php echo Post::permalink() ?>"><?php echo Post::title() ?></a>
 		</h1>
+		<div class="post-published"><?php echo Post::published() ?></div>
+		<div class="share_wrap">
+			<span class="share">
+				<a target="_blank" href="<?php echo Post::twitter(Post::title()) ?>">Twitter</a>
+			</span>
+
+			<span class="share">
+				<a target="_blank" href="<?php echo Post::facebook(Post::title()) ?>">Facebook</a>
+			</span>
+
+			<span class="share">
+				<a target="_blank" href="<?php echo Post::googleplus(Post::title()) ?>">Google+</a>
+			</span>
+
+			<span class="share">
+				<a target="_blank" href="<?php echo Post::linkedin(Post::title(), Post::description()) ?>">Linkedin</a>
+			</span>
+		</div>
 	</header>
 
 	<div class="post-content">
@@ -12,18 +29,22 @@
 	</div>
 
 	<footer>
+		<div class="readmore">
+
+			<span class="permalink">
+				<a href="<?php echo Post::permalink() ?>"><?php echo $Language->get('permalink') ?></a>
+			</span>
+
+			<span class="comment-count">
+				<?php echo Post::comment_count_link() ?>
+			</span>
+
+		</div>
+
 		<div class="post-tags">
 			<?php echo Post::tags() ?>
 		</div>
-		<span class="permalink">
-			<a href="<?php echo Post::permalink() ?>"><?php echo $Language->get('permalink') ?></a>
-		</span>
-		<span class="comment-count">
-			<?php echo Post::comment_count_link() ?>
-		</span>
-		<span class="share">
-			<a target="_blank" href="<?php echo Post::tweet_link() ?>">Tweet</a>
-		</span>
+
 	</footer>
 
 </article>

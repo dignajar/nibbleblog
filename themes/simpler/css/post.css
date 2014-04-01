@@ -32,9 +32,23 @@ article.post	header	h1.post-title	a:hover {
 }
 
 article.post	header	div.post-published {
-    color: #666;
-    display: inline-block;
-    font-size: 0.9em;
+	border-left: 32px solid #3399CC;
+	color: #666666;
+	display: inline-block;
+	font-size: 0.9em;
+	padding-left: 8px;
+}
+
+article.post	header	div.share_wrap {
+	border-left: 42px solid #00ADE8;
+	color: #666666;
+	display: block;
+	padding-left: 8px;
+	margin-top: 3px;
+}
+
+article.post	header	div.share_wrap	span {
+	margin-right: 5px;
 }
 /*
 ========================================================================
@@ -101,25 +115,33 @@ POST :: Footer
 */
 
 article.post	footer {
-	border-bottom: 1px solid #F1F1F1;
-	border-top: 1px solid #F1F1F1;
-	clear: both;
 	font-size: 0.9em;
 	margin-top: 20px;
-	padding: 10px 0;
+}
+
+article.post	footer	div.readmore {
+	background: #FAFAFA;
+	padding: 8px 15px;
 }
 
 article.post	footer	span {
-	margin:0 3px;
+	margin: 0 3px;
 }
 
 article.post	footer	a {
 	font-weight: normal;
 }
 
+/*
+========================================================================
+POST :: Footer :: Tags
+========================================================================
+*/
+
 article.post	footer	div.post-tags {
-	max-width: 60%;
-	float: right;
+	border-left: 4px solid #FF8A3D;
+	margin-top: 7px;
+	padding-left: 10px;
 }
 
 article.post	footer	div.post-tags	ul {
@@ -133,11 +155,9 @@ article.post	footer	div.post-tags	li {
 }
 
 article.post	footer	div.post-tags	a.tag {
-	background: #33B0E0;
-	padding: 0 6px;
-	margin-right: 5px;
-	border-radius: 2px;
-	color: #FFFFFF;
+	color: #434343;
+	margin-right: 2px;
+	padding: 0 5px;
 }
 
 article.post	footer	div.post-tags	a.tag:hover {
