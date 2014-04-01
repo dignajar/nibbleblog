@@ -154,9 +154,9 @@ article.page  div.page_content  div.video_embed {
     overflow: hidden;
 }
 
-article.page  div.page-content  .video-embed iframe,
-article.page  div.page-content  .video-embed object,
-article.page  div.page-content  .video-embed embed {
+article.page  div.page_content  .video-embed iframe,
+article.page  div.page_content  .video-embed object,
+article.page  div.page_content  .video-embed embed {
     position: absolute;
     top: 0;
     left: 0;
@@ -164,15 +164,3 @@ article.page  div.page-content  .video-embed embed {
     height: 100%;
 }
 
-/* ---------------------- */
-/*     404 ERROR PAGE     */
-/* ---------------------- */
-article.page  div.page_404 {
-    background-color: #ffffff;
-    border-radius: 5px;
-    box-shadow: 5px 5px 10px #333333;
-    font-size: 1.5em;
-    margin-bottom: 2.5em;
-    overflow: hidden;
-    padding: 1.250em 1.875em;
-}

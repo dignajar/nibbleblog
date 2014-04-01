@@ -13,7 +13,7 @@
     echo Blog::jquery();
 
     // Include Javascript
-    echo Blog::javascript(array('browser-update.js', 'rainbow-custom.min.js', 'sidebar.js', 'taglist.js'));
+    echo Blog::javascript(array('browser-update.js', 'rainbow-custom.min.js', 'sidebar.js', 'taglist.js', 'youtube_embed.js'));
 
     // Include Favicon
     echo Blog::favicon();

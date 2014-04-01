@@ -6,8 +6,8 @@ $theme = array
     'description'=>'A dark theme inspired by Gaia interface from Firefox OS',
     'notes'=>'Disqus and Facebook comments support, custom navigation bar, social buttons and license placeholder configurable in config.bit',
     'author'=>'Rafael Medina García',
-    'version'=>'0.2',
-    'last_update'=>'05/02/2014',
+    'version'=>'0.2.1',
+    'last_update'=>'01/04/2014',
     'url'=>'http://www.rmedgar.com',
     'template'=>array(
         'blog'=>'default.bit',
@@ -15,7 +15,7 @@ $theme = array
         'page'=>'default.bit'),
     'video_width'=>'640',
     'video_height'=>'360',
-	'version_supported'=>array('4.0','4.0.1'), // Nibbleblog version supported
+    'version_supported'=>array('4.0.3'), // Nibbleblog version supported
 
     // --- Custom settings ---
     'content_license'=>'', // This content appears on the bottom left part of the page
