@@ -339,6 +339,7 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 				// comments.xml
 				// =====================================================
 				$obj = new NBXML(FILE_XML_COMMENTS, 0, TRUE, '', FALSE);
+				add_if_not($obj,'comments_enabled',1);
 				add_if_not($obj,'moderate',1);
 				add_if_not($obj,'sanitize',1);
 				add_if_not($obj,'monitor_enable',0);

@@ -1,5 +1,5 @@
 <?php
-	$value = isset($post_edit['allow_comments']) ? $post_edit['allow_comments'] : true;
+	$value = isset($post_edit['allow_comments']) ? $post_edit['allow_comments'] : $_DB_COMMENTS->get_settings()['comments_enabled'];
 
 	echo Html::div_open( array('class'=>'form_block') );
 		echo Html::checkbox( array('id'=>'js_allow_comments', 'name'=>'allow_comments', 'class'=>'float'), $value );
