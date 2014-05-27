@@ -216,6 +216,7 @@ PUBLIC METHODS
 	public function get_settings()
 	{
 		$tmp_array = array();
+		$tmp_array['comments_enabled'] 		= (int) $this->xml->getChild('comments_enabled');
 		$tmp_array['monitor_enable'] 		= (int) $this->xml->getChild('monitor_enable');
 		$tmp_array['monitor_api_key'] 		= (string) $this->xml->getChild('monitor_api_key');
 		$tmp_array['monitor_spam_control'] 	= (float) $this->xml->getChild('monitor_spam_control');
