@@ -124,18 +124,29 @@ class Text {
 	{
 		// Delete characters
 		$text = str_replace(array("“", "”", "!", "*", "&#039;", "&quot;", "(", ")", ";", ":", "@", "&amp", "=", "+", "$", ",", "/", "?", "%", "#", "[", "]", "|"),'',$text);
+		$text = preg_replace('![^\\pL\d]+!u', '-', $text);
 
 		// Translit
 		if($translit!=false)
 		{
 			$text = str_replace(array_keys($translit),array_values($translit),$text);
 		}
+    		if (function_exists('iconv'))
+		{
+			$ret = iconv('utf-8', 'us-ascii//TRANSLIT//IGNORE', $text);
+			if ($ret!==false){ //iconv might return false on error
+				$text = $ret;
+			}
+		}
 
 		// Replace spaces by $spaces
 		$text = str_replace(' ',$spaces,$text);
 
-		// Replace double -- by -
-		$text = str_replace(array('---','--'),'-',$text);
+		//remove any additional characters that might appear after translit
+		$text = preg_replace('![^-\w]+!', '', $text);
+
+		// Replace multiple dashes
+		$text = preg_replace('/-{2,}/', '-', $text);
 
 		// Make a string lowercase
 		$text = self::str2lower($text);
@@ -168,5 +179,3 @@ class Text {
 	}
 
 }
-
-?>
