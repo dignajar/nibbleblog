@@ -1,0 +1,14 @@
+<?php
+// =====================================================================
+//	RULES
+// =====================================================================
+require_once('rules/1-fs_php.bit');
+require_once('rules/2-objects.bit');
+require_once('rules/3-variables.bit');
+require_once('rules/4-blacklist.bit');
+require_once('rules/5-url.bit');
+
+require_once('rules/8-posts_pages_sitemap.bit');
+
+require_once('rules/99-misc.bit');
+?>
