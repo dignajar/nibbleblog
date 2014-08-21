@@ -1,0 +1,9 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'NAME'=>'Sponsorer',
+	'DESCRIPTION'=>'Tilføj reklame til din blog. Du kan tilføje Google Adsense reklame eller en anden sponsor.',
+	'SPONSOR_CODE'=>'Sponsorkode'
+);
+
+?>

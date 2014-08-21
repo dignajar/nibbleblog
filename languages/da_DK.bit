@@ -1,0 +1,328 @@
+<?php
+
+$_LANG_CONFIG['DATA'] = array(
+	'native'=>'Dansk - Danmark',
+	'english'=>'Danish',
+	'last_update'=>'21/08/2014',
+	'author'=>'Bo Tranberg',
+	'email'=>'bo@tberg.dk',
+	'url'=>'http://botranberg.dk'
+);
+
+$_LANG['LAST_COMMENTS'] = 'Seneste kommentar';
+$_LANG['THEME'] = 'Tema';
+$_LANG['THEMES'] = 'Temaer';
+$_LANG['CHANGE_THEME'] = 'Skift tema';
+$_LANG['SELECT_THEME'] = 'Vælg tema';
+$_LANG['REMEMBER_ME'] = 'Husk mig';
+$_LANG['USERNAME'] = 'Brugernavn';
+$_LANG['PASSWORD'] = 'Kodeord';
+$_LANG['COMMENTS'] = 'Kommentarer';
+$_LANG['INVALID_CAPTCHA'] = 'Ugyldig captcha';
+$_LANG['NAME'] = 'Navn';
+$_LANG['EMAIL'] = 'E-mail';
+$_LANG['TYPE_THE_COMMENT_HERE'] = 'Indtast kommentar her';
+$_LANG['COPY_THE_TEXT_ON_THE_RIGHT'] = 'Kopier teksten til højre';
+$_LANG['NEWER_POSTS'] = 'Nyere indlæg';
+$_LANG['OLDER_POSTS'] = 'Ældre indlæg';
+$_LANG['FORGOT_PASSWORD'] = 'Glemt kodeord';
+$_LANG['INCORRECT_USERNAME_OR_PASSWORD'] = 'Forkert brugernavn eller kodeord';
+$_LANG['LOGIN'] = 'Login';
+$_LANG['NEW_CATEGORY'] = 'Ny kategori';
+$_LANG['ENTER_THE_NAME_OF_THE_NEW_CATEGORY'] = 'Skriv navnet på den nye kategori';
+$_LANG['ADD_CATEGORY'] = 'Tilføj kategori';
+$_LANG['CATEGORIES_IN_YOUR_BLOG'] = 'Kategorier i din blog';
+$_LANG['DELETE'] = 'Slet';
+$_LANG['ENTER_TITLE_HERE'] = 'Indtast titel her';
+$_LANG['SELECT_A_CATEGORY'] = 'Vælg en kategory';
+$_LANG['ALLOW_COMMENTS'] = 'Tillad kommentarer';
+$_LANG['ALLOW_YOUR_USERS_TO_COMMENT_YOUR_PUBLICATIONS'] = 'Tillad dine besøgende at kommentere dine indlæg.';
+$_LANG['STICKY_POST'] = 'Klæbende post';
+$_LANG['SELECT_THIS_OPTION_IF_YOU_WANT_TO_HIGHLIGHT_YOUR_PUBLICATION'] = 'Vælg denne indstilling hvis du vil fremhæve dit indlæg';
+$_LANG['PUBLISH'] = 'Udgiv';
+$_LANG['GET_VIDEO_INFORMATION'] = 'Hent video information';
+$_LANG['VIDEO_URL'] = 'Video URL';
+$_LANG['LOADING'] = 'Indlæser';
+$_LANG['VIDEO_INFORMATION'] = 'Video information';
+$_LANG['ENTER_QUOTE_HERE'] = 'Indtast citat her';
+$_LANG['TIMEZONE'] = 'Tidszone';
+$_LANG['BLOG_ADDRESS'] = 'Blog adresse (URL)';
+$_LANG['BLOG_BASE_PATH'] = 'Blog base sti';
+$_LANG['POSTS_PER_PAGE'] = 'Antal indlæg per side';
+$_LANG['RSS_ITEMS'] = 'RSS objekt';
+$_LANG['ADVANCED_OPTIONS_FOR_POST'] = 'Avancerede indstillinger for indlæg';
+$_LANG['BLOG_TITLE'] = 'Blog titel';
+$_LANG['BLOG_SLOGAN'] = 'Blog slogan';
+$_LANG['ABOUT_YOUR_BLOG'] = 'Om din blog';
+$_LANG['FOOTER_TEXT'] = 'Sidefod tekst';
+$_LANG['LANGUAGE'] = 'Sprog';
+$_LANG['CURRENT_PASSWORD'] = 'Nuværende kodeord';
+$_LANG['NEW_PASSWORD'] = 'Nyt kodeord';
+$_LANG['SAVE_CHANGES'] = 'Gem ændringer';
+$_LANG['CHANGE_USERNAME'] = 'Skift brugernavn';
+$_LANG['CHANGE_PASSWORD'] = 'Skift kodeord';
+$_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY'] = 'Ændringerne er blevet gemt';
+$_LANG['USERNAME_HAS_BEEN_CHANGED_SUCCESSFULLY'] = 'Brugernavnet er blevet skiftet';
+$_LANG['PASSWORD_HAS_BEEN_CHANGED_SUCCESSFULLY'] = 'Kodeordet er blevet skiftet';
+$_LANG['CURRENT_PASSWORD_INCORRECT'] = 'Nuværende kodeord er forkert';
+$_LANG['INSTALL'] = 'Installer ';
+$_LANG['UNINSTALL'] = 'Afinstaller';
+$_LANG['CONFIGURE'] = 'Konfigurer';
+$_LANG['CREATED_BY'] = 'Fremstillet af';
+$_LANG['CATEGORY_HAS_ONE_OR_MORE_POST'] = 'Kategorien har et eller flere indlæg. Den kan ikke slettes før den er tom.';
+$_LANG['AT_LEAST_ONE_CATEGORY'] = 'Denne kategori kan ikke slettes fordi du skal have mindst en kategori.';
+$_LANG['ARE_YOU_SURE'] = 'Er du sikker?';
+$_LANG['VIEW'] = 'Se';
+$_LANG['EDIT'] = 'Rediger';
+$_LANG['TIMESTAMP_FORMAT'] = 'Datoformat';
+$_LANG['SELECT_A_TIMEZONE_FOR_A_CORRECT_DATE_VISUALIZATION'] = 'Vælg en tidszone for korrekt dato visning.';
+$_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_PER_PAGE'] = 'Antal indlæg du vil se per side.';
+$_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_ON_RSS'] = 'Antal indlæg der skal vises i RSS.';
+$_LANG['ADVANCED_OPTIONS_WHEN_PUBLISHING_CONTENT'] = 'Avancerede indstillinger under udgivelse.';
+$_LANG['ADMINISTRATORS_USERNAME'] = 'Administrators brugernavn.';
+$_LANG['DO_NOT_FORGET_THIS_PASSWORD'] = 'Glem ikke dette kodeord.';
+$_LANG['NEW_SESSION_STARTED'] = 'Ny session startet';
+$_LANG['DATE'] = 'Dato';
+$_LANG['LAST_SESSIONS'] = 'Seneste sessioner';
+$_LANG['DASHBOARD'] = 'Betjeningspanel';
+$_LANG['VIEW_BLOG'] = 'Se blog';
+$_LANG['LOGOUT'] = 'Log ud';
+$_LANG['POSTS'] = 'Indlæg';
+$_LANG['SIMPLE'] = 'Simpel';
+$_LANG['VIDEO'] = 'Video';
+$_LANG['QUOTE'] = 'Citat';
+$_LANG['POSTING_WITH_RICH_FORMATTING'] = 'Indlæg med rig formatering';
+$_LANG['AN_EASY_WAY_TO_PUBLISH_VIDEOS'] = 'En nem måde at udgive videoer';
+$_LANG['AN_EASY_WAY_TO_PUBLISH_QUOTES'] = 'En nem måde at udgive citater';
+$_LANG['NEW_SIMPLE_POST'] = 'Ny simpelt indlæg';
+$_LANG['NEW_VIDEO_POST'] = 'Nyt video indlæg';
+$_LANG['NEW_QUOTE_POST'] = 'Nyt citat indlæg';
+$_LANG['MANAGE_POSTS'] = 'Administrer indlæg';
+$_LANG['SETTINGS'] = 'Indstillinger';
+$_LANG['GENERAL_SETTINGS'] = 'Generelle indstillinger';
+$_LANG['ADVANCED_SETTINGS'] = 'Avancerede indstillinger';
+$_LANG['MANAGE_CATEGORIES'] = 'Administrer kategorier';
+$_LANG['USERNAME_AND_PASSWORD'] = 'Brugernavn og adgangskode';
+$_LANG['MANAGE_PLUGINS'] = 'Adminisrer tilføjelser';
+$_LANG['PLUGINS'] = 'Tilføjelser';
+$_LANG['EDIT_POST'] = 'Rediger indlæg';
+$_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA'] = 'Log ind på Nibbleblog administration';
+$_LANG['POST_HAS_BEEN_PUBLISHED_SUCCESSFULLY'] = 'Indlægget er blevet udgivet';
+$_LANG['PLEASE_ENABLE_JAVASCRIPT_IN_YOUR_BROWSER'] = 'Aktiver JavaScript i din browser';
+$_LANG['INSTALLATION_COMPLETE'] = 'Installationen er færdig';
+$_LANG['DEPENDENCIES'] = 'Afhængigheder';
+$_LANG['PHP_VERSION'] = 'PHP version';
+$_LANG['PASS'] = 'Lykkedes';
+$_LANG['FAIL'] = 'Fejl';
+$_LANG['PHP_MODULE'] = 'PHP modul';
+$_LANG['CONFIGURATION'] = 'Konfiguration';
+$_LANG['EXPERT_MODE'] = 'Expert tilstand';
+$_LANG['ADMINISTRATOR_USERNAME'] = 'Administrator brugernavn';
+$_LANG['ADMINISTRATOR_PASSWORD'] = 'Administrator kodeord';
+$_LANG['ADMINISTRATOR_EMAIL'] = 'Administrator e-mail';
+$_LANG['WELCOME_TO_NIBBLEBLOG'] = 'Velkommen til Nibbleblog';
+$_LANG['CHOOSE_YOUR_LANGUAGE'] = 'Vælg dit sprog';
+$_LANG['WRITING_TEST_ON_CONTENT_DIRECTORY'] = 'Skrivetest på "content" mappen';
+$_LANG['INSTALLATION_LINE1'] = 'Tillykke!';
+$_LANG['INSTALLATION_LINE2'] = 'Din Nibbleblog installation er færdig.';
+$_LANG['INSTALLATION_LINE3'] = 'For at adminisrere din blog skal du gå til følgende adresse';
+$_LANG['INSTALLATION_LINE4'] = 'eller besøg din nye blog';
+$_LANG['INSTALLATION_LINE5'] = 'Besøg forummet hvis du har brug for hjælp';
+$_LANG['WELCOME_POST_TITLE'] = 'Velkommen til Nibbleblog';
+
+$_LANG['WELCOME_POST_LINE1'] = 'Tillykke. Din blog er nu installeret og klar til brug.';
+$_LANG['WELCOME_POST_LINE2'] = 'Gå i gang med at udgive fra dit betjeningspanel {{DASHBOARD_LINK}}';
+$_LANG['WELCOME_POST_LINE3'] = 'Følg os på sociale medier {{FACEBOOK_LINK}}, {{TWITTER_LINK}} og {{GOOGLEPLUS_LINK}}.';
+
+$_LANG['ENABLE_FRIENDLY_URLS'] = 'Aktiver pæne links';
+$_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = 'Kopier dette til filen ".htaccess". Filen skal være i roden på dit domæne. Serveren skal have installeret og konfigureret modulerne for at bruge denne egenskab.';
+$_LANG['INSERT_PICTURE'] = 'Indsæt billede';
+$_LANG['PERMALINK'] = 'Permalink';
+$_LANG['FRIENDLY_URLS'] = 'Pæne links';
+$_LANG['UPLOADING'] = 'Uploader';
+$_LANG['READ_MORE'] = 'Læs mere';
+$_LANG['AUTHOR'] = 'Forfatter';
+$_LANG['THE_PLUGIN_IS_INSTALLED_CORRECTLY'] = 'Tilføjelsen blev installeret. Den vil fremgå af din blog hvis dit tema understøtter den.';
+$_LANG['SHORT_DESCRIPTION_NO_MORE_THAN'] = 'Kort beskrivelse. Ikke mere end 150 tegn.';
+$_LANG['NEW_COMMENT'] = 'Ny kommentar';
+$_LANG['REGIONAL_SETTINGS'] = 'Regionale indstillinger';
+$_LANG['LOCALE'] = 'Lokalitet';
+$_LANG['THIS_FIELD_IS_SET_EACH_TIME_YOU_CHANGE_THE_LANGUAGE_OF_THE_BLOG'] = 'Dette felt bliver sat hver gang du skifter sproget på din blog. Hvis det er nødvendigt kan du ændre dette til noget mere passende. Bemærk, at de indstillinger, du indtaster, skal være understøttet af din server.';
+$_LANG['UNCATEGORIZED'] = 'Ukategoriseret';
+$_LANG['MUSIC'] = 'Musik';
+$_LANG['VIDEOS'] = 'Videoer';
+$_LANG['POWERED_BY_NIBBLEBLOG'] = 'Drevet af Nibbleblog';
+$_LANG['CUSTOM'] = 'Brugerdefineret';
+$_LANG['SELECT_A_FORMAT_FOR_DISPLAYING_THE_DATES'] = 'Vælg et format til visning af datoer eller brugerdefineret indstilling, så du kan oprette din egen.';
+$_LANG['ENABLE_WYSIWYG_EDITOR'] = 'Aktiver WYSIWYG redigering';
+$_LANG['ENABLE_OR_DISABLE_THE_WYSIWYG_EDITOR'] = 'Aktiver eller deaktiver WYSIWYG redigering';
+$_LANG['IMAGE_SETTINGS'] = 'Billedindstillinger';
+$_LANG['AUTOMATIC_IMAGE_RESIZING'] = 'Automatisk billedeskalering';
+$_LANG['THUMBNAILS'] = 'Miniaturer';
+$_LANG['ENABLE_AUTOMATIC_IMAGE_RESIZING'] = 'Aktiver automatisk billedeskalering';
+$_LANG['ENABLE_THUMBNAILS'] = 'Aktiver miniaturer';
+$_LANG['WIDTH'] = 'Bredde';
+$_LANG['HEIGHT'] = 'Højde';
+$_LANG['OPTION'] = 'Egenskab';
+$_LANG['THIS_OPTION_AUTOMATICALLY_CHANGES_THE_IMAGE'] = 'Denne indstilling ændrer automatisk billedstørrelsen efter upload.';
+$_LANG['ENABLE_THIS_OPTION_IF_YOU_WANT_TO_GENERATE'] = 'Aktivér dette hvis du ønsker at generere et miniaturebillede, når du uploader et billede.';
+$_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS'] = 'Der er ikke nogle kommentarer.';
+$_LANG['THERE_ARE_NO_DRAFT_POSTS'] = 'Der er ikke nogle kladde-indlæg.';
+$_LANG['AUTOMATIC'] = 'Automatisk';
+$_LANG['EXACT'] = 'Præcis';
+$_LANG['PORTRAIT'] = 'Portræt';
+$_LANG['LANDSCAPE'] = 'Landskab';
+$_LANG['CROP'] = 'Beskær';
+$_LANG['YOU_CAN_USE_HTML_OR_MARKDOWN_SYNTAX'] = 'Du kan bruge HTML eller Markdown syntax';
+$_LANG['DRAFT'] = 'Kladde';
+$_LANG['YOU_HAVE_A_NEW_COMMENT'] = 'Du har en ny kommentar';
+$_LANG['LOGIN_FAILED_ATTEMPT'] = 'Fejlet login forsøg';
+$_LANG['NOTIFICATIONS'] = 'Meddelelser';
+$_LANG['PREVIEW'] = 'Forhåndsvisning';
+$_LANG['PLEASE_COMPLETE_ALL_FIELDS'] = 'Udfyld alle felter';
+$_LANG['THERE_ARE_NO_POSTS'] = 'Der er ikke nogle indlæg';
+$_LANG['BACK_TO_BLOG'] = 'Tilbage til blog';
+$_LANG['LOW_DETECTION_LEVEL'] = 'Lav tærskel';
+$_LANG['MEDIUM_DETECTION_LEVEL'] = 'Medium tærskel';
+$_LANG['HIGH_DETECTION_LEVEL'] = 'Høj tærskel';
+$_LANG['SPAM_CONTROL'] = 'Spam kontrol';
+$_LANG['DISAPPROVE'] = 'Afvise';
+$_LANG['APPROVE_SPAM_DETECTED'] = 'Godkend (Spam detekteret)';
+$_LANG['APPROVE'] = 'Godkend';
+$_LANG['API_KEY'] = 'API nøgle';
+$_LANG['INSERT_THE_API_KEY_HERE'] = 'Indtast API nøglen her. Hvis du ikke har en endnu, eller ikke er bekendt med denne funktion, kan du tjekke det næste link.';
+$_LANG['SPAM_MONITOR'] = 'Spam overvågning';
+$_LANG['ENABLE_COMMENTS_BY_DEFAULT'] = 'Aktiver denne funktion for at tillade kommentarer som standard';
+$_LANG['ENABLE_THIS_FEATURE_TO_PROTECT_AGAINST_XSS'] = 'Aktiver denne funktion for at beskytte mod cross-site scripting (XSS) angreb ved at sterilisere enhver HTML-kode.';
+$_LANG['ENABLE_THIS_FEATURE_TO_MODERATE_COMMENTS'] = 'Aktiver denne funktion til at moderere kommentarer, før de bliver offentliggjort.';
+$_LANG['ENABLE_THIS_FEATURE_TO_PROTECT_YOUR_COMMENTS'] = 'Aktiver denne funktion for at beskytte dine kommentarer mod spam.';
+$_LANG['ENABLE_THIS_FEATURE_TO_DELETE_SPAM_AUTO'] = 'Aktiver denne funktion for at slette spam automatisk.';
+$_LANG['COMMENTS_DETECTED_AS_SPAM_WILL_BE_FILTERED'] = 'Kommentarer detekteret som spam, vil blive filtreret.';
+$_LANG['NOTIFY_WHEN_A_USER_MAKES_A_COMMENT'] = 'Giv besked, når en bruger opretter en kommentar.';
+$_LANG['NOTIFY_WHEN_A_USER_FAILS_TO_LOGIN'] = 'Giv besked, når en brugers login mislykkes.';
+$_LANG['NOTIFY_WHEN_A_USER_SUCCESSES_LOGIN'] = 'Giv besked når en bruger logger ind.';
+$_LANG['NOTIFICATIONS_WILL_BE_SENT_TO_THIS_EMAIL'] = 'Meddelelser sendes til denne email.';
+$_LANG['NOTIFICATIONS_WILL_BE_SENT_FROM_THIS_EMAIL'] = 'Meddelelser bliver sendt fra denne email.';
+$_LANG['EMAIL_ACCOUNTS_SETTINGS'] = 'Email kontoindstillinger';
+$_LANG['NOTIFY_ME_FROM'] = 'Giv mig besked fra';
+$_LANG['NOTIFY_ME_TO'] = 'Giv mig besked til';
+$_LANG['NOTIFICATIONS_VIA_EMAIL'] = 'Meddelelser via email';
+$_LANG['YOUR_COMMENT_IS_UNDER_REVIEW_IT_WILL_BE'] = 'Din kommentar er under revision, den vil blive offentliggjort inden længe';
+$_LANG['COMMENTS_ENABLED'] = 'Aktiver kommentarer som standard';
+$_LANG['SANITIZE_HTML_CODE'] = 'Steriliser HTML kode';
+$_LANG['MODERATE_COMMENTS'] = 'Moderer kommentarer';
+$_LANG['ENABLE_SPAM_MONITOR'] = 'Aktiver spam kontrol';
+$_LANG['AUTOMATICALLY_DELETE_SPAM'] = 'Slet spam automatisk';
+$_LANG['COMMENT_SETTINGS'] = 'Kommentar indstillinger';
+$_LANG['MANAGE_COMMENTS'] = 'Administrer kommentarer';
+$_LANG['BASIC_CONFIGURATION_OF_YOUR_BLOG'] = 'Simple indstillinger for din blog';
+$_LANG['SIMPLE_POST'] = 'Simpelt indlæg';
+$_LANG['VIDEO_POST'] = 'Video indlæg';
+$_LANG['QUOTE_POST'] = 'Citat indlæg';
+$_LANG['CATEGORIES'] = 'Kategorier';
+$_LANG['TAGS'] = 'Mærkater';
+$_LANG['LINK'] = 'Link';
+$_LANG['KEYWORDS'] = 'Nøgleord';
+$_LANG['MANAGE'] = 'Administrer';
+$_LANG['404_PAGE_NOT_FOUND'] = 'Siden du leder efter eksisterer ikke.';
+$_LANG['NO_TITLE'] = 'Ingen titel';
+$_LANG['TITLE'] = 'Titel';
+$_LANG['TYPE'] = 'Type';
+$_LANG['CATEGORY'] = 'Kategori';
+$_LANG['PUBLISH_DATE'] = 'Udgivelsesdato';
+$_LANG['LAST_MODIFIED'] = 'Sidst ændret';
+$_LANG['COMMENT'] = 'Kommenter';
+$_LANG['POST'] = 'Indlæg';
+$_LANG['SLUG'] = 'Slug';
+$_LANG['SITE'] = 'Side';
+$_LANG['SITE_TITLE'] = 'Sidens titel';
+$_LANG['SITE_DESCRIPTION'] = 'Beskrivelse af siden';
+$_LANG['TAGS_SEPARATED_BY_COMMA'] = 'Mærkater adskilt med komma.';
+$_LANG['KEYWORDS_SEPARATED_BY_COMMA'] = 'Nøgleord adskilt med komma.';
+$_LANG['ROBOTS'] = 'Robotter';
+$_LANG['WEBMASTER_TOOLS'] = 'Webmaster værktøjer';
+$_LANG['GOOGLE_WEBMASTER_TOOLS'] = 'Google Webmaster værktøjer - Verifikationskode';
+$_LANG['BING_WEBMASTER_TOOLS'] = 'Bing Webmaster værktøjer - Verifikationskode';
+$_LANG['SEO_OPTIONS'] = 'SEO indstillinger';
+$_LANG['SHARE'] = 'Del';
+$_LANG['ALLOW_COMMENTS_ON_THIS_POST'] = 'Tillad kommentarer på dette indlæg.';
+$_LANG['MULTIPLE_DIRECTIVES_MAY_BE_COMBINED_IN'] = 'Flere direktiver kan kombineres som komma-separeret. Eksempel: nofollow, noindex, noarchive.';
+$_LANG['DRAFT_POSTS'] = 'Kladde indlæg';
+$_LANG['POSITION'] = 'Position';
+
+$_LANG['UPLOAD_A_NEW_IMAGE'] = 'Upload et nyt billede';
+$_LANG['OR'] = 'eller';
+$_LANG['SELECT_AN_IMAGE_FROM_YOUR_BAG'] = 'Vælg et eksisterende billede';
+
+$_LANG['THERE_IS_A_NEW_VERSION'] = 'Der er en ny version af Nibbleblog tilgængelig';
+$_LANG['VERSION'] = 'Version';
+$_LANG['RELEASE_DATE'] = 'Udgivelsesdato';
+
+$_LANG['NEW_PAGE'] = 'Ny side';
+$_LANG['SET_AS_HOMEPAGE'] = 'Sæt som forside';
+$_LANG['THERE_IS_A_PAGE_AS_HOMEPAGE'] = 'Der er sat en side som forside. Klik her for at fjerne den.';
+$_LANG['MANAGE_PAGES'] = 'Administrer sider';
+$_LANG['PAGE'] = 'Side';
+$_LANG['PAGES'] = 'Sider';
+$_LANG['PAGE_HAS_BEEN_PUBLISHED_SUCCESSFULLY'] = 'Siden er nu udgivet';
+$_LANG['THERE_ARE_NO_PAGES'] = 'Der er ingen sider.';
+$_LANG['HOME'] = 'Hjem';
+$_LANG['REQUEST_NEW_PASSWORD'] = 'Efterspørg nyt kodeord';
+
+$_LANG['NEW_POST'] = 'Nyt indlæg';
+$_LANG['QUICK_START'] = 'Hurtig start';
+$_LANG['QUALITY'] = 'Kvalitet';
+$_LANG['NOTES'] = 'Noter';
+$_LANG['WEBSITE'] = 'Hjemmeside';
+$_LANG['COMPLETE_THIS_FIELD_IF_YOU_WANT_USE_DISQUS'] = 'Udfyld dette felt, hvis du vil bruge Disqus kommentarer på din blog. Denne funktion afhænger af temaet. Hvis du har brug for mere information om dette, kan du tjekke det næste link.';
+$_LANG['COMPLETE_THIS_FIELD_IF_YOU_WANT_USE_FACEBOOK_COMMENTS'] = 'Udfyld dette felt, hvis du vil bruge Facebook-kommentarer på din blog. Denne funktion afhænger af temaet. Hvis du har brug for mere information om dette, kan du tjekke det næste link.';
+
+$_LANG['WE_ARE_SENT_YOU_AN_EMAIL'] = 'Vi har sendt dig en email. Kig i din spam-mappe for en sikkerheds skyld.';
+$_LANG['AN_ERROR_OCURRED_WHILE'] = 'der opstod en fejl under afsendelse af email.';
+
+$_LANG['EMAIL_NOTIFICATION_FAIL_LOGIN'] = '
+<p>Dette er en besked fra din blog {{BLOG_NAME}}</p>
+<p>Nogen har forsøgt at logge ind med brugeren: {{USERNAME}} og kodeordet: {{PASSWORD}}</p>
+<p>De brugte IP-adressen {{IP}}.</p>
+';
+
+$_LANG['EMAIL_NOTIFICATION_SESSION_STARTED'] = '
+<p>Dette er en besked fra din blog {{BLOG_NAME}}</p>
+<p>Succesfuld tilslutning til betjeningspanelet med brugernavn: {{USERNAME}}</p>
+<p>De brugte IP-adressen {{IP}}.</p>
+';
+
+$_LANG['EMAIL_NOTIFICATION_NEW_COMMENT'] = '
+<p>Dette er en besked fra din blog {{BLOG_NAME}}</p>
+<p>Der er en ny kommentar på din blog.</p>
+<p>{{COMMENT}}</p>
+<p>Forfatter: {{AUTHOR_NAME}}</p>
+<p>Email: {{AUTHOR_EMAIL}}</p>
+<p>IP: {{IP}}</p>
+';
+
+$_LANG['EMAIL_NOTIFICATION_FORGOT_PASSWORD'] = '
+<p>Dette er en besked fra din blog {{BLOG_NAME}}</p>
+<p>Har du glemt dit kodeord? Intet problem!</p>
+<p>Følg linket: {{FORGOT_LINK}}</p>
+';
+
+$_LANG['REGIONAL'] = 'Regionalt';
+$_LANG['INSERT_IMAGE_FROM_URL'] = 'Indsæt billede fra link';
+
+$_LANG['BLUDIT_SYNC'] = 'Bludit Sync';
+$_LANG['NIBBLEBLOG_URL_SYNC'] = 'Nibbleblog URL Sync';
+$_LANG['NIBBLEBLOG_KEY_SYNC'] = 'Nibbleblog Key Sync';
+
+$_LANG['CATEGORY_NAME'] = 'Kategori navn';
+$_LANG['CATEGORY_SLUG'] = 'Kategori slug';
+
+$_LANG['INSTALLED_PLUGINS'] = 'Installerede tilføjelser';
+$_LANG['PLUGINS_AVAILABLE_FOR_INSTALL'] = 'Tilføjelser til rådighed for installation';
+
+$_LANG['ABSOLUTE_URL_ADDRESS_OF_YOUR_BLOG'] = 'Absolute URL address of your blog. Example http://www.domain.com/directory/';
+$_LANG['ABSOLUTE_ADDRESS_THAT_CONTAINS_THE_BLOGS_FILE_SYSTEM'] = 'Absolute address that contains the blog\'s file system, if you upload the content of Nibbleblog to your root you should only put a "/", and if you upload it into another directory then it should be "/directory/".';
+
+$_LANG['COVER_ATTRIBUTE'] = 'Cover egenskab';
+
+?>

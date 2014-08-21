@@ -1,0 +1,8 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'NAME'=>'Twitter kort',
+	'DESCRIPTION'=>'Twitter-kort gør det muligt for dig at vedhæfte medieindhold til tweets, der linker til dit indhold.'
+);
+
+?>

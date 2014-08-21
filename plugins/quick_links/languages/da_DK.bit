@@ -1,0 +1,13 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'NAME'=>'Korte links',
+	'DESCRIPTION'=>'Hurtig adgang til betjeningspanelet.',
+	'HOME'=>'Hjem',
+	'DASHBOARD'=>'Betjeningspanel',
+	'NEW_SIMPLE_POST'=>'Nyt simpelt indlæg',
+	'NEW_VIDEO_POST'=>'Nyt video indlæg',
+	'NEW_QUOTE_POST'=>'Nyt citat indlæg'
+);
+
+?>
