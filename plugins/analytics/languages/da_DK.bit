@@ -1,0 +1,9 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'NAME'=>'Google Analytics',
+	'DESCRIPTION'=>'Tilføj Google Analytics til din blog for at se hvordan dine besøgende interagerer med din side. Du skal bruge en Google Analytics konto for at bruge denne tilføjelse.',
+	'GOOGLE_ANALYTICS_ID'=>'Google Analytics ID'
+);
+
+?>

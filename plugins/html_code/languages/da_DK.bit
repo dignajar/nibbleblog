@@ -1,0 +1,9 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'NAME'=>'HTML kode',
+	'DESCRIPTION'=>'Denne tilføjelse gør det muligt at indlejre HTML kode i din blog.',
+	'HTML_CODE'=>'HTML kode'
+);
+
+?>

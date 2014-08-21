@@ -1,0 +1,9 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'NAME'=>'Mit billede',
+	'DESCRIPTION'=>'Vis et billede',
+	'CAPTION'=>'Billedtekst'
+);
+
+?>

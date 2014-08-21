@@ -1,0 +1,10 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'NAME'=>'Tag sky',
+	'DESCRIPTION'=>'Denne tilføjelse genererer en sky af dine tags, så besøgende kan filtrere indlæg efter tags.',
+	'MIN_SIZE_IN_PX'=>'Mindste størrelse for det mindst vigtige tag i pixels',
+	'MAX_SIZE_IN_PX'=>'Støreste størrelse for det vigtigste tag i pixels'
+);
+
+?>

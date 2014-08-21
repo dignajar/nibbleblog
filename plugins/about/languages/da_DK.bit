@@ -1,0 +1,12 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'NAME'=>'Om',
+	'DESCRIPTION'=>'Skriv en kort beskrivelse af din blog eller dig selv.',
+	'FULL_NAME'=>'Fulde navn',
+	'ABOUT'=>'Om',
+	'PICTURE'=>'Billede',
+	'SUPPORT_JPG_AND_PNG_IMAGES'=>'Understøtter JPG and PNG images. Billedet bliver skaleret til 200x200px.'
+);
+
+?>
