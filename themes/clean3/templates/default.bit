@@ -33,7 +33,7 @@
 		<a class="name" href="<?php echo Blog::url() ?>">
 		<?php
 			echo Blog::name();
-			echo !empty(Blog::slogan())?' :: '.Blog::slogan():false;
+			echo Blog::slogan()?' :: '.Blog::slogan():false;
 		?>
 		</a>
 	</header>
