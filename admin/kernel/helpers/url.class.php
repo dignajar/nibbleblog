@@ -89,6 +89,20 @@ class Url {
 		}
 	}
 
+	public static function sitemap()
+	{
+		global $settings;
+
+		if($settings['friendly_urls'])
+		{
+			return BLOG_URL.'sitemap';
+		}
+		else
+		{
+			return BLOG_URL.'sitemap.php';
+		}
+	}
+	
 }
 
 ?>
