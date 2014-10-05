@@ -237,6 +237,7 @@ $_LANG['CATEGORIES'] = 'Категории';
 $_LANG['TAGS'] = 'Теги';
 $_LANG['KEYWORDS'] = 'Ключевые слова';
 $_LANG['MANAGE'] = 'Управление';
+$_LANG['404_TITLE'] = 'Page not found';
 $_LANG['404_PAGE_NOT_FOUND'] = 'К сожалению, страница, которую вы ищете, не существует.';
 $_LANG['HOME'] = 'Главная';
 $_LANG['NO_TITLE'] = 'Без названия';
