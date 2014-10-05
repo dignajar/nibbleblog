@@ -1,13 +1,13 @@
 <?php
 
 // Disqus and Facebook comments
-if( !empty($theme['disqus_account']) )
+if( $Comment->disqus_enabled() )
 {
-	include('includes/comments_disqus.bit');
+	include('disqus_comments.bit');
 }
-elseif( !empty($theme['facebook_appId']) )
+elseif( $Comment->facebook_enabled() )
 {
-	include('includes/comments_facebook.bit');
+	include('facebook_comments.bit');
 }
 
 // There are no posts
