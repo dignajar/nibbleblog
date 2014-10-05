@@ -220,6 +220,7 @@ $_LANG['TAGS'] = 'Etiquetes';
 $_LANG['LINK'] = 'Enllaç';
 $_LANG['KEYWORDS'] = 'Paraules clau';
 $_LANG['MANAGE'] = 'Gestionar';
+$_LANG['404_TITLE'] = 'Page not found';
 $_LANG['404_PAGE_NOT_FOUND'] = 'Ho sentim, la pàgina que estaves buscant no existeix.';
 $_LANG['NO_TITLE'] = 'Sense títol';
 $_LANG['TITLE'] = 'Títol';
