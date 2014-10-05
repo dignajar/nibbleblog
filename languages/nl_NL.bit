@@ -220,6 +220,7 @@ $_LANG['CATEGORIES'] = 'Categorieën';
 $_LANG['TAGS'] = 'Label';
 $_LANG['KEYWORDS'] = 'Keywords';
 $_LANG['MANAGE'] = 'Beheren';
+$_LANG['404_TITLE'] = 'Page not found';
 $_LANG['404_PAGE_NOT_FOUND'] = 'Sorry, de pagina die u zocht bestaat niet.';
 $_LANG['HOME'] = 'Home';
 $_LANG['NO_TITLE'] = 'Geen titel';
