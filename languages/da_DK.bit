@@ -224,6 +224,7 @@ $_LANG['TAGS'] = 'Mærkater';
 $_LANG['LINK'] = 'Link';
 $_LANG['KEYWORDS'] = 'Nøgleord';
 $_LANG['MANAGE'] = 'Administrer';
+$_LANG['404_TITLE'] = 'Page not found';
 $_LANG['404_PAGE_NOT_FOUND'] = 'Siden du leder efter eksisterer ikke.';
 $_LANG['NO_TITLE'] = 'Ingen titel';
 $_LANG['TITLE'] = 'Titel';
