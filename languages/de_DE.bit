@@ -220,6 +220,7 @@ $_LANG['CATEGORIES'] = 'Kategorien';
 $_LANG['TAGS'] = 'Tags';
 $_LANG['KEYWORDS'] = 'Keywords';
 $_LANG['MANAGE'] = 'Verwalten';
+$_LANG['404_TITLE'] = 'Page not found';
 $_LANG['404_PAGE_NOT_FOUND'] = 'Die gesuchte Seite existiert leider nicht.';
 $_LANG['HOME'] = 'Startseite';
 $_LANG['NO_TITLE'] = 'Kein Titel';

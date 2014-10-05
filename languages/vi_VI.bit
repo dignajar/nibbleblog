@@ -220,6 +220,7 @@ $_LANG['CATEGORIES'] = 'Chuyên mục';
 $_LANG['TAGS'] = 'Thẻ';
 $_LANG['KEYWORDS'] = 'Từ khóa';
 $_LANG['MANAGE'] = 'Quản lý';
+$_LANG['404_TITLE'] = 'Page not found';
 $_LANG['404_PAGE_NOT_FOUND'] = 'Không tồn tại trang này.';
 $_LANG['HOME'] = 'Trang chủ';
 $_LANG['NO_TITLE'] = 'Không có tiêu đề';

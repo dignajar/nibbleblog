@@ -220,6 +220,7 @@ $_LANG['CATEGORIES'] = '分类';
 $_LANG['TAGS'] = '标签';
 $_LANG['KEYWORDS'] = '关键字';
 $_LANG['MANAGE'] = '管理';
+$_LANG['404_TITLE'] = 'Page not found';
 $_LANG['404_PAGE_NOT_FOUND'] = '抱歉，您访问的页面不存在';
 $_LANG['HOME'] = '主页';
 $_LANG['NO_TITLE'] = '无标题';

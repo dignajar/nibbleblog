@@ -224,6 +224,7 @@ $_LANG['TAGS'] = 'Tags';
 $_LANG['LINK'] = 'Link';
 $_LANG['KEYWORDS'] = 'Keywords';
 $_LANG['MANAGE'] = 'Manage';
+$_LANG['404_TITLE'] = 'Page not found';
 $_LANG['404_PAGE_NOT_FOUND'] = 'Sorry, the page you were looking for doesn’t exist.';
 $_LANG['NO_TITLE'] = 'No title';
 $_LANG['TITLE'] = 'Title';
