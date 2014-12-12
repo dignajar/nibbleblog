@@ -1,0 +1,329 @@
+<?php
+
+$_LANG_CONFIG['DATA'] = array(
+	'native'=>'日本語',
+	'english'=>'Japanese',
+	'last_update'=>'12/12/2014',
+	'author'=>'Jun NOGATA',
+	'email'=>'nogajun@gmail.com',
+	'url'=>'http://www.nofuture.tv'
+);
+
+$_LANG['LAST_COMMENTS'] = '最終コメント';
+$_LANG['THEME'] = 'テーマ';
+$_LANG['THEMES'] = 'テーマ';
+$_LANG['CHANGE_THEME'] = 'テーマ変更';
+$_LANG['SELECT_THEME'] = 'テーマを選択';
+$_LANG['REMEMBER_ME'] = 'ログイン状態を保存する';
+$_LANG['USERNAME'] = 'ユーザー名';
+$_LANG['PASSWORD'] = 'パスワード';
+$_LANG['COMMENTS'] = 'コメント';
+$_LANG['INVALID_CAPTCHA'] = '無効なCaptcha';
+$_LANG['NAME'] = '名前';
+$_LANG['EMAIL'] = 'Eメール';
+$_LANG['TYPE_THE_COMMENT_HERE'] = 'コメントを入力';
+$_LANG['COPY_THE_TEXT_ON_THE_RIGHT'] = '右側のテキストをコピー';
+$_LANG['NEWER_POSTS'] = '新しい記事';
+$_LANG['OLDER_POSTS'] = '古い記事';
+$_LANG['FORGOT_PASSWORD'] = 'パスワードを忘れた';
+$_LANG['INCORRECT_USERNAME_OR_PASSWORD'] = 'ユーザー名またはパスワードが間違っています';
+$_LANG['LOGIN'] = 'ログイン';
+$_LANG['NEW_CATEGORY'] = '新規カテゴリー';
+$_LANG['ENTER_THE_NAME_OF_THE_NEW_CATEGORY'] = 'カテゴリー名を入力してください';
+$_LANG['ADD_CATEGORY'] = 'カテゴリーを追加';
+$_LANG['CATEGORIES_IN_YOUR_BLOG'] = 'ブログカテゴリーの一覧';
+$_LANG['DELETE'] = '削除';
+$_LANG['ENTER_TITLE_HERE'] = 'タイトルを入力してください';
+$_LANG['SELECT_A_CATEGORY'] = 'カテゴリーを選択';
+$_LANG['ALLOW_COMMENTS'] = 'コメントを許可';
+$_LANG['ALLOW_YOUR_USERS_TO_COMMENT_YOUR_PUBLICATIONS'] = 'ユーザーが投稿にコメントすることを許可します。';
+$_LANG['STICKY_POST'] = '固定された投稿';
+$_LANG['SELECT_THIS_OPTION_IF_YOU_WANT_TO_HIGHLIGHT_YOUR_PUBLICATION'] = '投稿を強調したい場合は、このオプションを選択';
+$_LANG['PUBLISH'] = '投稿';
+$_LANG['GET_VIDEO_INFORMATION'] = '動画情報を取得';
+$_LANG['VIDEO_URL'] = '動画URL';
+$_LANG['LOADING'] = 'ロード中';
+$_LANG['VIDEO_INFORMATION'] = '動画について';
+$_LANG['ENTER_QUOTE_HERE'] = '引用文を入力してください';
+$_LANG['TIMEZONE'] = 'タイムゾーン';
+$_LANG['BLOG_ADDRESS'] = 'ブログのアドレス (URL)';
+$_LANG['BLOG_BASE_PATH'] = 'ブログのベースパス';
+$_LANG['POSTS_PER_PAGE'] = 'ページあたりの投稿表示数';
+$_LANG['RSS_ITEMS'] = 'RSSアイテム数';
+$_LANG['ADVANCED_OPTIONS_FOR_POST'] = '投稿の詳細設定を有効にする';
+$_LANG['BLOG_TITLE'] = 'タイトル';
+$_LANG['BLOG_SLOGAN'] = 'スローガン';
+$_LANG['ABOUT_YOUR_BLOG'] = 'ブログについて';
+$_LANG['FOOTER_TEXT'] = 'フッターテキスト';
+$_LANG['LANGUAGE'] = '言語';
+$_LANG['CURRENT_PASSWORD'] = '現在のパスワード';
+$_LANG['NEW_PASSWORD'] = '新しいパスワード';
+$_LANG['SAVE_CHANGES'] = '変更を保存';
+$_LANG['CHANGE_USERNAME'] = 'ユーザー名の変更';
+$_LANG['CHANGE_PASSWORD'] = 'パスワードの変更';
+$_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY'] = '変更を保存しました';
+$_LANG['USERNAME_HAS_BEEN_CHANGED_SUCCESSFULLY'] = 'ユーザー名を保存しました';
+$_LANG['PASSWORD_HAS_BEEN_CHANGED_SUCCESSFULLY'] = 'パスワードを保存しました';
+$_LANG['CURRENT_PASSWORD_INCORRECT'] = '現在のパスワードが間違っています';
+$_LANG['INSTALL'] = 'インストール';
+$_LANG['UNINSTALL'] = 'アンインストール';
+$_LANG['CONFIGURE'] = '設定';
+$_LANG['CREATED_BY'] = 'Created by';
+$_LANG['CATEGORY_HAS_ONE_OR_MORE_POST'] = 'カテゴリーは投稿に使用されています。カテゴリの使用を止めるまで削除できません。';
+$_LANG['AT_LEAST_ONE_CATEGORY'] = '削除できません。カテゴリーは1つ以上必要です。';
+$_LANG['ARE_YOU_SURE'] = 'よろしいですか?';
+$_LANG['VIEW'] = '表示';
+$_LANG['EDIT'] = '編集';
+$_LANG['TIMESTAMP_FORMAT'] = 'タイムスタンプ書式';
+$_LANG['SELECT_A_TIMEZONE_FOR_A_CORRECT_DATE_VISUALIZATION'] = '日付を正しく表示するためのタイムゾーンを選択します。 例: Asia/Tokyo';
+$_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_PER_PAGE'] = 'ページごとに表示する投稿数を設定します。';
+$_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_ON_RSS'] = 'RSSで配信する投稿数を設定します。';
+$_LANG['ADVANCED_OPTIONS_WHEN_PUBLISHING_CONTENT'] = 'コンテンツを投稿する際の詳細設定を有効にします。';
+$_LANG['ADMINISTRATORS_USERNAME'] = '管理者のユーザー名を入力します。';
+$_LANG['DO_NOT_FORGET_THIS_PASSWORD'] = 'このパスワードを忘れないようにしてください。';
+$_LANG['NEW_SESSION_STARTED'] = '新規セッションを開始';
+$_LANG['DATE'] = '日付';
+$_LANG['LAST_SESSIONS'] = '最終セッション';
+$_LANG['DASHBOARD'] = 'ダッシュボード';
+$_LANG['VIEW_BLOG'] = 'ブログを表示';
+$_LANG['LOGOUT'] = 'ログアウト';
+$_LANG['POSTS'] = '投稿';
+$_LANG['SIMPLE'] = '投稿';
+$_LANG['VIDEO'] = '動画';
+$_LANG['QUOTE'] = '引用';
+$_LANG['POSTING_WITH_RICH_FORMATTING'] = 'リッチフォーマットで投稿';
+$_LANG['AN_EASY_WAY_TO_PUBLISH_VIDEOS'] = '簡単にビデオを公開';
+$_LANG['AN_EASY_WAY_TO_PUBLISH_QUOTES'] = '簡単に引用文を公開';
+$_LANG['NEW_SIMPLE_POST'] = '新規投稿';
+$_LANG['NEW_VIDEO_POST'] = '新規動画の投稿';
+$_LANG['NEW_QUOTE_POST'] = '新規引用文の投稿';
+$_LANG['MANAGE_POSTS'] = '投稿管理';
+$_LANG['SETTINGS'] = '設定';
+$_LANG['GENERAL_SETTINGS'] = '全般';
+$_LANG['ADVANCED_SETTINGS'] = '詳細設定';
+$_LANG['MANAGE_CATEGORIES'] = 'カテゴリー管理';
+$_LANG['USERNAME_AND_PASSWORD'] = 'ユーザー名とパスワード';
+$_LANG['MANAGE_PLUGINS'] = 'プラグイン管理';
+$_LANG['PLUGINS'] = 'プラグイン';
+$_LANG['EDIT_POST'] = '投稿を編集';
+$_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA'] = 'Nibbleblog管理エリアへサインイン';
+$_LANG['POST_HAS_BEEN_PUBLISHED_SUCCESSFULLY'] = '投稿は公開されています';
+$_LANG['PLEASE_ENABLE_JAVASCRIPT_IN_YOUR_BROWSER'] = 'ブラウザのJavaScriptを有効にしてください';
+$_LANG['INSTALLATION_COMPLETE'] = 'インストールは完了しました!';
+$_LANG['DEPENDENCIES'] = '依存関係のチェック';
+$_LANG['PHP_VERSION'] = 'PHPバージョン';
+$_LANG['PASS'] = '成功';
+$_LANG['FAIL'] = '失敗';
+$_LANG['PHP_MODULE'] = 'PHPモジュール';
+$_LANG['CONFIGURATION'] = 'おめでとうございます';
+$_LANG['EXPERT_MODE'] = 'エキスパートモード';
+$_LANG['ADMINISTRATOR_USERNAME'] = '管理者ユーザー名';
+$_LANG['ADMINISTRATOR_PASSWORD'] = '管理者パスワード';
+$_LANG['ADMINISTRATOR_EMAIL'] = '管理者メールアドレス';
+$_LANG['WELCOME_TO_NIBBLEBLOG'] = 'Nibbleblogへようこそ';
+$_LANG['CHOOSE_YOUR_LANGUAGE'] = '言語を選択してください';
+$_LANG['WRITING_TEST_ON_CONTENT_DIRECTORY'] = '"content"ディレクトリの書き込みテスト';
+$_LANG['INSTALLATION_LINE1'] = 'おめでとうございます！';
+$_LANG['INSTALLATION_LINE2'] = 'Nibbleblogのインストールは完了しました。';
+$_LANG['INSTALLATION_LINE3'] = 'ブログを管理するにはこちらのアドレスにアクセスします';
+$_LANG['INSTALLATION_LINE4'] = '新しいブログをご覧になるにはこちらにアクセスします';
+$_LANG['INSTALLATION_LINE5'] = 'サポートが必要な場合はフォーラム(英語)にアクセスしてください';
+$_LANG['WELCOME_POST_TITLE'] = 'Nibbleblogへようこそ';
+
+$_LANG['WELCOME_POST_LINE1'] = 'おめでとうございます。ブログのインストールは完了し正常に動作しています。';
+$_LANG['WELCOME_POST_LINE2'] = '記事を書き始めるにはダッシュボードにアクセスします {{DASHBOARD_LINK}}';
+$_LANG['WELCOME_POST_LINE3'] = '{{FACEBOOK_LINK}}, {{TWITTER_LINK}}, {{GOOGLEPLUS_LINK}} でフォローをお願いします。';
+
+$_LANG['ENABLE_FRIENDLY_URLS'] = 'フレンドリーURLを有効';
+$_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = '以下の内容を".htaccess"にコピーし、ファイルをドメインの直下に設置してください。サーバーは、モジュールがロードされ、オプションが正しく利用できるように設定されている必要があります。';
+$_LANG['INSERT_PICTURE'] = '画像を挿入';
+$_LANG['PERMALINK'] = 'パーマリンク';
+$_LANG['FRIENDLY_URLS'] = 'フレンドリーURL';
+$_LANG['UPLOADING'] = 'アップロード中…';
+$_LANG['READ_MORE'] = '続きを読む';
+$_LANG['AUTHOR'] = '投稿者';
+$_LANG['THE_PLUGIN_IS_INSTALLED_CORRECTLY'] = 'プラグインがインストールされました。テーマがサポートしているならば、プラグインはブログに表示されます。';
+$_LANG['SHORT_DESCRIPTION_NO_MORE_THAN'] = '150文字以内の短い説明文を入力します。';
+$_LANG['NEW_COMMENT'] = 'コメント';
+$_LANG['REGIONAL_SETTINGS'] = '地域設定';
+$_LANG['LOCALE'] = 'ロケール';
+$_LANG['THIS_FIELD_IS_SET_EACH_TIME_YOU_CHANGE_THE_LANGUAGE_OF_THE_BLOG'] = 'このフィールドはブログの言語を変更すると設定されます。必要に応じて適切なロケールに変更もできます。入力したロケールはサーバーがサポートしている必要があります。';
+$_LANG['UNCATEGORIZED'] = 'カテゴリーなし';
+$_LANG['MUSIC'] = '音楽';
+$_LANG['VIDEOS'] = '動画';
+$_LANG['POWERED_BY_NIBBLEBLOG'] = 'Powered by Nibbleblog';
+$_LANG['CUSTOM'] = 'カスタム';
+$_LANG['SELECT_A_FORMAT_FOR_DISPLAYING_THE_DATES'] = '日付の書式を選択するか、カスタムオプションから日付の書式を作成します。';
+$_LANG['ENABLE_WYSIWYG_EDITOR'] = 'WYSIWYGエディターを有効';
+$_LANG['ENABLE_OR_DISABLE_THE_WYSIWYG_EDITOR'] = 'WYSIWYGエディターを有効、または無効にします';
+$_LANG['IMAGE_SETTINGS'] = '画像設定';
+$_LANG['AUTOMATIC_IMAGE_RESIZING'] = '自動画像リサイズ';
+$_LANG['THUMBNAILS'] = 'サムネイル';
+$_LANG['ENABLE_AUTOMATIC_IMAGE_RESIZING'] = '画像リサイズを有効にする';
+$_LANG['ENABLE_THUMBNAILS'] = 'サムネイルを有効にする';
+$_LANG['WIDTH'] = '幅';
+$_LANG['HEIGHT'] = '高さ';
+$_LANG['OPTION'] = 'オプション';
+$_LANG['THIS_OPTION_AUTOMATICALLY_CHANGES_THE_IMAGE'] = 'アップロードした画像サイズを自動的に変更します。';
+$_LANG['ENABLE_THIS_OPTION_IF_YOU_WANT_TO_GENERATE'] = '画像のサムネイルを生成するには、このオプションを有効にします。';
+$_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS'] = 'コメントはありません';
+$_LANG['THERE_ARE_NO_DRAFT_POSTS'] = '投稿の下書きはありません';
+$_LANG['AUTOMATIC'] = '自動';
+$_LANG['EXACT'] = '正確に';
+$_LANG['PORTRAIT'] = '縦向き';
+$_LANG['LANDSCAPE'] = '横向き';
+$_LANG['CROP'] = '切り抜き';
+$_LANG['YOU_CAN_USE_HTML_OR_MARKDOWN_SYNTAX'] = 'HTMLもしくはMarkdown記法が利用できます';
+$_LANG['DRAFT'] = '下書き';
+$_LANG['YOU_HAVE_A_NEW_COMMENT'] = '新たなコメントが追加されました';
+$_LANG['LOGIN_FAILED_ATTEMPT'] = 'ログインに失敗しました';
+$_LANG['NOTIFICATIONS'] = '通知';
+$_LANG['PREVIEW'] = 'プレビュー';
+$_LANG['PLEASE_COMPLETE_ALL_FIELDS'] = 'すべての欄に入力してください';
+$_LANG['THERE_ARE_NO_POSTS'] = '投稿はありません';
+$_LANG['BACK_TO_BLOG'] = 'ブログへ戻る';
+$_LANG['LOW_DETECTION_LEVEL'] = '検出レベル 低';
+$_LANG['MEDIUM_DETECTION_LEVEL'] = '検出レベル 中';
+$_LANG['HIGH_DETECTION_LEVEL'] = '検出レベル 高';
+$_LANG['SPAM_CONTROL'] = 'スパム コントロール';
+$_LANG['DISAPPROVE'] = '取消';
+$_LANG['APPROVE_SPAM_DETECTED'] = '承認 (スパム検出)';
+$_LANG['APPROVE'] = '承認';
+$_LANG['API_KEY'] = 'APIキー';
+$_LANG['INSERT_THE_API_KEY_HERE'] = 'APIキーを指定します。APIキーを持っていない、もしくはこの機能についてよくわからない場合は、次のリンクをご覧ください。';
+$_LANG['SPAM_MONITOR'] = 'スパム モニター';
+$_LANG['ENABLE_COMMENTS_BY_DEFAULT'] = 'デフォルトでコメントを許可するには、この機能を有効にします';
+$_LANG['ENABLE_THIS_FEATURE_TO_PROTECT_AGAINST_XSS'] = 'HTMLコードを無害化しクロスサイト・スクリプティング(XSS)から守るには、この機能を有効にします。';
+$_LANG['ENABLE_THIS_FEATURE_TO_MODERATE_COMMENTS'] = 'コメントを承認後、公開するには、この機能を有効にします。';
+$_LANG['ENABLE_THIS_FEATURE_TO_PROTECT_YOUR_COMMENTS'] = 'コメント欄をスパムから守るには、この機能を有効にします。';
+$_LANG['ENABLE_THIS_FEATURE_TO_DELETE_SPAM_AUTO'] = 'スパムを自動的に削除するには、この機能を有効にします。';
+$_LANG['COMMENTS_DETECTED_AS_SPAM_WILL_BE_FILTERED'] = 'スパムとして検出されたコメントはフィルタリングされます。';
+$_LANG['NOTIFY_WHEN_A_USER_MAKES_A_COMMENT'] = 'コメントが投稿されると通知します。';
+$_LANG['NOTIFY_WHEN_A_USER_FAILS_TO_LOGIN'] = 'ログインに失敗すると通知します。';
+$_LANG['NOTIFY_WHEN_A_USER_SUCCESSES_LOGIN'] = 'ログインに成功すると通知します。';
+$_LANG['NOTIFICATIONS_WILL_BE_SENT_TO_THIS_EMAIL'] = '通知はこのメールアドレス宛に送信されます。';
+$_LANG['NOTIFICATIONS_WILL_BE_SENT_FROM_THIS_EMAIL'] = '通知はこのメールアドレスから送信されます。';
+$_LANG['EMAIL_ACCOUNTS_SETTINGS'] = 'Eメールアカウント設定';
+$_LANG['NOTIFY_ME_FROM'] = '通知の送信元アドレス';
+$_LANG['NOTIFY_ME_TO'] = '通知の宛先アドレス';
+$_LANG['NOTIFICATIONS_VIA_EMAIL'] = 'Eメールの通知';
+$_LANG['YOUR_COMMENT_IS_UNDER_REVIEW_IT_WILL_BE'] = 'コメントをチェック中です。しばらくお待ちください。';
+$_LANG['COMMENTS_ENABLED'] = 'デフォルトでコメントを有効にする';
+$_LANG['SANITIZE_HTML_CODE'] = 'HTMLコードを無害化する';
+$_LANG['MODERATE_COMMENTS'] = 'コメントを承認制にする';
+$_LANG['ENABLE_SPAM_MONITOR'] = 'スパムモニターを有効にする';
+$_LANG['AUTOMATICALLY_DELETE_SPAM'] = 'スパムを自動的に削除する';
+$_LANG['COMMENT_SETTINGS'] = 'コメントの設定';
+$_LANG['MANAGE_COMMENTS'] = 'コメント管理';
+$_LANG['BASIC_CONFIGURATION_OF_YOUR_BLOG'] = 'ブログの基本設定';
+$_LANG['SIMPLE_POST'] = '投稿';
+$_LANG['VIDEO_POST'] = '動画の投稿';
+$_LANG['QUOTE_POST'] = '引用の投稿';
+$_LANG['CATEGORIES'] = 'カテゴリー';
+$_LANG['TAGS'] = 'タグ';
+$_LANG['LINK'] = 'リンク';
+$_LANG['KEYWORDS'] = 'キーワード';
+$_LANG['MANAGE'] = '管理';
+$_LANG['404_TITLE'] = 'ページが見つかりません';
+$_LANG['404_PAGE_NOT_FOUND'] = 'お探しのページは存在しません。申し訳ございません。';
+$_LANG['NO_TITLE'] = 'タイトルなし';
+$_LANG['TITLE'] = 'タイトル';
+$_LANG['TYPE'] = 'タイプ';
+$_LANG['CATEGORY'] = 'カテゴリー';
+$_LANG['PUBLISH_DATE'] = '投稿日時';
+$_LANG['LAST_MODIFIED'] = '最終更新日時';
+$_LANG['COMMENT'] = 'コメント';
+$_LANG['POST'] = '投稿';
+$_LANG['SLUG'] = 'スラッグ';
+$_LANG['SITE'] = 'サイト';
+$_LANG['SITE_TITLE'] = 'サイトタイトル';
+$_LANG['SITE_DESCRIPTION'] = 'サイト概要';
+$_LANG['TAGS_SEPARATED_BY_COMMA'] = 'タグはコンマで区切ります';
+$_LANG['KEYWORDS_SEPARATED_BY_COMMA'] = 'キーワードはコンマで区切ります';
+$_LANG['ROBOTS'] = 'robots';
+$_LANG['WEBMASTER_TOOLS'] = 'ウェブマスターツール';
+$_LANG['GOOGLE_WEBMASTER_TOOLS'] = 'Google ウェブマスターツール - 確認コード';
+$_LANG['BING_WEBMASTER_TOOLS'] = 'Bing ウェブマスターツール - 確認コード';
+$_LANG['SEO_OPTIONS'] = 'SEOオプション';
+$_LANG['SHARE'] = '共有';
+$_LANG['ALLOW_COMMENTS_ON_THIS_POST'] = '投稿にコメントを許可します';
+$_LANG['MULTIPLE_DIRECTIVES_MAY_BE_COMBINED_IN'] = '複数のディレクティブを指定するにはコンマで区切ります。例: nofollow, noindex, noarchive';
+$_LANG['DRAFT_POSTS'] = '投稿の下書き';
+$_LANG['POSITION'] = '位置';
+
+$_LANG['UPLOAD_A_NEW_IMAGE'] = '新規画像をアップロード';
+$_LANG['OR'] = 'もしくは';
+$_LANG['SELECT_AN_IMAGE_FROM_YOUR_BAG'] = 'フォルダから画像を選択';
+
+$_LANG['THERE_IS_A_NEW_VERSION'] = '新しいバージョンのNibbleblogが利用できます';
+$_LANG['VERSION'] = 'バージョン';
+$_LANG['RELEASE_DATE'] = 'リリース日';
+
+$_LANG['NEW_PAGE'] = '新規ページ';
+$_LANG['SET_AS_HOMEPAGE'] = 'ホームページに設定';
+$_LANG['THERE_IS_A_PAGE_AS_HOMEPAGE'] = 'ホームページに設定されています。設定を削除する場合はクリックしてください。';
+$_LANG['MANAGE_PAGES'] = 'ページ管理';
+$_LANG['PAGE'] = 'ページ';
+$_LANG['PAGES'] = 'ページ';
+$_LANG['PAGE_HAS_BEEN_PUBLISHED_SUCCESSFULLY'] = 'ページは公開されました';
+$_LANG['THERE_ARE_NO_PAGES'] = 'ページはありません';
+$_LANG['HOME'] = 'ホーム';
+$_LANG['REQUEST_NEW_PASSWORD'] = '新規パスワードのリクエスト';
+
+$_LANG['NEW_POST'] = '新規投稿';
+$_LANG['QUICK_START'] = 'クィックスタート';
+$_LANG['QUALITY'] = '品質';
+$_LANG['NOTES'] = 'メモ';
+$_LANG['WEBSITE'] = 'Webサイト';
+$_LANG['COMPLETE_THIS_FIELD_IF_YOU_WANT_USE_DISQUS'] = 'Disqusのコメントを使用する場合は、このフィールドに入力します。この機能はテーマに依存します。機能について詳細な情報が必要な場合は、リンク先をご覧ください。';
+$_LANG['COMPLETE_THIS_FIELD_IF_YOU_WANT_USE_FACEBOOK_COMMENTS'] = 'Facebookのコメントを使用する場合は、このフィールドに入力します。この機能はテーマに依存します。機能について詳細な情報が必要な場合は、リンク先をご覧ください。';
+
+$_LANG['WE_ARE_SENT_YOU_AN_EMAIL'] = 'Eメールを送信しました。念のためスパムメールもチェックしてください。';
+$_LANG['AN_ERROR_OCURRED_WHILE'] = 'メールの送信中にエラーが発生しました。';
+
+$_LANG['EMAIL_NOTIFICATION_FAIL_LOGIN'] = '
+<p>あなたのブログ「{{BLOG_NAME}}」からのお知らせです。</p>
+<p>誰かがあなたのブログにアクセスしました。ユーザー名: {{USERNAME}} パスワード: {{PASSWORD}}</p>
+<p>接続IPアドレスは {{IP}} です。</p>
+';
+
+$_LANG['EMAIL_NOTIFICATION_SESSION_STARTED'] = '
+<p>あなたのブログ「{{BLOG_NAME}}」からのお知らせです。</p>
+<p>管理エリアにユーザー名: {{USERNAME}} がログインしました</p>
+<p>接続IPアドレスは {{IP}} です。</p>
+';
+
+$_LANG['EMAIL_NOTIFICATION_NEW_COMMENT'] = '
+<p>あなたのブログ「{{BLOG_NAME}}」からのお知らせです。</p>
+<p>ブログに新しいコメントがあります。</p>
+<p>{{COMMENT}}</p>
+<p>名前: {{AUTHOR_NAME}}</p>
+<p>Eメール: {{AUTHOR_EMAIL}}</p>
+<p>IPアドレス: {{IP}}</p>
+';
+
+$_LANG['EMAIL_NOTIFICATION_FORGOT_PASSWORD'] = '
+<p>あなたのブログ「{{BLOG_NAME}}」からのお知らせです。</p>
+<p>パスワードをお忘れでしょうか? ご心配なく!</p>
+<p>リンクをクリックして下さい: {{FORGOT_LINK}}</p>
+';
+
+$_LANG['REGIONAL'] = '地域';
+$_LANG['INSERT_IMAGE_FROM_URL'] = 'URLを指定して画像を挿入';
+
+$_LANG['BLUDIT_SYNC'] = 'Bludit シンク';
+$_LANG['NIBBLEBLOG_URL_SYNC'] = 'Nibbleblog 同期URL';
+$_LANG['NIBBLEBLOG_KEY_SYNC'] = 'Nibbleblog 同期鍵';
+
+$_LANG['CATEGORY_NAME'] = 'カテゴリー名';
+$_LANG['CATEGORY_SLUG'] = 'カテゴリースラッグ';
+
+$_LANG['INSTALLED_PLUGINS'] = 'インストール済みプラグイン';
+$_LANG['PLUGINS_AVAILABLE_FOR_INSTALL'] = 'インストール可能なプラグイン';
+
+$_LANG['ABSOLUTE_URL_ADDRESS_OF_YOUR_BLOG'] = 'ブログの絶対アドレス(URL)を指定します。例: http://www.domain.com/directory/';
+$_LANG['ABSOLUTE_ADDRESS_THAT_CONTAINS_THE_BLOGS_FILE_SYSTEM'] = 'ブログのシステムがある絶対アドレスを指定します。Nibbleblogを(ドメインの)ルートにアップロードしたならば "/"、そうではなく別のディレクトリならば "/directory/" となります。';
+
+$_LANG['COVER_ATTRIBUTE'] = 'カバー属性';
+
+?>
