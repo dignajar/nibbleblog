@@ -8,13 +8,7 @@ $_LANG_CONFIG['DATA'] = array(
 	'email'=>'Pooya_parsa_dadashi@yahoo.com',
 	'url'=>'http://www.datamweb.ir'
 );
-
-
-
-
-
 $_LANG['LAST_COMMENTS'] = 'آخرین نظرات';
-
 $_LANG['THEME'] = 'قالب';
 $_LANG['THEMES'] = 'قالب ها';
 $_LANG['CHANGE_THEME'] = 'تغیر قالب';
@@ -75,7 +69,7 @@ $_LANG['UNINSTALL'] = 'پاک کردن';
 $_LANG['CONFIGURE'] = 'پیکربندی';
 $_LANG['CREATED_BY'] = 'ایجاد شده توسط';
 $_LANG['CATEGORY_HAS_ONE_OR_MORE_POST'] = ' این موضوع یک یا چند پست دارد.شما تا زمانی که آن را خالی نکنید نمیتوانید آن را حذف کنید.';
-$_LANG['AT_LEAST_ONE_CATEGORY'] = 'This category can\'t be deleted because you need at least one category.';
+$_LANG['AT_LEAST_ONE_CATEGORY'] = 'موضوع را پاک کنید ،چرون شما حداقل به یک موضوع نیازمندید.';
 $_LANG['ARE_YOU_SURE'] = 'آیا مطمئن هستید';
 $_LANG['VIEW'] = 'نمایش';
 $_LANG['EDIT'] = 'ویرایش';
@@ -143,7 +137,7 @@ $_LANG['ENABLE_FRIENDLY_URLS'] = 'فعال سازی یو ال آر های محب
 $_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = '  کپی این مطلب در فایل ".htaccess". فایل باید در مسیر اصلی دامنه شما باشد.سرور باید دارای ماژول های بارگزاری کننده و پیکربندی صحیح برای استفاده از این گزینه داشته باشد';
 $_LANG['INSERT_PICTURE'] = 'درج تصویر';
 $_LANG['PERMALINK'] = 'لینک ثابت';
-$_LANG['FRIENDLY_URLS'] = 'Friendly URLs';
+$_LANG['FRIENDLY_URLS'] = 'محبوب URLs';
 $_LANG['UPLOADING'] = 'در حال ارسال';
 $_LANG['READ_MORE'] = 'بیشتر بخوانید';
 $_LANG['AUTHOR'] = 'نویسنده';
@@ -198,7 +192,7 @@ $_LANG['API_KEY'] = 'API کلید';
 $_LANG['INSERT_THE_API_KEY_HERE'] = 'وارد کنید کد ای پی آی را اینجا. If you don\'t have one yet, or are not familiar with this feature, please check the next link.';
 $_LANG['SPAM_MONITOR'] = 'نمایشگر هرزنامه';
 $_LANG['ENABLE_THIS_FEATURE_TO_PROTECT_AGAINST_XSS'] = 'Enable this feature to protect against cross-site scripting (XSS) attacks by sanitizing any HTML code.';
-$_LANG['ENABLE_THIS_FEATURE_TO_MODERATE_COMMENTS'] = 'Enable this feature to moderate comments before they are published.';
+$_LANG['ENABLE_THIS_FEATURE_TO_MODERATE_COMMENTS'] = 'فعال سازی ویژگی تعدیل نظرات قبل از انتشار آنها.';
 $_LANG['ENABLE_THIS_FEATURE_TO_PROTECT_YOUR_COMMENTS'] = 'فعال سازی ویژگی محافظت از نظراتتتان در مقابل هرزهنامه ها';
 $_LANG['ENABLE_THIS_FEATURE_TO_DELETE_SPAM_AUTO'] = 'فعال سازی ویژگی حذف خودکار هرزه نامه ها.';
 $_LANG['COMMENTS_DETECTED_AS_SPAM_WILL_BE_FILTERED'] = 'نظرات شناسای شده به عنوان هرزه نامه ،فیلتر خواهد شد.';
@@ -206,7 +200,7 @@ $_LANG['NOTIFY_WHEN_A_USER_MAKES_A_COMMENT'] = 'اطلاع زمانی که کا�
 $_LANG['NOTIFY_WHEN_A_USER_FAILS_TO_LOGIN'] = 'اطلاع زمانی که کاربر موفق به ورود نمی شود.';
 $_LANG['NOTIFY_WHEN_A_USER_SUCCESSES_LOGIN'] = 'اطلاع زمانی که کاربر با موافقیت وارد می شود.';
 $_LANG['NOTIFICATIONS_WILL_BE_SENT_TO_THIS_EMAIL'] = 'اطلاع رسانی زمانی که این ایمیل ارسال میشود';
-$_LANG['NOTIFICATIONS_WILL_BE_SENT_FROM_THIS_EMAIL'] = 'Notifications will be sent from this email.';
+$_LANG['NOTIFICATIONS_WILL_BE_SENT_FROM_THIS_EMAIL'] = 'اطلاعیه های شما از این ایمیل ارسال میشود.';
 $_LANG['EMAIL_ACCOUNTS_SETTINGS'] = 'تنظیمات اکانت رایانامه';
 $_LANG['NOTIFY_ME_FROM'] = 'آگاه سازی از من';
 $_LANG['NOTIFY_ME_TO'] = 'اگاه سازی به من';
