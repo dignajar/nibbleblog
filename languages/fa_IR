@@ -41,7 +41,7 @@ $_LANG['DELETE'] = 'حذف';
 $_LANG['ENTER_TITLE_HERE'] = 'اینجا عنوان را وارد کنید';
 $_LANG['SELECT_A_CATEGORY'] = 'یک موضوع انتخاب کنید';
 $_LANG['ALLOW_COMMENTS'] = 'اجازه ارسال نظر';
-$_LANG['ALLOW_YOUR_USERS_TO_COMMENT_YOUR_PUBLICATIONS'] = 'Allow your users to comment your publications.';
+$_LANG['ALLOW_YOUR_USERS_TO_COMMENT_YOUR_PUBLICATIONS'] = 'به کاربر اجاز میدهد تا نظرش را منتشر کند.';
 $_LANG['STICKY_POST'] = 'ارسال مطلب مهم';
 $_LANG['SELECT_THIS_OPTION_IF_YOU_WANT_TO_HIGHLIGHT_YOUR_PUBLICATION'] = 'اگر میخواهید انتشارتان برجسته شود ،این گزینه را انتخاب کنید.';
 $_LANG['PUBLISH'] = 'انتشار';
@@ -140,7 +140,7 @@ $_LANG['WELCOME_POST_LINE2'] = 'شروع انتشار از داشبورد خود
 $_LANG['WELCOME_POST_LINE3'] = 'به دنبال ما در شبکه های اجتماعی {{FACEBOOK_LINK}}, {{TWITTER_LINK}} و {{GOOGLEPLUS_LINK}}.';
 
 $_LANG['ENABLE_FRIENDLY_URLS'] = 'فعال سازی یو ال آر های محبوب';
-$_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = 'Copy this content in the file ".htaccess". The file must be in the root of your domain. The server must have the modules loaded and configured correctly to use this option.';
+$_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = '  کپی این مطلب در فایل ".htaccess". فایل باید در مسیر اصلی دامنه شما باشد.سرور باید دارای ماژول های بارگزاری کننده و پیکربندی صحیح برای استفاده از این گزینه داشته باشد';
 $_LANG['INSERT_PICTURE'] = 'درج تصویر';
 $_LANG['PERMALINK'] = 'لینک ثابت';
 $_LANG['FRIENDLY_URLS'] = 'Friendly URLs';
