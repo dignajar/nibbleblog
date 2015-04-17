@@ -142,8 +142,8 @@ class Post {
 
 		$text = $text===false?'':$text;
 
-		$url = str_replace('&amp;', '%26', Url::post($post, true));
-		return 'http://twitter.com/home?status='.$text.' '.$url;
+		$url = str_replace('&amp;', '&', Url::post($post, true));
+		return 'http://twitter.com/home?status='.urlencode($text.' '.$url);
 	}
 
 	public static function facebook($text=false)
@@ -173,8 +173,8 @@ class Post {
 
 		$text = $text===false?'':$text;
 
-		$url = str_replace('&amp;', '%26', Url::post($post, true));
-		return 'https://plus.google.com/share?url='.$text.' '.$url;
+		$url = str_replace('&amp;', '&', Url::post($post, true));
+		return 'https://plus.google.com/share?url='.urlencode($text.' '.$url);
 	}
 
 	public static function mailto($text=false)
@@ -183,8 +183,8 @@ class Post {
 
 		$text = $text===false?'':$text;
 
-		$url = str_replace('&amp;', '%26', Url::post($post, true));
-		return 'mailto:?subject='.rawurlencode(Blog::name().' - '.$text).'&amp;body='.$url;
+		$url = str_replace('&amp;', '&', Url::post($post, true));
+		return 'mailto:?subject='.rawurlencode(Blog::name().' - '.$text).'&amp;body='.urlencode($url);
 	}
 
 	public static function published($format=false)
