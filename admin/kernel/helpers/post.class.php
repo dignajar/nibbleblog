@@ -142,7 +142,7 @@ class Post {
 
 		$text = $text===false?'':$text;
 
-        $url = str_replace('&amp;', '%26', Url::post($post, true));
+		$url = str_replace('&amp;', '%26', Url::post($post, true));
 		return 'http://twitter.com/home?status='.$text.' '.$url;
 	}
 
@@ -173,7 +173,7 @@ class Post {
 
 		$text = $text===false?'':$text;
 
-        $url = str_replace('&amp;', '%26', Url::post($post, true));
+		$url = str_replace('&amp;', '%26', Url::post($post, true));
 		return 'https://plus.google.com/share?url='.$text.' '.$url;
 	}
 
@@ -183,7 +183,7 @@ class Post {
 
 		$text = $text===false?'':$text;
 
-        $url = str_replace('&amp;', '%26', Url::post($post, true));
+		$url = str_replace('&amp;', '%26', Url::post($post, true));
 		return 'mailto:?subject='.rawurlencode(Blog::name().' - '.$text).'&amp;body='.$url;
 	}
 
