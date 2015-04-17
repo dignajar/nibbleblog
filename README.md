@@ -1,11 +1,11 @@
-====== Nibbleblog ======
-Version: Beta on Github
-Codename:
+====== Nibbleblog ======  
+Version: Beta on Github  
+Codename:  
 Release date:
 
-Site: http://www.nibbleblog.com
-Blog: http://blog.nibbleblog.com
-Help & Support: http://forum.nibbleblog.com
+Site: http://www.nibbleblog.com  
+Blog: http://blog.nibbleblog.com  
+Help & Support: http://forum.nibbleblog.com  
 Documentation: http://docs.nibbleblog.com
 
 ===== Social =====
@@ -25,12 +25,12 @@ Optionals requirements
 * PHP module - Mcrypt
 
 ===== Installation guide =====
-1- Download the last version from http://nibbleblog.com
-2- Unzip the downloaded file
-3- Upload all files to your hosting or local server via FTP, Shell, Cpanel, others.
-4- With your browser, go to the URL of your web. Example: www.domain-name.com
-5- Complete the form
-6- Done! you have installed Nibbleblog
+1. Download the last version from http://nibbleblog.com
+2. Unzip the downloaded file
+3. Upload all files to your hosting or local server via FTP, Shell, Cpanel, others.
+4. With your browser, go to the URL of your web. Example: www.domain-name.com
+5. Complete the form
+6. Done! you have installed Nibbleblog
 
 ===== About the author =====
 Name: Diego Najar
