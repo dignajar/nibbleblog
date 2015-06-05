@@ -1,0 +1,8 @@
+<?php
+
+$_PLUGIN_CONFIG['LANG'] = array(
+	'NAME'=>'MathJax',
+	'DESCRIPTION'=>'It lets add latex syntax on your webpage.'
+);
+
+?>

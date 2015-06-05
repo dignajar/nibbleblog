@@ -1,0 +1,32 @@
+<?php
+
+$_PLUGIN_CONFIG['DATA'] = array(
+	'author'=>'Felipe Hernández',
+	'version'=>'1.0',
+	'url'=>'http://fhernandez.cl/post/nibbleblogPluginMathjax/'
+);
+
+class PLUGIN_MATHJAX extends Plugin
+{
+	public function blog_head()
+	{	
+		$url_mathjax  = '<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>';
+		$code_mathjax = '<script type="text/javascript">
+							MathJax.Hub.Config({
+								extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+								jax: ["input/TeX", "output/HTML-CSS"],
+								tex2jax: {
+									inlineMath: [ [\'$\',\'$\'], ["\\(","\\)"] ],
+									displayMath: [ [\'$$\',\'$$\'], ["\\[","\\]"] ],
+									processEscapes: true
+								},
+								"HTML-CSS": { availableFonts: ["TeX"]},
+								messageStyle: "none"
+							});
+						</script>';
+				
+		return $url_mathjax.$code_mathjax;
+	}
+}
+
+?>
