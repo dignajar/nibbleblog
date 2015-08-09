@@ -9,6 +9,9 @@
  * See COPYRIGHT.txt and LICENSE.txt.
 */
 
+// Send the Content-type header in case the web server is setup to send something else
+header('Content-type: text/html; charset=utf-8');
+
 // Check installation
 if( !file_exists('content/private') )
 {
