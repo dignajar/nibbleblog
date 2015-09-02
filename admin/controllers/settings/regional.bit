@@ -18,13 +18,13 @@ $timezone_html = Date::get_timezones();
 
 $timestamp_format_html = array(
 							''=>$_LANG['CUSTOM'],
-							'%d/%m/%y'=>'31/12/14',
+							'%d/%m/%y'=>'31/12/15',
 
-							'%m/%d/%y'=>'12/31/14',
+							'%m/%d/%y'=>'12/31/15',
 
-							'%d %B, %Y'=>'31 December, 2014',
+							'%d %B, %Y'=>'31 December, 2015',
 
-							'%d %b, %Y'=>'31 Dec, 2014'
+							'%d %b, %Y'=>'31 Dec, 2015'
 );
 
 ?>

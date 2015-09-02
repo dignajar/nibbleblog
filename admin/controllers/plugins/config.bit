@@ -16,6 +16,9 @@ if( ($_SERVER['REQUEST_METHOD'] == 'POST') && isset($_POST['plugin']) )
 			$destination = PATH_PLUGINS_DB.$plugin->get_dir_name();
 			$complete = $destination.'/'.$field_name.'.'.$extension;
 
+			if( ($extension=='jpg') || ($extension=='gif') || ($extension=='png') )
+			{
+
 			// Upload the new file and move
 			if(move_uploaded_file($file["tmp_name"], $complete))
 			{
@@ -30,6 +33,8 @@ if( ($_SERVER['REQUEST_METHOD'] == 'POST') && isset($_POST['plugin']) )
 					$Resize->setImage($complete, $width, $height, $option);
 					$Resize->saveImage($complete, $quality, true);
 				}
+			}
+
 			}
 		}
 

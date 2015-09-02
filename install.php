@@ -380,7 +380,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 		}
 
 		p {
-			font-size: 1.3em;
+			font-size: 1.4em;
 		}
 
 		a {
@@ -402,7 +402,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 			padding: 10px;
 			overflow: auto;
 			margin-bottom: 5px;
-			font-size: 1.3em;
+			font-size: 1.4em;
 		}
 
 		div.status_pass {
@@ -434,6 +434,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 			padding: 10px 8px 10px 8px;
 			outline:none; /* not focus border on chrome */
 			resize: none;
+			font-size: 1.4em;
 		}
 
 		input[type="submit"] {
@@ -443,7 +444,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 			color: #444444;
 			cursor: pointer;
 			display: inline-block;
-			font-size: 1.3em;
+			font-size: 1.4em;
 			padding: 7px 33px;
 			background: #F1F1F1;
 			background: -moz-linear-gradient(center top , #F5F5F5, #F1F1F1);
@@ -466,7 +467,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 			color: #333;
 			margin-bottom:3px;
 			display:block;
-			font-size: 1.3em;
+			font-size: 1.4em;
 			margin-top: 16px;
 		}
 
@@ -632,7 +633,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 		</section>
 
 		<footer>
-			<p><a href="http://nibbleblog.com">Nibbleblog <?php echo NIBBLEBLOG_VERSION ?> "<?php echo NIBBLEBLOG_NAME ?>"</a> ©2009 - 2014 | Developed by Diego Najar | <?php echo Html::link( array('content'=>$_LANG['EXPERT_MODE'], 'href'=>'./install.php?expert=true&language='.$_GET['language']) ) ?></p>
+			<p><a href="http://nibbleblog.com">Nibbleblog <?php echo NIBBLEBLOG_VERSION ?> "<?php echo NIBBLEBLOG_NAME ?>"</a> ©2009 - <?php echo date('Y') ?> | Developed by Diego Najar | <?php echo Html::link( array('content'=>$_LANG['EXPERT_MODE'], 'href'=>'./install.php?expert=true&language='.$_GET['language']) ) ?></p>
 		</footer>
 
 	</div>

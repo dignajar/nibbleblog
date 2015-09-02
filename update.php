@@ -91,7 +91,7 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 			background: rgba(255, 255, 255, 0.6);
 			border: 1px solid #CCC;
 			border-radius: 3px 3px 3px 3px;
-			font-size: 1.3em;
+			font-size: 1.4em;
 		}
 
 		h1 {
@@ -400,7 +400,7 @@ $translit_enable = isset($_LANG['TRANSLIT'])?$_LANG['TRANSLIT']:false;
 		</section>
 
 		<footer>
-			<p><a href="http://nibbleblog.com">Nibbleblog <?php echo NIBBLEBLOG_VERSION ?> "<?php echo NIBBLEBLOG_NAME ?>"</a> ©2009 - 2014 | Developed by Diego Najar</p>
+			<p><a href="http://nibbleblog.com">Nibbleblog <?php echo NIBBLEBLOG_VERSION ?> "<?php echo NIBBLEBLOG_NAME ?>"</a> ©2009 - <?php echo date('Y') ?> | Developed by Diego Najar</p>
 		</footer>
 
 	</div>

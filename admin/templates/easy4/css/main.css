@@ -51,7 +51,7 @@ div.separator {
     background-color: #428BCA;
     color: #FFFFFF;
     display: block;
-    font-size: 1.3em;
+    font-size: 1.4em;
     padding: 16px 0;
     position: fixed;
     text-align: center;
@@ -85,7 +85,7 @@ div.separator {
 	float: right;
 	display: inline-block;
 	line-height: 26px;
-	font-size: 1.3em;
+	font-size: 1.4em;
 	margin: 0 25px 0 0;
 	color: #333;
 }
@@ -135,7 +135,7 @@ div.top_toolbar a.selected {
 }
 
 #footer	p {
-	font-size: 1.3em;
+	font-size: 1.4em;
 	margin: 0;
 }
 
@@ -179,7 +179,7 @@ a.default_homepage {
     border-top: 1px solid #428BCA;
     color: #333333;
     display: block;
-    font-size: 1.3em;
+    font-size: 1.4em;
     margin: 20px 0;
     padding: 20px;
     text-align: center;
@@ -300,7 +300,7 @@ div.dashboard_box	a.last_comments:hover {
 
 div.dashboard_box	a.last_comments	div.content {
 	margin-bottom: 5px;
-	font-size: 1.3em;
+	font-size: 1.4em;
 	overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -335,7 +335,7 @@ div.notification	div.icon {
 
 div.notification	div.type {
 	margin-bottom: 5px;
-	font-size: 1.3em;
+	font-size: 1.4em;
 	margin-left: 40px;
 	color: #428BCA;
 }
@@ -360,7 +360,7 @@ div.notification	div.info {
 /*====================================================================*/
 div.form_block {
 	margin-bottom: 22px;
-	font-size: 1.3em;
+	font-size: 1.4em;
 	clear: both;
 }
 
@@ -395,7 +395,7 @@ div.form_block	input[type="text"].little {
 }
 
 div.form_block	input[type="text"].title {
-	font-size: 1.3em;
+	font-size: 1.4em;
 }
 
 div.form_block		select {
@@ -514,7 +514,7 @@ table {
     margin: 0;
     text-align: center;
     width: 100%;
-    font-size: 1.3em;
+    font-size: 1.4em;
     border: 1px solid #E7E7E7;
 }
 
@@ -554,7 +554,7 @@ table div.options a {
 }
 
 div.pager {
-    font-size: 1.3em;
+    font-size: 1.4em;
     text-align: left;
     padding-top: 10px;
 }
@@ -581,7 +581,7 @@ div.plugin {
     background-color: #FAFAFA;
     border: 1px solid #F1F1F1;
     border-radius: 2px 2px 2px 2px;
-    font-size: 1.3em;
+    font-size: 1.4em;
     margin-bottom: 20px;
     padding: 12px;
 }
@@ -607,7 +607,7 @@ div.plugin	a {
 /* PLUGINS: FORMS
 /*====================================================================*/
 form.plugins {
-	font-size: 1.3em;
+	font-size: 1.4em;
 }
 
 form.plugins	input[type="text"],
@@ -721,7 +721,7 @@ div.theme-img	img {
 
 div.theme-data {
 	margin-left: 280px;
-	font-size: 1.3em;
+	font-size: 1.4em;
 }
 
 div.theme-data	h2.name {

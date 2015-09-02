@@ -10,7 +10,7 @@ else
 	// Video post
 	if($post['type']=='video')
 	{
-		$video_info = Video::video_get_info($post['video'], $theme['video_width'], $theme['video_height']);
+		$video_info = Video::video_get_info($post['video']);
 
 		echo '<div class="fitvid">'.$video_info['embed'].'</div>';
 	}

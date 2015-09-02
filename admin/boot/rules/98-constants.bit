@@ -13,10 +13,10 @@
 // =====================================================================
 //	SYSTEM INFORMATION
 // =====================================================================
-define('NIBBLEBLOG_VERSION',		'4.0.3');
-define('NIBBLEBLOG_NAME',			'Coffee');
-define('NIBBLEBLOG_RELEASE_DATE',	'14/02/2014');
-define('NIBBLEBLOG_BUILD',			2392406951);
+define('NIBBLEBLOG_VERSION',		'4.0.4');
+define('NIBBLEBLOG_NAME',		'Coffee Plus');
+define('NIBBLEBLOG_RELEASE_DATE',	'01/09/2015');
+define('NIBBLEBLOG_BUILD',		2392406952);
 
 // =====================================================================
 //	DEBUG
@@ -33,5 +33,7 @@ if(DEBUG_MODE)
 	ini_set("html_errors", 1);
 	error_reporting(E_ALL | E_STRICT | E_NOTICE);
 }
+
+header('Content-Type: text/html; charset=utf-8');
 
 ?>

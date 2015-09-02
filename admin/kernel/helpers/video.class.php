@@ -33,27 +33,12 @@ class Video {
 		preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $url, $matches);
 		$video_id = $matches[1];
 
-		// Check if a valid url
-		if(!Net::check_http_code('http://gdata.youtube.com/feeds/api/videos/'.$video_id,200))
-		{
-			return(false);
-		}
-
-		// GET INFO
-		$xml = simplexml_load_file('http://gdata.youtube.com/feeds/api/videos/'.$video_id);
-		$media = $xml->children('http://search.yahoo.com/mrss/');
-
 		$info = array();
 		$info['id'] = $video_id;
-		$info['title'] = (string)$media->group->title;
-		$info['description'] = (string)$media->group->description;
+		$info['title'] = '';
+		$info['description'] = '';
 
-		$info['thumb'][0] = (string)$media->group->thumbnail[0]->attributes()->url;
-		$info['thumb'][1] = (string)$media->group->thumbnail[1]->attributes()->url;
-		$info['thumb'][2] = (string)$media->group->thumbnail[2]->attributes()->url;
-		$info['thumb'][3] = (string)$media->group->thumbnail[3]->attributes()->url;
-
-		$info['embed'] = '<iframe class="youtube_embed" width="'.$width.'" height="'.$height.'" src="http://www.youtube.com/embed/'.$video_id.'?rel=0" frameborder="0" allowfullscreen></iframe>';
+		$info['embed'] = '<iframe class="youtube_embed" width="'.$width.'" height="'.$height.'" src="https://www.youtube.com/embed/'.$video_id.'?rel=0" frameborder="0" allowfullscreen></iframe>';
 
 		return($info);
 	}
@@ -63,13 +48,7 @@ class Video {
 		preg_match('/vimeo\.com\/([0-9]{1,10})/', $url, $matches);
 		$video_id = $matches[1];
 
-		// Check if a valid url
-		if(!Net::check_http_code('http://vimeo.com/api/v2/video/'.$video_id.'.php',200))
-		{
-			return(false);
-		}
-
-		$hash = unserialize(file_get_contents('http://vimeo.com/api/v2/video/'.$video_id.'.php'));
+		$hash = unserialize(file_get_contents('https://vimeo.com/api/v2/video/'.$video_id.'.php'));
 
 		$info = array();
 		$info['id'] = $video_id;
@@ -79,7 +58,7 @@ class Video {
 		$info['thumb'][0] =  $hash[0]['thumbnail_medium'];
 		$info['thumb'][1] =  $hash[0]['thumbnail_small'];
 
-		$info['embed'] = '<iframe class="vimeo_embed" width="'.$width.'" height="'.$height.'" src="http://player.vimeo.com/video/'.$video_id.'"  frameborder="0" allowFullScreen></iframe>';
+		$info['embed'] = '<iframe class="vimeo_embed" width="'.$width.'" height="'.$height.'" src="https://player.vimeo.com/video/'.$video_id.'"  frameborder="0" allowFullScreen></iframe>';
 
 		return($info);
 	}
