@@ -286,6 +286,21 @@ class DB_POSTS {
 		}
 
 		/*
+		 * Return an array with all published posts
+		 *
+		 */
+		public function get_all()
+		{
+			// Set only published posts
+			$this->set_files_by_published();
+
+			if($this->files_count > 0)
+			return $this->get_full_list();
+
+			return array();
+		}
+
+		/*
 		 * Return an array with published posts filter by page and amount
 		 *
 		 * parameters:
@@ -664,6 +679,32 @@ class DB_POSTS {
 			}
 
 			return( $tmp_array );
+		}
+
+		/*
+		 * Get a full list of posts
+		 *
+		 */
+		private function get_full_list()
+		{
+			$tmp_array = array();
+
+			foreach($this->files as $file)
+			{
+			$post = $this->get_items($file);
+
+			$position = $post['position'];
+
+			while(isset($tmp_array[$position]))
+				$position++;
+
+				$tmp_array[$position] = $post;
+			}
+
+			// Sort low to high
+			ksort($tmp_array);
+
+			return $tmp_array;
 		}
 
 } // END Class
