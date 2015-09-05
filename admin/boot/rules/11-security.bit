@@ -1,0 +1,29 @@
+<?php
+/*
+ * Nibbleblog
+ * http://www.nibbleblog.com
+
+ * Require
+ *
+
+ * Return
+ *
+*/
+
+// Prevent CSRF
+if( ($_SERVER['REQUEST_METHOD'] == 'POST') && $Login->is_logged() )
+{
+	$token = isset($_POST['token']) ? Validation::sanitize_html($_POST['token']) : false;
+
+	if( !Session::validFormToken($token) )
+	{
+		$Login->logout();
+		Redirect::controller('admin','user','login');
+	}
+	else
+	{
+		unset($_POST['token']);
+	}
+}
+
+?>

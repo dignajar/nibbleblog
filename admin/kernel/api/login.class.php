@@ -30,9 +30,11 @@ class Login {
 	public function set_login($args)
 	{
 		$_SESSION = array();
-		$_SESSION['session_login']['id']		= $args['id_user'];
+		$_SESSION['session_login']['id']	= $args['id_user'];
 		$_SESSION['session_login']['username']	= $args['username'];
-		$_SESSION['session_login']['key']		= $this->get_key();
+		$_SESSION['session_login']['key']	= $this->get_key();
+
+		Session::generateFormToken();
 	}
 
 	/*

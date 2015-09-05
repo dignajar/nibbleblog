@@ -98,8 +98,9 @@ class Html {
 	public static function form_open($array = array())
 	{
 		$attributes = self::get_attributes($array);
-
-		return( '<form '.$attributes.' >' );
+		$html = '<form '.$attributes.' >';
+		$html .= '<input type="hidden" name="token" value="'.Session::getFormToken().'">';
+		return($html);
 	}
 
 	public static function form_close()

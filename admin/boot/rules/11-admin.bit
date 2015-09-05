@@ -82,9 +82,9 @@ if(isset($controllers[$url['controller']][$url['action']]))
 	}
 
 	$layout['controller'] 	= $dirname.$parameters['controller'].'.bit';
-	$layout['view'] 		= $dirname.$parameters['view'].'.bit';
+	$layout['view'] 	= $dirname.$parameters['view'].'.bit';
 	$layout['template'] 	= $parameters['template'].'/index.bit';
-	$layout['title'] 		= $parameters['title'];
+	$layout['title'] 	= $parameters['title'];
 	$layout['id_sidebar']	= isset($parameters['id_sidebar'])?$parameters['id_sidebar']:null;
 }
 

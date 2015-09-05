@@ -35,6 +35,30 @@ class Session {
 		$_SESSION['nibbleblog'][$key] = $value;
 	}
 
+	public static function generateFormToken()
+	{
+		$token = Text::random_text(8);
+		$token = sha1($token);
+		self::set('token', $token);
+	}
+
+	public static function getFormToken()
+	{
+		return self::get('token');
+	}
+
+	public static function validFormToken($token)
+	{
+		$sessionToken = self::getFormToken();
+
+		return ( !empty($sessionToken) && ($sessionToken===$token) );
+	}
+
+	public static function printFormToken()
+	{
+		echo self::getFormToken();
+	}
+
 	public static function get_error()
 	{
 		if(isset($_SESSION['nibbleblog']['error']))
