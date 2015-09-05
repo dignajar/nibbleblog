@@ -13,10 +13,10 @@
 // =====================================================================
 //	SYSTEM INFORMATION
 // =====================================================================
-define('NIBBLEBLOG_VERSION',		'4.0.4');
-define('NIBBLEBLOG_NAME',		'Coffee Plus');
-define('NIBBLEBLOG_RELEASE_DATE',	'01/09/2015');
-define('NIBBLEBLOG_BUILD',		2392406952);
+define('NIBBLEBLOG_VERSION',		'4.0.5');
+define('NIBBLEBLOG_NAME',		'Espresso');
+define('NIBBLEBLOG_RELEASE_DATE',	'05/09/2015');
+define('NIBBLEBLOG_BUILD',		2392406953);
 
 // =====================================================================
 //	DEBUG
