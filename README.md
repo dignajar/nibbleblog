@@ -1,8 +1,9 @@
 [Nibbleblog](http://www.nibbleblog.com/)
 ================================================
 
-Nibbleblog is a powerful engine for creating blogs, all you need is PHP to work. Very simple to install and configure (only 1 step).
+Nibbleblog is a powerful engine for creating blogs, all you need is PHP to work.
 
+- [Site](http://www.nibbleblog.com/)
 - [Documentation](http://docs.nibbleblog.com/)
 - [Help and Support](http://forum.nibbleblog.com/)
 
