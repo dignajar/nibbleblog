@@ -576,7 +576,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 				echo Html::div_close();
 
 				echo Html::div_open( array('class'=>'dependency') );
-					echo Html::link( array('class'=>'description', 'content'=>$_LANG['WRITING_TEST_ON_CONTENT_DIRECTORY'], 'href'=>'http://wiki.nibbleblog.com/doku.php?id=how_to_set_up_permissions', 'target'=>'_blank') );
+					echo Html::link( array('class'=>'description', 'content'=>$_LANG['WRITING_TEST_ON_CONTENT_DIRECTORY'], 'href'=>'http://docs.nibbleblog.com/post/system-requirements/#how_to_set_up_permissions', 'target'=>'_blank') );
 
 					if( $writing_test )
 					{
