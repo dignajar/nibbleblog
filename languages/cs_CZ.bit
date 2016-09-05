@@ -1,0 +1,322 @@
+<?php
+
+$_LANG_CONFIG['DATA'] = array(
+	'native'=>'Česky',
+	'czech'=>'čeština',
+	'last_update'=>'05/09/2016',
+	'author'=>'Ladislav Vondráček',
+	'email'=>'lad.von@gmail.com',
+	'url'=>''
+);
+
+$_LANG['LAST_COMMENTS'] = 'Poslední komentář';
+$_LANG['THEME'] = 'Vzhled';
+$_LANG['THEMES'] = 'Vzhledy';
+$_LANG['CHANGE_THEME'] = 'Změna vzhledu';
+$_LANG['SELECT_THEME'] = 'Vyberte vzhled';
+$_LANG['REMEMBER_ME'] = 'Zapamatovat si mě';
+$_LANG['USERNAME'] = 'Uživatelské jméno';
+$_LANG['PASSWORD'] = 'Heslo';
+$_LANG['COMMENTS'] = 'Komentáře';
+$_LANG['INVALID_CAPTCHA'] = 'Špatná Captcha';
+$_LANG['NAME'] = 'Jméno';
+$_LANG['EMAIL'] = 'E-mail';
+$_LANG['TYPE_THE_COMMENT_HERE'] = 'Zde vložte komentář';
+$_LANG['COPY_THE_TEXT_ON_THE_RIGHT'] = 'Zkopíruj text z prava';
+$_LANG['NEWER_POSTS'] = 'Novější';
+$_LANG['OLDER_POSTS'] = 'Starší';
+$_LANG['FORGOT_PASSWORD'] = 'Zapomenuté heslo';
+$_LANG['INCORRECT_USERNAME_OR_PASSWORD'] = 'Chybné uživatelské jméno nebo heslo';
+$_LANG['LOGIN'] = 'Přihlášení';
+$_LANG['NEW_CATEGORY'] = 'Nová kategorie';
+$_LANG['ENTER_THE_NAME_OF_THE_NEW_CATEGORY'] = 'Zadajte název nové kategorie';
+$_LANG['ADD_CATEGORY'] = 'Přidat kategorii';
+$_LANG['CATEGORIES_IN_YOUR_BLOG'] = 'Kategorie blogu';
+$_LANG['DELETE'] = 'smazat';
+$_LANG['ENTER_TITLE_HERE'] = 'Zde vložte nadpis';
+$_LANG['SELECT_A_CATEGORY'] = 'Vyberte kategorii';
+$_LANG['ALLOW_COMMENTS'] = 'Povolit komentáře';
+$_LANG['ALLOW_YOUR_USERS_TO_COMMENT_YOUR_PUBLICATIONS'] = 'Povolit uživatelům komentovat příspěvky.';
+$_LANG['STICKY_POST'] = 'Sticky post';
+$_LANG['SELECT_THIS_OPTION_IF_YOU_WANT_TO_HIGHLIGHT_YOUR_PUBLICATION'] = 'Zvolte tuto možnost, pokud chcete zvýraznit příspěvek.';
+$_LANG['PUBLISH'] = 'Publikovat';
+$_LANG['GET_VIDEO_INFORMATION'] = 'Získat informacie z videa';
+$_LANG['VIDEO_URL'] = 'Video URL';
+$_LANG['LOADING'] = 'Načítání';
+$_LANG['VIDEO_INFORMATION'] = 'Informacie o videu';
+$_LANG['ENTER_QUOTE_HERE'] = 'Zde vložte citaci';
+$_LANG['TIMEZONE'] = 'Časová zóna';
+$_LANG['BLOG_ADDRESS'] = 'Adresa blogu (URL)';
+$_LANG['BLOG_BASE_PATH'] = 'Základní adresa blogu (base path)';
+$_LANG['POSTS_PER_PAGE'] = 'Příspěvků na stránku';
+$_LANG['RSS_ITEMS'] = 'RSS položky';
+$_LANG['ADVANCED_OPTIONS_FOR_POST'] = 'Rozšířené možnosti příspěvků';
+$_LANG['BLOG_TITLE'] = 'Název blogu';
+$_LANG['BLOG_SLOGAN'] = 'Slogan blogu';
+$_LANG['ABOUT_YOUR_BLOG'] = 'Něco o blogu';
+$_LANG['FOOTER_TEXT'] = 'Text v záhlaví';
+$_LANG['LANGUAGE'] = 'Jazyk';
+$_LANG['CURRENT_PASSWORD'] = 'Aktuální heslo';
+$_LANG['NEW_PASSWORD'] = 'Nové heslo';
+$_LANG['SAVE_CHANGES'] = 'Uložit změny';
+$_LANG['CHANGE_USERNAME'] = 'Změnit uživatelské jméno';
+$_LANG['CHANGE_PASSWORD'] = 'Změnit heslo';
+$_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY'] = 'Změna úspěšně uložena';
+$_LANG['USERNAME_HAS_BEEN_CHANGED_SUCCESSFULLY'] = 'Jméno úspěšně změněno';
+$_LANG['PASSWORD_HAS_BEEN_CHANGED_SUCCESSFULLY'] = 'Heslo úspěšně změněno';
+$_LANG['CURRENT_PASSWORD_INCORRECT'] = 'Chybné aktuální heslo';
+$_LANG['INSTALL'] = 'instalovat';
+$_LANG['UNINSTALL'] = 'odinstalovat';
+$_LANG['CONFIGURE'] = 'nastavit';
+$_LANG['CREATED_BY'] = 'Vytvořil';
+$_LANG['CATEGORY_HAS_ONE_OR_MORE_POST'] = 'Kategorie nelze smazat, pokud obsahuje příspěvky.';
+$_LANG['AT_LEAST_ONE_CATEGORY'] = 'Kategorii nelze smazat, v blogu alespoň jednu potřebujete.';
+$_LANG['ARE_YOU_SURE'] = 'Určitě?';
+$_LANG['VIEW'] = 'zobrazit';
+$_LANG['EDIT'] = 'upravit';
+$_LANG['TIMESTAMP_FORMAT'] = 'Formát času';
+$_LANG['SELECT_A_TIMEZONE_FOR_A_CORRECT_DATE_VISUALIZATION'] = 'Zvolte časovou zónu pro správné zobrazení data.';
+$_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_PER_PAGE'] = 'Počet příspěvků, které chcete na jednu stránku.';
+$_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_ON_RSS'] = 'Počet příspěvků, které chcete na RSS.';
+$_LANG['ADVANCED_OPTIONS_WHEN_PUBLISHING_CONTENT'] = 'Rozšírené možnosti publikování obsahu.';
+$_LANG['ADMINISTRATORS_USERNAME'] = 'Administrátorské užívatelské jméno.';
+$_LANG['DO_NOT_FORGET_THIS_PASSWORD'] = 'Nezapomeňte toto heslo.';
+$_LANG['NEW_SESSION_STARTED'] = 'Nové přihlášení';
+$_LANG['DATE'] = 'Datum';
+$_LANG['LAST_SESSIONS'] = 'Poslední relace';
+$_LANG['DASHBOARD'] = 'Panel';
+$_LANG['VIEW_BLOG'] = 'zobrazit blog';
+$_LANG['LOGOUT'] = 'Odhlásit';
+$_LANG['POSTS'] = 'Příspěvky';
+$_LANG['SIMPLE'] = 'klasický';
+$_LANG['VIDEO'] = 'video';
+$_LANG['QUOTE'] = 'citace';
+$_LANG['POSTING_WITH_RICH_FORMATTING'] = 'Odeslat s HTML formátovaním';
+$_LANG['AN_EASY_WAY_TO_PUBLISH_VIDEOS'] = 'Jednoduché publikovaní videí';
+$_LANG['AN_EASY_WAY_TO_PUBLISH_QUOTES'] = 'Jednoduché publikovaní citací';
+$_LANG['NEW_SIMPLE_POST'] = 'Nový klasický příspěvek';
+$_LANG['NEW_VIDEO_POST'] = 'Nové video';
+$_LANG['NEW_QUOTE_POST'] = 'Nová citace';
+$_LANG['MANAGE_POSTS'] = 'Příspěvky';
+$_LANG['SETTINGS'] = 'Nastavení';
+$_LANG['GENERAL_SETTINGS'] = 'Základní nastavení';
+$_LANG['ADVANCED_SETTINGS'] = 'Rozšířené nastavení';
+$_LANG['MANAGE_CATEGORIES'] = 'Kategorie';
+$_LANG['USERNAME_AND_PASSWORD'] = 'Přihlášení';
+$_LANG['MANAGE_PLUGINS'] = 'Administrace zásuvných modulů';
+$_LANG['PLUGINS'] = 'Zásuvné moduly';
+$_LANG['EDIT_POST'] = 'Upravit příspěvek';
+$_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA'] = 'Přihlasit se do administrace';
+$_LANG['POST_HAS_BEEN_PUBLISHED_SUCCESSFULLY'] = 'Příspěvek byl úspešně publikovaný';
+$_LANG['PLEASE_ENABLE_JAVASCRIPT_IN_YOUR_BROWSER'] = 'Prosím povolte JavaScript ve Vašem prohlížeči';
+$_LANG['INSTALLATION_COMPLETE'] = 'Istalace dokončena';
+$_LANG['DEPENDENCIES'] = 'Závislosti';
+$_LANG['PHP_VERSION'] = 'PHP verze';
+$_LANG['PASS'] = 'Heslo';
+$_LANG['FAIL'] = 'Neuspěšné';
+$_LANG['PHP_MODULE'] = 'PHP modul';
+$_LANG['CONFIGURATION'] = 'Konfigurace';
+$_LANG['EXPERT_MODE'] = 'Expertní mód';
+$_LANG['ADMINISTRATOR_USERNAME'] = 'Administrátorské jméno';
+$_LANG['ADMINISTRATOR_PASSWORD'] = 'Administrátorské heslo';
+$_LANG['ADMINISTRATOR_EMAIL'] = 'Administratorův e-mail';
+$_LANG['WELCOME_TO_NIBBLEBLOG'] = 'Vítajte na Nibbleblog';
+$_LANG['CHOOSE_YOUR_LANGUAGE'] = 'Zvolte si svůj jazyk';
+$_LANG['WRITING_TEST_ON_CONTENT_DIRECTORY'] = 'Test zapisovaní do adresáře "content"';
+$_LANG['INSTALLATION_LINE1'] = 'Gratulujeme!';
+$_LANG['INSTALLATION_LINE2'] = 'Instalace Nibbleblog je dokončena.';
+$_LANG['INSTALLATION_LINE3'] = 'Pokud chcete spravovat svůj blog, klikněte na nasledující';
+$_LANG['INSTALLATION_LINE4'] = 'nebo navštivte svůj nový blog';
+$_LANG['INSTALLATION_LINE5'] = 'Pokud potřebujete poradit, navštivte naše fórum';
+$_LANG['WELCOME_POST_TITLE'] = 'Vítejte na Nibbleblog';
+
+$_LANG['WELCOME_POST_LINE1'] = 'Gratulujeme, nainstalovali jste blog a funguje.';
+$_LANG['WELCOME_POST_LINE2'] = 'Začněte publikovat z panelu {{DASHBOARD_LINK}}';
+$_LANG['WELCOME_POST_LINE3'] = 'Sledujte nás na sociálních sítích {{FACEBOOK_LINK}}, {{TWITTER_LINK}} a {{GOOGLEPLUS_LINK}}.';
+
+$_LANG['ENABLE_FRIENDLY_URLS'] = 'Povolit přívětivé URL adresy';
+$_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = 'Zkopírujte obsah do souboru ".htaccess". Soubor musí být v rootu domény. Server musí mít správně naistalované a funkční moduly, abyste mohli používat tuto možnost.';
+$_LANG['INSERT_PICTURE'] = 'Vložit obrázek';
+$_LANG['PERMALINK'] = 'Permalink';
+$_LANG['FRIENDLY_URLS'] = 'Přívětivé URL adresy';
+$_LANG['UPLOADING'] = 'Nahrávání';
+$_LANG['READ_MORE'] = 'Číst více';
+$_LANG['AUTHOR'] = 'Autor';
+$_LANG['THE_PLUGIN_IS_INSTALLED_CORRECTLY'] = 'Zásuvný modul je nainstalovaný správně. Jestliže ho vzhled podporuje, zobrazí se na blogu.';
+$_LANG['SHORT_DESCRIPTION_NO_MORE_THAN'] = 'Krátky popis. Nesmí mít víc jak 150 znaků.';
+$_LANG['NEW_COMMENT'] = 'Nový komentář';
+$_LANG['REGIONAL_SETTINGS'] = 'Region';
+$_LANG['LOCALE'] = 'Lokální';
+$_LANG['THIS_FIELD_IS_SET_EACH_TIME_YOU_CHANGE_THE_LANGUAGE_OF_THE_BLOG'] = 'Toto pole se nastavuje po každé změně jazyka blogu. Uvědomte si, že zadaná hodnota musí být podporovaná serverem.';
+$_LANG['UNCATEGORIZED'] = 'Nezařazené';
+$_LANG['MUSIC'] = 'Hudba';
+$_LANG['VIDEOS'] = 'Videa';
+$_LANG['POWERED_BY_NIBBLEBLOG'] = 'Poháněno Nibbleblog-om';
+$_LANG['CUSTOM'] = 'Vlastní';
+$_LANG['SELECT_A_FORMAT_FOR_DISPLAYING_THE_DATES'] = 'Zvolte formát pro zobrazení data, nebo si vytvořte vlastní.';
+$_LANG['ENABLE_WYSIWYG_EDITOR'] = 'Povolit WYSIWYG editor';
+$_LANG['ENABLE_OR_DISABLE_THE_WYSIWYG_EDITOR'] = 'Povolit, nebo zablokovat WYSIWYG editor';
+$_LANG['IMAGE_SETTINGS'] = 'Obrázky';
+$_LANG['AUTOMATIC_IMAGE_RESIZING'] = 'Automatická úprava velikosti obrázků';
+$_LANG['THUMBNAILS'] = 'Náhledy';
+$_LANG['ENABLE_AUTOMATIC_IMAGE_RESIZING'] = 'povolit automatickou úpravu velikosti obrázků.';
+$_LANG['ENABLE_THUMBNAILS'] = 'Povolit náhledy';
+$_LANG['WIDTH'] = 'Šířka';
+$_LANG['HEIGHT'] = 'Výška';
+$_LANG['OPTION'] = 'Možnost';
+$_LANG['THIS_OPTION_AUTOMATICALLY_CHANGES_THE_IMAGE'] = 'Tato možnost automaticky změní velikost obrázku po nahrání na server.';
+$_LANG['ENABLE_THIS_OPTION_IF_YOU_WANT_TO_GENERATE'] = 'Povolte možnosť, pokud si přejete vytvářet náhlady po nahrání obrázku na server.';
+$_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS'] = 'Žádné komentáře.';
+$_LANG['THERE_ARE_NO_DRAFT_POSTS'] = 'Žádné koncepty.';
+$_LANG['AUTOMATIC'] = 'Automaticky';
+$_LANG['EXACT'] = 'Beze změny';
+$_LANG['PORTRAIT'] = 'Na výšku';
+$_LANG['LANDSCAPE'] = 'Na šířku';
+$_LANG['CROP'] = 'Ořezat';
+$_LANG['YOU_CAN_USE_HTML_OR_MARKDOWN_SYNTAX'] = 'Můžete použít HTML nebo Markdown syntaxi';
+$_LANG['DRAFT'] = 'Koncept';
+$_LANG['YOU_HAVE_A_NEW_COMMENT'] = 'Máte nový komentář';
+$_LANG['LOGIN_FAILED_ATTEMPT'] = 'Neplatný pokus o přihlášení';
+$_LANG['NOTIFICATIONS'] = 'Notifikace';
+$_LANG['PREVIEW'] = 'Náhled';
+$_LANG['PLEASE_COMPLETE_ALL_FIELDS'] = 'Prosím, vyplňte všechny políčka';
+$_LANG['THERE_ARE_NO_POSTS'] = 'Žádné komentáře';
+$_LANG['BACK_TO_BLOG'] = 'Zpět na blog';
+$_LANG['LOW_DETECTION_LEVEL'] = 'Nízká úroveň detekce';
+$_LANG['MEDIUM_DETECTION_LEVEL'] = 'Střední úroveň detekce';
+$_LANG['HIGH_DETECTION_LEVEL'] = 'Vysoká úroveň detekce';
+$_LANG['SPAM_CONTROL'] = 'Kontrola spamu';
+$_LANG['DISAPPROVE'] = 'Zakázat';
+$_LANG['APPROVE_SPAM_DETECTED'] = 'Povolit (Spam detekovaný)';
+$_LANG['APPROVE'] = 'Povolit';
+$_LANG['API_KEY'] = 'Api Key';
+$_LANG['INSERT_THE_API_KEY_HERE'] = 'Zde vložte API key. Pokud ještě žádny nemáte, nebo neznáte tuto funkci, navštivte nasledující';
+$_LANG['SPAM_MONITOR'] = 'Spam monitor';
+$_LANG['ENABLE_THIS_FEATURE_TO_PROTECT_AGAINST_XSS'] = 'Povolte tuto možnost pro ochranu pred cross-site scripting (XSS).';
+$_LANG['ENABLE_THIS_FEATURE_TO_MODERATE_COMMENTS'] = 'Povolte tuto možnost, abyste mohli moderovat komentáře před zobrazením.';
+$_LANG['ENABLE_THIS_FEATURE_TO_PROTECT_YOUR_COMMENTS'] = 'Povolte tuto možnost pro ochranu komentářů před spamem.';
+$_LANG['ENABLE_THIS_FEATURE_TO_DELETE_SPAM_AUTO'] = 'Povolte tuto možnost, aby se spam mazal automaticky.';
+$_LANG['COMMENTS_DETECTED_AS_SPAM_WILL_BE_FILTERED'] = 'Komentáře detekované jako spam, budou filtrovány.';
+$_LANG['NOTIFY_WHEN_A_USER_MAKES_A_COMMENT'] = 'Upozornit na nový komentář.';
+$_LANG['NOTIFY_WHEN_A_USER_FAILS_TO_LOGIN'] = 'Upozornit na špatné přihlášení.';
+$_LANG['NOTIFY_WHEN_A_USER_SUCCESSES_LOGIN'] = 'Upozornit na úspěšné přihlášení.';
+$_LANG['NOTIFICATIONS_WILL_BE_SENT_TO_THIS_EMAIL'] = 'Notifikace se odešlou na tento e-mail.';
+$_LANG['NOTIFICATIONS_WILL_BE_SENT_FROM_THIS_EMAIL'] = 'Notifikace se odešlou z tohoto e-mailu.';
+$_LANG['EMAIL_ACCOUNTS_SETTINGS'] = 'E-mailové účty';
+$_LANG['NOTIFY_ME_FROM'] = 'Odesílat z';
+$_LANG['NOTIFY_ME_TO'] = 'Odesílat na';
+$_LANG['NOTIFICATIONS_VIA_EMAIL'] = 'E-mailové notifikace';
+$_LANG['YOUR_COMMENT_IS_UNDER_REVIEW_IT_WILL_BE'] = 'Váš komentář je bude zkontrolován administrátorem.';
+$_LANG['SANITIZE_HTML_CODE'] = 'Ošetřit HTML kód';
+$_LANG['MODERATE_COMMENTS'] = 'Spravovat komentáře';
+$_LANG['ENABLE_SPAM_MONITOR'] = 'Povolit spam monitor';
+$_LANG['AUTOMATICALLY_DELETE_SPAM'] = 'Automaticky mazat spam';
+$_LANG['COMMENT_SETTINGS'] = 'Komentáře';
+$_LANG['MANAGE_COMMENTS'] = 'Komentáře';
+$_LANG['BASIC_CONFIGURATION_OF_YOUR_BLOG'] = 'Základní konfigurace blogu';
+$_LANG['SIMPLE_POST'] = 'Klasický';
+$_LANG['VIDEO_POST'] = 'Video';
+$_LANG['QUOTE_POST'] = 'Citace';
+$_LANG['CATEGORIES'] = 'Kategorie';
+$_LANG['TAGS'] = 'Tagy';
+$_LANG['LINK'] = 'odkaz';
+$_LANG['KEYWORDS'] = 'Klíčová slova';
+$_LANG['MANAGE'] = 'Administrace';
+$_LANG['404_PAGE_NOT_FOUND'] = 'Promiňte, stránka ktorou hledáte neexistuje.';
+$_LANG['NO_TITLE'] = 'Žádný nadpis';
+$_LANG['TITLE'] = 'Nadpis';
+$_LANG['TYPE'] = 'Typ';
+$_LANG['CATEGORY'] = 'Kategorie';
+$_LANG['PUBLISH_DATE'] = 'Datum publikování';
+$_LANG['LAST_MODIFIED'] = 'Poslední úprava';
+$_LANG['COMMENT'] = 'Komentář';
+$_LANG['POST'] = 'Příspěvek';
+$_LANG['SLUG'] = 'Slug';
+$_LANG['SITE'] = 'Stránka';
+$_LANG['SITE_TITLE'] = 'Nadpis stránky';
+$_LANG['SITE_DESCRIPTION'] = 'Popis stránky';
+$_LANG['TAGS_SEPARATED_BY_COMMA'] = 'Tagy oddělené čárkou.';
+$_LANG['KEYWORDS_SEPARATED_BY_COMMA'] = 'Klíčová slova oddělené čárkou.';
+$_LANG['ROBOTS'] = 'Robots';
+$_LANG['WEBMASTER_TOOLS'] = 'Webmaster tools';
+$_LANG['GOOGLE_WEBMASTER_TOOLS'] = 'Google Webmaster tools - ověřovací kód';
+$_LANG['BING_WEBMASTER_TOOLS'] = 'Bing Webmaster tools - ověřovací kód';
+$_LANG['SEO_OPTIONS'] = 'SEO možnosti';
+$_LANG['SHARE'] = 'Sdílet';
+$_LANG['ALLOW_COMMENTS_ON_THIS_POST'] = 'Povolit komentáře pro tento příspěvek.';
+$_LANG['MULTIPLE_DIRECTIVES_MAY_BE_COMBINED_IN'] = 'Více direktiv může být oddělených čárkou. Příklad: nofollow, noindex, noarchive.';
+$_LANG['DRAFT_POSTS'] = 'Koncepty příspěvků';
+$_LANG['POSITION'] = 'Pozice';
+
+$_LANG['UPLOAD_A_NEW_IMAGE'] = 'Nahrát nový obrázek';
+$_LANG['OR'] = 'nebo';
+$_LANG['SELECT_AN_IMAGE_FROM_YOUR_BAG'] = 'Vyberte obrázek z nahraných';
+
+$_LANG['THERE_IS_A_NEW_VERSION'] = 'Je k dispozici nová verze Nibbleblogu.';
+$_LANG['VERSION'] = 'Verze';
+$_LANG['RELEASE_DATE'] = 'Datum vypuštění';
+
+$_LANG['NEW_PAGE'] = 'Nová stránka';
+$_LANG['SET_AS_HOMEPAGE'] = 'nastavit jako výchozí';
+$_LANG['THERE_IS_A_PAGE_AS_HOMEPAGE'] = 'Máte nastavenou stránku jako domovskou stránku, klikněte a vymažte ji.';
+$_LANG['MANAGE_PAGES'] = 'Stránky';
+$_LANG['PAGE'] = 'Stránka';
+$_LANG['PAGES'] = 'Stránky';
+$_LANG['PAGE_HAS_BEEN_PUBLISHED_SUCCESSFULLY'] = 'Stránka byla úspěšně publikovaná.';
+$_LANG['THERE_ARE_NO_PAGES'] = 'Žádne stránky.';
+$_LANG['HOME'] = 'Domů';
+$_LANG['REQUEST_NEW_PASSWORD'] = 'Žádost o nové heslo.';
+
+$_LANG['NEW_POST'] = 'Nový příspěvek';
+$_LANG['QUICK_START'] = 'Rychle začít';
+$_LANG['QUALITY'] = 'Kvalita';
+$_LANG['NOTES'] = 'Poznámky';
+$_LANG['WEBSITE'] = 'web';
+$_LANG['COMPLETE_THIS_FIELD_IF_YOU_WANT_USE_DISQUS'] = 'Vyplňte toto pole, pokud chcete na blogu používať Disqus. Tuto funkci musí podporovat vybraný vzhled. Pokud potřebujete více informácí, klikněte na následující';
+$_LANG['COMPLETE_THIS_FIELD_IF_YOU_WANT_USE_FACEBOOK_COMMENTS'] = 'Vyplňte toto pole pokud si přejete na blogu používat Facebook komentáře. Tuto funkci musí podporovať vybraný vzhled. Pokud potřebujete více informácí, klikněte na následující';
+
+$_LANG['WE_ARE_SENT_YOU_AN_EMAIL'] = 'Poslali jsme Vám e-mail. Pokud nedorazil, zkontrolujte si spam.';
+$_LANG['AN_ERROR_OCURRED_WHILE'] = 'Chyba při odesílání e-mailu.';
+
+$_LANG['EMAIL_NOTIFICATION_FAIL_LOGIN'] = '
+<p>Toto je notifikace z Vašeho blogu - {{BLOG_NAME}}</p>
+<p>Někdo se chtěl přihlásit na blog.<br>Uživatelské jméno: {{USERNAME}}<br>Heslo: {{PASSWORD}}<br>IP: {{IP}}</p>
+';
+
+$_LANG['EMAIL_NOTIFICATION_SESSION_STARTED'] = '
+<p>Toto je notifikace z Vašeho blogu - {{BLOG_NAME}}</p>
+<p>Úspěšné prihlášení do administrace.<br>Užívatelské jméno: {{USERNAME}}<br>IP: {{IP}}</p>
+';
+
+$_LANG['EMAIL_NOTIFICATION_NEW_COMMENT'] = '
+<p>Toto je notifikace z Vašeho blogu - {{BLOG_NAME}}</p>
+<p>Máte nový komentář.</p>
+<p>{{COMMENT}}</p>
+<p>Autor: {{AUTHOR_NAME}}<br>Email: {{AUTHOR_EMAIL}}<br>IP: {{IP}}</p>
+';
+
+$_LANG['EMAIL_NOTIFICATION_FORGOT_PASSWORD'] = '
+<p>Toto je notifikace z Vašeho blogu - {{BLOG_NAME}}</p>
+<p>Zapomněli jste Vaše heslo? Žádný problém!</p>
+<p>Kliknite na nasledující odkaz: {{FORGOT_LINK}}</p>
+';
+
+$_LANG['REGIONAL'] = 'Region';
+$_LANG['INSERT_IMAGE_FROM_URL'] = 'Vložit URL obrázku';
+
+$_LANG['BLUDIT_SYNC'] = 'Bludit Sync';
+$_LANG['NIBBLEBLOG_URL_SYNC'] = 'Nibbleblog URL Sync';
+$_LANG['NIBBLEBLOG_KEY_SYNC'] = 'Nibbleblog Key Sync';
+
+$_LANG['CATEGORY_NAME'] = 'Název kategorie';
+$_LANG['CATEGORY_SLUG'] = 'Slug kategorie';
+
+$_LANG['INSTALLED_PLUGINS'] = 'Nainstalované';
+$_LANG['PLUGINS_AVAILABLE_FOR_INSTALL'] = 'K dispozici';
+
+$_LANG['ABSOLUTE_URL_ADDRESS_OF_YOUR_BLOG'] = 'Absolutní URL adresa blogu. Příklad: http://www.domain.com/directory/';
+$_LANG['ABSOLUTE_ADDRESS_THAT_CONTAINS_THE_BLOGS_FILE_SYSTEM'] = 'Absolutní adresa obsahující soubory blogu. Pokud jste nahráli Nibbleblog do rootu, vepište pouze "/". Jestliže je v adresáři, pak vepište cestu k němu. Příklad: "/cesta/ke/blogu/".';
+
+$_LANG['COVER_ATTRIBUTE'] = 'Cover attribute';
+
+?>
