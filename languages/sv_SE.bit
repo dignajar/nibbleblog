@@ -1,0 +1,329 @@
+<?php
+
+$_LANG_CONFIG['DATA'] = array(
+	'native'=>'Svenska - Sverige',
+	'swedish'=>'Swedish',
+	'last_update'=>'12/09/2016',
+	'author'=>'Oscar Holst',
+	'email'=>'oscar.holst@linux.com',
+	'url'=>'https://github.com/OscarHolst/'
+);
+
+$_LANG['LAST_COMMENTS'] = 'Senaste kommentarer';
+$_LANG['THEME'] = 'Tema';
+$_LANG['THEMES'] = 'Teman';
+$_LANG['CHANGE_THEME'] = 'Ändra tema';
+$_LANG['SELECT_THEME'] = 'Välj tema';
+$_LANG['REMEMBER_ME'] = 'Kom ihåg mig';
+$_LANG['USERNAME'] = 'Användarnamn';
+$_LANG['PASSWORD'] = 'Lösenord';
+$_LANG['COMMENTS'] = 'Kommentarer';
+$_LANG['INVALID_CAPTCHA'] = 'Felaktig captcha';
+$_LANG['NAME'] = 'Namn';
+$_LANG['EMAIL'] = 'E-post';
+$_LANG['TYPE_THE_COMMENT_HERE'] = 'Skriv kommentar här';
+$_LANG['COPY_THE_TEXT_ON_THE_RIGHT'] = 'Kopiera texten till höger';
+$_LANG['NEWER_POSTS'] = 'Nyare inlägg';
+$_LANG['OLDER_POSTS'] = 'Äldre inlägg';
+$_LANG['FORGOT_PASSWORD'] = 'Glömt lösenord';
+$_LANG['INCORRECT_USERNAME_OR_PASSWORD'] = 'Felaktigt användarnamn eller lösenord';
+$_LANG['LOGIN'] = 'Logga in';
+$_LANG['NEW_CATEGORY'] = 'Ny kategori';
+$_LANG['ENTER_THE_NAME_OF_THE_NEW_CATEGORY'] = 'Ange namnet på den nya kategorin';
+$_LANG['ADD_CATEGORY'] = 'Lägg till kategori';
+$_LANG['CATEGORIES_IN_YOUR_BLOG'] = 'Kategorier i bloggen';
+$_LANG['DELETE'] = 'Radera';
+$_LANG['ENTER_TITLE_HERE'] = 'Ange titel här';
+$_LANG['SELECT_A_CATEGORY'] = 'Välj en kategori';
+$_LANG['ALLOW_COMMENTS'] = 'Tillåt kommentarer';
+$_LANG['ALLOW_YOUR_USERS_TO_COMMENT_YOUR_PUBLICATIONS'] = 'Tillåt användare att kommentera dina inlägg.';
+$_LANG['STICKY_POST'] = 'Klistrat inlägg';
+$_LANG['SELECT_THIS_OPTION_IF_YOU_WANT_TO_HIGHLIGHT_YOUR_PUBLICATION'] = 'Välj detta val om du vill framhäva ditt inlägg';
+$_LANG['PUBLISH'] = 'Publicera';
+$_LANG['GET_VIDEO_INFORMATION'] = 'Hämta video information';
+$_LANG['VIDEO_URL'] = 'Video URL';
+$_LANG['LOADING'] = 'Laddar';
+$_LANG['VIDEO_INFORMATION'] = 'Video information';
+$_LANG['ENTER_QUOTE_HERE'] = 'Ange citat här';
+$_LANG['TIMEZONE'] = 'Tidszon';
+$_LANG['BLOG_ADDRESS'] = 'Blogg adress (URL)';
+$_LANG['BLOG_BASE_PATH'] = 'Blogg sökväg';
+$_LANG['POSTS_PER_PAGE'] = 'Inlägg per sida';
+$_LANG['RSS_ITEMS'] = 'RSS inlägg';
+$_LANG['ADVANCED_OPTIONS_FOR_POST'] = 'Avancerade alternativ för inlägg';
+$_LANG['BLOG_TITLE'] = 'Blogg titel';
+$_LANG['BLOG_SLOGAN'] = 'Blogg slogan';
+$_LANG['ABOUT_YOUR_BLOG'] = 'Om din blogg';
+$_LANG['FOOTER_TEXT'] = 'Footer text';
+$_LANG['LANGUAGE'] = 'Språk';
+$_LANG['CURRENT_PASSWORD'] = 'Nuvarande lösenord';
+$_LANG['NEW_PASSWORD'] = 'Nytt lösenord';
+$_LANG['SAVE_CHANGES'] = 'Spara ändringar';
+$_LANG['CHANGE_USERNAME'] = 'Ändra användarnamn';
+$_LANG['CHANGE_PASSWORD'] = 'Ändra lösenord';
+$_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY'] = 'Ändringarna har sparats med lyckat resultat';
+$_LANG['USERNAME_HAS_BEEN_CHANGED_SUCCESSFULLY'] = 'Användarnamnet har ändrats';
+$_LANG['PASSWORD_HAS_BEEN_CHANGED_SUCCESSFULLY'] = 'Lösenordet har ändratts';
+$_LANG['CURRENT_PASSWORD_INCORRECT'] = 'Nuvarande lösenord felaktigt';
+$_LANG['INSTALL'] = 'Installera';
+$_LANG['UNINSTALL'] = 'Avinstallera';
+$_LANG['CONFIGURE'] = 'Konfigurera';
+$_LANG['CREATED_BY'] = 'Skapad av';
+$_LANG['CATEGORY_HAS_ONE_OR_MORE_POST'] = 'Kategorin har en eller flera inlägg. Den kan inte raderas förrän den är tom.';
+$_LANG['AT_LEAST_ONE_CATEGORY'] = 'Kategorin kan inte raderas då du behöver ha minst en kategori.';
+$_LANG['ARE_YOU_SURE'] = 'Är du säker?';
+$_LANG['VIEW'] = 'Visa';
+$_LANG['EDIT'] = 'Redigera';
+$_LANG['TIMESTAMP_FORMAT'] = 'Tidsstämpel';
+$_LANG['SELECT_A_TIMEZONE_FOR_A_CORRECT_DATE_VISUALIZATION'] = 'Välj en tidszon för korrekt visning av datum.';
+$_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_PER_PAGE'] = 'Antal inlägg du vill se per sida.';
+$_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_ON_RSS'] = 'Antal inlägg du vill se i RSS flödet.';
+$_LANG['ADVANCED_OPTIONS_WHEN_PUBLISHING_CONTENT'] = 'Avancerade alternativ vid publicering av inlägg.';
+$_LANG['ADMINISTRATORS_USERNAME'] = 'Administratörens användarnamn.';
+$_LANG['DO_NOT_FORGET_THIS_PASSWORD'] = 'Glöm inte detta lösenord.';
+$_LANG['NEW_SESSION_STARTED'] = 'Ny session startad';
+$_LANG['DATE'] = 'Datum';
+$_LANG['LAST_SESSIONS'] = 'Senaste sessionen';
+$_LANG['DASHBOARD'] = 'Översikt';
+$_LANG['VIEW_BLOG'] = 'Visa bloggen';
+$_LANG['LOGOUT'] = 'Logga ut';
+$_LANG['POSTS'] = 'Inlägg';
+$_LANG['SIMPLE'] = 'Simpel';
+$_LANG['VIDEO'] = 'Video';
+$_LANG['QUOTE'] = 'Citat';
+$_LANG['POSTING_WITH_RICH_FORMATTING'] = 'Publicera inlägg i RTF format';
+$_LANG['AN_EASY_WAY_TO_PUBLISH_VIDEOS'] = 'Ett enkelt sätt att publicera videos';
+$_LANG['AN_EASY_WAY_TO_PUBLISH_QUOTES'] = 'Ett enkelt sätt att publicera citat';
+$_LANG['NEW_SIMPLE_POST'] = 'Nytt simpelt inlägg';
+$_LANG['NEW_VIDEO_POST'] = 'Nytt videoinlägg';
+$_LANG['NEW_QUOTE_POST'] = 'Nytt citatinlägg';
+$_LANG['MANAGE_POSTS'] = 'Hantera inlägg';
+$_LANG['SETTINGS'] = 'Inställningar';
+$_LANG['GENERAL_SETTINGS'] = 'Generella inställningar';
+$_LANG['ADVANCED_SETTINGS'] = 'Avancerade inställningar';
+$_LANG['MANAGE_CATEGORIES'] = 'Hantera kategorier';
+$_LANG['USERNAME_AND_PASSWORD'] = 'Användarnamn & Lösenord';
+$_LANG['MANAGE_PLUGINS'] = 'Hantera tillägg';
+$_LANG['PLUGINS'] = 'Tillägg';
+$_LANG['EDIT_POST'] = 'Editera inlägg';
+$_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA'] = 'Administrationsinloggning';
+$_LANG['POST_HAS_BEEN_PUBLISHED_SUCCESSFULLY'] = 'Inlägget har publicerats med lyckat resultat';
+$_LANG['PLEASE_ENABLE_JAVASCRIPT_IN_YOUR_BROWSER'] = 'Vänligen aktivera JavaScript i din webbläsare';
+$_LANG['INSTALLATION_COMPLETE'] = 'Installation genomförd';
+$_LANG['DEPENDENCIES'] = 'Beroenden';
+$_LANG['PHP_VERSION'] = 'PHP version';
+$_LANG['PASS'] = 'Lyckat';
+$_LANG['FAIL'] = 'Misslyckat';
+$_LANG['PHP_MODULE'] = 'PHP modul';
+$_LANG['CONFIGURATION'] = 'Konfiguration';
+$_LANG['EXPERT_MODE'] = 'Expert läge';
+$_LANG['ADMINISTRATOR_USERNAME'] = 'Administratörens användarnamn';
+$_LANG['ADMINISTRATOR_PASSWORD'] = 'Administratörens lösenord';
+$_LANG['ADMINISTRATOR_EMAIL'] = 'Administratörens e-post';
+$_LANG['WELCOME_TO_NIBBLEBLOG'] = 'Välkommen till Nibbleblog';
+$_LANG['CHOOSE_YOUR_LANGUAGE'] = 'Välj ditt språk';
+$_LANG['WRITING_TEST_ON_CONTENT_DIRECTORY'] = 'Skriver test till "content" mappen';
+$_LANG['INSTALLATION_LINE1'] = 'Gratulerar!';
+$_LANG['INSTALLATION_LINE2'] = 'Din Nibbleblog installation är nu genomförd.';
+$_LANG['INSTALLATION_LINE3'] = 'För att hantera din blogg gå till följande adress';
+$_LANG['INSTALLATION_LINE4'] = 'eller besök din nya blogg';
+$_LANG['INSTALLATION_LINE5'] = 'Om du behöver support vänligen besök forumet';
+$_LANG['WELCOME_POST_TITLE'] = 'Välkommen till Nibbleblog';
+
+$_LANG['WELCOME_POST_LINE1'] = 'Gratulerar, din blogg är installerad och redo.';
+$_LANG['WELCOME_POST_LINE2'] = 'Börja blogga {{DASHBOARD_LINK}}';
+$_LANG['WELCOME_POST_LINE3'] = 'Följ oss på sociala nätverk {{FACEBOOK_LINK}}, {{TWITTER_LINK}} och {{GOOGLEPLUS_LINK}}.';
+
+$_LANG['ENABLE_FRIENDLY_URLS'] = 'Aktivera SEO vänliga URL:er';
+$_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = 'Kopiera innehållet i ".htaccess". Filen måste ligga i roten av ditt domän. Servern måste ha laddat modulerna och vara korrekt konfigurerad för att använda detta alternativet.';
+$_LANG['INSERT_PICTURE'] = 'Lägg till bild';
+$_LANG['PERMALINK'] = 'Permalänk';
+$_LANG['FRIENDLY_URLS'] = 'SEO vänliga URL:er';
+$_LANG['UPLOADING'] = 'Laddar upp';
+$_LANG['READ_MORE'] = 'Läs mer';
+$_LANG['AUTHOR'] = 'Författare';
+$_LANG['THE_PLUGIN_IS_INSTALLED_CORRECTLY'] = 'Tillägget är korrekt installerat. Om det finns stöd för temat så kommer det synas på din blogg.';
+$_LANG['SHORT_DESCRIPTION_NO_MORE_THAN'] = 'Kort beskrivning. Inte mer än 150 karaktärer.';
+$_LANG['NEW_COMMENT'] = 'Ny kommentar';
+$_LANG['REGIONAL_SETTINGS'] = 'Regionala inställningar';
+$_LANG['LOCALE'] = 'Platsinställningar';
+$_LANG['THIS_FIELD_IS_SET_EACH_TIME_YOU_CHANGE_THE_LANGUAGE_OF_THE_BLOG'] = 'Detta fält är markerat varje gång du ändrar språk på din blogg. Om du måste ändra detta till ett mer passande. Notera att det måste finnas stöd på servern för ditt val.';
+$_LANG['UNCATEGORIZED'] = 'Okategoriserad';
+$_LANG['MUSIC'] = 'Musik';
+$_LANG['VIDEOS'] = 'Videos';
+$_LANG['POWERED_BY_NIBBLEBLOG'] = 'Drivs av Nibbleblog';
+$_LANG['CUSTOM'] = 'Anpassa';
+$_LANG['SELECT_A_FORMAT_FOR_DISPLAYING_THE_DATES'] = 'Välj ett datumformat eller anpassat alternativ så du kan skapa ditt eget.';
+$_LANG['ENABLE_WYSIWYG_EDITOR'] = 'Aktivera WYSIWYG editorn';
+$_LANG['ENABLE_OR_DISABLE_THE_WYSIWYG_EDITOR'] = 'Aktivera eller inaktivera WYSIWYG editorn';
+$_LANG['IMAGE_SETTINGS'] = 'Bild inställningar';
+$_LANG['AUTOMATIC_IMAGE_RESIZING'] = 'Automatisk bildstorleksändring';
+$_LANG['THUMBNAILS'] = 'Thumbnails';
+$_LANG['ENABLE_AUTOMATIC_IMAGE_RESIZING'] = 'Aktivera automatisk bildstorleksändring';
+$_LANG['ENABLE_THUMBNAILS'] = 'Aktivera miniatyrer';
+$_LANG['WIDTH'] = 'Bredd';
+$_LANG['HEIGHT'] = 'Höjd';
+$_LANG['OPTION'] = 'Alternativ';
+$_LANG['THIS_OPTION_AUTOMATICALLY_CHANGES_THE_IMAGE'] = 'Detta alternativet ändrar bildstorleken automatiskt vid upladdning.';
+$_LANG['ENABLE_THIS_OPTION_IF_YOU_WANT_TO_GENERATE'] = 'Aktivera detta alternativ om du vill generera en miniatyrbild vid bilduppladdning.';
+$_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS'] = 'Det finns inga publicerade kommentarer.';
+$_LANG['THERE_ARE_NO_DRAFT_POSTS'] = 'Det finns inga utkast.';
+$_LANG['AUTOMATIC'] = 'Automatiskt';
+$_LANG['EXACT'] = 'Exakt';
+$_LANG['PORTRAIT'] = 'Porträtt';
+$_LANG['LANDSCAPE'] = 'Landskap';
+$_LANG['CROP'] = 'Beskär';
+$_LANG['YOU_CAN_USE_HTML_OR_MARKDOWN_SYNTAX'] = 'Du kan använda HTML eller Markdown syntax';
+$_LANG['DRAFT'] = 'Utkast';
+$_LANG['YOU_HAVE_A_NEW_COMMENT'] = 'Du har en ny kommentar';
+$_LANG['LOGIN_FAILED_ATTEMPT'] = 'Misslyckade inloggningsförsök';
+$_LANG['NOTIFICATIONS'] = 'Notifikationer';
+$_LANG['PREVIEW'] = 'Förhandsvisa';
+$_LANG['PLEASE_COMPLETE_ALL_FIELDS'] = 'Vänligen fyll i alla fält';
+$_LANG['THERE_ARE_NO_POSTS'] = 'Det finns inga inlägg';
+$_LANG['BACK_TO_BLOG'] = 'Tillbaka till bloggen';
+$_LANG['LOW_DETECTION_LEVEL'] = 'Låg detektionsnivå';
+$_LANG['MEDIUM_DETECTION_LEVEL'] = 'Mellan detektionsnivå';
+$_LANG['HIGH_DETECTION_LEVEL'] = 'Hög detektionsnivå';
+$_LANG['SPAM_CONTROL'] = 'Spamkontroll';
+$_LANG['DISAPPROVE'] = 'Förkasta';
+$_LANG['APPROVE_SPAM_DETECTED'] = 'Tillåt (Spam upptäckt)';
+$_LANG['APPROVE'] = 'Tillåt';
+$_LANG['API_KEY'] = 'API Nyckel';
+$_LANG['INSERT_THE_API_KEY_HERE'] = 'Ange API nyckel här. Om du inte har någon än, eller är bekant med denna funktion, vänligen följ nästa länk.';
+$_LANG['SPAM_MONITOR'] = 'Spamövervakning';
+$_LANG['ENABLE_COMMENTS_BY_DEFAULT'] = 'Aktivera denna egenskap för att tillåta kommenterar som standard';
+$_LANG['ENABLE_THIS_FEATURE_TO_PROTECT_AGAINST_XSS'] = 'Aktivera denna funktion för att skydda mot cross-site scripting (XSS) attacker genom att sterilisera HTML koden.';
+$_LANG['ENABLE_THIS_FEATURE_TO_MODERATE_COMMENTS'] = 'Aktivera denna funktion för att moderera kommentarer innan de publiceras.';
+$_LANG['ENABLE_THIS_FEATURE_TO_PROTECT_YOUR_COMMENTS'] = 'Aktivera denna funktion för att skydda dina kommentarer från spam.';
+$_LANG['ENABLE_THIS_FEATURE_TO_DELETE_SPAM_AUTO'] = 'Aktivera denna funktion för att radera spam automatiskt.';
+$_LANG['COMMENTS_DETECTED_AS_SPAM_WILL_BE_FILTERED'] = 'Kommentarer som deetekteras som spam blir filtrerade.';
+$_LANG['NOTIFY_WHEN_A_USER_MAKES_A_COMMENT'] = 'Notifiera mig när en användare lämnar en kommentar.';
+$_LANG['NOTIFY_WHEN_A_USER_FAILS_TO_LOGIN'] = 'Notifiera mig när en användare misslyckas med att logga in.';
+$_LANG['NOTIFY_WHEN_A_USER_SUCCESSES_LOGIN'] = 'Notifiera mig när en användare lyckas med att logga in.';
+$_LANG['NOTIFICATIONS_WILL_BE_SENT_TO_THIS_EMAIL'] = 'Notifikationer kommer att skickas till denna e-post.';
+$_LANG['NOTIFICATIONS_WILL_BE_SENT_FROM_THIS_EMAIL'] = 'Notifikationer kommer att skickas från denna e-post.';
+$_LANG['EMAIL_ACCOUNTS_SETTINGS'] = 'E-postinställningar';
+$_LANG['NOTIFY_ME_FROM'] = 'Notifiera mig från';
+$_LANG['NOTIFY_ME_TO'] = 'Notifiera mig till';
+$_LANG['NOTIFICATIONS_VIA_EMAIL'] = 'Notifikationer via e-post';
+$_LANG['YOUR_COMMENT_IS_UNDER_REVIEW_IT_WILL_BE'] = 'Din kommentar är under granskning, den kommer att publiceras inom kort';
+$_LANG['COMMENTS_ENABLED'] = 'Aktivera kommentarer som standard';
+$_LANG['SANITIZE_HTML_CODE'] = 'Sterilisera HTML kod';
+$_LANG['MODERATE_COMMENTS'] = 'Moderera kommentarer';
+$_LANG['ENABLE_SPAM_MONITOR'] = 'Aktivera spamövervakning';
+$_LANG['AUTOMATICALLY_DELETE_SPAM'] = 'Radera spam automatiskt';
+$_LANG['COMMENT_SETTINGS'] = 'Kommentarinställningar';
+$_LANG['MANAGE_COMMENTS'] = 'Hantera kommentarer';
+$_LANG['BASIC_CONFIGURATION_OF_YOUR_BLOG'] = 'Grundläggande konfiguration av din blogg';
+$_LANG['SIMPLE_POST'] = 'Enkelt inlägg';
+$_LANG['VIDEO_POST'] = 'Video inlägg';
+$_LANG['QUOTE_POST'] = 'Citat inlägg';
+$_LANG['CATEGORIES'] = 'Kategorier';
+$_LANG['TAGS'] = 'Taggar';
+$_LANG['LINK'] = 'Länkar';
+$_LANG['KEYWORDS'] = 'Nyckelord';
+$_LANG['MANAGE'] = 'Hantera';
+$_LANG['404_TITLE'] = 'Sidan kunde inte hittas';
+$_LANG['404_PAGE_NOT_FOUND'] = 'Tyvärr, sidan du söker finns inte.';
+$_LANG['NO_TITLE'] = 'Ingen titel';
+$_LANG['TITLE'] = 'Titel';
+$_LANG['TYPE'] = 'Typ';
+$_LANG['CATEGORY'] = 'Kategori';
+$_LANG['PUBLISH_DATE'] = 'Publiceringsdatum';
+$_LANG['LAST_MODIFIED'] = 'Senast redigerad';
+$_LANG['COMMENT'] = 'Kommentera';
+$_LANG['POST'] = 'Publicera';
+$_LANG['SLUG'] = 'Slug';
+$_LANG['SITE'] = 'Sida';
+$_LANG['SITE_TITLE'] = 'Sidtitel';
+$_LANG['SITE_DESCRIPTION'] = 'Sidbeskrivning';
+$_LANG['TAGS_SEPARATED_BY_COMMA'] = 'Separera taggar med kommatecken.';
+$_LANG['KEYWORDS_SEPARATED_BY_COMMA'] = 'Separera nyckelord med kommatecken.';
+$_LANG['ROBOTS'] = 'Robotar';
+$_LANG['WEBMASTER_TOOLS'] = 'Webmaster verktyg';
+$_LANG['GOOGLE_WEBMASTER_TOOLS'] = 'Google Webmaster tool - Verifieringskod';
+$_LANG['BING_WEBMASTER_TOOLS'] = 'Bing Webmaster tools - Verifieringskod';
+$_LANG['SEO_OPTIONS'] = 'SEO Alternativ';
+$_LANG['SHARE'] = 'Dela';
+$_LANG['ALLOW_COMMENTS_ON_THIS_POST'] = 'Tillåt kommentarer på detta inlägg.';
+$_LANG['MULTIPLE_DIRECTIVES_MAY_BE_COMBINED_IN'] = 'Flera direktiv kan kombineras separerade med kommatecken. Exempel: nofollow, noindex, noarchive.';
+$_LANG['DRAFT_POSTS'] = 'Utkast';
+$_LANG['POSITION'] = 'Placering';
+
+$_LANG['UPLOAD_A_NEW_IMAGE'] = 'Ladda upp en ny bild';
+$_LANG['OR'] = 'Eller';
+$_LANG['SELECT_AN_IMAGE_FROM_YOUR_BAG'] = 'Välj en bild ifrån media';
+
+$_LANG['THERE_IS_A_NEW_VERSION'] = 'Det finns en ny version av Nibbleblog tillgänglig.';
+$_LANG['VERSION'] = 'Version';
+$_LANG['RELEASE_DATE'] = 'Releasedatum';
+
+$_LANG['NEW_PAGE'] = 'Ny sida';
+$_LANG['SET_AS_HOMEPAGE'] = 'Välj som huvudsida';
+$_LANG['THERE_IS_A_PAGE_AS_HOMEPAGE'] = 'Det finns redan en huvudsida, klicka här för att ta bort den.';
+$_LANG['MANAGE_PAGES'] = 'Hantera sidor';
+$_LANG['PAGE'] = 'Sida';
+$_LANG['PAGES'] = 'Sidor';
+$_LANG['PAGE_HAS_BEEN_PUBLISHED_SUCCESSFULLY'] = 'Sidan har publicerats med lyckat resultat';
+$_LANG['THERE_ARE_NO_PAGES'] = 'Det finns inga sidor.';
+$_LANG['HOME'] = 'Hem';
+$_LANG['REQUEST_NEW_PASSWORD'] = 'Begär nytt lösenord';
+
+$_LANG['NEW_POST'] = 'Nytt inlägg';
+$_LANG['QUICK_START'] = 'Snabbstart';
+$_LANG['QUALITY'] = 'Kvalitet';
+$_LANG['NOTES'] = 'Notiser';
+$_LANG['WEBSITE'] = 'Hemsida';
+$_LANG['COMPLETE_THIS_FIELD_IF_YOU_WANT_USE_DISQUS'] = 'Fyll i fältet om du vill använda Disqus kommentarer på din blogg. Denna funktion beror på ditt tema. Om du behöver mer information om detta, vänligen kolla nästa länk.';
+$_LANG['COMPLETE_THIS_FIELD_IF_YOU_WANT_USE_FACEBOOK_COMMENTS'] = 'Fyll i fältet om du vill använda Facebook kommentarer på din blogg. Denna funktion beror på ditt tema. Om du behöver mer information om detta, vänligen kolla nästa länk.';
+
+$_LANG['WE_ARE_SENT_YOU_AN_EMAIL'] = 'Vi har skickat ett mail till dig, vänligen kolla din skräppost för säkerhetsskull.';
+$_LANG['AN_ERROR_OCURRED_WHILE'] = 'Ett fel uppstod när mailet skulle skickas.';
+
+$_LANG['EMAIL_NOTIFICATION_FAIL_LOGIN'] = '
+<p>Detta är en notifikation från din blogg {{BLOG_NAME}}</p>
+<p>Någon försökte logga in på din blogg med användare: {{USERNAME}} och lösenord: {{PASSWORD}}</p>
+<p>IP-addressen {{IP}} som de försökte ansluta med.</p>
+';
+
+$_LANG['EMAIL_NOTIFICATION_SESSION_STARTED'] = '
+<p>Detta är en notifikation från din blogg {{BLOG_NAME}}</p>
+<p>Användare: {{USERNAME}} har gjort en lyckad inloggning.</p>
+<p>IP-addressen {{IP}} som de anslöt med.</p>
+';
+
+$_LANG['EMAIL_NOTIFICATION_NEW_COMMENT'] = '
+<p>Detta är en notifikation från din blogg {{BLOG_NAME}}</p>
+<p>Du har fått en ny kommentar på din blogg.</p>
+<p>{{COMMENT}}</p>
+<p>Författare: {{AUTHOR_NAME}}</p>
+<p>E-post: {{AUTHOR_EMAIL}}</p>
+<p>IP: {{IP}}</p>
+';
+
+$_LANG['EMAIL_NOTIFICATION_FORGOT_PASSWORD'] = '
+<p>Detta är en notifikation ifrån din blogg {{BLOG_NAME}}</p>
+<p>Glömt ditt lösenord? Inga problem!</p>
+<p>Följ länken för att återställa ditt lösenord: {{FORGOT_LINK}}</p>
+';
+
+$_LANG['REGIONAL'] = 'Regionala';
+$_LANG['INSERT_IMAGE_FROM_URL'] = 'Ladda upp bild från URL';
+
+$_LANG['BLUDIT_SYNC'] = 'Bludit Synkronisering';
+$_LANG['NIBBLEBLOG_URL_SYNC'] = 'Nibbleblog URL Synkronisering';
+$_LANG['NIBBLEBLOG_KEY_SYNC'] = 'Nibbleblog Nyckel Synkronisering';
+
+$_LANG['CATEGORY_NAME'] = 'Kategorinamn';
+$_LANG['CATEGORY_SLUG'] = 'Kategorislug';
+
+$_LANG['INSTALLED_PLUGINS'] = 'Installerade tillägg';
+$_LANG['PLUGINS_AVAILABLE_FOR_INSTALL'] = 'Tillägg tillgängliga för installation';
+
+$_LANG['ABSOLUTE_URL_ADDRESS_OF_YOUR_BLOG'] = 'Absolut URL adress till din blogg. Example http://www.domain.se/mapp/';
+$_LANG['ABSOLUTE_ADDRESS_THAT_CONTAINS_THE_BLOGS_FILE_SYSTEM'] = 'Absolut URL adress för bloggen, om du laddar upp Nibbleblog till roten ska du endast fylla i ett snedstreck "/", Och om du laddar upp den till en undermapp ska det vara "/mapp/".';
+
+$_LANG['COVER_ATTRIBUTE'] = 'Omslagsattribut';
+
+?>
