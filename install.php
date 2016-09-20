@@ -41,6 +41,7 @@ require('admin/boot/rules/98-constants.bit');
 require(PATH_DB . 'nbxml.class.php');
 require(PATH_DB . 'db_posts.class.php');
 require(PATH_KERNEL . 'plugin.class.php');
+require(PATH_HELPERS . 'session.class.php');
 require(PATH_HELPERS . 'crypt.class.php');
 require(PATH_HELPERS . 'date.class.php');
 require(PATH_HELPERS . 'filesystem.class.php');
