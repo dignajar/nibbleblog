@@ -47,9 +47,7 @@ class Plugin {
 		$xml .= '<plugin>';
 		$xml .= '</plugin>';
 
-
-		$content = file_get_contents($xml);
-		$new_obj= new NBXML($content, 0, FALSE);
+		$new_obj = new NBXML($xml, 0, FALSE, '', FALSE);
 
 		// Default attributes
 		$new_obj->addAttribute('name', $this->name);
