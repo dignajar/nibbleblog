@@ -29,8 +29,8 @@ CONSTRUCTORS
 		if(file_exists($file))
 		{
 			$this->file = $file;
-
-			$this->xml = new NBXML($this->file, 0, TRUE, '', FALSE);
+			$content = file_get_contents($file);
+                        $this->xml = new NBXML($content, 0, FALSE);
 		}
 	}
 
