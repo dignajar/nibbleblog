@@ -40,8 +40,8 @@ class DB_POSTS {
 				$this->files = array();
 				$this->files_count = 0;
 
-			$content = file_get_contents($file);
-                        $this->xml = new NBXML($content, 0, FALSE);
+				$content = file_get_contents($file);
+				$this->xml = new NBXML($content, 0, FALSE);
 			}
 		}
 
@@ -608,7 +608,8 @@ class DB_POSTS {
 		// File name: UNIXSTAMP.ID_POST.ID_CATEGORY.ID_USER.NULL.YYYY.MM.DD.HH.mm.ss.xml
 		private function get_items($file)
 		{
-			$xml = new NBXML(PATH_POSTS . $file, 0, TRUE, '', FALSE);
+			$content = file_get_contents(PATH_POSTS . $file);
+			$xml = new NBXML($content, 0, TRUE, '', FALSE);
 
 			$file_info = explode('.', $file);
 
