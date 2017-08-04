@@ -82,8 +82,9 @@ class DB_POSTS {
 			$template .= '<post>';
 			$template .= '</post>';
 
-			// New object
-			$new_obj = new NBXML($template, 0, FALSE, '', FALSE);
+				$content = file_get_contents($template);
+				$new_obj= new NBXML($content, 0, FALSE);
+
 
 			// Time in UTC-0
 			$time_unix = Date::unixstamp();
@@ -158,7 +159,9 @@ class DB_POSTS {
 			if(!$this->set_file($args['id']))
 				return false;
 
-			$new_obj = new NBXML(PATH_POSTS.$this->files[0], 0, TRUE, '', FALSE);
+			$content = file_get_contents($template);
+			$new_obj= new NBXML(PATH_POSTS.$this->files[0], 0, FALSE);
+
 
 			$new_obj->setChild('title', 			$args['title']);
 			$new_obj->setChild('content', 			$args['content']);
@@ -609,7 +612,7 @@ class DB_POSTS {
 		private function get_items($file)
 		{
 			$content = file_get_contents(PATH_POSTS . $file);
-			$xml = new NBXML($content, 0, TRUE, '', FALSE);
+			$xml = new NBXML($content, 0, FALSE);
 
 			$file_info = explode('.', $file);
 

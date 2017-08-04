@@ -66,7 +66,9 @@ class DB_PAGES {
 		$template .= '</page>';
 
 		// New object
-		$new_obj = new NBXML($template, 0, FALSE, '', FALSE);
+			$content = file_get_contents($template);
+                        $new_obj = new NBXML($content, 0, FALSE);
+
 
 		// Time in UTC-0
 		$time_unix = Date::unixstamp();
@@ -130,7 +132,9 @@ class DB_PAGES {
 		if(!$this->set_file($args['id']))
 			return false;
 
-		$new_obj = new NBXML(PATH_PAGES.$this->files[0], 0, TRUE, '', FALSE);
+		$content = file_get_contents(PATH_PAGES.$this->files[0]);
+		$new_obj = new NBXML($content, 0, FALSE);
+
 
 		$new_obj->setChild('title', 			$args['title']);
 		$new_obj->setChild('content', 			$args['content']);
@@ -496,7 +500,8 @@ PRIVATE METHODS
 	 */
 	private function get_items($file)
 	{
-		$xml = new NBXML(PATH_PAGES.$file, 0, TRUE, '', FALSE);
+		$content = file_get_contents(PATH_PAGES.$file);
+		$new_obj = new NBXML($content, 0, FALSE);
 
 		$file_info = explode('.', $file);
 

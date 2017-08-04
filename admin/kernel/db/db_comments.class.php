@@ -79,8 +79,8 @@ PUBLIC METHODS
 		$xml .= '<comment>';
 		$xml .= '</comment>';
 
-		// Object
-		$new_obj = new NBXML($xml, 0, FALSE, '', FALSE);
+		$content = file_get_contents($xml);
+		$new_obj = new NBXML($content, 0, FALSE);
 
 		// Time - UTC=0
 		$time_unix = Date::unixstamp();
@@ -335,7 +335,8 @@ PRIVATE METHODS
 	// File name: IDComment.IDPost.IDUser.NULL.YYYY.MM.DD.HH.mm.ss.xml
 	private function get_items($file)
 	{
-		$xml = new NBXML(PATH_COMMENTS . $file, 0, TRUE, '', FALSE);
+		$content = file_get_contents(PATH_COMMENTS . $file);
+		$xml = new NBXML($content, 0, FALSE);
 
 		$file_info = explode('.', $file);
 
