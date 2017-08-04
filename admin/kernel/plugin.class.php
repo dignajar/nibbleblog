@@ -93,7 +93,8 @@ class Plugin {
 	{
 		if( $this->is_installed() )
 		{
-			$this->db = new NBXML(PATH_PLUGINS_DB.$this->dir_name.'/db.xml', 0, TRUE, '', FALSE);
+			$content = file_get_contents(PATH_PLUGINS_DB.$this->dir_name.'/db.xml');
+			$this->db = new NBXML($content, 0, FALSE);
 
 			return(true);
 		}
