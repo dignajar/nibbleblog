@@ -66,9 +66,7 @@ class DB_PAGES {
 		$template .= '</page>';
 
 		// New object
-			$content = file_get_contents($template);
-                        $new_obj = new NBXML($content, 0, FALSE);
-
+		$new_obj = new NBXML($template, 0, FALSE, '', FALSE);
 
 		// Time in UTC-0
 		$time_unix = Date::unixstamp();
