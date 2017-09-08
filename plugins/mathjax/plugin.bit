@@ -10,7 +10,7 @@ class PLUGIN_MATHJAX extends Plugin
 {
 	public function blog_head()
 	{	
-		$url_mathjax  = '<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>';
+		$url_mathjax  = '<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?..."></script>';
 		$code_mathjax = '<script type="text/javascript">
 							MathJax.Hub.Config({
 								extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
