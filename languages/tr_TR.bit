@@ -1,0 +1,329 @@
+<?php
+
+$_LANG_CONFIG['DATA'] = array(
+	'native'=>'Türkçe',
+	'english'=>'Turkish',
+	'last_update'=>'16/05/2016',
+	'author'=>'Ali Demirtas',
+	'email'=>'alidemirtas94@gmail.com',
+	'url'=>'http://alidemirtas.xyz'
+);
+
+$_LANG['LAST_COMMENTS'] = 'Son yorumlar';
+$_LANG['THEME'] = 'Tema';
+$_LANG['THEMES'] = 'Temalar';
+$_LANG['CHANGE_THEME'] = 'Tema değiştir';
+$_LANG['SELECT_THEME'] = 'Tema seç';
+$_LANG['REMEMBER_ME'] = 'Beni hatırla';
+$_LANG['USERNAME'] = 'Kullanıcı adı';
+$_LANG['PASSWORD'] = 'Parola';
+$_LANG['COMMENTS'] = 'Yorumlar';
+$_LANG['INVALID_CAPTCHA'] = 'Geçersiz captcha';
+$_LANG['NAME'] = 'Adınız';
+$_LANG['EMAIL'] = 'E-posta';
+$_LANG['TYPE_THE_COMMENT_HERE'] = 'Yorumunuzu buraya giriniz';
+$_LANG['COPY_THE_TEXT_ON_THE_RIGHT'] = 'Copy the text on the right';
+$_LANG['NEWER_POSTS'] = 'Yeni gönderiler';
+$_LANG['OLDER_POSTS'] = 'Eski gönderiler';
+$_LANG['FORGOT_PASSWORD'] = 'Parolamı unuttum';
+$_LANG['INCORRECT_USERNAME_OR_PASSWORD'] = 'Geçersiz kullanıcı adı ya da parola';
+$_LANG['LOGIN'] = 'Giriş';
+$_LANG['NEW_CATEGORY'] = 'Yeni kategori';
+$_LANG['ENTER_THE_NAME_OF_THE_NEW_CATEGORY'] = 'Yeni kategorinin adını giriniz';
+$_LANG['ADD_CATEGORY'] = 'Kategori Ekle';
+$_LANG['CATEGORIES_IN_YOUR_BLOG'] = 'Blogundaki kategoriler';
+$_LANG['DELETE'] = 'Sil';
+$_LANG['ENTER_TITLE_HERE'] = 'Başlığı giriniz';
+$_LANG['SELECT_A_CATEGORY'] = 'Kategori seçiniz';
+$_LANG['ALLOW_COMMENTS'] = 'Yorumlara izin ver';
+$_LANG['ALLOW_YOUR_USERS_TO_COMMENT_YOUR_PUBLICATIONS'] = 'Allow your users to comment your publications.';
+$_LANG['STICKY_POST'] = 'Sticky post';
+$_LANG['SELECT_THIS_OPTION_IF_YOU_WANT_TO_HIGHLIGHT_YOUR_PUBLICATION'] = 'Select this option if you want to highlight your publication';
+$_LANG['PUBLISH'] = 'Yayımla';
+$_LANG['GET_VIDEO_INFORMATION'] = 'Video bilgisini al';
+$_LANG['VIDEO_URL'] = 'Video adresi';
+$_LANG['LOADING'] = 'Yükleniyor';
+$_LANG['VIDEO_INFORMATION'] = 'Video bilgisi';
+$_LANG['ENTER_QUOTE_HERE'] = 'Alıntıyı giriniz';
+$_LANG['TIMEZONE'] = 'Zaman dilimi';
+$_LANG['BLOG_ADDRESS'] = 'Blog adresi (URL)';
+$_LANG['BLOG_BASE_PATH'] = 'Blog ana dizini';
+$_LANG['POSTS_PER_PAGE'] = 'Sayfa başına gönderi sayısı';
+$_LANG['RSS_ITEMS'] = 'RSS öğeleri';
+$_LANG['ADVANCED_OPTIONS_FOR_POST'] = 'Gelişmiş gönderi tercihleri';
+$_LANG['BLOG_TITLE'] = 'Blog adı';
+$_LANG['BLOG_SLOGAN'] = 'Blog açıklaması';
+$_LANG['ABOUT_YOUR_BLOG'] = 'Blogunuz hakkında';
+$_LANG['FOOTER_TEXT'] = 'Altbilgi yazısı';
+$_LANG['LANGUAGE'] = 'Dil';
+$_LANG['CURRENT_PASSWORD'] = 'Mevcut parola';
+$_LANG['NEW_PASSWORD'] = 'Yeni parola';
+$_LANG['SAVE_CHANGES'] = 'Değişiklikleri Kaydet';
+$_LANG['CHANGE_USERNAME'] = 'Kullanıcı adı değiştir';
+$_LANG['CHANGE_PASSWORD'] = 'Parola değiştir';
+$_LANG['CHANGES_HAS_BEEN_SAVED_SUCCESSFULLY'] = 'Changes have been saved successfully';
+$_LANG['USERNAME_HAS_BEEN_CHANGED_SUCCESSFULLY'] = 'Username has been changed successfully';
+$_LANG['PASSWORD_HAS_BEEN_CHANGED_SUCCESSFULLY'] = 'Password has been changed successfully';
+$_LANG['CURRENT_PASSWORD_INCORRECT'] = 'Current password incorrect';
+$_LANG['INSTALL'] = 'Kur';
+$_LANG['UNINSTALL'] = 'Kaldır';
+$_LANG['CONFIGURE'] = 'Yapılandır';
+$_LANG['CREATED_BY'] = 'Oluşturan';
+$_LANG['CATEGORY_HAS_ONE_OR_MORE_POST'] = 'The category has one or more posts. It can\'t be deleted until it\'s empty.';
+$_LANG['AT_LEAST_ONE_CATEGORY'] = 'This category can\'t be deleted because you need at least one category.';
+$_LANG['ARE_YOU_SURE'] = 'Emin misin?';
+$_LANG['VIEW'] = 'Görüntüle';
+$_LANG['EDIT'] = 'Düzenle';
+$_LANG['TIMESTAMP_FORMAT'] = 'Zaman damgası biçimi';
+$_LANG['SELECT_A_TIMEZONE_FOR_A_CORRECT_DATE_VISUALIZATION'] = 'Doğru bir tarih gösterimi için bir zaman dilimi seçin.';
+$_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_PER_PAGE'] = 'Her sayfada görmek istediğiniz gönderi sayısı.';
+$_LANG['AMOUNT_OF_POSTS_THAT_YOU_WISH_TO_SEE_ON_RSS'] = 'RSS üzerinde görmek istediğiniz gönderi sayısı.';
+$_LANG['ADVANCED_OPTIONS_WHEN_PUBLISHING_CONTENT'] = 'İçerik yayımlarken gelişmiş seçenekleri göster.';
+$_LANG['ADMINISTRATORS_USERNAME'] = 'Yöneticinin kullanıcı adı.';
+$_LANG['DO_NOT_FORGET_THIS_PASSWORD'] = 'Bu şifreyi unutmayın.';
+$_LANG['NEW_SESSION_STARTED'] = 'Yeni oturum başladı';
+$_LANG['DATE'] = 'Tarih';
+$_LANG['LAST_SESSIONS'] = 'Son oturumlar';
+$_LANG['DASHBOARD'] = 'Yönetim Paneli';
+$_LANG['VIEW_BLOG'] = 'Blog\'u Görüntüle';
+$_LANG['LOGOUT'] = 'Çıkış Yap';
+$_LANG['POSTS'] = 'Gönderiler';
+$_LANG['SIMPLE'] = 'Basit';
+$_LANG['VIDEO'] = 'Video';
+$_LANG['QUOTE'] = 'Alıntı';
+$_LANG['POSTING_WITH_RICH_FORMATTING'] = 'Posting with rich formatting';
+$_LANG['AN_EASY_WAY_TO_PUBLISH_VIDEOS'] = 'An easy way to publish videos';
+$_LANG['AN_EASY_WAY_TO_PUBLISH_QUOTES'] = 'An easy way to publish quotes';
+$_LANG['NEW_SIMPLE_POST'] = 'Yeni basit gönderi';
+$_LANG['NEW_VIDEO_POST'] = 'Yeni video gönderisi';
+$_LANG['NEW_QUOTE_POST'] = 'Yeni alıntı gönderisi';
+$_LANG['MANAGE_POSTS'] = 'Gönderileri yönet';
+$_LANG['SETTINGS'] = 'Ayarlar';
+$_LANG['GENERAL_SETTINGS'] = 'Genel ayarlar';
+$_LANG['ADVANCED_SETTINGS'] = 'Gelişmiş ayarlar';
+$_LANG['MANAGE_CATEGORIES'] = 'Kategorileri yönet';
+$_LANG['USERNAME_AND_PASSWORD'] = 'Kullanıcı adı & Parola';
+$_LANG['MANAGE_PLUGINS'] = 'Eklentileri yönet';
+$_LANG['PLUGINS'] = 'Eklentiler';
+$_LANG['EDIT_POST'] = 'Gönderiyi düzenle';
+$_LANG['SIGN_IN_TO_NIBBLEBLOG_ADMIN_AREA'] = 'Nibbleblog yönetici alanı için oturum açınız';
+$_LANG['POST_HAS_BEEN_PUBLISHED_SUCCESSFULLY'] = 'Gönderi başarıyla yayımlandı';
+$_LANG['PLEASE_ENABLE_JAVASCRIPT_IN_YOUR_BROWSER'] = 'Lütfen tarayıcınızda JavaScript\'i etkinleştirin';
+$_LANG['INSTALLATION_COMPLETE'] = 'Kurulum tamamlandı';
+$_LANG['DEPENDENCIES'] = 'Bağlılıklar';
+$_LANG['PHP_VERSION'] = 'PHP sürümü';
+$_LANG['PASS'] = 'Başarılı';
+$_LANG['FAIL'] = 'Başarısız';
+$_LANG['PHP_MODULE'] = 'PHP modülü';
+$_LANG['CONFIGURATION'] = 'Yapılandırma';
+$_LANG['EXPERT_MODE'] = 'Uzman modu';
+$_LANG['ADMINISTRATOR_USERNAME'] = 'Yönetici kullanıcı adı';
+$_LANG['ADMINISTRATOR_PASSWORD'] = 'Yönetici parolası';
+$_LANG['ADMINISTRATOR_EMAIL'] = 'Yönetici e-postası';
+$_LANG['WELCOME_TO_NIBBLEBLOG'] = 'Nibbleblog\'a hoş geldiniz';
+$_LANG['CHOOSE_YOUR_LANGUAGE'] = 'Dilinizi seçiniz';
+$_LANG['WRITING_TEST_ON_CONTENT_DIRECTORY'] = 'Writing test on "content" directory';
+$_LANG['INSTALLATION_LINE1'] = 'Tebrikler!';
+$_LANG['INSTALLATION_LINE2'] = 'Nibbleblog kurulumu tamamlandı.';
+$_LANG['INSTALLATION_LINE3'] = 'To manage your blog go to the following address';
+$_LANG['INSTALLATION_LINE4'] = 'or visit your new blog';
+$_LANG['INSTALLATION_LINE5'] = 'If you need support please visit the forum';
+$_LANG['WELCOME_POST_TITLE'] = 'Nibbleblog hoş geldiniz';
+
+$_LANG['WELCOME_POST_LINE1'] = 'Congratulations, you have your blog installed and working.';
+$_LANG['WELCOME_POST_LINE2'] = 'Start publishing from your dashboard {{DASHBOARD_LINK}}';
+$_LANG['WELCOME_POST_LINE3'] = 'Follow us on social networks {{FACEBOOK_LINK}}, {{TWITTER_LINK}} and {{GOOGLEPLUS_LINK}}.';
+
+$_LANG['ENABLE_FRIENDLY_URLS'] = 'Enable friendly URLs';
+$_LANG['COPY_THIS_CONTENT_ON_THE_FILE'] = 'Copy this content in the file ".htaccess". The file must be in the root of your domain. The server must have the modules loaded and configured correctly to use this option.';
+$_LANG['INSERT_PICTURE'] = 'Görsel ekle';
+$_LANG['PERMALINK'] = 'Kalıcı bağlantı';
+$_LANG['FRIENDLY_URLS'] = 'Friendly URLs';
+$_LANG['UPLOADING'] = 'Yükleniyor';
+$_LANG['READ_MORE'] = 'Devamını oku';
+$_LANG['AUTHOR'] = 'Editör';
+$_LANG['THE_PLUGIN_IS_INSTALLED_CORRECTLY'] = 'The plugin is installed correctly. If the theme supports it will appear on your blog.';
+$_LANG['SHORT_DESCRIPTION_NO_MORE_THAN'] = 'Kısa açıklama. 150 karekterden fazla olmamalı.';
+$_LANG['NEW_COMMENT'] = 'Yeni yorum';
+$_LANG['REGIONAL_SETTINGS'] = 'Bölge ayarları';
+$_LANG['LOCALE'] = 'Yerel';
+$_LANG['THIS_FIELD_IS_SET_EACH_TIME_YOU_CHANGE_THE_LANGUAGE_OF_THE_BLOG'] = 'This field is set each time you change the language of the blog. If needed you can change this with a more appropriate one. Note that the options you enter must be supported by your server.';
+$_LANG['UNCATEGORIZED'] = 'Kategorisiz';
+$_LANG['MUSIC'] = 'Müzik';
+$_LANG['VIDEOS'] = 'Videolar';
+$_LANG['POWERED_BY_NIBBLEBLOG'] = 'Nibbleblog ile güçlendirildi';
+$_LANG['CUSTOM'] = 'Özel';
+$_LANG['SELECT_A_FORMAT_FOR_DISPLAYING_THE_DATES'] = 'Select a format for displaying the dates or custom option so you can create your own.';
+$_LANG['ENABLE_WYSIWYG_EDITOR'] = 'Enable WYSIWYG editor';
+$_LANG['ENABLE_OR_DISABLE_THE_WYSIWYG_EDITOR'] = 'Enable or disable the WYSIWYG editor';
+$_LANG['IMAGE_SETTINGS'] = 'Görsel ayarları';
+$_LANG['AUTOMATIC_IMAGE_RESIZING'] = 'Görseli otomatik yeniden boyutlandırma';
+$_LANG['THUMBNAILS'] = 'Küçük resimler';
+$_LANG['ENABLE_AUTOMATIC_IMAGE_RESIZING'] = 'Görseli otomatik yeniden boyutlandırma';
+$_LANG['ENABLE_THUMBNAILS'] = 'Küçük resim etkinleştir';
+$_LANG['WIDTH'] = 'Genişlik';
+$_LANG['HEIGHT'] = 'Yükseklik';
+$_LANG['OPTION'] = 'Tercih';
+$_LANG['THIS_OPTION_AUTOMATICALLY_CHANGES_THE_IMAGE'] = 'This option automatically changes the image size after uploading.';
+$_LANG['ENABLE_THIS_OPTION_IF_YOU_WANT_TO_GENERATE'] = 'Enable this option if you want to generate a thumbnail when uploading an image.';
+$_LANG['THERE_ARE_NO_PUBLISHED_COMMENTS'] = 'There are no published comments.';
+$_LANG['THERE_ARE_NO_DRAFT_POSTS'] = 'Taslak gönderi yok.';
+$_LANG['AUTOMATIC'] = 'Otomatik';
+$_LANG['EXACT'] = 'Tam';
+$_LANG['PORTRAIT'] = 'Dikey';
+$_LANG['LANDSCAPE'] = 'Yatay';
+$_LANG['CROP'] = 'Kırp';
+$_LANG['YOU_CAN_USE_HTML_OR_MARKDOWN_SYNTAX'] = 'You can use HTML or Markdown syntax';
+$_LANG['DRAFT'] = 'Taslaklara Kaydet';
+$_LANG['YOU_HAVE_A_NEW_COMMENT'] = 'Yeni bir yorum var';
+$_LANG['LOGIN_FAILED_ATTEMPT'] = 'Oturum açma girişimi başarısız oldu';
+$_LANG['NOTIFICATIONS'] = 'Bildirimler';
+$_LANG['PREVIEW'] = 'Önizle';
+$_LANG['PLEASE_COMPLETE_ALL_FIELDS'] = 'Lütfen tüm alanları doldurun';
+$_LANG['THERE_ARE_NO_POSTS'] = 'Gönderi yok';
+$_LANG['BACK_TO_BLOG'] = 'Blog\'a geri dön';
+$_LANG['LOW_DETECTION_LEVEL'] = 'Düşük algılama seviyesi';
+$_LANG['MEDIUM_DETECTION_LEVEL'] = 'Morta algılama seviyesi';
+$_LANG['HIGH_DETECTION_LEVEL'] = 'Yüksek algılama seviyesi';
+$_LANG['SPAM_CONTROL'] = 'Spam kontrolü';
+$_LANG['DISAPPROVE'] = 'Onayı kaldır';
+$_LANG['APPROVE_SPAM_DETECTED'] = 'Onayla (Spam algılandı)';
+$_LANG['APPROVE'] = 'Onayla';
+$_LANG['API_KEY'] = 'Api Anahtarı';
+$_LANG['INSERT_THE_API_KEY_HERE'] = 'Insert the API key here. If you don\'t have one yet, or are not familiar with this feature, please check the next link.';
+$_LANG['SPAM_MONITOR'] = 'Spam izleyici';
+$_LANG['ENABLE_COMMENTS_BY_DEFAULT'] = 'Varsayılan olarak yorumları etkinleştirmek için bu seçeneği etkinleştirin';
+$_LANG['ENABLE_THIS_FEATURE_TO_PROTECT_AGAINST_XSS'] = 'Enable this feature to protect against cross-site scripting (XSS) attacks by sanitizing any HTML code.';
+$_LANG['ENABLE_THIS_FEATURE_TO_MODERATE_COMMENTS'] = 'Yorum yayımlanmadan önce konrol etmek için bu seçeneği etkinleştirin.';
+$_LANG['ENABLE_THIS_FEATURE_TO_PROTECT_YOUR_COMMENTS'] = 'Enable this feature to protect your comments from spam.';
+$_LANG['ENABLE_THIS_FEATURE_TO_DELETE_SPAM_AUTO'] = 'Enable this feature to delete spam automatically.';
+$_LANG['COMMENTS_DETECTED_AS_SPAM_WILL_BE_FILTERED'] = 'Comments detected as spam will be filtered.';
+$_LANG['NOTIFY_WHEN_A_USER_MAKES_A_COMMENT'] = 'Notify when a user makes a comment.';
+$_LANG['NOTIFY_WHEN_A_USER_FAILS_TO_LOGIN'] = 'Notify when a user fails to login.';
+$_LANG['NOTIFY_WHEN_A_USER_SUCCESSES_LOGIN'] = 'Notify when a user successes login.';
+$_LANG['NOTIFICATIONS_WILL_BE_SENT_TO_THIS_EMAIL'] = 'Notifications will be sent to this email.';
+$_LANG['NOTIFICATIONS_WILL_BE_SENT_FROM_THIS_EMAIL'] = 'Notifications will be sent from this email.';
+$_LANG['EMAIL_ACCOUNTS_SETTINGS'] = 'E-posta hesabı ayarları';
+$_LANG['NOTIFY_ME_FROM'] = 'Bana bildir';
+$_LANG['NOTIFY_ME_TO'] = 'Bana bildir';
+$_LANG['NOTIFICATIONS_VIA_EMAIL'] = 'E-posta ile bildirim';
+$_LANG['YOUR_COMMENT_IS_UNDER_REVIEW_IT_WILL_BE'] = 'Yorumun inceleniyor, kısa süre sonra yayımlanacak';
+$_LANG['COMMENTS_ENABLED'] = 'Varsayılan olarak yorumları etkinleştir';
+$_LANG['SANITIZE_HTML_CODE'] = 'HTML kodunu temizle';
+$_LANG['MODERATE_COMMENTS'] = 'Yorumları yönet';
+$_LANG['ENABLE_SPAM_MONITOR'] = 'Spam izleyiciyi etkinleştir';
+$_LANG['AUTOMATICALLY_DELETE_SPAM'] = 'Spam otomatik sil';
+$_LANG['COMMENT_SETTINGS'] = 'Yorum ayarları';
+$_LANG['MANAGE_COMMENTS'] = 'Yorumları yönet';
+$_LANG['BASIC_CONFIGURATION_OF_YOUR_BLOG'] = 'Blogunuzun temel yapılandırması';
+$_LANG['SIMPLE_POST'] = 'Basit gönderi';
+$_LANG['VIDEO_POST'] = 'Video gönderisi';
+$_LANG['QUOTE_POST'] = 'Alıntı gönderisi';
+$_LANG['CATEGORIES'] = 'Kategoriler';
+$_LANG['TAGS'] = 'Etiketler';
+$_LANG['LINK'] = 'Bağlantı';
+$_LANG['KEYWORDS'] = 'Anahtar kelimeler';
+$_LANG['MANAGE'] = 'Yönet';
+$_LANG['404_TITLE'] = 'Sayfa bulunmadı';
+$_LANG['404_PAGE_NOT_FOUND'] = 'Sorry, the page you were looking for doesn’t exist.';
+$_LANG['NO_TITLE'] = 'Başlık yok';
+$_LANG['TITLE'] = 'Başlık';
+$_LANG['TYPE'] = 'Tür';
+$_LANG['CATEGORY'] = 'Kategori';
+$_LANG['PUBLISH_DATE'] = 'Yayımlama tarihi';
+$_LANG['LAST_MODIFIED'] = 'Son düzenleme';
+$_LANG['COMMENT'] = 'Yorum';
+$_LANG['POST'] = 'Gönderi';
+$_LANG['SLUG'] = 'Slug';
+$_LANG['SITE'] = 'Site';
+$_LANG['SITE_TITLE'] = 'Site başlığı';
+$_LANG['SITE_DESCRIPTION'] = 'Site açıklaması';
+$_LANG['TAGS_SEPARATED_BY_COMMA'] = 'Etiketleri virgül ile ayırınız.';
+$_LANG['KEYWORDS_SEPARATED_BY_COMMA'] = 'Anahtar kelimeler virgül ile ayrınız.';
+$_LANG['ROBOTS'] = 'Robotlar';
+$_LANG['WEBMASTER_TOOLS'] = 'Web yöneticisi araçları';
+$_LANG['GOOGLE_WEBMASTER_TOOLS'] = 'Google Web yöneticisi araçları - Doğrulama kodu';
+$_LANG['BING_WEBMASTER_TOOLS'] = 'Bing Web yöneticisi araçları - Doğrulama kodu';
+$_LANG['SEO_OPTIONS'] = 'SEO Ayarları';
+$_LANG['SHARE'] = 'Paylaş';
+$_LANG['ALLOW_COMMENTS_ON_THIS_POST'] = 'Bu gönderi üzerinde yorum izin ver.';
+$_LANG['MULTIPLE_DIRECTIVES_MAY_BE_COMBINED_IN'] = 'Multiple directives may be combined in a comma-separated. Example: nofollow, noindex, noarchive.';
+$_LANG['DRAFT_POSTS'] = 'Taslak gönderiler';
+$_LANG['POSITION'] = 'Durumu';
+
+$_LANG['UPLOAD_A_NEW_IMAGE'] = 'Yeni görsel yükle';
+$_LANG['OR'] = 'OR';
+$_LANG['SELECT_AN_IMAGE_FROM_YOUR_BAG'] = 'Çantanızdan bir görsel seçiniz';
+
+$_LANG['THERE_IS_A_NEW_VERSION'] = 'Nibbleblog\'un yeni bir sürümü kullanılabilir durumda';
+$_LANG['VERSION'] = 'Sürüm';
+$_LANG['RELEASE_DATE'] = 'Yayın tarihi';
+
+$_LANG['NEW_PAGE'] = 'Yeni sayfa';
+$_LANG['SET_AS_HOMEPAGE'] = 'Ana sayfa olarak ayarla';
+$_LANG['THERE_IS_A_PAGE_AS_HOMEPAGE'] = 'There is a page as homepage, click here to remove this page.';
+$_LANG['MANAGE_PAGES'] = 'Sayfaları yönet';
+$_LANG['PAGE'] = 'Sayfa';
+$_LANG['PAGES'] = 'Sayfalar';
+$_LANG['PAGE_HAS_BEEN_PUBLISHED_SUCCESSFULLY'] = 'Sayfa başarıyla yayımlandı.';
+$_LANG['THERE_ARE_NO_PAGES'] = 'Sayfa yok.';
+$_LANG['HOME'] = 'Ana sayfa';
+$_LANG['REQUEST_NEW_PASSWORD'] = 'Yeni parola iste';
+
+$_LANG['NEW_POST'] = 'Yeni gönderi';
+$_LANG['QUICK_START'] = 'Kolay başlangıç';
+$_LANG['QUALITY'] = 'Kalite';
+$_LANG['NOTES'] = 'Notlar';
+$_LANG['WEBSITE'] = 'Websitesi';
+$_LANG['COMPLETE_THIS_FIELD_IF_YOU_WANT_USE_DISQUS'] = 'Complete this field if you want use Disqus comments on your Blog. This feature depends of the theme. If you need more information about this, please check the next link.';
+$_LANG['COMPLETE_THIS_FIELD_IF_YOU_WANT_USE_FACEBOOK_COMMENTS'] = 'Complete this field if you want use Facebook comments on your Blog. This feature depends of the theme. If you need more information about this, please check the next link.';
+
+$_LANG['WE_ARE_SENT_YOU_AN_EMAIL'] = 'We\'ve sent you an email, please check your spam mail just in case.';
+$_LANG['AN_ERROR_OCURRED_WHILE'] = 'An error occurred while sending mail.';
+
+$_LANG['EMAIL_NOTIFICATION_FAIL_LOGIN'] = '
+<p>{{BLOG_NAME}} adlı blogunuzdan bildirim</p>
+<p>Birisi kullanıcısı ile blogunuza erişim istedi: {{USERNAME}} ve Parola: {{PASSWORD}}</p>
+<p>{{IP}} IP adresi ile bağlanmak istedi.</p>
+';
+
+$_LANG['EMAIL_NOTIFICATION_SESSION_STARTED'] = '
+<p>{{BLOG_NAME}} adlı blogunuzdan bildirim</p>
+<p>Başarıyla kullanıcı adı ile yönetici alanına katıldın: {{USERNAME}}</p>
+<p>{{IP}} IP adresi ile bağlanmak istedi.</p>
+';
+
+$_LANG['EMAIL_NOTIFICATION_NEW_COMMENT'] = '
+<p>{{BLOG_NAME}} adlı blogunuzdan bildirim</p>
+<p>Blog\'unda yeni bir yorum var.</p>
+<p>{{COMMENT}}</p>
+<p>Yazar: {{AUTHOR_NAME}}</p>
+<p>E-posta: {{AUTHOR_EMAIL}}</p>
+<p>IP adresi: {{IP}}</p>
+';
+
+$_LANG['EMAIL_NOTIFICATION_FORGOT_PASSWORD'] = '
+<p>{{BLOG_NAME}} adlı blogunuzdan bildirim</p>
+<p>Parolanızı mı unuttunuz? problem yok!</p>
+<p>Bağlantıyı takip edin: {{FORGOT_LINK}}</p>
+';
+
+$_LANG['REGIONAL'] = 'Bölgesel';
+$_LANG['INSERT_IMAGE_FROM_URL'] = 'URL\'den Görsel Ekle';
+
+$_LANG['BLUDIT_SYNC'] = 'Bludit Sync';
+$_LANG['NIBBLEBLOG_URL_SYNC'] = 'Nibbleblog URL Sync';
+$_LANG['NIBBLEBLOG_KEY_SYNC'] = 'Nibbleblog Key Sync';
+
+$_LANG['CATEGORY_NAME'] = 'Kategori adı';
+$_LANG['CATEGORY_SLUG'] = 'Kategori kısa adı';
+
+$_LANG['INSTALLED_PLUGINS'] = 'Yüklenmiş eklentiler';
+$_LANG['PLUGINS_AVAILABLE_FOR_INSTALL'] = 'Plugins available for install';
+
+$_LANG['ABSOLUTE_URL_ADDRESS_OF_YOUR_BLOG'] = 'Absolute URL address of your blog. Example http://www.domain.com/directory/';
+$_LANG['ABSOLUTE_ADDRESS_THAT_CONTAINS_THE_BLOGS_FILE_SYSTEM'] = 'Absolute address that contains the blog\'s file system, if you upload the content of Nibbleblog to your root you should only put a "/", and if you upload it into another directory then it should be "/directory/".';
+
+$_LANG['COVER_ATTRIBUTE'] = 'Cover attribute';
+
+?>
