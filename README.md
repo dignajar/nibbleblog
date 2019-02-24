@@ -1,6 +1,10 @@
 [Nibbleblog](http://www.nibbleblog.com/)
 ================================================
 
+
+> Nibbleblog is no longer developed. Please use [Bludit CMS](https://www.bludit.com).
+
+
 Nibbleblog is a powerful engine for creating blogs, all you need is PHP to work.
 
 - [Site](http://www.nibbleblog.com/)
